@@ -3,6 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class SMD extends CI_Controller {
 
+	function __construct(){
+		parent::__construct();
+		if($this->session->userdata('Login')){
+			redirect(base_url('Dashboard/Profil'));
+		}
+	}
+
 	public function index(){
 		$this->load->view('Home');
 	}
@@ -25,8 +32,14 @@ class SMD extends CI_Controller {
 	}
 
 	public function Daftar(){
-		if($this->db->get_where('Akun', array('NIP' => $_POST['NIP']))->num_rows() === 0){
-			$this->db->insert('Dosen',array('NIP' => $_POST['NIP']));
+		if($this->db->get_where('Dosen', array('NIP' => $_POST['NIP']))->num_rows() === 0){
+			$Pecah = explode('/',$_POST['Pangkat']);
+			$this->db->insert('Dosen',
+						array('NIP' => $_POST['NIP'], 
+									'Nama' => $_POST['Nama'],
+									'Jabatan' => $Pecah[0],
+									'Pangkat' => $Pecah[1],
+									'Golongan' => $Pecah[2]));
 			$this->db->insert('Akun',
 						array('NIP' => $_POST['NIP'],
 									'Password' => password_hash($_POST['Password'], PASSWORD_DEFAULT)));
@@ -34,7 +47,7 @@ class SMD extends CI_Controller {
 			$this->session->set_userdata($Session);	
 			echo '1';
 		} else{
-			echo "NIP Sudah Ada!";
+			echo "NIP Telah Terdaftar!";
 		}
 	}
 

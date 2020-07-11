@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="<?=base_url('fontawesome/css/all.min.css')?>">
     <link rel="stylesheet" href="<?=base_url('bootstrap/css/adminlte.min.css')?>">
     <title><?=$Halaman?></title>
-</head>
-<body class="hold-transition sidebar-mini layout-fixed">
+  </head>
+  <body class="hold-transition sidebar-mini layout-fixed">
     <!-- Site wrapper -->
     <div class="wrapper">
     <!-- Navbar -->
@@ -44,40 +44,39 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="<?=base_url("Dashboard")?>" class="nav-link <?php if ($Halaman == "Profil") { echo "active";} ?>">
+                    <a href="<?=base_url("Dashboard/Profil")?>" class="nav-link <?php if ($Halaman == "Profil") { echo "active";} ?>">
                     <i class="nav-icon fas fa-user"></i>
                     <p><b>Profil</b></p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="<?=base_url("Dashboard/Pendidikan")?>" class="nav-link <?php if ($Halaman == "Pendidikan") { echo "active";} ?>">
-                    <i class="nav-icon fas fa-graduation-cap"></i>
-                    <p><b>Pendidikan</b></p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?=base_url("Dashboard/MataKuliah")?>" class="nav-link <?php if ($Halaman == "MataKuliah") { echo "active";} ?>">
-                    <i class="nav-icon fas fa-chalkboard-teacher"></i>
-                    <p><b>Mata Kuliah</b></p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?=base_url("Dashboard/KaryaIlmiah")?>" class="nav-link <?php if ($Halaman == "KaryaIlmiah") { echo "active";} ?>">
-                    <i class="nav-icon fas fa-book"></i>
-                    <p><b>Karya Ilmiah</b></p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?=base_url("Dashboard/Pengabdian")?>" class="nav-link <?php if ($Halaman == "Pengabdian") { echo "active";} ?>">
+                <li class="nav-item has-treeview <?php if ($Halaman == "Kegiatan") {
+                    echo "menu-open";
+                } ?>">
+                    <a href="#" class="nav-link <?php if ($Halaman == "Kegiatan") {
+                    echo "active";
+                    } ?>">
                     <i class="nav-icon fas fa-tasks"></i>
-                    <p><b>Pengabdian</b></p>
+                    <p>
+                        <b>Kegiatan</b>
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?=base_url("Dashboard/Seminar")?>" class="nav-link <?php if ($Halaman == "Seminar") { echo "active";} ?>">
-                    <i class="nav-icon fas fa-users"></i>
-                    <p><b>Seminar</b></p>
-                    </a>
+                    <?php
+                    $JenisKegiatan = array("Pendidikan");
+                    $Icon = array("graduation-cap");
+                    ?>
+                    <?php for ($i=0; $i < count($JenisKegiatan); $i++) {?>
+                    <ul class="nav nav-treeview <ml-1></ml-3>">
+                        <li class="nav-item">
+                        <a href="<?=base_url("Dashboard/").$JenisKegiatan[$i]?>" class="nav-link <?php if ($SubMenu == $JenisKegiatan[$i]) {
+                            echo "active";
+                        } ?>">
+                            <i class="fas fa-<?=$Icon[$i]?> nav-icon"></i>
+                            <p class="font-weight-bold"><?=$JenisKegiatan[$i]?></p>
+                        </a>
+                        </li>
+                    </ul>
+                    <?php } ?>
                 </li>
             </ul>
         </nav>
