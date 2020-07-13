@@ -36,11 +36,16 @@ class Dashboard extends CI_Controller {
   }
   
   public function Pendidikan(){
-		$NIP = $this->session->userdata('NIP');
     $Data['Halaman'] = 'Kegiatan';
-    $Data['SubMenu'] = 'Pendidikan';
-    // $Data['Profil'] = $this->db->get_where('Dosen', array('NIP' => $NIP))->row_array();
+		$Data['SubMenu'] = 'Pendidikan';		
+		$NIP = $this->session->userdata('NIP');
+		$ID = $this->session->userdata('Pendidikan');
+    $Data['Pendidikan'] = $this->db->get_where('Pendidikan', array('NIP' => $NIP,'ID' => $ID))->result_array();
 		$this->load->view('Header',$Data);
 		$this->load->view('Pendidikan',$Data);
+	}
+
+	public function LihatPendidikan(){
+		$this->session->set_userdata('Pendidikan', $_POST['ID']);
 	}
 }

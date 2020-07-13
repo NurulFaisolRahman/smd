@@ -3,15 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class SMD extends CI_Controller {
 
-	function __construct(){
-		parent::__construct();
+	public function index(){
 		if($this->session->userdata('Login')){
 			redirect(base_url('Dashboard/Profil'));
+		} else {
+			$this->load->view('Home');
 		}
-	}
-
-	public function index(){
-		$this->load->view('Home');
 	}
 
 	public function Masuk(){
@@ -22,7 +19,11 @@ class SMD extends CI_Controller {
 		else{
 			$Akun = $CekLogin->result_array();
 			if (password_verify($_POST['Password'], $Akun[0]['Password'])) {
-				$Session = array('Login' => true, 'NIP' => $_POST['NIP']);
+				$Jabatan = $this->db->get_where('Dosen', array('NIP' => $_POST['NIP']))->result_array();
+				$Session = array('Login' => true, 
+												 'NIP' => $_POST['NIP'], 
+												 'Jabatan' => $Jabatan[0]['Jabatan'],
+												 'Pendidikan' => 'PND1');
 				$this->session->set_userdata($Session);
 				echo '1';
 			} else {
@@ -43,7 +44,10 @@ class SMD extends CI_Controller {
 			$this->db->insert('Akun',
 						array('NIP' => $_POST['NIP'],
 									'Password' => password_hash($_POST['Password'], PASSWORD_DEFAULT)));
-			$Session = array('Login' => true, 'NIP' => $_POST['NIP']);
+			$Session = array('Login' => true, 
+											 'NIP' => $_POST['NIP'], 
+											 'Jabatan' => $Pecah[0],
+											 'Pendidikan' => 'PND1');
 			$this->session->set_userdata($Session);	
 			echo '1';
 		} else{

@@ -35,35 +35,18 @@
 														'Melaksanakan kegiatan detasering dan pencangkokan di luar institusi tempat bekerja',
 														'Melaksanakan pengembangan diri untuk meningkatkan kompetensi');
 													?>
-													<select class="custom-select" id="Kegiatan">
-														<?php $Id = 1; foreach ($Kegiatan as $key) { ?>
-															<option value="<?='PND'.$Id++?>"><?=$key?></option>
+													<select class="custom-select" id="OpsiKegiatan">
+														<?php $Id = 1; foreach ($Kegiatan as $key) { $ID = 'PND'.$Id;?>
+															<option value="<?='PND'.$Id++?>" <?php if ($this->session->userdata('Pendidikan') == $ID) {
+																echo 'selected';
+															} ?>><?=$key?></option>
 														<?php } ?>
 													</select>
 												</div>
 											</div>
-											<div class="col-sm-3 mt-1">
-												<div class="input-group mb-1">
-													<div class="input-group-prepend">
-														<label class="input-group-text bg-warning" for="PangkatDaftar"><b>Semester</b></label>
-													</div>
-													<select class="custom-select" id="Semester">
-														<option value="Ganjil">Ganjil</option>
-														<option value="Genap">Genap</option>
-													</select>	
-												</div>
-											</div>
-											<div class="col-sm-3 mt-1">
-												<div class="input-group mb-2">
-													<div class="input-group-prepend">
-														<label class="input-group-text bg-warning" for="PangkatDaftar"><b>Tahun</b></label>
-													</div>
-													<input type="text" class="form-control" id="TahunAjaran" placeholder="2020/2021">
-												</div>
-											</div>
 											<div class="col-sm-3 mt-1 mb-1">
 												<button type="button" id="Lihat" class="btn btn-primary"><b>Lihat</b></button>
-												<button type="button" id="Tambah" class="btn btn-success"><b>Tambah</b></button>
+												<button type="button" id="Tambah" class="btn btn-success" data-toggle="modal" data-target="#Input"><b>Tambah</b></button>
 											</div>
 										</div>
 									</div>
@@ -84,15 +67,22 @@
 													</tr>
 												</thead>
 												<tbody>
-													<!-- <td>No</td>
-													<td>Uraian Kegiatan</td>
-													<td>Tanggal</td>
-													<td>Satuan</td>
-													<td>Volume</td>
-													<td>Kredit</td>
-													<td>Jumlah Kredit</td>
-													<td>Ket/Bukti</td>
-													<td>Aksi</td> -->
+													<?php $No = 1; foreach ($Pendidikan as $key) { ?>
+														<tr>	
+															<td><?=$No++?></td>
+															<td><?=$key['Kegiatan']?></td>
+															<td><?=$key['Tanggal']?></td>
+															<td><?=$key['Satuan']?></td>
+															<td><?=$key['Volume']?></td>
+															<td><?=$key['Kredit']?></td>
+															<td><?=$key['JumlahKredit']?></td>
+															<td><?=$key['Bukti']?></td>
+															<td>                          
+																<button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+																<button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+															</td>
+														</tr>
+													<?php } ?>
 												</tbody>
 											</table>
 										</div>
@@ -104,7 +94,51 @@
       </div>
     </section>
     </div>
-    </div>
+		</div>
+		<div class="modal fade" id="Input">
+			<div class="modal-dialog">
+				<div class="modal-content bg-warning">
+					<div class="modal-body">
+							<div class="input-group mb-1">
+								<div class="input-group-prepend">
+									<span class="input-group-text bg-primary"><b>Kegiatan</b></i></span>
+								</div>
+								<select class="custom-select" id="JenisKegiatan">
+									<?php $Id = 1; foreach ($Kegiatan as $key) { ?>
+										<option value="<?='PND'.$Id++?>"><?=$key?></option>
+									<?php } ?>
+								</select>
+							</div>
+							<div class="input-group mb-1">
+								<span class="input-group-text bg-primary"><b>Uraian</b></i></span>
+    						<textarea class="form-control" id="Uraian" rows="2"></textarea>
+							</div>
+							<div class="input-group mb-1">
+								<div class="input-group-prepend">
+									<span class="input-group-text bg-primary"><b>Tanggal</b></i></span>
+								</div>
+								<input class="form-control" type="text" id="Tanggal">
+							</div>
+							<div class="input-group mb-1">
+								<div class="input-group-prepend">
+									<span class="input-group-text bg-primary"><b>Jumlah Volume Kegiatan</b></i></span>
+								</div>
+								<input class="form-control" type="text" id="Volume">
+							</div>
+							<div class="input-group mb-1">
+								<div class="input-group-prepend">
+									<span class="input-group-text bg-primary"><b>Bukti</b></i></span>
+								</div>
+								<input class="form-control" type="file" id="Bukti">
+							</div>
+					</div>
+					<div class="modal-footer justify-content-between">
+						<button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
+						<button type="submit" class="btn btn-success" id="InputKegiatan"><b>Simpan</b></button>
+					</div>
+				</div>
+			</div>
+		</div>
     <script src="<?=base_url('bootstrap/js/jquery.min.js')?>"></script>
     <script src="<?=base_url('bootstrap/js/popper.min.js')?>" ></script>
 		<script src="<?=base_url('bootstrap/js/bootstrap.min.js')?>"></script>
@@ -124,13 +158,30 @@
 						}
 					}
 				});
-				$("#Tambah").click(function() {
-					alert($("#Kegiatan").val())
-					// var Akun = { NIP: $("#NIP").val(),
-          //              Password: $("#Password").val() }
-          // $.post(BaseURL+"SMD/Masuk", Akun).done(function(Respon) {
-          //   Auth(Respon)
-          // })
+				$("#Lihat").click(function() {
+					var Data = {ID: $("#OpsiKegiatan").val()}
+					$.post(BaseURL+"Dashboard/LihatPendidikan", Data).done(function(Respon) {
+						window.location = BaseURL + "Dashboard/Pendidikan"
+					})
+				})
+				$("#InputKegiatan").click(function() {
+					if (isNaN($("#Volume").val())) {
+						alert('Volume Harus Angka & Gunakan Tanda . Untuk desimal!')
+					} 
+					else {
+						var Data = {Kegiatan: $("#Uraian").val(),
+											Tanggal: $("#Tanggal").val(),
+											ID: $("#JenisKegiatan").val(),
+                      Volume: $("#Volume").val()}
+						$.post(BaseURL+"Pendidikan/Input", Data).done(function(Respon) {
+							if (Respon == '1') {
+								window.location = BaseURL + "Dashboard/Pendidikan"
+							}
+							else {
+								alert('Gagal Menyimpan!')
+							}
+						})
+					}
           return false
         })
 			})

@@ -105,7 +105,7 @@
 							window.location = BaseURL + "Dashboard/Profil"
 						}
 						else {
-							alert('Gagal Menyimpan')
+							alert('Gagal Menyimpan!')
 						}
 					})
           return false
