@@ -9,22 +9,23 @@
     <link rel="stylesheet" href="<?=base_url('bootstrap/css/bootstrap.min.css')?>">
     <link rel="stylesheet" href="<?=base_url('fontawesome/css/all.min.css')?>">
     <link rel="stylesheet" href="<?=base_url('bootstrap/css/adminlte.min.css')?>">
+    <link rel="stylesheet" href="<?=base_url('bootstrap/datatables-bs4/css/dataTables.bootstrap4.css')?>">
     <title><?=$Halaman?></title>
   </head>
   <body class="hold-transition sidebar-mini layout-fixed">
     <!-- Site wrapper -->
     <div class="wrapper">
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-warning">
+    <nav class="main-header navbar navbar-expand bg-success">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+                <a class="nav-link text-light" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
             <a class="nav-link" href="<?=base_url('SMD/SignOut')?>">
-                <i class="fas fa-user-lock"><span class="text-primary"> Logout</span></i>
+                <i class="fas fa-user-lock text-light"><span class="text-light"> Logout</span></i>
             </a>
         </ul>
     </nav>
