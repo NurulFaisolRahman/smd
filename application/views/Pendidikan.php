@@ -13,7 +13,7 @@
 								<div class="tab-pane fade show active" id="pills-Input" role="tabpanel" aria-labelledby="pills-Arsip-tab">
 									<div class="container-fluid">
 										<div class="row">
-										<div class="col-sm-3 mt-1 mb-1">
+										<div class="col-sm-4 mt-1 mb-1">
 												<div class="input-group mb-1">
 													<div class="input-group-prepend">
 														<label class="input-group-text bg-warning text-primary"><b>Kegiatan</b></label>
@@ -44,7 +44,7 @@
 													</select>
 												</div>
 											</div>
-											<div class="col-sm-3 mt-1 mb-1">
+											<div class="col-sm-4 mt-1 mb-1">
 												<button type="button" id="Lihat" class="btn btn-primary"><b>Lihat</b></button>
 												<button type="button" id="Tambah" class="btn btn-success" data-toggle="modal" data-target="#Input"><b>Tambah</b></button>
 											</div>
@@ -78,7 +78,7 @@
 															<td class="text-center align-middle"><?=$key['JumlahKredit']?></td>
 															<td><?=$key['Bukti']?></td>
 															<td>                          
-																<button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+																<button Edit="<?=$key['No']."|".$key['Kegiatan']."|".$key['Tanggal']."|".$key['Volume']."|".$key['ID']?>" class="btn btn-sm btn-warning Edit"><i class="fas fa-edit"></i></button>
 																<button Hapus="<?=$key['No']?>" class="btn btn-sm btn-danger Hapus"><i class="fas fa-trash"></i></button>
 															</td>
 														</tr>
@@ -99,152 +99,188 @@
 			<div class="modal-dialog">
 				<div class="modal-content bg-warning">
 					<div class="modal-body">
+						<div class="input-group mb-1">
+							<div class="input-group-prepend">
+								<span class="input-group-text bg-primary"><b>Kegiatan</b></i></span>
+							</div>
+							<select class="custom-select" id="JenisKegiatan" onchange="GantiKegiatan()">
+								<?php $Id = 1; foreach ($Kegiatan as $key) { ?>
+									<option value="<?='PND'.$Id++?>"><?=$key?></option>
+								<?php } ?>
+							</select>
+						</div>
+						<div id="OpsiPND1">
 							<div class="input-group mb-1">
 								<div class="input-group-prepend">
-									<span class="input-group-text bg-primary"><b>Kegiatan</b></i></span>
+									<span class="input-group-text bg-primary"><b>Jenjang</b></i></span>
 								</div>
-								<select class="custom-select" id="JenisKegiatan" onchange="GantiKegiatan()">
-									<?php $Id = 1; foreach ($Kegiatan as $key) { ?>
-										<option value="<?='PND'.$Id++?>"><?=$key?></option>
-									<?php } ?>
+								<select class="custom-select" id="Jenjang">
+									<option value="200">Doktor/Sederajat</option>
+									<option value="150">Magister/Sederajat</option>
 								</select>
 							</div>
-							<div id="OpsiPND1">
-								<div class="input-group mb-1">
-									<div class="input-group-prepend">
-										<span class="input-group-text bg-primary"><b>Jenjang</b></i></span>
-									</div>
-									<select class="custom-select" id="Jenjang">
-										<option value="200">Doktor/Sederajat</option>
-										<option value="150">Magister/Sederajat</option>
-									</select>
-								</div>
-							</div>
-							<div id="OpsiPND6" style="display: none;">
-								<div class="input-group mb-1">
-									<div class="input-group-prepend">
-										<span class="input-group-text bg-primary"><b>Jenis Pembimbing</b></i></span>
-									</div>
-									<select class="custom-select" id="JenisPembimbing">
-										<option value="1">Pembimbing Utama</option>
-										<option value="2">Pembimbing Pendamping</option>
-									</select>
-								</div>
-								<div class="input-group mb-1">
-									<div class="input-group-prepend">
-										<span class="input-group-text bg-primary"><b>Jenis Bimbingan</b></i></span>
-									</div>
-									<select class="custom-select" id="JenisBimbingan">
-										<option value="1">Disertasi</option>
-										<option value="2">Tesis</option>
-										<option value="3">Skripsi</option>
-										<option value="4">Laporan Akhir</option>
-									</select>
-								</div>
-							</div>
-							<div id="OpsiPND7" style="display: none;">
-								<div class="input-group mb-1">
-									<div class="input-group-prepend">
-										<span class="input-group-text bg-primary"><b>Jenis</b></i></span>
-									</div>
-									<select class="custom-select" id="JenisPenguji">
-										<option value="1">Ketua Penguji</option>
-										<option value="2">Anggota Penguji</option>
-									</select>
-								</div>
-							</div>
-							<div id="OpsiPND10" style="display: none;">
-								<div class="input-group mb-1">
-									<div class="input-group-prepend">
-										<span class="input-group-text bg-primary"><b>Jenis</b></i></span>
-									</div>
-									<select class="custom-select" id="BahanPengajaran">
-										<option value="1">Buku ajar</option>
-										<option value="2">Diktat, Modul, Petunjuk praktikum, Model, Alat bantu, Audio visual, Naskah tutorial, Job sheet praktikumterkait dengan mata kuliah yang diampu</option>
-									</select>
-								</div>
-							</div>
-							<div id="OpsiPND12" style="display: none;">
-								<div class="input-group mb-1">
-									<div class="input-group-prepend">
-										<span class="input-group-text bg-primary"><b>Jabatan</b></i></span>
-									</div>
-									<select class="custom-select" id="JenisPND12">
-										<option value="6">Rektor</option>
-										<option value="5">Wakil rektor/dekan/direktur program pasca sarjana/ketua lembaga</option>
-										<option value="4">Ketua sekolah tinggi/pembantu dekan/asisten direktur program pasca sarjana/direktur politeknik/kepala LLDikti</option>
-										<option value="4">Pembantu ketua sekolah tinggi/pembantu direktur politeknik</option>
-										<option value="4">Direktur akademi</option>
-										<option value="3">Pembantu direktur politeknik, ketua jurusan/ bagian pada universitas/ institut/sekolah tinggi</option>
-										<option value="3">Pembantu direktur akademi/ketua jurusan/ketua prodipada universitas/politeknik/akademi, sekretaris jurusan/bagian pada universitas/institut/sekolah tinggi</option>
-										<option value="3">Sekretaris jurusan pada politeknik/akademi dan kepala laboratorium (bengkel) universitas/institut/sekolah tinggi/politeknik/akademi</option>
-									</select>
-								</div>
-							</div>
-							<div id="OpsiPND13" style="display: none;">
-								<div class="input-group mb-1">
-									<div class="input-group-prepend">
-										<span class="input-group-text bg-primary"><b>Jenis</b></i></span>
-									</div>
-									<select class="custom-select" id="JenisPND13">
-										<option value="1">Pembimbing pencangkokan</option>
-										<option value="2">Reguler</option>
-									</select>
-								</div>
-							</div>
-							<div id="OpsiPND14" style="display: none;">
-								<div class="input-group mb-1">
-									<div class="input-group-prepend">
-										<span class="input-group-text bg-primary"><b>Jenis</b></i></span>
-									</div>
-									<select class="custom-select" id="JenisPND14">
-										<option value="1">Detasering</option>
-										<option value="2">Pencangkokan</option>
-									</select>
-								</div>
-							</div>
-							<div id="OpsiPND15" style="display: none;">
-								<div class="input-group mb-1">
-									<div class="input-group-prepend">
-										<span class="input-group-text bg-primary"><b>Rentang</b></i></span>
-									</div>
-									<select class="custom-select" id="JenisPND15">
-										<option value="15">Lamanya lebih dari 960 jam</option>
-										<option value="9">Lamanya antara 641-960 jam</option>
-										<option value="6">Lamanya antara 481-640 jam</option>
-										<option value="3">Lamanya antara 161-480 jam</option>
-										<option value="2">Lamanya antara 81-160 jam</option>
-										<option value="1">Lamanya antara 30-80 jam</option>
-										<option value="0.5">Lamanya antara 10-30 jam</option>
-									</select>
-								</div>
-							</div>
+						</div>
+						<div id="OpsiPND6" style="display: none;">
 							<div class="input-group mb-1">
-								<span class="input-group-text bg-primary"><b>Uraian</b></i></span>
-    						<textarea class="form-control" id="Uraian" rows="2"></textarea>
+								<div class="input-group-prepend">
+									<span class="input-group-text bg-primary"><b>Jenis Pembimbing</b></i></span>
+								</div>
+								<select class="custom-select" id="JenisPembimbing">
+									<option value="1">Pembimbing Utama</option>
+									<option value="2">Pembimbing Pendamping</option>
+								</select>
 							</div>
 							<div class="input-group mb-1">
 								<div class="input-group-prepend">
-									<span class="input-group-text bg-primary"><b>Tanggal</b></i></span>
+									<span class="input-group-text bg-primary"><b>Jenis Bimbingan</b></i></span>
 								</div>
-								<input class="form-control" type="text" id="Tanggal">
+								<select class="custom-select" id="JenisBimbingan">
+									<option value="1">Disertasi</option>
+									<option value="2">Tesis</option>
+									<option value="3">Skripsi</option>
+									<option value="4">Laporan Akhir</option>
+								</select>
 							</div>
+						</div>
+						<div id="OpsiPND7" style="display: none;">
 							<div class="input-group mb-1">
 								<div class="input-group-prepend">
-									<span class="input-group-text bg-primary"><b>Jumlah Volume Kegiatan</b></i></span>
+									<span class="input-group-text bg-primary"><b>Jenis</b></i></span>
 								</div>
-								<input class="form-control" type="text" id="Volume">
+								<select class="custom-select" id="JenisPenguji">
+									<option value="1">Ketua Penguji</option>
+									<option value="2">Anggota Penguji</option>
+								</select>
 							</div>
+						</div>
+						<div id="OpsiPND10" style="display: none;">
 							<div class="input-group mb-1">
 								<div class="input-group-prepend">
-									<span class="input-group-text bg-primary"><b>Bukti</b></i></span>
+									<span class="input-group-text bg-primary"><b>Jenis</b></i></span>
 								</div>
-								<input class="form-control" type="file" id="Bukti">
+								<select class="custom-select" id="BahanPengajaran">
+									<option value="1">Buku ajar</option>
+									<option value="2">Diktat, Modul, Petunjuk praktikum, Model, Alat bantu, Audio visual, Naskah tutorial, Job sheet praktikumterkait dengan mata kuliah yang diampu</option>
+								</select>
 							</div>
+						</div>
+						<div id="OpsiPND12" style="display: none;">
+							<div class="input-group mb-1">
+								<div class="input-group-prepend">
+									<span class="input-group-text bg-primary"><b>Jabatan</b></i></span>
+								</div>
+								<select class="custom-select" id="JenisPND12">
+									<option value="6">Rektor</option>
+									<option value="5">Wakil rektor/dekan/direktur program pasca sarjana/ketua lembaga</option>
+									<option value="4">Ketua sekolah tinggi/pembantu dekan/asisten direktur program pasca sarjana/direktur politeknik/kepala LLDikti</option>
+									<option value="4">Pembantu ketua sekolah tinggi/pembantu direktur politeknik</option>
+									<option value="4">Direktur akademi</option>
+									<option value="3">Pembantu direktur politeknik, ketua jurusan/ bagian pada universitas/ institut/sekolah tinggi</option>
+									<option value="3">Pembantu direktur akademi/ketua jurusan/ketua prodipada universitas/politeknik/akademi, sekretaris jurusan/bagian pada universitas/institut/sekolah tinggi</option>
+									<option value="3">Sekretaris jurusan pada politeknik/akademi dan kepala laboratorium (bengkel) universitas/institut/sekolah tinggi/politeknik/akademi</option>
+								</select>
+							</div>
+						</div>
+						<div id="OpsiPND13" style="display: none;">
+							<div class="input-group mb-1">
+								<div class="input-group-prepend">
+									<span class="input-group-text bg-primary"><b>Jenis</b></i></span>
+								</div>
+								<select class="custom-select" id="JenisPND13">
+									<option value="1">Pembimbing pencangkokan</option>
+									<option value="2">Reguler</option>
+								</select>
+							</div>
+						</div>
+						<div id="OpsiPND14" style="display: none;">
+							<div class="input-group mb-1">
+								<div class="input-group-prepend">
+									<span class="input-group-text bg-primary"><b>Jenis</b></i></span>
+								</div>
+								<select class="custom-select" id="JenisPND14">
+									<option value="1">Detasering</option>
+									<option value="2">Pencangkokan</option>
+								</select>
+							</div>
+						</div>
+						<div id="OpsiPND15" style="display: none;">
+							<div class="input-group mb-1">
+								<div class="input-group-prepend">
+									<span class="input-group-text bg-primary"><b>Rentang</b></i></span>
+								</div>
+								<select class="custom-select" id="JenisPND15">
+									<option value="15">Lamanya lebih dari 960 jam</option>
+									<option value="9">Lamanya antara 641-960 jam</option>
+									<option value="6">Lamanya antara 481-640 jam</option>
+									<option value="3">Lamanya antara 161-480 jam</option>
+									<option value="2">Lamanya antara 81-160 jam</option>
+									<option value="1">Lamanya antara 30-80 jam</option>
+									<option value="0.5">Lamanya antara 10-30 jam</option>
+								</select>
+							</div>
+						</div>
+						<div class="input-group mb-1">
+							<span class="input-group-text bg-primary"><b>Uraian</b></i></span>
+							<textarea class="form-control" id="Uraian" rows="2"></textarea>
+						</div>
+						<div class="input-group mb-1">
+							<div class="input-group-prepend">
+								<span class="input-group-text bg-primary"><b>Tanggal</b></i></span>
+							</div>
+							<input class="form-control" type="text" id="Tanggal">
+						</div>
+						<div class="input-group mb-1">
+							<div class="input-group-prepend">
+								<span class="input-group-text bg-primary"><b>Jumlah Volume Kegiatan</b></i></span>
+							</div>
+							<input class="form-control" type="text" id="Volume">
+						</div>
+						<div class="input-group mb-1">
+							<div class="input-group-prepend">
+								<span class="input-group-text bg-primary"><b>Bukti</b></i></span>
+							</div>
+							<input class="form-control" type="file" id="Bukti" multiple>
+						</div>
 					</div>
 					<div class="modal-footer justify-content-between">
 						<button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
 						<button type="submit" class="btn btn-success" id="InputKegiatan"><b>Simpan</b></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="Edit">
+			<div class="modal-dialog">
+				<div class="modal-content bg-warning">
+					<div class="modal-body">
+						<div class="input-group mb-1">
+							<span class="input-group-text bg-primary"><b>Uraian</b></i></span>
+							<input class="form-control" type="hidden" id="No">
+							<input class="form-control" type="hidden" id="ID">
+							<textarea class="form-control" id="EditUraian" rows="2"></textarea>
+						</div>
+						<div class="input-group mb-1">
+							<div class="input-group-prepend">
+								<span class="input-group-text bg-primary"><b>Tanggal</b></i></span>
+							</div>
+							<input class="form-control" type="text" id="EditTanggal">
+						</div>
+						<div class="input-group mb-1">
+							<div class="input-group-prepend">
+								<span class="input-group-text bg-primary"><b>Jumlah Volume Kegiatan</b></i></span>
+							</div>
+							<input class="form-control" type="text" id="EditVolume">
+						</div>
+						<div class="input-group mb-1">
+							<div class="input-group-prepend">
+								<span class="input-group-text bg-primary"><b>Bukti</b></i></span>
+							</div>
+							<input class="form-control" type="file" id="EditBukti">
+						</div>
+					</div>
+					<div class="modal-footer justify-content-between">
+						<button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
+						<button type="submit" class="btn btn-success" id="EditKegiatan"><b>Simpan</b></button>
 					</div>
 				</div>
 			</div>
@@ -275,65 +311,103 @@
 						window.location = BaseURL + "Dashboard/Pendidikan"
 					})
 				})
-				$(document).on("click",".Hapus",function(){
-					var Hapus = { No: $(this).attr('Hapus')};
-					var Konfirmasi = confirm("Yakin Ingin Menghapus Data?");
-					if (Konfirmasi == true) {
-						$.post(BaseURL+"Pendidikan/Hapus", Hapus).done(function(Respon) {
-							if (Respon == '1') {
-								window.location = BaseURL + "Dashboard/Pendidikan"
-							} else {
+				$(document).on("click",".Edit",function(){
+					var Data = $(this).attr('Edit')
+					var Pisah = Data.split("|");
+					document.getElementById('No').value = Pisah[0];
+					document.getElementById('EditUraian').value = Pisah[1];
+					document.getElementById('EditTanggal').value = Pisah[2];
+					document.getElementById('EditVolume').value = Pisah[3];
+					document.getElementById('ID').value = Pisah[4];
+					$('#Edit').modal("show");
+				});
+				$("#EditKegiatan").click(function() {
+					var Edit = {Kegiatan: $("#EditUraian").val(),
+											Tanggal: $("#EditTanggal").val(),
+											ID: $("#ID").val(),
+											No: $("#No").val(),
+                      Volume: $("#EditVolume").val()}
+					$.post(BaseURL+"Pendidikan/Edit", Edit).done(function(Respon) {
+						if (Respon == '1') {
+							window.location = BaseURL + "Dashboard/Pendidikan"
+						} else {
+							alert(Respon)
+						}
+					});
+				});
+				$("#InputKegiatan").click(function() {
+					// if (isNaN($("#Volume").val())) {
+					// 	alert('Volume Harus Angka & Gunakan Tanda . Untuk desimal!')
+					// } 
+					// else {
+						// var Data = {Kegiatan: $("#Uraian").val(),
+						// 					Tanggal: $("#Tanggal").val(),
+						// 					ID: $("#JenisKegiatan").val(),
+            //           Volume: $("#Volume").val()}
+						// if ($("#JenisKegiatan").val() == 'PND1') {
+						// 	Data['Jenjang'] = $("#Jenjang").val()
+						// }
+						// else if ($("#JenisKegiatan").val() == 'PND6') {
+						// 	Data['JenisPembimbing'] = $("#JenisPembimbing").val()
+						// 	Data['JenisBimbingan'] = $("#JenisBimbingan").val()
+						// }
+						// else if ($("#JenisKegiatan").val() == 'PND7') {
+						// 	Data['JenisPenguji'] = $("#JenisPenguji").val()
+						// }
+						// else if ($("#JenisKegiatan").val() == 'PND10') {
+						// 	Data['BahanPengajaran'] = $("#BahanPengajaran").val()
+						// }
+						// else if ($("#JenisKegiatan").val() == 'PND12') {
+						// 	Data['JenisPND12'] = $("#JenisPND12").val()
+						// }
+						// else if ($("#JenisKegiatan").val() == 'PND13') {
+						// 	Data['JenisPND13'] = $("#JenisPND13").val()
+						// }
+						// else if ($("#JenisKegiatan").val() == 'PND14') {
+						// 	Data['JenisPND14'] = $("#JenisPND14").val()
+						// }
+						// else if ($("#JenisKegiatan").val() == 'PND15') {
+						// 	Data['JenisPND15'] = $("#JenisPND15").val()
+						// }
+						var fd = new FormData()
+						var Bukti = $('#Bukti')[0].files
+						for(var i = 0;i<Bukti.length;i++){
+							fd.append("file"+i, Bukti[i])
+						}
+						// fd.append('Volume',$("#Volume").val())
+						$.ajax({
+							url: BaseURL+'Pendidikan/Input',
+							type: 'post',
+							data: fd,
+							contentType: false,
+            	processData: false,
+							success: function(Respon){
 								alert(Respon)
 							}
 						});
-					}
-				});
-				$("#InputKegiatan").click(function() {
-					if (isNaN($("#Volume").val())) {
-						alert('Volume Harus Angka & Gunakan Tanda . Untuk desimal!')
-					} 
-					else {
-						var Data = {Kegiatan: $("#Uraian").val(),
-											Tanggal: $("#Tanggal").val(),
-											ID: $("#JenisKegiatan").val(),
-                      Volume: $("#Volume").val()}
-						if ($("#JenisKegiatan").val() == 'PND1') {
-							Data['Jenjang'] = $("#Jenjang").val()
-						}
-						else if ($("#JenisKegiatan").val() == 'PND6') {
-							Data['JenisPembimbing'] = $("#JenisPembimbing").val()
-							Data['JenisBimbingan'] = $("#JenisBimbingan").val()
-						}
-						else if ($("#JenisKegiatan").val() == 'PND7') {
-							Data['JenisPenguji'] = $("#JenisPenguji").val()
-						}
-						else if ($("#JenisKegiatan").val() == 'PND10') {
-							Data['BahanPengajaran'] = $("#BahanPengajaran").val()
-						}
-						else if ($("#JenisKegiatan").val() == 'PND12') {
-							Data['JenisPND12'] = $("#JenisPND12").val()
-						}
-						else if ($("#JenisKegiatan").val() == 'PND13') {
-							Data['JenisPND13'] = $("#JenisPND13").val()
-						}
-						else if ($("#JenisKegiatan").val() == 'PND14') {
-							Data['JenisPND14'] = $("#JenisPND14").val()
-						}
-						else if ($("#JenisKegiatan").val() == 'PND15') {
-							Data['JenisPND15'] = $("#JenisPND15").val()
-						}
-						$.post(BaseURL+"Pendidikan/Input", Data).done(function(Respon) {
-							if (Respon == '1') {
-								window.location = BaseURL + "Dashboard/Pendidikan"
-							}
-							else {
-								alert('Gagal Menyimpan!')
-							}
-						})
-					}
+						// $.post(BaseURL+"Pendidikan/Input", {Gambar:Bukti}).done(function(Respon) {
+							// alert(Respon)
+							// if (Respon == '1') {
+							// 	window.location = BaseURL + "Dashboard/Pendidikan"
+							// }
+							// else {
+							// 	alert('Gagal Menyimpan!')
+							// }
+						// })
+					// }
           return false
         })
 			})
+			$(document).on("click",".Hapus",function(){
+				var Hapus = {No: $(this).attr('Hapus')};
+				$.post(BaseURL+"Pendidikan/Edit", Hapus).done(function(Respon) {
+					if (Respon == '1') {
+						window.location = BaseURL + "Dashboard/Pendidikan"
+					} else {
+						alert(Respon)
+					}
+				});
+			});
 			function GantiKegiatan() {
 				if ($("#JenisKegiatan").val() == 'PND1') {
 					document.getElementById("OpsiPND1").style.display = 'block'
