@@ -55,27 +55,27 @@
 											<table id="TabelPendidikan" class="table table-bordered table-striped">
 												<thead class="bg-warning">
 													<tr>
-														<th>No</th>
-														<th>Uraian Kegiatan</th>
-														<th>Tanggal</th>
-														<th>Satuan</th>
-														<th>Volume</th>
-														<th>Kredit</th>
-														<th>Jumlah Kredit</th>
-														<th>Ket/Bukti</th>
-														<th>Aksi</th>
+														<th class="align-middle">No</th>
+														<th class="align-middle">Uraian Kegiatan</th>
+														<th class="align-middle">Tanggal</th>
+														<th class="align-middle">Satuan</th>
+														<th class="align-middle">Volume</th>
+														<th class="align-middle">Kredit</th>
+														<th class="align-middle">Jumlah Kredit</th>
+														<th class="align-middle">Ket/Bukti</th>
+														<th class="align-middle">Aksi</th>
 													</tr>
 												</thead>
 												<tbody>
 													<?php $No = 1; foreach ($Pendidikan as $key) { ?>
 														<tr>	
-															<td><?=$No++?></td>
-															<td><?=$key['Kegiatan']?></td>
-															<td><?=$key['Tanggal']?></td>
-															<td><?=$key['Satuan']?></td>
-															<td><?=$key['Volume']?></td>
-															<td><?=$key['Kredit']?></td>
-															<td><?=$key['JumlahKredit']?></td>
+															<td class="text-center align-middle"><?=$No++?></td>
+															<td class="align-middle"><?=$key['Kegiatan']?></td>
+															<td class="text-center align-middle"><?=$key['Tanggal']?></td>
+															<td class="text-center align-middle"><?=$key['Satuan']?></td>
+															<td class="text-center align-middle"><?=$key['Volume']?></td>
+															<td class="text-center align-middle"><?=$key['Kredit']?></td>
+															<td class="text-center align-middle"><?=$key['JumlahKredit']?></td>
 															<td><?=$key['Bukti']?></td>
 															<td>                          
 																<button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
@@ -103,11 +103,55 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text bg-primary"><b>Kegiatan</b></i></span>
 								</div>
-								<select class="custom-select" id="JenisKegiatan">
+								<select class="custom-select" id="JenisKegiatan" onchange="GantiKegiatan()">
 									<?php $Id = 1; foreach ($Kegiatan as $key) { ?>
 										<option value="<?='PND'.$Id++?>"><?=$key?></option>
 									<?php } ?>
 								</select>
+							</div>
+							<div id="OpsiPND1">
+								<div class="input-group mb-1">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-primary"><b>Jenjang</b></i></span>
+									</div>
+									<select class="custom-select" id="Jenjang">
+										<option value="200">Doktor/Sederajat</option>
+										<option value="150">Magister/Sederajat</option>
+									</select>
+								</div>
+							</div>
+							<div id="OpsiPND7" style="display: none;">
+								<div class="input-group mb-1">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-primary"><b>Jenis</b></i></span>
+									</div>
+									<select class="custom-select" id="JenisPenguji">
+										<option value="1">Ketua Penguji</option>
+										<option value="2">Anggota Penguji</option>
+									</select>
+								</div>
+							</div>
+							<div id="OpsiPND13" style="display: none;">
+								<div class="input-group mb-1">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-primary"><b>Jenis</b></i></span>
+									</div>
+									<select class="custom-select" id="JenisPND13">
+										<option value="1">Pembimbing pencangkokan</option>
+										<option value="2">Reguler</option>
+									</select>
+								</div>
+							</div>
+							<div id="OpsiPND14" style="display: none;">
+								<div class="input-group mb-1">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-primary"><b>Jenis</b></i></span>
+									</div>
+									<select class="custom-select" id="JenisPND14">
+										<option value="1">Detasering</option>
+										<option value="2">Pencangkokan</option>
+									</select>
+								</div>
 							</div>
 							<div class="input-group mb-1">
 								<span class="input-group-text bg-primary"><b>Uraian</b></i></span>
@@ -173,6 +217,18 @@
 											Tanggal: $("#Tanggal").val(),
 											ID: $("#JenisKegiatan").val(),
                       Volume: $("#Volume").val()}
+						if ($("#JenisKegiatan").val() == 'PND1') {
+							Data['Jenjang'] = $("#Jenjang").val()
+						}
+						else if ($("#JenisKegiatan").val() == 'PND7') {
+							Data['JenisPenguji'] = $("#JenisPenguji").val()
+						}
+						else if ($("#JenisKegiatan").val() == 'PND13') {
+							Data['JenisPND13'] = $("#JenisPND13").val()
+						}
+						else if ($("#JenisKegiatan").val() == 'PND14') {
+							Data['JenisPND14'] = $("#JenisPND14").val()
+						}
 						$.post(BaseURL+"Pendidikan/Input", Data).done(function(Respon) {
 							if (Respon == '1') {
 								window.location = BaseURL + "Dashboard/Pendidikan"
@@ -185,6 +241,38 @@
           return false
         })
 			})
+			function GantiKegiatan() {
+				if ($("#JenisKegiatan").val() == 'PND1') {
+					document.getElementById("OpsiPND1").style.display = 'block'
+					document.getElementById("OpsiPND7").style.display = 'none'
+					document.getElementById("OpsiPND13").style.display = 'none'
+					document.getElementById("OpsiPND14").style.display = 'none'
+				}
+				else if ($("#JenisKegiatan").val() == 'PND7') {
+					document.getElementById("OpsiPND1").style.display = 'none'
+					document.getElementById("OpsiPND7").style.display = 'block'
+					document.getElementById("OpsiPND13").style.display = 'none'
+					document.getElementById("OpsiPND14").style.display = 'none'
+				}
+				else if ($("#JenisKegiatan").val() == 'PND13') {
+					document.getElementById("OpsiPND1").style.display = 'none'
+					document.getElementById("OpsiPND7").style.display = 'none'
+					document.getElementById("OpsiPND13").style.display = 'block'
+					document.getElementById("OpsiPND14").style.display = 'none'
+				}
+				else if ($("#JenisKegiatan").val() == 'PND14') {
+					document.getElementById("OpsiPND1").style.display = 'none'
+					document.getElementById("OpsiPND7").style.display = 'none'
+					document.getElementById("OpsiPND13").style.display = 'none'
+					document.getElementById("OpsiPND14").style.display = 'block'
+				}
+				else if ($("#JenisKegiatan").val() != 'PND1' && $("#JenisKegiatan").val() != 'PND7' && $("#JenisKegiatan").val() != 'PND13' && $("#JenisKegiatan").val() != 'PND14') {
+					document.getElementById("OpsiPND1").style.display = 'none'
+					document.getElementById("OpsiPND7").style.display = 'none'
+					document.getElementById("OpsiPND13").style.display = 'none'
+					document.getElementById("OpsiPND14").style.display = 'none'
+				}
+			}
 		</script>
 </body>
 </html>
