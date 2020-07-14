@@ -79,7 +79,7 @@
 															<td><?=$key['Bukti']?></td>
 															<td>                          
 																<button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
-																<button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+																<button Hapus="<?=$key['No']?>" class="btn btn-sm btn-danger Hapus"><i class="fas fa-trash"></i></button>
 															</td>
 														</tr>
 													<?php } ?>
@@ -120,6 +120,28 @@
 									</select>
 								</div>
 							</div>
+							<div id="OpsiPND6" style="display: none;">
+								<div class="input-group mb-1">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-primary"><b>Jenis Pembimbing</b></i></span>
+									</div>
+									<select class="custom-select" id="JenisPembimbing">
+										<option value="1">Pembimbing Utama</option>
+										<option value="2">Pembimbing Pendamping</option>
+									</select>
+								</div>
+								<div class="input-group mb-1">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-primary"><b>Jenis Bimbingan</b></i></span>
+									</div>
+									<select class="custom-select" id="JenisBimbingan">
+										<option value="1">Disertasi</option>
+										<option value="2">Tesis</option>
+										<option value="3">Skripsi</option>
+										<option value="4">Laporan Akhir</option>
+									</select>
+								</div>
+							</div>
 							<div id="OpsiPND7" style="display: none;">
 								<div class="input-group mb-1">
 									<div class="input-group-prepend">
@@ -128,6 +150,34 @@
 									<select class="custom-select" id="JenisPenguji">
 										<option value="1">Ketua Penguji</option>
 										<option value="2">Anggota Penguji</option>
+									</select>
+								</div>
+							</div>
+							<div id="OpsiPND10" style="display: none;">
+								<div class="input-group mb-1">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-primary"><b>Jenis</b></i></span>
+									</div>
+									<select class="custom-select" id="BahanPengajaran">
+										<option value="1">Buku ajar</option>
+										<option value="2">Diktat, Modul, Petunjuk praktikum, Model, Alat bantu, Audio visual, Naskah tutorial, Job sheet praktikumterkait dengan mata kuliah yang diampu</option>
+									</select>
+								</div>
+							</div>
+							<div id="OpsiPND12" style="display: none;">
+								<div class="input-group mb-1">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-primary"><b>Jabatan</b></i></span>
+									</div>
+									<select class="custom-select" id="JenisPND12">
+										<option value="6">Rektor</option>
+										<option value="5">Wakil rektor/dekan/direktur program pasca sarjana/ketua lembaga</option>
+										<option value="4">Ketua sekolah tinggi/pembantu dekan/asisten direktur program pasca sarjana/direktur politeknik/kepala LLDikti</option>
+										<option value="4">Pembantu ketua sekolah tinggi/pembantu direktur politeknik</option>
+										<option value="4">Direktur akademi</option>
+										<option value="3">Pembantu direktur politeknik, ketua jurusan/ bagian pada universitas/ institut/sekolah tinggi</option>
+										<option value="3">Pembantu direktur akademi/ketua jurusan/ketua prodipada universitas/politeknik/akademi, sekretaris jurusan/bagian pada universitas/institut/sekolah tinggi</option>
+										<option value="3">Sekretaris jurusan pada politeknik/akademi dan kepala laboratorium (bengkel) universitas/institut/sekolah tinggi/politeknik/akademi</option>
 									</select>
 								</div>
 							</div>
@@ -150,6 +200,22 @@
 									<select class="custom-select" id="JenisPND14">
 										<option value="1">Detasering</option>
 										<option value="2">Pencangkokan</option>
+									</select>
+								</div>
+							</div>
+							<div id="OpsiPND15" style="display: none;">
+								<div class="input-group mb-1">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-primary"><b>Rentang</b></i></span>
+									</div>
+									<select class="custom-select" id="JenisPND15">
+										<option value="15">Lamanya lebih dari 960 jam</option>
+										<option value="9">Lamanya antara 641-960 jam</option>
+										<option value="6">Lamanya antara 481-640 jam</option>
+										<option value="3">Lamanya antara 161-480 jam</option>
+										<option value="2">Lamanya antara 81-160 jam</option>
+										<option value="1">Lamanya antara 30-80 jam</option>
+										<option value="0.5">Lamanya antara 10-30 jam</option>
 									</select>
 								</div>
 							</div>
@@ -195,6 +261,7 @@
 				var BaseURL = '<?=base_url()?>';
 				$('#TabelPendidikan').DataTable( {
 					dom:'lfrtip',
+					"lengthMenu": [ 5, 10, 20, 30 ],
 					"language": {
 						"paginate": {
 							'previous': '<b class="text-primary"><</b>',
@@ -208,6 +275,19 @@
 						window.location = BaseURL + "Dashboard/Pendidikan"
 					})
 				})
+				$(document).on("click",".Hapus",function(){
+					var Hapus = { No: $(this).attr('Hapus')};
+					var Konfirmasi = confirm("Yakin Ingin Menghapus Data?");
+					if (Konfirmasi == true) {
+						$.post(BaseURL+"Pendidikan/Hapus", Hapus).done(function(Respon) {
+							if (Respon == '1') {
+								window.location = BaseURL + "Dashboard/Pendidikan"
+							} else {
+								alert(Respon)
+							}
+						});
+					}
+				});
 				$("#InputKegiatan").click(function() {
 					if (isNaN($("#Volume").val())) {
 						alert('Volume Harus Angka & Gunakan Tanda . Untuk desimal!')
@@ -220,14 +300,27 @@
 						if ($("#JenisKegiatan").val() == 'PND1') {
 							Data['Jenjang'] = $("#Jenjang").val()
 						}
+						else if ($("#JenisKegiatan").val() == 'PND6') {
+							Data['JenisPembimbing'] = $("#JenisPembimbing").val()
+							Data['JenisBimbingan'] = $("#JenisBimbingan").val()
+						}
 						else if ($("#JenisKegiatan").val() == 'PND7') {
 							Data['JenisPenguji'] = $("#JenisPenguji").val()
+						}
+						else if ($("#JenisKegiatan").val() == 'PND10') {
+							Data['BahanPengajaran'] = $("#BahanPengajaran").val()
+						}
+						else if ($("#JenisKegiatan").val() == 'PND12') {
+							Data['JenisPND12'] = $("#JenisPND12").val()
 						}
 						else if ($("#JenisKegiatan").val() == 'PND13') {
 							Data['JenisPND13'] = $("#JenisPND13").val()
 						}
 						else if ($("#JenisKegiatan").val() == 'PND14') {
 							Data['JenisPND14'] = $("#JenisPND14").val()
+						}
+						else if ($("#JenisKegiatan").val() == 'PND15') {
+							Data['JenisPND15'] = $("#JenisPND15").val()
 						}
 						$.post(BaseURL+"Pendidikan/Input", Data).done(function(Respon) {
 							if (Respon == '1') {
@@ -244,33 +337,92 @@
 			function GantiKegiatan() {
 				if ($("#JenisKegiatan").val() == 'PND1') {
 					document.getElementById("OpsiPND1").style.display = 'block'
+					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
+					document.getElementById("OpsiPND10").style.display = 'none'
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'none'
+					document.getElementById("OpsiPND15").style.display = 'none'
+				}
+				else if ($("#JenisKegiatan").val() == 'PND6') {
+					document.getElementById("OpsiPND1").style.display = 'none'
+					document.getElementById("OpsiPND6").style.display = 'block'
+					document.getElementById("OpsiPND7").style.display = 'none'
+					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND12").style.display = 'none'
+					document.getElementById("OpsiPND13").style.display = 'none'
+					document.getElementById("OpsiPND14").style.display = 'none'
+					document.getElementById("OpsiPND15").style.display = 'none'
 				}
 				else if ($("#JenisKegiatan").val() == 'PND7') {
 					document.getElementById("OpsiPND1").style.display = 'none'
+					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'block'
+					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND12").style.display = 'none'
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'none'
+					document.getElementById("OpsiPND15").style.display = 'none'
+				}
+				else if ($("#JenisKegiatan").val() == 'PND10') {
+					document.getElementById("OpsiPND1").style.display = 'none'
+					document.getElementById("OpsiPND6").style.display = 'none'
+					document.getElementById("OpsiPND7").style.display = 'none'
+					document.getElementById("OpsiPND10").style.display = 'block'
+					document.getElementById("OpsiPND12").style.display = 'none'
+					document.getElementById("OpsiPND13").style.display = 'none'
+					document.getElementById("OpsiPND14").style.display = 'none'
+					document.getElementById("OpsiPND15").style.display = 'none'
+				}
+				else if ($("#JenisKegiatan").val() == 'PND12') {
+					document.getElementById("OpsiPND1").style.display = 'none'
+					document.getElementById("OpsiPND6").style.display = 'none'
+					document.getElementById("OpsiPND7").style.display = 'none'
+					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND12").style.display = 'block'
+					document.getElementById("OpsiPND13").style.display = 'none'
+					document.getElementById("OpsiPND14").style.display = 'none'
+					document.getElementById("OpsiPND15").style.display = 'none'
 				}
 				else if ($("#JenisKegiatan").val() == 'PND13') {
 					document.getElementById("OpsiPND1").style.display = 'none'
+					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
+					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND12").style.display = 'none'
 					document.getElementById("OpsiPND13").style.display = 'block'
 					document.getElementById("OpsiPND14").style.display = 'none'
+					document.getElementById("OpsiPND15").style.display = 'none'
 				}
 				else if ($("#JenisKegiatan").val() == 'PND14') {
 					document.getElementById("OpsiPND1").style.display = 'none'
+					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
+					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND12").style.display = 'none'
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'block'
+					document.getElementById("OpsiPND15").style.display = 'none'
 				}
-				else if ($("#JenisKegiatan").val() != 'PND1' && $("#JenisKegiatan").val() != 'PND7' && $("#JenisKegiatan").val() != 'PND13' && $("#JenisKegiatan").val() != 'PND14') {
+				else if ($("#JenisKegiatan").val() == 'PND15') {
 					document.getElementById("OpsiPND1").style.display = 'none'
+					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
+					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND12").style.display = 'none'
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'none'
+					document.getElementById("OpsiPND15").style.display = 'block'
+				}
+				else if ($("#JenisKegiatan").val() != 'PND1' && $("#JenisKegiatan").val() != 'PND6' && $("#JenisKegiatan").val() != 'PND7' && $("#JenisKegiatan").val() != 'PND10' && $("#JenisKegiatan").val() != 'PND12' && $("#JenisKegiatan").val() != 'PND13' && $("#JenisKegiatan").val() != 'PND14' && $("#JenisKegiatan").val() != 'PND15') {
+					document.getElementById("OpsiPND1").style.display = 'none'
+					document.getElementById("OpsiPND6").style.display = 'none'
+					document.getElementById("OpsiPND7").style.display = 'none'
+					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND12").style.display = 'none'
+					document.getElementById("OpsiPND13").style.display = 'none'
+					document.getElementById("OpsiPND14").style.display = 'none'
+					document.getElementById("OpsiPND15").style.display = 'none'
 				}
 			}
 		</script>
