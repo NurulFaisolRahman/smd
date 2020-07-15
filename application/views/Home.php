@@ -73,13 +73,13 @@
                                   <div class="input-group-prepend">
                                     <span class="input-group-text bg-warning text-primary"><b>NIP</b></span>
                                   </div>
-                                  <input type="text" class="form-control" id="NIP">
+                                  <input type="text" class="form-control" id="nip">
                                 </div>
                                 <div class="input-group input-group-sm mb-2">
                                   <div class="input-group-prepend">
                                     <span class="input-group-text bg-warning text-primary"><b>Password</b></span>
                                   </div>
-                                  <input type="password" class="form-control" id="Password">
+                                  <input type="password" class="form-control" id="sandi">
                                 </div>
                                 <div class="btn btn-primary" id="Masuk"><b>Masuk</b></div>
                               </div>
@@ -88,34 +88,51 @@
                                   <div class="input-group-prepend">
                                     <span class="input-group-text bg-warning text-primary"><b>NIP</b></span>
                                   </div>
-                                  <input type="text" class="form-control" id="NipDaftar" placeholder="Isi NIP">
+                                  <input type="text" class="form-control" id="NIP" placeholder="Isi NIP">
+                                </div>
+                                <div class="input-group input-group-sm mb-2">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text bg-warning text-primary"><b>NIDN</b></span>
+                                  </div>
+                                  <input type="text" class="form-control" id="NIDN" placeholder="Isi NIDN">
                                 </div>
                                 <div class="input-group input-group-sm mb-2">
                                   <div class="input-group-prepend">
                                     <span class="input-group-text bg-warning text-primary"><b>Nama</b></span>
                                   </div>
-                                  <input type="text" class="form-control" id="NamaDaftar" placeholder="Nama + Gelar">
+                                  <input type="text" class="form-control" id="Nama" placeholder="Nama + Gelar">
                                 </div>
                                 <div class="input-group input-group-sm mb-2">
                                   <div class="input-group-prepend">
                                     <span class="input-group-text bg-warning text-primary"><b>Password</b></span>
                                   </div>
-                                  <input type="password" class="form-control" id="PasswordDaftar" placeholder="Minilmal 8 Karakter">
+                                  <input type="password" class="form-control" id="Sandi" placeholder="Minilmal 8 Karakter">
                                 </div>
-                                <div class="input-group mb-3">
+                                <div class="input-group mb-2">
                                   <div class="input-group-prepend">
-                                    <label class="input-group-text bg-warning text-primary" for="PangkatDaftar"><b>Golongan</b></label>
+                                    <label class="input-group-text bg-warning text-primary"><b>Golongan</b></label>
                                   </div>
-                                  <select class="custom-select" id="PangkatDaftar">
-                                    <option value="Asisten Ahli/Penata Muda/IIIa">IIIa</option>
-                                    <option value="Asisten Ahli/Penata Muda Tk. I/IIIb">IIIb</option>
-                                    <option value="Lektor/Penata/IIIc">IIIc</option>
-                                    <option value="Lektor/Penata Tk. I/IIId">IIId</option>
-                                    <option value="Lektor Kepala/Pembina/IVa">IVa</option>
-                                    <option value="Lektor Kepala/Pembina Tk. I/IVb">IVb</option>
-                                    <option value="Lektor Kepala/Pembina Utama Muda/IVc">IVc</option>
-                                    <option value="Profesor/Pembina Utama Madya/IVd">IVd</option>
-                                    <option value="Profesor/Pembina Utama/IVe">IVe</option>
+                                  <select class="custom-select" id="Golongan">
+                                    <option value="Penata Muda/IIIa">IIIa</option>
+                                    <option value="Penata Muda Tk. I/IIIb">IIIb</option>
+                                    <option value="Penata/IIIc">IIIc</option>
+                                    <option value="Penata Tk. I/IIId">IIId</option>
+                                    <option value="Pembina/IVa">IVa</option>
+                                    <option value="Pembina Tk. I/IVb">IVb</option>
+                                    <option value="Pembina Utama Muda/IVc">IVc</option>
+                                    <option value="Pembina Utama Madya/IVd">IVd</option>
+                                    <option value="Pembina Utama/IVe">IVe</option>
+                                  </select>
+                                </div>
+                                <div class="input-group mb-2">
+                                  <div class="input-group-prepend">
+                                    <label class="input-group-text bg-warning text-primary"><b>Jabatan</b></label>
+                                  </div>
+                                  <select class="custom-select" id="Jabatan">
+                                    <option value="Asisten Ahli">Asisten Ahli</option>
+                                    <option value="Lektor">Lektor</option>
+                                    <option value="Lektor Kepala">Lektor Kepala</option>
+                                    <option value="Profesor">Profesor</option>
                                   </select>
                                 </div>
                                 <div class="btn btn-primary" id="Daftar"><b>Daftar</b></div>
@@ -140,25 +157,31 @@
       jQuery(document).ready(function($) {
         "use strict";
         $("#Masuk").click(function() {
-          var Akun = { NIP: $("#NIP").val(),
-                       Password: $("#Password").val() }
+          var Akun = { NIP: $("#nip").val(),
+                       Password: $("#sandi").val() }
           $.post(BaseURL+"SMD/Masuk", Akun).done(function(Respon) {
             Auth(Respon)
           })
           return false
         })
         $("#Daftar").click(function() {
-          if ($("#NipDaftar").val().length != 18 || isNaN($("#NIP").val())) {
+          if ($("#NIP").val().length != 18 || isNaN($("#NIP").val())) {
             alert('Mohon Isi NIP 18 Angka!')
-          } else if ($("#NamaDaftar").val() === "") {
+          } else if ($("#NIDN").val().length != 10 || isNaN($("#NIDN").val())) {
+            alert('Mohon Isi NIDN 10 Angka!')
+          } else if ($("#Nama").val() === "") {
             alert('Mohon Isi Nama + Gelar!')
-          } else if ($("#PasswordDaftar").val() === "" || $("#PasswordDaftar").val().length != 8) {
+          } else if ($("#Sandi").val() === "" || $("#Sandi").val().length != 8) {
             alert('Password Minimal 8 Karakter!')
           } else {
-            var Akun = { NIP: $("#NipDaftar").val(),
-                         Nama: $("#NamaDaftar").val(),
-                         Password: $("#PasswordDaftar").val(),
-                         Pangkat: $("#PangkatDaftar").val() }
+            var Pangkat = $("#Golongan").val().split("/") 
+            var Akun = { NIP: $("#NIP").val(),
+                         NIDN: $("#NIDN").val(),
+                         Nama: $("#Nama").val(),
+                         Password: $("#Sandi").val(),
+                         Pangkat: Pangkat[0],
+                         Golongan: Pangkat[1],
+                         Jabatan: $("#Jabatan").val() }
             $.post(BaseURL+"SMD/Daftar", Akun).done(function(Respon) {
               Auth(Respon)
             })

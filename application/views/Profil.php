@@ -22,16 +22,24 @@
 												<div class="col-sm-auto my-2 ">
 													<table class="table-responsive">
 														<tr>
-															<td><b>NIP</b></td>
-															<td><b>: <?=$Profil['NIP']?></b></td>
-														</tr>
-														<tr>
 															<td><b>Nama</b></td>
 															<td><b>: <?=$Profil['Nama']?></b></td>
 														</tr>
 														<tr>
-															<td><b>Pangkat</b></td>
-															<td><b>: <?=$Profil['Jabatan'].' / '.$Profil['Pangkat'].' / '.$Profil['Golongan']?></b></td>
+															<td><b>NIDN</b></td>
+															<td><b>: <?=$Profil['NIDN']?></b></td>
+														</tr>
+														<tr>
+															<td><b>NIP</b></td>
+															<td><b>: <?=$Profil['NIP']?></b></td>
+														</tr>
+														<tr>
+															<td><b>Pangkat/Gol</b></td>
+															<td><b>: <?=$Profil['Pangkat'].'/'.$Profil['Golongan']?></b></td>
+														</tr>
+														<tr>
+															<td><b>Jabatan</b></td>
+															<td><b>: <?=$Profil['Jabatan']?></b></td>
 														</tr>
 													</table>
 												</div>
@@ -47,29 +55,67 @@
 												<div class="col-sm-auto my-2 ">
 													<table class="table-responsive">
 														<tr>
-															<td><b>NIP</b></td>
-															<td><input type="text" id="EditNIP" class="form-control form-control-sm" value="<?=$Profil['NIP']?>"></td>
-														</tr>
-														<tr>
 															<td><b>Nama</b></td>
-															<td><input type="text" id="EditNama" class="form-control form-control-sm" value="<?=$Profil['Nama']?>"></td>
+															<td><input type="text" id="Nama" class="form-control form-control-sm" value="<?=$Profil['Nama']?>"></td>
 														</tr>
 														<tr>
-															<td><b>Pangkat</b></td>
-															<?php 
-																$Jenis = explode("/",$Profil['Pangkat']);
-															?>
+															<td><b>NIDN</b></td>
+															<td><input type="text" id="NIDN" class="form-control form-control-sm" value="<?=$Profil['NIDN']?>"></td>
+														</tr>
+														<tr>
+															<td><b>NIP</b></td>
+															<td><input type="text" id="NIP" class="form-control form-control-sm" value="<?=$Profil['NIP']?>"></td>
+														</tr>
+														<tr>
+															<td><b>Golongan</b></td>
 															<td>
-																<select class="custom-select" id="EditPangkat">
-																	<option value="Asisten Ahli/Penata Muda/IIIa" <?php if ($Profil['Golongan'] == 'IIIa') { echo 'selected';} ?>>IIIa</option>
-																	<option value="Asisten Ahli/Penata Muda Tk. I/IIIb" <?php if ($Profil['Golongan'] == 'IIIb') { echo 'selected';} ?>>IIIb</option>
-																	<option value="Lektor/Penata/IIIc" <?php if ($Profil['Golongan'] == 'IIIc') { echo 'selected';} ?>>IIIc</option>
-																	<option value="Lektor/Penata Tk. I/IIId" <?php if ($Profil['Golongan'] == 'IIId') { echo 'selected';} ?>>IIId</option>
-																	<option value="Lektor Kepala/Pembina/IVa" <?php if ($Profil['Golongan'] == 'IVa') { echo 'selected';} ?>>IVa</option>
-																	<option value="Lektor Kepala/Pembina Tk. I/IVb" <?php if ($Profil['Golongan'] == 'IVb') { echo 'selected';} ?>>IVb</option>
-																	<option value="Lektor Kepala/Pembina Utama Muda/IVc" <?php if ($Profil['Golongan'] == 'IVc') { echo 'selected';} ?>>IVc</option>
-																	<option value="Profesor/Pembina Utama Madya/IVd" <?php if ($Profil['Golongan'] == 'IVd') { echo 'selected';} ?>>IVd</option>
-																	<option value="Profesor/Pembina Utama/IVe" <?php if ($Profil['Golongan'] == 'IVe') { echo 'selected';} ?>>IVe</option>
+																<select class="custom-select" id="Golongan">
+																	<option value="Penata Muda/IIIa" <?php if ($Profil['Golongan'] == 'IIIa') {
+																		echo 'selected';
+																	}?>>IIIa</option>
+																	<option value="Penata Muda Tk. I/IIIb" <?php if ($Profil['Golongan'] == 'IIIb') {
+																		echo 'selected';
+																	}?>>IIIb</option>
+																	<option value="Penata/IIIc" <?php if ($Profil['Golongan'] == 'IIIc') {
+																		echo 'selected';
+																	}?>>IIIc</option>
+																	<option value="Penata Tk. I/IIId" <?php if ($Profil['Golongan'] == 'IIId') {
+																		echo 'selected';
+																	}?>>IIId</option>
+																	<option value="Pembina/IVa" <?php if ($Profil['Golongan'] == 'IVa') {
+																		echo 'selected';
+																	}?>>IVa</option>
+																	<option value="Pembina Tk. I/IVb" <?php if ($Profil['Golongan'] == 'IVb') {
+																		echo 'selected';
+																	}?>>IVb</option>
+																	<option value="Pembina Utama Muda/IVc" <?php if ($Profil['Golongan'] == 'IVc') {
+																		echo 'selected';
+																	}?>>IVc</option>
+																	<option value="Pembina Utama Madya/IVd" <?php if ($Profil['Golongan'] == 'IVd') {
+																		echo 'selected';
+																	}?>>IVd</option>
+																	<option value="Pembina Utama/IVe" <?php if ($Profil['Golongan'] == 'IVe') {
+																		echo 'selected';
+																	}?>>IVe</option>
+																</select>
+															</td>
+														</tr>
+														<tr>
+															<td><b>Jabatan</b></td>
+															<td>
+																<select class="custom-select" id="Jabatan">
+																	<option value="Asisten Ahli" <?php if ($Profil['Jabatan'] == 'Asisten Ahli') {
+																		echo 'selected';
+																	}?>>Asisten Ahli</option>
+																	<option value="Lektor" <?php if ($Profil['Jabatan'] == 'Lektor') {
+																		echo 'selected';
+																	}?>>Lektor</option>
+																	<option value="Lektor Kepala" <?php if ($Profil['Jabatan'] == 'Lektor Kepala') {
+																		echo 'selected';
+																	}?>>Lektor Kepala</option>
+																	<option value="Profesor" <?php if ($Profil['Jabatan'] == 'Profesor') {
+																		echo 'selected';
+																	}?>>Profesor</option>
 																</select>
 															</td>
 														</tr>
@@ -97,15 +143,19 @@
 				"use strict";
 				var BaseURL = '<?=base_url()?>';
 				$("#EditProfil").click(function() {
-					var Data = { NIP: $("#EditNIP").val(),
-											 Nama: $("#EditNama").val(),
-											 Pangkat: $("#EditPangkat").val() }
+					var Pangkat = $("#Golongan").val().split("/") 
+					var Data = {NIP: $("#NIP").val(),
+											NIDN: $("#NIDN").val(),
+											Nama: $("#Nama").val(),
+											Pangkat: Pangkat[0],
+											Golongan: Pangkat[1],
+											Jabatan: $("#Jabatan").val() }
 					$.post(BaseURL+"Dashboard/EditProfil", Data).done(function(Respon) {
 						if (Respon == '1') {
 							window.location = BaseURL + "Dashboard/Profil"
 						}
 						else {
-							alert('Gagal Menyimpan!')
+							alert(Respon)
 						}
 					})
           return false

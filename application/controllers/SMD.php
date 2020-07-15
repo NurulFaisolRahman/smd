@@ -34,20 +34,19 @@ class SMD extends CI_Controller {
 
 	public function Daftar(){
 		if($this->db->get_where('Dosen', array('NIP' => $_POST['NIP']))->num_rows() === 0){
-			$Pecah = explode('/',$_POST['Pangkat']);
 			$this->db->insert('Dosen',
 						array('NIP' => $_POST['NIP'], 
+									'NIDN' => $_POST['NIDN'],
 									'Nama' => $_POST['Nama'],
-									'Jabatan' => $Pecah[0],
-									'Pangkat' => $Pecah[1],
-									'Golongan' => $Pecah[2]));
+									'Jabatan' => $_POST['Jabatan'],
+									'Pangkat' => $_POST['Pangkat'],
+									'Golongan' => $_POST['Golongan']));
 			$this->db->insert('Akun',
 						array('NIP' => $_POST['NIP'],
 									'Password' => password_hash($_POST['Password'], PASSWORD_DEFAULT)));
 			$Session = array('Login' => true, 
 											 'NIP' => $_POST['NIP'], 
-											 'Jabatan' => $Pecah[0],
-											 'Pendidikan' => 'PND1');
+											 'Jabatan' => $_POST['Jabatan']);
 			$this->session->set_userdata($Session);	
 			echo '1';
 		} else{
