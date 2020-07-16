@@ -30,6 +30,7 @@ class Dashboard extends CI_Controller {
 													'Golongan' => $_POST['Golongan']));
 		if ($this->db->affected_rows()) {
 			$this->session->set_userdata('NIP', $_POST['NIP']);
+			$this->session->set_userdata('Jabatan', $_POST['Jabatan']);
 			echo '1';
 		} else {
 			echo 'Gagal Update Data';
