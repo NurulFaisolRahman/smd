@@ -49,4 +49,8 @@ class Dashboard extends CI_Controller {
 	public function LihatPendidikan(){
 		$this->session->set_userdata('Pendidikan', $_POST['ID']);
 	}
+
+	public function SubPendidikan(){
+		$this->session->set_userdata('SubPendidikan', $_POST['SubPendidikan']);
+	}
 }

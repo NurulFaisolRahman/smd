@@ -23,7 +23,8 @@ class SMD extends CI_Controller {
 				$Session = array('Login' => true, 
 												 'NIP' => $_POST['NIP'], 
 												 'Jabatan' => $Jabatan[0]['Jabatan'],
-												 'Pendidikan' => 'PND1');
+												 'Pendidikan' => 'PND1',
+												 'SubPendidikan' => 'Rencana');
 				$this->session->set_userdata($Session);
 				echo '1';
 			} else {
@@ -46,7 +47,9 @@ class SMD extends CI_Controller {
 									'Password' => password_hash($_POST['Password'], PASSWORD_DEFAULT)));
 			$Session = array('Login' => true, 
 											 'NIP' => $_POST['NIP'], 
-											 'Jabatan' => $_POST['Jabatan']);
+											 'Jabatan' => $_POST['Jabatan'],
+											 'Pendidikan' => 'PND1',
+											 'SubPendidikan' => 'Rencana');
 			$this->session->set_userdata($Session);	
 			echo '1';
 		} else{
