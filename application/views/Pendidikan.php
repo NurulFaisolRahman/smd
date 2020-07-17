@@ -37,6 +37,17 @@
 			jQuery(document).ready(function($) {
 				"use strict";
 				var BaseURL = '<?=base_url()?>';
+				$('#TabelRencana').DataTable( {
+					dom:'lfrtip',
+					"lengthMenu": [ 5, 10, 20, 30 ],
+					"language": {
+						"paginate": {
+							'previous': '<b class="text-primary"><</b>',
+							'next': '<b class="text-primary">></b>'
+						}
+					}
+				});
+
 				$('#TabelRealisasi').DataTable( {
 					dom:'lfrtip',
 					"lengthMenu": [ 5, 10, 20, 30 ],
@@ -68,6 +79,56 @@
 					$.post(BaseURL+"Dashboard/LihatPendidikan", Data).done(function(Respon) {
 						window.location = BaseURL + "Dashboard/Pendidikan"
 					})
+				})
+
+				$("#TombolTotalKredit").click(function() {
+					var KreditSekolah = parseFloat(document.getElementById('KreditSekolah').innerHTML)
+					var KreditDiklat = parseFloat(document.getElementById('KreditDiklat').innerHTML)
+					var KreditMengajar = parseFloat(document.getElementById('KreditMengajar').innerHTML)
+					var KreditBimbingSeminar = parseFloat(document.getElementById('KreditBimbingSeminar').innerHTML)
+					var KreditBimbingKKN = parseFloat(document.getElementById('KreditBimbingKKN').innerHTML)
+					var KreditDisertasiUtama = parseFloat(document.getElementById('KreditDisertasiUtama').innerHTML)
+					var KreditTesisUtama = parseFloat(document.getElementById('KreditTesisUtama').innerHTML)
+					var KreditSkripsiUtama = parseFloat(document.getElementById('KreditSkripsiUtama').innerHTML)
+					var KreditTAUtama = parseFloat(document.getElementById('KreditTAUtama').innerHTML)
+					var KreditDisertasiPendamping = parseFloat(document.getElementById('KreditDisertasiPendamping').innerHTML)
+					var KreditTesisPendamping = parseFloat(document.getElementById('KreditTesisPendamping').innerHTML)
+					var KreditSkripsiPendamping = parseFloat(document.getElementById('KreditSkripsiPendamping').innerHTML)
+					var KreditTAPendamping = parseFloat(document.getElementById('KreditTAPendamping').innerHTML)
+					var KreditPengujiUtama = parseFloat(document.getElementById('KreditPengujiUtama').innerHTML)
+					var KreditAnggotaPenguji = parseFloat(document.getElementById('KreditAnggotaPenguji').innerHTML)
+					var KreditMembinaKegiatan = parseFloat(document.getElementById('KreditMembinaKegiatan').innerHTML)
+					var KreditMengembangkanProgram = parseFloat(document.getElementById('KreditMengembangkanProgram').innerHTML)
+					var KreditBukuAjar = parseFloat(document.getElementById('KreditBukuAjar').innerHTML)
+					var KreditProdukPengajaran = parseFloat(document.getElementById('KreditProdukPengajaran').innerHTML)
+					var KreditOrasi = parseFloat(document.getElementById('KreditOrasi').innerHTML)
+					var KreditRektor = parseFloat(document.getElementById('KreditRektor').innerHTML)
+					var KreditWakilRektor = parseFloat(document.getElementById('KreditWakilRektor').innerHTML)
+					var KreditKetua = parseFloat(document.getElementById('KreditKetua').innerHTML)
+					var KreditPembantuKetua = parseFloat(document.getElementById('KreditPembantuKetua').innerHTML)
+					var KreditDirekturAkademi = parseFloat(document.getElementById('KreditDirekturAkademi').innerHTML)
+					var KreditPembantuDirekturPoliteknik = parseFloat(document.getElementById('KreditPembantuDirekturPoliteknik').innerHTML)
+					var KreditPembantuDirekturAkademi = parseFloat(document.getElementById('KreditPembantuDirekturAkademi').innerHTML)
+					var KreditSekretaris = parseFloat(document.getElementById('KreditSekretaris').innerHTML)
+					var CekJabatan = '<?=$this->session->userdata('Jabatan')?>'
+					var KreditPembimbingPencangkokan = 0
+					var KreditPembimbingReguler = 0
+					var KreditDetasering = 0
+					var KreditPencangkokan = 0
+					if (CekJabatan == 'Lektor Kepala' || CekJabatan == 'Profesor') {
+						KreditPembimbingPencangkokan = parseFloat(document.getElementById('KreditPembimbingPencangkokan').innerHTML)
+						KreditPembimbingReguler = parseFloat(document.getElementById('KreditPembimbingReguler').innerHTML)
+						KreditDetasering = parseFloat(document.getElementById('KreditDetasering').innerHTML)
+						KreditPencangkokan = parseFloat(document.getElementById('KreditPencangkokan').innerHTML)	
+					}
+					var KreditPengembangan960 = parseFloat(document.getElementById('KreditPengembangan960').innerHTML)
+					var KreditPengembangan641 = parseFloat(document.getElementById('KreditPengembangan641').innerHTML)
+					var KreditPengembangan481 = parseFloat(document.getElementById('KreditPengembangan481').innerHTML)
+					var KreditPengembangan161 = parseFloat(document.getElementById('KreditPengembangan161').innerHTML)
+					var KreditPengembangan81 = parseFloat(document.getElementById('KreditPengembangan81').innerHTML)
+					var KreditPengembangan30 = parseFloat(document.getElementById('KreditPengembangan30').innerHTML)
+					var KreditPengembangan10 = parseFloat(document.getElementById('KreditPengembangan10').innerHTML)
+					document.getElementById('TotalKredit').innerHTML = KreditSekolah + KreditDiklat + KreditMengajar + KreditBimbingSeminar + KreditBimbingKKN + KreditDisertasiUtama + KreditTesisUtama + KreditSkripsiUtama + KreditTAUtama + KreditDisertasiPendamping + KreditTesisPendamping + KreditSkripsiPendamping + KreditTAPendamping + KreditPengujiUtama + KreditAnggotaPenguji + KreditMembinaKegiatan + KreditMengembangkanProgram + KreditBukuAjar + KreditProdukPengajaran + KreditOrasi + KreditRektor + KreditWakilRektor + KreditKetua + KreditPembantuKetua + KreditDirekturAkademi + KreditPembantuDirekturPoliteknik + KreditPembantuDirekturAkademi + KreditSekretaris + KreditPembimbingPencangkokan + KreditPembimbingReguler + KreditDetasering + KreditPencangkokan + KreditPengembangan960 + KreditPengembangan641 + KreditPengembangan481 + KreditPengembangan161 + KreditPengembangan81 + KreditPengembangan30
 				})
 
 				$(document).on("click",".Edit",function(){
@@ -274,11 +335,10 @@
 				if (document.getElementById("Doktor").checked){
 					document.getElementById('KreditSekolah').innerHTML = 200
 					document.getElementById("Magister").disabled = true
-					document.getElementById("TotalKredit").innerHTML = parseInt(document.getElementById("TotalKredit").innerHTML)+200
+					KreditSekolah = 200
 				} else {
 					document.getElementById('KreditSekolah').innerHTML = 0
 					document.getElementById("Magister").disabled = false
-					document.getElementById("TotalKredit").innerHTML = parseInt(document.getElementById("TotalKredit").innerHTML)-200
 				}
 			}
 
@@ -286,21 +346,17 @@
 				if (document.getElementById("Magister").checked){
 					document.getElementById('KreditSekolah').innerHTML = 150
 					document.getElementById("Doktor").disabled = true
-					document.getElementById("TotalKredit").innerHTML = parseInt(document.getElementById("TotalKredit").innerHTML)+150
 				} else {
 					document.getElementById('KreditSekolah').innerHTML = 0
 					document.getElementById("Doktor").disabled = false
-					document.getElementById("TotalKredit").innerHTML = parseInt(document.getElementById("TotalKredit").innerHTML)-150
 				}
 			}
 
 			function Diklat() {
 				if (document.getElementById("Diklat").checked){
 					document.getElementById('KreditDiklat').innerHTML = 3
-					document.getElementById("TotalKredit").innerHTML = parseInt(document.getElementById("TotalKredit").innerHTML)+3
 				} else {
 					document.getElementById('KreditDiklat').innerHTML = 0
-					document.getElementById("TotalKredit").innerHTML = parseInt(document.getElementById("TotalKredit").innerHTML)-3
 				}
 			}
 
@@ -309,42 +365,36 @@
 				if (jabatan != 'Asisten Ahli'){
 					if (parseInt($('#Mengajar').val()) <= 10) {
 						document.getElementById('KreditMengajar').innerHTML = parseInt($('#Mengajar').val())
-						document.getElementById("TotalKredit").innerHTML = parseInt(document.getElementById("TotalKredit").innerHTML)+parseInt($('#Mengajar').val())
 					} else if(parseInt($('#Mengajar').val()) > 10){
-						document.getElementById('KreditMengajar').innerHTML = 10+(0.5*(parseInt($('#Mengajar').val())-10))
-						document.getElementById("TotalKredit").innerHTML = parseInt(document.getElementById("TotalKredit").innerHTML)+10+(0.5*(parseInt($('#Mengajar').val())-10))
+						document.getElementById('KreditMengajar').innerHTML = 10+(0.5*(parseInt($('#Mengajar').val())-10))						
 					} else {
-						document.getElementById("TotalKredit").innerHTML = parseInt(document.getElementById("TotalKredit").innerHTML)-parseInt(document.getElementById('KreditMengajar').innerHTML)
 						document.getElementById('KreditMengajar').innerHTML = 0
 					}
 				} 
 				else {
 					if (parseInt($('#Mengajar').val()) <= 10) {
 						document.getElementById('KreditMengajar').innerHTML = parseInt($('#Mengajar').val())*0.5
-						document.getElementById("TotalKredit").innerHTML = parseInt(document.getElementById("TotalKredit").innerHTML)+parseInt($('#Mengajar').val())*0.5
 					} else if(parseInt($('#Mengajar').val()) > 10){
 						document.getElementById('KreditMengajar').innerHTML = 10+(0.25*(parseInt($('#Mengajar').val())-10))
-						document.getElementById("TotalKredit").innerHTML = parseInt(document.getElementById("TotalKredit").innerHTML)+10+(0.25*(parseInt($('#Mengajar').val())-10))
 					} else {
-						document.getElementById("TotalKredit").innerHTML = parseInt(document.getElementById("TotalKredit").innerHTML)-parseInt(document.getElementById('KreditMengajar').innerHTML)
 						document.getElementById('KreditMengajar').innerHTML = 0
 					}
 				}
 			}
 
 			function BimbingSeminar() {
-				if (isNaN(parseInt($('#BimbingSeminar').val()))) {
-					document.getElementById('KreditBimbingSeminar').innerHTML = 0
+				if (document.getElementById("BimbingSeminar").checked){
+					document.getElementById('KreditBimbingSeminar').innerHTML = 1
 				} else {
-					document.getElementById('KreditBimbingSeminar').innerHTML = parseInt($('#BimbingSeminar').val())	
+					document.getElementById('KreditBimbingSeminar').innerHTML = 0
 				}
 			}
 
 			function BimbingKKN() {
-				if (isNaN(parseInt($('#BimbingKKN').val()))) {
-					document.getElementById('KreditBimbingKKN').innerHTML = 0
+				if (document.getElementById("BimbingKKN").checked){
+					document.getElementById('KreditBimbingKKN').innerHTML = 1
 				} else {
-					document.getElementById('KreditBimbingKKN').innerHTML = parseInt($('#BimbingKKN').val())	
+					document.getElementById('KreditBimbingKKN').innerHTML = 0
 				}
 			}
 
@@ -508,14 +558,6 @@
 				}
 			}
 
-			function TAUtama() {
-				if (isNaN(parseInt($('#TAUtama').val()))) {
-					document.getElementById('KreditTAUtama').innerHTML = 0
-				} else {
-					document.getElementById('KreditTAUtama').innerHTML = parseInt($('#TAUtama').val())*0.1
-				}
-			}
-
 			function DisertasiPendamping() {
 				if (isNaN(parseInt($('#DisertasiPendamping').val()))) {
 					document.getElementById('KreditDisertasiPendamping').innerHTML = 0
@@ -537,14 +579,6 @@
 					document.getElementById('KreditSkripsiPendamping').innerHTML = 0
 				} else {
 					document.getElementById('KreditSkripsiPendamping').innerHTML = parseInt($('#SkripsiPendamping').val())*0.0625
-				}
-			}
-
-			function TAPendamping() {
-				if (isNaN(parseInt($('#TAPendamping').val()))) {
-					document.getElementById('KreditTAPendamping').innerHTML = 0
-				} else {
-					document.getElementById('KreditTAPendamping').innerHTML = parseInt($('#TAPendamping').val())*0.05
 				}
 			}
 

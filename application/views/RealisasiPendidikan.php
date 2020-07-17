@@ -52,7 +52,7 @@
         </tr>
       </thead>
       <tbody>
-      <?php $No = 1; foreach ($Pendidikan as $key) { ?>
+      <?php $No = 1; foreach ($Realisasi as $key) { ?>
           <tr>	
             <td class="text-center align-middle"><?=$No++?></td>
             <td class="align-middle"><?=$key['Kegiatan']?></td>
@@ -78,7 +78,7 @@
       <div class="modal-body">
         <div class="input-group mb-1">
           <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Kegiatan</b></i></span>
+            <span class="input-group-text bg-primary"><b>Kegiatan</b></span>
           </div>
           <select class="custom-select" id="JenisKegiatan" onchange="GantiKegiatan()">
           <?php $Id = 1; foreach ($Kegiatan as $key) { ?>
@@ -89,7 +89,7 @@
         <div id="OpsiPND1">
           <div class="input-group mb-1">
             <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenjang</b></i></span>
+              <span class="input-group-text bg-primary"><b>Jenjang</b></span>
             </div>
             <select class="custom-select" id="Jenjang">
               <option value="200">Doktor/Sederajat</option>
@@ -100,7 +100,7 @@
         <div id="OpsiPND6" style="display: none;">
           <div class="input-group mb-1">
             <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis Pembimbing</b></i></span>
+              <span class="input-group-text bg-primary"><b>Jenis Pembimbing</b></span>
             </div>
             <select class="custom-select" id="JenisPembimbing">
               <option value="1">Pembimbing Utama</option>
@@ -109,7 +109,7 @@
           </div>
           <div class="input-group mb-1">
             <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis Bimbingan</b></i></span>
+              <span class="input-group-text bg-primary"><b>Jenis Bimbingan</b></span>
             </div>
             <select class="custom-select" id="JenisBimbingan">
               <option value="1">Disertasi</option>
@@ -122,7 +122,7 @@
         <div id="OpsiPND7" style="display: none;">
           <div class="input-group mb-1">
             <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis</b></i></span>
+              <span class="input-group-text bg-primary"><b>Jenis</b></span>
             </div>
             <select class="custom-select" id="JenisPenguji">
               <option value="1">Ketua Penguji</option>
@@ -133,7 +133,7 @@
         <div id="OpsiPND10" style="display: none;">
           <div class="input-group mb-1">
             <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis</b></i></span>
+              <span class="input-group-text bg-primary"><b>Jenis</b></span>
             </div>
             <select class="custom-select" id="BahanPengajaran">
               <option value="1">Buku ajar</option>
@@ -144,7 +144,7 @@
         <div id="OpsiPND12" style="display: none;">
           <div class="input-group mb-1">
             <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jabatan</b></i></span>
+              <span class="input-group-text bg-primary"><b>Jabatan</b></span>
             </div>
             <select class="custom-select" id="JenisPND12">
               <option value="6">Rektor</option>
@@ -161,7 +161,7 @@
         <div id="OpsiPND13" style="display: none;">
           <div class="input-group mb-1">
             <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis</b></i></span>
+              <span class="input-group-text bg-primary"><b>Jenis</b></span>
             </div>
             <select class="custom-select" id="JenisPND13">
               <option value="1">Pembimbing pencangkokan</option>
@@ -172,7 +172,7 @@
         <div id="OpsiPND14" style="display: none;">
           <div class="input-group mb-1">
             <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis</b></i></span>
+              <span class="input-group-text bg-primary"><b>Jenis</b></span>
             </div>
             <select class="custom-select" id="JenisPND14">
               <option value="1">Detasering</option>
@@ -183,7 +183,7 @@
         <div id="OpsiPND15" style="display: none;">
           <div class="input-group mb-1">
             <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Rentang</b></i></span>
+              <span class="input-group-text bg-primary"><b>Rentang</b></span>
             </div>
             <select class="custom-select" id="JenisPND15">
               <option value="15">Lamanya lebih dari 960 jam</option>
@@ -197,24 +197,24 @@
           </div>
         </div>
         <div class="input-group mb-1">
-          <span class="input-group-text bg-primary"><b>Uraian</b></i></span>
+          <span class="input-group-text bg-primary"><b>Uraian</b></span>
           <textarea class="form-control" id="Uraian" rows="2"></textarea>
         </div>
         <div class="input-group mb-1">
           <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Tanggal</b></i></span>
+            <span class="input-group-text bg-primary"><b>Tanggal</b></span>
           </div>
           <input class="form-control" type="text" id="Tanggal">
         </div>
         <div class="input-group mb-1">
           <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Jumlah Volume Kegiatan</b></i></span>
+            <span class="input-group-text bg-primary"><b>Jumlah Volume Kegiatan</b></span>
           </div>
           <input class="form-control" type="text" id="Volume">
         </div>
         <div class="input-group mb-1">
           <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Bukti</b></i></span>
+            <span class="input-group-text bg-primary"><b>Bukti</b></span>
           </div>
           <input class="form-control" type="file" id="Bukti" multiple>
         </div>
@@ -231,26 +231,26 @@
     <div class="modal-content bg-warning">
       <div class="modal-body">
         <div class="input-group mb-1">
-          <span class="input-group-text bg-primary"><b>Uraian</b></i></span>
+          <span class="input-group-text bg-primary"><b>Uraian</b></span>
           <input class="form-control" type="hidden" id="No">
           <input class="form-control" type="hidden" id="ID">
           <textarea class="form-control" id="EditUraian" rows="2"></textarea>
         </div>
         <div class="input-group mb-1">
           <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Tanggal</b></i></span>
+            <span class="input-group-text bg-primary"><b>Tanggal</b></span>
           </div>
           <input class="form-control" type="text" id="EditTanggal">
         </div>
         <div class="input-group mb-1">
           <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Jumlah Volume Kegiatan</b></i></span>
+            <span class="input-group-text bg-primary"><b>Jumlah Volume Kegiatan</b></span>
           </div>
           <input class="form-control" type="text" id="EditVolume">
         </div>
         <div class="input-group mb-1">
           <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Bukti</b></i></span>
+            <span class="input-group-text bg-primary"><b>Bukti</b></span>
           </div>
           <input class="form-control" type="file" id="EditBukti">
         </div>
