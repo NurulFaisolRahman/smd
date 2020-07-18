@@ -74,6 +74,111 @@
 					})
 				})
 
+				$("#InputRencanaPendidikan").click(function() {
+					var Sekolah = parseFloat(document.getElementById('KreditSekolah').innerHTML)
+					var Diklat = parseFloat(document.getElementById('KreditDiklat').innerHTML)
+					var Mengajar = parseFloat(document.getElementById('KreditMengajar').innerHTML)
+					var BimbingSeminar = parseFloat(document.getElementById('KreditBimbingSeminar').innerHTML)
+					var BimbingKKN = parseFloat(document.getElementById('KreditBimbingKKN').innerHTML)
+					var DisertasiUtama = parseFloat(document.getElementById('KreditDisertasiUtama').innerHTML)
+					var TesisUtama = parseFloat(document.getElementById('KreditTesisUtama').innerHTML)
+					var SkripsiUtama = parseFloat(document.getElementById('KreditSkripsiUtama').innerHTML)
+					var DisertasiPendamping = parseFloat(document.getElementById('KreditDisertasiPendamping').innerHTML)
+					var TesisPendamping = parseFloat(document.getElementById('KreditTesisPendamping').innerHTML)
+					var SkripsiPendamping = parseFloat(document.getElementById('KreditSkripsiPendamping').innerHTML)
+					var PengujiUtama = parseFloat(document.getElementById('KreditPengujiUtama').innerHTML)
+					var AnggotaPenguji = parseFloat(document.getElementById('KreditAnggotaPenguji').innerHTML)
+					var MembinaKegiatan = parseFloat(document.getElementById('KreditMembinaKegiatan').innerHTML)
+					var MengembangkanProgram = parseFloat(document.getElementById('KreditMengembangkanProgram').innerHTML)
+					var BukuAjar = parseFloat(document.getElementById('KreditBukuAjar').innerHTML)
+					var ProdukPengajaran = parseFloat(document.getElementById('KreditProdukPengajaran').innerHTML)
+					var Orasi = parseFloat(document.getElementById('KreditOrasi').innerHTML)
+					var Rektor = parseFloat(document.getElementById('KreditRektor').innerHTML)
+					var WakilRektor = parseFloat(document.getElementById('KreditWakilRektor').innerHTML)
+					var Ketua = parseFloat(document.getElementById('KreditKetua').innerHTML)
+					var PembantuKetua = parseFloat(document.getElementById('KreditPembantuKetua').innerHTML)
+					var DirekturAkademi = parseFloat(document.getElementById('KreditDirekturAkademi').innerHTML)
+					var PembantuDirekturPoliteknik = parseFloat(document.getElementById('KreditPembantuDirekturPoliteknik').innerHTML)
+					var PembantuDirekturAkademi = parseFloat(document.getElementById('KreditPembantuDirekturAkademi').innerHTML)
+					var Sekretaris = parseFloat(document.getElementById('KreditSekretaris').innerHTML)
+					var PembimbingPencangkokan = 0
+					var PembimbingReguler = 0
+					var Detasering = 0
+					var Pencangkokan = 0
+					var CekJabatan = '<?=$this->session->userdata('Jabatan')?>'
+					if (CekJabatan == 'Lektor Kepala' || CekJabatan == 'Profesor') {
+						PembimbingPencangkokan = parseFloat(document.getElementById('KreditPembimbingPencangkokan').innerHTML)
+						PembimbingReguler = parseFloat(document.getElementById('KreditPembimbingReguler').innerHTML)
+						Detasering = parseFloat(document.getElementById('KreditDetasering').innerHTML)
+						Pencangkokan = parseFloat(document.getElementById('KreditPencangkokan').innerHTML)	
+					}
+					var Pengembangan960 = parseFloat(document.getElementById('KreditPengembangan960').innerHTML)
+					var Pengembangan641 = parseFloat(document.getElementById('KreditPengembangan641').innerHTML)
+					var Pengembangan481 = parseFloat(document.getElementById('KreditPengembangan481').innerHTML)
+					var Pengembangan161 = parseFloat(document.getElementById('KreditPengembangan161').innerHTML)
+					var Pengembangan81 = parseFloat(document.getElementById('KreditPengembangan81').innerHTML)
+					var Pengembangan30 = parseFloat(document.getElementById('KreditPengembangan30').innerHTML)
+					var Pengembangan10 = parseFloat(document.getElementById('KreditPengembangan10').innerHTML)
+					var TotalKreditRencana = Sekolah + Diklat + Mengajar + BimbingSeminar + BimbingKKN + DisertasiUtama + TesisUtama + SkripsiUtama + DisertasiPendamping + TesisPendamping + SkripsiPendamping + PengujiUtama + AnggotaPenguji + MembinaKegiatan + MengembangkanProgram + BukuAjar + ProdukPengajaran + Orasi + Rektor + WakilRektor + Ketua + PembantuKetua + DirekturAkademi + PembantuDirekturPoliteknik + PembantuDirekturAkademi + Sekretaris + PembimbingPencangkokan + PembimbingReguler + Detasering + Pencangkokan + Pengembangan960 + Pengembangan641 + Pengembangan481 + Pengembangan161 + Pengembangan81 + Pengembangan30 + Pengembangan10
+					var KodeSekolah = 0
+					var KodeDiklat = 0
+					if (document.getElementById("Doktor").checked){
+						var KodeSekolah = 1
+					} 
+					if (document.getElementById("Magister").checked){
+						var KodeSekolah = 2
+					}
+					if (document.getElementById("Diklat").checked){
+						var KodeDiklat = 1
+					}
+					var KodeRencana = ''+KodeSekolah+'|'+KodeDiklat+'|'+($('#Mengajar').val() == ""? 0 : parseInt($('#Mengajar').val()))
+														+'|'+(document.getElementById("BimbingSeminar").checked ? 1 : 0)
+														+'|'+(document.getElementById("BimbingKKN").checked ? 1 : 0)
+														+'|'+($('#DisertasiUtama').val() == ""? 0 : parseInt($('#DisertasiUtama').val()))
+														+'|'+($('#TesisUtama').val() == ""? 0 : parseInt($('#TesisUtama').val()))
+														+'|'+($('#SkripsiUtama').val() == ""? 0 : parseInt($('#SkripsiUtama').val()))
+														+'|'+($('#DisertasiPendamping').val() == ""? 0 : parseInt($('#DisertasiPendamping').val()))
+														+'|'+($('#TesisPendamping').val() == ""? 0 : parseInt($('#TesisPendamping').val()))
+														+'|'+($('#SkripsiPendamping').val() == ""? 0 : parseInt($('#SkripsiPendamping').val()))
+														+'|'+($('#PengujiUtama').val() == ""? 0 : parseInt($('#PengujiUtama').val()))
+														+'|'+($('#AnggotaPenguji').val() == ""? 0 : parseInt($('#AnggotaPenguji').val()))
+														+'|'+($('#MembinaKegiatan').val() == ""? 0 : parseInt($('#MembinaKegiatan').val()))
+														+'|'+($('#MengembangkanProgram').val() == ""? 0 : parseInt($('#MengembangkanProgram').val()))
+														+'|'+($('#BukuAjar').val() == ""? 0 : parseInt($('#BukuAjar').val()))
+														+'|'+($('#ProdukPengajaran').val() == ""? 0 : parseInt($('#ProdukPengajaran').val()))
+														+'|'+($('#Orasi').val() == ""? 0 : parseInt($('#Orasi').val()))
+					if (CekJabatan == 'Lektor Kepala' || CekJabatan == 'Profesor') {
+						KodeRencana = KodeRencana+'|'+(document.getElementById("PembimbingPencangkokan").checked ? 1 : 0)
+																		 +'|'+(document.getElementById("PembimbingReguler").checked ? 1 : 0)
+																		 +'|'+(document.getElementById("Detasering").checked ? 1 : 0)
+																		 +'|'+(document.getElementById("Pencangkokan").checked ? 1 : 0)
+					}
+					else {
+						KodeRencana = KodeRencana+'|'+0+'|'+0+'|'+0+'|'+0
+					}
+					KodeRencana = KodeRencana +'|'+(document.getElementById("Rektor").checked ? 1 : 0)
+														+'|'+(document.getElementById("WakilRektor").checked ? 1 : 0)
+														+'|'+(document.getElementById("Ketua").checked ? 1 : 0)
+														+'|'+(document.getElementById("PembantuKetua").checked ? 1 : 0)
+														+'|'+(document.getElementById("DirekturAkademi").checked ? 1 : 0)
+														+'|'+(document.getElementById("PembantuDirekturPoliteknik").checked ? 1 : 0)
+														+'|'+(document.getElementById("PembantuDirekturAkademi").checked ? 1 : 0)
+														+'|'+(document.getElementById("Sekretaris").checked ? 1 : 0)
+														+'|'+($('#Pengembangan960').val() == ""? 0 : parseInt($('#Pengembangan960').val()))
+														+'|'+($('#Pengembangan641').val() == ""? 0 : parseInt($('#Pengembangan641').val()))
+														+'|'+($('#Pengembangan481').val() == ""? 0 : parseInt($('#Pengembangan481').val()))
+														+'|'+($('#Pengembangan161').val() == ""? 0 : parseInt($('#Pengembangan161').val()))
+														+'|'+($('#Pengembangan81').val() == ""? 0 : parseInt($('#Pengembangan81').val()))
+														+'|'+($('#Pengembangan30').val() == ""? 0 : parseInt($('#Pengembangan30').val()))
+														+'|'+($('#Pengembangan10').val() == ""? 0 : parseInt($('#Pengembangan10').val()))
+					var DataRencanaPendidikan = {Jenjang:$("#JenjangRencanaPendidikan").val(),Semester:$("#SemesterRencanaPendidikan").val(),
+																			 Tahun:$("#TahunRencanaPendidikan").val(),Kode:KodeRencana,Total:TotalKreditRencana}
+					$.post(BaseURL+"Pendidikan/InputRencanaPendidikan", DataRencanaPendidikan).done(function(Respon) {
+						alert(Respon)
+						// window.location = BaseURL + "Dashboard/Pendidikan"
+					})
+				})
+
 				$("#LihatRealisasi").click(function() {
 					var Data = {ID: $("#OpsiKegiatan").val()}
 					$.post(BaseURL+"Dashboard/LihatPendidikan", Data).done(function(Respon) {
@@ -90,11 +195,9 @@
 					var KreditDisertasiUtama = parseFloat(document.getElementById('KreditDisertasiUtama').innerHTML)
 					var KreditTesisUtama = parseFloat(document.getElementById('KreditTesisUtama').innerHTML)
 					var KreditSkripsiUtama = parseFloat(document.getElementById('KreditSkripsiUtama').innerHTML)
-					var KreditTAUtama = parseFloat(document.getElementById('KreditTAUtama').innerHTML)
 					var KreditDisertasiPendamping = parseFloat(document.getElementById('KreditDisertasiPendamping').innerHTML)
 					var KreditTesisPendamping = parseFloat(document.getElementById('KreditTesisPendamping').innerHTML)
 					var KreditSkripsiPendamping = parseFloat(document.getElementById('KreditSkripsiPendamping').innerHTML)
-					var KreditTAPendamping = parseFloat(document.getElementById('KreditTAPendamping').innerHTML)
 					var KreditPengujiUtama = parseFloat(document.getElementById('KreditPengujiUtama').innerHTML)
 					var KreditAnggotaPenguji = parseFloat(document.getElementById('KreditAnggotaPenguji').innerHTML)
 					var KreditMembinaKegiatan = parseFloat(document.getElementById('KreditMembinaKegiatan').innerHTML)
@@ -110,11 +213,11 @@
 					var KreditPembantuDirekturPoliteknik = parseFloat(document.getElementById('KreditPembantuDirekturPoliteknik').innerHTML)
 					var KreditPembantuDirekturAkademi = parseFloat(document.getElementById('KreditPembantuDirekturAkademi').innerHTML)
 					var KreditSekretaris = parseFloat(document.getElementById('KreditSekretaris').innerHTML)
-					var CekJabatan = '<?=$this->session->userdata('Jabatan')?>'
 					var KreditPembimbingPencangkokan = 0
 					var KreditPembimbingReguler = 0
 					var KreditDetasering = 0
 					var KreditPencangkokan = 0
+					var CekJabatan = '<?=$this->session->userdata('Jabatan')?>'
 					if (CekJabatan == 'Lektor Kepala' || CekJabatan == 'Profesor') {
 						KreditPembimbingPencangkokan = parseFloat(document.getElementById('KreditPembimbingPencangkokan').innerHTML)
 						KreditPembimbingReguler = parseFloat(document.getElementById('KreditPembimbingReguler').innerHTML)
@@ -128,7 +231,7 @@
 					var KreditPengembangan81 = parseFloat(document.getElementById('KreditPengembangan81').innerHTML)
 					var KreditPengembangan30 = parseFloat(document.getElementById('KreditPengembangan30').innerHTML)
 					var KreditPengembangan10 = parseFloat(document.getElementById('KreditPengembangan10').innerHTML)
-					document.getElementById('TotalKredit').innerHTML = KreditSekolah + KreditDiklat + KreditMengajar + KreditBimbingSeminar + KreditBimbingKKN + KreditDisertasiUtama + KreditTesisUtama + KreditSkripsiUtama + KreditTAUtama + KreditDisertasiPendamping + KreditTesisPendamping + KreditSkripsiPendamping + KreditTAPendamping + KreditPengujiUtama + KreditAnggotaPenguji + KreditMembinaKegiatan + KreditMengembangkanProgram + KreditBukuAjar + KreditProdukPengajaran + KreditOrasi + KreditRektor + KreditWakilRektor + KreditKetua + KreditPembantuKetua + KreditDirekturAkademi + KreditPembantuDirekturPoliteknik + KreditPembantuDirekturAkademi + KreditSekretaris + KreditPembimbingPencangkokan + KreditPembimbingReguler + KreditDetasering + KreditPencangkokan + KreditPengembangan960 + KreditPengembangan641 + KreditPengembangan481 + KreditPengembangan161 + KreditPengembangan81 + KreditPengembangan30
+					document.getElementById('TotalKredit').innerHTML = KreditSekolah + KreditDiklat + KreditMengajar + KreditBimbingSeminar + KreditBimbingKKN + KreditDisertasiUtama + KreditTesisUtama + KreditSkripsiUtama + KreditDisertasiPendamping + KreditTesisPendamping + KreditSkripsiPendamping + KreditPengujiUtama + KreditAnggotaPenguji + KreditMembinaKegiatan + KreditMengembangkanProgram + KreditBukuAjar + KreditProdukPengajaran + KreditOrasi + KreditRektor + KreditWakilRektor + KreditKetua + KreditPembantuKetua + KreditDirekturAkademi + KreditPembantuDirekturPoliteknik + KreditPembantuDirekturAkademi + KreditSekretaris + KreditPembimbingPencangkokan + KreditPembimbingReguler + KreditDetasering + KreditPencangkokan + KreditPengembangan960 + KreditPengembangan641 + KreditPengembangan481 + KreditPengembangan161 + KreditPengembangan81 + KreditPengembangan30 + KreditPengembangan10
 				})
 
 				$(document).on("click",".Edit",function(){
@@ -531,6 +634,14 @@
 					document.getElementById('KreditPengembangan30').innerHTML = 0
 				} else {
 					document.getElementById('KreditPengembangan30').innerHTML = parseInt($('#Pengembangan30').val())*1
+				}
+			}
+
+			function Pengembangan10() {
+				if (isNaN(parseInt($('#Pengembangan10').val()))) {
+					document.getElementById('KreditPengembangan10').innerHTML = 0
+				} else {
+					document.getElementById('KreditPengembangan10').innerHTML = parseInt($('#Pengembangan10').val())*0.5
 				}
 			}
 

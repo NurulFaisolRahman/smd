@@ -45,8 +45,8 @@
 										<label class="input-group-text bg-primary"><b>Jenjang</b></label>
 									</div>
 									<select class="custom-select" id="JenjangRencanaPendidikan">										
-											<option value="S1">Sarjana</option>
-											<option value="S2">Magister</option>
+											<option value="S1">S1</option>
+											<option value="S2">S2</option>
 									</select>
 								</div>
 							</div> 
@@ -66,7 +66,7 @@
 									<div class="input-group-prepend">
 										<label class="input-group-text bg-primary"><b>Tahun</b></label>
 									</div>
-									<input class="form-control" type="text" id="TahunRencanaPendidikan"  data-inputmask='"mask": "9999"' data-mask>
+									<input class="form-control" type="text" id="TahunRencanaPendidikan"  data-inputmask='"mask": "9999"' data-mask value="20">
 								</div>
 							</div>
 						</div>

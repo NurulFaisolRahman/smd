@@ -10,6 +10,24 @@ class Pendidikan extends CI_Controller {
 		}
 	}
 
+	public function InputRencanaPendidikan(){
+		$NIP = $this->session->userdata('NIP');
+		$Jabatan = $this->session->userdata('Jabatan');
+		$this->db->insert('RencanaPendidikan',
+								array('NIP' => $NIP, 
+											'Jabatan' => $Jabatan,
+											'Jenjang' => $_POST['Jenjang'],
+											'Semester' => $_POST['Semester'],
+											'Tahun' => $_POST['Tahun'],
+											'KodeRencana' => $_POST['Kode'],
+											'TotalKredit' => $_POST['Total']));
+		if ($this->db->affected_rows()){
+			echo '1';
+		} else {
+			echo '0';
+		}
+	}
+
 	public function Hapus(){
 		$this->db->delete('Pendidikan', array('No' => $_POST['No']));
 		if ($this->db->affected_rows()){
