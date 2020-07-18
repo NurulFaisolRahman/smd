@@ -60,7 +60,7 @@
 										<label class="input-group-text bg-primary"><b>Semester</b></label>
 									</div>
 									<select class="custom-select" id="SemesterRencanaPendidikan">										
-											<option value="Gasal">Ganjil</option>
+											<option value="Ganjil">Ganjil</option>
 											<option value="Genap">Genap</option>
 									</select>
 								</div>
@@ -330,9 +330,9 @@
 											</tr>
 											<tr>
 												<td colspan="2" class="text-right">
-													<button type="button" id="TombolTotalKredit" class="btn btn-primary"><b>Total</b></button>
+													<button type="button" id="TombolRencanaTotalKredit" class="btn btn-primary"><b>Total</b></button>
 												</td>
-												<td class="text-center align-middle"><b id="TotalKredit">0</b></td>
+												<td class="text-center align-middle"><b id="RencanaTotalKredit">0</b></td>
 											</tr>
 										</tbody>
 									</table>
@@ -371,7 +371,7 @@
 										<label class="input-group-text bg-primary"><b>Semester</b></label>
 									</div>
 									<select class="custom-select" id="EditSemesterRencanaPendidikan">										
-											<option value="Gasal">Ganjil</option>
+											<option value="Ganjil">Ganjil</option>
 											<option value="Genap">Genap</option>
 									</select>
 								</div>
@@ -381,6 +381,7 @@
 									<div class="input-group-prepend">
 										<label class="input-group-text bg-primary"><b>Tahun</b></label>
 									</div>
+									<input class="form-control" type="hidden" id="NoEditRencana">
 									<input class="form-control" type="text" id="EditTahunRencanaPendidikan"  data-inputmask='"mask": "9999"' data-mask>
 								</div>
 							</div>
@@ -641,9 +642,9 @@
 											</tr>
 											<tr>
 												<td colspan="2" class="text-right">
-													<button type="button" id="EditTombolTotalKredit" class="btn btn-primary"><b>Total</b></button>
+													<button type="button" id="TombolEditRencanaTotalKredit" class="btn btn-primary"><b>Total</b></button>
 												</td>
-												<td class="text-center align-middle"><b id="EditTotalKredit">0</b></td>
+												<td class="text-center align-middle"><b id="EditRencanaTotalKredit">0</b></td>
 											</tr>
 										</tbody>
 									</table>
@@ -654,7 +655,7 @@
 				</div>
 				<div class="modal-footer justify-content-between">
 					<button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
-					<button type="submit" class="btn btn-success" id="EditRencanaPendidikan"><b>Simpan</b></button>
+					<button type="submit" class="btn btn-success" id="SimpanEditRencanaPendidikan"><b>Simpan</b></button>
 				</div>
 			</div>
 		</div>

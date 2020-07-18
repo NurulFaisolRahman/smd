@@ -24,7 +24,22 @@ class Pendidikan extends CI_Controller {
 		if ($this->db->affected_rows()){
 			echo '1';
 		} else {
-			print_r($this->db->error());
+			echo 'Gagal Menyimpnan';
+		}
+	}
+
+	public function EditRencanaPendidikan(){
+		$this->db->where('No', $_POST['No']);
+		$this->db->update('RencanaPendidikan', 
+								array('Jenjang' => $_POST['Jenjang'],
+											'Semester' => $_POST['Semester'],
+											'Tahun' => $_POST['Tahun'],
+											'KodeRencana' => $_POST['Kode'],
+											'TotalKredit' => $_POST['Total']));
+		if ($this->db->affected_rows()){
+			echo '1';
+		} else {
+			echo 'Gagal Menyimpnan';
 		}
 	}
 
@@ -33,7 +48,7 @@ class Pendidikan extends CI_Controller {
 		if ($this->db->affected_rows()){
 			echo '1';
 		} else {
-			print_r($this->db->error());
+			echo 'Gagal Menghapus';
 		}
 	}
 
@@ -42,7 +57,7 @@ class Pendidikan extends CI_Controller {
 		if ($this->db->affected_rows()){
 			echo '1';
 		} else {
-			print_r($this->db->error());
+			echo 'Gagal Menghapus';
 		}
 	}
 
@@ -55,7 +70,7 @@ class Pendidikan extends CI_Controller {
 		if ($this->db->affected_rows()){
 			echo '1';
 		} else {
-			echo 'Gagal Update Data';
+			echo 'Gagal Menyimpnan';
 		}
 	}
 

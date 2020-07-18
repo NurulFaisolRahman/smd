@@ -184,9 +184,118 @@
 					})
 				})
 
+				$('#SimpanEditRencanaPendidikan').click(function() {
+					var EditSekolah = parseFloat(document.getElementById('EditKreditSekolah').innerHTML)
+					var EditDiklat = parseFloat(document.getElementById('EditKreditDiklat').innerHTML)
+					var EditMengajar = parseFloat(document.getElementById('EditKreditMengajar').innerHTML)
+					var EditBimbingSeminar = parseFloat(document.getElementById('EditKreditBimbingSeminar').innerHTML)
+					var EditBimbingKKN = parseFloat(document.getElementById('EditKreditBimbingKKN').innerHTML)
+					var EditDisertasiUtama = parseFloat(document.getElementById('EditKreditDisertasiUtama').innerHTML)
+					var EditTesisUtama = parseFloat(document.getElementById('EditKreditTesisUtama').innerHTML)
+					var EditSkripsiUtama = parseFloat(document.getElementById('EditKreditSkripsiUtama').innerHTML)
+					var EditDisertasiPendamping = parseFloat(document.getElementById('EditKreditDisertasiPendamping').innerHTML)
+					var EditTesisPendamping = parseFloat(document.getElementById('EditKreditTesisPendamping').innerHTML)
+					var EditSkripsiPendamping = parseFloat(document.getElementById('EditKreditSkripsiPendamping').innerHTML)
+					var EditPengujiUtama = parseFloat(document.getElementById('EditKreditPengujiUtama').innerHTML)
+					var EditAnggotaPenguji = parseFloat(document.getElementById('EditKreditAnggotaPenguji').innerHTML)
+					var EditMembinaKegiatan = parseFloat(document.getElementById('EditKreditMembinaKegiatan').innerHTML)
+					var EditMengembangkanProgram = parseFloat(document.getElementById('EditKreditMengembangkanProgram').innerHTML)
+					var EditBukuAjar = parseFloat(document.getElementById('EditKreditBukuAjar').innerHTML)
+					var EditProdukPengajaran = parseFloat(document.getElementById('EditKreditProdukPengajaran').innerHTML)
+					var EditOrasi = parseFloat(document.getElementById('EditKreditOrasi').innerHTML)
+					var EditRektor = parseFloat(document.getElementById('EditKreditRektor').innerHTML)
+					var EditWakilRektor = parseFloat(document.getElementById('EditKreditWakilRektor').innerHTML)
+					var EditKetua = parseFloat(document.getElementById('EditKreditKetua').innerHTML)
+					var EditPembantuKetua = parseFloat(document.getElementById('EditKreditPembantuKetua').innerHTML)
+					var EditDirekturAkademi = parseFloat(document.getElementById('EditKreditDirekturAkademi').innerHTML)
+					var EditPembantuDirekturPoliteknik = parseFloat(document.getElementById('EditKreditPembantuDirekturPoliteknik').innerHTML)
+					var EditPembantuDirekturAkademi = parseFloat(document.getElementById('EditKreditPembantuDirekturAkademi').innerHTML)
+					var EditSekretaris = parseFloat(document.getElementById('EditKreditSekretaris').innerHTML)
+					var EditPembimbingPencangkokan = 0
+					var EditPembimbingReguler = 0
+					var EditDetasering = 0
+					var EditPencangkokan = 0
+					var EditCekJabatan = '<?=$this->session->userdata('Jabatan')?>'
+					if (EditCekJabatan == 'Lektor Kepala' || EditCekJabatan == 'Profesor') {
+						EditPembimbingPencangkokan = parseFloat(document.getElementById('EditKreditPembimbingPencangkokan').innerHTML)
+						EditPembimbingReguler = parseFloat(document.getElementById('EditKreditPembimbingReguler').innerHTML)
+						EditDetasering = parseFloat(document.getElementById('EditKreditDetasering').innerHTML)
+						EditPencangkokan = parseFloat(document.getElementById('EditKreditPencangkokan').innerHTML)	
+					}
+					var EditPengembangan960 = parseFloat(document.getElementById('EditKreditPengembangan960').innerHTML)
+					var EditPengembangan641 = parseFloat(document.getElementById('EditKreditPengembangan641').innerHTML)
+					var EditPengembangan481 = parseFloat(document.getElementById('EditKreditPengembangan481').innerHTML)
+					var EditPengembangan161 = parseFloat(document.getElementById('EditKreditPengembangan161').innerHTML)
+					var EditPengembangan81 = parseFloat(document.getElementById('EditKreditPengembangan81').innerHTML)
+					var EditPengembangan30 = parseFloat(document.getElementById('EditKreditPengembangan30').innerHTML)
+					var EditPengembangan10 = parseFloat(document.getElementById('EditKreditPengembangan10').innerHTML)
+					var EditTotalKreditRencana = EditSekolah + EditDiklat + EditMengajar + EditBimbingSeminar + EditBimbingKKN + EditDisertasiUtama + EditTesisUtama + EditSkripsiUtama + EditDisertasiPendamping + EditTesisPendamping + EditSkripsiPendamping + EditPengujiUtama + EditAnggotaPenguji + EditMembinaKegiatan + EditMengembangkanProgram + EditBukuAjar + EditProdukPengajaran + EditOrasi + EditRektor + EditWakilRektor + EditKetua + EditPembantuKetua + EditDirekturAkademi + EditPembantuDirekturPoliteknik + EditPembantuDirekturAkademi + EditSekretaris + EditPembimbingPencangkokan + EditPembimbingReguler + EditDetasering + EditPencangkokan + EditPengembangan960 + EditPengembangan641 + EditPengembangan481 + EditPengembangan161 + EditPengembangan81 + EditPengembangan30 + EditPengembangan10
+					var EditKodeSekolah = 0
+					var EditKodeDiklat = 0
+					if (document.getElementById('EditDoktor').checked){
+						var EditKodeSekolah = 1
+					} 
+					if (document.getElementById('EditMagister').checked){
+						var EditKodeSekolah = 2
+					}
+					if (document.getElementById('EditDiklat').checked){
+						var EditKodeDiklat = 1
+					}
+					var EditKodeRencana = ''+EditKodeSekolah+'|'+EditKodeDiklat+'|'+($('#EditMengajar').val() == ''? 0 : parseInt($('#EditMengajar').val()))
+														+'|'+(document.getElementById('EditBimbingSeminar').checked ? 1 : 0)
+														+'|'+(document.getElementById('EditBimbingKKN').checked ? 1 : 0)
+														+'|'+($('#EditDisertasiUtama').val() == ''? 0 : parseInt($('#EditDisertasiUtama').val()))
+														+'|'+($('#EditTesisUtama').val() == ''? 0 : parseInt($('#EditTesisUtama').val()))
+														+'|'+($('#EditSkripsiUtama').val() == ''? 0 : parseInt($('#EditSkripsiUtama').val()))
+														+'|'+($('#EditDisertasiPendamping').val() == ''? 0 : parseInt($('#EditDisertasiPendamping').val()))
+														+'|'+($('#EditTesisPendamping').val() == ''? 0 : parseInt($('#EditTesisPendamping').val()))
+														+'|'+($('#EditSkripsiPendamping').val() == ''? 0 : parseInt($('#EditSkripsiPendamping').val()))
+														+'|'+($('#EditPengujiUtama').val() == ''? 0 : parseInt($('#EditPengujiUtama').val()))
+														+'|'+($('#EditAnggotaPenguji').val() == ''? 0 : parseInt($('#EditAnggotaPenguji').val()))
+														+'|'+($('#EditMembinaKegiatan').val() == ''? 0 : parseInt($('#EditMembinaKegiatan').val()))
+														+'|'+($('#EditMengembangkanProgram').val() == ''? 0 : parseInt($('#EditMengembangkanProgram').val()))
+														+'|'+($('#EditBukuAjar').val() == ''? 0 : parseInt($('#EditBukuAjar').val()))
+														+'|'+($('#EditProdukPengajaran').val() == ''? 0 : parseInt($('#EditProdukPengajaran').val()))
+														+'|'+($('#EditOrasi').val() == ''? 0 : parseInt($('#EditOrasi').val()))
+					if (EditCekJabatan == 'Lektor Kepala' || EditCekJabatan == 'Profesor') {
+						EditKodeRencana = EditKodeRencana+'|'+(document.getElementById('EditPembimbingPencangkokan').checked ? 1 : 0)
+																		 +'|'+(document.getElementById('EditPembimbingReguler').checked ? 1 : 0)
+																		 +'|'+(document.getElementById('EditDetasering').checked ? 1 : 0)
+																		 +'|'+(document.getElementById('EditPencangkokan').checked ? 1 : 0)
+					}
+					else {
+						EditKodeRencana = EditKodeRencana+'|'+0+'|'+0+'|'+0+'|'+0
+					}
+					EditKodeRencana = EditKodeRencana +'|'+(document.getElementById('EditRektor').checked ? 1 : 0)
+														+'|'+(document.getElementById('EditWakilRektor').checked ? 1 : 0)
+														+'|'+(document.getElementById('EditKetua').checked ? 1 : 0)
+														+'|'+(document.getElementById('EditPembantuKetua').checked ? 1 : 0)
+														+'|'+(document.getElementById('EditDirekturAkademi').checked ? 1 : 0)
+														+'|'+(document.getElementById('EditPembantuDirekturPoliteknik').checked ? 1 : 0)
+														+'|'+(document.getElementById('EditPembantuDirekturAkademi').checked ? 1 : 0)
+														+'|'+(document.getElementById('EditSekretaris').checked ? 1 : 0)
+														+'|'+($('#EditPengembangan960').val() == ''? 0 : parseInt($('#EditPengembangan960').val()))
+														+'|'+($('#EditPengembangan641').val() == ''? 0 : parseInt($('#EditPengembangan641').val()))
+														+'|'+($('#EditPengembangan481').val() == ''? 0 : parseInt($('#EditPengembangan481').val()))
+														+'|'+($('#EditPengembangan161').val() == ''? 0 : parseInt($('#EditPengembangan161').val()))
+														+'|'+($('#EditPengembangan81').val() == ''? 0 : parseInt($('#EditPengembangan81').val()))
+														+'|'+($('#EditPengembangan30').val() == ''? 0 : parseInt($('#EditPengembangan30').val()))
+														+'|'+($('#EditPengembangan10').val() == ''? 0 : parseInt($('#EditPengembangan10').val()))
+					var EditDataRencanaPendidikan = {No:$("#NoEditRencana").val(),Jenjang:$('#EditJenjangRencanaPendidikan').val(),Semester:$('#EditSemesterRencanaPendidikan').val(),
+																			 Tahun:$('#EditTahunRencanaPendidikan').val(),Kode:EditKodeRencana,Total:EditTotalKreditRencana}
+					$.post(BaseURL+'Pendidikan/EditRencanaPendidikan', EditDataRencanaPendidikan).done(function(Respon) {
+						if (Respon == '1') {
+							window.location = BaseURL + 'Dashboard/Pendidikan'
+						} else {
+							alert(Respon)
+						}
+					})
+				})
+
 				$(document).on("click",".EditRencanaPendidikan",function(){
 					var Data = $(this).attr('EditRencanaPendidikan')
 					var Pisah = Data.split("/")
+					$("#NoEditRencana").val(Pisah[0])
 					$("#EditJenjangRencanaPendidikan").val(Pisah[2])
 					$("#EditSemesterRencanaPendidikan").val(Pisah[3])
 					$("#EditTahunRencanaPendidikan").val(Pisah[4])
@@ -244,7 +353,22 @@
 					$("#EditKreditMembinaKegiatan").html(PisahKode[13])
 					$("#EditMengembangkanProgram").val(PisahKode[14])
 					$("#EditKreditMengembangkanProgram").html(PisahKode[14]*2)
-
+					$("#EditBukuAjar").val(PisahKode[15])
+					$("#EditKreditBukuAjar").html(PisahKode[15]*20)
+					$("#EditProdukPengajaran").val(PisahKode[16])
+					$("#EditKreditProdukPengajaran").html(PisahKode[16]*5)
+					$("#EditOrasi").val(PisahKode[17])
+					$("#EditKreditOrasi").html(PisahKode[17]*2.5)
+					if (Pisah[1] == "Lektor Kepala" || Pisah[1] == "Profesor") {
+						$("#EditPembimbingPencangkokan").val(PisahKode[18])
+						$("#EditKreditPembimbingPencangkokan").html(PisahKode[18]*2)
+						$("#EditPembimbingReguler").val(PisahKode[19])
+						$("#EditKreditPembimbingReguler").html(PisahKode[19])
+						$("#EditDetasering").val(PisahKode[20])
+						$("#EditKreditDetasering").html(PisahKode[20]*5)
+						$("#EditPencangkokan").val(PisahKode[21])
+						$("#EditKreditPencangkokan").html(PisahKode[24]*4)
+					} 
 					if (PisahKode[22] == '1') {
 						$('#EditRektor').attr('checked', true)	
 						$("#EditKreditRektor").html(6)
@@ -277,10 +401,21 @@
 						$('#EditSekretaris').attr('checked', true)	
 						$("#EditKreditSekretaris").html(3)
 					}
-					// document.getElementById('EditUraian').value = Pisah[1];
-					// document.getElementById('EditTanggal').value = Pisah[2];
-					// document.getElementById('EditVolume').value = Pisah[3];
-					// document.getElementById('ID').value = Pisah[4];
+					$("#EditPengembangan960").val(PisahKode[30])
+					$("#EditKreditPengembangan960").html(PisahKode[30]*15)
+					$("#EditPengembangan641").val(PisahKode[31])
+					$("#EditKreditPengembangan641").html(PisahKode[31]*9)
+					$("#EditPengembangan481").val(PisahKode[32])
+					$("#EditKreditPengembangan481").html(PisahKode[32]*6)
+					$("#EditPengembangan161").val(PisahKode[33])
+					$("#EditKreditPengembangan161").html(PisahKode[33]*3)
+					$("#EditPengembangan81").val(PisahKode[34])
+					$("#EditKreditPengembangan81").html(PisahKode[34]*2)
+					$("#EditPengembangan30").val(PisahKode[35])
+					$("#EditKreditPengembangan30").html(PisahKode[35]*1)					
+					$("#EditPengembangan10").val(PisahKode[36])
+					$("#EditKreditPengembangan10").html(PisahKode[36]*0.5)
+					$("#EditTotalKredit").html(Pisah[6])
 					$('#ModalEditRencanaPendidikan').modal("show");
 					// var Hapus = {No: $(this).attr('HapusRencanaPendidikan')}
 					
@@ -314,7 +449,7 @@
 					})
 				})
 
-				$("#TombolTotalKredit").click(function() {
+				$("#TombolRencanaTotalKredit").click(function() {
 					var KreditSekolah = parseFloat(document.getElementById('KreditSekolah').innerHTML)
 					var KreditDiklat = parseFloat(document.getElementById('KreditDiklat').innerHTML)
 					var KreditMengajar = parseFloat(document.getElementById('KreditMengajar').innerHTML)
@@ -359,7 +494,55 @@
 					var KreditPengembangan81 = parseFloat(document.getElementById('KreditPengembangan81').innerHTML)
 					var KreditPengembangan30 = parseFloat(document.getElementById('KreditPengembangan30').innerHTML)
 					var KreditPengembangan10 = parseFloat(document.getElementById('KreditPengembangan10').innerHTML)
-					document.getElementById('TotalKredit').innerHTML = KreditSekolah + KreditDiklat + KreditMengajar + KreditBimbingSeminar + KreditBimbingKKN + KreditDisertasiUtama + KreditTesisUtama + KreditSkripsiUtama + KreditDisertasiPendamping + KreditTesisPendamping + KreditSkripsiPendamping + KreditPengujiUtama + KreditAnggotaPenguji + KreditMembinaKegiatan + KreditMengembangkanProgram + KreditBukuAjar + KreditProdukPengajaran + KreditOrasi + KreditRektor + KreditWakilRektor + KreditKetua + KreditPembantuKetua + KreditDirekturAkademi + KreditPembantuDirekturPoliteknik + KreditPembantuDirekturAkademi + KreditSekretaris + KreditPembimbingPencangkokan + KreditPembimbingReguler + KreditDetasering + KreditPencangkokan + KreditPengembangan960 + KreditPengembangan641 + KreditPengembangan481 + KreditPengembangan161 + KreditPengembangan81 + KreditPengembangan30 + KreditPengembangan10
+					document.getElementById('RencanaTotalKredit').innerHTML = KreditSekolah + KreditDiklat + KreditMengajar + KreditBimbingSeminar + KreditBimbingKKN + KreditDisertasiUtama + KreditTesisUtama + KreditSkripsiUtama + KreditDisertasiPendamping + KreditTesisPendamping + KreditSkripsiPendamping + KreditPengujiUtama + KreditAnggotaPenguji + KreditMembinaKegiatan + KreditMengembangkanProgram + KreditBukuAjar + KreditProdukPengajaran + KreditOrasi + KreditRektor + KreditWakilRektor + KreditKetua + KreditPembantuKetua + KreditDirekturAkademi + KreditPembantuDirekturPoliteknik + KreditPembantuDirekturAkademi + KreditSekretaris + KreditPembimbingPencangkokan + KreditPembimbingReguler + KreditDetasering + KreditPencangkokan + KreditPengembangan960 + KreditPengembangan641 + KreditPengembangan481 + KreditPengembangan161 + KreditPengembangan81 + KreditPengembangan30 + KreditPengembangan10
+				})
+
+				$("#TombolEditRencanaTotalKredit").click(function() {
+					var EditKreditSekolah = parseFloat(document.getElementById('EditKreditSekolah').innerHTML)
+					var EditKreditDiklat = parseFloat(document.getElementById('EditKreditDiklat').innerHTML)
+					var EditKreditMengajar = parseFloat(document.getElementById('EditKreditMengajar').innerHTML)
+					var EditKreditBimbingSeminar = parseFloat(document.getElementById('EditKreditBimbingSeminar').innerHTML)
+					var EditKreditBimbingKKN = parseFloat(document.getElementById('EditKreditBimbingKKN').innerHTML)
+					var EditKreditDisertasiUtama = parseFloat(document.getElementById('EditKreditDisertasiUtama').innerHTML)
+					var EditKreditTesisUtama = parseFloat(document.getElementById('EditKreditTesisUtama').innerHTML)
+					var EditKreditSkripsiUtama = parseFloat(document.getElementById('EditKreditSkripsiUtama').innerHTML)
+					var EditKreditDisertasiPendamping = parseFloat(document.getElementById('EditKreditDisertasiPendamping').innerHTML)
+					var EditKreditTesisPendamping = parseFloat(document.getElementById('EditKreditTesisPendamping').innerHTML)
+					var EditKreditSkripsiPendamping = parseFloat(document.getElementById('EditKreditSkripsiPendamping').innerHTML)
+					var EditKreditPengujiUtama = parseFloat(document.getElementById('EditKreditPengujiUtama').innerHTML)
+					var EditKreditAnggotaPenguji = parseFloat(document.getElementById('EditKreditAnggotaPenguji').innerHTML)
+					var EditKreditMembinaKegiatan = parseFloat(document.getElementById('EditKreditMembinaKegiatan').innerHTML)
+					var EditKreditMengembangkanProgram = parseFloat(document.getElementById('EditKreditMengembangkanProgram').innerHTML)
+					var EditKreditBukuAjar = parseFloat(document.getElementById('EditKreditBukuAjar').innerHTML)
+					var EditKreditProdukPengajaran = parseFloat(document.getElementById('EditKreditProdukPengajaran').innerHTML)
+					var EditKreditOrasi = parseFloat(document.getElementById('EditKreditOrasi').innerHTML)
+					var EditKreditRektor = parseFloat(document.getElementById('EditKreditRektor').innerHTML)
+					var EditKreditWakilRektor = parseFloat(document.getElementById('EditKreditWakilRektor').innerHTML)
+					var EditKreditKetua = parseFloat(document.getElementById('EditKreditKetua').innerHTML)
+					var EditKreditPembantuKetua = parseFloat(document.getElementById('EditKreditPembantuKetua').innerHTML)
+					var EditKreditDirekturAkademi = parseFloat(document.getElementById('EditKreditDirekturAkademi').innerHTML)
+					var EditKreditPembantuDirekturPoliteknik = parseFloat(document.getElementById('EditKreditPembantuDirekturPoliteknik').innerHTML)
+					var EditKreditPembantuDirekturAkademi = parseFloat(document.getElementById('EditKreditPembantuDirekturAkademi').innerHTML)
+					var EditKreditSekretaris = parseFloat(document.getElementById('EditKreditSekretaris').innerHTML)
+					var EditKreditPembimbingPencangkokan = 0
+					var EditKreditPembimbingReguler = 0
+					var EditKreditDetasering = 0
+					var EditKreditPencangkokan = 0
+					var EditCekJabatan = '<?=$this->session->userdata('Jabatan')?>'
+					if (EditCekJabatan == 'Lektor Kepala' || EditCekJabatan == 'Profesor') {
+						EditKreditPembimbingPencangkokan = parseFloat(document.getElementById('EditKreditPembimbingPencangkokan').innerHTML)
+						EditKreditPembimbingReguler = parseFloat(document.getElementById('EditKreditPembimbingReguler').innerHTML)
+						EditKreditDetasering = parseFloat(document.getElementById('EditKreditDetasering').innerHTML)
+						EditKreditPencangkokan = parseFloat(document.getElementById('EditKreditPencangkokan').innerHTML)	
+					}
+					var EditKreditPengembangan960 = parseFloat(document.getElementById('EditKreditPengembangan960').innerHTML)
+					var EditKreditPengembangan641 = parseFloat(document.getElementById('EditKreditPengembangan641').innerHTML)
+					var EditKreditPengembangan481 = parseFloat(document.getElementById('EditKreditPengembangan481').innerHTML)
+					var EditKreditPengembangan161 = parseFloat(document.getElementById('EditKreditPengembangan161').innerHTML)
+					var EditKreditPengembangan81 = parseFloat(document.getElementById('EditKreditPengembangan81').innerHTML)
+					var EditKreditPengembangan30 = parseFloat(document.getElementById('EditKreditPengembangan30').innerHTML)
+					var EditKreditPengembangan10 = parseFloat(document.getElementById('EditKreditPengembangan10').innerHTML)
+					document.getElementById('EditRencanaTotalKredit').innerHTML = EditKreditSekolah + EditKreditDiklat + EditKreditMengajar + EditKreditBimbingSeminar + EditKreditBimbingKKN + EditKreditDisertasiUtama + EditKreditTesisUtama + EditKreditSkripsiUtama + EditKreditDisertasiPendamping + EditKreditTesisPendamping + EditKreditSkripsiPendamping + EditKreditPengujiUtama + EditKreditAnggotaPenguji + EditKreditMembinaKegiatan + EditKreditMengembangkanProgram + EditKreditBukuAjar + EditKreditProdukPengajaran + EditKreditOrasi + EditKreditRektor + EditKreditWakilRektor + EditKreditKetua + EditKreditPembantuKetua + EditKreditDirekturAkademi + EditKreditPembantuDirekturPoliteknik + EditKreditPembantuDirekturAkademi + EditKreditSekretaris + EditKreditPembimbingPencangkokan + EditKreditPembimbingReguler + EditKreditDetasering + EditKreditPencangkokan + EditKreditPengembangan960 + EditKreditPengembangan641 + EditKreditPengembangan481 + EditKreditPengembangan161 + EditKreditPengembangan81 + EditKreditPengembangan30 + EditKreditPengembangan10
 				})
 
 				$(document).on("click",".Edit",function(){
@@ -563,28 +746,28 @@
 			}
 
 			function Doktor() {
-				if (document.getElementById("Doktor").checked){
+				if (document.getElementById('Doktor').checked){
 					document.getElementById('KreditSekolah').innerHTML = 200
-					document.getElementById("Magister").disabled = true
+					document.getElementById('Magister').disabled = true
 					KreditSekolah = 200
 				} else {
 					document.getElementById('KreditSekolah').innerHTML = 0
-					document.getElementById("Magister").disabled = false
+					document.getElementById('Magister').disabled = false
 				}
 			}
 
 			function Magister() {
-				if (document.getElementById("Magister").checked){
+				if (document.getElementById('Magister').checked){
 					document.getElementById('KreditSekolah').innerHTML = 150
-					document.getElementById("Doktor").disabled = true
+					document.getElementById('Doktor').disabled = true
 				} else {
 					document.getElementById('KreditSekolah').innerHTML = 0
-					document.getElementById("Doktor").disabled = false
+					document.getElementById('Doktor').disabled = false
 				}
 			}
 
 			function Diklat() {
-				if (document.getElementById("Diklat").checked){
+				if (document.getElementById('Diklat').checked){
 					document.getElementById('KreditDiklat').innerHTML = 3
 				} else {
 					document.getElementById('KreditDiklat').innerHTML = 0
@@ -614,7 +797,7 @@
 			}
 
 			function BimbingSeminar() {
-				if (document.getElementById("BimbingSeminar").checked){
+				if (document.getElementById('BimbingSeminar').checked){
 					document.getElementById('KreditBimbingSeminar').innerHTML = 1
 				} else {
 					document.getElementById('KreditBimbingSeminar').innerHTML = 0
@@ -622,7 +805,7 @@
 			}
 
 			function BimbingKKN() {
-				if (document.getElementById("BimbingKKN").checked){
+				if (document.getElementById('BimbingKKN').checked){
 					document.getElementById('KreditBimbingKKN').innerHTML = 1
 				} else {
 					document.getElementById('KreditBimbingKKN').innerHTML = 0
@@ -733,6 +916,182 @@
 				}
 			}
 
+			function Rektor() {
+				if (document.getElementById('Rektor').checked){
+					document.getElementById('KreditRektor').innerHTML = 6
+          document.getElementById('WakilRektor').disabled = true
+          document.getElementById('Ketua').disabled = true
+          document.getElementById('PembantuKetua').disabled = true
+          document.getElementById('DirekturAkademi').disabled = true
+          document.getElementById('PembantuDirekturPoliteknik').disabled = true
+          document.getElementById('PembantuDirekturAkademi').disabled = true
+          document.getElementById('Sekretaris').disabled = true
+        } else {
+          document.getElementById('KreditRektor').innerHTML = 0
+          document.getElementById('WakilRektor').disabled = false
+          document.getElementById('Ketua').disabled = false
+          document.getElementById('PembantuKetua').disabled = false
+          document.getElementById('DirekturAkademi').disabled = false
+          document.getElementById('PembantuDirekturPoliteknik').disabled = false
+          document.getElementById('PembantuDirekturAkademi').disabled = false
+          document.getElementById('Sekretaris').disabled = false
+				}
+			}
+
+			function WakilRektor() {
+				if (document.getElementById('WakilRektor').checked){
+					document.getElementById('KreditWakilRektor').innerHTML = 5
+          document.getElementById('Rektor').disabled = true
+          document.getElementById('Ketua').disabled = true
+          document.getElementById('PembantuKetua').disabled = true
+          document.getElementById('DirekturAkademi').disabled = true
+          document.getElementById('PembantuDirekturPoliteknik').disabled = true
+          document.getElementById('PembantuDirekturAkademi').disabled = true
+          document.getElementById('Sekretaris').disabled = true
+        } else {
+          document.getElementById('KreditWakilRektor').innerHTML = 0
+          document.getElementById('Rektor').disabled = false
+          document.getElementById('Ketua').disabled = false
+          document.getElementById('PembantuKetua').disabled = false
+          document.getElementById('DirekturAkademi').disabled = false
+          document.getElementById('PembantuDirekturPoliteknik').disabled = false
+          document.getElementById('PembantuDirekturAkademi').disabled = false
+          document.getElementById('Sekretaris').disabled = false
+				}
+			}
+
+			function Ketua() {
+				if (document.getElementById('Ketua').checked){
+					document.getElementById('KreditKetua').innerHTML = 4
+          document.getElementById('WakilRektor').disabled = true
+          document.getElementById('Rektor').disabled = true
+          document.getElementById('PembantuKetua').disabled = true
+          document.getElementById('DirekturAkademi').disabled = true
+          document.getElementById('PembantuDirekturPoliteknik').disabled = true
+          document.getElementById('PembantuDirekturAkademi').disabled = true
+          document.getElementById('Sekretaris').disabled = true
+        } else {
+          document.getElementById('KreditKetua').innerHTML = 0
+          document.getElementById('WakilRektor').disabled = false
+          document.getElementById('Rektor').disabled = false
+          document.getElementById('PembantuKetua').disabled = false
+          document.getElementById('DirekturAkademi').disabled = false
+          document.getElementById('PembantuDirekturPoliteknik').disabled = false
+          document.getElementById('PembantuDirekturAkademi').disabled = false
+          document.getElementById('Sekretaris').disabled = false
+				}
+			}
+
+			function PembantuKetua() {
+				if (document.getElementById('PembantuKetua').checked){
+					document.getElementById('KreditPembantuKetua').innerHTML = 4
+          document.getElementById('WakilRektor').disabled = true
+          document.getElementById('Ketua').disabled = true
+          document.getElementById('Rektor').disabled = true
+          document.getElementById('DirekturAkademi').disabled = true
+          document.getElementById('PembantuDirekturPoliteknik').disabled = true
+          document.getElementById('PembantuDirekturAkademi').disabled = true
+          document.getElementById('Sekretaris').disabled = true
+        } else {
+          document.getElementById('KreditPembantuKetua').innerHTML = 0
+          document.getElementById('WakilRektor').disabled = false
+          document.getElementById('Ketua').disabled = false
+          document.getElementById('Rektor').disabled = false
+          document.getElementById('DirekturAkademi').disabled = false
+          document.getElementById('PembantuDirekturPoliteknik').disabled = false
+          document.getElementById('PembantuDirekturAkademi').disabled = false
+          document.getElementById('Sekretaris').disabled = false
+				}
+			}
+
+			function DirekturAkademi() {
+				if (document.getElementById('DirekturAkademi').checked){
+					document.getElementById('KreditDirekturAkademi').innerHTML = 4
+          document.getElementById('WakilRektor').disabled = true
+          document.getElementById('Ketua').disabled = true
+          document.getElementById('PembantuKetua').disabled = true
+          document.getElementById('Rektor').disabled = true
+          document.getElementById('PembantuDirekturPoliteknik').disabled = true
+          document.getElementById('PembantuDirekturAkademi').disabled = true
+          document.getElementById('Sekretaris').disabled = true
+        } else {
+          document.getElementById('KreditDirekturAkademi').innerHTML = 0
+          document.getElementById('WakilRektor').disabled = false
+          document.getElementById('Ketua').disabled = false
+          document.getElementById('PembantuKetua').disabled = false
+          document.getElementById('Rektor').disabled = false
+          document.getElementById('PembantuDirekturPoliteknik').disabled = false
+          document.getElementById('PembantuDirekturAkademi').disabled = false
+          document.getElementById('Sekretaris').disabled = false
+				}
+			}
+
+			function PembantuDirekturPoliteknik() {
+				if (document.getElementById('PembantuDirekturPoliteknik').checked){
+					document.getElementById('KreditPembantuDirekturPoliteknik').innerHTML = 3
+          document.getElementById('WakilRektor').disabled = true
+          document.getElementById('Ketua').disabled = true
+          document.getElementById('PembantuKetua').disabled = true
+          document.getElementById('DirekturAkademi').disabled = true
+          document.getElementById('Rektor').disabled = true
+          document.getElementById('PembantuDirekturAkademi').disabled = true
+          document.getElementById('Sekretaris').disabled = true
+        } else {
+          document.getElementById('KreditPembantuDirekturPoliteknik').innerHTML = 0
+          document.getElementById('WakilRektor').disabled = false
+          document.getElementById('Ketua').disabled = false
+          document.getElementById('PembantuKetua').disabled = false
+          document.getElementById('DirekturAkademi').disabled = false
+          document.getElementById('Rektor').disabled = false
+          document.getElementById('PembantuDirekturAkademi').disabled = false
+          document.getElementById('Sekretaris').disabled = false
+				}
+			}
+
+			function PembantuDirekturAkademi() {
+				if (document.getElementById('PembantuDirekturAkademi').checked){
+					document.getElementById('KreditPembantuDirekturAkademi').innerHTML = 3
+          document.getElementById('WakilRektor').disabled = true
+          document.getElementById('Ketua').disabled = true
+          document.getElementById('PembantuKetua').disabled = true
+          document.getElementById('DirekturAkademi').disabled = true
+          document.getElementById('PembantuDirekturPoliteknik').disabled = true
+          document.getElementById('Rektor').disabled = true
+          document.getElementById('Sekretaris').disabled = true
+        } else {
+          document.getElementById('KreditPembantuDirekturAkademi').innerHTML = 0
+          document.getElementById('WakilRektor').disabled = false
+          document.getElementById('Ketua').disabled = false
+          document.getElementById('PembantuKetua').disabled = false
+          document.getElementById('DirekturAkademi').disabled = false
+          document.getElementById('PembantuDirekturPoliteknik').disabled = false
+          document.getElementById('Rektor').disabled = false
+          document.getElementById('Sekretaris').disabled = false
+				}
+			}
+
+			function Sekretaris() {
+				if (document.getElementById('Sekretaris').checked){
+					document.getElementById('KreditSekretaris').innerHTML = 3
+          document.getElementById('WakilRektor').disabled = true
+          document.getElementById('Ketua').disabled = true
+          document.getElementById('PembantuKetua').disabled = true
+          document.getElementById('DirekturAkademi').disabled = true
+          document.getElementById('PembantuDirekturPoliteknik').disabled = true
+          document.getElementById('PembantuDirekturAkademi').disabled = true
+          document.getElementById('Rektor').disabled = true
+        } else {
+          document.getElementById('KreditSekretaris').innerHTML = 0
+          document.getElementById('WakilRektor').disabled = false
+          document.getElementById('Ketua').disabled = false
+          document.getElementById('PembantuKetua').disabled = false
+          document.getElementById('DirekturAkademi').disabled = false
+          document.getElementById('PembantuDirekturPoliteknik').disabled = false
+          document.getElementById('PembantuDirekturAkademi').disabled = false
+          document.getElementById('Rektor').disabled = false
+				}
+			}
+
 			function PembimbingPencangkokan() {
 				if (isNaN(parseInt($('#PembimbingPencangkokan').val()))) {
 					document.getElementById('KreditPembimbingPencangkokan').innerHTML = 0
@@ -821,179 +1180,438 @@
 				}
 			}
 
-			function Rektor() {
-				if (document.getElementById("Rektor").checked){
-					document.getElementById('KreditRektor').innerHTML = 6
-          document.getElementById("WakilRektor").disabled = true
-          document.getElementById("Ketua").disabled = true
-          document.getElementById("PembantuKetua").disabled = true
-          document.getElementById("DirekturAkademi").disabled = true
-          document.getElementById("PembantuDirekturPoliteknik").disabled = true
-          document.getElementById("PembantuDirekturAkademi").disabled = true
-          document.getElementById("Sekretaris").disabled = true
-        } else {
-          document.getElementById('KreditRektor').innerHTML = 0
-          document.getElementById("WakilRektor").disabled = false
-          document.getElementById("Ketua").disabled = false
-          document.getElementById("PembantuKetua").disabled = false
-          document.getElementById("DirekturAkademi").disabled = false
-          document.getElementById("PembantuDirekturPoliteknik").disabled = false
-          document.getElementById("PembantuDirekturAkademi").disabled = false
-          document.getElementById("Sekretaris").disabled = false
+			function EditDoktor() {
+				if (document.getElementById('EditDoktor').checked){
+					document.getElementById('EditKreditSekolah').innerHTML = 200
+					document.getElementById('EditMagister').disabled = true
+					KreditSekolah = 200
+				} else {
+					document.getElementById('EditKreditSekolah').innerHTML = 0
+					document.getElementById('EditMagister').disabled = false
 				}
 			}
 
-			function WakilRektor() {
-				if (document.getElementById("WakilRektor").checked){
-					document.getElementById('KreditWakilRektor').innerHTML = 5
-          document.getElementById("Rektor").disabled = true
-          document.getElementById("Ketua").disabled = true
-          document.getElementById("PembantuKetua").disabled = true
-          document.getElementById("DirekturAkademi").disabled = true
-          document.getElementById("PembantuDirekturPoliteknik").disabled = true
-          document.getElementById("PembantuDirekturAkademi").disabled = true
-          document.getElementById("Sekretaris").disabled = true
-        } else {
-          document.getElementById('KreditWakilRektor').innerHTML = 0
-          document.getElementById("Rektor").disabled = false
-          document.getElementById("Ketua").disabled = false
-          document.getElementById("PembantuKetua").disabled = false
-          document.getElementById("DirekturAkademi").disabled = false
-          document.getElementById("PembantuDirekturPoliteknik").disabled = false
-          document.getElementById("PembantuDirekturAkademi").disabled = false
-          document.getElementById("Sekretaris").disabled = false
+			function EditMagister() {
+				if (document.getElementById('EditMagister').checked){
+					document.getElementById('EditKreditSekolah').innerHTML = 150
+					document.getElementById('EditDoktor').disabled = true
+				} else {
+					document.getElementById('EditKreditSekolah').innerHTML = 0
+					document.getElementById('EditDoktor').disabled = false
 				}
 			}
 
-			function Ketua() {
-				if (document.getElementById("Ketua").checked){
-					document.getElementById('KreditKetua').innerHTML = 4
-          document.getElementById("WakilRektor").disabled = true
-          document.getElementById("Rektor").disabled = true
-          document.getElementById("PembantuKetua").disabled = true
-          document.getElementById("DirekturAkademi").disabled = true
-          document.getElementById("PembantuDirekturPoliteknik").disabled = true
-          document.getElementById("PembantuDirekturAkademi").disabled = true
-          document.getElementById("Sekretaris").disabled = true
-        } else {
-          document.getElementById('KreditKetua').innerHTML = 0
-          document.getElementById("WakilRektor").disabled = false
-          document.getElementById("Rektor").disabled = false
-          document.getElementById("PembantuKetua").disabled = false
-          document.getElementById("DirekturAkademi").disabled = false
-          document.getElementById("PembantuDirekturPoliteknik").disabled = false
-          document.getElementById("PembantuDirekturAkademi").disabled = false
-          document.getElementById("Sekretaris").disabled = false
+			function EditDiklat() {
+				if (document.getElementById('EditDiklat').checked){
+					document.getElementById('EditKreditDiklat').innerHTML = 3
+				} else {
+					document.getElementById('EditKreditDiklat').innerHTML = 0
 				}
 			}
 
-			function PembantuKetua() {
-				if (document.getElementById("PembantuKetua").checked){
-					document.getElementById('KreditPembantuKetua').innerHTML = 4
-          document.getElementById("WakilRektor").disabled = true
-          document.getElementById("Ketua").disabled = true
-          document.getElementById("Rektor").disabled = true
-          document.getElementById("DirekturAkademi").disabled = true
-          document.getElementById("PembantuDirekturPoliteknik").disabled = true
-          document.getElementById("PembantuDirekturAkademi").disabled = true
-          document.getElementById("Sekretaris").disabled = true
-        } else {
-          document.getElementById('KreditPembantuKetua').innerHTML = 0
-          document.getElementById("WakilRektor").disabled = false
-          document.getElementById("Ketua").disabled = false
-          document.getElementById("Rektor").disabled = false
-          document.getElementById("DirekturAkademi").disabled = false
-          document.getElementById("PembantuDirekturPoliteknik").disabled = false
-          document.getElementById("PembantuDirekturAkademi").disabled = false
-          document.getElementById("Sekretaris").disabled = false
+			function EditMengajar() {
+				var jabatan = '<?=$this->session->userdata('Jabatan')?>;'
+				if (jabatan != 'Asisten Ahli'){
+					if (parseInt($('#EditMengajar').val()) <= 10) {
+						document.getElementById('EditKreditMengajar').innerHTML = parseInt($('#EditMengajar').val())
+					} else if(parseInt($('#EditMengajar').val()) > 10){
+						document.getElementById('EditKreditMengajar').innerHTML = 10+(0.5*(parseInt($('#EditMengajar').val())-10))						
+					} else {
+						document.getElementById('EditKreditMengajar').innerHTML = 0
+					}
+				} 
+				else {
+					if (parseInt($('#EditMengajar').val()) <= 10) {
+						document.getElementById('EditKreditMengajar').innerHTML = parseInt($('#EditMengajar').val())*0.5
+					} else if(parseInt($('#EditMengajar').val()) > 10){
+						document.getElementById('EditKreditMengajar').innerHTML = 5+(0.25*(parseInt($('#EditMengajar').val())-10))
+					} else {
+						document.getElementById('EditKreditMengajar').innerHTML = 0
+					}
 				}
 			}
 
-			function DirekturAkademi() {
-				if (document.getElementById("DirekturAkademi").checked){
-					document.getElementById('KreditDirekturAkademi').innerHTML = 4
-          document.getElementById("WakilRektor").disabled = true
-          document.getElementById("Ketua").disabled = true
-          document.getElementById("PembantuKetua").disabled = true
-          document.getElementById("Rektor").disabled = true
-          document.getElementById("PembantuDirekturPoliteknik").disabled = true
-          document.getElementById("PembantuDirekturAkademi").disabled = true
-          document.getElementById("Sekretaris").disabled = true
-        } else {
-          document.getElementById('KreditDirekturAkademi').innerHTML = 0
-          document.getElementById("WakilRektor").disabled = false
-          document.getElementById("Ketua").disabled = false
-          document.getElementById("PembantuKetua").disabled = false
-          document.getElementById("Rektor").disabled = false
-          document.getElementById("PembantuDirekturPoliteknik").disabled = false
-          document.getElementById("PembantuDirekturAkademi").disabled = false
-          document.getElementById("Sekretaris").disabled = false
+			function EditBimbingSeminar() {
+				if (document.getElementById('EditBimbingSeminar').checked){
+					document.getElementById('EditKreditBimbingSeminar').innerHTML = 1
+				} else {
+					document.getElementById('EditKreditBimbingSeminar').innerHTML = 0
 				}
 			}
 
-			function PembantuDirekturPoliteknik() {
-				if (document.getElementById("PembantuDirekturPoliteknik").checked){
-					document.getElementById('KreditPembantuDirekturPoliteknik').innerHTML = 3
-          document.getElementById("WakilRektor").disabled = true
-          document.getElementById("Ketua").disabled = true
-          document.getElementById("PembantuKetua").disabled = true
-          document.getElementById("DirekturAkademi").disabled = true
-          document.getElementById("Rektor").disabled = true
-          document.getElementById("PembantuDirekturAkademi").disabled = true
-          document.getElementById("Sekretaris").disabled = true
-        } else {
-          document.getElementById('KreditPembantuDirekturPoliteknik').innerHTML = 0
-          document.getElementById("WakilRektor").disabled = false
-          document.getElementById("Ketua").disabled = false
-          document.getElementById("PembantuKetua").disabled = false
-          document.getElementById("DirekturAkademi").disabled = false
-          document.getElementById("Rektor").disabled = false
-          document.getElementById("PembantuDirekturAkademi").disabled = false
-          document.getElementById("Sekretaris").disabled = false
+			function EditBimbingKKN() {
+				if (document.getElementById('EditBimbingKKN').checked){
+					document.getElementById('EditKreditBimbingKKN').innerHTML = 1
+				} else {
+					document.getElementById('EditKreditBimbingKKN').innerHTML = 0
 				}
 			}
 
-			function PembantuDirekturAkademi() {
-				if (document.getElementById("PembantuDirekturAkademi").checked){
-					document.getElementById('KreditPembantuDirekturAkademi').innerHTML = 3
-          document.getElementById("WakilRektor").disabled = true
-          document.getElementById("Ketua").disabled = true
-          document.getElementById("PembantuKetua").disabled = true
-          document.getElementById("DirekturAkademi").disabled = true
-          document.getElementById("PembantuDirekturPoliteknik").disabled = true
-          document.getElementById("Rektor").disabled = true
-          document.getElementById("Sekretaris").disabled = true
-        } else {
-          document.getElementById('KreditPembantuDirekturAkademi').innerHTML = 0
-          document.getElementById("WakilRektor").disabled = false
-          document.getElementById("Ketua").disabled = false
-          document.getElementById("PembantuKetua").disabled = false
-          document.getElementById("DirekturAkademi").disabled = false
-          document.getElementById("PembantuDirekturPoliteknik").disabled = false
-          document.getElementById("Rektor").disabled = false
-          document.getElementById("Sekretaris").disabled = false
+			function EditDisertasiUtama() {
+				if (isNaN(parseInt($('#EditDisertasiUtama').val()))) {
+					document.getElementById('EditKreditDisertasiUtama').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditDisertasiUtama').innerHTML = parseInt($('#EditDisertasiUtama').val())*2
 				}
 			}
 
-			function Sekretaris() {
-				if (document.getElementById("Sekretaris").checked){
-					document.getElementById('KreditSekretaris').innerHTML = 3
-          document.getElementById("WakilRektor").disabled = true
-          document.getElementById("Ketua").disabled = true
-          document.getElementById("PembantuKetua").disabled = true
-          document.getElementById("DirekturAkademi").disabled = true
-          document.getElementById("PembantuDirekturPoliteknik").disabled = true
-          document.getElementById("PembantuDirekturAkademi").disabled = true
-          document.getElementById("Rektor").disabled = true
+			function EditTesisUtama() {
+				if (isNaN(parseInt($('#EditTesisUtama').val()))) {
+					document.getElementById('EditKreditTesisUtama').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditTesisUtama').innerHTML = parseInt($('#EditTesisUtama').val())*0.5
+				}
+			}
+
+			function EditSkripsiUtama() {
+				if (isNaN(parseInt($('#EditSkripsiUtama').val()))) {
+					document.getElementById('EditKreditSkripsiUtama').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditSkripsiUtama').innerHTML = parseInt($('#EditSkripsiUtama').val())*0.125
+				}
+			}
+
+			function EditDisertasiPendamping() {
+				if (isNaN(parseInt($('#EditDisertasiPendamping').val()))) {
+					document.getElementById('EditKreditDisertasiPendamping').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditDisertasiPendamping').innerHTML = parseInt($('#EditDisertasiPendamping').val())*1.5
+				}
+			}
+
+			function EditTesisPendamping() {
+				if (isNaN(parseInt($('#EditTesisPendamping').val()))) {
+					document.getElementById('EditKreditTesisPendamping').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditTesisPendamping').innerHTML = parseInt($('#EditTesisPendamping').val())*0.3
+				}
+			}
+
+			function EditSkripsiPendamping() {
+				if (isNaN(parseInt($('#EditSkripsiPendamping').val()))) {
+					document.getElementById('EditKreditSkripsiPendamping').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditSkripsiPendamping').innerHTML = parseInt($('#EditSkripsiPendamping').val())*0.0625
+				}
+			}
+
+			function EditPengujiUtama() {
+				if (isNaN(parseInt($('#EditPengujiUtama').val()))) {
+					document.getElementById('EditKreditPengujiUtama').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditPengujiUtama').innerHTML = parseInt($('#EditPengujiUtama').val())/4	
+				}
+			}
+
+			function EditAnggotaPenguji() {
+				if (isNaN(parseInt($('#EditAnggotaPenguji').val()))) {
+					document.getElementById('EditKreditAnggotaPenguji').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditAnggotaPenguji').innerHTML = parseInt($('#EditAnggotaPenguji').val())/8
+				}
+			}
+
+			function EditMembinaKegiatan() {
+				if (isNaN(parseInt($('#EditMembinaKegiatan').val()))) {
+					document.getElementById('EditKreditMembinaKegiatan').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditMembinaKegiatan').innerHTML = parseInt($('#EditMembinaKegiatan').val())
+				}
+			}
+
+			function EditMengembangkanProgram() {
+				if (isNaN(parseInt($('#EditMengembangkanProgram').val()))) {
+					document.getElementById('EditKreditMengembangkanProgram').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditMengembangkanProgram').innerHTML = parseInt($('#EditMengembangkanProgram').val())*2
+				}
+			}
+
+			function EditBukuAjar() {
+				if (isNaN(parseInt($('#EditBukuAjar').val()))) {
+					document.getElementById('EditKreditBukuAjar').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditBukuAjar').innerHTML = parseInt($('#EditBukuAjar').val())*20
+				}
+			}
+
+			function EditProdukPengajaran() {
+				if (isNaN(parseInt($('#EditProdukPengajaran').val()))) {
+					document.getElementById('EditKreditProdukPengajaran').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditProdukPengajaran').innerHTML = parseInt($('#EditProdukPengajaran').val())*5
+				}
+			}
+
+			function EditOrasi() {
+				if (isNaN(parseInt($('#EditOrasi').val()))) {
+					document.getElementById('EditKreditOrasi').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditOrasi').innerHTML = parseInt($('#EditOrasi').val())*2.5
+				}
+			}
+
+			function EditRektor() {
+				if (document.getElementById('EditRektor').checked){
+					document.getElementById('EditKreditRektor').innerHTML = 6
+          document.getElementById('EditWakilRektor').disabled = true
+          document.getElementById('EditKetua').disabled = true
+          document.getElementById('EditPembantuKetua').disabled = true
+          document.getElementById('EditDirekturAkademi').disabled = true
+          document.getElementById('EditPembantuDirekturPoliteknik').disabled = true
+          document.getElementById('EditPembantuDirekturAkademi').disabled = true
+          document.getElementById('EditSekretaris').disabled = true
         } else {
-          document.getElementById('KreditSekretaris').innerHTML = 0
-          document.getElementById("WakilRektor").disabled = false
-          document.getElementById("Ketua").disabled = false
-          document.getElementById("PembantuKetua").disabled = false
-          document.getElementById("DirekturAkademi").disabled = false
-          document.getElementById("PembantuDirekturPoliteknik").disabled = false
-          document.getElementById("PembantuDirekturAkademi").disabled = false
-          document.getElementById("Rektor").disabled = false
+          document.getElementById('EditKreditRektor').innerHTML = 0
+          document.getElementById('EditWakilRektor').disabled = false
+          document.getElementById('EditKetua').disabled = false
+          document.getElementById('EditPembantuKetua').disabled = false
+          document.getElementById('EditDirekturAkademi').disabled = false
+          document.getElementById('EditPembantuDirekturPoliteknik').disabled = false
+          document.getElementById('EditPembantuDirekturAkademi').disabled = false
+          document.getElementById('EditSekretaris').disabled = false
+				}
+			}
+
+			function EditWakilRektor() {
+				if (document.getElementById('EditWakilRektor').checked){
+					document.getElementById('EditKreditWakilRektor').innerHTML = 5
+          document.getElementById('EditRektor').disabled = true
+          document.getElementById('EditKetua').disabled = true
+          document.getElementById('EditPembantuKetua').disabled = true
+          document.getElementById('EditDirekturAkademi').disabled = true
+          document.getElementById('EditPembantuDirekturPoliteknik').disabled = true
+          document.getElementById('EditPembantuDirekturAkademi').disabled = true
+          document.getElementById('EditSekretaris').disabled = true
+        } else {
+          document.getElementById('EditKreditWakilRektor').innerHTML = 0
+          document.getElementById('EditRektor').disabled = false
+          document.getElementById('EditKetua').disabled = false
+          document.getElementById('EditPembantuKetua').disabled = false
+          document.getElementById('EditDirekturAkademi').disabled = false
+          document.getElementById('EditPembantuDirekturPoliteknik').disabled = false
+          document.getElementById('EditPembantuDirekturAkademi').disabled = false
+          document.getElementById('EditSekretaris').disabled = false
+				}
+			}
+
+			function EditKetua() {
+				if (document.getElementById('EditKetua').checked){
+					document.getElementById('EditKreditKetua').innerHTML = 4
+          document.getElementById('EditWakilRektor').disabled = true
+          document.getElementById('EditRektor').disabled = true
+          document.getElementById('EditPembantuKetua').disabled = true
+          document.getElementById('EditDirekturAkademi').disabled = true
+          document.getElementById('EditPembantuDirekturPoliteknik').disabled = true
+          document.getElementById('EditPembantuDirekturAkademi').disabled = true
+          document.getElementById('EditSekretaris').disabled = true
+        } else {
+          document.getElementById('EditKreditKetua').innerHTML = 0
+          document.getElementById('EditWakilRektor').disabled = false
+          document.getElementById('EditRektor').disabled = false
+          document.getElementById('EditPembantuKetua').disabled = false
+          document.getElementById('EditDirekturAkademi').disabled = false
+          document.getElementById('EditPembantuDirekturPoliteknik').disabled = false
+          document.getElementById('EditPembantuDirekturAkademi').disabled = false
+          document.getElementById('EditSekretaris').disabled = false
+				}
+			}
+
+			function EditPembantuKetua() {
+				if (document.getElementById('EditPembantuKetua').checked){
+					document.getElementById('EditKreditPembantuKetua').innerHTML = 4
+          document.getElementById('EditWakilRektor').disabled = true
+          document.getElementById('EditKetua').disabled = true
+          document.getElementById('EditRektor').disabled = true
+          document.getElementById('EditDirekturAkademi').disabled = true
+          document.getElementById('EditPembantuDirekturPoliteknik').disabled = true
+          document.getElementById('EditPembantuDirekturAkademi').disabled = true
+          document.getElementById('EditSekretaris').disabled = true
+        } else {
+          document.getElementById('EditKreditPembantuKetua').innerHTML = 0
+          document.getElementById('EditWakilRektor').disabled = false
+          document.getElementById('EditKetua').disabled = false
+          document.getElementById('EditRektor').disabled = false
+          document.getElementById('EditDirekturAkademi').disabled = false
+          document.getElementById('EditPembantuDirekturPoliteknik').disabled = false
+          document.getElementById('EditPembantuDirekturAkademi').disabled = false
+          document.getElementById('EditSekretaris').disabled = false
+				}
+			}
+
+			function EditDirekturAkademi() {
+				if (document.getElementById('EditDirekturAkademi').checked){
+					document.getElementById('EditKreditDirekturAkademi').innerHTML = 4
+          document.getElementById('EditWakilRektor').disabled = true
+          document.getElementById('EditKetua').disabled = true
+          document.getElementById('EditPembantuKetua').disabled = true
+          document.getElementById('EditRektor').disabled = true
+          document.getElementById('EditPembantuDirekturPoliteknik').disabled = true
+          document.getElementById('EditPembantuDirekturAkademi').disabled = true
+          document.getElementById('EditSekretaris').disabled = true
+        } else {
+          document.getElementById('EditKreditDirekturAkademi').innerHTML = 0
+          document.getElementById('EditWakilRektor').disabled = false
+          document.getElementById('EditKetua').disabled = false
+          document.getElementById('EditPembantuKetua').disabled = false
+          document.getElementById('EditRektor').disabled = false
+          document.getElementById('EditPembantuDirekturPoliteknik').disabled = false
+          document.getElementById('EditPembantuDirekturAkademi').disabled = false
+          document.getElementById('EditSekretaris').disabled = false
+				}
+			}
+
+			function EditPembantuDirekturPoliteknik() {
+				if (document.getElementById('EditPembantuDirekturPoliteknik').checked){
+					document.getElementById('EditKreditPembantuDirekturPoliteknik').innerHTML = 3
+          document.getElementById('EditWakilRektor').disabled = true
+          document.getElementById('EditKetua').disabled = true
+          document.getElementById('EditPembantuKetua').disabled = true
+          document.getElementById('EditDirekturAkademi').disabled = true
+          document.getElementById('EditRektor').disabled = true
+          document.getElementById('EditPembantuDirekturAkademi').disabled = true
+          document.getElementById('EditSekretaris').disabled = true
+        } else {
+          document.getElementById('EditKreditPembantuDirekturPoliteknik').innerHTML = 0
+          document.getElementById('EditWakilRektor').disabled = false
+          document.getElementById('EditKetua').disabled = false
+          document.getElementById('EditPembantuKetua').disabled = false
+          document.getElementById('EditDirekturAkademi').disabled = false
+          document.getElementById('EditRektor').disabled = false
+          document.getElementById('EditPembantuDirekturAkademi').disabled = false
+          document.getElementById('EditSekretaris').disabled = false
+				}
+			}
+
+			function EditPembantuDirekturAkademi() {
+				if (document.getElementById('EditPembantuDirekturAkademi').checked){
+					document.getElementById('EditKreditPembantuDirekturAkademi').innerHTML = 3
+          document.getElementById('EditWakilRektor').disabled = true
+          document.getElementById('EditKetua').disabled = true
+          document.getElementById('EditPembantuKetua').disabled = true
+          document.getElementById('EditDirekturAkademi').disabled = true
+          document.getElementById('EditPembantuDirekturPoliteknik').disabled = true
+          document.getElementById('EditRektor').disabled = true
+          document.getElementById('EditSekretaris').disabled = true
+        } else {
+          document.getElementById('EditKreditPembantuDirekturAkademi').innerHTML = 0
+          document.getElementById('EditWakilRektor').disabled = false
+          document.getElementById('EditKetua').disabled = false
+          document.getElementById('EditPembantuKetua').disabled = false
+          document.getElementById('EditDirekturAkademi').disabled = false
+          document.getElementById('EditPembantuDirekturPoliteknik').disabled = false
+          document.getElementById('EditRektor').disabled = false
+          document.getElementById('EditSekretaris').disabled = false
+				}
+			}
+
+			function EditSekretaris() {
+				if (document.getElementById('EditSekretaris').checked){
+					document.getElementById('EditKreditSekretaris').innerHTML = 3
+          document.getElementById('EditWakilRektor').disabled = true
+          document.getElementById('EditKetua').disabled = true
+          document.getElementById('EditPembantuKetua').disabled = true
+          document.getElementById('EditDirekturAkademi').disabled = true
+          document.getElementById('EditPembantuDirekturPoliteknik').disabled = true
+          document.getElementById('EditPembantuDirekturAkademi').disabled = true
+          document.getElementById('EditRektor').disabled = true
+        } else {
+          document.getElementById('EditKreditSekretaris').innerHTML = 0
+          document.getElementById('EditWakilRektor').disabled = false
+          document.getElementById('EditKetua').disabled = false
+          document.getElementById('EditPembantuKetua').disabled = false
+          document.getElementById('EditDirekturAkademi').disabled = false
+          document.getElementById('EditPembantuDirekturPoliteknik').disabled = false
+          document.getElementById('EditPembantuDirekturAkademi').disabled = false
+          document.getElementById('EditRektor').disabled = false
+				}
+			}
+
+			function EditPembimbingPencangkokan() {
+				if (isNaN(parseInt($('#EditPembimbingPencangkokan').val()))) {
+					document.getElementById('EditKreditPembimbingPencangkokan').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditPembimbingPencangkokan').innerHTML = parseInt($('#EditPembimbingPencangkokan').val())*2
+				}
+			}
+
+			function EditPembimbingReguler() {
+				if (isNaN(parseInt($('#EditPembimbingReguler').val()))) {
+					document.getElementById('EditKreditPembimbingReguler').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditPembimbingReguler').innerHTML = parseInt($('#EditPembimbingReguler').val())
+				}
+			}
+
+			function EditDetasering() {
+				if (isNaN(parseInt($('#EditDetasering').val()))) {
+					document.getElementById('EditKreditDetasering').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditDetasering').innerHTML = parseInt($('#EditDetasering').val())*5
+				}
+			}
+
+			function EditPencangkokan() {
+				if (isNaN(parseInt($('#EditPencangkokan').val()))) {
+					document.getElementById('EditKreditPencangkokan').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditPencangkokan').innerHTML = parseInt($('#EditPencangkokan').val())*4
+				}
+			}
+
+			function EditPengembangan960() {
+				if (isNaN(parseInt($('#EditPengembangan960').val()))) {
+					document.getElementById('EditKreditPengembangan960').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditPengembangan960').innerHTML = parseInt($('#EditPengembangan960').val())*15
+				}
+			}
+
+			function EditPengembangan641() {
+				if (isNaN(parseInt($('#EditPengembangan641').val()))) {
+					document.getElementById('EditKreditPengembangan641').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditPengembangan641').innerHTML = parseInt($('#EditPengembangan641').val())*9
+				}
+			}
+
+			function EditPengembangan481() {
+				if (isNaN(parseInt($('#EditPengembangan481').val()))) {
+					document.getElementById('EditKreditPengembangan481').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditPengembangan481').innerHTML = parseInt($('#EditPengembangan481').val())*6
+				}
+			}
+
+			function EditPengembangan161() {
+				if (isNaN(parseInt($('#EditPengembangan161').val()))) {
+					document.getElementById('EditKreditPengembangan161').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditPengembangan161').innerHTML = parseInt($('#EditPengembangan161').val())*3
+				}
+			}
+
+			function EditPengembangan81() {
+				if (isNaN(parseInt($('#EditPengembangan81').val()))) {
+					document.getElementById('EditKreditPengembangan81').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditPengembangan81').innerHTML = parseInt($('#EditPengembangan81').val())*2
+				}
+			}
+
+			function EditPengembangan30() {
+				if (isNaN(parseInt($('#EditPengembangan30').val()))) {
+					document.getElementById('EditKreditPengembangan30').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditPengembangan30').innerHTML = parseInt($('#EditPengembangan30').val())*1
+				}
+			}
+
+			function EditPengembangan10() {
+				if (isNaN(parseInt($('#EditPengembangan10').val()))) {
+					document.getElementById('EditKreditPengembangan10').innerHTML = 0
+				} else {
+					document.getElementById('EditKreditPengembangan10').innerHTML = parseInt($('#EditPengembangan10').val())*0.5
 				}
 			}
 		</script>
