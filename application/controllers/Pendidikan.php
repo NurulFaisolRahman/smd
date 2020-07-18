@@ -24,7 +24,16 @@ class Pendidikan extends CI_Controller {
 		if ($this->db->affected_rows()){
 			echo '1';
 		} else {
-			echo '0';
+			print_r($this->db->error());
+		}
+	}
+
+	public function HapusRencanaPendidikan(){
+		$this->db->delete('RencanaPendidikan', array('No' => $_POST['No']));
+		if ($this->db->affected_rows()){
+			echo '1';
+		} else {
+			print_r($this->db->error());
 		}
 	}
 
@@ -33,7 +42,7 @@ class Pendidikan extends CI_Controller {
 		if ($this->db->affected_rows()){
 			echo '1';
 		} else {
-			echo 'Gagal Menghapus';
+			print_r($this->db->error());
 		}
 	}
 

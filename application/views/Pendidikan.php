@@ -39,6 +39,8 @@
 				var BaseURL = '<?=base_url()?>';
 				$('#TabelRencana').DataTable( {
 					dom:'lfrtip',
+					"info": false,
+					"filter": false,
 					"lengthMenu": [ 5, 10, 20, 30 ],
 					"language": {
 						"paginate": {
@@ -174,10 +176,136 @@
 					var DataRencanaPendidikan = {Jenjang:$("#JenjangRencanaPendidikan").val(),Semester:$("#SemesterRencanaPendidikan").val(),
 																			 Tahun:$("#TahunRencanaPendidikan").val(),Kode:KodeRencana,Total:TotalKreditRencana}
 					$.post(BaseURL+"Pendidikan/InputRencanaPendidikan", DataRencanaPendidikan).done(function(Respon) {
-						alert(Respon)
-						// window.location = BaseURL + "Dashboard/Pendidikan"
+						if (Respon == '1') {
+							window.location = BaseURL + "Dashboard/Pendidikan"
+						} else {
+							alert(Respon)
+						}
 					})
 				})
+
+				$(document).on("click",".EditRencanaPendidikan",function(){
+					var Data = $(this).attr('EditRencanaPendidikan')
+					var Pisah = Data.split("/")
+					$("#EditJenjangRencanaPendidikan").val(Pisah[2])
+					$("#EditSemesterRencanaPendidikan").val(Pisah[3])
+					$("#EditTahunRencanaPendidikan").val(Pisah[4])
+					var PisahKode = Pisah[5].split("|")
+					if (PisahKode[0] == '1') {
+						$('#EditDoktor').attr('checked', true)	
+						$("#EditKreditSekolah").html(200)
+					} else if (PisahKode[0] == '2') {
+						$('#EditMagister').attr('checked', true)
+						$("#EditKreditSekolah").html(150)
+					}
+					if (PisahKode[1] == '1') {
+						$('#EditDiklat').attr('checked', true)	
+						$("#EditKreditDiklat").html(3)
+					}
+					$('#EditMengajar').val(PisahKode[2])
+					if (Pisah[1] != "Asisten Ahli") {
+						if (PisahKode[2] > 10) {
+							$("#EditKreditMengajar").html(10+((PisahKode[2]-10)*0.5))
+						} else {
+							$("#EditKreditMengajar").html(PisahKode[2])
+						}	
+					} else {
+						if (PisahKode[2] > 10) {
+							$("#EditKreditMengajar").html(5+((PisahKode[2]-10)*0.25))
+						} else {
+							$("#EditKreditMengajar").html(PisahKode[2]*0.5)
+						}	
+					}
+					if (PisahKode[3] == '1') {
+						$('#EditBimbingSeminar').attr('checked', true)	
+						$("#EditKreditBimbingSeminar").html(1)
+					}
+					if (PisahKode[4] == '1') {
+						$('#EditBimbingKKN').attr('checked', true)	
+						$("#EditKreditBimbingKKN").html(1)
+					}
+					$("#EditDisertasiUtama").val(PisahKode[5])
+					$("#EditKreditDisertasiUtama").html(PisahKode[5]*2)
+					$("#EditTesisUtama").val(PisahKode[6])
+					$("#EditKreditTesisUtama").html(PisahKode[6]*0.5)
+					$("#EditSkripsiUtama").val(PisahKode[7])
+					$("#EditKreditSkripsiUtama").html(PisahKode[7]*0.125)
+					$("#EditDisertasiPendamping").val(PisahKode[8])
+					$("#EditKreditDisertasiPendamping").html(PisahKode[8]*1.5)
+					$("#EditTesisPendamping").val(PisahKode[9])
+					$("#EditKreditTesisPendamping").html(PisahKode[9]*0.3)
+					$("#EditSkripsiPendamping").val(PisahKode[10])
+					$("#EditKreditSkripsiPendamping").html(PisahKode[10]*0.0625)					
+					$("#EditPengujiUtama").val(PisahKode[11])
+					$("#EditKreditPengujiUtama").html(PisahKode[11]*0.25)
+					$("#EditAnggotaPenguji").val(PisahKode[12])
+					$("#EditKreditAnggotaPenguji").html(PisahKode[12]*0.0625)
+					$("#EditMembinaKegiatan").val(PisahKode[13])
+					$("#EditKreditMembinaKegiatan").html(PisahKode[13])
+					$("#EditMengembangkanProgram").val(PisahKode[14])
+					$("#EditKreditMengembangkanProgram").html(PisahKode[14]*2)
+
+					if (PisahKode[22] == '1') {
+						$('#EditRektor').attr('checked', true)	
+						$("#EditKreditRektor").html(6)
+					}
+					else if (PisahKode[23] == '1') {
+						$('#EditWakilRektor').attr('checked', true)	
+						$("#EditKreditWakilRektor").html(5)
+					}
+					else if (PisahKode[24] == '1') {
+						$('#EditKetua').attr('checked', true)	
+						$("#EditKreditKetua").html(4)
+					}
+					else if (PisahKode[25] == '1') {
+						$('#EditPembantuKetua').attr('checked', true)	
+						$("#EditKreditPembantuKetua").html(4)
+					}
+					else if (PisahKode[26] == '1') {
+						$('#EditDirekturAkademi').attr('checked', true)	
+						$("#EditKreditDirekturAkademi").html(4)
+					}
+					else if (PisahKode[27] == '1') {
+						$('#EditPembantuDirekturPoliteknik').attr('checked', true)	
+						$("#EditKreditPembantuDirekturPoliteknik").html(3)
+					}
+					else if (PisahKode[28] == '1') {
+						$('#EditPembantuDirekturAkademi').attr('checked', true)	
+						$("#EditKreditPembantuDirekturAkademi").html(3)
+					}
+					else if (PisahKode[29] == '1') {
+						$('#EditSekretaris').attr('checked', true)	
+						$("#EditKreditSekretaris").html(3)
+					}
+					// document.getElementById('EditUraian').value = Pisah[1];
+					// document.getElementById('EditTanggal').value = Pisah[2];
+					// document.getElementById('EditVolume').value = Pisah[3];
+					// document.getElementById('ID').value = Pisah[4];
+					$('#ModalEditRencanaPendidikan').modal("show");
+					// var Hapus = {No: $(this).attr('HapusRencanaPendidikan')}
+					
+					// $.post(BaseURL+"Pendidikan/HapusRencanaPendidikan", Hapus).done(function(Respon) {
+					// 	if (Respon == '1') {
+					// 		window.location = BaseURL + "Dashboard/Pendidikan"
+					// 	} else {
+					// 		alert(Respon)
+					// 	}
+					// });
+				});
+
+				$(document).on("click",".HapusRencanaPendidikan",function(){
+					var Hapus = {No: $(this).attr('HapusRencanaPendidikan')}
+					var Konfirmasi = confirm("Yakin Ingin Menghapus?");
+      		if (Konfirmasi == true) {
+						$.post(BaseURL+"Pendidikan/HapusRencanaPendidikan", Hapus).done(function(Respon) {
+							if (Respon == '1') {
+								window.location = BaseURL + "Dashboard/Pendidikan"
+							} else {
+								alert(Respon)
+							}
+						});
+					}
+				});
 
 				$("#LihatRealisasi").click(function() {
 					var Data = {ID: $("#OpsiKegiatan").val()}
@@ -478,7 +606,7 @@
 					if (parseInt($('#Mengajar').val()) <= 10) {
 						document.getElementById('KreditMengajar').innerHTML = parseInt($('#Mengajar').val())*0.5
 					} else if(parseInt($('#Mengajar').val()) > 10){
-						document.getElementById('KreditMengajar').innerHTML = 10+(0.25*(parseInt($('#Mengajar').val())-10))
+						document.getElementById('KreditMengajar').innerHTML = 5+(0.25*(parseInt($('#Mengajar').val())-10))
 					} else {
 						document.getElementById('KreditMengajar').innerHTML = 0
 					}
@@ -498,6 +626,54 @@
 					document.getElementById('KreditBimbingKKN').innerHTML = 1
 				} else {
 					document.getElementById('KreditBimbingKKN').innerHTML = 0
+				}
+			}
+
+			function DisertasiUtama() {
+				if (isNaN(parseInt($('#DisertasiUtama').val()))) {
+					document.getElementById('KreditDisertasiUtama').innerHTML = 0
+				} else {
+					document.getElementById('KreditDisertasiUtama').innerHTML = parseInt($('#DisertasiUtama').val())*2
+				}
+			}
+
+			function TesisUtama() {
+				if (isNaN(parseInt($('#TesisUtama').val()))) {
+					document.getElementById('KreditTesisUtama').innerHTML = 0
+				} else {
+					document.getElementById('KreditTesisUtama').innerHTML = parseInt($('#TesisUtama').val())*0.5
+				}
+			}
+
+			function SkripsiUtama() {
+				if (isNaN(parseInt($('#SkripsiUtama').val()))) {
+					document.getElementById('KreditSkripsiUtama').innerHTML = 0
+				} else {
+					document.getElementById('KreditSkripsiUtama').innerHTML = parseInt($('#SkripsiUtama').val())*0.125
+				}
+			}
+
+			function DisertasiPendamping() {
+				if (isNaN(parseInt($('#DisertasiPendamping').val()))) {
+					document.getElementById('KreditDisertasiPendamping').innerHTML = 0
+				} else {
+					document.getElementById('KreditDisertasiPendamping').innerHTML = parseInt($('#DisertasiPendamping').val())*1.5
+				}
+			}
+
+			function TesisPendamping() {
+				if (isNaN(parseInt($('#TesisPendamping').val()))) {
+					document.getElementById('KreditTesisPendamping').innerHTML = 0
+				} else {
+					document.getElementById('KreditTesisPendamping').innerHTML = parseInt($('#TesisPendamping').val())*0.3
+				}
+			}
+
+			function SkripsiPendamping() {
+				if (isNaN(parseInt($('#SkripsiPendamping').val()))) {
+					document.getElementById('KreditSkripsiPendamping').innerHTML = 0
+				} else {
+					document.getElementById('KreditSkripsiPendamping').innerHTML = parseInt($('#SkripsiPendamping').val())*0.0625
 				}
 			}
 
@@ -642,54 +818,6 @@
 					document.getElementById('KreditPengembangan10').innerHTML = 0
 				} else {
 					document.getElementById('KreditPengembangan10').innerHTML = parseInt($('#Pengembangan10').val())*0.5
-				}
-			}
-
-			function DisertasiUtama() {
-				if (isNaN(parseInt($('#DisertasiUtama').val()))) {
-					document.getElementById('KreditDisertasiUtama').innerHTML = 0
-				} else {
-					document.getElementById('KreditDisertasiUtama').innerHTML = parseInt($('#DisertasiUtama').val())*2
-				}
-			}
-
-			function TesisUtama() {
-				if (isNaN(parseInt($('#TesisUtama').val()))) {
-					document.getElementById('KreditTesisUtama').innerHTML = 0
-				} else {
-					document.getElementById('KreditTesisUtama').innerHTML = parseInt($('#TesisUtama').val())*0.5
-				}
-			}
-
-			function SkripsiUtama() {
-				if (isNaN(parseInt($('#SkripsiUtama').val()))) {
-					document.getElementById('KreditSkripsiUtama').innerHTML = 0
-				} else {
-					document.getElementById('KreditSkripsiUtama').innerHTML = parseInt($('#SkripsiUtama').val())*0.125
-				}
-			}
-
-			function DisertasiPendamping() {
-				if (isNaN(parseInt($('#DisertasiPendamping').val()))) {
-					document.getElementById('KreditDisertasiPendamping').innerHTML = 0
-				} else {
-					document.getElementById('KreditDisertasiPendamping').innerHTML = parseInt($('#DisertasiPendamping').val())*1.5
-				}
-			}
-
-			function TesisPendamping() {
-				if (isNaN(parseInt($('#TesisPendamping').val()))) {
-					document.getElementById('KreditTesisPendamping').innerHTML = 0
-				} else {
-					document.getElementById('KreditTesisPendamping').innerHTML = parseInt($('#TesisPendamping').val())*0.3
-				}
-			}
-
-			function SkripsiPendamping() {
-				if (isNaN(parseInt($('#SkripsiPendamping').val()))) {
-					document.getElementById('KreditSkripsiPendamping').innerHTML = 0
-				} else {
-					document.getElementById('KreditSkripsiPendamping').innerHTML = parseInt($('#SkripsiPendamping').val())*0.0625
 				}
 			}
 
