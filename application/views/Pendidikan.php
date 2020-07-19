@@ -65,16 +65,12 @@
 
 				$("#pills-Rencana-tab").click(function() {
 					var Data = {SubPendidikan: 'Rencana'}
-					$.post(BaseURL+"Dashboard/SubPendidikan", Data).done(function(Respon) {
-						window.location = BaseURL + "Dashboard/Pendidikan"
-					})
+					$.post(BaseURL+"Dashboard/SubPendidikan", Data)
 				})
 
 				$("#pills-Realisasi-tab").click(function() {
 					var Data = {SubPendidikan: 'Realisasi'}
-					$.post(BaseURL+"Dashboard/SubPendidikan", Data).done(function(Respon) {
-						window.location = BaseURL + "Dashboard/Pendidikan"
-					})
+					$.post(BaseURL+"Dashboard/SubPendidikan", Data)
 				})
 
 				$("#InputRencanaPendidikan").click(function() {
@@ -176,7 +172,7 @@
 														+'|'+($('#Pengembangan10').val() == ""? 0 : parseInt($('#Pengembangan10').val()))
 					var DataRencanaPendidikan = {Jenjang:$("#JenjangRencanaPendidikan").val(),Semester:$("#SemesterRencanaPendidikan").val(),
 																			 Tahun:$("#TahunRencanaPendidikan").val(),Kode:KodeRencana,Total:TotalKreditRencana}
-					$.post(BaseURL+"Pendidikan/InputRencanaPendidikan", DataRencanaPendidikan).done(function(Respon) {
+					$.post(BaseURL+"Pendidikan/InputRencana", DataRencanaPendidikan).done(function(Respon) {
 						if (Respon == '1') {
 							window.location = BaseURL + "Dashboard/Pendidikan"
 						} else {
@@ -412,7 +408,7 @@
 														+'|'+($('#EditPengembangan10').val() == ''? 0 : parseInt($('#EditPengembangan10').val()))
 					var EditDataRencanaPendidikan = {No:$("#NoEditRencana").val(),Jenjang:$('#EditJenjangRencanaPendidikan').val(),Semester:$('#EditSemesterRencanaPendidikan').val(),
 																			 Tahun:$('#EditTahunRencanaPendidikan').val(),Kode:EditKodeRencana,Total:EditTotalKreditRencana}
-					$.post(BaseURL+'Pendidikan/EditRencanaPendidikan', EditDataRencanaPendidikan).done(function(Respon) {
+					$.post(BaseURL+'Pendidikan/EditRencana', EditDataRencanaPendidikan).done(function(Respon) {
 						if (Respon == '1') {
 							window.location = BaseURL + 'Dashboard/Pendidikan'
 						} else {
@@ -425,7 +421,7 @@
 					var Hapus = {No: $(this).attr('HapusRencanaPendidikan')}
 					var Konfirmasi = confirm("Yakin Ingin Menghapus?");
       		if (Konfirmasi == true) {
-						$.post(BaseURL+"Pendidikan/HapusRencanaPendidikan", Hapus).done(function(Respon) {
+						$.post(BaseURL+"Pendidikan/HapusRencana", Hapus).done(function(Respon) {
 							if (Respon == '1') {
 								window.location = BaseURL + "Dashboard/Pendidikan"
 							} else {
@@ -434,13 +430,6 @@
 						});
 					}
 				});
-
-				$("#LihatRealisasi").click(function() {
-					var Data = {ID: $("#OpsiKegiatan").val()}
-					$.post(BaseURL+"Dashboard/LihatPendidikan", Data).done(function(Respon) {
-						window.location = BaseURL + "Dashboard/Pendidikan"
-					})
-				})
 
 				$("#TombolRencanaTotalKredit").click(function() {
 					var KreditSekolah = parseFloat(document.getElementById('KreditSekolah').innerHTML)
@@ -538,6 +527,73 @@
 					document.getElementById('EditRencanaTotalKredit').innerHTML = EditKreditSekolah + EditKreditDiklat + EditKreditMengajar + EditKreditBimbingSeminar + EditKreditBimbingKKN + EditKreditDisertasiUtama + EditKreditTesisUtama + EditKreditSkripsiUtama + EditKreditDisertasiPendamping + EditKreditTesisPendamping + EditKreditSkripsiPendamping + EditKreditPengujiUtama + EditKreditAnggotaPenguji + EditKreditMembinaKegiatan + EditKreditMengembangkanProgram + EditKreditBukuAjar + EditKreditProdukPengajaran + EditKreditOrasi + EditKreditRektor + EditKreditWakilRektor + EditKreditKetua + EditKreditPembantuKetua + EditKreditDirekturAkademi + EditKreditPembantuDirekturPoliteknik + EditKreditPembantuDirekturAkademi + EditKreditSekretaris + EditKreditPembimbingPencangkokan + EditKreditPembimbingReguler + EditKreditDetasering + EditKreditPencangkokan + EditKreditPengembangan960 + EditKreditPengembangan641 + EditKreditPengembangan481 + EditKreditPengembangan161 + EditKreditPengembangan81 + EditKreditPengembangan30 + EditKreditPengembangan10
 				})
 
+				$("#LihatRealisasi").click(function() {
+					var Data = {ID: $("#IdKegiatanPendidikan").val()}
+					$.post(BaseURL+"Dashboard/LihatRealisasiPendidikan", Data).done(function(Respon) {
+						window.location = BaseURL + "Dashboard/Pendidikan"
+					})
+				})
+
+				$("#TambahRealisasiPendidikan").click(function() {
+					if (isNaN($("#Volume").val())) {
+						alert('Volume Kegiatan Wajib Di Isi')
+					} 
+					else {
+						var fd = new FormData()
+						var Bukti = $('#Bukti')[0].files
+						for(var i = 0;i<Bukti.length;i++){
+							fd.append("file"+i, Bukti[i])
+						}
+						fd.append('Jenjang',$("#JenisRealisasi").val())
+						fd.append('Semester',$("#SemesterRealisasi").val())
+						fd.append('Tahun',$("#TahunRealisasi").val())
+						fd.append('Kegiatan',$("#Uraian").val())		
+						fd.append('IdKegiatan',$("#InputIdKegiatanPendidikan").val())
+						fd.append('Volume',$("#Volume").val())									
+						if ($("#InputIdKegiatanPendidikan").val() == 'PND1') {
+							fd.append('Jenjang',$("#Jenjang").val())
+						}
+						else if ($("#InputIdKegiatanPendidikan").val() == 'PND6') {
+							fd.append('JenisPembimbing',$("#JenisPembimbing").val())
+							fd.append('JenisBimbingan',$("#JenisBimbingan").val())							
+						}
+						else if ($("#InputIdKegiatanPendidikan").val() == 'PND7') {
+							fd.append('JenisPenguji',$("#JenisPenguji").val())
+						}
+						else if ($("#InputIdKegiatanPendidikan").val() == 'PND10') {
+							fd.append('BahanPengajaran',$("#BahanPengajaran").val())
+						}
+						else if ($("#InputIdKegiatanPendidikan").val() == 'PND12') {
+							fd.append('JenisPND12',$("#JenisPND12").val())
+						}
+						else if ($("#InputIdKegiatanPendidikan").val() == 'PND13') {
+							fd.append('JenisPND13',$("#JenisPND13").val())
+						}
+						else if ($("#InputIdKegiatanPendidikan").val() == 'PND14') {
+							fd.append('JenisPND14',$("#JenisPND14").val())
+						}
+						else if ($("#InputIdKegiatanPendidikan").val() == 'PND15') {
+							fd.append('JenisPND15',$("#JenisPND15").val())
+						}
+						$.ajax({
+							url: BaseURL+'Pendidikan/InputRealisasi',
+							type: 'post',
+							data: fd,
+							contentType: false,
+            	processData: false,
+							success: function(Respon){
+								if (Respon == '1') {
+									window.location = BaseURL + "Dashboard/Pendidikan"
+								}
+								else {
+									alert('Gagal Menyimpan!')
+								}
+							}
+						});
+					}
+          return false
+        })
+
 				$(document).on("click",".Edit",function(){
 					var Data = $(this).attr('Edit')
 					var Pisah = Data.split("|");
@@ -564,76 +620,6 @@
 					});
 				});
 
-				$("#InputKegiatan").click(function() {
-					if (isNaN($("#Volume").val())) {
-						alert('Volume Harus Angka & Gunakan Tanda . Untuk desimal!')
-					} 
-					else {
-						// var Data = {Kegiatan: $("#Uraian").val(),
-						// 					Tanggal: $("#Tanggal").val(),
-						// 					ID: $("#JenisKegiatan").val(),
-            //           Volume: $("#Volume").val()}
-						var fd = new FormData()
-						var Bukti = $('#Bukti')[0].files
-						for(var i = 0;i<Bukti.length;i++){
-							fd.append("file"+i, Bukti[i])
-						}
-						fd.append('Kegiatan',$("#Uraian").val())		
-						fd.append('Tanggal',$("#Tanggal").val())
-						fd.append('ID',$("#JenisKegiatan").val())
-						fd.append('Volume',$("#Volume").val())									
-						if ($("#JenisKegiatan").val() == 'PND1') {
-							fd.append('Jenjang',$("#Jenjang").val())
-						}
-						else if ($("#JenisKegiatan").val() == 'PND6') {
-							fd.append('JenisPembimbing',$("#JenisPembimbing").val())
-							fd.append('JenisBimbingan',$("#JenisBimbingan").val())							
-						}
-						else if ($("#JenisKegiatan").val() == 'PND7') {
-							fd.append('JenisPenguji',$("#JenisPenguji").val())
-						}
-						else if ($("#JenisKegiatan").val() == 'PND10') {
-							fd.append('BahanPengajaran',$("#BahanPengajaran").val())
-						}
-						else if ($("#JenisKegiatan").val() == 'PND12') {
-							fd.append('JenisPND12',$("#JenisPND12").val())
-						}
-						else if ($("#JenisKegiatan").val() == 'PND13') {
-							fd.append('JenisPND13',$("#JenisPND13").val())
-						}
-						else if ($("#JenisKegiatan").val() == 'PND14') {
-							fd.append('JenisPND14',$("#JenisPND14").val())
-						}
-						else if ($("#JenisKegiatan").val() == 'PND15') {
-							fd.append('JenisPND15',$("#JenisPND15").val())
-						}
-						$.ajax({
-							url: BaseURL+'Pendidikan/Input',
-							type: 'post',
-							data: fd,
-							contentType: false,
-            	processData: false,
-							success: function(Respon){
-								if (Respon == '1') {
-									window.location = BaseURL + "Dashboard/Pendidikan"
-								}
-								else {
-									alert('Gagal Menyimpan!')
-								}
-							}
-						});
-						// $.post(BaseURL+"Pendidikan/Input", Data).done(function(Respon) {
-						// 	if (Respon == '1') {
-						// 		window.location = BaseURL + "Dashboard/Pendidikan"
-						// 	}
-						// 	else {
-						// 		alert('Gagal Menyimpan!')
-						// 	}
-						// })
-					}
-          return false
-        })
-
 				$(document).on("click",".Hapus",function(){
 					var Hapus = {No: $(this).attr('Hapus')};
 					$.post(BaseURL+"Pendidikan/Edit", Hapus).done(function(Respon) {
@@ -646,8 +632,8 @@
 				});
 			});
 
-			function GantiKegiatan() {
-				if ($("#JenisKegiatan").val() == 'PND1') {
+			function InputIdKegiatanPendidikan() {
+				if ($("#InputIdKegiatanPendidikan").val() == 'PND1') {
 					document.getElementById("OpsiPND1").style.display = 'block'
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
@@ -656,7 +642,7 @@
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
 				}
-				else if ($("#JenisKegiatan").val() == 'PND6') {
+				else if ($("#InputIdKegiatanPendidikan").val() == 'PND6') {
 					document.getElementById("OpsiPND1").style.display = 'none'
 					document.getElementById("OpsiPND6").style.display = 'block'
 					document.getElementById("OpsiPND7").style.display = 'none'
@@ -666,7 +652,7 @@
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
 				}
-				else if ($("#JenisKegiatan").val() == 'PND7') {
+				else if ($("#InputIdKegiatanPendidikan").val() == 'PND7') {
 					document.getElementById("OpsiPND1").style.display = 'none'
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'block'
@@ -676,7 +662,7 @@
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
 				}
-				else if ($("#JenisKegiatan").val() == 'PND10') {
+				else if ($("#InputIdKegiatanPendidikan").val() == 'PND10') {
 					document.getElementById("OpsiPND1").style.display = 'none'
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
@@ -686,7 +672,7 @@
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
 				}
-				else if ($("#JenisKegiatan").val() == 'PND12') {
+				else if ($("#InputIdKegiatanPendidikan").val() == 'PND12') {
 					document.getElementById("OpsiPND1").style.display = 'none'
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
@@ -696,7 +682,7 @@
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
 				}
-				else if ($("#JenisKegiatan").val() == 'PND13') {
+				else if ($("#InputIdKegiatanPendidikan").val() == 'PND13') {
 					document.getElementById("OpsiPND1").style.display = 'none'
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
@@ -706,7 +692,7 @@
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
 				}
-				else if ($("#JenisKegiatan").val() == 'PND14') {
+				else if ($("#InputIdKegiatanPendidikan").val() == 'PND14') {
 					document.getElementById("OpsiPND1").style.display = 'none'
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
@@ -716,7 +702,7 @@
 					document.getElementById("OpsiPND14").style.display = 'block'
 					document.getElementById("OpsiPND15").style.display = 'none'
 				}
-				else if ($("#JenisKegiatan").val() == 'PND15') {
+				else if ($("#InputIdKegiatanPendidikan").val() == 'PND15') {
 					document.getElementById("OpsiPND1").style.display = 'none'
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
@@ -726,7 +712,7 @@
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'block'
 				}
-				else if ($("#JenisKegiatan").val() != 'PND1' && $("#JenisKegiatan").val() != 'PND6' && $("#JenisKegiatan").val() != 'PND7' && $("#JenisKegiatan").val() != 'PND10' && $("#JenisKegiatan").val() != 'PND12' && $("#JenisKegiatan").val() != 'PND13' && $("#JenisKegiatan").val() != 'PND14' && $("#JenisKegiatan").val() != 'PND15') {
+				else if ($("#InputIdKegiatanPendidikan").val() != 'PND1' && $("#InputIdKegiatanPendidikan").val() != 'PND6' && $("#InputIdKegiatanPendidikan").val() != 'PND7' && $("#InputIdKegiatanPendidikan").val() != 'PND10' && $("#InputIdKegiatanPendidikan").val() != 'PND12' && $("#InputIdKegiatanPendidikan").val() != 'PND13' && $("#InputIdKegiatanPendidikan").val() != 'PND14' && $("#InputIdKegiatanPendidikan").val() != 'PND15') {
 					document.getElementById("OpsiPND1").style.display = 'none'
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
@@ -865,7 +851,7 @@
 				if (isNaN(parseInt($('#AnggotaPenguji').val()))) {
 					document.getElementById('KreditAnggotaPenguji').innerHTML = 0
 				} else {
-					document.getElementById('KreditAnggotaPenguji').innerHTML = parseInt($('#AnggotaPenguji').val())/8
+					document.getElementById('KreditAnggotaPenguji').innerHTML = parseInt($('#AnggotaPenguji').val())/0.0625
 				}
 			}
 

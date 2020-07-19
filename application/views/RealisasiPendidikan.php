@@ -22,9 +22,9 @@
           'Melaksanakan kegiatan detasering dan pencangkokan di luar institusi tempat bekerja',
           'Melaksanakan pengembangan diri untuk meningkatkan kompetensi');
         ?>
-        <select class="custom-select" id="OpsiKegiatan">
+        <select class="custom-select" id="IdKegiatanPendidikan">
           <?php $Id = 1; foreach ($Kegiatan as $key) { $ID = 'PND'.$Id;?>
-            <option value="<?='PND'.$Id++?>" <?php if ($this->session->userdata('Pendidikan') == $ID) {
+            <option value="<?='PND'.$Id++?>" <?php if ($this->session->userdata('IdKegiatanPendidikan') == $ID) {
               echo 'selected';
             } ?>><?=$key?></option>
           <?php } ?>
@@ -33,7 +33,7 @@
     </div> 
     <div class="col-sm-4 mt-1 mb-1">
     <button type="button" id="LihatRealisasi" class="btn btn-primary"><b>Lihat</b></button>
-      <button type="button" id="Tambah" class="btn btn-success" data-toggle="modal" data-target="#Input"><b>Tambah</b></button>       
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#InputRealisasiPendidikan"><b>Tambah</b></button>       
     </div>   
   </div>
   <div class="table-responsive mb-2">
@@ -72,15 +72,39 @@
     </table>
   </div>
 </div>
-<div class="modal fade" id="Input">
+<div class="modal fade" id="InputRealisasiPendidikan">
   <div class="modal-dialog">
     <div class="modal-content bg-warning">
       <div class="modal-body">
         <div class="input-group mb-1">
           <div class="input-group-prepend">
+            <label class="input-group-text bg-primary"><b>Jenis Realisasi</b></label>
+          </div>
+          <select class="custom-select" id="JenisRealisasi">										
+              <option value="S1">S1</option>
+              <option value="S2">S2</option>
+          </select>
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <label class="input-group-text bg-primary"><b>Semester</b></label>
+          </div>
+          <select class="custom-select" id="SemesterRealisasi">										
+              <option value="Ganjil">Ganjil</option>
+              <option value="Genap">Genap</option>
+          </select>
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <label class="input-group-text bg-primary"><b>Tahun</b></label>
+          </div>
+          <input class="form-control" type="text" id="TahunRealisasi"  data-inputmask='"mask": "9999"' data-mask value="20">
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
             <span class="input-group-text bg-primary"><b>Kegiatan</b></span>
           </div>
-          <select class="custom-select" id="JenisKegiatan" onchange="GantiKegiatan()">
+          <select class="custom-select" id="InputIdKegiatanPendidikan" onchange="InputIdKegiatanPendidikan()">
           <?php $Id = 1; foreach ($Kegiatan as $key) { ?>
               <option value="<?='PND'.$Id++?>"><?=$key?></option>
             <?php } ?>
@@ -92,8 +116,8 @@
               <span class="input-group-text bg-primary"><b>Jenjang</b></span>
             </div>
             <select class="custom-select" id="Jenjang">
-              <option value="200">Doktor/Sederajat</option>
-              <option value="150">Magister/Sederajat</option>
+              <option value="200">Doktor / Sederajat</option>
+              <option value="150">Magister / Sederajat</option>
             </select>
           </div>
         </div>
@@ -115,14 +139,13 @@
               <option value="1">Disertasi</option>
               <option value="2">Tesis</option>
               <option value="3">Skripsi</option>
-              <option value="4">Laporan Akhir</option>
             </select>
           </div>
         </div>
         <div id="OpsiPND7" style="display: none;">
           <div class="input-group mb-1">
             <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis</b></span>
+              <span class="input-group-text bg-primary"><b>Jenis Penguji</b></span>
             </div>
             <select class="custom-select" id="JenisPenguji">
               <option value="1">Ketua Penguji</option>
@@ -137,7 +160,7 @@
             </div>
             <select class="custom-select" id="BahanPengajaran">
               <option value="1">Buku ajar</option>
-              <option value="2">Diktat, Modul, Petunjuk praktikum, Model, Alat bantu, Audio visual, Naskah tutorial, Job sheet praktikumterkait dengan mata kuliah yang diampu</option>
+              <option value="2">Diktat, Modul, Petunjuk praktikum, Model, Alat bantu, Audio visual, Naskah tutorial</option>
             </select>
           </div>
         </div>
@@ -161,7 +184,7 @@
         <div id="OpsiPND13" style="display: none;">
           <div class="input-group mb-1">
             <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis</b></span>
+              <span class="input-group-text bg-primary"><b>Jenis Pembimbing</b></span>
             </div>
             <select class="custom-select" id="JenisPND13">
               <option value="1">Pembimbing pencangkokan</option>
@@ -186,13 +209,13 @@
               <span class="input-group-text bg-primary"><b>Rentang</b></span>
             </div>
             <select class="custom-select" id="JenisPND15">
-              <option value="15">Lamanya lebih dari 960 jam</option>
-              <option value="9">Lamanya antara 641-960 jam</option>
-              <option value="6">Lamanya antara 481-640 jam</option>
-              <option value="3">Lamanya antara 161-480 jam</option>
-              <option value="2">Lamanya antara 81-160 jam</option>
-              <option value="1">Lamanya antara 30-80 jam</option>
-              <option value="0.5">Lamanya antara 10-30 jam</option>
+              <option value="15">lebih dari 960 jam</option>
+              <option value="9">antara 641-960 jam</option>
+              <option value="6">antara 481-640 jam</option>
+              <option value="3">antara 161-480 jam</option>
+              <option value="2">antara 81-160 jam</option>
+              <option value="1">antara 30-80 jam</option>
+              <option value="0.5">antara 10-30 jam</option>
             </select>
           </div>
         </div>
@@ -202,13 +225,7 @@
         </div>
         <div class="input-group mb-1">
           <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Tanggal</b></span>
-          </div>
-          <input class="form-control" type="text" id="Tanggal">
-        </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Jumlah Volume Kegiatan</b></span>
+            <span class="input-group-text bg-primary"><b>Volume Kegiatan</b></span>
           </div>
           <input class="form-control" type="text" id="Volume">
         </div>
@@ -221,7 +238,7 @@
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
-        <button type="submit" class="btn btn-success" id="InputKegiatan"><b>Simpan</b></button>
+        <button type="submit" class="btn btn-success" id="TambahRealisasiPendidikan"><b>Simpan</b></button>
       </div>
     </div>
   </div>

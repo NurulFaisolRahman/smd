@@ -41,15 +41,15 @@ class Dashboard extends CI_Controller {
     $Data['Halaman'] = 'Kegiatan';
 		$Data['SubMenu'] = 'Pendidikan';		
 		$NIP = $this->session->userdata('NIP');
-		$ID = $this->session->userdata('Pendidikan');
+		$ID = $this->session->userdata('IdKegiatanPendidikan');
 		$Data['Rencana'] = $this->db->get_where('RencanaPendidikan', array('NIP' => $NIP))->result_array();
 		$Data['Realisasi'] = $this->db->get_where('Pendidikan', array('NIP' => $NIP,'ID' => $ID))->result_array();
 		$this->load->view('Header',$Data);
 		$this->load->view('Pendidikan',$Data);
 	}
 
-	public function LihatPendidikan(){
-		$this->session->set_userdata('Pendidikan', $_POST['ID']);
+	public function LihatRealisasiPendidikan(){
+		$this->session->set_userdata('IdKegiatanPendidikan', $_POST['ID']);
 	}
 
 	public function SubPendidikan(){
