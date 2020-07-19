@@ -34,6 +34,7 @@
 		<script src="<?=base_url('bootstrap/datatables-bs4/js/dataTables.bootstrap4.js')?>"></script>
 		<script src="<?=base_url('bootstrap/inputmask/min/jquery.inputmask.bundle.min.js')?>"></script>
 		<script>
+			var EditJabatanRencanaPendidikan = ''
 			jQuery(document).ready(function($) {
 				"use strict";
 				var BaseURL = '<?=base_url()?>';
@@ -107,8 +108,8 @@
 					var PembimbingReguler = 0
 					var Detasering = 0
 					var Pencangkokan = 0
-					var CekJabatan = '<?=$this->session->userdata('Jabatan')?>'
-					if (CekJabatan == 'Lektor Kepala' || CekJabatan == 'Profesor') {
+					var CekJabatan = document.getElementById('KreditPembimbingPencangkokan')
+					if (CekJabatan) {
 						PembimbingPencangkokan = parseFloat(document.getElementById('KreditPembimbingPencangkokan').innerHTML)
 						PembimbingReguler = parseFloat(document.getElementById('KreditPembimbingReguler').innerHTML)
 						Detasering = parseFloat(document.getElementById('KreditDetasering').innerHTML)
@@ -149,11 +150,11 @@
 														+'|'+($('#BukuAjar').val() == ""? 0 : parseInt($('#BukuAjar').val()))
 														+'|'+($('#ProdukPengajaran').val() == ""? 0 : parseInt($('#ProdukPengajaran').val()))
 														+'|'+($('#Orasi').val() == ""? 0 : parseInt($('#Orasi').val()))
-					if (CekJabatan == 'Lektor Kepala' || CekJabatan == 'Profesor') {
-						KodeRencana = KodeRencana+'|'+(document.getElementById("PembimbingPencangkokan").checked ? 1 : 0)
-																		 +'|'+(document.getElementById("PembimbingReguler").checked ? 1 : 0)
-																		 +'|'+(document.getElementById("Detasering").checked ? 1 : 0)
-																		 +'|'+(document.getElementById("Pencangkokan").checked ? 1 : 0)
+					if (CekJabatan) {
+						KodeRencana = KodeRencana+'|'+($('#PembimbingPencangkokan').val() == ''? 0 : parseInt($('#PembimbingPencangkokan').val()))
+														+'|'+($('#PembimbingReguler').val() == ''? 0 : parseInt($('#PembimbingReguler').val()))
+														+'|'+($('#Detasering').val() == ''? 0 : parseInt($('#Detasering').val()))
+														+'|'+($('#Pencangkokan').val() == ''? 0 : parseInt($('#Pencangkokan').val()))
 					}
 					else {
 						KodeRencana = KodeRencana+'|'+0+'|'+0+'|'+0+'|'+0
@@ -184,114 +185,6 @@
 					})
 				})
 
-				$('#SimpanEditRencanaPendidikan').click(function() {
-					var EditSekolah = parseFloat(document.getElementById('EditKreditSekolah').innerHTML)
-					var EditDiklat = parseFloat(document.getElementById('EditKreditDiklat').innerHTML)
-					var EditMengajar = parseFloat(document.getElementById('EditKreditMengajar').innerHTML)
-					var EditBimbingSeminar = parseFloat(document.getElementById('EditKreditBimbingSeminar').innerHTML)
-					var EditBimbingKKN = parseFloat(document.getElementById('EditKreditBimbingKKN').innerHTML)
-					var EditDisertasiUtama = parseFloat(document.getElementById('EditKreditDisertasiUtama').innerHTML)
-					var EditTesisUtama = parseFloat(document.getElementById('EditKreditTesisUtama').innerHTML)
-					var EditSkripsiUtama = parseFloat(document.getElementById('EditKreditSkripsiUtama').innerHTML)
-					var EditDisertasiPendamping = parseFloat(document.getElementById('EditKreditDisertasiPendamping').innerHTML)
-					var EditTesisPendamping = parseFloat(document.getElementById('EditKreditTesisPendamping').innerHTML)
-					var EditSkripsiPendamping = parseFloat(document.getElementById('EditKreditSkripsiPendamping').innerHTML)
-					var EditPengujiUtama = parseFloat(document.getElementById('EditKreditPengujiUtama').innerHTML)
-					var EditAnggotaPenguji = parseFloat(document.getElementById('EditKreditAnggotaPenguji').innerHTML)
-					var EditMembinaKegiatan = parseFloat(document.getElementById('EditKreditMembinaKegiatan').innerHTML)
-					var EditMengembangkanProgram = parseFloat(document.getElementById('EditKreditMengembangkanProgram').innerHTML)
-					var EditBukuAjar = parseFloat(document.getElementById('EditKreditBukuAjar').innerHTML)
-					var EditProdukPengajaran = parseFloat(document.getElementById('EditKreditProdukPengajaran').innerHTML)
-					var EditOrasi = parseFloat(document.getElementById('EditKreditOrasi').innerHTML)
-					var EditRektor = parseFloat(document.getElementById('EditKreditRektor').innerHTML)
-					var EditWakilRektor = parseFloat(document.getElementById('EditKreditWakilRektor').innerHTML)
-					var EditKetua = parseFloat(document.getElementById('EditKreditKetua').innerHTML)
-					var EditPembantuKetua = parseFloat(document.getElementById('EditKreditPembantuKetua').innerHTML)
-					var EditDirekturAkademi = parseFloat(document.getElementById('EditKreditDirekturAkademi').innerHTML)
-					var EditPembantuDirekturPoliteknik = parseFloat(document.getElementById('EditKreditPembantuDirekturPoliteknik').innerHTML)
-					var EditPembantuDirekturAkademi = parseFloat(document.getElementById('EditKreditPembantuDirekturAkademi').innerHTML)
-					var EditSekretaris = parseFloat(document.getElementById('EditKreditSekretaris').innerHTML)
-					var EditPembimbingPencangkokan = 0
-					var EditPembimbingReguler = 0
-					var EditDetasering = 0
-					var EditPencangkokan = 0
-					var EditCekJabatan = '<?=$this->session->userdata('Jabatan')?>'
-					if (EditCekJabatan == 'Lektor Kepala' || EditCekJabatan == 'Profesor') {
-						EditPembimbingPencangkokan = parseFloat(document.getElementById('EditKreditPembimbingPencangkokan').innerHTML)
-						EditPembimbingReguler = parseFloat(document.getElementById('EditKreditPembimbingReguler').innerHTML)
-						EditDetasering = parseFloat(document.getElementById('EditKreditDetasering').innerHTML)
-						EditPencangkokan = parseFloat(document.getElementById('EditKreditPencangkokan').innerHTML)	
-					}
-					var EditPengembangan960 = parseFloat(document.getElementById('EditKreditPengembangan960').innerHTML)
-					var EditPengembangan641 = parseFloat(document.getElementById('EditKreditPengembangan641').innerHTML)
-					var EditPengembangan481 = parseFloat(document.getElementById('EditKreditPengembangan481').innerHTML)
-					var EditPengembangan161 = parseFloat(document.getElementById('EditKreditPengembangan161').innerHTML)
-					var EditPengembangan81 = parseFloat(document.getElementById('EditKreditPengembangan81').innerHTML)
-					var EditPengembangan30 = parseFloat(document.getElementById('EditKreditPengembangan30').innerHTML)
-					var EditPengembangan10 = parseFloat(document.getElementById('EditKreditPengembangan10').innerHTML)
-					var EditTotalKreditRencana = EditSekolah + EditDiklat + EditMengajar + EditBimbingSeminar + EditBimbingKKN + EditDisertasiUtama + EditTesisUtama + EditSkripsiUtama + EditDisertasiPendamping + EditTesisPendamping + EditSkripsiPendamping + EditPengujiUtama + EditAnggotaPenguji + EditMembinaKegiatan + EditMengembangkanProgram + EditBukuAjar + EditProdukPengajaran + EditOrasi + EditRektor + EditWakilRektor + EditKetua + EditPembantuKetua + EditDirekturAkademi + EditPembantuDirekturPoliteknik + EditPembantuDirekturAkademi + EditSekretaris + EditPembimbingPencangkokan + EditPembimbingReguler + EditDetasering + EditPencangkokan + EditPengembangan960 + EditPengembangan641 + EditPengembangan481 + EditPengembangan161 + EditPengembangan81 + EditPengembangan30 + EditPengembangan10
-					var EditKodeSekolah = 0
-					var EditKodeDiklat = 0
-					if (document.getElementById('EditDoktor').checked){
-						var EditKodeSekolah = 1
-					} 
-					if (document.getElementById('EditMagister').checked){
-						var EditKodeSekolah = 2
-					}
-					if (document.getElementById('EditDiklat').checked){
-						var EditKodeDiklat = 1
-					}
-					var EditKodeRencana = ''+EditKodeSekolah+'|'+EditKodeDiklat+'|'+($('#EditMengajar').val() == ''? 0 : parseInt($('#EditMengajar').val()))
-														+'|'+(document.getElementById('EditBimbingSeminar').checked ? 1 : 0)
-														+'|'+(document.getElementById('EditBimbingKKN').checked ? 1 : 0)
-														+'|'+($('#EditDisertasiUtama').val() == ''? 0 : parseInt($('#EditDisertasiUtama').val()))
-														+'|'+($('#EditTesisUtama').val() == ''? 0 : parseInt($('#EditTesisUtama').val()))
-														+'|'+($('#EditSkripsiUtama').val() == ''? 0 : parseInt($('#EditSkripsiUtama').val()))
-														+'|'+($('#EditDisertasiPendamping').val() == ''? 0 : parseInt($('#EditDisertasiPendamping').val()))
-														+'|'+($('#EditTesisPendamping').val() == ''? 0 : parseInt($('#EditTesisPendamping').val()))
-														+'|'+($('#EditSkripsiPendamping').val() == ''? 0 : parseInt($('#EditSkripsiPendamping').val()))
-														+'|'+($('#EditPengujiUtama').val() == ''? 0 : parseInt($('#EditPengujiUtama').val()))
-														+'|'+($('#EditAnggotaPenguji').val() == ''? 0 : parseInt($('#EditAnggotaPenguji').val()))
-														+'|'+($('#EditMembinaKegiatan').val() == ''? 0 : parseInt($('#EditMembinaKegiatan').val()))
-														+'|'+($('#EditMengembangkanProgram').val() == ''? 0 : parseInt($('#EditMengembangkanProgram').val()))
-														+'|'+($('#EditBukuAjar').val() == ''? 0 : parseInt($('#EditBukuAjar').val()))
-														+'|'+($('#EditProdukPengajaran').val() == ''? 0 : parseInt($('#EditProdukPengajaran').val()))
-														+'|'+($('#EditOrasi').val() == ''? 0 : parseInt($('#EditOrasi').val()))
-					if (EditCekJabatan == 'Lektor Kepala' || EditCekJabatan == 'Profesor') {
-						EditKodeRencana = EditKodeRencana+'|'+(document.getElementById('EditPembimbingPencangkokan').checked ? 1 : 0)
-																		 +'|'+(document.getElementById('EditPembimbingReguler').checked ? 1 : 0)
-																		 +'|'+(document.getElementById('EditDetasering').checked ? 1 : 0)
-																		 +'|'+(document.getElementById('EditPencangkokan').checked ? 1 : 0)
-					}
-					else {
-						EditKodeRencana = EditKodeRencana+'|'+0+'|'+0+'|'+0+'|'+0
-					}
-					EditKodeRencana = EditKodeRencana +'|'+(document.getElementById('EditRektor').checked ? 1 : 0)
-														+'|'+(document.getElementById('EditWakilRektor').checked ? 1 : 0)
-														+'|'+(document.getElementById('EditKetua').checked ? 1 : 0)
-														+'|'+(document.getElementById('EditPembantuKetua').checked ? 1 : 0)
-														+'|'+(document.getElementById('EditDirekturAkademi').checked ? 1 : 0)
-														+'|'+(document.getElementById('EditPembantuDirekturPoliteknik').checked ? 1 : 0)
-														+'|'+(document.getElementById('EditPembantuDirekturAkademi').checked ? 1 : 0)
-														+'|'+(document.getElementById('EditSekretaris').checked ? 1 : 0)
-														+'|'+($('#EditPengembangan960').val() == ''? 0 : parseInt($('#EditPengembangan960').val()))
-														+'|'+($('#EditPengembangan641').val() == ''? 0 : parseInt($('#EditPengembangan641').val()))
-														+'|'+($('#EditPengembangan481').val() == ''? 0 : parseInt($('#EditPengembangan481').val()))
-														+'|'+($('#EditPengembangan161').val() == ''? 0 : parseInt($('#EditPengembangan161').val()))
-														+'|'+($('#EditPengembangan81').val() == ''? 0 : parseInt($('#EditPengembangan81').val()))
-														+'|'+($('#EditPengembangan30').val() == ''? 0 : parseInt($('#EditPengembangan30').val()))
-														+'|'+($('#EditPengembangan10').val() == ''? 0 : parseInt($('#EditPengembangan10').val()))
-					var EditDataRencanaPendidikan = {No:$("#NoEditRencana").val(),Jenjang:$('#EditJenjangRencanaPendidikan').val(),Semester:$('#EditSemesterRencanaPendidikan').val(),
-																			 Tahun:$('#EditTahunRencanaPendidikan').val(),Kode:EditKodeRencana,Total:EditTotalKreditRencana}
-					$.post(BaseURL+'Pendidikan/EditRencanaPendidikan', EditDataRencanaPendidikan).done(function(Respon) {
-						if (Respon == '1') {
-							window.location = BaseURL + 'Dashboard/Pendidikan'
-						} else {
-							alert(Respon)
-						}
-					})
-				})
-
 				$(document).on("click",".EditRencanaPendidikan",function(){
 					var Data = $(this).attr('EditRencanaPendidikan')
 					var Pisah = Data.split("/")
@@ -312,6 +205,7 @@
 						$("#EditKreditDiklat").html(3)
 					}
 					$('#EditMengajar').val(PisahKode[2])
+					EditJabatanRencanaPendidikan = Pisah[1]
 					if (Pisah[1] != "Asisten Ahli") {
 						if (PisahKode[2] > 10) {
 							$("#EditKreditMengajar").html(10+((PisahKode[2]-10)*0.5))
@@ -342,7 +236,7 @@
 					$("#EditDisertasiPendamping").val(PisahKode[8])
 					$("#EditKreditDisertasiPendamping").html(PisahKode[8]*1.5)
 					$("#EditTesisPendamping").val(PisahKode[9])
-					$("#EditKreditTesisPendamping").html(PisahKode[9]*0.3)
+					$("#EditKreditTesisPendamping").html((PisahKode[9]*2/6).toFixed(2))
 					$("#EditSkripsiPendamping").val(PisahKode[10])
 					$("#EditKreditSkripsiPendamping").html(PisahKode[10]*0.0625)					
 					$("#EditPengujiUtama").val(PisahKode[11])
@@ -415,18 +309,117 @@
 					$("#EditKreditPengembangan30").html(PisahKode[35]*1)					
 					$("#EditPengembangan10").val(PisahKode[36])
 					$("#EditKreditPengembangan10").html(PisahKode[36]*0.5)
-					$("#EditTotalKredit").html(Pisah[6])
+					$("#EditRencanaTotalKredit").html(Pisah[6])
 					$('#ModalEditRencanaPendidikan').modal("show");
-					// var Hapus = {No: $(this).attr('HapusRencanaPendidikan')}
-					
-					// $.post(BaseURL+"Pendidikan/HapusRencanaPendidikan", Hapus).done(function(Respon) {
-					// 	if (Respon == '1') {
-					// 		window.location = BaseURL + "Dashboard/Pendidikan"
-					// 	} else {
-					// 		alert(Respon)
-					// 	}
-					// });
 				});
+
+				$('#SimpanEditRencanaPendidikan').click(function() {
+					var EditSekolah = parseFloat(document.getElementById('EditKreditSekolah').innerHTML)
+					var EditDiklat = parseFloat(document.getElementById('EditKreditDiklat').innerHTML)
+					var EditMengajar = parseFloat(document.getElementById('EditKreditMengajar').innerHTML)
+					var EditBimbingSeminar = parseFloat(document.getElementById('EditKreditBimbingSeminar').innerHTML)
+					var EditBimbingKKN = parseFloat(document.getElementById('EditKreditBimbingKKN').innerHTML)
+					var EditDisertasiUtama = parseFloat(document.getElementById('EditKreditDisertasiUtama').innerHTML)
+					var EditTesisUtama = parseFloat(document.getElementById('EditKreditTesisUtama').innerHTML)
+					var EditSkripsiUtama = parseFloat(document.getElementById('EditKreditSkripsiUtama').innerHTML)
+					var EditDisertasiPendamping = parseFloat(document.getElementById('EditKreditDisertasiPendamping').innerHTML)
+					var EditTesisPendamping = parseFloat(document.getElementById('EditKreditTesisPendamping').innerHTML)
+					var EditSkripsiPendamping = parseFloat(document.getElementById('EditKreditSkripsiPendamping').innerHTML)
+					var EditPengujiUtama = parseFloat(document.getElementById('EditKreditPengujiUtama').innerHTML)
+					var EditAnggotaPenguji = parseFloat(document.getElementById('EditKreditAnggotaPenguji').innerHTML)
+					var EditMembinaKegiatan = parseFloat(document.getElementById('EditKreditMembinaKegiatan').innerHTML)
+					var EditMengembangkanProgram = parseFloat(document.getElementById('EditKreditMengembangkanProgram').innerHTML)
+					var EditBukuAjar = parseFloat(document.getElementById('EditKreditBukuAjar').innerHTML)
+					var EditProdukPengajaran = parseFloat(document.getElementById('EditKreditProdukPengajaran').innerHTML)
+					var EditOrasi = parseFloat(document.getElementById('EditKreditOrasi').innerHTML)
+					var EditRektor = parseFloat(document.getElementById('EditKreditRektor').innerHTML)
+					var EditWakilRektor = parseFloat(document.getElementById('EditKreditWakilRektor').innerHTML)
+					var EditKetua = parseFloat(document.getElementById('EditKreditKetua').innerHTML)
+					var EditPembantuKetua = parseFloat(document.getElementById('EditKreditPembantuKetua').innerHTML)
+					var EditDirekturAkademi = parseFloat(document.getElementById('EditKreditDirekturAkademi').innerHTML)
+					var EditPembantuDirekturPoliteknik = parseFloat(document.getElementById('EditKreditPembantuDirekturPoliteknik').innerHTML)
+					var EditPembantuDirekturAkademi = parseFloat(document.getElementById('EditKreditPembantuDirekturAkademi').innerHTML)
+					var EditSekretaris = parseFloat(document.getElementById('EditKreditSekretaris').innerHTML)
+					var EditPembimbingPencangkokan = 0
+					var EditPembimbingReguler = 0
+					var EditDetasering = 0
+					var EditPencangkokan = 0
+					var EditCekJabatan = document.getElementById('EditKreditPembimbingPencangkokan')
+					if (EditCekJabatan) {
+						EditPembimbingPencangkokan = parseFloat(document.getElementById('EditKreditPembimbingPencangkokan').innerHTML)
+						EditPembimbingReguler = parseFloat(document.getElementById('EditKreditPembimbingReguler').innerHTML)
+						EditDetasering = parseFloat(document.getElementById('EditKreditDetasering').innerHTML)
+						EditPencangkokan = parseFloat(document.getElementById('EditKreditPencangkokan').innerHTML)	
+					}
+					var EditPengembangan960 = parseFloat(document.getElementById('EditKreditPengembangan960').innerHTML)
+					var EditPengembangan641 = parseFloat(document.getElementById('EditKreditPengembangan641').innerHTML)
+					var EditPengembangan481 = parseFloat(document.getElementById('EditKreditPengembangan481').innerHTML)
+					var EditPengembangan161 = parseFloat(document.getElementById('EditKreditPengembangan161').innerHTML)
+					var EditPengembangan81 = parseFloat(document.getElementById('EditKreditPengembangan81').innerHTML)
+					var EditPengembangan30 = parseFloat(document.getElementById('EditKreditPengembangan30').innerHTML)
+					var EditPengembangan10 = parseFloat(document.getElementById('EditKreditPengembangan10').innerHTML)
+					var EditTotalKreditRencana = EditSekolah + EditDiklat + EditMengajar + EditBimbingSeminar + EditBimbingKKN + EditDisertasiUtama + EditTesisUtama + EditSkripsiUtama + EditDisertasiPendamping + EditTesisPendamping + EditSkripsiPendamping + EditPengujiUtama + EditAnggotaPenguji + EditMembinaKegiatan + EditMengembangkanProgram + EditBukuAjar + EditProdukPengajaran + EditOrasi + EditRektor + EditWakilRektor + EditKetua + EditPembantuKetua + EditDirekturAkademi + EditPembantuDirekturPoliteknik + EditPembantuDirekturAkademi + EditSekretaris + EditPembimbingPencangkokan + EditPembimbingReguler + EditDetasering + EditPencangkokan + EditPengembangan960 + EditPengembangan641 + EditPengembangan481 + EditPengembangan161 + EditPengembangan81 + EditPengembangan30 + EditPengembangan10
+					var EditKodeSekolah = 0
+					var EditKodeDiklat = 0
+					if (document.getElementById('EditDoktor').checked){
+						var EditKodeSekolah = 1
+					} 
+					if (document.getElementById('EditMagister').checked){
+						var EditKodeSekolah = 2
+					}
+					if (document.getElementById('EditDiklat').checked){
+						var EditKodeDiklat = 1
+					}
+					var EditKodeRencana = ''+EditKodeSekolah+'|'+EditKodeDiklat+'|'+($('#EditMengajar').val() == ''? 0 : parseInt($('#EditMengajar').val()))
+														+'|'+(document.getElementById('EditBimbingSeminar').checked ? 1 : 0)
+														+'|'+(document.getElementById('EditBimbingKKN').checked ? 1 : 0)
+														+'|'+($('#EditDisertasiUtama').val() == ''? 0 : parseInt($('#EditDisertasiUtama').val()))
+														+'|'+($('#EditTesisUtama').val() == ''? 0 : parseInt($('#EditTesisUtama').val()))
+														+'|'+($('#EditSkripsiUtama').val() == ''? 0 : parseInt($('#EditSkripsiUtama').val()))
+														+'|'+($('#EditDisertasiPendamping').val() == ''? 0 : parseInt($('#EditDisertasiPendamping').val()))
+														+'|'+($('#EditTesisPendamping').val() == ''? 0 : parseInt($('#EditTesisPendamping').val()))
+														+'|'+($('#EditSkripsiPendamping').val() == ''? 0 : parseInt($('#EditSkripsiPendamping').val()))
+														+'|'+($('#EditPengujiUtama').val() == ''? 0 : parseInt($('#EditPengujiUtama').val()))
+														+'|'+($('#EditAnggotaPenguji').val() == ''? 0 : parseInt($('#EditAnggotaPenguji').val()))
+														+'|'+($('#EditMembinaKegiatan').val() == ''? 0 : parseInt($('#EditMembinaKegiatan').val()))
+														+'|'+($('#EditMengembangkanProgram').val() == ''? 0 : parseInt($('#EditMengembangkanProgram').val()))
+														+'|'+($('#EditBukuAjar').val() == ''? 0 : parseInt($('#EditBukuAjar').val()))
+														+'|'+($('#EditProdukPengajaran').val() == ''? 0 : parseInt($('#EditProdukPengajaran').val()))
+														+'|'+($('#EditOrasi').val() == ''? 0 : parseInt($('#EditOrasi').val()))
+					if (EditCekJabatan) {
+						EditKodeRencana = EditKodeRencana+'|'+($('#EditPembimbingPencangkokan').val() == ''? 0 : parseInt($('#EditPembimbingPencangkokan').val()))
+														+'|'+($('#EditPembimbingReguler').val() == ''? 0 : parseInt($('#EditPembimbingReguler').val()))
+														+'|'+($('#EditDetasering').val() == ''? 0 : parseInt($('#EditDetasering').val()))
+														+'|'+($('#EditPencangkokan').val() == ''? 0 : parseInt($('#EditPencangkokan').val()))
+					}
+					else {
+						EditKodeRencana = EditKodeRencana+'|'+0+'|'+0+'|'+0+'|'+0
+					}
+					EditKodeRencana = EditKodeRencana +'|'+(document.getElementById('EditRektor').checked ? 1 : 0)
+														+'|'+(document.getElementById('EditWakilRektor').checked ? 1 : 0)
+														+'|'+(document.getElementById('EditKetua').checked ? 1 : 0)
+														+'|'+(document.getElementById('EditPembantuKetua').checked ? 1 : 0)
+														+'|'+(document.getElementById('EditDirekturAkademi').checked ? 1 : 0)
+														+'|'+(document.getElementById('EditPembantuDirekturPoliteknik').checked ? 1 : 0)
+														+'|'+(document.getElementById('EditPembantuDirekturAkademi').checked ? 1 : 0)
+														+'|'+(document.getElementById('EditSekretaris').checked ? 1 : 0)
+														+'|'+($('#EditPengembangan960').val() == ''? 0 : parseInt($('#EditPengembangan960').val()))
+														+'|'+($('#EditPengembangan641').val() == ''? 0 : parseInt($('#EditPengembangan641').val()))
+														+'|'+($('#EditPengembangan481').val() == ''? 0 : parseInt($('#EditPengembangan481').val()))
+														+'|'+($('#EditPengembangan161').val() == ''? 0 : parseInt($('#EditPengembangan161').val()))
+														+'|'+($('#EditPengembangan81').val() == ''? 0 : parseInt($('#EditPengembangan81').val()))
+														+'|'+($('#EditPengembangan30').val() == ''? 0 : parseInt($('#EditPengembangan30').val()))
+														+'|'+($('#EditPengembangan10').val() == ''? 0 : parseInt($('#EditPengembangan10').val()))
+					var EditDataRencanaPendidikan = {No:$("#NoEditRencana").val(),Jenjang:$('#EditJenjangRencanaPendidikan').val(),Semester:$('#EditSemesterRencanaPendidikan').val(),
+																			 Tahun:$('#EditTahunRencanaPendidikan').val(),Kode:EditKodeRencana,Total:EditTotalKreditRencana}
+					$.post(BaseURL+'Pendidikan/EditRencanaPendidikan', EditDataRencanaPendidikan).done(function(Respon) {
+						if (Respon == '1') {
+							window.location = BaseURL + 'Dashboard/Pendidikan'
+						} else {
+							alert(Respon)
+						}
+					})
+				})
 
 				$(document).on("click",".HapusRencanaPendidikan",function(){
 					var Hapus = {No: $(this).attr('HapusRencanaPendidikan')}
@@ -480,8 +473,8 @@
 					var KreditPembimbingReguler = 0
 					var KreditDetasering = 0
 					var KreditPencangkokan = 0
-					var CekJabatan = '<?=$this->session->userdata('Jabatan')?>'
-					if (CekJabatan == 'Lektor Kepala' || CekJabatan == 'Profesor') {
+					var CekJabatan = document.getElementById('KreditPembimbingPencangkokan')
+					if (CekJabatan) {
 						KreditPembimbingPencangkokan = parseFloat(document.getElementById('KreditPembimbingPencangkokan').innerHTML)
 						KreditPembimbingReguler = parseFloat(document.getElementById('KreditPembimbingReguler').innerHTML)
 						KreditDetasering = parseFloat(document.getElementById('KreditDetasering').innerHTML)
@@ -528,8 +521,8 @@
 					var EditKreditPembimbingReguler = 0
 					var EditKreditDetasering = 0
 					var EditKreditPencangkokan = 0
-					var EditCekJabatan = '<?=$this->session->userdata('Jabatan')?>'
-					if (EditCekJabatan == 'Lektor Kepala' || EditCekJabatan == 'Profesor') {
+					var EditCekJabatan = document.getElementById('EditKreditPembimbingPencangkokan')
+					if (EditCekJabatan) {
 						EditKreditPembimbingPencangkokan = parseFloat(document.getElementById('EditKreditPembimbingPencangkokan').innerHTML)
 						EditKreditPembimbingReguler = parseFloat(document.getElementById('EditKreditPembimbingReguler').innerHTML)
 						EditKreditDetasering = parseFloat(document.getElementById('EditKreditDetasering').innerHTML)
@@ -848,7 +841,7 @@
 				if (isNaN(parseInt($('#TesisPendamping').val()))) {
 					document.getElementById('KreditTesisPendamping').innerHTML = 0
 				} else {
-					document.getElementById('KreditTesisPendamping').innerHTML = parseInt($('#TesisPendamping').val())*0.3
+					document.getElementById('KreditTesisPendamping').innerHTML = (parseInt($('#TesisPendamping').val())*2/6).toFixed(2)
 				}
 			}
 
@@ -1210,7 +1203,7 @@
 			}
 
 			function EditMengajar() {
-				var jabatan = '<?=$this->session->userdata('Jabatan')?>;'
+				var jabatan = EditJabatanRencanaPendidikan
 				if (jabatan != 'Asisten Ahli'){
 					if (parseInt($('#EditMengajar').val()) <= 10) {
 						document.getElementById('EditKreditMengajar').innerHTML = parseInt($('#EditMengajar').val())
@@ -1283,7 +1276,7 @@
 				if (isNaN(parseInt($('#EditTesisPendamping').val()))) {
 					document.getElementById('EditKreditTesisPendamping').innerHTML = 0
 				} else {
-					document.getElementById('EditKreditTesisPendamping').innerHTML = parseInt($('#EditTesisPendamping').val())*0.3
+					document.getElementById('EditKreditTesisPendamping').innerHTML = (parseInt($('#EditTesisPendamping').val())*2/6).toFixed(2)
 				}
 			}
 

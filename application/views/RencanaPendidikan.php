@@ -20,7 +20,7 @@
 					</tr>
 				</thead>
 				<tbody>
-				<?php $No = 1; foreach ($Rencana as $key) { ?>
+				<?php $Total = 0; $No = 1; foreach ($Rencana as $key) { ?>
 						<tr>	
 							<td class="text-center align-middle"><?=$No++?></td>
 							<td class="text-center align-middle"><?=$key['Jenjang']?></td>
@@ -32,8 +32,17 @@
 								<button HapusRencanaPendidikan="<?=$key['No']?>" class="btn btn-sm btn-danger HapusRencanaPendidikan"><i class="fas fa-trash"></i></button>
 							</td>
 						</tr>
+						<?php 
+							$Total += $key['TotalKredit'];
+						?>
 					<?php } ?>
 				</tbody>
+					<tfoot>
+						<tr>
+							<th colspan="4" class="text-right">Total</th>
+							<th class="bg-success text-center align-middle"><?=$Total?></th>
+						</tr>
+					</tfoot>
 			</table>
 		</div>
 	</div>
