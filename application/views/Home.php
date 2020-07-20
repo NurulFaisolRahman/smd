@@ -113,7 +113,7 @@
                                     <label class="input-group-text bg-warning text-primary"><b>Golongan</b></label>
                                   </div>
                                   <select class="custom-select" id="Golongan">
-                                    <option value="Penata Muda/IIIa">IIIa</option>
+                                    <option value="Penata Muda/IIIa">/IIIa</option>
                                     <option value="Penata Muda Tk. I/IIIb">IIIb</option>
                                     <option value="Penata/IIIc">IIIc</option>
                                     <option value="Penata Tk. I/IIId">IIId</option>

@@ -535,15 +535,12 @@
 				})
 
 				$("#TambahRealisasiPendidikan").click(function() {
-					if (isNaN($("#Volume").val())) {
+					if (isNaN(parseInt($("#Volume").val()))) {
 						alert('Volume Kegiatan Wajib Di Isi')
 					} 
 					else {
 						var fd = new FormData()
-						var Bukti = $('#Bukti')[0].files
-						for(var i = 0;i<Bukti.length;i++){
-							fd.append("file"+i, Bukti[i])
-						}
+						fd.append("file", $('#Bukti')[0].files[0])
 						fd.append('Jenjang',$("#JenisRealisasi").val())
 						fd.append('Semester',$("#SemesterRealisasi").val())
 						fd.append('Tahun',$("#TahunRealisasi").val())
@@ -586,7 +583,7 @@
 									window.location = BaseURL + "Dashboard/Pendidikan"
 								}
 								else {
-									alert('Gagal Menyimpan!')
+									alert(Respon)
 								}
 							}
 						});
@@ -594,41 +591,64 @@
           return false
         })
 
-				$(document).on("click",".Edit",function(){
-					var Data = $(this).attr('Edit')
+				$(document).on("click",".EditRealisasi",function(){
+					var Data = $(this).attr('EditRealisasi')
 					var Pisah = Data.split("|");
-					document.getElementById('No').value = Pisah[0];
-					document.getElementById('EditUraian').value = Pisah[1];
-					document.getElementById('EditTanggal').value = Pisah[2];
-					document.getElementById('EditVolume').value = Pisah[3];
-					document.getElementById('ID').value = Pisah[4];
-					$('#Edit').modal("show");
+					$('#EditNoRealisasi').val(Pisah[0])
+					Pisah[1] == 'S1'? $('#EditJenisRealisasi').val('S1') : $('#EditJenisRealisasi').val('S2')
+					Pisah[2] == 'Ganjil'? $('#EditSemesterRealisasi').val('Ganjil') : $('#EditSemesterRealisasi').val('Genap')
+					$('#EditTahunRealisasi').val(Pisah[3])
+					$('#EditUraian').val(Pisah[4])
+					$('#EditVolume').val(Pisah[5])
+					$('#EditIdKegiatan').val(Pisah[6])
+					$('#EditJabatanRealisasi').val(Pisah[7])
+					$('#EditBuktiRealisasi').val(Pisah[8])
+					$('#EditRealisasiPendidikan').modal("show")
 				});
 
-				$("#EditKegiatan").click(function() {
-					var Edit = {Kegiatan: $("#EditUraian").val(),
-											Tanggal: $("#EditTanggal").val(),
-											ID: $("#ID").val(),
-											No: $("#No").val(),
-                      Volume: $("#EditVolume").val()}
-					$.post(BaseURL+"Pendidikan/Edit", Edit).done(function(Respon) {
-						if (Respon == '1') {
-							window.location = BaseURL + "Dashboard/Pendidikan"
-						} else {
-							alert(Respon)
+				$("#UpdateRealisasiPendidikan").click(function() {
+					var fd = new FormData()
+					fd.append("file", $('#EditBukti')[0].files[0])
+					fd.append('No',$("#EditNoRealisasi").val())
+					fd.append('Jabatan',$("#EditJabatanRealisasi").val())
+					fd.append('IdKegiatan',$("#EditIdKegiatan").val())
+					fd.append('Jenjang',$("#EditJenisRealisasi").val())
+					fd.append('Semester',$("#EditSemesterRealisasi").val())
+					fd.append('Tahun',$("#EditTahunRealisasi").val())
+					fd.append('Kegiatan',$("#EditUraian").val())		
+					fd.append('Volume',$("#EditVolume").val())
+					fd.append('Bukti',$("#EditBuktiRealisasi").val())
+					$.ajax({
+						url: BaseURL+'Pendidikan/EditRealisasi',
+						type: 'post',
+						data: fd,
+						contentType: false,
+						processData: false,
+						success: function(Respon){
+							if (Respon == '1') {
+								window.location = BaseURL + "Dashboard/Pendidikan"
+							}
+							else {
+								alert(Respon)
+							}
 						}
 					});
 				});
 
-				$(document).on("click",".Hapus",function(){
-					var Hapus = {No: $(this).attr('Hapus')};
-					$.post(BaseURL+"Pendidikan/Edit", Hapus).done(function(Respon) {
-						if (Respon == '1') {
-							window.location = BaseURL + "Dashboard/Pendidikan"
-						} else {
-							alert(Respon)
-						}
-					});
+				$(document).on("click",".HapusRealisasi",function(){
+					var Data = $(this).attr('HapusRealisasi')
+					var Pisah = Data.split("|");
+					var Hapus = {No: Pisah[0],Bukti: Pisah[1]}
+					var Konfirmasi = confirm("Yakin Ingin Menghapus?");
+      		if (Konfirmasi == true) {
+						$.post(BaseURL+"Pendidikan/HapusRealisasi", Hapus).done(function(Respon) {
+							if (Respon == '1') {
+								window.location = BaseURL + "Dashboard/Pendidikan"
+							} else {
+								alert(Respon)
+							}
+						});
+					}
 				});
 			});
 

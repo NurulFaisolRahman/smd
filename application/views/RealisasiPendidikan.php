@@ -41,6 +41,8 @@
       <thead class="bg-warning">
         <tr>
           <th class="align-middle">No</th>
+          <th class="align-middle">Jenjang</th>
+          <th class="align-middle">Semester</th>
           <th class="align-middle">Uraian Kegiatan</th>
           <th class="align-middle">Tanggal</th>
           <th class="align-middle">Satuan</th>
@@ -52,23 +54,38 @@
         </tr>
       </thead>
       <tbody>
-      <?php $No = 1; foreach ($Realisasi as $key) { ?>
+      <?php $Total = 0; $No = 1; foreach ($Realisasi as $key) { ?>
           <tr>	
             <td class="text-center align-middle"><?=$No++?></td>
+            <td class="text-center align-middle"><?=$key['Jenjang']?></td>
+            <td class="text-center align-middle"><?=$key['Semester']?></td>
             <td class="align-middle"><?=$key['Kegiatan']?></td>
-            <td class="text-center align-middle"><?=$key['Tanggal']?></td>
+            <td class="text-center align-middle"><?='Semester '.$key['Semester'].' '.$key['Tahun'].'/'.($key['Tahun']+1)?></td>
             <td class="text-center align-middle"><?=$key['Satuan']?></td>
             <td class="text-center align-middle"><?=$key['Volume']?></td>
             <td class="text-center align-middle"><?=$key['Kredit']?></td>
             <td class="text-center align-middle"><?=$key['JumlahKredit']?></td>
             <td class="text-center align-middle text-success h3"><? if ($key['Bukti'] != '') { echo '✔';} ?></td>
             <td class="text-center align-middle">                          
-              <button Edit="<?=$key['No']."|".$key['Kegiatan']."|".$key['Tanggal']."|".$key['Volume']."|".$key['ID']?>" class="btn btn-sm btn-warning Edit"><i class="fas fa-edit"></i></button>
-              <button Hapus="<?=$key['No']?>" class="btn btn-sm btn-danger Hapus"><i class="fas fa-trash"></i></button>
+              <button EditRealisasi="<?=$key['No']."|".$key['Jenjang']."|".$key['Semester']."|".$key['Tahun']."|".$key['Kegiatan']."|".$key['Volume']."|".$key['IdKegiatan']."|".$key['Jabatan']."|".$key['Bukti']?>" class="btn btn-sm btn-warning EditRealisasi"><i class="fas fa-edit"></i></button>
+              <button HapusRealisasi="<?=$key['No']."|".$key['Bukti']?>" class="btn btn-sm btn-danger HapusRealisasi"><i class="fas fa-trash"></i></button>
+              <?php if ($key['Bukti'] != '') { ?>
+                <a href="<?=base_url('Pendidikan/'.$key['Bukti'])?>" class="btn btn-sm btn-primary" download><i class="fas fa-download"></i></a>
+              <?php } ?>
             </td>
           </tr>
-        <?php } ?>
+          <?php 
+							$Total += $key['JumlahKredit'];
+						?>
+					<?php } ?>
       </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="8" class="text-right">Total</th>
+          <th class="bg-success text-center align-middle"><?=$Total?></th>
+          <td colspan="2"></td>
+        </tr>
+      </tfoot>
     </table>
   </div>
 </div>
@@ -227,13 +244,13 @@
           <div class="input-group-prepend">
             <span class="input-group-text bg-primary"><b>Volume Kegiatan</b></span>
           </div>
-          <input class="form-control" type="text" id="Volume">
+          <input class="form-control" type="text" id="Volume" data-inputmask='"mask": "99"' data-mask>
         </div>
         <div class="input-group mb-1">
           <div class="input-group-prepend">
             <span class="input-group-text bg-primary"><b>Bukti</b></span>
           </div>
-          <input class="form-control" type="file" id="Bukti" multiple>
+          <input class="form-control" type="file" id="Bukti">
         </div>
       </div>
       <div class="modal-footer justify-content-between">
@@ -243,25 +260,45 @@
     </div>
   </div>
 </div>
-<div class="modal fade" id="Edit">
+<div class="modal fade" id="EditRealisasiPendidikan">
   <div class="modal-dialog">
     <div class="modal-content bg-warning">
       <div class="modal-body">
         <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <label class="input-group-text bg-primary"><b>Jenis Realisasi</b></label>
+          </div>
+          <input class="form-control" type="hidden" id="EditNoRealisasi">
+          <input class="form-control" type="hidden" id="EditIdKegiatan">
+          <input class="form-control" type="hidden" id="EditJabatanRealisasi">
+          <input class="form-control" type="hidden" id="EditBuktiRealisasi">
+          <select class="custom-select" id="EditJenisRealisasi">										
+              <option value="S1">S1</option>
+              <option value="S2">S2</option>
+          </select>
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <label class="input-group-text bg-primary"><b>Semester</b></label>
+          </div>
+          <select class="custom-select" id="EditSemesterRealisasi">										
+              <option value="Ganjil">Ganjil</option>
+              <option value="Genap">Genap</option>
+          </select>
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <label class="input-group-text bg-primary"><b>Tahun</b></label>
+          </div>
+          <input class="form-control" type="text" id="EditTahunRealisasi"  data-inputmask='"mask": "9999"' data-mask value="20">
+        </div>
+        <div class="input-group mb-1">
           <span class="input-group-text bg-primary"><b>Uraian</b></span>
-          <input class="form-control" type="hidden" id="No">
-          <input class="form-control" type="hidden" id="ID">
           <textarea class="form-control" id="EditUraian" rows="2"></textarea>
         </div>
         <div class="input-group mb-1">
           <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Tanggal</b></span>
-          </div>
-          <input class="form-control" type="text" id="EditTanggal">
-        </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Jumlah Volume Kegiatan</b></span>
+            <span class="input-group-text bg-primary"><b>Volume Kegiatan</b></span>
           </div>
           <input class="form-control" type="text" id="EditVolume">
         </div>
@@ -274,7 +311,7 @@
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
-        <button type="submit" class="btn btn-success" id="EditKegiatan"><b>Simpan</b></button>
+        <button type="submit" class="btn btn-success" id="UpdateRealisasiPendidikan"><b>Simpan</b></button>
       </div>
     </div>
   </div>
