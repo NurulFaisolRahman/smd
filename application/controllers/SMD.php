@@ -61,4 +61,8 @@ class SMD extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect(base_url());
 	}
+
+	public function tes(){
+		$this->load->view('tes');
+	}
 }

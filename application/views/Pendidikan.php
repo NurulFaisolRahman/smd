@@ -544,33 +544,43 @@
 						fd.append('Jenjang',$("#JenisRealisasi").val())
 						fd.append('Semester',$("#SemesterRealisasi").val())
 						fd.append('Tahun',$("#TahunRealisasi").val())
-						fd.append('Kegiatan',$("#Uraian").val())		
 						fd.append('IdKegiatan',$("#InputIdKegiatanPendidikan").val())
-						fd.append('Volume',$("#Volume").val())									
+						fd.append('Kegiatan',$("#Uraian").val())		
+						fd.append('TanggalKegiatan',$("#TanggalKegiatan").val())
+						fd.append('Volume',parseInt($("#Volume").val()))									
+						if ($("#InputIdKegiatanPendidikan").val() == 'PND1' || $("#InputIdKegiatanPendidikan").val() == 'PND2' || $("#InputIdKegiatanPendidikan").val() == 'PND3' || $("#InputIdKegiatanPendidikan").val() == 'PND4' || $("#InputIdKegiatanPendidikan").val() == 'PND5' || $("#InputIdKegiatanPendidikan").val() == 'PND8' || $("#InputIdKegiatanPendidikan").val() == 'PND9' || $("#InputIdKegiatanPendidikan").val() == 'PND11' || $("#InputIdKegiatanPendidikan").val() == 'PND12') {
+							fd.append('Kode','0')
+						}
 						if ($("#InputIdKegiatanPendidikan").val() == 'PND1') {
 							fd.append('Jenjang',$("#Jenjang").val())
 						}
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND6') {
 							fd.append('JenisPembimbing',$("#JenisPembimbing").val())
-							fd.append('JenisBimbingan',$("#JenisBimbingan").val())							
+							fd.append('JenisBimbingan',$("#JenisBimbingan").val())			
+							fd.append('Kode',($("#JenisPembimbing").val()+'/'+$("#JenisBimbingan").val()))				
 						}
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND7') {
 							fd.append('JenisPenguji',$("#JenisPenguji").val())
+							fd.append('Kode',$("#JenisPenguji").val())
 						}
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND10') {
 							fd.append('BahanPengajaran',$("#BahanPengajaran").val())
+							fd.append('Kode',$("#BahanPengajaran").val())
 						}
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND12') {
 							fd.append('JenisPND12',$("#JenisPND12").val())
 						}
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND13') {
 							fd.append('JenisPND13',$("#JenisPND13").val())
+							fd.append('Kode',$("#JenisPND13").val())
 						}
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND14') {
 							fd.append('JenisPND14',$("#JenisPND14").val())
+							fd.append('Kode',$("#JenisPND14").val())
 						}
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND15') {
 							fd.append('JenisPND15',$("#JenisPND15").val())
+							fd.append('Kode',$("#JenisPND15").val())
 						}
 						$.ajax({
 							url: BaseURL+'Pendidikan/InputRealisasi',
@@ -603,6 +613,8 @@
 					$('#EditIdKegiatan').val(Pisah[6])
 					$('#EditJabatanRealisasi').val(Pisah[7])
 					$('#EditBuktiRealisasi').val(Pisah[8])
+					$("#EditTanggalKegiatan").val(Pisah[9])
+					$("#Kode").val(Pisah[10])
 					$('#EditRealisasiPendidikan').modal("show")
 				});
 
@@ -612,11 +624,13 @@
 					fd.append('No',$("#EditNoRealisasi").val())
 					fd.append('Jabatan',$("#EditJabatanRealisasi").val())
 					fd.append('IdKegiatan',$("#EditIdKegiatan").val())
+					fd.append('Kode',$("#Kode").val())
 					fd.append('Jenjang',$("#EditJenisRealisasi").val())
 					fd.append('Semester',$("#EditSemesterRealisasi").val())
 					fd.append('Tahun',$("#EditTahunRealisasi").val())
 					fd.append('Kegiatan',$("#EditUraian").val())		
-					fd.append('Volume',$("#EditVolume").val())
+					fd.append('TanggalKegiatan',$("#EditTanggalKegiatan").val())
+					fd.append('Volume',parseInt($("#EditVolume").val()))
 					fd.append('Bukti',$("#EditBuktiRealisasi").val())
 					$.ajax({
 						url: BaseURL+'Pendidikan/EditRealisasi',

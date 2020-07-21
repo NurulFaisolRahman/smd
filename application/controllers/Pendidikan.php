@@ -215,7 +215,9 @@ class Pendidikan extends CI_Controller {
 													'Semester' => $_POST['Semester'], 
 													'Tahun' => $_POST['Tahun'], 
 													'IdKegiatan' => $_POST['IdKegiatan'],
+													'Kode' => $_POST['Kode'],
 													'Kegiatan' => $_POST['Kegiatan'],
+													'TanggalKegiatan' => $_POST['TanggalKegiatan'],
 													'Satuan' => $Volume,
 													'Volume' => $_POST['Volume'],
 													'Kredit' => $Kredit,
@@ -240,7 +242,9 @@ class Pendidikan extends CI_Controller {
 													'Semester' => $_POST['Semester'], 
 													'Tahun' => $_POST['Tahun'], 
 													'IdKegiatan' => $_POST['IdKegiatan'],
+													'Kode' => $_POST['Kode'],
 													'Kegiatan' => $_POST['Kegiatan'],
+													'TanggalKegiatan' => $_POST['TanggalKegiatan'],
 													'Satuan' => $Volume,
 													'Volume' => $_POST['Volume'],
 													'Kredit' => $Kredit,
@@ -265,6 +269,7 @@ class Pendidikan extends CI_Controller {
 
 	public function EditRealisasi(){
 		$Jabatan = $_POST['Jabatan'];
+		$Kode = $_POST['Kode'];
 		if ($_POST['IdKegiatan'] == 'PND1') {
 			$Volume = '';
 			$JumlahKredit = $Kredit = $_POST['Jenjang'];
@@ -299,35 +304,36 @@ class Pendidikan extends CI_Controller {
 			$JumlahKredit = $Kredit = '1';
 		}
 		else if ($_POST['IdKegiatan'] == 'PND6') {
-			if ($_POST['JenisPembimbing'] == '1') {
-				if ($_POST['JenisBimbingan'] == '1') {
+			$Pisah = explode('/',$Kode);
+			if ($Pisah[0] == '1') {
+				if ($Pisah[1] == '1') {
 					$Volume = '4 lulusan / semester';
 					$JumlahKredit = $_POST['Volume']*2;
 					$Kredit = '8';
 				}
-				else if ($_POST['JenisBimbingan'] == '2') {
+				else if ($Pisah[1] == '2') {
 					$Volume = '6 lulusan / semester';
 					$JumlahKredit = $_POST['Volume']*0.5;
 					$Kredit = '3';
 				}
-				else if ($_POST['JenisBimbingan'] == '3') {
+				else if ($Pisah[1] == '3') {
 					$Volume = '8 lulusan / semester';
 					$JumlahKredit = $_POST['Volume']*0.125;
 					$Kredit = '1';
 				}
 			}
 			else {
-				if ($_POST['JenisBimbingan'] == '1') {
+				if ($Pisah[1] == '1') {
 					$Volume = '4 lulusan / semester';
 					$JumlahKredit = $_POST['Volume']*1.5;
 					$Kredit = '6';
 				}
-				else if ($_POST['JenisBimbingan'] == '2') {
+				else if ($Pisah[1] == '2') {
 					$Volume = '6 lulusan / semester';
 					$JumlahKredit = round(($_POST['Volume']*2/6),2);
 					$Kredit = '2';
 				}
-				else if ($_POST['JenisBimbingan'] == '3') {
+				else if ($Pisah[1] == '3') {
 					$Volume = '8 lulusan / semester';
 					$JumlahKredit = $_POST['Volume']*0.0625;
 					$Kredit = '0.5';
@@ -335,7 +341,7 @@ class Pendidikan extends CI_Controller {
 			}
 		}
 		else if ($_POST['IdKegiatan'] == 'PND7') {
-			if ($_POST['JenisPenguji'] == '1') {
+			if ($Kode == '1') {
 				$Volume = '4 lulusan / semester';
 				$JumlahKredit = $_POST['Volume']/4;
 				$Kredit = '1';
@@ -357,7 +363,7 @@ class Pendidikan extends CI_Controller {
 			$Kredit = '2';
 		}
 		else if ($_POST['IdKegiatan'] == 'PND10') {
-			if ($_POST['BahanPengajaran'] == '1') {
+			if ($Kode == '1') {
 				$Volume = '1 buku/tahun';
 				$JumlahKredit = $_POST['Volume']*20;
 				$Kredit = '20';
@@ -375,11 +381,11 @@ class Pendidikan extends CI_Controller {
 		}
 		else if ($_POST['IdKegiatan'] == 'PND12') {
 			$Volume = '1 jabatan / semester';
-			$JumlahKredit = $_POST['JenisPND12'];
-			$Kredit = $_POST['JenisPND12'];
+			$JumlahKredit = $Kode;
+			$Kredit = $Kode;
 		}
 		else if ($_POST['IdKegiatan'] == 'PND13') {
-			if ($_POST['JenisPND13'] == '1') {
+			if ($Kode == '1') {
 				$Volume = '1 Orang';
 				$JumlahKredit = $_POST['Volume']*2;
 				$Kredit = '2';
@@ -391,7 +397,7 @@ class Pendidikan extends CI_Controller {
 			}
 		}
 		else if ($_POST['IdKegiatan'] == 'PND14') {
-			if ($_POST['JenisPND14'] == '1') {
+			if ($Kode == '1') {
 				$Volume = '1 Orang';
 				$JumlahKredit = $_POST['Volume']*5;
 				$Kredit = '5';
@@ -404,8 +410,8 @@ class Pendidikan extends CI_Controller {
 		}
 		else if ($_POST['IdKegiatan'] == 'PND15') {
 			$Volume = '';
-			$JumlahKredit = $_POST['Volume']*$_POST['JenisPND15'];
-			$Kredit = $_POST['JenisPND15'];
+			$JumlahKredit = $_POST['Volume']*$Kode;
+			$Kredit = $Kode;
 		}
 		$Pdf = count($_FILES);
 		if ($Pdf > 0) {
@@ -420,6 +426,7 @@ class Pendidikan extends CI_Controller {
 														'Semester' => $_POST['Semester'], 
 														'Tahun' => $_POST['Tahun'], 
 														'Kegiatan' => $_POST['Kegiatan'],
+														'TanggalKegiatan' => $_POST['TanggalKegiatan'],
 														'Satuan' => $Volume,
 														'Volume' => $_POST['Volume'],
 														'Kredit' => $Kredit,
@@ -446,6 +453,7 @@ class Pendidikan extends CI_Controller {
 													'Semester' => $_POST['Semester'], 
 													'Tahun' => $_POST['Tahun'], 
 													'Kegiatan' => $_POST['Kegiatan'],
+													'TanggalKegiatan' => $_POST['TanggalKegiatan'],
 													'Satuan' => $Volume,
 													'Volume' => $_POST['Volume'],
 													'Kredit' => $Kredit,
