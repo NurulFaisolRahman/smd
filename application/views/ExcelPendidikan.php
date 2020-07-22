@@ -1,6 +1,8 @@
 <?php
   header('Content-Type: application/xlsx');
   header('Content-Disposition: attachment; filename=tes.xlsx');
+  $columns = array_column($Pendidikan, 'IdKegiatan');
+  array_multisort($columns, SORT_ASC, $Pendidikan);
 ?>
 <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
  <head>
@@ -8,7 +10,7 @@
   <meta name="ProgId" content="Excel.Sheet"/>
   <meta name="Generator" content="WPS Office ET"/>
 <style>
-<!-- @page
+ @page
 	{margin:0.50in 0.30in 0.50in 0.30in;
 	mso-header-margin:0.30in;
 	mso-footer-margin:0.30in;
@@ -502,8 +504,7 @@ td
 	font-weight:700;
 	font-family:Arial;
 	mso-font-charset:134;}
- -->  </style>
-  <!--[if gte mso 9]>
+ </style>
    <xml>
     <x:ExcelWorkbook>
      <x:ExcelWorksheets>
@@ -550,7 +551,6 @@ td
      <x:Formula>=Pendidikan!$37:$38</x:Formula>
     </x:ExcelName>
    </xml>
-  <![endif]-->
  </head>
  <body link="blue" vlink="purple" class="xl70">
   <table width="2822.53" border="0" cellpadding="0" cellspacing="0" style='width:2116.90pt;border-collapse:collapse;table-layout:fixed;'>
@@ -1178,7 +1178,7 @@ td
    </tr>
    <tr height="19" style='height:14.25pt;'>
     <td class="xl77" height="19" colspan="2" style='height:14.25pt;mso-ignore:colspan;' x:str><span style='mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;&nbsp;</span><font class="font3">Nama</font><font class="font3"><span style='mso-spacerun:yes;'>&nbsp;</span></font></td>
-    <td class="xl78" colspan="2" style='mso-ignore:colspan;' x:str>: Dr. Sutikno, SE., ME.</td>
+    <td class="xl78" colspan="2" style='mso-ignore:colspan;' x:str>: <?=$Profil['Nama']?></td>
     <td class="xl72"></td>
     <td class="xl72"></td>
     <td class="xl71"></td>
@@ -1206,7 +1206,7 @@ td
    <tr height="19" style='height:14.25pt;'>
     <td class="xl77" height="19" style='height:14.25pt;' x:str><span style='mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;&nbsp;</span><font class="font3">NIP</font></td>
     <td class="xl79"></td>
-    <td class="xl76" colspan="4" style='border-right:none;border-bottom:none;' x:str="': 197508092008121003">: 197508092008121003</td>
+    <td class="xl76" colspan="4" style='border-right:none;border-bottom:none;' x:str="': 197508092008121003">: <?=$Profil['NIP']?></td>
     <td class="xl71" colspan="3" style='mso-ignore:colspan;'></td>
     <td class="xl72"></td>
     <td colspan="8" style='mso-ignore:colspan;'></td>
@@ -1216,7 +1216,7 @@ td
    <tr height="19" style='height:14.25pt;'>
     <td class="xl77" height="19" style='height:14.25pt;' x:str><span style='mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;&nbsp;</span><font class="font3">Pangkat / Gol. Ruang</font></td>
     <td class="xl79"></td>
-    <td class="xl76" colspan="4" style='border-right:none;border-bottom:none;' x:str>: Penata / (III/c)</td>
+    <td class="xl76" colspan="4" style='border-right:none;border-bottom:none;' x:str>: <?=$Profil['Pangkat'].' / '.'('.$Profil['Golongan'].')'?></td>
     <td class="xl71" colspan="3" style='mso-ignore:colspan;'></td>
     <td class="xl72"></td>
     <td colspan="8" style='mso-ignore:colspan;'></td>
@@ -1226,7 +1226,7 @@ td
    <tr height="19" style='height:14.25pt;'>
     <td class="xl77" height="19" style='height:14.25pt;' x:str><span style='mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;&nbsp;</span><font class="font3">Jabatan Fungsional</font></td>
     <td class="xl79"></td>
-    <td class="xl76" colspan="4" style='border-right:none;border-bottom:none;' x:str>: Lektor</td>
+    <td class="xl76" colspan="4" style='border-right:none;border-bottom:none;' x:str>: <?=$Profil['Jabatan']?></td>
     <td class="xl71" colspan="3" style='mso-ignore:colspan;'></td>
     <td class="xl72"></td>
     <td colspan="8" style='mso-ignore:colspan;'></td>
@@ -1296,24 +1296,60 @@ td
     <td class="xl83" x:num>7</td>
     <td class="xl83" x:num>8</td>
    </tr>
-   <tr height="19" class="xl67" style='height:14.25pt;'>
-    <td class="xl84" height="19" style='height:14.25pt;' x:str>II</td>
-    <td class="xl85" colspan="7" style='border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>UNSUR PELAKSANAAN PENDIDIKAN</td>
-   </tr>
-   <tr height="41" class="xl66" style='height:30.75pt;mso-height-source:userset;mso-height-alt:615;'>
-    <td class="xl86" height="41" style='height:30.75pt;' x:str>A.</td>
-    <td class="xl87" colspan="7" style='border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>Melaksanakan Perkuliahan dan membimbing, menguji serta menyelenggarakan pendidikan di laboratorium, praktik keguruan, bengkel/studio/kebun percobaan/teknologi pengajaran dan praktek lapangan :</td>
-   </tr>
-   <tr height="107" style='height:80.25pt;mso-height-source:userset;mso-height-alt:1605;'>
-    <td class="xl88" height="107" style='height:80.25pt;' x:num>1</td>
-    <td class="xl89" x:str>Berdasarkan Surat Tugas Mengajar Dekan FE Nomor 669/UN46.1.12/DT/2012 ; Membina/mengajar mata kuliah: Ekonomi Sumber Daya Alam dan Lingkungan <font class="font4">(6 sks)</font><font class="font3">, Seminar Perencanaan Pembangunan </font><font class="font4">(3 sks)</font><font class="font3">, Kebijakan Fiskal dan Moneter </font><font class="font4">(3 sks)</font></td>
-    <td class="xl90" x:str>Semester Gasal 2012/2013</td>
-    <td class="xl91" x:str>10 SKS Pertama &amp; 2 SKS Berikutnya</td>
-    <td class="xl101" x:num>12</td>
-    <td class="xl91" x:str>1<font class="font3"><span style='mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></font><font class="font3">&amp;</font><font class="font3"><span style='mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></font><font class="font3">0,5</font></td>
-    <td class="xl91" x:num>1</td>
-    <td class="xl91" x:str>Lampiran 1.1</td>
-   </tr>
+   <?php 
+    $Huruf = 'A'; $Pen = $Pel = true; $Lampiran = 1; $No = 1;
+    $PND3 = $PND6 = true;
+   ?>
+  <?php foreach ($Pendidikan as $key) { ?>
+    <?php if ($key['IdKegiatan'] != 'PND1' && $key['IdKegiatan'] != 'PND2') { ?>
+      <?php if ($Pel) { $Pel = false; ?>
+        <tr height="19" class="xl67" style='height:14.25pt;'>
+          <td class="xl84" height="19" style='height:14.25pt;' x:str>II</td>
+          <td class="xl85" colspan="7" style='border-right:.5pt solid ;border-bottom:.5pt solid;' x:str>UNSUR PELAKSANAAN PENDIDIKAN</td>
+        </tr>
+    <?php }} else { ?>
+      <?php if ($Pen) { $Pen = false;?>
+        <tr height="19" class="xl67" style='height:14.25pt;'>
+          <td class="xl84" height="19" style='height:14.25pt;' x:str>I</td>
+          <td class="xl85" colspan="7" style='border-right:.5pt solid ;border-bottom:.5pt solid;' x:str>UNSUR PENDIDIKAN</td>
+        </tr>
+    <?php }} ?>
+    <?php if ($key['IdKegiatan'] == 'PND3') { ?>
+      <?php if ($PND3) { $PND3 = false; $No = 1;?>
+        <tr class="xl66" style='mso-height-source:userset;'>
+          <td style="text-align: center;" class="xl86" x:str><?=$Huruf++?></td>
+          <td class="xl87" colspan="7" style='border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>Melaksanakan Perkuliahan dan membimbing, menguji serta menyelenggarakan pendidikan di laboratorium, praktik keguruan, bengkel / studio / kebun percobaan / teknologi pengajaran dan praktek lapangan :</td>
+        </tr>
+      <?php } ?>
+        <tr style='mso-height-source:userset;'>
+          <td class="xl88" x:num><?=$No++?></td>
+          <td class="xl89" x:str><?=$key['Kegiatan']?></td>
+          <td class="xl90" x:str><?=$key['TanggalKegiatan']?></td>
+          <td class="xl91" x:str><?=$key['Satuan']?></td>
+          <td class="xl101" x:num><?=$key['Volume']?></td>
+          <td class="xl91" x:str><?=$key['Kredit']?></td>
+          <td class="xl91" x:num><?=$key['JumlahKredit']?></td>
+          <td class="xl91" x:str>Lampiran 1.<?=$Lampiran++?></td>
+        </tr>
+    <?php } ?>
+    <?php if ($key['IdKegiatan'] == 'PND6') { ?>
+      <?php if ($PND6) { $PND6 = false; $No = 1;?>
+        <tr class="xl66" style='mso-height-source:userset;'>
+          <td style="text-align: center;" class="xl86" x:str><?=$Huruf++?></td>
+          <td class="xl87" colspan="7" style='border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>Membimbing dan Ikut Membimbing dalam Menghasilkan Disertasi, Tesis, Skripsi dan Laporan Akhir Studi</td>
+        </tr>
+      <?php } ?>
+        <tr style='mso-height-source:userset;'>
+          <td class="xl88" x:num><?=$No++?></td>
+          <td class="xl89" x:str><?=$key['Kegiatan']?></td>
+          <td class="xl90" x:str><?=$key['TanggalKegiatan']?></td>
+          <td class="xl91" x:str><?=$key['Satuan']?></td>
+          <td class="xl101" x:num><?=$key['Volume']?></td>
+          <td class="xl91" x:str><?=$key['Kredit']?></td>
+          <td class="xl91" x:num><?=$key['JumlahKredit']?></td>
+          <td class="xl91" x:str>Lampiran 1.<?=$Lampiran++?></td>
+        </tr>
+    <?php }} ?>
    <tr height="20" class="xl66" style='height:15.00pt;mso-height-source:userset;mso-height-alt:300;'>
     <td class="xl92" height="20" colspan="4" style='height:15.00pt;border-right:none;border-bottom:none;' x:str>TOTAL<font class="font4"><span style='mso-spacerun:yes;'>&nbsp; </span></font><font class="font4">Angka Kredit</font><font class="font4"><span style='mso-spacerun:yes;'>&nbsp;</span></font></td>
     <td class="xl102" colspan="2" rowspan="2" style='border-right:.5pt solid ;border-bottom:.5pt solid ;'></td>

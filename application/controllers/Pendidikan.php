@@ -477,4 +477,10 @@ class Pendidikan extends CI_Controller {
 			echo 'Gagal Menghapus';
 		}
 	}
+
+	public function Download(){
+		$Data['Profil'] = $this->db->get_where('Dosen', array('NIP' => $this->session->userdata('NIP')))->row_array();
+		$Data['Pendidikan'] = $this->db->get_where('RealisasiPendidikan', array('NIP' => $this->session->userdata('NIP')))->result_array();
+		$this->load->view('ExcelPendidikan',$Data);
+	}
 }

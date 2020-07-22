@@ -63,6 +63,11 @@
 				});
 				$('[data-mask]').inputmask()
 
+				$("#Download").click(function() {
+					// var Hapus = {No: $(this).attr('HapusRencanaPendidikan')}
+					window.location = BaseURL + "Pendidikan/Download"					
+				});
+
 				$("#pills-Rencana-tab").click(function() {
 					var Data = {SubPendidikan: 'Rencana'}
 					$.post(BaseURL+"Dashboard/SubPendidikan", Data)

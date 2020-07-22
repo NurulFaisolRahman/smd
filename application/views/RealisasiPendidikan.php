@@ -3,7 +3,7 @@
     <div class="col-sm-4 mt-1 mb-1">
       <div class="input-group mb-1">
         <div class="input-group-prepend">
-          <label class="input-group-text bg-warning text-primary"><b>Kegiatan</b></label>
+          <label class="input-group-text bg-warning"><i class="fa fa-tasks"></i><b>&nbsp;Kegiatan</b></label>
         </div>
         <?php 
           $Kegiatan = array('Mengikuti pendidikan formal',
@@ -32,60 +32,64 @@
       </div>
     </div> 
     <div class="col-sm-4 mt-1 mb-1">
-      <button type="button" id="LihatRealisasi" class="btn btn-primary"><b>Lihat</b></button>
-      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#InputRealisasiPendidikan"><b>Tambah</b></button>       
+      <button type="button" id="LihatRealisasi" class="btn btn-primary"><i class="fa fa-eye"></i><b> Lihat</b></button>
+      <button type="button" class="btn btn-danger text-light" data-toggle="modal" data-target="#InputRealisasiPendidikan"><i class="fa fa-plus"></i> <b>Input</b></button>       
+      <button class="btn btn-success" data-toggle="modal" data-target="#OutputPendidikan"><i class="fa fa-file-excel"></i> <b>Download</b></button>
+      </div>        
     </div>   
   </div>
-  <div class="table-responsive mb-2">
-    <table id="TabelRealisasi" class="table table-bordered table-striped">
-      <thead class="bg-warning">
-        <tr>
-          <th class="align-middle">No</th>
-          <th class="align-middle">Jenjang</th>
-          <th class="align-middle">Semester</th>
-          <th class="align-middle">Uraian Kegiatan</th>
-          <th class="align-middle">Tanggal</th>
-          <th class="align-middle">Satuan</th>
-          <th class="align-middle">Volume</th>
-          <th class="align-middle">Kredit</th>
-          <th class="align-middle">Jumlah Kredit</th>
-          <th class="align-middle">Bukti</th>
-          <th class="align-middle">Aksi</th>
-        </tr>
-      </thead>
-      <tbody>
-      <?php $Total = 0; $No = 1; foreach ($Realisasi as $key) { ?>
-          <tr>	
-            <td class="text-center align-middle"><?=$No++?></td>
-            <td class="text-center align-middle"><?=$key['Jenjang']?></td>
-            <td class="text-center align-middle"><?=$key['Semester']?></td>
-            <td class="align-middle"><?=$key['Kegiatan']?></td>
-            <td class="text-center align-middle"><?=$key['TanggalKegiatan']?></td>
-            <td class="text-center align-middle"><?=$key['Satuan']?></td>
-            <td class="text-center align-middle"><?=$key['Volume']?></td>
-            <td class="text-center align-middle"><?=$key['Kredit']?></td>
-            <td class="text-center align-middle"><?=$key['JumlahKredit']?></td>
-            <td class="text-center align-middle text-success h3"><?php if ($key['Bukti'] != '') { ?>
-                <a href="<?=base_url('Pendidikan/'.$key['Bukti'])?>" class="btn btn-sm btn-primary" download><i class="fas fa-download"></i></a>
-              <?php } ?></td>
-            <td class="text-center align-middle">                          
-              <button EditRealisasi="<?=$key['No']."|".$key['Jenjang']."|".$key['Semester']."|".$key['Tahun']."|".$key['Kegiatan']."|".$key['Volume']."|".$key['IdKegiatan']."|".$key['Jabatan']."|".$key['Bukti']."|".$key['TanggalKegiatan']."|".$key['Kode']?>" class="btn btn-sm btn-warning EditRealisasi"><i class="fas fa-edit"></i></button>
-              <button HapusRealisasi="<?=$key['No']."|".$key['Bukti']?>" class="btn btn-sm btn-danger HapusRealisasi"><i class="fas fa-trash"></i></button>
-            </td>
+  <div class="container-fluid">
+    <div class="table-responsive mb-2">
+      <table id="TabelRealisasi" class="table table-bordered table-striped">
+        <thead class="bg-warning">
+          <tr>
+            <th class="align-middle">No</th>
+            <th class="align-middle">Jenjang</th>
+            <th class="align-middle">Semester</th>
+            <th class="align-middle">Uraian Kegiatan</th>
+            <th class="align-middle">Tanggal</th>
+            <th class="align-middle">Satuan</th>
+            <th class="align-middle">Volume</th>
+            <th class="align-middle">Kredit</th>
+            <th class="align-middle">Jumlah Kredit</th>
+            <th class="align-middle">Bukti</th>
+            <th class="align-middle">Aksi</th>
           </tr>
-          <?php 
-							$Total += $key['JumlahKredit'];
-						?>
-					<?php } ?>
-      </tbody>
-      <tfoot>
-        <tr>
-          <th colspan="8" class="text-right">Total</th>
-          <th class="bg-success text-center align-middle"><?=$Total?></th>
-          <td colspan="2"></td>
-        </tr>
-      </tfoot>
-    </table>
+        </thead>
+        <tbody>
+        <?php $Total = 0; $No = 1; foreach ($Realisasi as $key) { ?>
+            <tr>	
+              <td class="text-center align-middle"><?=$No++?></td>
+              <td class="text-center align-middle"><?=$key['Jenjang']?></td>
+              <td class="text-center align-middle"><?=$key['Semester']?></td>
+              <td class="align-middle"><?=$key['Kegiatan']?></td>
+              <td class="text-center align-middle"><?=$key['TanggalKegiatan']?></td>
+              <td class="text-center align-middle"><?=$key['Satuan']?></td>
+              <td class="text-center align-middle"><?=$key['Volume']?></td>
+              <td class="text-center align-middle"><?=$key['Kredit']?></td>
+              <td class="text-center align-middle"><?=$key['JumlahKredit']?></td>
+              <td class="text-center align-middle text-success h3"><?php if ($key['Bukti'] != '') { ?>
+                  <a href="<?=base_url('Pendidikan/'.$key['Bukti'])?>" class="btn btn-sm btn-primary" download><i class="fas fa-download"></i></a>
+                <?php } ?></td>
+              <td class="text-center align-middle">                          
+                <button EditRealisasi="<?=$key['No']."|".$key['Jenjang']."|".$key['Semester']."|".$key['Tahun']."|".$key['Kegiatan']."|".$key['Volume']."|".$key['IdKegiatan']."|".$key['Jabatan']."|".$key['Bukti']."|".$key['TanggalKegiatan']."|".$key['Kode']?>" class="btn btn-sm btn-warning EditRealisasi"><i class="fas fa-edit"></i></button>
+                <button HapusRealisasi="<?=$key['No']."|".$key['Bukti']?>" class="btn btn-sm btn-danger HapusRealisasi"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+            <?php 
+                $Total += $key['JumlahKredit'];
+              ?>
+            <?php } ?>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="8" class="text-right">Total</th>
+            <th class="bg-success text-center align-middle"><?=$Total?></th>
+            <td colspan="2"></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
   </div>
 </div>
 <div class="modal fade" id="InputRealisasiPendidikan">
@@ -324,6 +328,44 @@
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
         <button type="submit" class="btn btn-success" id="UpdateRealisasiPendidikan"><b>Simpan</b></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="OutputPendidikan">
+  <div class="modal-dialog">
+    <div class="modal-content bg-warning">
+      <div class="modal-body">
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <label class="input-group-text bg-primary"><b>Jenjang</b></label>
+          </div>
+          <select class="custom-select" id="FilterJenjang">										
+            <option value="S1">S1</option>
+            <option value="S2">S2</option>
+            <option value="S3">Semua</option>
+          </select>
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <label class="input-group-text bg-primary"><b>Semester</b></label>
+          </div>
+          <select class="custom-select" id="FilterSemester">										
+            <option value="Ganjil">Ganjil</option>
+            <option value="Genap">Genap</option>
+            <option value="Genap">Semua</option>
+          </select>
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <label class="input-group-text bg-primary"><b>Tahun</b></label>
+          </div>
+          <input class="form-control" type="date" id="FilterTahun">
+        </div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
+        <button type="submit" class="btn btn-success" id="Download"><b>Download</b></button>
       </div>
     </div>
   </div>
