@@ -11,7 +11,7 @@
           'Mengajar mata kuliah',
           'Membimbing seminar mahasiswa',
           'Membimbing KKN, Praktik Kerja Lapangan',
-          'Membimbing disertasi/tesis/skripsi/TA',
+          'Membimbing disertasi/tesis/skripsi',
           'Penguji ujian akhir/Profesi (setiap mahasiswa)',
           'Membina mahasiswa di bidang akademik/kemahasiswaan',
           'Mengembangkan program kuliah yang mempunyai nilai kebaharuan metode/substansi',

@@ -480,7 +480,7 @@ class Pendidikan extends CI_Controller {
 
 	public function Download(){
 		$Data['Profil'] = $this->db->get_where('Dosen', array('NIP' => $this->session->userdata('NIP')))->row_array();
-		$Data['Pendidikan'] = $this->db->get_where('RealisasiPendidikan', array('NIP' => $this->session->userdata('NIP')))->result_array();
+		$Data['Pendidikan'] = $this->db->query("SELECT * FROM `RealisasiPendidikan` ORDER BY SUBSTR(IdKegiatan FROM 1 FOR 3), CAST(SUBSTR(IdKegiatan FROM 4) AS UNSIGNED), SUBSTR(IdKegiatan FROM 4), Kode ASC")->result_array();
 		$this->load->view('ExcelPendidikan',$Data);
 	}
 }
