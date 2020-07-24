@@ -44,7 +44,7 @@
         <thead class="bg-warning">
           <tr>
             <th class="align-middle">No</th>
-            <th class="align-middle">Jenjang</th>
+            <th class="align-middle">Homebase</th>
             <th class="align-middle">Semester</th>
             <th class="align-middle">Uraian Kegiatan</th>
             <th class="align-middle">Tanggal</th>
@@ -133,7 +133,7 @@
         <div id="OpsiPND1">
           <div class="input-group mb-1">
             <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenjang</b></span>
+              <span class="input-group-text bg-primary"><b>Homebase</b></span>
             </div>
             <select class="custom-select" id="Jenjang">
               <option value="200">Doktor / Sederajat</option>
@@ -338,12 +338,12 @@
       <div class="modal-body">
         <div class="input-group mb-1">
           <div class="input-group-prepend">
-            <label class="input-group-text bg-primary"><b>Jenjang</b></label>
+            <label class="input-group-text bg-primary"><b>Homebase</b></label>
           </div>
           <select class="custom-select" id="FilterJenjang">										
             <option value="S1">S1</option>
             <option value="S2">S2</option>
-            <option value="S3">Semua</option>
+            <option value="S">Semua</option>
           </select>
         </div>
         <div class="input-group mb-1">
@@ -353,14 +353,14 @@
           <select class="custom-select" id="FilterSemester">										
             <option value="Ganjil">Ganjil</option>
             <option value="Genap">Genap</option>
-            <option value="Genap">Semua</option>
+            <option value="G">Semua</option>
           </select>
         </div>
         <div class="input-group mb-1">
           <div class="input-group-prepend">
             <label class="input-group-text bg-primary"><b>Tahun</b></label>
           </div>
-          <input class="form-control" type="date" id="FilterTahun">
+          <input class="form-control" type="text" id="FilterTahun"  data-inputmask='"mask": "9999-9999"' data-mask>
         </div>
       </div>
       <div class="modal-footer justify-content-between">

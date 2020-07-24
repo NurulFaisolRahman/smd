@@ -64,8 +64,9 @@
 				$('[data-mask]').inputmask()
 
 				$("#Download").click(function() {
-					// var Hapus = {No: $(this).attr('HapusRencanaPendidikan')}
-					window.location = BaseURL + "Pendidikan/Download"					
+					var Tahun = $('#FilterTahun').val()
+					var Pisah = Tahun.split('-')
+					window.location = BaseURL + 'Pendidikan/Download/'+$('#FilterJenjang').val()+'/'+$('#FilterSemester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))
 				});
 
 				$("#pills-Rencana-tab").click(function() {
@@ -546,7 +547,7 @@
 					else {
 						var fd = new FormData()
 						fd.append("file", $('#Bukti')[0].files[0])
-						fd.append('Jenjang',$("#JenisRealisasi").val())
+						fd.append('Homebase',$("#JenisRealisasi").val())
 						fd.append('Semester',$("#SemesterRealisasi").val())
 						fd.append('Tahun',$("#TahunRealisasi").val())
 						fd.append('IdKegiatan',$("#InputIdKegiatanPendidikan").val())
@@ -630,7 +631,7 @@
 					fd.append('Jabatan',$("#EditJabatanRealisasi").val())
 					fd.append('IdKegiatan',$("#EditIdKegiatan").val())
 					fd.append('Kode',$("#Kode").val())
-					fd.append('Jenjang',$("#EditJenisRealisasi").val())
+					fd.append('Homebase',$("#EditJenisRealisasi").val())
 					fd.append('Semester',$("#EditSemesterRealisasi").val())
 					fd.append('Tahun',$("#EditTahunRealisasi").val())
 					fd.append('Kegiatan',$("#EditUraian").val())		

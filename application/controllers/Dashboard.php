@@ -55,4 +55,20 @@ class Dashboard extends CI_Controller {
 	public function SubPendidikan(){
 		$this->session->set_userdata('SubPendidikan', $_POST['SubPendidikan']);
 	}
+
+	public function Foto(){
+		$Tipe = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
+		$valid_extensions = array("jpg","jpeg","png");
+		if(!in_array(strtolower($Tipe),$valid_extensions)) {
+			echo 'Mohon Upload jpg/jpeg/png';
+		} else {
+			$Tipe = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
+			$NamaFoto = date('Ymd',time()).substr(password_hash('Foto', PASSWORD_DEFAULT),7,3).'.'.$Tipe;
+			move_uploaded_file($_FILES['file']['tmp_name'], "img/".$NamaFoto);
+			if ($_POST['NamaFoto'] != '') { unlink('img/'.$_POST['NamaFoto']); }
+			$this->db->where('NIP', $this->session->userdata('NIP'));
+			$this->db->update('Dosen',array('Foto' => $NamaFoto));
+			echo '1';
+		}
+	}
 }

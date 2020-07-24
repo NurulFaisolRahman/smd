@@ -211,7 +211,7 @@ class Pendidikan extends CI_Controller {
 				$this->db->insert('RealisasiPendidikan',
 										array('NIP' => $NIP, 
 													'Jabatan' => $Jabatan, 
-													'Jenjang' => $_POST['Jenjang'], 
+													'Jenjang' => $_POST['Homebase'], 
 													'Semester' => $_POST['Semester'], 
 													'Tahun' => $_POST['Tahun'], 
 													'IdKegiatan' => $_POST['IdKegiatan'],
@@ -238,7 +238,7 @@ class Pendidikan extends CI_Controller {
 			$this->db->insert('RealisasiPendidikan',
 										array('NIP' => $NIP, 
 													'Jabatan' => $Jabatan,
-													'Jenjang' => $_POST['Jenjang'], 
+													'Jenjang' => $_POST['Homebase'], 
 													'Semester' => $_POST['Semester'], 
 													'Tahun' => $_POST['Tahun'], 
 													'IdKegiatan' => $_POST['IdKegiatan'],
@@ -422,7 +422,7 @@ class Pendidikan extends CI_Controller {
 				$this->db->where('No', $_POST['No']);
 				$this->db->update('RealisasiPendidikan',
 											array('No' => $_POST['No'], 
-														'Jenjang' => $_POST['Jenjang'], 
+														'Jenjang' => $_POST['Homebase'], 
 														'Semester' => $_POST['Semester'], 
 														'Tahun' => $_POST['Tahun'], 
 														'Kegiatan' => $_POST['Kegiatan'],
@@ -449,7 +449,7 @@ class Pendidikan extends CI_Controller {
 			$this->db->where('No', $_POST['No']);
 			$this->db->update('RealisasiPendidikan',
 										array('No' => $_POST['No'], 
-													'Jenjang' => $_POST['Jenjang'], 
+													'Jenjang' => $_POST['Homebase'], 
 													'Semester' => $_POST['Semester'], 
 													'Tahun' => $_POST['Tahun'], 
 													'Kegiatan' => $_POST['Kegiatan'],
@@ -480,7 +480,10 @@ class Pendidikan extends CI_Controller {
 
 	public function Download(){
 		$Data['Profil'] = $this->db->get_where('Dosen', array('NIP' => $this->session->userdata('NIP')))->row_array();
-		$Data['Pendidikan'] = $this->db->query("SELECT * FROM `RealisasiPendidikan` ORDER BY SUBSTR(IdKegiatan FROM 1 FOR 3), CAST(SUBSTR(IdKegiatan FROM 4) AS UNSIGNED), SUBSTR(IdKegiatan FROM 4), Kode ASC")->result_array();
+		$Jenjang = $this->uri->segment('3');
+		$Semester = $this->uri->segment('4');
+		$Tahun = explode('-',$this->uri->segment('5'));
+		$Data['Pendidikan'] = $this->db->query("SELECT * FROM `RealisasiPendidikan` WHERE Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1]." ORDER BY SUBSTR(IdKegiatan FROM 1 FOR 3), CAST(SUBSTR(IdKegiatan FROM 4) AS UNSIGNED), SUBSTR(IdKegiatan FROM 4), Kode ASC")->result_array();
 		$this->load->view('ExcelPendidikan',$Data);
 	}
 }

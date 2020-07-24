@@ -12,7 +12,7 @@
 				<thead class="bg-warning">
 					<tr>
 						<th class="text-center align-middle">No</th>
-						<th class="text-center align-middle">Jenjang</th>
+						<th class="text-center align-middle">Homebase</th>
 						<th class="text-center align-middle">Semester</th>
 						<th class="text-center align-middle">Tahun</th>
 						<th class="text-center align-middle">Total Kredit</th>
@@ -55,7 +55,7 @@
 							<div class="col-sm-3 mt-1 mb-1">
 								<div class="input-group mb-1">
 									<div class="input-group-prepend">
-										<label class="input-group-text bg-primary"><b>Jenjang</b></label>
+										<label class="input-group-text bg-primary"><b>Homebase</b></label>
 									</div>
 									<select class="custom-select" id="JenjangRencanaPendidikan">										
 											<option value="S1">S1</option>
@@ -366,7 +366,7 @@
 							<div class="col-sm-3 mt-1 mb-1">
 								<div class="input-group mb-1">
 									<div class="input-group-prepend">
-										<label class="input-group-text bg-primary"><b>Jenjang</b></label>
+										<label class="input-group-text bg-primary"><b>Homebase</b></label>
 									</div>
 									<select class="custom-select" id="EditJenjangRencanaPendidikan">										
 											<option value="S1">S1</option>

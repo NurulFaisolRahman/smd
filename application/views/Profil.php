@@ -17,7 +17,11 @@
 										<div class="container-fluid">
 											<div class="row align-items-center">
 												<div class="col-sm-auto my-1 text-center">
-													<img src="<?=base_url('img/Sutikno.png')?>" width="200px">
+													<?php if ($Profil['Foto'] == '') { ?>
+														<img src="<?=base_url('img/Avatar.png')?>" width="200px">
+													<?php	} else { ?>
+														<img src="<?=base_url('img/'.$Profil['Foto'])?>" width="200px">
+													<?php } ?>
 												</div>
 												<div class="col-sm-auto my-2 ">
 													<table class="table-responsive">
@@ -49,8 +53,16 @@
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 										<div class="container-fluid">
 											<div class="row align-items-center">
-												<div class="col-sm-auto my-1 text-center">
-													<img src="<?=base_url('img/Sutikno.png')?>" width="200px">
+												<div class="col-sm-3 my-1 text-center">
+													<?php if ($Profil['Foto'] == '') { ?>
+														<img src="<?=base_url('img/Avatar.png')?>" width="200px">
+													<?php	} else { ?>
+														<img src="<?=base_url('img/'.$Profil['Foto'])?>" width="200px">
+													<?php } ?>
+													<div class="input-group mb-1">
+														<input class="form-control" type="hidden" id="NamaFoto" value="<?=$Profil['Foto']?>">
+														<input class="form-control" type="file" id="Foto" onchange="Upload()">
+													</div>
 												</div>
 												<div class="col-sm-auto my-2 ">
 													<table class="table-responsive">
@@ -161,6 +173,28 @@
           return false
         })
 			})
+
+			function Upload() {
+				var BaseURL = '<?=base_url()?>';
+				var fd = new FormData()
+				fd.append("file", $('#Foto')[0].files[0])
+				fd.append("NamaFoto", $('#NamaFoto').val())
+				$.ajax({
+					url: BaseURL+'Dashboard/Foto',
+					type: 'post',
+					data: fd,
+					contentType: false,
+					processData: false,
+					success: function(Respon){
+						if (Respon == '1') {
+							window.location = BaseURL + "Dashboard/Profil"
+						}
+						else {
+							alert(Respon)
+						}
+					}
+				})
+			}
 		</script>
 </body>
 </html>

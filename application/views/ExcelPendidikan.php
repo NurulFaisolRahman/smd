@@ -1,6 +1,6 @@
 <?php
   header('Content-Type: application/xlsx');
-  header('Content-Disposition: attachment; filename=tes.xlsx');
+  header('Content-Disposition: attachment; filename=Pendidikan.xlsx');
 ?>
 <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
  <head>
