@@ -34,17 +34,22 @@ class Pendidikan extends CI_Controller {
 	}
 
 	public function EditRencana(){
-		$this->db->where('No', $_POST['No']);
-		$this->db->update('RencanaPendidikan', 
-								array('Jenjang' => $_POST['Jenjang'],
-											'Semester' => $_POST['Semester'],
-											'Tahun' => $_POST['Tahun'],
-											'KodeRencana' => $_POST['Kode'],
-											'TotalKredit' => $_POST['Total']));
-		if ($this->db->affected_rows()){
-			echo '1';
-		} else {
-			echo 'Gagal Menyimpnan';
+		if($this->db->get_where('RencanaPendidikan', array('Jenjang' => $_POST['Jenjang'],'Semester' => $_POST['Semester'],'Tahun' => $_POST['Tahun']))->num_rows() === 0){
+			$this->db->where('No', $_POST['No']);
+			$this->db->update('RencanaPendidikan', 
+									array('Jenjang' => $_POST['Jenjang'],
+												'Semester' => $_POST['Semester'],
+												'Tahun' => $_POST['Tahun'],
+												'KodeRencana' => $_POST['Kode'],
+												'TotalKredit' => $_POST['Total']));
+			if ($this->db->affected_rows()){
+				echo '1';
+			} else {
+				echo 'Gagal Menyimpnan';
+			}
+		}
+		else {
+			echo 'Data Rencana Pendidikan Jenjang '.$_POST['Jenjang'].' Semester '.$_POST['Semester'].' Tahun '.$_POST['Tahun'].' Telah Ada';
 		}
 	}
 

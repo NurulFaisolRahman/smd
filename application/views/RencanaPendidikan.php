@@ -6,7 +6,7 @@
   </div>
 </div>
 <div class="container-fluid">
-	<div class="col-sm-6">
+	<div class="col-sm-auto">
 		<div class="table-responsive mb-2">
 			<table id="TabelRencana" class="table table-bordered table-striped">
 				<thead class="bg-warning">
@@ -15,32 +15,43 @@
 						<th class="text-center align-middle">Homebase</th>
 						<th class="text-center align-middle">Semester</th>
 						<th class="text-center align-middle">Tahun</th>
-						<th class="text-center align-middle">Total Kredit</th>
+						<th class="text-center align-middle">Kredit Rencana</th>
+						<th class="text-center align-middle">Kredit Realisasi</th>
+						<th class="text-center align-middle">Target Prodi</th>
+						<th class="text-center align-middle">Status</th>
 						<th class="text-center align-middle">Aksi</th>
 					</tr>
 				</thead>
 				<tbody>
-				<?php $Total = 0; $No = 1; foreach ($Rencana as $key) { ?>
+				<?php $TotalRencana = $TotalRealisasi = 0; $No = 1; foreach ($Rencana as $key) { ?>
 						<tr>	
 							<td class="text-center align-middle"><?=$No++?></td>
 							<td class="text-center align-middle"><?=$key['Jenjang']?></td>
 							<td class="text-center align-middle"><?=$key['Semester']?></td>
 							<td class="text-center align-middle"><?=$key['Tahun']?></td>
 							<td class="text-center align-middle"><?=$key['TotalKredit']?></td>
+							<td class="text-center align-middle"><?=$KreditRealisasi[$No-2]?></td>
+							<td class="text-center align-middle"></td>
+							<td class="text-center align-middle"></td>
 							<td class="text-center align-middle">                          
 								<button EditRencanaPendidikan="<?=$key['No']."/".$key['Jabatan']."/".$key['Jenjang']."/".$key['Semester']."/".$key['Tahun']."/".$key['KodeRencana']."/".$key['TotalKredit']?>" class="btn btn-sm btn-warning EditRencanaPendidikan"><i class="fas fa-edit"></i></button>
 								<button HapusRencanaPendidikan="<?=$key['No']?>" class="btn btn-sm btn-danger HapusRencanaPendidikan"><i class="fas fa-trash"></i></button>
 							</td>
 						</tr>
 						<?php 
-							$Total += $key['TotalKredit'];
+							$TotalRencana += $key['TotalKredit'];
+							$TotalRealisasi += $KreditRealisasi[$No-2];
 						?>
 					<?php } ?>
 				</tbody>
 					<tfoot>
 						<tr>
-							<th colspan="4" class="text-right">Total</th>
-							<th class="bg-success text-center align-middle"><?=$Total?></th>
+							<th colspan="4" class="text-center">Total</th>
+							<th class="bg-success text-center align-middle"><?=$TotalRencana?></th>
+							<th class="bg-success text-center align-middle"><?=$TotalRealisasi?></th>
+							<th></th>
+							<th></th>
+							<th></th>
 						</tr>
 					</tfoot>
 			</table>

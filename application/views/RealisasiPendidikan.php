@@ -83,7 +83,7 @@
         </tbody>
         <tfoot>
           <tr>
-            <th colspan="8" class="text-right">Total</th>
+            <th colspan="8" class="text-center">Total</th>
             <th class="bg-success text-center align-middle"><?=$Total?></th>
             <td colspan="2"></td>
           </tr>

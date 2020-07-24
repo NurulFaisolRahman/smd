@@ -43,6 +43,15 @@ class Dashboard extends CI_Controller {
 		$NIP = $this->session->userdata('NIP');
 		$ID = $this->session->userdata('IdKegiatanPendidikan');
 		$Data['Rencana'] = $this->db->get_where('RencanaPendidikan', array('NIP' => $NIP))->result_array();
+		$Data['KreditRealisasi'] = array();
+		foreach ($Data['Rencana'] as $key) {
+			$Tampung = $this->db->get_where('RealisasiPendidikan', array('NIP' => $NIP,'Jenjang' => $key['Jenjang'],'Semester' => $key['Semester'],'Tahun' => $key['Tahun'],))->result_array();
+			$Total = 0;
+			foreach ($Tampung as $data) {
+				$Total+=$data['JumlahKredit'];
+			}
+			array_push($Data['KreditRealisasi'],$Total);
+		}
 		$Data['Realisasi'] = $this->db->get_where('RealisasiPendidikan', array('NIP' => $NIP,'IdKegiatan' => $ID))->result_array();
 		$this->load->view('Header',$Data);
 		$this->load->view('Pendidikan',$Data);
