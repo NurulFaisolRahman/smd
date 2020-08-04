@@ -27,7 +27,8 @@ class Dashboard extends CI_Controller {
 													'Nama' => $_POST['Nama'],
 													'Jabatan' => $_POST['Jabatan'],
 													'Pangkat' => $_POST['Pangkat'],
-													'Golongan' => $_POST['Golongan']));
+													'Golongan' => $_POST['Golongan'],
+													'Kredit' => $_POST['Kredit']));
 		if ($this->db->affected_rows()) {
 			$this->session->set_userdata('NIP', $_POST['NIP']);
 			$this->session->set_userdata('Jabatan', $_POST['Jabatan']);

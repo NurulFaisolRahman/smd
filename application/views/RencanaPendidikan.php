@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-3 mt-1 mb-1">
-      <button type="button" id="TambahRencana" class="btn btn-primary" data-toggle="modal" data-target="#ModalInputRencanaPendidikan"><b>Tambah Rencana</b></button>
+    <div class="col-sm-3 mt-1 mb-1">       
+      <button type="button" id="TambahRencana" class="btn btn-primary" data-toggle="modal" data-target="#ModalInputRencanaPendidikan"><i class="fa fa-plus"></i> <b>Input</b></button>
     </div>
   </div>
 </div>
@@ -210,22 +210,7 @@
 											<tr>
 												<td><b>Jumlah Mata Kuliah :</b> <input style="width: 50px;" oninput="MengembangkanProgram()" class="form-control-sm" type="text" id="MengembangkanProgram"  data-inputmask='"mask": "99"' data-mask> <b>Mata Kuliah</b></td>
 											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="table-responsive mb-2">
-									<table id="PENDIDIKAN" class="table table-bordered border-dark bg-light mb-1">
-										<thead>
 											<tr>
-												<th class='align-middle bg-warning'>No</th>
-												<th class='align-middle bg-warning'> Komponen Kegiatan</th>
-												<th class='align-middle bg-warning'> Kredit</th>
-											</tr>
-										</thead>
-										<tbody>
-										<tr>
 												<td rowspan="3" class='text-center'>10</td>
 												<td class='align-middle'>Mengembangkan bahan pengajaran / bahan kuliah yang mempunyai nilai kebaharuan</td>
 												<td></td>
@@ -246,6 +231,21 @@
 											<tr>
 												<td><b>Jumlah Orasi :</b> <input style="width: 50px;" oninput="Orasi()" class="form-control-sm" type="text" id="Orasi"  data-inputmask='"mask": "99"' data-mask> <b>Orasi</b></td>
 											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="table-responsive mb-2">
+									<table id="PENDIDIKAN" class="table table-bordered border-dark bg-light mb-1">
+										<thead>
+											<tr>
+												<th class='align-middle bg-warning'>No</th>
+												<th class='align-middle bg-warning'> Komponen Kegiatan</th>
+												<th class='align-middle bg-warning'> Kredit</th>
+											</tr>
+										</thead>
+										<tbody>
 											<tr>
 												<td rowspan="9" class='text-center'>12</td>
 												<td class='align-middle'>Menduduki jabatan pimpinan perguruan tinggi</td>
@@ -256,15 +256,15 @@
 												<td class='text-center align-middle'><b id="KreditRektor">0</b></td>
 											</tr>
 											<tr>
-												<td class='align-middle'><label><input type="checkbox" id="WakilRektor" onchange="WakilRektor()"> Wakil rektor / dekan</label></td>
+												<td class='align-middle'><label><input type="checkbox" id="WakilRektor" onchange="WakilRektor()"> Wakil rektor / dekan / direktur program pasca sarjana / ketua lembaga</label></td>
 												<td class='text-center align-middle'><b id="KreditWakilRektor">0</b></td>
 											</tr>
 											<tr>
-												<td class='align-middle'><label><input type="checkbox" id="Ketua" onchange="Ketua()"> Ketua sekolah tinggi / pembantu dekan</label></td>
+												<td class='align-middle'><label><input type="checkbox" id="Ketua" onchange="Ketua()"> Ketua sekolah tinggi / pembantu dekan / asisten direktur program pasca sarjana / direktur politeknik / kepala LLDikti</label></td>
 												<td class='text-center align-middle'><b id="KreditKetua">0</b></td>
 											</tr>
 											<tr>
-												<td class='align-middle'><label><input type="checkbox" id="PembantuKetua" onchange="PembantuKetua()"> Pembantu ketua sekolah tinggi</label></td>
+												<td class='align-middle'><label><input type="checkbox" id="PembantuKetua" onchange="PembantuKetua()"> Pembantu ketua sekolah tinggi/pembantu direktur politeknik</label></td>
 												<td class='text-center align-middle'><b id="KreditPembantuKetua">0</b></td>
 											</tr>
 											<tr>
@@ -272,15 +272,15 @@
 												<td class='text-center align-middle'><b id="KreditDirekturAkademi">0</b></td>
 											</tr>
 											<tr>
-												<td class='align-middle'><label><input type="checkbox" id="PembantuDirekturPoliteknik" onchange="PembantuDirekturPoliteknik()"> ketua jurusan pada universitas</label></td>
+												<td class='align-middle'><label><input type="checkbox" id="PembantuDirekturPoliteknik" onchange="PembantuDirekturPoliteknik()"> Pembantu direktur politeknik, ketua jurusan / bagian pada universitas / institut / sekolah tinggi</label></td>
 												<td class='text-center align-middle'><b id="KreditPembantuDirekturPoliteknik">0</b></td>
 											</tr>
 											<tr>
-												<td class='align-middle'><label><input type="checkbox" id="PembantuDirekturAkademi" onchange="PembantuDirekturAkademi()"> ketua prodi pada universitas, sekretaris jurusan</label></td>
+												<td class='align-middle'><label><input type="checkbox" id="PembantuDirekturAkademi" onchange="PembantuDirekturAkademi()"> Pembantu direktur akademi / ketua jurusan / ketua prodipada universitas / politeknik / akademi, sekretaris jurusan / bagian pada universitas / institut / sekolah tinggi</label></td>
 												<td class='text-center align-middle'><b id="KreditPembantuDirekturAkademi">0</b></td>
 											</tr>
 											<tr>
-												<td class='align-middle'><label><input type="checkbox" id="Sekretaris" onchange="Sekretaris()"> Sekretaris jurusan / kepala laboratorium universitas</label></td>
+												<td class='align-middle'><label><input type="checkbox" id="Sekretaris" onchange="Sekretaris()"> Sekretaris jurusan pada politeknik / akademi dan kepala laboratorium (bengkel) universitas / institut / sekolah tinggi / politeknik / akademi</label></td>
 												<td class='text-center align-middle'><b id="KreditSekretaris">0</b></td>
 											</tr>
 											<?php if ($this->session->userdata('Jabatan') == 'Lektor Kepala' || $this->session->userdata('Jabatan') == 'Profesor') { ?>
@@ -522,22 +522,7 @@
 											<tr>
 												<td><b>Jumlah Mata Kuliah :</b> <input style="width: 50px;" oninput="EditMengembangkanProgram()" class="form-control-sm" type="text" id="EditMengembangkanProgram"  data-inputmask='"mask": "99"' data-mask> <b>Mata Kuliah</b></td>
 											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="table-responsive mb-2">
-									<table class="table table-bordered border-dark bg-light mb-1">
-										<thead>
 											<tr>
-												<th class='align-middle bg-warning'>No</th>
-												<th class='align-middle bg-warning'> Komponen Kegiatan</th>
-												<th class='align-middle bg-warning'> Kredit</th>
-											</tr>
-										</thead>
-										<tbody>
-										<tr>
 												<td rowspan="3" class='text-center'>10</td>
 												<td class='align-middle'>Mengembangkan bahan pengajaran / bahan kuliah yang mempunyai nilai kebaharuan</td>
 												<td></td>
@@ -558,6 +543,21 @@
 											<tr>
 												<td><b>Jumlah Orasi :</b> <input style="width: 50px;" oninput="EditOrasi()" class="form-control-sm" type="text" id="EditOrasi"  data-inputmask='"mask": "99"' data-mask> <b>Orasi</b></td>
 											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="table-responsive mb-2">
+									<table class="table table-bordered border-dark bg-light mb-1">
+										<thead>
+											<tr>
+												<th class='align-middle bg-warning'>No</th>
+												<th class='align-middle bg-warning'> Komponen Kegiatan</th>
+												<th class='align-middle bg-warning'> Kredit</th>
+											</tr>
+										</thead>
+										<tbody>
 											<tr>
 												<td rowspan="9" class='text-center'>12</td>
 												<td class='align-middle'>Menduduki jabatan pimpinan perguruan tinggi</td>
@@ -572,11 +572,11 @@
 												<td class='text-center align-middle'><b id="EditKreditWakilRektor">0</b></td>
 											</tr>
 											<tr>
-												<td class='align-middle'><label><input type="checkbox" id="EditKetua" onchange="EditKetua()"> Ketua sekolah tinggi / pembantu dekan</label></td>
+												<td class='align-middle'><label><input type="checkbox" id="EditKetua" onchange="EditKetua()"> Ketua sekolah tinggi / pembantu dekan / asisten direktur program pasca sarjana / direktur politeknik / kepala LLDikti</label></td>
 												<td class='text-center align-middle'><b id="EditKreditKetua">0</b></td>
 											</tr>
 											<tr>
-												<td class='align-middle'><label><input type="checkbox" id="EditPembantuKetua" onchange="EditPembantuKetua()"> Pembantu ketua sekolah tinggi</label></td>
+												<td class='align-middle'><label><input type="checkbox" id="EditPembantuKetua" onchange="EditPembantuKetua()"> Pembantu ketua sekolah tinggi/pembantu direktur politeknik</label></td>
 												<td class='text-center align-middle'><b id="EditKreditPembantuKetua">0</b></td>
 											</tr>
 											<tr>
@@ -584,15 +584,15 @@
 												<td class='text-center align-middle'><b id="EditKreditDirekturAkademi">0</b></td>
 											</tr>
 											<tr>
-												<td class='align-middle'><label><input type="checkbox" id="EditPembantuDirekturPoliteknik" onchange="EditPembantuDirekturPoliteknik()"> ketua jurusan pada universitas</label></td>
+												<td class='align-middle'><label><input type="checkbox" id="EditPembantuDirekturPoliteknik" onchange="EditPembantuDirekturPoliteknik()"> Pembantu direktur politeknik, ketua jurusan / bagian pada universitas / institut / sekolah tinggi</label></td>
 												<td class='text-center align-middle'><b id="EditKreditPembantuDirekturPoliteknik">0</b></td>
 											</tr>
 											<tr>
-												<td class='align-middle'><label><input type="checkbox" id="EditPembantuDirekturAkademi" onchange="EditPembantuDirekturAkademi()"> ketua prodi pada universitas, sekretaris jurusan</label></td>
+												<td class='align-middle'><label><input type="checkbox" id="EditPembantuDirekturAkademi" onchange="EditPembantuDirekturAkademi()"> Pembantu direktur akademi / ketua jurusan / ketua prodipada universitas / politeknik / akademi, sekretaris jurusan / bagian pada universitas / institut / sekolah tinggi</label></td>
 												<td class='text-center align-middle'><b id="EditKreditPembantuDirekturAkademi">0</b></td>
 											</tr>
 											<tr>
-												<td class='align-middle'><label><input type="checkbox" id="EditSekretaris" onchange="EditSekretaris()"> Sekretaris jurusan / kepala laboratorium universitas</label></td>
+												<td class='align-middle'><label><input type="checkbox" id="EditSekretaris" onchange="EditSekretaris()"> Sekretaris jurusan pada politeknik / akademi dan kepala laboratorium (bengkel) universitas / institut / sekolah tinggi / politeknik / akademi</label></td>
 												<td class='text-center align-middle'><b id="EditKreditSekretaris">0</b></td>
 											</tr>
 											<?php if ($this->session->userdata('Jabatan') == 'Lektor Kepala' || $this->session->userdata('Jabatan') == 'Profesor') { ?>

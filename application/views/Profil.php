@@ -38,12 +38,16 @@
 															<td><b>: <?=$Profil['NIP']?></b></td>
 														</tr>
 														<tr>
-															<td><b>Pangkat/Gol</b></td>
-															<td><b>: <?=$Profil['Pangkat'].'/'.$Profil['Golongan']?></b></td>
+															<td><b>Pangkat / Gol</b></td>
+															<td><b>: <?=$Profil['Pangkat'].' / '.$Profil['Golongan']?></b></td>
 														</tr>
 														<tr>
 															<td><b>Jabatan</b></td>
 															<td><b>: <?=$Profil['Jabatan']?></b></td>
+														</tr>
+														<tr>
+															<td><b>Kredit</b></td>
+															<td><b>: <?=$Profil['Kredit']?></b></td>
 														</tr>
 													</table>
 												</div>
@@ -132,6 +136,10 @@
 															</td>
 														</tr>
 														<tr>
+															<td><b>Kredit</b></td>
+															<td><input type="text" id="Kredit" class="form-control form-control-sm" value="<?=$Profil['Kredit']?>"></td>
+														</tr>
+														<tr>
 															<td><button type="button" id="EditProfil" class="btn btn-success"><b>SIMPAN</b></button></td>
 														</tr>
 													</table>
@@ -161,7 +169,8 @@
 											Nama: $("#Nama").val(),
 											Pangkat: Pangkat[0],
 											Golongan: Pangkat[1],
-											Jabatan: $("#Jabatan").val() }
+											Jabatan: $("#Jabatan").val(),
+											Kredit: $("#Kredit").val() }
 					$.post(BaseURL+"Dashboard/EditProfil", Data).done(function(Respon) {
 						if (Respon == '1') {
 							window.location = BaseURL + "Dashboard/Profil"

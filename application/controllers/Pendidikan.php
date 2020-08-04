@@ -488,7 +488,15 @@ class Pendidikan extends CI_Controller {
 		$Jenjang = $this->uri->segment('3');
 		$Semester = $this->uri->segment('4');
 		$Tahun = explode('-',$this->uri->segment('5'));
-		$Data['Pendidikan'] = $this->db->query("SELECT * FROM `RealisasiPendidikan` WHERE Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1]." ORDER BY SUBSTR(IdKegiatan FROM 1 FOR 3), CAST(SUBSTR(IdKegiatan FROM 4) AS UNSIGNED), SUBSTR(IdKegiatan FROM 4), Kode ASC")->result_array();
+		$Data['Pendidikan'] = $this->db->query("SELECT * FROM `RealisasiPendidikan` WHERE NIP = ".$this->session->userdata('NIP')." AND Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1]." ORDER BY SUBSTR(IdKegiatan FROM 1 FOR 3), CAST(SUBSTR(IdKegiatan FROM 4) AS UNSIGNED), SUBSTR(IdKegiatan FROM 4), Kode ASC")->result_array();
 		$this->load->view('ExcelPendidikan',$Data);
+	}
+
+	public function Lampiran(){
+		$Jenjang = $this->uri->segment('3');
+		$Semester = $this->uri->segment('4');
+		$Tahun = explode('-',$this->uri->segment('5'));
+		$DataPendidikan = $this->db->query("SELECT * FROM `RealisasiPendidikan` WHERE NIP = ".$this->session->userdata('NIP')." AND Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1]." ORDER BY SUBSTR(IdKegiatan FROM 1 FOR 3), CAST(SUBSTR(IdKegiatan FROM 4) AS UNSIGNED), SUBSTR(IdKegiatan FROM 4), Kode ASC")->result_array();
+		echo json_encode($DataPendidikan);
 	}
 }

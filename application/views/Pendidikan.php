@@ -67,7 +67,19 @@
 					var Tahun = $('#FilterTahun').val()
 					var Pisah = Tahun.split('-')
 					window.location = BaseURL + 'Pendidikan/Download/'+$('#FilterJenjang').val()+'/'+$('#FilterSemester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))
-				});
+					$.post(BaseURL+"Pendidikan/Lampiran/"+$('#FilterJenjang').val()+'/'+$('#FilterSemester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))).done(function(Respon) {
+						var array = JSON.parse(Respon)
+						var NomorLampiran = 1
+						array.forEach(function(object) {
+							if (object.Bukti != null) {
+								$('#Lampiran').attr('href',BaseURL+'Pendidikan/'+object.Bukti)		
+								$('#Lampiran').attr('Download','Lampiran 1.'+NomorLampiran)
+								$('#Lampiran')[0].click()
+							}
+							NomorLampiran++;
+						})
+					}) 
+				})
 
 				$("#pills-Rencana-tab").click(function() {
 					var Data = {SubPendidikan: 'Rencana'}
@@ -891,7 +903,7 @@
 				if (isNaN(parseInt($('#AnggotaPenguji').val()))) {
 					document.getElementById('KreditAnggotaPenguji').innerHTML = 0
 				} else {
-					document.getElementById('KreditAnggotaPenguji').innerHTML = parseInt($('#AnggotaPenguji').val())/0.0625
+					document.getElementById('KreditAnggotaPenguji').innerHTML = parseInt($('#AnggotaPenguji').val())*0.0625
 				}
 			}
 

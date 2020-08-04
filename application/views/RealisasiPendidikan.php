@@ -98,7 +98,7 @@
       <div class="modal-body">
         <div class="input-group mb-1">
           <div class="input-group-prepend">
-            <label class="input-group-text bg-primary"><b>Jenis Realisasi</b></label>
+            <label class="input-group-text bg-primary"><b>Homebase</b></label>
           </div>
           <select class="custom-select" id="JenisRealisasi">										
               <option value="S1">S1</option>
@@ -191,13 +191,13 @@
             </div>
             <select class="custom-select" id="JenisPND12">
               <option value="6">Rektor</option>
-              <option value="5">Wakil rektor/dekan/direktur program pasca sarjana/ketua lembaga</option>
-              <option value="4">Ketua sekolah tinggi/pembantu dekan/asisten direktur program pasca sarjana/direktur politeknik/kepala LLDikti</option>
+              <option value="5">Wakil rektor / dekan / direktur program pasca sarjana / ketua lembaga</option>
+              <option value="4">Ketua sekolah tinggi / pembantu dekan / asisten direktur program pasca sarjana / direktur politeknik / kepala LLDikti</option>
               <option value="4">Pembantu ketua sekolah tinggi/pembantu direktur politeknik</option>
               <option value="4">Direktur akademi</option>
-              <option value="3">Pembantu direktur politeknik, ketua jurusan/ bagian pada universitas/ institut/sekolah tinggi</option>
-              <option value="3">Pembantu direktur akademi/ketua jurusan/ketua prodipada universitas/politeknik/akademi, sekretaris jurusan/bagian pada universitas/institut/sekolah tinggi</option>
-              <option value="3">Sekretaris jurusan pada politeknik/akademi dan kepala laboratorium (bengkel) universitas/institut/sekolah tinggi/politeknik/akademi</option>
+              <option value="3">Pembantu direktur politeknik, ketua jurusan / bagian pada universitas / institut / sekolah tinggi</option>
+              <option value="3">Pembantu direktur akademi / ketua jurusan / ketua prodipada universitas / politeknik / akademi, sekretaris jurusan / bagian pada universitas / institut / sekolah tinggi</option>
+              <option value="3">Sekretaris jurusan pada politeknik / akademi dan kepala laboratorium (bengkel) universitas / institut / sekolah tinggi / politeknik / akademi</option>
             </select>
           </div>
         </div>
@@ -275,7 +275,7 @@
       <div class="modal-body">
         <div class="input-group mb-1">
           <div class="input-group-prepend">
-            <label class="input-group-text bg-primary"><b>Jenis Realisasi</b></label>
+            <label class="input-group-text bg-primary"><b>Homebase</b></label>
           </div>
           <input class="form-control" type="hidden" id="EditNoRealisasi">
           <input class="form-control" type="hidden" id="EditIdKegiatan">
@@ -361,6 +361,7 @@
             <label class="input-group-text bg-primary"><b>Tahun</b></label>
           </div>
           <input class="form-control" type="text" id="FilterTahun"  data-inputmask='"mask": "9999-9999"' data-mask>
+          <a id="Lampiran" href="Lampiran" download="Lampiran"></a>
         </div>
       </div>
       <div class="modal-footer justify-content-between">
