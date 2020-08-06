@@ -24,7 +24,10 @@ class SMD extends CI_Controller {
 												 'NIP' => $_POST['NIP'], 
 												 'Jabatan' => $Jabatan[0]['Jabatan'],
 												 'IdKegiatanPendidikan' => 'PND1',
-												 'SubPendidikan' => 'Rencana');
+												 'SubPendidikan' => 'Rencana',
+												 'SubPenelitian' => 'Rencana',
+												 'SubPengabdian' => 'Rencana',
+												 'SubPenunjang' => 'Rencana');
 				$this->session->set_userdata($Session);
 				echo '1';
 			} else {
@@ -49,7 +52,10 @@ class SMD extends CI_Controller {
 											 'NIP' => $_POST['NIP'], 
 											 'Jabatan' => $_POST['Jabatan'],
 											 'IdKegiatanPendidikan' => 'PND1',
-											 'SubPendidikan' => 'Rencana');
+											 'SubPendidikan' => 'Rencana',
+											 'SubPenelitian' => 'Rencana',
+											 'SubPengabdian' => 'Rencana',
+											 'SubPenunjang' => 'Rencana');
 			$this->session->set_userdata($Session);	
 			echo '1';
 		} else{

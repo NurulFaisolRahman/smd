@@ -36,7 +36,23 @@ class Dashboard extends CI_Controller {
 		} else {
 			echo 'Gagal Update Data';
 		}
-  }
+	}
+	
+	public function Foto(){
+		$Tipe = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
+		$valid_extensions = array("jpg","jpeg","png");
+		if(!in_array(strtolower($Tipe),$valid_extensions)) {
+			echo 'Mohon Upload jpg/jpeg/png';
+		} else {
+			$Tipe = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
+			$NamaFoto = date('Ymd',time()).substr(password_hash('Foto', PASSWORD_DEFAULT),7,3).'.'.$Tipe;
+			move_uploaded_file($_FILES['file']['tmp_name'], "img/".$NamaFoto);
+			if ($_POST['NamaFoto'] != '') { unlink('img/'.$_POST['NamaFoto']); }
+			$this->db->where('NIP', $this->session->userdata('NIP'));
+			$this->db->update('Dosen',array('Foto' => $NamaFoto));
+			echo '1';
+		}
+	}
   
   public function Pendidikan(){
     $Data['Halaman'] = 'Kegiatan';
@@ -66,19 +82,75 @@ class Dashboard extends CI_Controller {
 		$this->session->set_userdata('SubPendidikan', $_POST['SubPendidikan']);
 	}
 
-	public function Foto(){
-		$Tipe = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
-		$valid_extensions = array("jpg","jpeg","png");
-		if(!in_array(strtolower($Tipe),$valid_extensions)) {
-			echo 'Mohon Upload jpg/jpeg/png';
-		} else {
-			$Tipe = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
-			$NamaFoto = date('Ymd',time()).substr(password_hash('Foto', PASSWORD_DEFAULT),7,3).'.'.$Tipe;
-			move_uploaded_file($_FILES['file']['tmp_name'], "img/".$NamaFoto);
-			if ($_POST['NamaFoto'] != '') { unlink('img/'.$_POST['NamaFoto']); }
-			$this->db->where('NIP', $this->session->userdata('NIP'));
-			$this->db->update('Dosen',array('Foto' => $NamaFoto));
-			echo '1';
+	public function SubPenelitian(){
+		$this->session->set_userdata('SubPenelitian', $_POST['SubPenelitian']);
+	}
+
+	public function SubPengabdian(){
+		$this->session->set_userdata('SubPengabdian', $_POST['SubPengabdian']);
+	}
+
+	public function SubPenunjang(){
+		$this->session->set_userdata('SubPenunjang', $_POST['SubPenunjang']);
+	}
+
+	public function Penelitian(){
+    $Data['Halaman'] = 'Kegiatan';
+		$Data['SubMenu'] = 'Penelitian';		
+		$NIP = $this->session->userdata('NIP');
+		// $ID = $this->session->userdata('IdKegiatanPenelitian');
+		$Data['Rencana'] = $this->db->get_where('RencanaPenelitian', array('NIP' => $NIP))->result_array();
+		$Data['KreditRealisasi'] = array();
+		foreach ($Data['Rencana'] as $key) {
+			$Tampung = $this->db->get_where('RealisasiPenelitian', array('NIP' => $NIP,'Jenjang' => $key['Jenjang'],'Semester' => $key['Semester'],'Tahun' => $key['Tahun'],))->result_array();
+			$Total = 0;
+			foreach ($Tampung as $data) {
+				$Total+=$data['JumlahKredit'];
+			}
+			array_push($Data['KreditRealisasi'],$Total);
 		}
+		// $Data['Realisasi'] = $this->db->get_where('RealisasiPenelitian', array('NIP' => $NIP,'IdKegiatan' => $ID))->result_array();
+		$this->load->view('Header',$Data);
+		$this->load->view('Penelitian',$Data);
+	}
+
+	public function Pengabdian(){
+    $Data['Halaman'] = 'Kegiatan';
+		$Data['SubMenu'] = 'Pengabdian';		
+		$NIP = $this->session->userdata('NIP');
+		// $ID = $this->session->userdata('IdKegiatanPengabdian');
+		$Data['Rencana'] = $this->db->get_where('RencanaPengabdian', array('NIP' => $NIP))->result_array();
+		$Data['KreditRealisasi'] = array();
+		foreach ($Data['Rencana'] as $key) {
+			$Tampung = $this->db->get_where('RealisasiPengabdian', array('NIP' => $NIP,'Jenjang' => $key['Jenjang'],'Semester' => $key['Semester'],'Tahun' => $key['Tahun'],))->result_array();
+			$Total = 0;
+			foreach ($Tampung as $data) {
+				$Total+=$data['JumlahKredit'];
+			}
+			array_push($Data['KreditRealisasi'],$Total);
+		}
+		// $Data['Realisasi'] = $this->db->get_where('RealisasiPengabdian', array('NIP' => $NIP,'IdKegiatan' => $ID))->result_array();
+		$this->load->view('Header',$Data);
+		$this->load->view('Pengabdian',$Data);
+	}
+
+	public function Penunjang(){
+    $Data['Halaman'] = 'Kegiatan';
+		$Data['SubMenu'] = 'Penunjang';		
+		$NIP = $this->session->userdata('NIP');
+		// $ID = $this->session->userdata('IdKegiatanPenunjang');
+		$Data['Rencana'] = $this->db->get_where('RencanaPenunjang', array('NIP' => $NIP))->result_array();
+		$Data['KreditRealisasi'] = array();
+		foreach ($Data['Rencana'] as $key) {
+			$Tampung = $this->db->get_where('RealisasiPenunjang', array('NIP' => $NIP,'Jenjang' => $key['Jenjang'],'Semester' => $key['Semester'],'Tahun' => $key['Tahun'],))->result_array();
+			$Total = 0;
+			foreach ($Tampung as $data) {
+				$Total+=$data['JumlahKredit'];
+			}
+			array_push($Data['KreditRealisasi'],$Total);
+		}
+		// $Data['Realisasi'] = $this->db->get_where('RealisasiPenunjang', array('NIP' => $NIP,'IdKegiatan' => $ID))->result_array();
+		$this->load->view('Header',$Data);
+		$this->load->view('Penunjang',$Data);
 	}
 }

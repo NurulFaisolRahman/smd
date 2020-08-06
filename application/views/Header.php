@@ -63,8 +63,8 @@
                     </p>
                     </a>
                     <?php
-                    $JenisKegiatan = array("Pendidikan");
-                    $Icon = array("graduation-cap");
+                    $JenisKegiatan = array("Pendidikan","Penelitian","Pengabdian","Penunjang");
+                    $Icon = array("graduation-cap","search-plus","users","chart-line");
                     ?>
                     <?php for ($i=0; $i < count($JenisKegiatan); $i++) {?>
                     <ul class="nav nav-treeview <ml-1></ml-3>">

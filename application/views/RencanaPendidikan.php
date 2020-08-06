@@ -379,7 +379,7 @@
 									<div class="input-group-prepend">
 										<label class="input-group-text bg-primary"><b>Homebase</b></label>
 									</div>
-									<select class="custom-select" id="EditJenjangRencanaPendidikan">										
+									<select class="custom-select" id="EditJenjangRencanaPendidikan" disabled>										
 											<option value="S1">S1</option>
 											<option value="S2">S2</option>
 									</select>
@@ -390,7 +390,7 @@
 									<div class="input-group-prepend">
 										<label class="input-group-text bg-primary"><b>Semester</b></label>
 									</div>
-									<select class="custom-select" id="EditSemesterRencanaPendidikan">										
+									<select class="custom-select" id="EditSemesterRencanaPendidikan" disabled>										
 											<option value="Ganjil">Ganjil</option>
 											<option value="Genap">Genap</option>
 									</select>
@@ -402,7 +402,7 @@
 										<label class="input-group-text bg-primary"><b>Tahun</b></label>
 									</div>
 									<input class="form-control" type="hidden" id="NoEditRencana">
-									<input class="form-control" type="text" id="EditTahunRencanaPendidikan"  data-inputmask='"mask": "9999"' data-mask>
+									<input class="form-control" type="text" id="EditTahunRencanaPendidikan"  data-inputmask='"mask": "9999"' data-mask disabled>
 								</div>
 							</div>
 						</div>

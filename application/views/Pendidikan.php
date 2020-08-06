@@ -780,7 +780,6 @@
 				if (document.getElementById('Doktor').checked){
 					document.getElementById('KreditSekolah').innerHTML = 200
 					document.getElementById('Magister').disabled = true
-					KreditSekolah = 200
 				} else {
 					document.getElementById('KreditSekolah').innerHTML = 0
 					document.getElementById('Magister').disabled = false
@@ -1215,7 +1214,6 @@
 				if (document.getElementById('EditDoktor').checked){
 					document.getElementById('EditKreditSekolah').innerHTML = 200
 					document.getElementById('EditMagister').disabled = true
-					KreditSekolah = 200
 				} else {
 					document.getElementById('EditKreditSekolah').innerHTML = 0
 					document.getElementById('EditMagister').disabled = false
@@ -1646,5 +1644,5 @@
 				}
 			}
 		</script>
-</body>
+	</body>
 </html>
