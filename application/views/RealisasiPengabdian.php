@@ -6,25 +6,17 @@
           <label class="input-group-text bg-warning"><i class="fa fa-tasks"></i><b>&nbsp;Kegiatan</b></label>
         </div>
         <?php 
-          $Kegiatan = array('Mengikuti pendidikan formal',
-          'Mengikuti diklat prajabatan golongan III',
-          'Mengajar mata kuliah',
-          'Membimbing seminar mahasiswa',
-          'Membimbing KKN, Praktik Kerja Lapangan',
-          'Membimbing disertasi/tesis/skripsi',
-          'Penguji ujian akhir/Profesi (setiap mahasiswa)',
-          'Membina mahasiswa di bidang akademik/kemahasiswaan',
-          'Mengembangkan program kuliah yang mempunyai nilai kebaharuan metode/substansi',
-          'Mengembangkan bahan pengajaran yang mempunyai nilai kebaharuan',
-          'Menyampaikan orasi ilmiah di tingkat perguruan tinggi',
-          'Menduduki jabatan pimpinan perguruan tinggi',
-          'Membimbing dosen yang mempunyai jabatan akademik lebih rendah',
-          'Melaksanakan kegiatan detasering dan pencangkokan di luar institusi tempat bekerja',
-          'Melaksanakan pengembangan diri untuk meningkatkan kompetensi');
+          $Kegiatan = array('Menduduki jabatan pimpinan pada lembaga pemerintahan/pejabat negara yang harus dibebaskan dari jabatan organiknya tiap semester',
+          'Melaksanakan pengembangan hasil pendidikan, dan penelitian yang dapat dimanfaatkan oleh masyarakat/industry setiap program',
+          'Memberi latihan/penyuluhan/penataran/ceramah pada masyarakat, terjadwal/terprogram',
+          'Memberi pelayanan kepada masyarakat atau kegiatan lain yang menunjang pelaksanaan tugas pemerintahan dan pembangunan',
+          'Membuat/menulis karya pengabdian pada masyarakat yang tidak dipublikasikan,tiap karya',
+          'Hasil kegiatan pengabdian kepada masyarakat yang dipublikasikan di sebuah berkala/jurnal pengabdian kepada masyarakat atau teknologi tepat guna, merupakan diseminasi dari luaran program kegiatan pengabdian kepada masyarakat, tiap karya',
+          'Berperan serta aktif dalam pengelolaan jurnal ilmiah (per tahun)');
         ?>
-        <select class="custom-select" id="IdKegiatanPendidikan">
-          <?php $Id = 1; foreach ($Kegiatan as $key) { $ID = 'PND'.$Id;?>
-            <option value="<?='PND'.$Id++?>" <?php if ($this->session->userdata('IdKegiatanPendidikan') == $ID) {
+        <select class="custom-select" id="IdKegiatanPengabdian">
+          <?php $Id = 1; foreach ($Kegiatan as $key) { $ID = 'PNB'.$Id;?>
+            <option value="<?='PNB'.$Id++?>" <?php if ($this->session->userdata('IdKegiatanPengabdian') == $ID) {
               echo 'selected';
             } ?>><?=$key?></option>
           <?php } ?>
@@ -33,8 +25,8 @@
     </div> 
     <div class="col-sm-4 mt-1 mb-1">
       <button type="button" id="LihatRealisasi" class="btn btn-primary"><i class="fa fa-eye"></i><b> Lihat</b></button>
-      <button type="button" class="btn btn-danger text-light" data-toggle="modal" data-target="#InputRealisasiPendidikan"><i class="fa fa-plus"></i> <b>Input</b></button>       
-      <button class="btn btn-success" data-toggle="modal" data-target="#OutputPendidikan"><i class="fa fa-file-excel"></i> <b>Download</b></button>
+      <button type="button" class="btn btn-danger text-light" data-toggle="modal" data-target="#InputRealisasiPengabdian"><i class="fa fa-plus"></i> <b>Input</b></button>       
+      <button class="btn btn-success" data-toggle="modal" data-target="#OutputPengabdian"><i class="fa fa-file-excel"></i> <b>Download</b></button>
       </div>        
     </div>   
   </div>
@@ -69,7 +61,7 @@
               <td class="text-center align-middle"><?=$key['Kredit']?></td>
               <td class="text-center align-middle"><?=$key['JumlahKredit']?></td>
               <td class="text-center align-middle text-success h3"><?php if ($key['Bukti'] != '') { ?>
-                  <a href="<?=base_url('Pendidikan/'.$key['Bukti'])?>" class="btn btn-sm btn-primary" download><i class="fas fa-download"></i></a>
+                  <a href="<?=base_url('Pengabdian/'.$key['Bukti'])?>" class="btn btn-sm btn-primary" download><i class="fas fa-download"></i></a>
                 <?php } ?></td>
               <td class="text-center align-middle">                          
                 <button EditRealisasi="<?=$key['No']."|".$key['Jenjang']."|".$key['Semester']."|".$key['Tahun']."|".$key['Kegiatan']."|".$key['Volume']."|".$key['IdKegiatan']."|".$key['Jabatan']."|".$key['Bukti']."|".$key['TanggalKegiatan']."|".$key['Kode']?>" class="btn btn-sm btn-warning EditRealisasi"><i class="fas fa-edit"></i></button>
@@ -92,7 +84,7 @@
     </div>
   </div>
 </div>
-<div class="modal fade" id="InputRealisasiPendidikan">
+<div class="modal fade" id="InputRealisasiPengabdian">
   <div class="modal-dialog">
     <div class="modal-content bg-warning">
       <div class="modal-body">
@@ -124,118 +116,48 @@
           <div class="input-group-prepend">
             <span class="input-group-text bg-primary"><b>Kegiatan</b></span>
           </div>
-          <select class="custom-select" id="InputIdKegiatanPendidikan" onchange="InputIdKegiatanPendidikan()">
+          <select class="custom-select" id="InputIdKegiatanPengabdian" onchange="InputIdKegiatanPengabdian()">
           <?php $Id = 1; foreach ($Kegiatan as $key) { ?>
-              <option value="<?='PND'.$Id++?>"><?=$key?></option>
+              <option value="<?='PNB'.$Id++?>"><?=$key?></option>
             <?php } ?>
           </select>
         </div>
-        <div id="OpsiPND1">
+        <div id="OpsiPNB3" style="display: none;">
           <div class="input-group mb-1">
             <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenjang</b></span>
+              <span class="input-group-text bg-primary"><b>Tingkat</b></span>
             </div>
-            <select class="custom-select" id="Jenjang">
-              <option value="200">Doktor / Sederajat</option>
-              <option value="150">Magister / Sederajat</option>
+            <select class="custom-select" id="Tingkat">
+              <option value="1">Dalam 1 semester/lebih Tingkat Internasional tiap program</option>
+              <option value="2">Dalam 1 semester/lebih Tingkat Nasional tiap program</option>
+              <option value="3">Dalam 1 semester/lebih Tingkat Lokal tiap program</option>
+              <option value="4">Kurang dari 1 semester dan minimal 1 bulan Tingkat Internasional tiap program</option>
+              <option value="5">Kurang dari 1 semester dan minimal 1 bulan Tingkat Nasional tiap program</option>
+              <option value="6">Kurang dari 1 semester dan minimal 1 bulan Tingkat Lokal tiap program</option>
+              <option value="7">Kurang dari 1 semester dan minimal 1 bulan Insidental tiap program</option>
             </select>
           </div>
         </div>
-        <div id="OpsiPND6" style="display: none;">
+        <div id="OpsiPNB4" style="display: none;">
           <div class="input-group mb-1">
             <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis Pembimbing</b></span>
+              <span class="input-group-text bg-primary"><b>Dasar</b></span>
             </div>
-            <select class="custom-select" id="JenisPembimbing">
-              <option value="1">Pembimbing Utama</option>
-              <option value="2">Pembimbing Pendamping</option>
-            </select>
-          </div>
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis Bimbingan</b></span>
-            </div>
-            <select class="custom-select" id="JenisBimbingan">
-              <option value="1">Disertasi</option>
-              <option value="2">Tesis</option>
-              <option value="3">Skripsi</option>
+            <select class="custom-select" id="Dasar">
+              <option value="1">Berdasarkan bidang keahlian, tiap program</option>
+              <option value="2">Berdasarkan penugasan lembaga perguruan tinggi, tiap program</option>
+              <option value="3">Berdasarkan fungsi/jabatan tiap program</option>
             </select>
           </div>
         </div>
-        <div id="OpsiPND7" style="display: none;">
+        <div id="OpsiPNB7" style="display: none;">
           <div class="input-group mb-1">
             <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis Penguji</b></span>
+              <span class="input-group-text bg-primary"><b>Peran</b></span>
             </div>
-            <select class="custom-select" id="JenisPenguji">
-              <option value="1">Ketua Penguji</option>
-              <option value="2">Anggota Penguji</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPND10" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis</b></span>
-            </div>
-            <select class="custom-select" id="BahanPengajaran">
-              <option value="1">Buku ajar</option>
-              <option value="2">Diktat, Modul, Petunjuk praktikum, Model, Alat bantu, Audio visual, Naskah tutorial</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPND12" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jabatan</b></span>
-            </div>
-            <select class="custom-select" id="JenisPND12">
-              <option value="6">Rektor</option>
-              <option value="5">Wakil rektor / dekan / direktur program pasca sarjana / ketua lembaga</option>
-              <option value="4">Ketua sekolah tinggi / pembantu dekan / asisten direktur program pasca sarjana / direktur politeknik / kepala LLDikti</option>
-              <option value="4">Pembantu ketua sekolah tinggi/pembantu direktur politeknik</option>
-              <option value="4">Direktur akademi</option>
-              <option value="3">Pembantu direktur politeknik, ketua jurusan / bagian pada universitas / institut / sekolah tinggi</option>
-              <option value="3">Pembantu direktur akademi / ketua jurusan / ketua prodipada universitas / politeknik / akademi, sekretaris jurusan / bagian pada universitas / institut / sekolah tinggi</option>
-              <option value="3">Sekretaris jurusan pada politeknik / akademi dan kepala laboratorium (bengkel) universitas / institut / sekolah tinggi / politeknik / akademi</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPND13" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis Pembimbing</b></span>
-            </div>
-            <select class="custom-select" id="JenisPND13">
-              <option value="1">Pembimbing pencangkokan</option>
-              <option value="2">Reguler</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPND14" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis</b></span>
-            </div>
-            <select class="custom-select" id="JenisPND14">
-              <option value="1">Detasering</option>
-              <option value="2">Pencangkokan</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPND15" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Rentang</b></span>
-            </div>
-            <select class="custom-select" id="JenisPND15">
-              <option value="15">lebih dari 960 jam</option>
-              <option value="9">antara 641-960 jam</option>
-              <option value="6">antara 481-640 jam</option>
-              <option value="3">antara 161-480 jam</option>
-              <option value="2">antara 81-160 jam</option>
-              <option value="1">antara 30-80 jam</option>
-              <option value="0.5">antara 10-30 jam</option>
+            <select class="custom-select" id="Peran">
+              <option value="1">Editor/dewan penyunting/dewan redaksi  jurnal ilmiah internasiona</option>
+              <option value="2">Editor/dewan penyunting/dewan redaksi  jurnal ilmiah nasional</option>
             </select>
           </div>
         </div>
@@ -264,12 +186,12 @@
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
-        <button type="submit" class="btn btn-success" id="TambahRealisasiPendidikan"><b>Simpan</b></button>
+        <button type="submit" class="btn btn-success" id="TambahRealisasiPengabdian"><b>Simpan</b></button>
       </div>
     </div>
   </div>
 </div>
-<div class="modal fade" id="EditRealisasiPendidikan">
+<div class="modal fade" id="EditRealisasiPengabdian">
   <div class="modal-dialog">
     <div class="modal-content bg-warning">
       <div class="modal-body">
@@ -327,12 +249,12 @@
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
-        <button type="submit" class="btn btn-success" id="UpdateRealisasiPendidikan"><b>Simpan</b></button>
+        <button type="submit" class="btn btn-success" id="UpdateRealisasiPengabdian"><b>Simpan</b></button>
       </div>
     </div>
   </div>
 </div>
-<div class="modal fade" id="OutputPendidikan">
+<div class="modal fade" id="OutputPengabdian">
   <div class="modal-dialog">
     <div class="modal-content bg-warning">
       <div class="modal-body">

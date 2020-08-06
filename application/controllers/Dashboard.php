@@ -78,6 +78,18 @@ class Dashboard extends CI_Controller {
 		$this->session->set_userdata('IdKegiatanPendidikan', $_POST['ID']);
 	}
 
+	public function LihatRealisasiPenelitian(){
+		$this->session->set_userdata('IdKegiatanPenelitian', $_POST['ID']);
+	}
+
+	public function LihatRealisasiPengabdian(){
+		$this->session->set_userdata('IdKegiatanPengabdian', $_POST['ID']);
+	}
+
+	public function LihatRealisasiPenunjang(){
+		$this->session->set_userdata('IdKegiatanPenunjang', $_POST['ID']);
+	}
+
 	public function SubPendidikan(){
 		$this->session->set_userdata('SubPendidikan', $_POST['SubPendidikan']);
 	}
@@ -98,7 +110,7 @@ class Dashboard extends CI_Controller {
     $Data['Halaman'] = 'Kegiatan';
 		$Data['SubMenu'] = 'Penelitian';		
 		$NIP = $this->session->userdata('NIP');
-		// $ID = $this->session->userdata('IdKegiatanPenelitian');
+		$ID = $this->session->userdata('IdKegiatanPenelitian');
 		$Data['Rencana'] = $this->db->get_where('RencanaPenelitian', array('NIP' => $NIP))->result_array();
 		$Data['KreditRealisasi'] = array();
 		foreach ($Data['Rencana'] as $key) {
@@ -109,7 +121,7 @@ class Dashboard extends CI_Controller {
 			}
 			array_push($Data['KreditRealisasi'],$Total);
 		}
-		// $Data['Realisasi'] = $this->db->get_where('RealisasiPenelitian', array('NIP' => $NIP,'IdKegiatan' => $ID))->result_array();
+		$Data['Realisasi'] = $this->db->get_where('RealisasiPenelitian', array('NIP' => $NIP,'IdKegiatan' => $ID))->result_array();
 		$this->load->view('Header',$Data);
 		$this->load->view('Penelitian',$Data);
 	}
@@ -118,7 +130,7 @@ class Dashboard extends CI_Controller {
     $Data['Halaman'] = 'Kegiatan';
 		$Data['SubMenu'] = 'Pengabdian';		
 		$NIP = $this->session->userdata('NIP');
-		// $ID = $this->session->userdata('IdKegiatanPengabdian');
+		$ID = $this->session->userdata('IdKegiatanPengabdian');
 		$Data['Rencana'] = $this->db->get_where('RencanaPengabdian', array('NIP' => $NIP))->result_array();
 		$Data['KreditRealisasi'] = array();
 		foreach ($Data['Rencana'] as $key) {
@@ -129,7 +141,7 @@ class Dashboard extends CI_Controller {
 			}
 			array_push($Data['KreditRealisasi'],$Total);
 		}
-		// $Data['Realisasi'] = $this->db->get_where('RealisasiPengabdian', array('NIP' => $NIP,'IdKegiatan' => $ID))->result_array();
+		$Data['Realisasi'] = $this->db->get_where('RealisasiPengabdian', array('NIP' => $NIP,'IdKegiatan' => $ID))->result_array();
 		$this->load->view('Header',$Data);
 		$this->load->view('Pengabdian',$Data);
 	}
@@ -138,7 +150,7 @@ class Dashboard extends CI_Controller {
     $Data['Halaman'] = 'Kegiatan';
 		$Data['SubMenu'] = 'Penunjang';		
 		$NIP = $this->session->userdata('NIP');
-		// $ID = $this->session->userdata('IdKegiatanPenunjang');
+		$ID = $this->session->userdata('IdKegiatanPenunjang');
 		$Data['Rencana'] = $this->db->get_where('RencanaPenunjang', array('NIP' => $NIP))->result_array();
 		$Data['KreditRealisasi'] = array();
 		foreach ($Data['Rencana'] as $key) {
@@ -149,7 +161,7 @@ class Dashboard extends CI_Controller {
 			}
 			array_push($Data['KreditRealisasi'],$Total);
 		}
-		// $Data['Realisasi'] = $this->db->get_where('RealisasiPenunjang', array('NIP' => $NIP,'IdKegiatan' => $ID))->result_array();
+		$Data['Realisasi'] = $this->db->get_where('RealisasiPenunjang', array('NIP' => $NIP,'IdKegiatan' => $ID))->result_array();
 		$this->load->view('Header',$Data);
 		$this->load->view('Penunjang',$Data);
 	}

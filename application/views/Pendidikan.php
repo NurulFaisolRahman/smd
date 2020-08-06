@@ -764,7 +764,7 @@
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'block'
 				}
-				else if ($("#InputIdKegiatanPendidikan").val() != 'PND1' && $("#InputIdKegiatanPendidikan").val() != 'PND6' && $("#InputIdKegiatanPendidikan").val() != 'PND7' && $("#InputIdKegiatanPendidikan").val() != 'PND10' && $("#InputIdKegiatanPendidikan").val() != 'PND12' && $("#InputIdKegiatanPendidikan").val() != 'PND13' && $("#InputIdKegiatanPendidikan").val() != 'PND14' && $("#InputIdKegiatanPendidikan").val() != 'PND15') {
+				else {
 					document.getElementById("OpsiPND1").style.display = 'none'
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'

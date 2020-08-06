@@ -413,6 +413,9 @@ class Pendidikan extends CI_Controller {
 			$JumlahKredit = $_POST['Volume']*$Kode;
 			$Kredit = $Kode;
 		}
+		if($_POST['Bukti'] != ''){
+			unlink('Pendidikan/'.$_POST['Bukti']);
+		}
 		$Pdf = count($_FILES);
 		if ($Pdf > 0) {
 			if ($this->CekBukti($Pdf)){

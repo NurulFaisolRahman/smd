@@ -156,6 +156,21 @@
       var BaseURL = '<?=base_url()?>'
       jQuery(document).ready(function($) {
         "use strict";
+        $('#nip').keypress(function(event){
+          var keycode = (event.keyCode ? event.keyCode : event.which);
+          if(keycode == '13'){
+            event.preventDefault();
+            document.getElementById("Masuk").click();  
+          }
+        });
+
+        $('#sandi').keypress(function(event){
+          var keycode = (event.keyCode ? event.keyCode : event.which);
+          if(keycode == '13'){
+            event.preventDefault();
+            document.getElementById("Masuk").click();  
+          }
+        });
         $("#Masuk").click(function() {
           var Akun = { NIP: $("#nip").val(),
                        Password: $("#sandi").val() }
