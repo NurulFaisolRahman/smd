@@ -41,6 +41,7 @@
             <th class="align-middle">No</th>
             <th class="align-middle">Homebase</th>
             <th class="align-middle">Semester</th>
+            <th class="align-middle">Tahun</th>
             <th class="align-middle">Uraian Kegiatan</th>
             <th class="align-middle">Tanggal</th>
             <th class="align-middle">Satuan</th>
@@ -57,6 +58,7 @@
               <td class="text-center align-middle"><?=$No++?></td>
               <td class="text-center align-middle"><?=$key['Jenjang']?></td>
               <td class="text-center align-middle"><?=$key['Semester']?></td>
+              <td class="text-center align-middle"><?=$key['Tahun']?></td>
               <td class="align-middle"><?=$key['Kegiatan']?></td>
               <td class="text-center align-middle"><?=$key['TanggalKegiatan']?></td>
               <td class="text-center align-middle"><?=$key['Satuan']?></td>

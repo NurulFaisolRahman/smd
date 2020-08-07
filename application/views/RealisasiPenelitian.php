@@ -6,25 +6,18 @@
           <label class="input-group-text bg-warning"><i class="fa fa-tasks"></i><b>&nbsp;Kegiatan</b></label>
         </div>
         <?php 
-          $Kegiatan = array('Mengikuti pendidikan formal',
-          'Mengikuti diklat prajabatan golongan III',
-          'Mengajar mata kuliah',
-          'Membimbing seminar mahasiswa',
-          'Membimbing KKN, Praktik Kerja Lapangan',
-          'Membimbing disertasi/tesis/skripsi',
-          'Penguji ujian akhir/Profesi (setiap mahasiswa)',
-          'Membina mahasiswa di bidang akademik/kemahasiswaan',
-          'Mengembangkan program kuliah yang mempunyai nilai kebaharuan metode/substansi',
-          'Mengembangkan bahan pengajaran yang mempunyai nilai kebaharuan',
-          'Menyampaikan orasi ilmiah di tingkat perguruan tinggi',
-          'Menduduki jabatan pimpinan perguruan tinggi',
-          'Membimbing dosen yang mempunyai jabatan akademik lebih rendah',
-          'Melaksanakan kegiatan detasering dan pencangkokan di luar institusi tempat bekerja',
-          'Melaksanakan pengembangan diri untuk meningkatkan kompetensi');
+          $Kegiatan = array('Menghasilkan karya ilmiahsesuai dengan bidang ilmunya',
+          'Hasil penelitian atau hasil pemikiran yang didesiminasikan',
+          'Hasil penelitian atau pemikiran atau kerjasama industri yang tidak dipublikasikan (tersimpan dalam perpustakaan) yang dilakukan secara melembaga',
+          'Menerjemahkan/menyadur buku ilmiah yang diterbitkan (ber ISBN)',
+          'Mengedit/menyunting karya ilmiah dalam bentuk buku yang diterbitkan (ber ISBN)',
+          'Membuat rancangan dan karya teknologi yang dipatenkan atau seni yang terdaftar di HaKI secara nasional atau internasional',
+          'Membuat rancangan dan karya teknologi yang tidak dipatenkan; rancangan dan karya seni monumental yang tidak terdaftar di HaKI tetapi telah dipresentasikan pada forum yang teragenda',
+          'Membuat rancangan dan karya seni yang tidak terdaftar HaKI');
         ?>
-        <select class="custom-select" id="IdKegiatanPendidikan">
-          <?php $Id = 1; foreach ($Kegiatan as $key) { $ID = 'PND'.$Id;?>
-            <option value="<?='PND'.$Id++?>" <?php if ($this->session->userdata('IdKegiatanPendidikan') == $ID) {
+        <select class="custom-select" id="IdKegiatanPenelitian">
+          <?php $Id = 1; foreach ($Kegiatan as $key) { $ID = 'PNL'.$Id;?>
+            <option value="<?='PNL'.$Id++?>" <?php if ($this->session->userdata('IdKegiatanPenelitian') == $ID) {
               echo 'selected';
             } ?>><?=$key?></option>
           <?php } ?>
@@ -33,8 +26,8 @@
     </div> 
     <div class="col-sm-4 mt-1 mb-1">
       <button type="button" id="LihatRealisasi" class="btn btn-primary"><i class="fa fa-eye"></i><b> Lihat</b></button>
-      <button type="button" class="btn btn-danger text-light" data-toggle="modal" data-target="#InputRealisasiPendidikan"><i class="fa fa-plus"></i> <b>Input</b></button>       
-      <button class="btn btn-success" data-toggle="modal" data-target="#OutputPendidikan"><i class="fa fa-file-excel"></i> <b>Download</b></button>
+      <button type="button" class="btn btn-danger text-light" data-toggle="modal" data-target="#InputRealisasiPenelitian"><i class="fa fa-plus"></i> <b>Input</b></button>       
+      <button class="btn btn-success" data-toggle="modal" data-target="#OutputPenelitian"><i class="fa fa-file-excel"></i> <b>Download</b></button>
       </div>        
     </div>   
   </div>
@@ -46,6 +39,7 @@
             <th class="align-middle">No</th>
             <th class="align-middle">Homebase</th>
             <th class="align-middle">Semester</th>
+            <th class="align-middle">Tahun</th>
             <th class="align-middle">Uraian Kegiatan</th>
             <th class="align-middle">Tanggal</th>
             <th class="align-middle">Satuan</th>
@@ -62,6 +56,7 @@
               <td class="text-center align-middle"><?=$No++?></td>
               <td class="text-center align-middle"><?=$key['Jenjang']?></td>
               <td class="text-center align-middle"><?=$key['Semester']?></td>
+              <td class="text-center align-middle"><?=$key['Tahun']?></td>
               <td class="align-middle"><?=$key['Kegiatan']?></td>
               <td class="text-center align-middle"><?=$key['TanggalKegiatan']?></td>
               <td class="text-center align-middle"><?=$key['Satuan']?></td>
@@ -69,7 +64,7 @@
               <td class="text-center align-middle"><?=$key['Kredit']?></td>
               <td class="text-center align-middle"><?=$key['JumlahKredit']?></td>
               <td class="text-center align-middle text-success h3"><?php if ($key['Bukti'] != '') { ?>
-                  <a href="<?=base_url('Pendidikan/'.$key['Bukti'])?>" class="btn btn-sm btn-primary" download><i class="fas fa-download"></i></a>
+                  <a href="<?=base_url('Penelitian/'.$key['Bukti'])?>" class="btn btn-sm btn-primary" download><i class="fas fa-download"></i></a>
                 <?php } ?></td>
               <td class="text-center align-middle">                          
                 <button EditRealisasi="<?=$key['No']."|".$key['Jenjang']."|".$key['Semester']."|".$key['Tahun']."|".$key['Kegiatan']."|".$key['Volume']."|".$key['IdKegiatan']."|".$key['Jabatan']."|".$key['Bukti']."|".$key['TanggalKegiatan']."|".$key['Kode']?>" class="btn btn-sm btn-warning EditRealisasi"><i class="fas fa-edit"></i></button>
@@ -92,7 +87,7 @@
     </div>
   </div>
 </div>
-<div class="modal fade" id="InputRealisasiPendidikan">
+<div class="modal fade" id="InputRealisasiPenelitian">
   <div class="modal-dialog">
     <div class="modal-content bg-warning">
       <div class="modal-body">
@@ -124,118 +119,71 @@
           <div class="input-group-prepend">
             <span class="input-group-text bg-primary"><b>Kegiatan</b></span>
           </div>
-          <select class="custom-select" id="InputIdKegiatanPendidikan" onchange="InputIdKegiatanPendidikan()">
+          <select class="custom-select" id="InputIdKegiatanPenelitian" onchange="InputIdKegiatanPenelitian()">
           <?php $Id = 1; foreach ($Kegiatan as $key) { ?>
-              <option value="<?='PND'.$Id++?>"><?=$key?></option>
+              <option value="<?='PNL'.$Id++?>"><?=$key?></option>
             <?php } ?>
           </select>
         </div>
-        <div id="OpsiPND1">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Homebase</b></span>
-            </div>
-            <select class="custom-select" id="Jenjang">
-              <option value="200">Doktor / Sederajat</option>
-              <option value="150">Magister / Sederajat</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPND6" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis Pembimbing</b></span>
-            </div>
-            <select class="custom-select" id="JenisPembimbing">
-              <option value="1">Pembimbing Utama</option>
-              <option value="2">Pembimbing Pendamping</option>
-            </select>
-          </div>
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis Bimbingan</b></span>
-            </div>
-            <select class="custom-select" id="JenisBimbingan">
-              <option value="1">Disertasi</option>
-              <option value="2">Tesis</option>
-              <option value="3">Skripsi</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPND7" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis Penguji</b></span>
-            </div>
-            <select class="custom-select" id="JenisPenguji">
-              <option value="1">Ketua Penguji</option>
-              <option value="2">Anggota Penguji</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPND10" style="display: none;">
+        <div id="OpsiPNL1">
           <div class="input-group mb-1">
             <div class="input-group-prepend">
               <span class="input-group-text bg-primary"><b>Jenis</b></span>
             </div>
-            <select class="custom-select" id="BahanPengajaran">
-              <option value="1">Buku ajar</option>
-              <option value="2">Diktat, Modul, Petunjuk praktikum, Model, Alat bantu, Audio visual, Naskah tutorial</option>
+            <select class="custom-select" id="KaryaIlmiah">
+              <option value="1">Hasil penelitian yang dipublikasikan dalam bentuk buku <b>referensi</b></option>
+              <option value="2">Hasil penelitian yang dipublikasikan dalam bentuk <b>Monograf</b></option>
+              <option value="3">Hasil penelitian dalam buku yang dipublikasikan dan berisi berbagai tulisan dari berbagai penulis (book chapter) <b>Internasional</b></option>
+              <option value="4">Hasil penelitian dalam buku yang dipublikasikan dan berisi berbagai tulisan dari berbagai penulis (book chapter) <b>Nasional</b></option>
+              <option value="5">Hasil penelitian yang dipublikasikan dalam bentuk <b>1) Jurnal internasional bereputasi (terindeks pada database internasional bereputasi dan berfaktor dampak)</b></option>
+              <option value="6">Hasil penelitian yang dipublikasikan dalam bentuk <b>2) Jurnal internasional terindeks pada basis datainternasional bereputasi</b></option>
+              <option value="7">Hasil penelitian yang dipublikasikan dalam bentuk <b>3) Jurnal internasionalterindekspada basis data internasional di luar kategori 2)</b></option>
+              <option value="8">Hasil penelitian yang dipublikasikan dalam bentuk <b>4) a. Jurnal Nasional terakreditasiDikti</b></option>
+              <option value="9">Hasil penelitian yang dipublikasikan dalam bentuk <b>4) b. Jurnal nasional terakreditasi Kemenristekdiktiperingkat 1 dan 2</b></option>
+              <option value="10">Hasil penelitian yang dipublikasikan dalam bentuk <b>5) a. Jurnal Nasional berbahasa Inggris/bahasa resmi (PBB) terindeks pada basis data yang diakui Kemenristekdikti, contoh : CABI/ICI, Jurnal nasional terakreditasi peringkat 3 dan 4</b></option>
+              <option value="11">Hasil penelitian yang dipublikasikan dalam bentuk <b>5) b. Jurnal Nasional berbahasa Indonesia terindeks pada basis datayang diakui Kemenristekdikti, contoh : akreditasi peringkat 5 dan 6</b></option>
+              <option value="12">Hasil penelitian yang dipublikasikan dalam bentuk <b>6) Jurnal Nasional</b></option>
+              <option value="13">Hasil penelitian yang dipublikasikan dalam bentuk <b>7) Jurnal ilmiah yang ditulis dalam Bahasa Resmi PBB namun tidak memenuhi syarat-syarat sebagai jurnal ilmiah internasional</b></option>
             </select>
           </div>
         </div>
-        <div id="OpsiPND12" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jabatan</b></span>
-            </div>
-            <select class="custom-select" id="JenisPND12">
-              <option value="6">Rektor</option>
-              <option value="5">Wakil rektor / dekan / direktur program pasca sarjana / ketua lembaga</option>
-              <option value="4">Ketua sekolah tinggi / pembantu dekan / asisten direktur program pasca sarjana / direktur politeknik / kepala LLDikti</option>
-              <option value="4">Pembantu ketua sekolah tinggi/pembantu direktur politeknik</option>
-              <option value="4">Direktur akademi</option>
-              <option value="3">Pembantu direktur politeknik, ketua jurusan / bagian pada universitas / institut / sekolah tinggi</option>
-              <option value="3">Pembantu direktur akademi / ketua jurusan / ketua prodipada universitas / politeknik / akademi, sekretaris jurusan / bagian pada universitas / institut / sekolah tinggi</option>
-              <option value="3">Sekretaris jurusan pada politeknik / akademi dan kepala laboratorium (bengkel) universitas / institut / sekolah tinggi / politeknik / akademi</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPND13" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis Pembimbing</b></span>
-            </div>
-            <select class="custom-select" id="JenisPND13">
-              <option value="1">Pembimbing pencangkokan</option>
-              <option value="2">Reguler</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPND14" style="display: none;">
+        <div id="OpsiPNL2" style="display: none;">
           <div class="input-group mb-1">
             <div class="input-group-prepend">
               <span class="input-group-text bg-primary"><b>Jenis</b></span>
             </div>
-            <select class="custom-select" id="JenisPND14">
-              <option value="1">Detasering</option>
-              <option value="2">Pencangkokan</option>
+            <select class="custom-select" id="HasilPenelitian">
+              <option value="1">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) <b>1) Internasional terindeks pada Scimagojr & Scopus</b></option>
+              <option value="2">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) <b>2) Internasional terindeks pada SCOPUS, IEEE Explore, SPIE</b></option>
+              <option value="3">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) <b>3) Internasional</b></option>
+              <option value="4">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) <b>4) Nasional</b></option>
+              <option value="5">Disajikan dalam bentuk poster & dimuat dalam prosiding yang dipublikasikan <b>Internasional</b></option>
+              <option value="6">Disajikan dalam bentuk poster & dimuat dalam prosiding yang dipublikasikan <b>Nasional</b></option>
+              <option value="7">Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan <b>Internasional</b></option>
+              <option value="8">Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan <b>Nasional</b></option>
+              <option value="9">Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding <b>Internasional</b></option>
+              <option value="10">Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding <b>Nasional</b></option>
+              <option value="11"> Hasil penelitian/pemikiran yang disajikan dalam koran/majalah populer/umum</option>
             </select>
           </div>
         </div>
-        <div id="OpsiPND15" style="display: none;">
+        <div id="OpsiPNL6" style="display: none;">
           <div class="input-group mb-1">
             <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Rentang</b></span>
+              <span class="input-group-text bg-primary"><b>Jenis</b></span>
             </div>
-            <select class="custom-select" id="JenisPND15">
-              <option value="15">lebih dari 960 jam</option>
-              <option value="9">antara 641-960 jam</option>
-              <option value="6">antara 481-640 jam</option>
-              <option value="3">antara 161-480 jam</option>
-              <option value="2">antara 81-160 jam</option>
-              <option value="1">antara 30-80 jam</option>
-              <option value="0.5">antara 10-30 jam</option>
+            <select class="custom-select" id="HasilPenelitian">
+              <option value="1">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) <b>1) Internasional terindeks pada Scimagojr & Scopus</b></option>
+              <option value="2">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) <b>2) Internasional terindeks pada SCOPUS, IEEE Explore, SPIE</b></option>
+              <option value="3">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) <b>3) Internasional</b></option>
+              <option value="4">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) <b>4) Nasional</b></option>
+              <option value="5">Disajikan dalam bentuk poster & dimuat dalam prosiding yang dipublikasikan <b>Internasional</b></option>
+              <option value="6">Disajikan dalam bentuk poster & dimuat dalam prosiding yang dipublikasikan <b>Nasional</b></option>
+              <option value="7">Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan <b>Internasional</b></option>
+              <option value="8">Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan <b>Nasional</b></option>
+              <option value="9">Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding <b>Internasional</b></option>
+              <option value="10">Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding <b>Nasional</b></option>
+              <option value="11"> Hasil penelitian/pemikiran yang disajikan dalam koran/majalah populer/umum</option>
             </select>
           </div>
         </div>
@@ -264,12 +212,12 @@
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
-        <button type="submit" class="btn btn-success" id="TambahRealisasiPendidikan"><b>Simpan</b></button>
+        <button type="submit" class="btn btn-success" id="TambahRealisasiPenelitian"><b>Simpan</b></button>
       </div>
     </div>
   </div>
 </div>
-<div class="modal fade" id="EditRealisasiPendidikan">
+<div class="modal fade" id="EditRealisasiPenelitian">
   <div class="modal-dialog">
     <div class="modal-content bg-warning">
       <div class="modal-body">
@@ -327,12 +275,12 @@
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
-        <button type="submit" class="btn btn-success" id="UpdateRealisasiPendidikan"><b>Simpan</b></button>
+        <button type="submit" class="btn btn-success" id="UpdateRealisasiPenelitian"><b>Simpan</b></button>
       </div>
     </div>
   </div>
 </div>
-<div class="modal fade" id="OutputPendidikan">
+<div class="modal fade" id="OutputPenelitian">
   <div class="modal-dialog">
     <div class="modal-content bg-warning">
       <div class="modal-body">
