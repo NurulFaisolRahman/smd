@@ -6,7 +6,7 @@
           <label class="input-group-text bg-warning"><i class="fa fa-tasks"></i><b>&nbsp;Kegiatan</b></label>
         </div>
         <?php 
-          $Kegiatan = array('Menghasilkan karya ilmiahsesuai dengan bidang ilmunya',
+          $Kegiatan = array('Menghasilkan karya ilmia hsesuai dengan bidang ilmunya',
           'Hasil penelitian atau hasil pemikiran yang didesiminasikan',
           'Hasil penelitian atau pemikiran atau kerjasama industri yang tidak dipublikasikan (tersimpan dalam perpustakaan) yang dilakukan secara melembaga',
           'Menerjemahkan/menyadur buku ilmiah yang diterbitkan (ber ISBN)',
@@ -130,20 +130,20 @@
             <div class="input-group-prepend">
               <span class="input-group-text bg-primary"><b>Jenis</b></span>
             </div>
-            <select class="custom-select" id="KaryaIlmiah">
-              <option value="1">Hasil penelitian yang dipublikasikan dalam bentuk buku <b>referensi</b></option>
-              <option value="2">Hasil penelitian yang dipublikasikan dalam bentuk <b>Monograf</b></option>
-              <option value="3">Hasil penelitian dalam buku yang dipublikasikan dan berisi berbagai tulisan dari berbagai penulis (book chapter) <b>Internasional</b></option>
-              <option value="4">Hasil penelitian dalam buku yang dipublikasikan dan berisi berbagai tulisan dari berbagai penulis (book chapter) <b>Nasional</b></option>
-              <option value="5">Hasil penelitian yang dipublikasikan dalam bentuk <b>1) Jurnal internasional bereputasi (terindeks pada database internasional bereputasi dan berfaktor dampak)</b></option>
-              <option value="6">Hasil penelitian yang dipublikasikan dalam bentuk <b>2) Jurnal internasional terindeks pada basis datainternasional bereputasi</b></option>
-              <option value="7">Hasil penelitian yang dipublikasikan dalam bentuk <b>3) Jurnal internasionalterindekspada basis data internasional di luar kategori 2)</b></option>
-              <option value="8">Hasil penelitian yang dipublikasikan dalam bentuk <b>4) a. Jurnal Nasional terakreditasiDikti</b></option>
-              <option value="9">Hasil penelitian yang dipublikasikan dalam bentuk <b>4) b. Jurnal nasional terakreditasi Kemenristekdiktiperingkat 1 dan 2</b></option>
-              <option value="10">Hasil penelitian yang dipublikasikan dalam bentuk <b>5) a. Jurnal Nasional berbahasa Inggris/bahasa resmi (PBB) terindeks pada basis data yang diakui Kemenristekdikti, contoh : CABI/ICI, Jurnal nasional terakreditasi peringkat 3 dan 4</b></option>
-              <option value="11">Hasil penelitian yang dipublikasikan dalam bentuk <b>5) b. Jurnal Nasional berbahasa Indonesia terindeks pada basis datayang diakui Kemenristekdikti, contoh : akreditasi peringkat 5 dan 6</b></option>
-              <option value="12">Hasil penelitian yang dipublikasikan dalam bentuk <b>6) Jurnal Nasional</b></option>
-              <option value="13">Hasil penelitian yang dipublikasikan dalam bentuk <b>7) Jurnal ilmiah yang ditulis dalam Bahasa Resmi PBB namun tidak memenuhi syarat-syarat sebagai jurnal ilmiah internasional</b></option>
+            <select class="custom-select" id="Point1">
+              <option value="1">Hasil penelitian yang dipublikasikan dalam bentuk buku referensi</option>
+              <option value="2">Hasil penelitian yang dipublikasikan dalam bentuk Monograf</option>
+              <option value="3">Hasil penelitian dalam buku yang dipublikasikan dan berisi berbagai tulisan dari berbagai penulis (book chapter) Internasional</option>
+              <option value="4">Hasil penelitian dalam buku yang dipublikasikan dan berisi berbagai tulisan dari berbagai penulis (book chapter) Nasional</option>
+              <option value="5">Hasil penelitian yang dipublikasikan dalam bentuk 1) Jurnal internasional bereputasi (terindeks pada database internasional bereputasi dan berfaktor dampak)</option>
+              <option value="6">Hasil penelitian yang dipublikasikan dalam bentuk 2) Jurnal internasional terindeks pada basis datainternasional bereputasi</option>
+              <option value="7">Hasil penelitian yang dipublikasikan dalam bentuk 3) Jurnal internasionalterindekspada basis data internasional di luar kategori 2)</option>
+              <option value="8">Hasil penelitian yang dipublikasikan dalam bentuk 4) a. Jurnal Nasional terakreditasiDikti</option>
+              <option value="9">Hasil penelitian yang dipublikasikan dalam bentuk 4) b. Jurnal nasional terakreditasi Kemenristekdiktiperingkat 1 dan 2</option>
+              <option value="10">Hasil penelitian yang dipublikasikan dalam bentuk 5) a. Jurnal Nasional berbahasa Inggris/bahasa resmi (PBB) terindeks pada basis data yang diakui Kemenristekdikti, contoh : CABI/ICI, Jurnal nasional terakreditasi peringkat 3 dan 4</option>
+              <option value="11">Hasil penelitian yang dipublikasikan dalam bentuk 5) b. Jurnal Nasional berbahasa Indonesia terindeks pada basis datayang diakui Kemenristekdikti, contoh : akreditasi peringkat 5 dan 6</option>
+              <option value="12">Hasil penelitian yang dipublikasikan dalam bentuk 6) Jurnal Nasional</option>
+              <option value="13">Hasil penelitian yang dipublikasikan dalam bentuk 7) Jurnal ilmiah yang ditulis dalam Bahasa Resmi PBB namun tidak memenuhi syarat-syarat sebagai jurnal ilmiah internasional</option>
             </select>
           </div>
         </div>
@@ -152,17 +152,17 @@
             <div class="input-group-prepend">
               <span class="input-group-text bg-primary"><b>Jenis</b></span>
             </div>
-            <select class="custom-select" id="HasilPenelitian">
-              <option value="1">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) <b>1) Internasional terindeks pada Scimagojr & Scopus</b></option>
-              <option value="2">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) <b>2) Internasional terindeks pada SCOPUS, IEEE Explore, SPIE</b></option>
-              <option value="3">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) <b>3) Internasional</b></option>
-              <option value="4">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) <b>4) Nasional</b></option>
-              <option value="5">Disajikan dalam bentuk poster & dimuat dalam prosiding yang dipublikasikan <b>Internasional</b></option>
-              <option value="6">Disajikan dalam bentuk poster & dimuat dalam prosiding yang dipublikasikan <b>Nasional</b></option>
-              <option value="7">Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan <b>Internasional</b></option>
-              <option value="8">Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan <b>Nasional</b></option>
-              <option value="9">Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding <b>Internasional</b></option>
-              <option value="10">Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding <b>Nasional</b></option>
+            <select class="custom-select" id="Point2">
+              <option value="1">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 1) Internasional terindeks pada Scimagojr & Scopus</option>
+              <option value="2">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 2) Internasional terindeks pada SCOPUS, IEEE Explore, SPIE</option>
+              <option value="3">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 3) Internasional</option>
+              <option value="4">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 4) Nasional</option>
+              <option value="5">Disajikan dalam bentuk poster & dimuat dalam prosiding yang dipublikasikan Internasional</option>
+              <option value="6">Disajikan dalam bentuk poster & dimuat dalam prosiding yang dipublikasikan Nasional</option>
+              <option value="7">Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan Internasional</option>
+              <option value="8">Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan Nasional</option>
+              <option value="9">Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding Internasional</option>
+              <option value="10">Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding Nasional</option>
               <option value="11"> Hasil penelitian/pemikiran yang disajikan dalam koran/majalah populer/umum</option>
             </select>
           </div>
@@ -172,18 +172,25 @@
             <div class="input-group-prepend">
               <span class="input-group-text bg-primary"><b>Jenis</b></span>
             </div>
-            <select class="custom-select" id="HasilPenelitian">
-              <option value="1">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) <b>1) Internasional terindeks pada Scimagojr & Scopus</b></option>
-              <option value="2">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) <b>2) Internasional terindeks pada SCOPUS, IEEE Explore, SPIE</b></option>
-              <option value="3">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) <b>3) Internasional</b></option>
-              <option value="4">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) <b>4) Nasional</b></option>
-              <option value="5">Disajikan dalam bentuk poster & dimuat dalam prosiding yang dipublikasikan <b>Internasional</b></option>
-              <option value="6">Disajikan dalam bentuk poster & dimuat dalam prosiding yang dipublikasikan <b>Nasional</b></option>
-              <option value="7">Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan <b>Internasional</b></option>
-              <option value="8">Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan <b>Nasional</b></option>
-              <option value="9">Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding <b>Internasional</b></option>
-              <option value="10">Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding <b>Nasional</b></option>
-              <option value="11"> Hasil penelitian/pemikiran yang disajikan dalam koran/majalah populer/umum</option>
+            <select class="custom-select" id="Point6">
+              <option value="1">Internasionalyang sudah diimplementasikan di industri (paling sedikit diakui oleh 4 Negara)</option>
+              <option value="2">Internasional (paling sedikit diakui oleh 4 Negara)</option>
+              <option value="3">Nasional (yang sudah diimplementasikan di industri)</option>
+              <option value="4">Nasional</option>
+              <option value="5">Nasional, dalam bentuk paten sederhana yang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham</option>
+              <option value="6">Karya buku, desain industri, indikasi geografisyang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham</option>
+            </select>
+          </div>
+        </div>
+        <div id="OpsiPNL7" style="display: none;">
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary"><b>Tingkat</b></span>
+            </div>
+            <select class="custom-select" id="Point7">
+              <option value="1">Tingkat Internasional</option>
+              <option value="2">Tingkat Nasional</option>
+              <option value="3">Tingkat Lokal</option>
             </select>
           </div>
         </div>
