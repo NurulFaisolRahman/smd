@@ -17,7 +17,7 @@
 								<?php include 'RencanaPenunjang.php'; ?>
 							</div>
 							<div class="tab-pane fade <?php if($this->session->userdata('SubPenunjang') == 'Realisasi'){echo 'show active';} ?>" id="pills-Realisasi" role="tabpanel" aria-labelledby="pills-Realisasi-tab">
-								<!-- <?php include 'RealisasiPenunjang.php'; ?> -->
+								<?php include 'RealisasiPenunjang.php'; ?>
 							</div>
 						</div>
 					</div>
@@ -50,18 +50,36 @@
 					}
 				})
 
-				// $('#TabelRealisasi').DataTable( {
-				// 	dom:'lfrtip',
-				// 	"lengthMenu": [ 5, 10, 20, 30 ],
-				// 	"language": {
-				// 		"paginate": {
-				// 			'previous': '<b class="text-primary"><</b>',
-				// 			'next': '<b class="text-primary">></b>'
-				// 		}
-				// 	}
-				// })
+				$('#TabelRealisasi').DataTable( {
+					dom:'lfrtip',
+					"lengthMenu": [ 5, 10, 20, 30 ],
+					"language": {
+						"paginate": {
+							'previous': '<b class="text-primary"><</b>',
+							'next': '<b class="text-primary">></b>'
+						}
+					}
+				})
 
         $('[data-mask]').inputmask()
+
+				$("#Download").click(function() {
+					var Tahun = $('#FilterTahun').val()
+					var Pisah = Tahun.split('-')
+					window.location = BaseURL + 'Penunjang/Download/'+$('#FilterJenjang').val()+'/'+$('#FilterSemester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))
+					$.post(BaseURL+"Penunjang/Lampiran/"+$('#FilterJenjang').val()+'/'+$('#FilterSemester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))).done(function(Respon) {
+						var array = JSON.parse(Respon)
+						var NomorLampiran = 1
+						array.forEach(function(object) {
+							if (object.Bukti != null) {
+								$('#Lampiran').attr('href',BaseURL+'Penunjang/'+object.Bukti)		
+								$('#Lampiran').attr('Download','Lampiran 4.'+NomorLampiran)
+								$('#Lampiran')[0].click()
+							}
+							NomorLampiran++;
+						})
+					}) 
+				})
 
 				$("#pills-Rencana-tab").click(function() {
 					var Data = {SubPenunjang: 'Rencana'}
@@ -192,7 +210,223 @@
 						});
 					}
 				});
+
+				$("#LihatRealisasi").click(function() {
+					var Data = {ID: $("#IdKegiatanPenunjang").val()}
+					$.post(BaseURL+"Dashboard/LihatRealisasiPenunjang", Data).done(function(Respon) {
+						window.location = BaseURL + "Dashboard/Penunjang"
+					})
+				})
+
+				$("#TambahRealisasiPenunjang").click(function() {
+					if (isNaN(parseInt($("#Volume").val()))) {
+						alert('Volume Kegiatan Wajib Di Isi')
+					} 
+					else {
+						var fd = new FormData()
+						fd.append("file", $('#Bukti')[0].files[0])
+						fd.append('Homebase',$("#JenisRealisasi").val())
+						fd.append('Semester',$("#SemesterRealisasi").val())
+						fd.append('Tahun',$("#TahunRealisasi").val())
+						fd.append('IdKegiatan',$("#InputIdKegiatanPenunjang").val())
+						fd.append('Kegiatan',$("#Uraian").val())		
+						fd.append('Volume',parseInt($("#Volume").val()))
+						fd.append('TanggalKegiatan',$("#TanggalKegiatan").val())	
+						if ($("#InputIdKegiatanPenunjang").val() == 'PNJ1') {
+							fd.append('Kode',$("#PanitiaUniversitas").val())
+						}
+						else if ($("#InputIdKegiatanPenunjang").val() == 'PNJ2') {
+							fd.append('Kode',$("#PanitiaLembagaPemerintah").val())				
+						}
+						else if ($("#InputIdKegiatanPenunjang").val() == 'PNJ3') {
+							fd.append('Kode',$("#AnggotaProfesi").val())
+						}
+						else if ($("#InputIdKegiatanPenunjang").val() == 'PNJ5') {
+							fd.append('Kode',$("#AnggotaDelegasi").val())
+						}
+						else if ($("#InputIdKegiatanPenunjang").val() == 'PNJ6') {
+							fd.append('Kode',$("#PeranIlmiah").val())
+						}
+						else if ($("#InputIdKegiatanPenunjang").val() == 'PNJ7') {
+							fd.append('Kode',$("#Penghargaan").val())
+						}
+						else if ($("#InputIdKegiatanPenunjang").val() == 'PNJ8') {
+							fd.append('Kode',$("#Buku").val())
+						}
+						else if ($("#InputIdKegiatanPenunjang").val() == 'PNJ9') {
+							fd.append('Kode',$("#Humaniora").val())
+						}
+						else {
+							fd.append('Kode','0')
+						}
+						$.ajax({
+							url: BaseURL+'Penunjang/InputRealisasi',
+							type: 'post',
+							data: fd,
+							contentType: false,
+							processData: false,
+							success: function(Respon){
+								if (Respon == '1') {
+									window.location = BaseURL + "Dashboard/Penunjang"
+								}
+								else {
+									alert(Respon)
+								}
+							}
+						});
+					}
+          return false
+				})
+				
+				$(document).on("click",".EditRealisasi",function(){
+					var Data = $(this).attr('EditRealisasi')
+					var Pisah = Data.split("|");
+					$('#EditNoRealisasi').val(Pisah[0])
+					Pisah[1] == 'S1'? $('#EditJenisRealisasi').val('S1') : $('#EditJenisRealisasi').val('S2')
+					Pisah[2] == 'Ganjil'? $('#EditSemesterRealisasi').val('Ganjil') : $('#EditSemesterRealisasi').val('Genap')
+					$('#EditTahunRealisasi').val(Pisah[3])
+					$('#EditUraian').val(Pisah[4])
+					$('#EditVolume').val(Pisah[5])
+					$('#EditIdKegiatan').val(Pisah[6])
+					$('#EditJabatanRealisasi').val(Pisah[7])
+					$('#EditBuktiRealisasi').val(Pisah[8])
+					$("#EditTanggalKegiatan").val(Pisah[9])
+					$("#Kode").val(Pisah[10])
+					$('#EditRealisasiPenunjang').modal("show")
+				});
+
+				$("#UpdateRealisasiPenunjang").click(function() {
+					var fd = new FormData()
+					fd.append("file", $('#EditBukti')[0].files[0])
+					fd.append('No',$("#EditNoRealisasi").val())
+					fd.append('Jabatan',$("#EditJabatanRealisasi").val())
+					fd.append('IdKegiatan',$("#EditIdKegiatan").val())
+					fd.append('Kode',$("#Kode").val())
+					fd.append('Homebase',$("#EditJenisRealisasi").val())
+					fd.append('Semester',$("#EditSemesterRealisasi").val())
+					fd.append('Tahun',$("#EditTahunRealisasi").val())
+					fd.append('Kegiatan',$("#EditUraian").val())		
+					fd.append('TanggalKegiatan',$("#EditTanggalKegiatan").val())
+					fd.append('Volume',parseInt($("#EditVolume").val()))
+					fd.append('Bukti',$("#EditBuktiRealisasi").val())
+					$.ajax({
+						url: BaseURL+'Penunjang/EditRealisasi',
+						type: 'post',
+						data: fd,
+						contentType: false,
+						processData: false,
+						success: function(Respon){
+							if (Respon == '1') {
+								window.location = BaseURL + "Dashboard/Penunjang"
+							}
+							else {
+								alert(Respon)
+							}
+						}
+					});
+				});
+
+				$(document).on("click",".HapusRealisasi",function(){
+					var Data = $(this).attr('HapusRealisasi')
+					var Pisah = Data.split("|");
+					var Hapus = {No: Pisah[0],Bukti: Pisah[1]}
+					var Konfirmasi = confirm("Yakin Ingin Menghapus?");
+      		if (Konfirmasi == true) {
+						$.post(BaseURL+"Penunjang/HapusRealisasi", Hapus).done(function(Respon) {
+							if (Respon == '1') {
+								window.location = BaseURL + "Dashboard/Penunjang"
+							} else {
+								alert(Respon)
+							}
+						});
+					}
+				});
 			})
+
+			function InputIdKegiatanPenunjang() {
+				if ($("#InputIdKegiatanPenunjang").val() == 'PNJ1') {
+					document.getElementById("OpsiPNJ1").style.display = 'block'
+					document.getElementById("OpsiPNJ2").style.display = 'none'
+					document.getElementById("OpsiPNJ3").style.display = 'none'
+					document.getElementById("OpsiPNJ5").style.display = 'none'
+					document.getElementById("OpsiPNJ6").style.display = 'none'
+					document.getElementById("OpsiPNJ7").style.display = 'none'
+					document.getElementById("OpsiPNJ8").style.display = 'none'
+					document.getElementById("OpsiPNJ9").style.display = 'none'
+				} else if ($("#InputIdKegiatanPenunjang").val() == 'PNJ2') {
+					document.getElementById("OpsiPNJ1").style.display = 'none'
+					document.getElementById("OpsiPNJ2").style.display = 'block'
+					document.getElementById("OpsiPNJ3").style.display = 'none'
+					document.getElementById("OpsiPNJ5").style.display = 'none'
+					document.getElementById("OpsiPNJ6").style.display = 'none'
+					document.getElementById("OpsiPNJ7").style.display = 'none'
+					document.getElementById("OpsiPNJ8").style.display = 'none'
+					document.getElementById("OpsiPNJ9").style.display = 'none'
+				} else if ($("#InputIdKegiatanPenunjang").val() == 'PNJ3') {
+					document.getElementById("OpsiPNJ1").style.display = 'none'
+					document.getElementById("OpsiPNJ2").style.display = 'none'
+					document.getElementById("OpsiPNJ3").style.display = 'block'
+					document.getElementById("OpsiPNJ5").style.display = 'none'
+					document.getElementById("OpsiPNJ6").style.display = 'none'
+					document.getElementById("OpsiPNJ7").style.display = 'none'
+					document.getElementById("OpsiPNJ8").style.display = 'none'
+					document.getElementById("OpsiPNJ9").style.display = 'none'
+				} else if ($("#InputIdKegiatanPenunjang").val() == 'PNJ5') {
+					document.getElementById("OpsiPNJ1").style.display = 'none'
+					document.getElementById("OpsiPNJ2").style.display = 'none'
+					document.getElementById("OpsiPNJ3").style.display = 'none'
+					document.getElementById("OpsiPNJ5").style.display = 'block'
+					document.getElementById("OpsiPNJ6").style.display = 'none'
+					document.getElementById("OpsiPNJ7").style.display = 'none'
+					document.getElementById("OpsiPNJ8").style.display = 'none'
+					document.getElementById("OpsiPNJ9").style.display = 'none'
+				} else if ($("#InputIdKegiatanPenunjang").val() == 'PNJ6') {
+					document.getElementById("OpsiPNJ1").style.display = 'none'
+					document.getElementById("OpsiPNJ2").style.display = 'none'
+					document.getElementById("OpsiPNJ3").style.display = 'none'
+					document.getElementById("OpsiPNJ5").style.display = 'none'
+					document.getElementById("OpsiPNJ6").style.display = 'block'
+					document.getElementById("OpsiPNJ7").style.display = 'none'
+					document.getElementById("OpsiPNJ8").style.display = 'none'
+					document.getElementById("OpsiPNJ9").style.display = 'none'
+				} else if ($("#InputIdKegiatanPenunjang").val() == 'PNJ7') {
+					document.getElementById("OpsiPNJ1").style.display = 'none'
+					document.getElementById("OpsiPNJ2").style.display = 'none'
+					document.getElementById("OpsiPNJ3").style.display = 'none'
+					document.getElementById("OpsiPNJ5").style.display = 'none'
+					document.getElementById("OpsiPNJ6").style.display = 'none'
+					document.getElementById("OpsiPNJ7").style.display = 'block'
+					document.getElementById("OpsiPNJ8").style.display = 'none'
+					document.getElementById("OpsiPNJ9").style.display = 'none'
+				} else if ($("#InputIdKegiatanPenunjang").val() == 'PNJ8') {
+					document.getElementById("OpsiPNJ1").style.display = 'none'
+					document.getElementById("OpsiPNJ2").style.display = 'none'
+					document.getElementById("OpsiPNJ3").style.display = 'none'
+					document.getElementById("OpsiPNJ5").style.display = 'none'
+					document.getElementById("OpsiPNJ6").style.display = 'none'
+					document.getElementById("OpsiPNJ7").style.display = 'none'
+					document.getElementById("OpsiPNJ8").style.display = 'block'
+					document.getElementById("OpsiPNJ9").style.display = 'none'
+				} else if ($("#InputIdKegiatanPenunjang").val() == 'PNJ9') {
+					document.getElementById("OpsiPNJ1").style.display = 'none'
+					document.getElementById("OpsiPNJ2").style.display = 'none'
+					document.getElementById("OpsiPNJ3").style.display = 'none'
+					document.getElementById("OpsiPNJ5").style.display = 'none'
+					document.getElementById("OpsiPNJ6").style.display = 'none'
+					document.getElementById("OpsiPNJ7").style.display = 'none'
+					document.getElementById("OpsiPNJ8").style.display = 'none'
+					document.getElementById("OpsiPNJ9").style.display = 'block'
+				} else {
+					document.getElementById("OpsiPNJ1").style.display = 'none'
+					document.getElementById("OpsiPNJ2").style.display = 'none'
+					document.getElementById("OpsiPNJ3").style.display = 'none'
+					document.getElementById("OpsiPNJ5").style.display = 'none'
+					document.getElementById("OpsiPNJ6").style.display = 'none'
+					document.getElementById("OpsiPNJ7").style.display = 'none'
+					document.getElementById("OpsiPNJ8").style.display = 'none'
+					document.getElementById("OpsiPNJ9").style.display = 'none'
+				}
+			}
 
       <?php 
         $Kredit = array(3,2,3,2,2,1,2,1,0.5,1.5,1,0.5,1,3,2,3,2,2,1,3,2,1,5,3,1,5,5,5,5,3,1,0.5);

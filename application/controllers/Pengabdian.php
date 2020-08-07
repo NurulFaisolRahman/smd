@@ -140,7 +140,7 @@ class Pengabdian extends CI_Controller {
 													'Tahun' => $_POST['Tahun'], 
 													'IdKegiatan' => $_POST['IdKegiatan'],
 													'Kode' => $_POST['Kode'],
-													'Kegiatan' => $_POST['Kegiatan'],
+													'Kegiatan' => htmlentities($_POST['Kegiatan']),
 													'TanggalKegiatan' => $_POST['TanggalKegiatan'],
 													'Volume' => $_POST['Volume'],
 													'Kredit' => $Kredit,
@@ -166,7 +166,7 @@ class Pengabdian extends CI_Controller {
 													'Tahun' => $_POST['Tahun'], 
 													'IdKegiatan' => $_POST['IdKegiatan'],
 													'Kode' => $_POST['Kode'],
-													'Kegiatan' => $_POST['Kegiatan'],
+													'Kegiatan' => htmlentities($_POST['Kegiatan']),
 													'TanggalKegiatan' => $_POST['TanggalKegiatan'],
 													'Volume' => $_POST['Volume'],
 													'Kredit' => $Kredit,
@@ -249,15 +249,15 @@ class Pengabdian extends CI_Controller {
 				$Kredit = 0.5;
 			}
 		}
-		if($_POST['Bukti'] != ''){
-			unlink('Pengabdian/'.$_POST['Bukti']);
-		}
 		$Pdf = count($_FILES);
 		if ($Pdf > 0) {
 			if ($this->CekBukti($Pdf)){
 				$Tipe = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
 				$NamaPdf = date('Ymd',time()).substr(password_hash('Pengabdian', PASSWORD_DEFAULT),7,2).'.'.$Tipe;
 				move_uploaded_file($_FILES['file']['tmp_name'], "Pengabdian/".$NamaPdf);
+				if($_POST['Bukti'] != ''){
+					unlink('Pengabdian/'.$_POST['Bukti']);
+				}
 				$this->db->where('No', $_POST['No']);
 				$this->db->update('RealisasiPengabdian',
 										array('NIP' => $NIP, 
@@ -267,7 +267,7 @@ class Pengabdian extends CI_Controller {
 													'Tahun' => $_POST['Tahun'], 
 													'IdKegiatan' => $_POST['IdKegiatan'],
 													'Kode' => $_POST['Kode'],
-													'Kegiatan' => $_POST['Kegiatan'],
+													'Kegiatan' => htmlentities($_POST['Kegiatan']),
 													'TanggalKegiatan' => $_POST['TanggalKegiatan'],
 													'Volume' => $_POST['Volume'],
 													'Kredit' => $Kredit,
@@ -294,7 +294,7 @@ class Pengabdian extends CI_Controller {
 													'Tahun' => $_POST['Tahun'], 
 													'IdKegiatan' => $_POST['IdKegiatan'],
 													'Kode' => $_POST['Kode'],
-													'Kegiatan' => $_POST['Kegiatan'],
+													'Kegiatan' => htmlentities($_POST['Kegiatan']),
 													'TanggalKegiatan' => $_POST['TanggalKegiatan'],
 													'Volume' => $_POST['Volume'],
 													'Kredit' => $Kredit,

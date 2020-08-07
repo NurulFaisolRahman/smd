@@ -216,7 +216,7 @@ class Pendidikan extends CI_Controller {
 													'Tahun' => $_POST['Tahun'], 
 													'IdKegiatan' => $_POST['IdKegiatan'],
 													'Kode' => $_POST['Kode'],
-													'Kegiatan' => $_POST['Kegiatan'],
+													'Kegiatan' => htmlentities($_POST['Kegiatan']),
 													'TanggalKegiatan' => $_POST['TanggalKegiatan'],
 													'Satuan' => $Volume,
 													'Volume' => $_POST['Volume'],
@@ -243,7 +243,7 @@ class Pendidikan extends CI_Controller {
 													'Tahun' => $_POST['Tahun'], 
 													'IdKegiatan' => $_POST['IdKegiatan'],
 													'Kode' => $_POST['Kode'],
-													'Kegiatan' => $_POST['Kegiatan'],
+													'Kegiatan' => htmlentities($_POST['Kegiatan']),
 													'TanggalKegiatan' => $_POST['TanggalKegiatan'],
 													'Satuan' => $Volume,
 													'Volume' => $_POST['Volume'],
@@ -413,22 +413,22 @@ class Pendidikan extends CI_Controller {
 			$JumlahKredit = $_POST['Volume']*$Kode;
 			$Kredit = $Kode;
 		}
-		if($_POST['Bukti'] != ''){
-			unlink('Pendidikan/'.$_POST['Bukti']);
-		}
 		$Pdf = count($_FILES);
 		if ($Pdf > 0) {
 			if ($this->CekBukti($Pdf)){
 				$Tipe = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
 				$NamaPdf = date('Ymd',time()).substr(password_hash('Pendidikan', PASSWORD_DEFAULT),7,2).'.'.$Tipe;
 				move_uploaded_file($_FILES['file']['tmp_name'], "Pendidikan/".$NamaPdf);
+				if($_POST['Bukti'] != ''){
+					unlink('Pendidikan/'.$_POST['Bukti']);
+				}
 				$this->db->where('No', $_POST['No']);
 				$this->db->update('RealisasiPendidikan',
 											array('No' => $_POST['No'], 
 														'Jenjang' => $_POST['Homebase'], 
 														'Semester' => $_POST['Semester'], 
 														'Tahun' => $_POST['Tahun'], 
-														'Kegiatan' => $_POST['Kegiatan'],
+														'Kegiatan' => htmlentities($_POST['Kegiatan']),
 														'TanggalKegiatan' => $_POST['TanggalKegiatan'],
 														'Satuan' => $Volume,
 														'Volume' => $_POST['Volume'],
@@ -455,7 +455,7 @@ class Pendidikan extends CI_Controller {
 													'Jenjang' => $_POST['Homebase'], 
 													'Semester' => $_POST['Semester'], 
 													'Tahun' => $_POST['Tahun'], 
-													'Kegiatan' => $_POST['Kegiatan'],
+													'Kegiatan' => htmlentities($_POST['Kegiatan']),
 													'TanggalKegiatan' => $_POST['TanggalKegiatan'],
 													'Satuan' => $Volume,
 													'Volume' => $_POST['Volume'],
