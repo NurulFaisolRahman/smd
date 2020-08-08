@@ -42,7 +42,6 @@
             <th class="align-middle">Tahun</th>
             <th class="align-middle">Uraian Kegiatan</th>
             <th class="align-middle">Tanggal</th>
-            <th class="align-middle">Satuan</th>
             <th class="align-middle">Volume</th>
             <th class="align-middle">Kredit</th>
             <th class="align-middle">Jumlah Kredit</th>
@@ -59,7 +58,6 @@
               <td class="text-center align-middle"><?=$key['Tahun']?></td>
               <td class="align-middle"><?=$key['Kegiatan']?></td>
               <td class="text-center align-middle"><?=$key['TanggalKegiatan']?></td>
-              <td class="text-center align-middle"><?=$key['Satuan']?></td>
               <td class="text-center align-middle"><?=$key['Volume']?></td>
               <td class="text-center align-middle"><?=$key['Kredit']?></td>
               <td class="text-center align-middle"><?=$key['JumlahKredit']?></td>
