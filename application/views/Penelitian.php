@@ -219,9 +219,12 @@
 				})
 
 				$("#TambahRealisasiPenelitian").click(function() {
-					if (isNaN(parseInt($("#Volume").val()))) {
-						alert('Volume Kegiatan Wajib Di Isi')
+					if (isNaN(parseInt($("#Ke").val())) || isNaN(parseInt($("#Dari").val())) || parseInt($("#Ke").val()) > parseInt($("#Dari").val())) {
+						alert('Input Penulis Belum Benar')
 					} 
+					else if (isNaN(parseInt($("#Volume").val()))) {
+						alert('Volume Kegiatan Wajib Di Isi')
+					}
 					else {
 						var fd = new FormData()
 						fd.append("file", $('#Bukti')[0].files[0])
@@ -229,6 +232,9 @@
 						fd.append('Semester',$("#SemesterRealisasi").val())
 						fd.append('Tahun',$("#TahunRealisasi").val())
 						fd.append('IdKegiatan',$("#InputIdKegiatanPenelitian").val())
+						fd.append('Ke',$("#Ke").val())		
+						fd.append('Dari',$("#Dari").val())		
+						fd.append('Penulis',$("#Ke").val()+'|'+$("#Dari").val())		
 						fd.append('Kegiatan',$("#Uraian").val())		
 						fd.append('Volume',parseInt($("#Volume").val()))
 						fd.append('TanggalKegiatan',$("#TanggalKegiatan").val())	
@@ -283,35 +289,50 @@
 					$('#EditRealisasiPenelitian').modal("show")
 				});
 
+				$("#CancelBukti").click(function() {
+					$("#EditBukti").val("")
+				})
+
 				$("#UpdateRealisasiPenelitian").click(function() {
-					var fd = new FormData()
-					fd.append("file", $('#EditBukti')[0].files[0])
-					fd.append('No',$("#EditNoRealisasi").val())
-					fd.append('Jabatan',$("#EditJabatanRealisasi").val())
-					fd.append('IdKegiatan',$("#EditIdKegiatan").val())
-					fd.append('Kode',$("#Kode").val())
-					fd.append('Homebase',$("#EditJenisRealisasi").val())
-					fd.append('Semester',$("#EditSemesterRealisasi").val())
-					fd.append('Tahun',$("#EditTahunRealisasi").val())
-					fd.append('Kegiatan',$("#EditUraian").val())		
-					fd.append('TanggalKegiatan',$("#EditTanggalKegiatan").val())
-					fd.append('Volume',parseInt($("#EditVolume").val()))
-					fd.append('Bukti',$("#EditBuktiRealisasi").val())
-					$.ajax({
-						url: BaseURL+'Penelitian/EditRealisasi',
-						type: 'post',
-						data: fd,
-						contentType: false,
-						processData: false,
-						success: function(Respon){
-							if (Respon == '1') {
-								window.location = BaseURL + "Dashboard/Penelitian"
+					if (isNaN(parseInt($("#EditKe").val())) || isNaN(parseInt($("#EditDari").val())) || parseInt($("#EditKe").val()) > parseInt($("#EditDari").val())) {
+						alert('Input Penulis Belum Benar')
+					} 
+					else if (isNaN(parseInt($("#EditVolume").val()))) {
+						alert('Volume Kegiatan Wajib Di Isi')
+					} 
+					else {
+						var fd = new FormData()
+						fd.append("file", $('#EditBukti')[0].files[0])
+						fd.append('No',$("#EditNoRealisasi").val())
+						fd.append('Jabatan',$("#EditJabatanRealisasi").val())
+						fd.append('IdKegiatan',$("#EditIdKegiatan").val())
+						fd.append('Kode',$("#Kode").val())
+						fd.append('Homebase',$("#EditJenisRealisasi").val())
+						fd.append('Semester',$("#EditSemesterRealisasi").val())
+						fd.append('Tahun',$("#EditTahunRealisasi").val())
+						fd.append('EditKe',$("#EditKe").val())		
+						fd.append('EditDari',$("#EditDari").val())		
+						fd.append('Penulis',$("#EditKe").val()+'|'+$("#EditDari").val())
+						fd.append('Kegiatan',$("#EditUraian").val())		
+						fd.append('TanggalKegiatan',$("#EditTanggalKegiatan").val())
+						fd.append('Volume',parseInt($("#EditVolume").val()))
+						fd.append('Bukti',$("#EditBuktiRealisasi").val())
+						$.ajax({
+							url: BaseURL+'Penelitian/EditRealisasi',
+							type: 'post',
+							data: fd,
+							contentType: false,
+							processData: false,
+							success: function(Respon){
+								if (Respon == '1') {
+									window.location = BaseURL + "Dashboard/Penelitian"
+								}
+								else {
+									alert(Respon)
+								}
 							}
-							else {
-								alert(Respon)
-							}
-						}
-					});
+						});
+					}
 				});
 
 				$(document).on("click",".HapusRealisasi",function(){

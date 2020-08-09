@@ -12,7 +12,7 @@ class SMD extends CI_Controller {
 	}
 
 	public function Masuk(){
-		$CekLogin = $this->db->get_where('Akun', array('NIP' => $_POST['NIP']));
+		$CekLogin = $this->db->get_where('Akun', array('NIP' => htmlentities($_POST['NIP'])));
 		if($CekLogin->num_rows() == 0){
 			echo "NIP Salah";
 		}

@@ -13,7 +13,7 @@ class Penunjang extends CI_Controller {
 	public function InputRencana(){
 		$NIP = $this->session->userdata('NIP');
 		$Jabatan = $this->session->userdata('Jabatan');
-		if($this->db->get_where('RencanaPenunjang', array('Jenjang' => $_POST['Jenjang'],'Semester' => $_POST['Semester'],'Tahun' => $_POST['Tahun']))->num_rows() === 0){
+		if($this->db->get_where('RencanaPenunjang', array('NIP' => $NIP,'Jenjang' => $_POST['Jenjang'],'Semester' => $_POST['Semester'],'Tahun' => $_POST['Tahun']))->num_rows() === 0){
 			$this->db->insert('RencanaPenunjang',
 								array('NIP' => $NIP, 
 											'Jabatan' => $Jabatan,
@@ -198,7 +198,8 @@ class Penunjang extends CI_Controller {
 		if ($Pdf > 0) {
 			if ($this->CekBukti($Pdf)){
 				$Tipe = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
-				$NamaPdf = date('Ymd',time()).substr(password_hash('Penunjang', PASSWORD_DEFAULT),7,2).'.'.$Tipe;
+				$NamaPdf = date('Ymd',time()).substr(password_hash('Penunjang', PASSWORD_DEFAULT),7,7).'.'.$Tipe;
+				str_replace("/","F",$NamaPdf);
 				move_uploaded_file($_FILES['file']['tmp_name'], "Penunjang/".$NamaPdf);
 				$this->db->insert('RealisasiPenunjang',
 										array('NIP' => $NIP, 
@@ -209,7 +210,7 @@ class Penunjang extends CI_Controller {
 													'IdKegiatan' => $_POST['IdKegiatan'],
 													'Kode' => $_POST['Kode'],
 													'Kegiatan' => htmlentities($_POST['Kegiatan']),
-													'TanggalKegiatan' => $_POST['TanggalKegiatan'],
+													'TanggalKegiatan' => htmlentities($_POST['TanggalKegiatan']),
 													'Volume' => $_POST['Volume'],
 													'Kredit' => $Kredit,
 													'JumlahKredit' => $JumlahKredit,
@@ -226,31 +227,11 @@ class Penunjang extends CI_Controller {
 			}
 		} 
 		else {
-			$this->db->insert('RealisasiPenunjang',
-										array('NIP' => $NIP, 
-													'Jabatan' => $Jabatan,
-													'Jenjang' => $_POST['Homebase'], 
-													'Semester' => $_POST['Semester'], 
-													'Tahun' => $_POST['Tahun'], 
-													'IdKegiatan' => $_POST['IdKegiatan'],
-													'Kode' => $_POST['Kode'],
-													'Kegiatan' => htmlentities($_POST['Kegiatan']),
-													'TanggalKegiatan' => $_POST['TanggalKegiatan'],
-													'Volume' => $_POST['Volume'],
-													'Kredit' => $Kredit,
-													'JumlahKredit' => $JumlahKredit));
-			if ($this->db->affected_rows()){
-				$this->session->set_userdata('IdKegiatanPenunjang', $_POST['IdKegiatan']);
-				echo '1';
-			} else {
-				echo 'Gagal Menyimpan';
-			}
+			echo 'Wajib Menyertakan Bukti!';
 		}
 	}
 
 	public function EditRealisasi(){
-		$NIP = $this->session->userdata('NIP');
-		$Jabatan = $this->session->userdata('Jabatan');
 		if ($_POST['IdKegiatan'] == 'PNJ1') {
 			if ($_POST['Kode'] == '1') {
 				$JumlahKredit = $_POST['Volume']*3;
@@ -389,32 +370,26 @@ class Penunjang extends CI_Controller {
 		if ($Pdf > 0) {
 			if ($this->CekBukti($Pdf)){
 				$Tipe = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
-				$NamaPdf = date('Ymd',time()).substr(password_hash('Penunjang', PASSWORD_DEFAULT),7,2).'.'.$Tipe;
+				$NamaPdf = date('Ymd',time()).substr(password_hash('Penunjang', PASSWORD_DEFAULT),7,7).'.'.$Tipe;
+				str_replace("/","F",$NamaPdf);
 				move_uploaded_file($_FILES['file']['tmp_name'], "Penunjang/".$NamaPdf);
 				if($_POST['Bukti'] != ''){
 					unlink('Penunjang/'.$_POST['Bukti']);
 				}
 				$this->db->where('No', $_POST['No']);
 				$this->db->update('RealisasiPenunjang',
-										array('NIP' => $NIP, 
-													'Jabatan' => $Jabatan, 
-													'Jenjang' => $_POST['Homebase'], 
+										array('Jenjang' => $_POST['Homebase'], 
 													'Semester' => $_POST['Semester'], 
 													'Tahun' => $_POST['Tahun'], 
 													'IdKegiatan' => $_POST['IdKegiatan'],
 													'Kode' => $_POST['Kode'],
 													'Kegiatan' => htmlentities($_POST['Kegiatan']),
-													'TanggalKegiatan' => $_POST['TanggalKegiatan'],
+													'TanggalKegiatan' => htmlentities($_POST['TanggalKegiatan']),
 													'Volume' => $_POST['Volume'],
 													'Kredit' => $Kredit,
 													'JumlahKredit' => $JumlahKredit,
 													'Bukti' => $NamaPdf));
-				if ($this->db->affected_rows()){
-					$this->session->set_userdata('IdKegiatanPenunjang', $_POST['IdKegiatan']);
-					echo '1';
-				} else {
-					echo 'Gagal Menyimpan';
-				}
+				echo '1';
 			}
 			else {
 				echo 'Bukti Hanya Boleh PDF!';
@@ -423,24 +398,17 @@ class Penunjang extends CI_Controller {
 		else {
 			$this->db->where('No', $_POST['No']);
 			$this->db->update('RealisasiPenunjang',
-										array('NIP' => $NIP, 
-													'Jabatan' => $Jabatan,
-													'Jenjang' => $_POST['Homebase'], 
+										array('Jenjang' => $_POST['Homebase'], 
 													'Semester' => $_POST['Semester'], 
 													'Tahun' => $_POST['Tahun'], 
 													'IdKegiatan' => $_POST['IdKegiatan'],
 													'Kode' => $_POST['Kode'],
 													'Kegiatan' => htmlentities($_POST['Kegiatan']),
-													'TanggalKegiatan' => $_POST['TanggalKegiatan'],
+													'TanggalKegiatan' => htmlentities($_POST['TanggalKegiatan']),
 													'Volume' => $_POST['Volume'],
 													'Kredit' => $Kredit,
 													'JumlahKredit' => $JumlahKredit));
-			if ($this->db->affected_rows()){
-				$this->session->set_userdata('IdKegiatanPenunjang', $_POST['IdKegiatan']);
-				echo '1';
-			} else {
-				echo 'Gagal Menyimpan';
-			}
+			echo '1';
 		}
 	}
 

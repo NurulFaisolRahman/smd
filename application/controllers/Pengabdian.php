@@ -13,7 +13,7 @@ class Pengabdian extends CI_Controller {
 	public function InputRencana(){
 		$NIP = $this->session->userdata('NIP');
 		$Jabatan = $this->session->userdata('Jabatan');
-		if($this->db->get_where('RencanaPengabdian', array('Jenjang' => $_POST['Jenjang'],'Semester' => $_POST['Semester'],'Tahun' => $_POST['Tahun']))->num_rows() === 0){
+		if($this->db->get_where('RencanaPengabdian', array('NIP' => $NIP,'Jenjang' => $_POST['Jenjang'],'Semester' => $_POST['Semester'],'Tahun' => $_POST['Tahun']))->num_rows() === 0){
 			$this->db->insert('RencanaPengabdian',
 								array('NIP' => $NIP, 
 											'Jabatan' => $Jabatan,
@@ -130,7 +130,8 @@ class Pengabdian extends CI_Controller {
 		if ($Pdf > 0) {
 			if ($this->CekBukti($Pdf)){
 				$Tipe = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
-				$NamaPdf = date('Ymd',time()).substr(password_hash('Pengabdian', PASSWORD_DEFAULT),7,2).'.'.$Tipe;
+				$NamaPdf = date('Ymd',time()).substr(password_hash('Penunjang', PASSWORD_DEFAULT),7,7).'.'.$Tipe;
+				str_replace("/","F",$NamaPdf);
 				move_uploaded_file($_FILES['file']['tmp_name'], "Pengabdian/".$NamaPdf);
 				$this->db->insert('RealisasiPengabdian',
 										array('NIP' => $NIP, 
@@ -141,7 +142,7 @@ class Pengabdian extends CI_Controller {
 													'IdKegiatan' => $_POST['IdKegiatan'],
 													'Kode' => $_POST['Kode'],
 													'Kegiatan' => htmlentities($_POST['Kegiatan']),
-													'TanggalKegiatan' => $_POST['TanggalKegiatan'],
+													'TanggalKegiatan' => htmlentities($_POST['TanggalKegiatan']),
 													'Volume' => $_POST['Volume'],
 													'Kredit' => $Kredit,
 													'JumlahKredit' => $JumlahKredit,
@@ -158,31 +159,11 @@ class Pengabdian extends CI_Controller {
 			}
 		} 
 		else {
-			$this->db->insert('RealisasiPengabdian',
-										array('NIP' => $NIP, 
-													'Jabatan' => $Jabatan,
-													'Jenjang' => $_POST['Homebase'], 
-													'Semester' => $_POST['Semester'], 
-													'Tahun' => $_POST['Tahun'], 
-													'IdKegiatan' => $_POST['IdKegiatan'],
-													'Kode' => $_POST['Kode'],
-													'Kegiatan' => htmlentities($_POST['Kegiatan']),
-													'TanggalKegiatan' => $_POST['TanggalKegiatan'],
-													'Volume' => $_POST['Volume'],
-													'Kredit' => $Kredit,
-													'JumlahKredit' => $JumlahKredit));
-			if ($this->db->affected_rows()){
-				$this->session->set_userdata('IdKegiatanPengabdian', $_POST['IdKegiatan']);
-				echo '1';
-			} else {
-				echo 'Gagal Menyimpan';
-			}
+			echo 'Wajib Menyertakan Bukti!';
 		}
 	}
 
 	public function EditRealisasi(){
-		$NIP = $this->session->userdata('NIP');
-		$Jabatan = $this->session->userdata('Jabatan');
 		if ($_POST['IdKegiatan'] == 'PNB1') {
 			$JumlahKredit = $_POST['Volume']*5.5;
 			$Kredit = 5.5;
@@ -253,32 +234,26 @@ class Pengabdian extends CI_Controller {
 		if ($Pdf > 0) {
 			if ($this->CekBukti($Pdf)){
 				$Tipe = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
-				$NamaPdf = date('Ymd',time()).substr(password_hash('Pengabdian', PASSWORD_DEFAULT),7,2).'.'.$Tipe;
+				$NamaPdf = date('Ymd',time()).substr(password_hash('Penunjang', PASSWORD_DEFAULT),7,7).'.'.$Tipe;
+				str_replace("/","F",$NamaPdf);
 				move_uploaded_file($_FILES['file']['tmp_name'], "Pengabdian/".$NamaPdf);
 				if($_POST['Bukti'] != ''){
 					unlink('Pengabdian/'.$_POST['Bukti']);
 				}
 				$this->db->where('No', $_POST['No']);
 				$this->db->update('RealisasiPengabdian',
-										array('NIP' => $NIP, 
-													'Jabatan' => $Jabatan, 
-													'Jenjang' => $_POST['Homebase'], 
+										array('Jenjang' => $_POST['Homebase'], 
 													'Semester' => $_POST['Semester'], 
 													'Tahun' => $_POST['Tahun'], 
 													'IdKegiatan' => $_POST['IdKegiatan'],
 													'Kode' => $_POST['Kode'],
 													'Kegiatan' => htmlentities($_POST['Kegiatan']),
-													'TanggalKegiatan' => $_POST['TanggalKegiatan'],
+													'TanggalKegiatan' => htmlentities($_POST['TanggalKegiatan']),
 													'Volume' => $_POST['Volume'],
 													'Kredit' => $Kredit,
 													'JumlahKredit' => $JumlahKredit,
 													'Bukti' => $NamaPdf));
-				if ($this->db->affected_rows()){
-					$this->session->set_userdata('IdKegiatanPengabdian', $_POST['IdKegiatan']);
-					echo '1';
-				} else {
-					echo 'Gagal Menyimpan';
-				}
+				echo '1';
 			}
 			else {
 				echo 'Bukti Hanya Boleh PDF!';
@@ -287,24 +262,17 @@ class Pengabdian extends CI_Controller {
 		else {
 			$this->db->where('No', $_POST['No']);
 			$this->db->update('RealisasiPengabdian',
-										array('NIP' => $NIP, 
-													'Jabatan' => $Jabatan,
-													'Jenjang' => $_POST['Homebase'], 
+										array('Jenjang' => $_POST['Homebase'], 
 													'Semester' => $_POST['Semester'], 
 													'Tahun' => $_POST['Tahun'], 
 													'IdKegiatan' => $_POST['IdKegiatan'],
 													'Kode' => $_POST['Kode'],
 													'Kegiatan' => htmlentities($_POST['Kegiatan']),
-													'TanggalKegiatan' => $_POST['TanggalKegiatan'],
+													'TanggalKegiatan' => htmlentities($_POST['TanggalKegiatan']),
 													'Volume' => $_POST['Volume'],
 													'Kredit' => $Kredit,
 													'JumlahKredit' => $JumlahKredit));
-			if ($this->db->affected_rows()){
-				$this->session->set_userdata('IdKegiatanPengabdian', $_POST['IdKegiatan']);
-				echo '1';
-			} else {
-				echo 'Gagal Menyimpan';
-			}
+			echo '1';
 		}
 	}
 

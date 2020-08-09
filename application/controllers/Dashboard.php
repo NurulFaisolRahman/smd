@@ -22,13 +22,13 @@ class Dashboard extends CI_Controller {
 	public function EditProfil(){
 		$this->db->where('NIP', $this->session->userdata('NIP'));
 		$this->db->update('Dosen',
-										array('NIP' => $_POST['NIP'], 
-													'NIDN' => $_POST['NIDN'],
-													'Nama' => $_POST['Nama'],
-													'Jabatan' => $_POST['Jabatan'],
-													'Pangkat' => $_POST['Pangkat'],
-													'Golongan' => $_POST['Golongan'],
-													'Kredit' => $_POST['Kredit']));
+										array('NIP' => htmlentities($_POST['NIP']), 
+													'NIDN' => htmlentities($_POST['NIDN']),
+													'Nama' => htmlentities($_POST['Nama']),
+													'Jabatan' => htmlentities($_POST['Jabatan']),
+													'Pangkat' => htmlentities($_POST['Pangkat']),
+													'Golongan' => htmlentities($_POST['Golongan']),
+													'Kredit' => htmlentities($_POST['Kredit'])));
 		if ($this->db->affected_rows()) {
 			$this->session->set_userdata('NIP', $_POST['NIP']);
 			$this->session->set_userdata('Jabatan', $_POST['Jabatan']);

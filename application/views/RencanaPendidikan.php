@@ -420,7 +420,7 @@
 										<tbody>
 											<tr>
 												<td rowspan="3" class='text-center'>1</td>
-												<td class='align-middle'>Mengikuti pendidikan formal dan memperoleh ijazah</td>
+												<td class='align-middle'>Mengikuti dan Menyelesaikan pendidikan formal dan memperoleh ijazah</td>
 												<td rowspan="3" class='text-center align-middle'><b id="EditKreditSekolah">0</b></td>
 											</tr>
 											<tr>

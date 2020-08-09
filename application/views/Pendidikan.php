@@ -616,7 +616,6 @@
 							}
 						});
 					}
-          return false
         })
 
 				$(document).on("click",".EditRealisasi",function(){
@@ -636,35 +635,44 @@
 					$('#EditRealisasiPendidikan').modal("show")
 				});
 
+				$("#CancelBukti").click(function() {
+					$("#EditBukti").val("")
+				})
+
 				$("#UpdateRealisasiPendidikan").click(function() {
-					var fd = new FormData()
-					fd.append("file", $('#EditBukti')[0].files[0])
-					fd.append('No',$("#EditNoRealisasi").val())
-					fd.append('Jabatan',$("#EditJabatanRealisasi").val())
-					fd.append('IdKegiatan',$("#EditIdKegiatan").val())
-					fd.append('Kode',$("#Kode").val())
-					fd.append('Homebase',$("#EditJenisRealisasi").val())
-					fd.append('Semester',$("#EditSemesterRealisasi").val())
-					fd.append('Tahun',$("#EditTahunRealisasi").val())
-					fd.append('Kegiatan',$("#EditUraian").val())		
-					fd.append('TanggalKegiatan',$("#EditTanggalKegiatan").val())
-					fd.append('Volume',parseInt($("#EditVolume").val()))
-					fd.append('Bukti',$("#EditBuktiRealisasi").val())
-					$.ajax({
-						url: BaseURL+'Pendidikan/EditRealisasi',
-						type: 'post',
-						data: fd,
-						contentType: false,
-						processData: false,
-						success: function(Respon){
-							if (Respon == '1') {
-								window.location = BaseURL + "Dashboard/Pendidikan"
+					if (isNaN(parseInt($("#EditVolume").val()))) {
+						alert('Volume Kegiatan Wajib Di Isi')
+					} 
+					else {
+						var fd = new FormData()
+						fd.append("file", $('#EditBukti')[0].files[0])
+						fd.append('No',$("#EditNoRealisasi").val())
+						fd.append('Jabatan',$("#EditJabatanRealisasi").val())
+						fd.append('IdKegiatan',$("#EditIdKegiatan").val())
+						fd.append('Kode',$("#Kode").val())
+						fd.append('Homebase',$("#EditJenisRealisasi").val())
+						fd.append('Semester',$("#EditSemesterRealisasi").val())
+						fd.append('Tahun',$("#EditTahunRealisasi").val())
+						fd.append('Kegiatan',$("#EditUraian").val())		
+						fd.append('TanggalKegiatan',$("#EditTanggalKegiatan").val())
+						fd.append('Volume',parseInt($("#EditVolume").val()))
+						fd.append('Bukti',$("#EditBuktiRealisasi").val())
+						$.ajax({
+							url: BaseURL+'Pendidikan/EditRealisasi',
+							type: 'post',
+							data: fd,
+							contentType: false,
+							processData: false,
+							success: function(Respon){
+								if (Respon == '1') {
+									window.location = BaseURL + "Dashboard/Pendidikan"
+								}
+								else {
+									alert(Respon)
+								}
 							}
-							else {
-								alert(Respon)
-							}
-						}
-					});
+						});
+					}
 				});
 
 				$(document).on("click",".HapusRealisasi",function(){

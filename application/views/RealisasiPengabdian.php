@@ -49,13 +49,23 @@
           </tr>
         </thead>
         <tbody>
+        <?php 
+          function limit_text($text, $limit) {
+            if (str_word_count($text, 0) > $limit) {
+                $words = str_word_count($text, 2);
+                $pos   = array_keys($words);
+                $text  = substr($text, 0, $pos[$limit]) . '...';
+            }
+            return $text;
+          }        
+        ?>
         <?php $Total = 0; $No = 1; foreach ($Realisasi as $key) { ?>
             <tr>	
               <td class="text-center align-middle"><?=$No++?></td>
               <td class="text-center align-middle"><?=$key['Jenjang']?></td>
               <td class="text-center align-middle"><?=$key['Semester']?></td>
               <td class="text-center align-middle"><?=$key['Tahun']?></td>
-              <td class="align-middle"><?=$key['Kegiatan']?></td>
+              <td class="align-middle"><?=limit_text($key['Kegiatan'],3)?></td>
               <td class="text-center align-middle"><?=$key['TanggalKegiatan']?></td>
               <td class="text-center align-middle"><?=$key['Volume']?></td>
               <td class="text-center align-middle"><?=$key['Kredit']?></td>
@@ -183,6 +193,7 @@
           </div>
           <input class="form-control" type="file" id="Bukti">
         </div>
+        <pre class="text-danger"><b>Bukti Berupa Pdf & Wajib Menyertakan Surat Tugas/SK</b></pre>
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
@@ -245,7 +256,11 @@
             <span class="input-group-text bg-primary"><b>Bukti</b></span>
           </div>
           <input class="form-control" type="file" id="EditBukti">
+          <div class="input-group-prepend">
+            <button class="input-group-text bg-primary" id="CancelBukti"><b>X</b></button>
+          </div>
         </div>
+        <pre class="text-danger"><b>Bukti Berupa Pdf & Wajib Menyertakan Surat Tugas/SK</b></pre>
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
