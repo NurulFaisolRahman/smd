@@ -219,9 +219,11 @@
 				})
 
 				$("#TambahRealisasiPenelitian").click(function() {
-					if (isNaN(parseInt($("#Ke").val())) || isNaN(parseInt($("#Dari").val())) || parseInt($("#Ke").val()) > parseInt($("#Dari").val())) {
-						alert('Input Penulis Belum Benar')
-					} 
+					if ($("#InputIdKegiatanPenelitian").val() != 'PNL8') {
+						if (isNaN(parseInt($("#Ke").val())) || isNaN(parseInt($("#Dari").val())) || parseInt($("#Ke").val()) > parseInt($("#Dari").val())) {
+							alert('Input Penulis Belum Benar')
+						} 	
+					}
 					else if (isNaN(parseInt($("#Volume").val()))) {
 						alert('Volume Kegiatan Wajib Di Isi')
 					}
@@ -234,7 +236,7 @@
 						fd.append('IdKegiatan',$("#InputIdKegiatanPenelitian").val())
 						fd.append('Ke',$("#Ke").val())		
 						fd.append('Dari',$("#Dari").val())		
-						fd.append('Penulis',$("#Ke").val()+'|'+$("#Dari").val())		
+						fd.append('Penulis',$("#Ke").val()+'/'+$("#Dari").val())		
 						fd.append('Kegiatan',$("#Uraian").val())		
 						fd.append('Volume',parseInt($("#Volume").val()))
 						fd.append('TanggalKegiatan',$("#TanggalKegiatan").val())	
@@ -249,6 +251,9 @@
 						}
 						else if ($("#InputIdKegiatanPenelitian").val() == 'PNL7') {
 							fd.append('Kode',$("#Point7").val())
+						}
+						else if ($("#InputIdKegiatanPenelitian").val() == 'PNL8') {
+							fd.append('Kode',$("#Point8").val())
 						}
 						else {
 							fd.append('Kode','0')
@@ -286,6 +291,9 @@
 					$('#EditBuktiRealisasi').val(Pisah[8])
 					$("#EditTanggalKegiatan").val(Pisah[9])
 					$("#Kode").val(Pisah[10])
+					var Penulis = Pisah[11].split("/")
+					$("#EditKe").val(Penulis[0])
+					$("#EditDari").val(Penulis[1])
 					$('#EditRealisasiPenelitian').modal("show")
 				});
 
@@ -312,7 +320,7 @@
 						fd.append('Tahun',$("#EditTahunRealisasi").val())
 						fd.append('EditKe',$("#EditKe").val())		
 						fd.append('EditDari',$("#EditDari").val())		
-						fd.append('Penulis',$("#EditKe").val()+'|'+$("#EditDari").val())
+						fd.append('Penulis',$("#EditKe").val()+'/'+$("#EditDari").val())
 						fd.append('Kegiatan',$("#EditUraian").val())		
 						fd.append('TanggalKegiatan',$("#EditTanggalKegiatan").val())
 						fd.append('Volume',parseInt($("#EditVolume").val()))
@@ -358,31 +366,48 @@
 					document.getElementById("OpsiPNL2").style.display = 'none'
 					document.getElementById("OpsiPNL6").style.display = 'none'
 					document.getElementById("OpsiPNL7").style.display = 'none'
+					document.getElementById("OpsiPNL8").style.display = 'none'
+					document.getElementById("OpsiPenulis").style.display = 'block'
 				} else if ($("#InputIdKegiatanPenelitian").val() == 'PNL2') {
 					document.getElementById("OpsiPNL1").style.display = 'none'
 					document.getElementById("OpsiPNL2").style.display = 'block'
 					document.getElementById("OpsiPNL6").style.display = 'none'
 					document.getElementById("OpsiPNL7").style.display = 'none'
+					document.getElementById("OpsiPNL8").style.display = 'none'
+					document.getElementById("OpsiPenulis").style.display = 'block'
 				} else if ($("#InputIdKegiatanPenelitian").val() == 'PNL6') {
 					document.getElementById("OpsiPNL1").style.display = 'none'
 					document.getElementById("OpsiPNL2").style.display = 'none'
 					document.getElementById("OpsiPNL6").style.display = 'block'
 					document.getElementById("OpsiPNL7").style.display = 'none'
+					document.getElementById("OpsiPNL8").style.display = 'none'
+					document.getElementById("OpsiPenulis").style.display = 'block'
 				} else if ($("#InputIdKegiatanPenelitian").val() == 'PNL7') {
 					document.getElementById("OpsiPNL1").style.display = 'none'
 					document.getElementById("OpsiPNL2").style.display = 'none'
 					document.getElementById("OpsiPNL6").style.display = 'none'
 					document.getElementById("OpsiPNL7").style.display = 'block'
+					document.getElementById("OpsiPNL8").style.display = 'none'
+					document.getElementById("OpsiPenulis").style.display = 'block'
+				} else if ($("#InputIdKegiatanPenelitian").val() == 'PNL8') {
+					document.getElementById("OpsiPNL1").style.display = 'none'
+					document.getElementById("OpsiPNL2").style.display = 'none'
+					document.getElementById("OpsiPNL6").style.display = 'none'
+					document.getElementById("OpsiPNL7").style.display = 'none'
+					document.getElementById("OpsiPNL8").style.display = 'block'
+					document.getElementById("OpsiPenulis").style.display = 'none'
 				} else {
 					document.getElementById("OpsiPNL1").style.display = 'none'
 					document.getElementById("OpsiPNL2").style.display = 'none'
 					document.getElementById("OpsiPNL6").style.display = 'none'
 					document.getElementById("OpsiPNL7").style.display = 'none'
+					document.getElementById("OpsiPNL8").style.display = 'none'
+					document.getElementById("OpsiPenulis").style.display = 'block'
 				}
 			}
 
       <?php 
-        $Kredit = array(40,20,15,10,40,30,20,25,25,20,15,10,10,20,15,10,7,30,25,15,10,10,5,5,3,10,5,1,2,15,10,60,50,40,30,20,15);
+        $Kredit = array(40,20,15,10,40,30,20,25,25,20,15,10,10,20,15,10,20,30,25,15,10,10,5,5,3,10,5,1,2,15,10,60,50,40,30,20,15);
         for ($i = 1; $i <= 37 ; $i++) {
           echo "function RencanaPNL".$i."() {document.getElementById('RencanaPNL".$i."').checked? document.getElementById('RencanaKreditPNL".$i."').innerHTML = ".$Kredit[$i-1]." : document.getElementById('RencanaKreditPNL".$i."').innerHTML = 0}\n";
         } 

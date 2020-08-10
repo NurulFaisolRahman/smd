@@ -227,7 +227,7 @@ class Penunjang extends CI_Controller {
 			}
 		} 
 		else {
-			echo 'Wajib Menyertakan Bukti!';
+			echo 'Wajib Upload Bukti!';
 		}
 	}
 

@@ -165,4 +165,8 @@ class Dashboard extends CI_Controller {
 		$this->load->view('Header',$Data);
 		$this->load->view('Penunjang',$Data);
 	}
+
+	public function Pengangkatan(){
+		$this->load->view('ExcelPengangkatan');
+	}
 }

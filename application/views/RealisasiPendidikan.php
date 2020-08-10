@@ -6,21 +6,21 @@
           <label class="input-group-text bg-warning"><i class="fa fa-tasks"></i><b>&nbsp;Kegiatan</b></label>
         </div>
         <?php 
-          $Kegiatan = array('Mengikuti pendidikan formal',
-          'Mengikuti diklat prajabatan golongan III',
-          'Mengajar mata kuliah',
-          'Membimbing seminar mahasiswa',
-          'Membimbing KKN, Praktik Kerja Lapangan',
-          'Membimbing disertasi/tesis/skripsi',
-          'Penguji ujian akhir/Profesi (setiap mahasiswa)',
-          'Membina mahasiswa di bidang akademik/kemahasiswaan',
-          'Mengembangkan program kuliah yang mempunyai nilai kebaharuan metode/substansi',
-          'Mengembangkan bahan pengajaran yang mempunyai nilai kebaharuan',
-          'Menyampaikan orasi ilmiah di tingkat perguruan tinggi',
-          'Menduduki jabatan pimpinan perguruan tinggi',
-          'Membimbing dosen yang mempunyai jabatan akademik lebih rendah',
-          'Melaksanakan kegiatan detasering dan pencangkokan di luar institusi tempat bekerja',
-          'Melaksanakan pengembangan diri untuk meningkatkan kompetensi');
+          $Kegiatan = array('A1. Menyelesaikan pendidikan formal dan memperoleh ijazah',
+          'A2. Mengikuti diklat prajabatan golongan III',
+          'B1. Mengajar mata kuliah',
+          'B2. Membimbing seminar mahasiswa',
+          'B3. Membimbing KKN, Praktik Kerja Lapangan',
+          'B4. Membimbing disertasi/tesis/skripsi',
+          'B5. Penguji ujian akhir/Profesi (setiap mahasiswa)',
+          'B6. Membina mahasiswa di bidang akademik/kemahasiswaan',
+          'B7. Mengembangkan program kuliah yang mempunyai nilai kebaharuan metode/substansi',
+          'B8. Mengembangkan bahan pengajaran yang mempunyai nilai kebaharuan',
+          'B9. Menyampaikan orasi ilmiah di tingkat perguruan tinggi',
+          'B10. Menduduki jabatan pimpinan perguruan tinggi',
+          'B11. Membimbing dosen yang mempunyai jabatan akademik lebih rendah',
+          'B12. Melaksanakan kegiatan detasering dan pencangkokan di luar institusi tempat bekerja',
+          'B13. Melaksanakan pengembangan diri untuk meningkatkan kompetensi');
         ?>
         <select class="custom-select" id="IdKegiatanPendidikan">
           <?php $Id = 1; foreach ($Kegiatan as $key) { $ID = 'PND'.$Id;?>

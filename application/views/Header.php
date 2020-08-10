@@ -50,9 +50,7 @@
                     <p><b>Profil</b></p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview <?php if ($Halaman == "Kegiatan") {
-                    echo "menu-open";
-                } ?>">
+                <li class="nav-item has-treeview menu-open">
                     <a href="#" class="nav-link <?php if ($Halaman == "Kegiatan") {
                     echo "active";
                     } ?>">

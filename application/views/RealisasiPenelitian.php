@@ -6,14 +6,14 @@
           <label class="input-group-text bg-warning"><i class="fa fa-tasks"></i><b>&nbsp;Kegiatan</b></label>
         </div>
         <?php 
-          $Kegiatan = array('Menghasilkan karya ilmia hsesuai dengan bidang ilmunya',
-          'Hasil penelitian atau hasil pemikiran yang didesiminasikan',
-          'Hasil penelitian atau pemikiran atau kerjasama industri yang tidak dipublikasikan (tersimpan dalam perpustakaan) yang dilakukan secara melembaga',
-          'Menerjemahkan/menyadur buku ilmiah yang diterbitkan (ber ISBN)',
-          'Mengedit/menyunting karya ilmiah dalam bentuk buku yang diterbitkan (ber ISBN)',
-          'Membuat rancangan dan karya teknologi yang dipatenkan atau seni yang terdaftar di HaKI secara nasional atau internasional',
-          'Membuat rancangan dan karya teknologi yang tidak dipatenkan; rancangan dan karya seni monumental yang tidak terdaftar di HaKI tetapi telah dipresentasikan pada forum yang teragenda',
-          'Membuat rancangan dan karya seni yang tidak terdaftar HaKI');
+          $Kegiatan = array('1. Menghasilkan karya ilmiah sesuai dengan bidang ilmunya',
+          '2. Hasil penelitian atau hasil pemikiran yang didesiminasikan',
+          '3. Hasil penelitian atau pemikiran atau kerjasama industri yang tidak dipublikasikan (tersimpan dalam perpustakaan) yang dilakukan secara melembaga',
+          '4. Menerjemahkan/menyadur buku ilmiah yang diterbitkan (ber ISBN)',
+          '5. Mengedit/menyunting karya ilmiah dalam bentuk buku yang diterbitkan (ber ISBN)',
+          '6. Membuat rancangan dan karya teknologi yang dipatenkan atau seni yang terdaftar di HaKI secara nasional atau internasional',
+          '7. Membuat rancangan dan karya teknologi yang tidak dipatenkan; rancangan dan karya seni monumental yang tidak terdaftar di HaKI tetapi telah dipresentasikan pada forum yang teragenda',
+          '8. Membuat rancangan dan karya seni yang tidak terdaftar HaKI');
         ?>
         <select class="custom-select" id="IdKegiatanPenelitian">
           <?php $Id = 1; foreach ($Kegiatan as $key) { $ID = 'PNL'.$Id;?>
@@ -75,7 +75,7 @@
                   <a href="<?=base_url('Penelitian/'.$key['Bukti'])?>" class="btn btn-sm btn-primary" download><i class="fas fa-download"></i></a>
                 <?php } ?></td>
               <td class="text-center align-middle">                          
-                <button EditRealisasi="<?=$key['No']."|".$key['Jenjang']."|".$key['Semester']."|".$key['Tahun']."|".$key['Kegiatan']."|".$key['Volume']."|".$key['IdKegiatan']."|".$key['Jabatan']."|".$key['Bukti']."|".$key['TanggalKegiatan']."|".$key['Kode']?>" class="btn btn-sm btn-warning EditRealisasi"><i class="fas fa-edit"></i></button>
+                <button EditRealisasi="<?=$key['No']."|".$key['Jenjang']."|".$key['Semester']."|".$key['Tahun']."|".$key['Kegiatan']."|".$key['Volume']."|".$key['IdKegiatan']."|".$key['Jabatan']."|".$key['Bukti']."|".$key['TanggalKegiatan']."|".$key['Kode']."|".$key['Penulis']?>" class="btn btn-sm btn-warning EditRealisasi"><i class="fas fa-edit"></i></button>
                 <button HapusRealisasi="<?=$key['No']."|".$key['Bukti']?>" class="btn btn-sm btn-danger HapusRealisasi"><i class="fas fa-trash"></i></button>
               </td>
             </tr>
@@ -139,19 +139,18 @@
               <span class="input-group-text bg-primary"><b>Jenis</b></span>
             </div>
             <select class="custom-select" id="Point1">
-              <option value="1">Hasil penelitian yang dipublikasikan dalam bentuk buku referensi</option>
-              <option value="2">Hasil penelitian yang dipublikasikan dalam bentuk Monograf</option>
-              <option value="3">Hasil penelitian dalam buku yang dipublikasikan dan berisi berbagai tulisan dari berbagai penulis (book chapter) Internasional</option>
-              <option value="4">Hasil penelitian dalam buku yang dipublikasikan dan berisi berbagai tulisan dari berbagai penulis (book chapter) Nasional</option>
-              <option value="5">Hasil penelitian yang dipublikasikan dalam bentuk 1) Jurnal internasional bereputasi (terindeks pada database internasional bereputasi dan berfaktor dampak)</option>
-              <option value="6">Hasil penelitian yang dipublikasikan dalam bentuk 2) Jurnal internasional terindeks pada basis datainternasional bereputasi</option>
-              <option value="7">Hasil penelitian yang dipublikasikan dalam bentuk 3) Jurnal internasionalterindekspada basis data internasional di luar kategori 2)</option>
-              <option value="8">Hasil penelitian yang dipublikasikan dalam bentuk 4) a. Jurnal Nasional terakreditasiDikti</option>
-              <option value="9">Hasil penelitian yang dipublikasikan dalam bentuk 4) b. Jurnal nasional terakreditasi Kemenristekdiktiperingkat 1 dan 2</option>
-              <option value="10">Hasil penelitian yang dipublikasikan dalam bentuk 5) a. Jurnal Nasional berbahasa Inggris/bahasa resmi (PBB) terindeks pada basis data yang diakui Kemenristekdikti, contoh : CABI/ICI, Jurnal nasional terakreditasi peringkat 3 dan 4</option>
-              <option value="11">Hasil penelitian yang dipublikasikan dalam bentuk 5) b. Jurnal Nasional berbahasa Indonesia terindeks pada basis datayang diakui Kemenristekdikti, contoh : akreditasi peringkat 5 dan 6</option>
-              <option value="12">Hasil penelitian yang dipublikasikan dalam bentuk 6) Jurnal Nasional</option>
-              <option value="13">Hasil penelitian yang dipublikasikan dalam bentuk 7) Jurnal ilmiah yang ditulis dalam Bahasa Resmi PBB namun tidak memenuhi syarat-syarat sebagai jurnal ilmiah internasional</option>
+              <option value="1">a1. Hasil penelitian yang dipublikasikan dalam bentuk buku referensi</option>
+              <option value="2">a2. Hasil penelitian yang dipublikasikan dalam bentuk Monograf</option>
+              <option value="3">b1. Hasil penelitian dalam buku yang dipublikasikan dan berisi berbagai tulisan dari berbagai penulis (book chapter) Internasional</option>
+              <option value="4">b2. Hasil penelitian dalam buku yang dipublikasikan dan berisi berbagai tulisan dari berbagai penulis (book chapter) Nasional</option>
+              <option value="5">c1. Hasil penelitian yang dipublikasikan dalam bentuk 1) Jurnal internasional bereputasi (terindeks pada database internasional bereputasi dan berfaktor dampak)</option>
+              <option value="6">c2. Hasil penelitian yang dipublikasikan dalam bentuk 2) Jurnal internasional terindeks pada basis datainternasional bereputasi</option>
+              <option value="7">c3. Hasil penelitian yang dipublikasikan dalam bentuk 3) Jurnal internasionalterindekspada basis data internasional di luar kategori 2)</option>
+              <option value="8">c4. Hasil penelitian yang dipublikasikan dalam bentuk 4) a. Jurnal Nasional terakreditasiDikti, b. Jurnal nasional terakreditasi Kemenristekdiktiperingkat 1 dan 2</option>
+              <option value="9">c5a. Hasil penelitian yang dipublikasikan dalam bentuk Jurnal Nasional berbahasa Inggris/bahasa resmi (PBB) terindeks pada basis data yang diakui Kemenristekdikti, contoh : CABI/ICI, Jurnal nasional terakreditasi peringkat 3 dan 4</option>
+              <option value="10">c5b. Hasil penelitian yang dipublikasikan dalam bentuk Jurnal Nasional berbahasa Indonesia terindeks pada basis datayang diakui Kemenristekdikti, contoh : akreditasi peringkat 5 dan 6</option>
+              <option value="11">c6. Hasil penelitian yang dipublikasikan dalam bentuk 6) Jurnal Nasional</option>
+              <option value="12">c7. Hasil penelitian yang dipublikasikan dalam bentuk 7) Jurnal ilmiah yang ditulis dalam Bahasa Resmi PBB namun tidak memenuhi syarat-syarat sebagai jurnal ilmiah internasional</option>
             </select>
           </div>
         </div>
@@ -161,17 +160,17 @@
               <span class="input-group-text bg-primary"><b>Jenis</b></span>
             </div>
             <select class="custom-select" id="Point2">
-              <option value="1">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 1) Internasional terindeks pada Scimagojr & Scopus</option>
-              <option value="2">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 2) Internasional terindeks pada SCOPUS, IEEE Explore, SPIE</option>
-              <option value="3">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 3) Internasional</option>
-              <option value="4">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 4) Nasional</option>
-              <option value="5">Disajikan dalam bentuk poster & dimuat dalam prosiding yang dipublikasikan Internasional</option>
-              <option value="6">Disajikan dalam bentuk poster & dimuat dalam prosiding yang dipublikasikan Nasional</option>
-              <option value="7">Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan Internasional</option>
-              <option value="8">Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan Nasional</option>
-              <option value="9">Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding Internasional</option>
-              <option value="10">Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding Nasional</option>
-              <option value="11"> Hasil penelitian/pemikiran yang disajikan dalam koran/majalah populer/umum</option>
+              <option value="1">a1. Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 1) Internasional terindeks pada Scimagojr & Scopus</option>
+              <option value="2">a2. Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 2) Internasional terindeks pada SCOPUS, IEEE Explore, SPIE</option>
+              <option value="3">a3. Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 3) Internasional</option>
+              <option value="4">a4. Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 4) Nasional</option>
+              <option value="5">b1. Disajikan dalam bentuk poster & dimuat dalam prosiding yang dipublikasikan Internasional</option>
+              <option value="6">b2. Disajikan dalam bentuk poster & dimuat dalam prosiding yang dipublikasikan Nasional</option>
+              <option value="7">c1. Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan Internasional</option>
+              <option value="8">c2. Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan Nasional</option>
+              <option value="9">d1. Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding Internasional</option>
+              <option value="10">d2. Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding Nasional</option>
+              <option value="11">e. Hasil penelitian/pemikiran yang disajikan dalam koran/majalah populer/umum</option>
             </select>
           </div>
         </div>
@@ -181,12 +180,12 @@
               <span class="input-group-text bg-primary"><b>Jenis</b></span>
             </div>
             <select class="custom-select" id="Point6">
-              <option value="1">Internasionalyang sudah diimplementasikan di industri (paling sedikit diakui oleh 4 Negara)</option>
-              <option value="2">Internasional (paling sedikit diakui oleh 4 Negara)</option>
-              <option value="3">Nasional (yang sudah diimplementasikan di industri)</option>
-              <option value="4">Nasional</option>
-              <option value="5">Nasional, dalam bentuk paten sederhana yang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham</option>
-              <option value="6">Karya buku, desain industri, indikasi geografisyang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham</option>
+              <option value="1">a. Internasionalyang sudah diimplementasikan di industri (paling sedikit diakui oleh 4 Negara)</option>
+              <option value="2">b. Internasional (paling sedikit diakui oleh 4 Negara)</option>
+              <option value="3">c. Nasional (yang sudah diimplementasikan di industri)</option>
+              <option value="4">d. Nasional</option>
+              <option value="5">e. Nasional, dalam bentuk paten sederhana yang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham</option>
+              <option value="6">f. Karya buku, desain industri, indikasi geografisyang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham</option>
             </select>
           </div>
         </div>
@@ -202,17 +201,46 @@
             </select>
           </div>
         </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Penulis Ke</b></span>
+        <div id="OpsiPNL8" style="display: none;">
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary"><b>Tingkat</b></span>
+            </div>
+            <select class="custom-select" id="Point8">
+              <option value="1"><b>Internasional</b> Sebagai Komposer/Penulis Naskah/Sutradara/Perancang/Pencipta/Penggubah/Kameramen/Animator/Kurator/Editor Audio-Visual</option>
+              <option value="2"><b>Nasional</b> Sebagai Komposer/Penulis Naskah/Sutradara/Perancang/Pencipta/Penggubah/Kameramen/Animator/Kurator/Editor Audio-Visual</option>
+              <option value="3"><b>Lokal</b> Sebagai Komposer/Penulis Naskah/Sutradara/Perancang/Pencipta/Penggubah/Kameramen/Animator/Kurator/Editor Audio-Visual</option>
+              <option value="4"><b>Internasional</b> Sebagai Penata Arstistik/Penata Musik/Penata Rias/PenataBusana/Penata Tari/Penata Lampu/Penata Suara/Penata Panggung/Ilustrator Foto/Kunduktor</option>
+              <option value="5"><b>Nasional</b> Sebagai Penata Arstistik/Penata Musik/Penata Rias/PenataBusana/Penata Tari/Penata Lampu/Penata Suara/Penata Panggung/Ilustrator Foto/Kunduktor</option>
+              <option value="6"><b>Lokal</b> Sebagai Penata Arstistik/Penata Musik/Penata Rias/PenataBusana/Penata Tari/Penata Lampu/Penata Suara/Penata Panggung/Ilustrator Foto/Kunduktor</option>
+              <option value="7"><b>Internasional</b> Sebagai Pemusik/Pengrawit/Penari/Dalang/Pemeran/Pengarah Acara Televisi/Pelaksana Perancangan/Pendisplay Pameran/Pembuat FotoDokumentasi/Pewarta Foto/Pembawa Acara/Reporter/RedakturPelaksana</option>
+              <option value="8"><b>Nasional</b> Sebagai Pemusik/Pengrawit/Penari/Dalang/Pemeran/Pengarah Acara Televisi/Pelaksana Perancangan/Pendisplay Pameran/Pembuat FotoDokumentasi/Pewarta Foto/Pembawa Acara/Reporter/RedakturPelaksana</option>
+              <option value="9"><b>Lokal</b> Sebagai Pemusik/Pengrawit/Penari/Dalang/Pemeran/Pengarah Acara Televisi/Pelaksana Perancangan/Pendisplay Pameran/Pembuat FotoDokumentasi/Pewarta Foto/Pembawa Acara/Reporter/RedakturPelaksana</option>
+              <option value="10"><b>Internasional</b> Sebagai Penulis Naskah Drama/Novel</option>
+              <option value="11"><b>Nasional</b> Sebagai Penulis Naskah Drama/Novel</option>
+              <option value="12"><b>Lokal</b> Sebagai Penulis Naskah Drama/Novel</option>
+              <option value="13"><b>Internasional</b> Sebagai Penulis Buku Kumpulan Cerpen</option>
+              <option value="14"><b>Nasional</b> Sebagai Penulis Buku Kumpulan Cerpen</option>
+              <option value="15"><b>Lokal</b> Sebagai Penulis Buku Kumpulan Cerpen</option>
+              <option value="16"><b>Internasional</b> Sebagai Penulis Buku Kumpulan Puisi</option>
+              <option value="17"><b>Nasional</b> Sebagai Penulis Buku Kumpulan Puisi</option>
+              <option value="18"><b>Lokal</b> Sebagai Penulis Buku Kumpulan Puisi</option>
+            </select>
           </div>
-          <input class="form-control" type="text" id="Ke" data-inputmask='"mask": "9"' data-mask placeholder="1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Dari</b></span>
-          </div>
-          <input class="form-control" type="text" id="Dari" data-inputmask='"mask": "9"' data-mask placeholder="1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Penulis</b></span>
+        </div>
+        <div id="OpsiPenulis">
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary"><b>Penulis Ke</b></span>
+            </div>
+            <input class="form-control" type="text" id="Ke" data-inputmask='"mask": "9"' data-mask placeholder="1">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary"><b>Dari</b></span>
+            </div>
+            <input class="form-control" type="text" id="Dari" data-inputmask='"mask": "9"' data-mask placeholder="1">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary"><b>Penulis</b></span>
+            </div>
           </div>
         </div>
         <div class="input-group mb-1">

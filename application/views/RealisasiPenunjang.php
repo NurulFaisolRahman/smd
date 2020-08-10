@@ -6,16 +6,16 @@
           <label class="input-group-text bg-warning"><i class="fa fa-tasks"></i><b>&nbsp;Kegiatan</b></label>
         </div>
         <?php 
-          $Kegiatan = array('Menjadi anggota dalam suatu Panitia / Badan pada Perguruan Tinggi',
-          'Menjadi anggota panitia / badan pada lembaga pemerintah',
-          'Menjadi anggota organisasi profesi',
-          'Mewakili Perguruan Tinggi / Lembaga Pemerintah duduk dalam Panitia Antar Lembaga, tiap kepanitiaan',
-          'Menjadi anggota delegasi Nasional ke pertemuan Internasional',
-          'Berperan serta aktif dalam pertemuan ilmiah',
-          'Mendapat tanda jasa / penghargaan',
-          'Menulis buku pelajaran SLTA ke bawah yang diterbitkan dan diedarkan secara nasional',
-          'Mempunyai prestasi di bidang olahraga/ Humaniora',
-          'Keanggotaan dalam tim penilai jabatan akademik dosen (tiap semester)');
+          $Kegiatan = array('1. Menjadi anggota dalam suatu Panitia / Badan pada Perguruan Tinggi',
+          '2. Menjadi anggota panitia / badan pada lembaga pemerintah',
+          '3. Menjadi anggota organisasi profesi',
+          '4. Mewakili Perguruan Tinggi / Lembaga Pemerintah duduk dalam Panitia Antar Lembaga, tiap kepanitiaan',
+          '5. Menjadi anggota delegasi Nasional ke pertemuan Internasional',
+          '6. Berperan serta aktif dalam pertemuan ilmiah',
+          '7. Mendapat tanda jasa / penghargaan',
+          '8. Menulis buku pelajaran SLTA ke bawah yang diterbitkan dan diedarkan secara nasional',
+          '9. Mempunyai prestasi di bidang olahraga/ Humaniora',
+          '10. Keanggotaan dalam tim penilai jabatan akademik dosen (tiap semester)');
         ?>
         <select class="custom-select" id="IdKegiatanPenunjang">
           <?php $Id = 1; foreach ($Kegiatan as $key) { $ID = 'PNJ'.$Id;?>
