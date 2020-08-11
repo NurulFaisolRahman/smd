@@ -116,7 +116,7 @@
                 <label class="input-group-text bg-primary"><b>Tahun</b></label>
               </div>
               <input class="form-control" type="text" id="Tahun"  data-inputmask='"mask": "9999-9999"' data-mask>
-              <a id="Lampiran" href="Lampiran" download="Lampiran"></a>
+              <a id="LampiranPAK" href="LampiranPAK" download="LampiranPAK"></a>
             </div>
           </div>
           <div class="modal-footer justify-content-between">
