@@ -77,7 +77,52 @@
                     </ul>
                     <?php } ?>
                 </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link" data-toggle="modal" data-target="#PAK">
+                    <i class="nav-icon fas fa-file-excel"></i>
+                    <p><b>PO-PAK</b></p>
+                    </a>
+                </li>
             </ul>
         </nav>
         </div>
     </aside>
+    <div class="modal fade" id="PAK">
+      <div class="modal-dialog">
+        <div class="modal-content bg-warning">
+          <div class="modal-body">
+            <div class="input-group mb-1">
+              <div class="input-group-prepend">
+                <label class="input-group-text bg-primary"><b>Homebase</b></label>
+              </div>
+              <select class="custom-select" id="Homebase">										
+                <option value="S1">S1</option>
+                <option value="S2">S2</option>
+                <option value="S">Semua</option>
+              </select>
+            </div>
+            <div class="input-group mb-1">
+              <div class="input-group-prepend">
+                <label class="input-group-text bg-primary"><b>Semester</b></label>
+              </div>
+              <select class="custom-select" id="Semester">										
+                <option value="Ganjil">Ganjil</option>
+                <option value="Genap">Genap</option>
+                <option value="G">Semua</option>
+              </select>
+            </div>
+            <div class="input-group mb-1">
+              <div class="input-group-prepend">
+                <label class="input-group-text bg-primary"><b>Tahun</b></label>
+              </div>
+              <input class="form-control" type="text" id="Tahun"  data-inputmask='"mask": "9999-9999"' data-mask>
+              <a id="Lampiran" href="Lampiran" download="Lampiran"></a>
+            </div>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
+            <button type="submit" class="btn btn-success" id="pak"><b>Download</b></button>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -417,11 +417,7 @@ class Pendidikan extends CI_Controller {
 														'Kredit' => $Kredit,
 														'JumlahKredit' => $JumlahKredit,
 														'Bukti' => $NamaPdf));
-				if ($this->db->affected_rows()){
-					echo '1';
-				} else {
-					echo 'Gagal Menyimpan';
-				}
+				echo '1';
 			}
 			else {
 				echo 'Bukti Hanya Boleh PDF!';
@@ -440,11 +436,7 @@ class Pendidikan extends CI_Controller {
 													'Volume' => $_POST['Volume'],
 													'Kredit' => $Kredit,
 													'JumlahKredit' => $JumlahKredit));
-			if ($this->db->affected_rows()){
-				echo '1';
-			} else {
-				echo 'Gagal Menyimpan';
-			}
+			echo '1';
 		}
 	}
 

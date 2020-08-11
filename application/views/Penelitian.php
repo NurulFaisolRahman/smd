@@ -225,7 +225,7 @@
 						} 	
 					}
 					else if (isNaN(parseInt($("#Volume").val()))) {
-						alert('Volume Kegiatan Wajib Di Isi')
+						alert('Volume Kegiatan Wajib Belum Benar!')
 					}
 					else {
 						var fd = new FormData()
@@ -306,7 +306,7 @@
 						alert('Input Penulis Belum Benar')
 					} 
 					else if (isNaN(parseInt($("#EditVolume").val()))) {
-						alert('Volume Kegiatan Wajib Di Isi')
+						alert('Volume Kegiatan Wajib Belum Benar!')
 					} 
 					else {
 						var fd = new FormData()

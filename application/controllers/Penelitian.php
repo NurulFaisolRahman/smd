@@ -57,13 +57,13 @@ class Penelitian extends CI_Controller {
 		}
 	}
 
-	public function KreditPenulis($ke,$dari,$kredit){
+	public function KreditPenulis($ke,$dari,$kredit,$volume){
 		if ($ke == 1 && $dari == 1) {
-			return $kredit;
+			return $volume*$kredit;
 		} else if ($ke == 1) {
-			return $_POST['Volume']*($kredit*0.6/($dari-1));
+			return $volume*($kredit*0.6/($dari-1));
 		} else {
-			return $_POST['Volume']*($kredit*0.4/($dari-1));
+			return $volume*($kredit*0.4/($dari-1));
 		}
 	}
 
@@ -72,223 +72,223 @@ class Penelitian extends CI_Controller {
 		$Jabatan = $this->session->userdata('Jabatan');
 		if ($_POST['IdKegiatan'] == 'PNL1') {
 			if ($_POST['Kode'] == '1') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],40);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],40,$_POST['Volume']);
 				$Kredit = 40;
 			}
 			else if ($_POST['Kode'] == '2') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],20);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],20,$_POST['Volume']);
 				$Kredit = 20;
 			}
 			else if ($_POST['Kode'] == '3') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],15);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],15,$_POST['Volume']);
 				$Kredit = 15;
 			}
 			else if ($_POST['Kode'] == '4') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10,$_POST['Volume']);
 				$Kredit = 10;
 			}
 			else if ($_POST['Kode'] == '5') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],40);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],40,$_POST['Volume']);
 				$Kredit = 40;
 			}
 			else if ($_POST['Kode'] == '6') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],30);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],30,$_POST['Volume']);
 				$Kredit = 30;
 			}
 			else if ($_POST['Kode'] == '7') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],20);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],20,$_POST['Volume']);
 				$Kredit = 20;
 			}
 			else if ($_POST['Kode'] == '8') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],25);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],25,$_POST['Volume']);
 				$Kredit = 25;
 			}
 			else if ($_POST['Kode'] == '9') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],20);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],20,$_POST['Volume']);
 				$Kredit = 20;
 			}
 			else if ($_POST['Kode'] == '10') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],15);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],15,$_POST['Volume']);
 				$Kredit = 15;
 			}
 			else if ($_POST['Kode'] == '11') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10,$_POST['Volume']);
 				$Kredit = 10;
 			}
 			else if ($_POST['Kode'] == '12') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10,$_POST['Volume']);
 				$Kredit = 10;
 			}
 		}
 		else if ($_POST['IdKegiatan'] == 'PNL2') {
 			if ($_POST['Kode'] == '1') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],30);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],30,$_POST['Volume']);
 				$Kredit = 30;
 			}
 			else if ($_POST['Kode'] == '2') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],25);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],25,$_POST['Volume']);
 				$Kredit = 25;
 			}
 			else if ($_POST['Kode'] == '3') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],15);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],15,$_POST['Volume']);
 				$Kredit = 15;
 			}
 			else if ($_POST['Kode'] == '4') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10,$_POST['Volume']);
 				$Kredit = 10;
 			}
 			else if ($_POST['Kode'] == '5') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10,$_POST['Volume']);
 				$Kredit = 10;
 			}
 			else if ($_POST['Kode'] == '6') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],5);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],5,$_POST['Volume']);
 				$Kredit = 5;
 			}
 			else if ($_POST['Kode'] == '7') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],5);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],5,$_POST['Volume']);
 				$Kredit = 5;
 			}
 			else if ($_POST['Kode'] == '8') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],3);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],3,$_POST['Volume']);
 				$Kredit = 3;
 			}
 			else if ($_POST['Kode'] == '9') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10,$_POST['Volume']);
 				$Kredit = 10;
 			}
 			else if ($_POST['Kode'] == '10') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],5);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],5,$_POST['Volume']);
 				$Kredit = 5;
 			}
 			else if ($_POST['Kode'] == '11') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],1);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],1,$_POST['Volume']);
 				$Kredit = 1;
 			}
 		}
 		else if ($_POST['IdKegiatan'] == 'PNL3') {
-			$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],2);
+			$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],2,$_POST['Volume']);
 			$Kredit = 2;
 		}
 		else if ($_POST['IdKegiatan'] == 'PNL4') {
-			$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],15);
+			$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],15,$_POST['Volume']);
 			$Kredit = 15;
 		}
 		else if ($_POST['IdKegiatan'] == 'PNL5') {
-			$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10);
+			$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10,$_POST['Volume']);
 			$Kredit = 10;
 		}
 		else if ($_POST['IdKegiatan'] == 'PNL6') {
 			if ($_POST['Kode'] == '1') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],60);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],60,$_POST['Volume']);
 				$Kredit = 60;
 			}
 			else if ($_POST['Kode'] == '2') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],50);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],50,$_POST['Volume']);
 				$Kredit = 50;
 			}
 			else if ($_POST['Kode'] == '3') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],40);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],40,$_POST['Volume']);
 				$Kredit = 40;
 			}
 			else if ($_POST['Kode'] == '4') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],30);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],30,$_POST['Volume']);
 				$Kredit = 30;
 			}
 			else if ($_POST['Kode'] == '5') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],20);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],20,$_POST['Volume']);
 				$Kredit = 20;
 			}
 			else if ($_POST['Kode'] == '6') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],15);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],15,$_POST['Volume']);
 				$Kredit = 15;
 			}
 		}
 		else if ($_POST['IdKegiatan'] == 'PNL7') {
 			if ($_POST['Kode'] == '1') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],20);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],20,$_POST['Volume']);
 				$Kredit = 20;
 			}
 			else if ($_POST['Kode'] == '2') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],15);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],15,$_POST['Volume']);
 				$Kredit = 15;
 			}
 			else if ($_POST['Kode'] == '3') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10,$_POST['Volume']);
 				$Kredit = 10;
 			}
 		}
 		else if ($_POST['IdKegiatan'] == 'PNL8') {
 			if ($_POST['Kode'] == '1') {
-				$JumlahKredit = 20;
+				$JumlahKredit = $_POST['Volume']*20;
 				$Kredit = 20;
 			}
 			else if ($_POST['Kode'] == '2') {
-				$JumlahKredit = 15;
+				$JumlahKredit = $_POST['Volume']*15;
 				$Kredit = 15;
 			}
 			else if ($_POST['Kode'] == '3') {
-				$JumlahKredit = 10;
+				$JumlahKredit = $_POST['Volume']*10;
 				$Kredit = 10;
 			}
 			else if ($_POST['Kode'] == '4') {
-				$JumlahKredit = 10;
+				$JumlahKredit = $_POST['Volume']*10;
 				$Kredit = 10;
 			}
 			else if ($_POST['Kode'] == '5') {
-				$JumlahKredit = 6;
+				$JumlahKredit = $_POST['Volume']*6;
 				$Kredit = 6;
 			}
 			else if ($_POST['Kode'] == '6') {
-				$JumlahKredit = 3;
+				$JumlahKredit = $_POST['Volume']*3;
 				$Kredit = 3;
 			}
 			else if ($_POST['Kode'] == '7') {
-				$JumlahKredit = 6;
+				$JumlahKredit = $_POST['Volume']*6;
 				$Kredit = 6;
 			}
 			else if ($_POST['Kode'] == '8') {
-				$JumlahKredit = 4;
+				$JumlahKredit = $_POST['Volume']*4;
 				$Kredit = 4;
 			}
 			else if ($_POST['Kode'] == '9') {
-				$JumlahKredit = 2;
+				$JumlahKredit = $_POST['Volume']*2;
 				$Kredit = 2;
 			}
 			else if ($_POST['Kode'] == '10') {
-				$JumlahKredit = 20;
+				$JumlahKredit = $_POST['Volume']*20;
 				$Kredit = 20;
 			}
 			else if ($_POST['Kode'] == '11') {
-				$JumlahKredit = 15;
+				$JumlahKredit = $_POST['Volume']*15;
 				$Kredit = 15;
 			}
 			else if ($_POST['Kode'] == '12') {
-				$JumlahKredit = 10;
+				$JumlahKredit = $_POST['Volume']*10;
 				$Kredit = 10;
 			}
 			else if ($_POST['Kode'] == '13') {
-				$JumlahKredit = 20;
+				$JumlahKredit = $_POST['Volume']*20;
 				$Kredit = 20;
 			}
 			else if ($_POST['Kode'] == '14') {
-				$JumlahKredit = 15;
+				$JumlahKredit = $_POST['Volume']*15;
 				$Kredit = 15;
 			}
 			else if ($_POST['Kode'] == '15') {
-				$JumlahKredit = 10;
+				$JumlahKredit = $_POST['Volume']*10;
 				$Kredit = 10;
 			}
 			else if ($_POST['Kode'] == '16') {
-				$JumlahKredit = 20;
+				$JumlahKredit = $_POST['Volume']*20;
 				$Kredit = 20;
 			}
 			else if ($_POST['Kode'] == '17') {
-				$JumlahKredit = 15;
+				$JumlahKredit = $_POST['Volume']*15;
 				$Kredit = 15;
 			}
 			else if ($_POST['Kode'] == '18') {
-				$JumlahKredit = 10;
+				$JumlahKredit = $_POST['Volume']*10;
 				$Kredit = 10;
 			}
 		}
@@ -333,155 +333,225 @@ class Penelitian extends CI_Controller {
 	public function EditRealisasi(){
 		if ($_POST['IdKegiatan'] == 'PNL1') {
 			if ($_POST['Kode'] == '1') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],40);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],40,$_POST['EditVolume']);
 				$Kredit = 40;
 			}
 			else if ($_POST['Kode'] == '2') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],20);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],20,$_POST['EditVolume']);
 				$Kredit = 20;
 			}
 			else if ($_POST['Kode'] == '3') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],15);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],15,$_POST['EditVolume']);
 				$Kredit = 15;
 			}
 			else if ($_POST['Kode'] == '4') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],10);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],10,$_POST['EditVolume']);
 				$Kredit = 10;
 			}
 			else if ($_POST['Kode'] == '5') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],40);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],40,$_POST['EditVolume']);
 				$Kredit = 40;
 			}
 			else if ($_POST['Kode'] == '6') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],30);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],30,$_POST['EditVolume']);
 				$Kredit = 30;
 			}
 			else if ($_POST['Kode'] == '7') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],20);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],20,$_POST['EditVolume']);
 				$Kredit = 20;
 			}
 			else if ($_POST['Kode'] == '8') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],25);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],25,$_POST['EditVolume']);
 				$Kredit = 25;
 			}
 			else if ($_POST['Kode'] == '9') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],20);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],20,$_POST['EditVolume']);
 				$Kredit = 20;
 			}
 			else if ($_POST['Kode'] == '10') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],15);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],15,$_POST['EditVolume']);
 				$Kredit = 15;
 			}
 			else if ($_POST['Kode'] == '11') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10,$_POST['EditVolume']);
 				$Kredit = 10;
 			}
 			else if ($_POST['Kode'] == '12') {
-				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10);
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10,$_POST['EditVolume']);
 				$Kredit = 10;
 			}
 		}
 		else if ($_POST['IdKegiatan'] == 'PNL2') {
 			if ($_POST['Kode'] == '1') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],30);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],30,$_POST['EditVolume']);
 				$Kredit = 30;
 			}
 			else if ($_POST['Kode'] == '2') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],25);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],25,$_POST['EditVolume']);
 				$Kredit = 25;
 			}
 			else if ($_POST['Kode'] == '3') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],15);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],15,$_POST['EditVolume']);
 				$Kredit = 15;
 			}
 			else if ($_POST['Kode'] == '4') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],10);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],10,$_POST['EditVolume']);
 				$Kredit = 10;
 			}
 			else if ($_POST['Kode'] == '5') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],10);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],10,$_POST['EditVolume']);
 				$Kredit = 10;
 			}
 			else if ($_POST['Kode'] == '6') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],5);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],5,$_POST['EditVolume']);
 				$Kredit = 5;
 			}
 			else if ($_POST['Kode'] == '7') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],5);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],5,$_POST['EditVolume']);
 				$Kredit = 5;
 			}
 			else if ($_POST['Kode'] == '8') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],3);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],3,$_POST['EditVolume']);
 				$Kredit = 3;
 			}
 			else if ($_POST['Kode'] == '9') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],10);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],10,$_POST['EditVolume']);
 				$Kredit = 10;
 			}
 			else if ($_POST['Kode'] == '10') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],5);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],5,$_POST['EditVolume']);
 				$Kredit = 5;
 			}
 			else if ($_POST['Kode'] == '11') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],1);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],1,$_POST['EditVolume']);
 				$Kredit = 1;
 			}
 		}
 		else if ($_POST['IdKegiatan'] == 'PNL3') {
-			$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],2);
+			$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],2,$_POST['EditVolume']);
 			$Kredit = 2;
 		}
 		else if ($_POST['IdKegiatan'] == 'PNL4') {
-			$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],15);
+			$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],15,$_POST['EditVolume']);
 			$Kredit = 15;
 		}
 		else if ($_POST['IdKegiatan'] == 'PNL5') {
-			$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],10);
+			$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],10,$_POST['EditVolume']);
 			$Kredit = 10;
 		}
 		else if ($_POST['IdKegiatan'] == 'PNL6') {
 			if ($_POST['Kode'] == '1') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],60);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],60,$_POST['EditVolume']);
 				$Kredit = 60;
 			}
 			else if ($_POST['Kode'] == '2') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],50);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],50,$_POST['EditVolume']);
 				$Kredit = 50;
 			}
 			else if ($_POST['Kode'] == '3') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],40);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],40,$_POST['EditVolume']);
 				$Kredit = 40;
 			}
 			else if ($_POST['Kode'] == '4') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],30);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],30,$_POST['EditVolume']);
 				$Kredit = 30;
 			}
 			else if ($_POST['Kode'] == '5') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],20);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],20,$_POST['EditVolume']);
 				$Kredit = 20;
 			}
 			else if ($_POST['Kode'] == '6') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],15);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],15,$_POST['EditVolume']);
 				$Kredit = 15;
 			}
 		}
 		else if ($_POST['IdKegiatan'] == 'PNL7') {
 			if ($_POST['Kode'] == '1') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],20);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],20,$_POST['EditVolume']);
 				$Kredit = 20;
 			}
 			else if ($_POST['Kode'] == '2') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],15);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],15,$_POST['EditVolume']);
 				$Kredit = 15;
 			}
 			else if ($_POST['Kode'] == '3') {
-				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],10);
+				$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],10,$_POST['EditVolume']);
 				$Kredit = 10;
 			}
 		}
 		else if ($_POST['IdKegiatan'] == 'PNL8') {
-			$JumlahKredit = $this->KreditPenulis($_POST['EditKe'],$_POST['EditDari'],7);
-			$Kredit = 7;
+			if ($_POST['Kode'] == '1') {
+				$JumlahKredit = $_POST['EditVolume']*20;
+				$Kredit = 20;
+			}
+			else if ($_POST['Kode'] == '2') {
+				$JumlahKredit = $_POST['EditVolume']*15;
+				$Kredit = 15;
+			}
+			else if ($_POST['Kode'] == '3') {
+				$JumlahKredit = $_POST['EditVolume']*10;
+				$Kredit = 10;
+			}
+			else if ($_POST['Kode'] == '4') {
+				$JumlahKredit = $_POST['EditVolume']*10;
+				$Kredit = 10;
+			}
+			else if ($_POST['Kode'] == '5') {
+				$JumlahKredit = $_POST['EditVolume']*6;
+				$Kredit = 6;
+			}
+			else if ($_POST['Kode'] == '6') {
+				$JumlahKredit = $_POST['EditVolume']*3;
+				$Kredit = 3;
+			}
+			else if ($_POST['Kode'] == '7') {
+				$JumlahKredit = $_POST['EditVolume']*6;
+				$Kredit = 6;
+			}
+			else if ($_POST['Kode'] == '8') {
+				$JumlahKredit = $_POST['EditVolume']*4;
+				$Kredit = 4;
+			}
+			else if ($_POST['Kode'] == '9') {
+				$JumlahKredit = $_POST['EditVolume']*2;
+				$Kredit = 2;
+			}
+			else if ($_POST['Kode'] == '10') {
+				$JumlahKredit = $_POST['EditVolume']*20;
+				$Kredit = 20;
+			}
+			else if ($_POST['Kode'] == '11') {
+				$JumlahKredit = $_POST['EditVolume']*15;
+				$Kredit = 15;
+			}
+			else if ($_POST['Kode'] == '12') {
+				$JumlahKredit = $_POST['EditVolume']*10;
+				$Kredit = 10;
+			}
+			else if ($_POST['Kode'] == '13') {
+				$JumlahKredit = $_POST['EditVolume']*20;
+				$Kredit = 20;
+			}
+			else if ($_POST['Kode'] == '14') {
+				$JumlahKredit = $_POST['EditVolume']*15;
+				$Kredit = 15;
+			}
+			else if ($_POST['Kode'] == '15') {
+				$JumlahKredit = $_POST['EditVolume']*10;
+				$Kredit = 10;
+			}
+			else if ($_POST['Kode'] == '16') {
+				$JumlahKredit = $_POST['EditVolume']*20;
+				$Kredit = 20;
+			}
+			else if ($_POST['Kode'] == '17') {
+				$JumlahKredit = $_POST['EditVolume']*15;
+				$Kredit = 15;
+			}
+			else if ($_POST['Kode'] == '18') {
+				$JumlahKredit = $_POST['EditVolume']*10;
+				$Kredit = 10;
+			}
 		}
 		$Pdf = count($_FILES);
 		if ($Pdf > 0) {

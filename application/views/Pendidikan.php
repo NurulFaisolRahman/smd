@@ -553,8 +553,8 @@
 				})
 
 				$("#TambahRealisasiPendidikan").click(function() {
-					if (isNaN(parseInt($("#Volume").val()))) {
-						alert('Volume Kegiatan Wajib Di Isi')
+					if (isNaN(parseFloat($("#Volume").val().replace(',','.')))) {
+						alert('Volume Kegiatan Wajib Belum Benar!')
 					} 
 					else {
 						var fd = new FormData()
@@ -565,7 +565,7 @@
 						fd.append('IdKegiatan',$("#InputIdKegiatanPendidikan").val())
 						fd.append('Kegiatan',$("#Uraian").val())		
 						fd.append('TanggalKegiatan',$("#TanggalKegiatan").val())
-						fd.append('Volume',parseInt($("#Volume").val()))									
+						fd.append('Volume',parseFloat($("#Volume").val().replace(',','.')))									
 						if ($("#InputIdKegiatanPendidikan").val() == 'PND1' || $("#InputIdKegiatanPendidikan").val() == 'PND2' || $("#InputIdKegiatanPendidikan").val() == 'PND3' || $("#InputIdKegiatanPendidikan").val() == 'PND4' || $("#InputIdKegiatanPendidikan").val() == 'PND5' || $("#InputIdKegiatanPendidikan").val() == 'PND8' || $("#InputIdKegiatanPendidikan").val() == 'PND9' || $("#InputIdKegiatanPendidikan").val() == 'PND11' || $("#InputIdKegiatanPendidikan").val() == 'PND12') {
 							fd.append('Kode','0')
 						}
@@ -640,8 +640,8 @@
 				})
 
 				$("#UpdateRealisasiPendidikan").click(function() {
-					if (isNaN(parseInt($("#EditVolume").val()))) {
-						alert('Volume Kegiatan Wajib Di Isi')
+					if (isNaN(parseFloat($("#EditVolume").val().replace(',','.')))) {
+						alert('Volume Kegiatan Belum Benar!')
 					} 
 					else {
 						var fd = new FormData()
@@ -655,7 +655,7 @@
 						fd.append('Tahun',$("#EditTahunRealisasi").val())
 						fd.append('Kegiatan',$("#EditUraian").val())		
 						fd.append('TanggalKegiatan',$("#EditTanggalKegiatan").val())
-						fd.append('Volume',parseInt($("#EditVolume").val()))
+						fd.append('Volume',parseFloat($("#EditVolume").val().replace(',','.')))
 						fd.append('Bukti',$("#EditBuktiRealisasi").val())
 						$.ajax({
 							url: BaseURL+'Pendidikan/EditRealisasi',

@@ -29,13 +29,9 @@ class Dashboard extends CI_Controller {
 													'Pangkat' => htmlentities($_POST['Pangkat']),
 													'Golongan' => htmlentities($_POST['Golongan']),
 													'Kredit' => htmlentities($_POST['Kredit'])));
-		if ($this->db->affected_rows()) {
-			$this->session->set_userdata('NIP', $_POST['NIP']);
-			$this->session->set_userdata('Jabatan', $_POST['Jabatan']);
-			echo '1';
-		} else {
-			echo 'Gagal Update Data';
-		}
+		$this->session->set_userdata('NIP', $_POST['NIP']);
+		$this->session->set_userdata('Jabatan', $_POST['Jabatan']);
+		echo '1';
 	}
 	
 	public function Foto(){
@@ -62,7 +58,7 @@ class Dashboard extends CI_Controller {
 		$Data['Rencana'] = $this->db->get_where('RencanaPendidikan', array('NIP' => $NIP))->result_array();
 		$Data['KreditRealisasi'] = array();
 		foreach ($Data['Rencana'] as $key) {
-			$Tampung = $this->db->get_where('RealisasiPendidikan', array('NIP' => $NIP,'Jenjang' => $key['Jenjang'],'Semester' => $key['Semester'],'Tahun' => $key['Tahun'],))->result_array();
+			$Tampung = $this->db->get_where('RealisasiPendidikan', array('NIP' => $NIP,'Jenjang' => $key['Jenjang'],'Semester' => $key['Semester'],'Tahun' => $key['Tahun']))->result_array();
 			$Total = 0;
 			foreach ($Tampung as $data) {
 				$Total+=$data['JumlahKredit'];
@@ -114,7 +110,7 @@ class Dashboard extends CI_Controller {
 		$Data['Rencana'] = $this->db->get_where('RencanaPenelitian', array('NIP' => $NIP))->result_array();
 		$Data['KreditRealisasi'] = array();
 		foreach ($Data['Rencana'] as $key) {
-			$Tampung = $this->db->get_where('RealisasiPenelitian', array('NIP' => $NIP,'Jenjang' => $key['Jenjang'],'Semester' => $key['Semester'],'Tahun' => $key['Tahun'],))->result_array();
+			$Tampung = $this->db->get_where('RealisasiPenelitian', array('NIP' => $NIP,'Jenjang' => $key['Jenjang'],'Semester' => $key['Semester'],'Tahun' => $key['Tahun']))->result_array();
 			$Total = 0;
 			foreach ($Tampung as $data) {
 				$Total+=$data['JumlahKredit'];
@@ -134,7 +130,7 @@ class Dashboard extends CI_Controller {
 		$Data['Rencana'] = $this->db->get_where('RencanaPengabdian', array('NIP' => $NIP))->result_array();
 		$Data['KreditRealisasi'] = array();
 		foreach ($Data['Rencana'] as $key) {
-			$Tampung = $this->db->get_where('RealisasiPengabdian', array('NIP' => $NIP,'Jenjang' => $key['Jenjang'],'Semester' => $key['Semester'],'Tahun' => $key['Tahun'],))->result_array();
+			$Tampung = $this->db->get_where('RealisasiPengabdian', array('NIP' => $NIP,'Jenjang' => $key['Jenjang'],'Semester' => $key['Semester'],'Tahun' => $key['Tahun']))->result_array();
 			$Total = 0;
 			foreach ($Tampung as $data) {
 				$Total+=$data['JumlahKredit'];
@@ -154,7 +150,7 @@ class Dashboard extends CI_Controller {
 		$Data['Rencana'] = $this->db->get_where('RencanaPenunjang', array('NIP' => $NIP))->result_array();
 		$Data['KreditRealisasi'] = array();
 		foreach ($Data['Rencana'] as $key) {
-			$Tampung = $this->db->get_where('RealisasiPenunjang', array('NIP' => $NIP,'Jenjang' => $key['Jenjang'],'Semester' => $key['Semester'],'Tahun' => $key['Tahun'],))->result_array();
+			$Tampung = $this->db->get_where('RealisasiPenunjang', array('NIP' => $NIP,'Jenjang' => $key['Jenjang'],'Semester' => $key['Semester'],'Tahun' => $key['Tahun']))->result_array();
 			$Total = 0;
 			foreach ($Tampung as $data) {
 				$Total+=$data['JumlahKredit'];
@@ -167,6 +163,34 @@ class Dashboard extends CI_Controller {
 	}
 
 	public function Pengangkatan(){
-		$this->load->view('ExcelPengangkatan');
+		$NIP = $this->session->userdata('NIP');
+		$Data['Profil'] = $this->db->get_where('Dosen', array('NIP' => $NIP))->row_array();
+		$Data['KreditPendidikan1a'] = $this->db->query("SELECT SUM(JumlahKredit) as Kredit FROM RealisasiPendidikan WHERE NIP = ".$NIP." AND IdKegiatan = 'PND1'")->row_array();
+		$Data['KreditPendidikan1b'] = $this->db->query("SELECT SUM(JumlahKredit) as Kredit FROM RealisasiPendidikan WHERE NIP = ".$NIP." AND IdKegiatan = 'PND2'")->row_array();
+		$Data['KreditPendidikan2'] = $this->db->query("SELECT SUM(JumlahKredit) as Kredit FROM RealisasiPendidikan WHERE NIP = ".$NIP." AND IdKegiatan != 'PND1' AND IdKegiatan != 'PND2'")->row_array();
+		$Data['KreditPenelitian'] = $this->db->query('SELECT SUM(JumlahKredit) as Kredit FROM RealisasiPenelitian WHERE NIP = '.$NIP)->row_array();;
+		$Data['KreditPengabdian'] = $this->db->query('SELECT SUM(JumlahKredit) as Kredit FROM RealisasiPengabdian WHERE NIP = '.$NIP)->row_array();;
+		$Data['KreditPenunjang'] = $this->db->query('SELECT SUM(JumlahKredit) as Kredit FROM RealisasiPenunjang WHERE NIP = '.$NIP)->row_array();;
+		$this->load->view('ExcelPengangkatan',$Data);
+	}
+
+	public function Dupak(){
+		$this->load->view('ExcelDupak');
+	}
+
+	public function UsulKredit(){
+		$this->load->view('ExcelUsulKredit');
+	}
+
+	public function PAK(){
+		$Data['Profil'] = $this->db->get_where('Dosen', array('NIP' => $this->session->userdata('NIP')))->row_array();
+		$Jenjang = $this->uri->segment('3');
+		$Semester = $this->uri->segment('4');
+		$Tahun = explode('-',$this->uri->segment('5'));
+		$Data['Pendidikan'] = $this->db->query("SELECT * FROM `RealisasiPendidikan` WHERE NIP = ".$this->session->userdata('NIP')." AND Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1]." ORDER BY SUBSTR(IdKegiatan FROM 1 FOR 3), CAST(SUBSTR(IdKegiatan FROM 4) AS UNSIGNED), SUBSTR(IdKegiatan FROM 4), Kode ASC")->result_array();
+		$Data['Penelitian'] = $this->db->query("SELECT * FROM `RealisasiPenelitian` WHERE NIP = ".$this->session->userdata('NIP')." AND Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1]." ORDER BY SUBSTR(IdKegiatan FROM 1 FOR 3), CAST(SUBSTR(IdKegiatan FROM 4) AS UNSIGNED), SUBSTR(IdKegiatan FROM 4), Kode ASC")->result_array();
+		$Data['Pengabdian'] = $this->db->query("SELECT * FROM `RealisasiPengabdian` WHERE NIP = ".$this->session->userdata('NIP')." AND Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1]." ORDER BY SUBSTR(IdKegiatan FROM 1 FOR 3), CAST(SUBSTR(IdKegiatan FROM 4) AS UNSIGNED), SUBSTR(IdKegiatan FROM 4), Kode ASC")->result_array();
+		$Data['Penunjang'] = $this->db->query("SELECT * FROM `RealisasiPenunjang` WHERE NIP = ".$this->session->userdata('NIP')." AND Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1]." ORDER BY SUBSTR(IdKegiatan FROM 1 FOR 3), CAST(SUBSTR(IdKegiatan FROM 4) AS UNSIGNED), SUBSTR(IdKegiatan FROM 4), Kode ASC")->result_array();
+		$this->load->view('PAK',$Data);
 	}
 }

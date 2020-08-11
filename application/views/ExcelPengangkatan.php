@@ -1,3 +1,7 @@
+<?php
+  header('Content-Type: application/xlsx');
+  header('Content-Disposition: attachment; filename=Pengangkatan.xlsx');
+?>
 <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -1728,36 +1732,36 @@ td
     <td class="xl134"></td>
     <td class="xl66" colspan="6" style='mso-ignore:colspan;'></td>
    </tr>
-   <tr height="20" style='height:15.00pt;mso-height-source:userset;mso-height-alt:300;'>
-    <td class="xl71" height="20" style='height:15.00pt;' x:str>I</td>
-    <td class="xl72" x:str>KETE<span style='display:none;'>RANGAN PERORANGAN</span></td>
+   <tr height="20" style='height:17.25pt;'>
+    <td class="xl71" height="23" style='height:17.25pt;' x:str>I</td>
+    <td class="xl72" x:str>KETERANGAN PERORANGAN</span></td>
     <td class="xl73" colspan="4" style='mso-ignore:colspan;'></td>
     <td class="xl90" colspan="2" style='mso-ignore:colspan;'></td>
     <td class="xl111"></td>
     <td class="xl66" colspan="7" style='mso-ignore:colspan;'></td>
    </tr>
-   <tr height="20" style='height:15.00pt;mso-height-source:userset;mso-height-alt:300;'>
-    <td class="xl74" height="20" style='height:15.00pt;'></td>
+   <tr height="20" style='height:17.25pt;'>
+    <td class="xl74" height="23" style='height:17.250pt;'></td>
     <td class="xl75" x:num>1</td>
     <td class="xl76" colspan="3" style='border-right:none;border-bottom:.5pt solid ;' x:str>Nama</td>
     <td class="xl111"></td>
-    <td class="xl76" colspan="3" style='border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>Selamet Joko Utomo, S.E.,M.E</td>
+    <td class="xl76" colspan="3" style='border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str><?=$Profil['Nama']?></td>
     <td class="xl106"></td>
     <td class="xl66" colspan="6" style='mso-ignore:colspan;'></td>
    </tr>
    <tr height="23" style='height:17.25pt;'>
     <td class="xl74" height="23" style='height:17.25pt;'></td>
     <td class="xl75" x:num>2</td>
-    <td class="xl76" colspan="3" style='border-right:none;border-bottom:.5pt solid ;' x:str>N I P</td>
+    <td class="xl76" colspan="3" style='border-right:none;border-bottom:.5pt solid ;' x:str>NIP</td>
     <td class="xl111"></td>
-    <td class="xl112" colspan="3" style='border-right:.5pt solid ;border-bottom:.5pt solid ;' x:num="1,9792063761474099e+17">197920637614741000</td>
+    <td class="xl112" colspan="3" style='border-right:.5pt solid ;border-bottom:.5pt solid ;'><?=$Profil['NIP']?></td>
     <td class="xl106"></td>
     <td class="xl66" colspan="6" style='mso-ignore:colspan;'></td>
    </tr>
-   <tr height="17" style='height:12.75pt;mso-height-source:userset;mso-height-alt:255;'>
-    <td class="xl74" height="17" style='height:12.75pt;'></td>
+   <tr height="17" style='height:17.25pt;'>
+    <td class="xl74" height="23" style='height:17.25pt;'></td>
     <td class="xl78" x:num>3</td>
-    <td class="xl76" colspan="2" style='mso-ignore:colspan;border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>Nomor Se<span style='display:none;'>ri Kartu Pegawai</span></td>
+    <td class="xl76" colspan="2" style='mso-ignore:colspan;border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>Nomor Seri Kartu Pegawai</span></td>
     <td class="xl80"></td>
     <td class="xl111"></td>
     <td class="xl76" colspan="3" style='border-right:.5pt solid ;border-bottom:.5pt solid ;'></td>
@@ -1770,26 +1774,26 @@ td
     <td class="xl80" colspan="2" style='mso-ignore:colspan;' x:str>Pangkat/<span style='display:none;'>Golongan Ruang/TMT</span></td>
     <td class="xl80"></td>
     <td class="xl111"></td>
-    <td class="xl76" colspan="3" style='border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>Penata / IIIc</td>
+    <td class="xl76" colspan="3" style='border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str><?=$Profil['Pangkat'].' / '.$Profil['Golongan']?></td>
     <td class="xl106"></td>
     <td class="xl66" colspan="6" style='mso-ignore:colspan;'></td>
    </tr>
-   <tr height="17" style='height:12.75pt;mso-height-source:userset;mso-height-alt:255;'>
-    <td class="xl74" height="17" style='height:12.75pt;'></td>
+   <tr height="17" style='height:17.25pt;'>
+    <td class="xl74" height="23" style='height:17.25pt;'></td>
     <td class="xl78" x:num>5</td>
-    <td class="xl82" colspan="2" style='mso-ignore:colspan;' x:str>Tempat d<span style='display:none;'>an Tanggal Lahir</span></td>
+    <td class="xl82" colspan="2" style='mso-ignore:colspan;' x:str>Tempat dan Tanggal Lahir</span></td>
     <td class="xl114"></td>
     <td class="xl111"></td>
     <td class="xl76" colspan="3" style='border-right:.5pt solid ;border-bottom:.5pt solid ;'></td>
     <td class="xl106"></td>
     <td class="xl66" colspan="6" style='mso-ignore:colspan;'></td>
    </tr>
-   <tr height="29" style='height:21.75pt;mso-height-source:userset;mso-height-alt:435;'>
-    <td class="xl74" height="29" style='height:21.75pt;'></td>
+   <tr height="29" style='height:17.25pt;'>
+    <td class="xl74" height="23" style='height:17.25pt;'></td>
     <td class="xl75" x:num>6</td>
     <td class="xl76" colspan="3" style='border-right:none;border-bottom:.5pt solid ;' x:str>Jenis Kelamin</td>
     <td class="xl111"></td>
-    <td class="xl115" colspan="3" style='border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>Laki-laki</td>
+    <td class="xl115" colspan="3" style='border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str></td>
     <td class="xl106"></td>
     <td class="xl66" colspan="6" style='mso-ignore:colspan;'></td>
    </tr>
@@ -1798,7 +1802,7 @@ td
     <td class="xl75" x:num>7</td>
     <td class="xl76" colspan="3" style='border-right:none;border-bottom:.5pt solid ;' x:str>Pendidikan Terakhir</td>
     <td class="xl111"></td>
-    <td class="xl76" colspan="3" style='border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>S2</td>
+    <td class="xl76" colspan="3" style='border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str></td>
     <td class="xl106"></td>
     <td class="xl66" colspan="6" style='mso-ignore:colspan;'></td>
    </tr>
@@ -1808,12 +1812,12 @@ td
     <td class="xl80" colspan="2" style='mso-ignore:colspan;border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>Jabatan A<span style='display:none;'>kademik Dosen/TMT</span></td>
     <td class="xl80"></td>
     <td class="xl111"></td>
-    <td class="xl76" colspan="3" style='border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>Asisten Ahli</td>
+    <td class="xl76" colspan="3" style='border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str><?=$Profil['Jabatan']?></td>
     <td class="xl106"></td>
     <td class="xl66" colspan="6" style='mso-ignore:colspan;'></td>
    </tr>
-   <tr height="17" style='height:12.75pt;mso-height-source:userset;mso-height-alt:255;'>
-    <td class="xl74" height="17" style='height:12.75pt;'></td>
+   <tr height="17" style='height:17.25pt;'>
+    <td class="xl74" height="23" style='height:17.25pt;'></td>
     <td class="xl71" x:num>9</td>
     <td class="xl83" colspan="3" style='border-right:.5pt solid ;border-bottom:none;' x:str>Masa Kerja Golongan<span style='mso-spacerun:yes;'>&nbsp;</span></td>
     <td class="xl118" x:str>Lama</td>
@@ -1875,15 +1879,15 @@ td
     <td class="xl126"></td>
     <td class="xl66" colspan="7" style='mso-ignore:colspan;'></td>
    </tr>
-   <tr height="20" style='height:15.00pt;mso-height-source:userset;mso-height-alt:300;'>
-    <td class="xl91" height="20" style='height:15.00pt;'></td>
+   <tr height="20" style='height:35.00pt;mso-height-source:userset;mso-height-alt:650;'>
+    <td class="xl91"></td>
     <td class="xl91"></td>
     <td class="xl91"></td>
     <td class="xl92" x:str>1)<span style='mso-spacerun:yes;'>&nbsp;</span></td>
     <td class="xl127" colspan="2" style='border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>Mengikuti pendidikan sekolah dan memperoleh gelar/ijazah</td>
-    <td class="xl78" x:str>-</td>
-    <td class="xl78" x:str>-</td>
-    <td class="xl78" x:str>-</td>
+    <td class="xl78" x:str>0</td>
+    <td class="xl78" x:str><?=$KreditPendidikan1a['Kredit']?></td>
+    <td class="xl78" x:fmla="=G33+H33">0</td>
     <td class="xl66" colspan="7" style='mso-ignore:colspan;'></td>
    </tr>
    <tr height="23" style='height:17.25pt;'>
@@ -1893,9 +1897,9 @@ td
     <td class="xl93" x:str>2)</td>
     <td class="xl90" x:str>Diklat prajabatan</td>
     <td class="xl129"></td>
-    <td class="xl78" x:str>-</td>
-    <td class="xl78" x:str>-</td>
-    <td class="xl78" x:str>-</td>
+    <td class="xl78" x:str>0</td>
+    <td class="xl78" x:str><?=$KreditPendidikan1b['Kredit']?></td>
+    <td class="xl78" x:fmla="=G34+H34">0</td>
     <td class="xl66" colspan="7" style='mso-ignore:colspan;'></td>
    </tr>
    <tr height="23" style='height:17.25pt;'>
@@ -1904,9 +1908,9 @@ td
     <td class="xl78" x:str>B</td>
     <td class="xl72" colspan="2" style='mso-ignore:colspan;' x:str>Pelaksanaan pendidikan</td>
     <td class="xl129"></td>
-    <td class="xl78" x:fmla="=135,94*55%" x:num="0">0</td>
-    <td class="xl78" x:num>72</td>
-    <td class="xl78" x:fmla="=G35+H35" x:num="146,767">146,767</td>
+    <td class="xl78" x:num="0">0</td>
+    <td class="xl78" x:num><?=$KreditPendidikan2['Kredit']?></td>
+    <td class="xl78" x:fmla="=G35+H35">0</td>
     <td class="xl66" colspan="7" style='mso-ignore:colspan;'></td>
    </tr>
    <tr height="23" style='height:17.25pt;'>
@@ -1915,19 +1919,19 @@ td
     <td class="xl78" x:str>C</td>
     <td class="xl72" colspan="2" style='mso-ignore:colspan;' x:str>Pelaksanaan penelitian</td>
     <td class="xl129"></td>
-    <td class="xl78" x:fmla="=7,06*25%" x:num="0">0</td>
-    <td class="xl78" x:num>67</td>
-    <td class="xl78" x:fmla="=G36+H36" x:num="68,765000000000001">68,765</td>
+    <td class="xl78" x:num="0">0</td>
+    <td class="xl78" x:num><?=$KreditPenelitian['Kredit']?></td>
+    <td class="xl78" x:fmla="=G36+H36">0</td>
     <td class="xl66" colspan="7" style='mso-ignore:colspan;'></td>
    </tr>
-   <tr height="40" style='height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
-    <td class="xl91" height="40" style='height:30.00pt;'></td>
+   <tr height="40" style='height:17.25pt;'>
+    <td class="xl91" height="23" style='height:30.00pt;'></td>
     <td class="xl94"></td>
     <td class="xl95" x:str>D</td>
     <td class="xl96" colspan="3" style='border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>Pelaksanaan pengabdian kepada masyarakat</td>
-    <td class="xl78" x:fmla="=2*10%" x:num="0">0</td>
-    <td class="xl78" x:num>42</td>
-    <td class="xl78" x:str>39.5</td>
+    <td class="xl78" x:num="0">0</td>
+    <td class="xl78" x:num><?=$KreditPengabdian['Kredit']?></td>
+    <td class="xl78" x:fmla="=G37+H37">0</td>
     <td class="xl66" colspan="7" style='mso-ignore:colspan;'></td>
    </tr>
    <tr height="23" style='height:17.25pt;'>
@@ -1935,9 +1939,9 @@ td
     <td class="xl97"></td>
     <td class="xl98" colspan="3" style='mso-ignore:colspan;' x:str>Jumlah Unsur Utama</td>
     <td class="xl130"></td>
-    <td class="xl131" x:fmla="=SUM(G35:G37)" x:num="0">0</td>
-    <td class="xl132" x:fmla="=SUM(H35:H37)" x:num>181</td>
-    <td class="xl132" x:fmla="=SUM(G38;H38)" x:num="257,73200000000003">258</td>
+    <td class="xl131" x:num="0">0</td>
+    <td class="xl132" x:fmla="=SUM(H35:H37)">0</td>
+    <td class="xl132" x:fmla="=SUM(G38;H38)">0</td>
     <td class="xl66" colspan="7" style='mso-ignore:colspan;'></td>
    </tr>
    <tr height="23" style='height:17.25pt;'>
@@ -1956,8 +1960,8 @@ td
     <td class="xl72" colspan="3" style='mso-ignore:colspan;' x:str>Penunjang Tugas Dosen</td>
     <td class="xl111"></td>
     <td class="xl78" x:num>0</td>
-    <td class="xl78" x:num>17</td>
-    <td class="xl78" x:fmla="=G40+H40" x:num>22</td>
+    <td class="xl78" x:num><?=$KreditPenunjang['Kredit']?></td>
+    <td class="xl78" x:fmla="=G40+H40">0</td>
     <td class="xl66" colspan="7" style='mso-ignore:colspan;'></td>
    </tr>
    <tr height="23" style='height:17.25pt;'>
@@ -1966,14 +1970,14 @@ td
     <td class="xl98" colspan="3" style='mso-ignore:colspan;' x:str>Jumlah Unsur Penunjang</td>
     <td class="xl130"></td>
     <td class="xl131" x:fmla="=G40*10%" x:num="0">0</td>
-    <td class="xl131" x:fmla="=H40" x:num>17</td>
-    <td class="xl131" x:fmla="=G41+H41" x:num="17,5">17,5</td>
+    <td class="xl131" x:fmla="=H40" x:num></td>
+    <td class="xl131" x:fmla="=G41+H41">0</td>
     <td class="xl66" colspan="7" style='mso-ignore:colspan;'></td>
    </tr>
    <tr height="23" style='height:17.25pt;'>
     <td class="xl94" height="23" style='height:17.25pt;'></td>
     <td class="xl98" colspan="5" style='mso-ignore:colspan;border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>Jumlah Unsur Utama dan Unsur Penunjang</td>
-    <td class="xl131" x:fmla="=G38+G41" x:num="0">0</td>
+    <td class="xl131" x:num="0">0</td>
     <td class="xl132" x:fmla="=SUM(H38;H41)" x:num>198</td>
     <td class="xl132" x:fmla="=SUM(G42;H42)" x:num="275,23200000000003">275</td>
     <td class="xl66" colspan="7" style='mso-ignore:colspan;'></td>

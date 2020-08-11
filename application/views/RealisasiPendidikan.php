@@ -265,7 +265,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text bg-primary"><b>Volume Kegiatan</b></span>
           </div>
-          <input class="form-control" type="text" id="Volume" data-inputmask='"mask": "99"' data-mask>
+          <input class="form-control" type="text" id="Volume">
         </div>
         <div class="input-group mb-1">
           <div class="input-group-prepend">

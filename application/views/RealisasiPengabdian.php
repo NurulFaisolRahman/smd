@@ -6,13 +6,13 @@
           <label class="input-group-text bg-warning"><i class="fa fa-tasks"></i><b>&nbsp;Kegiatan</b></label>
         </div>
         <?php 
-          $Kegiatan = array('Menduduki jabatan pimpinan pada lembaga pemerintahan/pejabat negara yang harus dibebaskan dari jabatan organiknya tiap semester',
-          'Melaksanakan pengembangan hasil pendidikan, dan penelitian yang dapat dimanfaatkan oleh masyarakat/industry setiap program',
-          'Memberi latihan/penyuluhan/penataran/ceramah pada masyarakat, terjadwal/terprogram',
-          'Memberi pelayanan kepada masyarakat atau kegiatan lain yang menunjang pelaksanaan tugas pemerintahan dan pembangunan',
-          'Membuat/menulis karya pengabdian pada masyarakat yang tidak dipublikasikan,tiap karya',
-          'Hasil kegiatan pengabdian kepada masyarakat yang dipublikasikan di sebuah berkala/jurnal pengabdian kepada masyarakat atau teknologi tepat guna, merupakan diseminasi dari luaran program kegiatan pengabdian kepada masyarakat, tiap karya',
-          'Berperan serta aktif dalam pengelolaan jurnal ilmiah (per tahun)');
+          $Kegiatan = array('1. Menduduki jabatan pimpinan pada lembaga pemerintahan/pejabat negara yang harus dibebaskan dari jabatan organiknya tiap semester',
+          '2. Melaksanakan pengembangan hasil pendidikan, dan penelitian yang dapat dimanfaatkan oleh masyarakat/industry setiap program',
+          '3. Memberi latihan/penyuluhan/penataran/ceramah pada masyarakat, terjadwal/terprogram',
+          '4. Memberi pelayanan kepada masyarakat atau kegiatan lain yang menunjang pelaksanaan tugas pemerintahan dan pembangunan',
+          '5. Membuat/menulis karya pengabdian pada masyarakat yang tidak dipublikasikan,tiap karya',
+          '6. Hasil kegiatan pengabdian kepada masyarakat yang dipublikasikan di sebuah berkala/jurnal pengabdian kepada masyarakat atau teknologi tepat guna, merupakan diseminasi dari luaran program kegiatan pengabdian kepada masyarakat, tiap karya',
+          '7. Berperan serta aktif dalam pengelolaan jurnal ilmiah (per tahun)');
         ?>
         <select class="custom-select" id="IdKegiatanPengabdian">
           <?php $Id = 1; foreach ($Kegiatan as $key) { $ID = 'PNB'.$Id;?>

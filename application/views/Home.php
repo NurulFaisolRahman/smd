@@ -73,7 +73,7 @@
                                   <div class="input-group-prepend">
                                     <span class="input-group-text bg-warning text-primary"><b>NIP</b></span>
                                   </div>
-                                  <input type="text" class="form-control" id="nip">
+                                  <input type="text" class="form-control" id="nip" data-inputmask='"mask": "999999999999999999"' data-mask>
                                 </div>
                                 <div class="input-group input-group-sm mb-2">
                                   <div class="input-group-prepend">
@@ -152,10 +152,12 @@
     <script src="bootstrap/js/jquery.min.js"></script>
     <script src="bootstrap/js/popper.min.js" ></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/inputmask/min/jquery.inputmask.bundle.min.js"></script>
     <script>
       var BaseURL = '<?=base_url()?>'
       jQuery(document).ready(function($) {
         "use strict";
+        $('[data-mask]').inputmask()
         $('#nip').keypress(function(event){
           var keycode = (event.keyCode ? event.keyCode : event.which);
           if(keycode == '13'){
