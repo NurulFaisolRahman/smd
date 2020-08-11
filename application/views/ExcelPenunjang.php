@@ -114,7 +114,6 @@ td
 	{mso-style-parent:style0;
 	mso-pattern:auto none;
 	background:#D0CECE;
-	
 	font-size:10.0pt;
 	mso-font-charset:134;}
 .xl67

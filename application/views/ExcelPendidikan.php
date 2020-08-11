@@ -114,14 +114,12 @@ td
 	{mso-style-parent:style0;
 	mso-pattern:auto none;
 	background:#D0CECE;
-	
 	font-size:10.0pt;
 	mso-font-charset:134;}
 .xl67
 	{mso-style-parent:style0;
 	mso-pattern:auto none;
 	background:#D0CECE;
-	
 	font-size:10.0pt;
 	font-weight:700;
 	mso-font-charset:134;}
@@ -259,7 +257,6 @@ td
 	white-space:normal;
 	mso-pattern:auto none;
 	background:#D0CECE;
-	
 	font-size:10.0pt;
 	font-weight:700;
 	font-style:italic;
@@ -273,7 +270,6 @@ td
 	white-space:normal;
 	mso-pattern:auto none;
 	background:#D0CECE;
-	
 	font-size:10.0pt;
 	font-weight:700;
 	font-style:italic;
@@ -287,7 +283,6 @@ td
 	white-space:normal;
 	mso-pattern:auto none;
 	background:#D0CECE;
-	
 	font-size:10.0pt;
 	font-weight:700;
 	font-style:italic;
@@ -301,7 +296,6 @@ td
 	white-space:normal;
 	mso-pattern:auto none;
 	background:#D0CECE;
-	
 	font-size:10.0pt;
 	font-weight:700;
 	font-family:Arial;
@@ -312,7 +306,6 @@ td
 	text-align:center;
 	vertical-align:top;
 	white-space:normal;
-	
 	font-size:10.0pt;
 	font-family:Arial;
 	mso-font-charset:134;
@@ -321,7 +314,6 @@ td
 	{mso-style-parent:style0;
 	vertical-align:top;
 	white-space:normal;
-	
 	font-size:10.0pt;
 	font-family:Arial;
 	mso-font-charset:134;
@@ -333,7 +325,6 @@ td
 	text-align:center;
 	vertical-align:middle;
 	white-space:normal;
-	
 	font-size:10.0pt;
 	font-family:Arial;
 	mso-font-charset:134;
@@ -343,7 +334,6 @@ td
 	text-align:center;
 	vertical-align:middle;
 	white-space:normal;
-	
 	font-size:10.0pt;
 	font-family:Arial;
 	mso-font-charset:134;
@@ -430,7 +420,6 @@ td
 	{mso-style-parent:style0;
 	text-align:center;
 	vertical-align:middle;
-	
 	font-size:10.0pt;
 	font-family:Arial;
 	mso-font-charset:134;
