@@ -1,6 +1,6 @@
 <?php
   header('Content-Type: application/xlsx');
-  header('Content-Disposition: attachment; filename=PAK.xlsx');
+  header('Content-Disposition: attachment; filename=PO-PAK.xlsx');
 ?>
 MIME-Version: 1.0
 X-Document-Type: Workbook
@@ -109,7 +109,7 @@ Content-Type: text/html; charset="us-ascii"
     <x:ExcelName>
      <x:Name>Print_Area</x:Name>
      <x:SheetIndex>6</x:SheetIndex>
-     <x:Formula>=3D'Usul Kredit'!$A$1:$K$117</x:Formula>
+     <x:Formula>=3D'Usul Kredit'!$A$1:$K$120</x:Formula>
     </x:ExcelName>
     <x:ExcelName>
      <x:Name>Print_Area</x:Name>
@@ -28535,14 +28535,14 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl131" height=3D"18" style=3D'height:13.50pt;'></td>
     <td class=3D"xl132" x:str>1</td>
     <td class=3D"xl133" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nama</td>
-    <td class=3D"xl136" colspan=3D"5" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Selamet Joko Utomo, S.E.,M.E</td>
+    <td class=3D"xl136" colspan=3D"5" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str><?=$Profil['Nama']?></td>
     <td class=3D"xl126" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"20" style=3D'height:15.00pt;mso-height-source:userset;mso-height-alt:300;'>
     <td class=3D"xl131" height=3D"20" style=3D'height:15.00pt;'></td>
     <td class=3D"xl132" x:str>2</td>
     <td class=3D"xl134" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>NIP</td>
-    <td class=3D"xl162" colspan=3D"5" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>197920637614741000<font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8"><br/></font></td>
+    <td class=3D"xl162" colspan=3D"5" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str><?=$Profil['NIP']?><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8"><br/></font></td>
     <td class=3D"xl126" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"20" style=3D'height:15.00pt;mso-height-source:userset;mso-height-alt:300;'>
@@ -28577,14 +28577,14 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl131" height=3D"20" style=3D'height:15.00pt;'></td>
     <td class=3D"xl132" x:str>7</td>
     <td class=3D"xl134" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Pangkat dan Golongan Ruang/ TMT</td>
-    <td class=3D"xl136" colspan=3D"5" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Penata / IIIc</td>
+    <td class=3D"xl136" colspan=3D"5" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str><?=$Profil['Pangkat'].' / '.$Profil['Golongan']?></td>
     <td class=3D"xl126" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"20" style=3D'height:15.00pt;mso-height-source:userset;mso-height-alt:300;'>
     <td class=3D"xl131" height=3D"20" style=3D'height:15.00pt;'></td>
     <td class=3D"xl132" x:str>8</td>
     <td class=3D"xl134" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jabatan Fungsional / TMT</td>
-    <td class=3D"xl136" colspan=3D"5" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Asisten Ahli</td>
+    <td class=3D"xl136" colspan=3D"5" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str><?=$Profil['Jabatan']?></td>
     <td class=3D"xl126" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"20" style=3D'height:15.00pt;mso-height-source:userset;mso-height-alt:300;'>
@@ -28689,8 +28689,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>1</td>
     <td class=3D"xl168" x:str>Mengikuti pendidikan sekolah dan memperoleh gelar/sebutan/ijazah</td>
     <td class=3D"xl166"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PND1',$UsulPendidikan)) { echo array_search ('PND1', $UsulPendidikan); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF26+G26"></td>
     <td class=3D"xl166"></td>
     <td class=3D"xl166"></td>
     <td class=3D"xl166"></td>
@@ -28729,8 +28729,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl144"></td>
     <td class=3D"xl145" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>JUMLAH</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl170"></td>
-    <td class=3D"xl170"></td>
+    <td class=3D"xl170" x:fmla=3D"=3DSUM(G26:G28)"></td>
+    <td class=3D"xl170" x:fmla=3D"=3DSUM(H26:H28)"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -28755,8 +28755,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>1</td>
     <td class=3D"xl161" x:str>Melaksanakan perkuliahan/ tutorial dan membimbing / menguji serta menyelenggarakan pendidikan di Laboratorium, praktek keguruan, bengkel/ studio/ kebun percobaan/ teknologi pengajaran dan praktek lapangan</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PND3',$UsulPendidikan)) { echo str_replace('.',',',array_search('PND3', $UsulPendidikan)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF31+G31"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -28769,8 +28769,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>2</td>
     <td class=3D"xl161" x:str>Membimbing seminar Mahasiswa</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PND4',$UsulPendidikan)) { echo str_replace('.',',',array_search('PND4', $UsulPendidikan)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF32+G32"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -28783,8 +28783,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>3</td>
     <td class=3D"xl161" x:str>Membimbing Kuliah Kerja Nyata (KKN), Praktek Kerja Nyata (PKN), Praktek Kerja Lapang (PKL)</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PND5',$UsulPendidikan)) { echo str_replace('.',',',array_search('PND5', $UsulPendidikan)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF33+G33"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -28797,8 +28797,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>4</td>
     <td class=3D"xl161" x:str>Membimbing dan ikut membimbing dalam menghasilkan laporan akhir studi/ skripsi/ thesis/desertasi</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PND6',$UsulPendidikan)) { echo str_replace('.',',',array_search('PND6', $UsulPendidikan)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF34+G34"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -28811,8 +28811,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>5</td>
     <td class=3D"xl161" x:str>Bertugas sebagai penguji pada ujian akhir</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PND7',$UsulPendidikan)) { echo str_replace('.',',',array_search('PND7', $UsulPendidikan)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF35+G35"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -28825,8 +28825,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>6</td>
     <td class=3D"xl161" x:str>Membina kegiatan mahasiswa dibidang akademik dan kemahasiswaan</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PND8',$UsulPendidikan)) { echo str_replace('.',',',array_search('PND8', $UsulPendidikan)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF36+G36"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -28839,8 +28839,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>7</td>
     <td class=3D"xl161" x:str>Mengembangkan program kuliah</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PND9',$UsulPendidikan)) { echo str_replace('.',',',array_search('PND9', $UsulPendidikan)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF37+G37"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -28852,8 +28852,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>8</td>
     <td class=3D"xl161" x:str>Mengembangkan bahan pengajaran</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PND10',$UsulPendidikan)) { echo str_replace('.',',',array_search('PND10', $UsulPendidikan)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF38+G38"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -28865,8 +28865,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>9</td>
     <td class=3D"xl161" x:str>Menyampaikan orasi ilmiah</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PND11',$UsulPendidikan)) { echo str_replace('.',',',array_search('PND11', $UsulPendidikan)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF39+G39"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -28878,8 +28878,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>10</td>
     <td class=3D"xl161" x:str>Menduduki jabatan pimpinan perguruan tinggi</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PND12',$UsulPendidikan)) { echo str_replace('.',',',array_search('PND12', $UsulPendidikan)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF40+G40"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -28891,8 +28891,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>11</td>
     <td class=3D"xl161" x:str>Membimbing dosen yang lebih rendah jabatan fungsionalnya</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PND13',$UsulPendidikan)) { echo str_replace('.',',',array_search('PND13', $UsulPendidikan)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF41+G41"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -28904,8 +28904,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>12</td>
     <td class=3D"xl161" x:str>Melaksanakan kegiatan detasering dan pencangkokan dosen</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PND14',$UsulPendidikan)) { echo str_replace('.',',',array_search('PND14', $UsulPendidikan)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF42+G42"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -28918,8 +28918,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>13</td>
     <td class=3D"xl161" x:str>Melaksanakan<font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp; </span></font><font class=3D"font8">pengembangan</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp; </span></font><font class=3D"font8">diri untuk meningkatkan kompetensi</font></td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PND15',$UsulPendidikan)) { echo str_replace('.',',',array_search('PND15', $UsulPendidikan)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF43+G43"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -28929,16 +28929,16 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl143" height=3D"17" style=3D'height:12.75pt;'></td>
     <td class=3D"xl155" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
     <td class=3D"xl171"></td>
-    <td class=3D"xl170"></td>
-    <td class=3D"xl170"></td>
+    <td class=3D"xl170" x:fmla=3D"=3DSUM(G31:G43)"></td>
+    <td class=3D"xl170" x:fmla=3D"=3DSUM(H31:H43)"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl126" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"20" style=3D'height:15.00pt;mso-height-source:userset;mso-height-alt:300;'>
-    <td class=3D"xl143" height=3D"207" rowspan=3D"6" style=3D'height:155.25pt;border-right:.5pt solid windowtext;border-bottom:none;'></td>
-    <td class=3D"xl155" rowspan=3D"6" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>B</td>
+    <td class=3D"xl143" height=3D"207" rowspan=3D"9" style=3D'height:155.25pt;border-right:.5pt solid windowtext;border-bottom:none;'></td>
+    <td class=3D"xl155" rowspan=3D"9" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>B</td>
     <td class=3D"xl156" x:str>c</td>
     <td class=3D"xl157" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>MELAKSANAKAN PENELITIAN</td>
     <td class=3D"xl169"></td>
@@ -28950,12 +28950,12 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl126" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"17" style=3D'height:12.75pt;'>
-    <td class=3D"xl152" rowspan=3D"5" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'></td>
+    <td class=3D"xl152" rowspan=3D"8" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'></td>
     <td class=3D"xl141" x:num>1</td>
     <td class=3D"xl161" x:str>Menghasilkan karya Ilmiah</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PNL1',$UsulPenelitian)) { echo str_replace('.',',',array_search('PNL1', $UsulPenelitian)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF46+G46"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -28963,10 +28963,10 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"34" style=3D'height:25.50pt;'>
     <td class=3D"xl141" x:num>2</td>
-    <td class=3D"xl161" x:str>Menerjemahkan/ menyadur buku ilmiah</td>
-    <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl161" x:str>Hasil penelitian atau hasil pemikiran yang didesiminasikan</td>
+    <td class=3D"xl169"></td></td>
+    <td class=3D"xl167"><?php if (in_array('PNL2',$UsulPenelitian)) { echo str_replace('.',',',array_search('PNL2', $UsulPenelitian)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF47+G47"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -28974,10 +28974,10 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"34" style=3D'height:25.50pt;'>
     <td class=3D"xl141" x:num>3</td>
-    <td class=3D"xl161" x:str>Mengedit/ menyunting karya ilmiah</td>
-    <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl161" x:str>Hasil penelitian atau pemikiran atau kerjasama industri yang tidak dipublikasikan (tersimpan dalam perpustakaan) yang dilakukan secara melembaga</td>
+    <td class=3D"xl169"></td></td>
+    <td class=3D"xl167"><?php if (in_array('PNL3',$UsulPenelitian)) { echo str_replace('.',',',array_search('PNL3', $UsulPenelitian)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF48+G48"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -28985,21 +28985,54 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"34" style=3D'height:25.50pt;'>
     <td class=3D"xl141" x:num>4</td>
-    <td class=3D"xl161" x:str>Membuat rancangan dan karya teknologi yang dipatenkan<font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp;</span></font></td>
-    <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl161" x:str>Menerjemahkan/ menyadur buku ilmiah</td>
+    <td class=3D"xl169"></td></td>
+    <td class=3D"xl167"><?php if (in_array('PNL4',$UsulPenelitian)) { echo str_replace('.',',',array_search('PNL4', $UsulPenelitian)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF49+G49"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl126" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"68" style=3D'height:51.00pt;'>
+   <tr height=3D"34" style=3D'height:25.50pt;'>
     <td class=3D"xl141" x:num>5</td>
-    <td class=3D"xl161" x:str>Membuat rancangan dan karya teknologi, rancangan dan karya seni monumental/ seni pertunjukan/ karya sastra</td>
+    <td class=3D"xl161" x:str>Mengedit/ menyunting karya ilmiah</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PNL5',$UsulPenelitian)) { echo str_replace('.',',',array_search('PNL5', $UsulPenelitian)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF50+G50"></td>
+    <td class=3D"xl169"></td>
+    <td class=3D"xl169"></td>
+    <td class=3D"xl169"></td>
+    <td class=3D"xl126" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"34" style=3D'height:25.50pt;'>
+    <td class=3D"xl141" x:num>6</td>
+    <td class=3D"xl161" x:str>Membuat rancangan dan karya teknologi yang dipatenkan atau seni yang terdaftar di HaKI secara nasional atau internasional</td>
+    <td class=3D"xl169"></td>
+    <td class=3D"xl167"><?php if (in_array('PNL6',$UsulPenelitian)) { echo str_replace('.',',',array_search('PNL6', $UsulPenelitian)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF51+G51"></td>
+    <td class=3D"xl169"></td>
+    <td class=3D"xl169"></td>
+    <td class=3D"xl169"></td>
+    <td class=3D"xl126" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"34" style=3D'height:25.50pt;'>
+    <td class=3D"xl141" x:num>7</td>
+    <td class=3D"xl161" x:str>Membuat rancangan dan karya teknologi yang tidak dipatenkan; rancangan dan karya seni monumental yang tidak terdaftar di HaKI tetapi telah dipresentasikan pada forum yang teragenda</td>
+    <td class=3D"xl169"></td>
+    <td class=3D"xl167"><?php if (in_array('PNL7',$UsulPenelitian)) { echo str_replace('.',',',array_search('PNL7', $UsulPenelitian)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF52+G52"></td>
+    <td class=3D"xl169"></td>
+    <td class=3D"xl169"></td>
+    <td class=3D"xl169"></td>
+    <td class=3D"xl126" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"34" style=3D'height:25.50pt;'>
+    <td class=3D"xl141" x:num>8</td>
+    <td class=3D"xl161" x:str>Membuat rancangan dan karya seni yang tidak terdaftarHaKI</td>
+    <td class=3D"xl169"></td>
+    <td class=3D"xl167"><?php if (in_array('PNL8',$UsulPenelitian)) { echo str_replace('.',',',array_search('PNL8', $UsulPenelitian)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF53+G53"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -29009,8 +29042,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl143" height=3D"17" style=3D'height:12.75pt;'></td>
     <td class=3D"xl155" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl170"></td>
-    <td class=3D"xl170"></td>
+    <td class=3D"xl170" x:fmla=3D"=3DSUM(G46:G53)"></td>
+    <td class=3D"xl170" x:fmla=3D"=3DSUM(H46:H53)"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -29036,8 +29069,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>1</td>
     <td class=3D"xl161" x:str>Menduduki jabatan pimpinan pada lembaga pemerintah/ pejabat negara yang dibebaskan dari jabatan organiknya</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PNB1',$UsulPengabdian)) { echo str_replace('.',',',array_search('PNB1', $UsulPengabdian)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF56+G56"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -29050,8 +29083,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>2</td>
     <td class=3D"xl161" x:str>Melaksanakan pengembangan hasil pendidikan dan penelitian yang dapat dimanfaatkan oleh masyarakat</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PNB2',$UsulPengabdian)) { echo str_replace('.',',',array_search('PNB2', $UsulPengabdian)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF57+G57"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -29064,8 +29097,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>3</td>
     <td class=3D"xl161" x:str>Memberi latihan/ penyuluhan/ penataran/ ceramah pada masyarakat</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PNB3',$UsulPengabdian)) { echo str_replace('.',',',array_search('PNB3', $UsulPengabdian)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF58+G58"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -29078,8 +29111,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>4</td>
     <td class=3D"xl161" x:str>Memberi pelayanan pada masyarakat atau kegiatan lain yang menunjang pelaksanaan tugas umum pemerintahan dan pembangunan</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PNB4',$UsulPengabdian)) { echo str_replace('.',',',array_search('PNB4', $UsulPengabdian)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF59+G59"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -29092,8 +29125,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>5</td>
     <td class=3D"xl161" x:str>Menulis / membuat karya pengabdian pada masyarakat yang tidak dipublikasikan</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PNB5',$UsulPengabdian)) { echo str_replace('.',',',array_search('PNB5', $UsulPengabdian)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF60+G60"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -29106,8 +29139,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>6</td>
     <td class=3D"xl161" x:str>Hasil<font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">kegiatan</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">pengabdian</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">kepada</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">masyarakat</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">yang</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">dipublikasikan</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">di sebuah</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">berkala/jurnal</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">pengabdian</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">kepada</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">masyarakat</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">atau</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">teknologi tepat</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp; </span></font><font class=3D"font8">guna,</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp; </span></font><font class=3D"font8">merupakan</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp; </span></font><font class=3D"font8">diseminasi</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp; </span></font><font class=3D"font8">dari</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp; </span></font><font class=3D"font8">luaran</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp; </span></font><font class=3D"font8">program</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp; </span></font><font class=3D"font8">kegiatan pengabdian kepada masyarakat, tiap karya</font></td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PNB6',$UsulPengabdian)) { echo str_replace('.',',',array_search('PNB6', $UsulPengabdian)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF61+G61"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -29120,8 +29153,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>7</td>
     <td class=3D"xl161" x:str>Berperan serta aktif dalam pengelolaan jurnal ilmiah</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PNB7',$UsulPengabdian)) { echo str_replace('.',',',array_search('PNB7', $UsulPengabdian)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF62+G62"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -29131,8 +29164,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl150" height=3D"17" style=3D'height:12.75pt;'></td>
     <td class=3D"xl155" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl170"></td>
-    <td class=3D"xl170"></td>
+    <td class=3D"xl170" x:fmla=3D"=3DSUM(G56:G62)"></td>
+    <td class=3D"xl170" x:fmla=3D"=3DSUM(H56:H62)"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -29164,8 +29197,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>1</td>
     <td class=3D"xl161" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Menjadi anggota dalam suatu panitia / badan pada Perguruan Tinggi</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PNJ1',$UsulPenunjang)) { echo str_replace('.',',',array_search('PNJ1', $UsulPenunjang)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF66+G66"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -29175,8 +29208,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>2</td>
     <td class=3D"xl161" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Menjadi anggota Panitia/ badan pada lembaga pemerintah</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PNJ2',$UsulPenunjang)) { echo str_replace('.',',',array_search('PNJ2', $UsulPenunjang)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF67+G67"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -29186,8 +29219,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>3</td>
     <td class=3D"xl161" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Menjadi anggota profesi</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PNJ3',$UsulPenunjang)) { echo str_replace('.',',',array_search('PNJ3', $UsulPenunjang)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF68+G68"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -29197,8 +29230,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>4</td>
     <td class=3D"xl161" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Mewakili perguruan tinggi / lembaga pemerintah duduk dalam panitia antar lembaga</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PNJ4',$UsulPenunjang)) { echo str_replace('.',',',array_search('PNJ4', $UsulPenunjang)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF69+G69"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -29208,8 +29241,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>5</td>
     <td class=3D"xl161" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Menjadi anggota delegasi Nasional ke pertemuan Internasional</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PNJ5',$UsulPenunjang)) { echo str_replace('.',',',array_search('PNJ5', $UsulPenunjang)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF70+G70"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -29219,8 +29252,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>6</td>
     <td class=3D"xl161" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Berperan serta aktif dalam pertemuan ilmiah</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PNJ6',$UsulPenunjang)) { echo str_replace('.',',',array_search('PNJ6', $UsulPenunjang)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF71+G71"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -29230,8 +29263,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>7</td>
     <td class=3D"xl161" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Mendapat tanda jasa / penghargaan</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PNJ7',$UsulPenunjang)) { echo str_replace('.',',',array_search('PNJ7', $UsulPenunjang)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF72+G72"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -29242,8 +29275,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>8</td>
     <td class=3D"xl161" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Menulis buku pelajaran SLTA kebawah yang diterbitkan dan diedarkan secara Nasional</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PNJ8',$UsulPenunjang)) { echo str_replace('.',',',array_search('PNJ8', $UsulPenunjang)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF73+G73"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -29253,8 +29286,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>9</td>
     <td class=3D"xl161" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Mempunyai prestastasi dibidang olahraga / humaniora</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PNJ9',$UsulPenunjang)) { echo str_replace('.',',',array_search('PNJ9', $UsulPenunjang)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF74+G714></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -29266,8 +29299,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>10</td>
     <td class=3D"xl168" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Keanggotaan dalam tim penilai jabatan akademik dosen</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?php if (in_array('PNJ10',$UsulPenunjang)) { echo str_replace('.',',',array_search('PNJ10', $UsulPenunjang)); } ?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF75+G75"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -29277,8 +29310,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl173" height=3D"17" style=3D'height:12.75pt;'></td>
     <td class=3D"xl155" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl170"></td>
-    <td class=3D"xl170"></td>
+    <td class=3D"xl170" x:fmla=3D"=3DSUM(G66:G75)"></td>
+    <td class=3D"xl170" x:fmla=3D"=3DSUM(H66:H75)"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -29992,7 +30025,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl79" x:num>1</td>
     <td class=3D"xl80" colspan=3D"3" style=3D'border-right:none;border-bottom:.5pt solid windowtext;' x:str>Nama</td>
     <td class=3D"xl85"></td>
-    <td class=3D"xl106" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Dr. Sutikno, SE., ME.</td>
+    <td class=3D"xl106" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str><?=$Profil['Nama']?></td>
     <td class=3D"xl102"></td>
     <td class=3D"xl69" colspan=3D"6" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl68" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
@@ -30003,7 +30036,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl79" x:num>2</td>
     <td class=3D"xl80" colspan=3D"3" style=3D'border-right:none;border-bottom:.5pt solid windowtext;' x:str>NIP</td>
     <td class=3D"xl85"></td>
-    <td class=3D"xl107" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:num=3D"1,9750809200812099e+17">197508092008121000</td>
+    <td class=3D"xl107" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'><?=$Profil['NIP']?></td>
     <td class=3D"xl102"></td>
     <td class=3D"xl69" colspan=3D"6" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl68" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
@@ -30027,7 +30060,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl76" colspan=3D"2" style=3D'mso-ignore:colspan;' x:str>Pangkat/<font class=3D"font2">Golongan Ruang/TMT</font></td>
     <td class=3D"xl76"></td>
     <td class=3D"xl85"></td>
-    <td class=3D"xl106" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Penata / IIIc</td>
+    <td class=3D"xl106" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str><?=$Profil['Pangkat'].' / '.$Profil['Golongan']?></td>
     <td class=3D"xl102"></td>
     <td class=3D"xl69" colspan=3D"6" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl68" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
@@ -30073,7 +30106,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl76" colspan=3D"2" style=3D'mso-ignore:colspan;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jabatan A<font class=3D"font2">kademik Dosen/TMT</font></td>
     <td class=3D"xl76"></td>
     <td class=3D"xl85"></td>
-    <td class=3D"xl106" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Lektor</td>
+    <td class=3D"xl106" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str><?=$Profil['Jabatan']?></td>
     <td class=3D"xl102"></td>
     <td class=3D"xl69" colspan=3D"6" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl68" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
@@ -30162,9 +30195,9 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl91"></td>
     <td class=3D"xl92" x:str>1)<font class=3D"font2"><span style=3D'mso-spacerun:yes;'>&nbsp;</span></font></td>
     <td class=3D"xl115" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Mengikuti pendidikan sekolah dan memperoleh gelar/ijazah</td>
-    <td class=3D"xl81" x:str>0</td>
-    <td class=3D"xl81" x:str>350</td>
-    <td class=3D"xl81" x:fmla=3D"=3DG33+H33" x:num>350</td>
+    <td class=3D"xl81" x:num>0</td>
+    <td class=3D"xl81" x:num><?=$KreditPendidikan1a['Kredit']?></td>
+    <td class=3D"xl81" x:fmla=3D"=3DG33+H33" x:num>0</td>
     <td class=3D"xl69" colspan=3D"7" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl68" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl68" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
@@ -30176,9 +30209,9 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl80" x:str>2)</td>
     <td class=3D"xl83" x:str>Diklat prajabatan</td>
     <td class=3D"xl116"></td>
-    <td class=3D"xl81" x:str>0</td>
-    <td class=3D"xl81" x:str>3</td>
-    <td class=3D"xl81" x:fmla=3D"=3DG34+H34" x:num>3</td>
+    <td class=3D"xl81" x:num>0</td>
+    <td class=3D"xl81" x:num><?=$KreditPendidikan1b['Kredit']?></td>
+    <td class=3D"xl81" x:fmla=3D"=3DG34+H34" x:num>0</td>
     <td class=3D"xl69" colspan=3D"7" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl68" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl68" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
@@ -30190,8 +30223,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl76" colspan=3D"2" style=3D'mso-ignore:colspan;' x:str>Pelaksanaan pendidikan</td>
     <td class=3D"xl116"></td>
     <td class=3D"xl81" x:num>0</td>
-    <td class=3D"xl81" x:num=3D"62,75">62,75</td>
-    <td class=3D"xl81" x:fmla=3D"=3DG35+H35" x:num=3D"62,75">62,75</td>
+    <td class=3D"xl81" x:num><?=str_replace('.',',',$KreditPendidikan2['Kredit'])?></td>
+    <td class=3D"xl81" x:fmla=3D"=3DG35+H35" x:num>0</td>
     <td class=3D"xl69" colspan=3D"7" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl68" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl68" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
@@ -30203,8 +30236,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl76" colspan=3D"2" style=3D'mso-ignore:colspan;' x:str>Pelaksanaan penelitian</td>
     <td class=3D"xl116"></td>
     <td class=3D"xl81" x:num>0</td>
-    <td class=3D"xl81" x:num>24</td>
-    <td class=3D"xl81" x:fmla=3D"=3DG36+H36" x:num>24</td>
+    <td class=3D"xl81" x:num><?=str_replace('.',',',$KreditPenelitian['Kredit'])?></td>
+    <td class=3D"xl81" x:fmla=3D"=3DG36+H36" x:num>0</td>
     <td class=3D"xl69" colspan=3D"7" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl68" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl68" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
@@ -30215,8 +30248,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl94" x:str>D</td>
     <td class=3D"xl95" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Pelaksanaan pengabdian kepada masyarakat</td>
     <td class=3D"xl81" x:num>0</td>
-    <td class=3D"xl81" x:num>2</td>
-    <td class=3D"xl81" x:fmla=3D"=3DG37+H37" x:num>2</td>
+    <td class=3D"xl81" x:num><?=str_replace('.',',',$KreditPengabdian['Kredit'])?></td>
+    <td class=3D"xl81" x:fmla=3D"=3DG37+H37" x:num>0</td>
     <td class=3D"xl69" colspan=3D"7" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl68" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl68" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
@@ -30227,8 +30260,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl97" colspan=3D"3" style=3D'mso-ignore:colspan;' x:str>Jumlah Unsur Utama</td>
     <td class=3D"xl117"></td>
     <td class=3D"xl118" x:num>0</td>
-    <td class=3D"xl119" x:fmla=3D"=3DSUM(H35:H37)" x:num=3D"88,75">089</td>
-    <td class=3D"xl119" x:fmla=3D"=3DSUM(G38;H38)" x:num=3D"88,75">089</td>
+    <td class=3D"xl119" x:fmla=3D"=3DSUM(H33:H37)" x:num>0</td>
+    <td class=3D"xl119" x:fmla=3D"=3DSUM(G38;H38)" x:num>0</td>
     <td class=3D"xl69" colspan=3D"7" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl68" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl68" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
@@ -30251,8 +30284,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl76" colspan=3D"3" style=3D'mso-ignore:colspan;' x:str>Penunjang Tugas Dosen</td>
     <td class=3D"xl85"></td>
     <td class=3D"xl81" x:num>0</td>
-    <td class=3D"xl81" x:num>2</td>
-    <td class=3D"xl81" x:fmla=3D"=3DG40+H40" x:num>2</td>
+    <td class=3D"xl81" x:num><?=str_replace('.',',',$KreditPenunjang['Kredit'])?></td>
+    <td class=3D"xl81" x:fmla=3D"=3DG40+H40" x:num>0</td>
     <td class=3D"xl69" colspan=3D"7" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl68" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl68" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
@@ -30262,9 +30295,9 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl96"></td>
     <td class=3D"xl97" colspan=3D"3" style=3D'mso-ignore:colspan;' x:str>Jumlah Unsur Penunjang</td>
     <td class=3D"xl117"></td>
-    <td class=3D"xl118" x:fmla=3D"=3DG40*10%" x:num>0</td>
-    <td class=3D"xl118" x:fmla=3D"=3DH40" x:num>2</td>
-    <td class=3D"xl118" x:fmla=3D"=3DG41+H41" x:num>2</td>
+    <td class=3D"xl118" x:num>0</td>
+    <td class=3D"xl118" x:fmla=3D"=3DH40" x:num>0</td>
+    <td class=3D"xl118" x:fmla=3D"=3DG41+H41" x:num>0</td>
     <td class=3D"xl69" colspan=3D"7" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl68" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl68" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
@@ -30273,15 +30306,15 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl93" height=3D"23" style=3D'height:17.25pt;'></td>
     <td class=3D"xl97" colspan=3D"5" style=3D'mso-ignore:colspan;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah Unsur Utama dan Unsur Penunjang</td>
     <td class=3D"xl118" x:num>0</td>
-    <td class=3D"xl119" x:fmla=3D"=3DSUM(H38;H41)" x:num=3D"90,75">091</td>
-    <td class=3D"xl119" x:fmla=3D"=3DSUM(G42;H42)" x:num=3D"90,75">091</td>
+    <td class=3D"xl119" x:fmla=3D"=3DSUM(H38;H41)" x:num>0</td>
+    <td class=3D"xl119" x:fmla=3D"=3DSUM(G42;H42)" x:num>0</td>
     <td class=3D"xl69" colspan=3D"7" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl68" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl68" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"21" class=3D"xl67" style=3D'height:15.75pt;mso-height-source:userset;mso-height-alt:315;'>
     <td class=3D"xl75" height=3D"21" style=3D'height:15.75pt;' x:str>III</td>
-    <td class=3D"xl100" colspan=3D"8" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>DAPAT DIPERTIMBANGKAN UNTUK DIANGKAT/DINAIKKAN JABATAN LEKTOR (200)/ PANGKAT IIIC/ TMT ..................</td>
+    <td class=3D"xl100" colspan=3D"8" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>DAPAT DIPERTIMBANGKAN UNTUK DIANGKAT/DINAIKKAN JABATAN ..................</td>
     <td class=3D"xl121" colspan=3D"7" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl67" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl67" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>

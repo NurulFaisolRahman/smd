@@ -240,63 +240,72 @@
 					})
 				})
 
+				function Tambah() {
+					var fd = new FormData()
+					fd.append("file", $('#Bukti')[0].files[0])
+					fd.append('Homebase',$("#JenisRealisasi").val())
+					fd.append('Semester',$("#SemesterRealisasi").val())
+					fd.append('Tahun',$("#TahunRealisasi").val())
+					fd.append('IdKegiatan',$("#InputIdKegiatanPenelitian").val())
+					fd.append('Ke',$("#Ke").val())		
+					fd.append('Dari',$("#Dari").val())		
+					fd.append('Penulis',$("#Ke").val()+'/'+$("#Dari").val())		
+					fd.append('Kegiatan',$("#Uraian").val())		
+					fd.append('Volume',parseInt($("#Volume").val()))
+					fd.append('TanggalKegiatan',$("#TanggalKegiatan").val())	
+					if ($("#InputIdKegiatanPenelitian").val() == 'PNL1') {
+						fd.append('Kode',$("#Point1").val())
+					}
+					else if ($("#InputIdKegiatanPenelitian").val() == 'PNL2') {
+						fd.append('Kode',$("#Point2").val())				
+					}
+					else if ($("#InputIdKegiatanPenelitian").val() == 'PNL6') {
+						fd.append('Kode',$("#Point6").val())
+					}
+					else if ($("#InputIdKegiatanPenelitian").val() == 'PNL7') {
+						fd.append('Kode',$("#Point7").val())
+					}
+					else if ($("#InputIdKegiatanPenelitian").val() == 'PNL8') {
+						fd.append('Kode',$("#Point8").val())
+					}
+					else {
+						fd.append('Kode','0')
+					}
+					$.ajax({
+						url: BaseURL+'Penelitian/InputRealisasi',
+						type: 'post',
+						data: fd,
+						contentType: false,
+						processData: false,
+						success: function(Respon){
+							if (Respon == '1') {
+								window.location = BaseURL + "Dashboard/Penelitian"
+							}
+							else {
+								alert(Respon)
+							}
+						}
+					});
+				}
+
 				$("#TambahRealisasiPenelitian").click(function() {
 					if ($("#InputIdKegiatanPenelitian").val() != 'PNL8') {
 						if (isNaN(parseInt($("#Ke").val())) || isNaN(parseInt($("#Dari").val())) || parseInt($("#Ke").val()) > parseInt($("#Dari").val())) {
 							alert('Input Penulis Belum Benar')
-						} 	
+						} 
+						else if (isNaN(parseInt($("#Volume").val()))) {
+							alert('Volume Kegiatan Wajib Belum Benar!')
+						}	
+						else {
+							Tambah()
+						}
 					}
 					else if (isNaN(parseInt($("#Volume").val()))) {
 						alert('Volume Kegiatan Wajib Belum Benar!')
 					}
 					else {
-						var fd = new FormData()
-						fd.append("file", $('#Bukti')[0].files[0])
-						fd.append('Homebase',$("#JenisRealisasi").val())
-						fd.append('Semester',$("#SemesterRealisasi").val())
-						fd.append('Tahun',$("#TahunRealisasi").val())
-						fd.append('IdKegiatan',$("#InputIdKegiatanPenelitian").val())
-						fd.append('Ke',$("#Ke").val())		
-						fd.append('Dari',$("#Dari").val())		
-						fd.append('Penulis',$("#Ke").val()+'/'+$("#Dari").val())		
-						fd.append('Kegiatan',$("#Uraian").val())		
-						fd.append('Volume',parseInt($("#Volume").val()))
-						fd.append('TanggalKegiatan',$("#TanggalKegiatan").val())	
-						if ($("#InputIdKegiatanPenelitian").val() == 'PNL1') {
-							fd.append('Kode',$("#Point1").val())
-						}
-						else if ($("#InputIdKegiatanPenelitian").val() == 'PNL2') {
-							fd.append('Kode',$("#Point2").val())				
-						}
-						else if ($("#InputIdKegiatanPenelitian").val() == 'PNL6') {
-							fd.append('Kode',$("#Point6").val())
-						}
-						else if ($("#InputIdKegiatanPenelitian").val() == 'PNL7') {
-							fd.append('Kode',$("#Point7").val())
-						}
-						else if ($("#InputIdKegiatanPenelitian").val() == 'PNL8') {
-							fd.append('Kode',$("#Point8").val())
-						}
-						else {
-							fd.append('Kode','0')
-						}
-						$.ajax({
-							url: BaseURL+'Penelitian/InputRealisasi',
-							type: 'post',
-							data: fd,
-							contentType: false,
-							processData: false,
-							success: function(Respon){
-								if (Respon == '1') {
-									window.location = BaseURL + "Dashboard/Penelitian"
-								}
-								else {
-									alert(Respon)
-								}
-							}
-						});
+						Tambah()
 					}
-          return false
 				})
 				
 				$(document).on("click",".EditRealisasi",function(){

@@ -47,7 +47,7 @@
 													<td><b>: <?=$Profil['Jabatan']?></b></td>
 												</tr>
 												<tr>
-													<td><b>Kredit</b></td>
+													<td><b>Kredit Lama</b></td>
 													<td><b>: <?=$Profil['Kredit']?></b></td>
 												</tr>
 											</table>
@@ -140,10 +140,25 @@
 						</div>
 						<div class="input-group mb-1">
 							<div class="input-group-prepend">
-								<label class="input-group-text bg-primary"><b>Kredit</b></label>
+								<label class="input-group-text bg-primary"><b>Kredit Lama</b></label>
 							</div>
 							<input type="text" id="Kredit" class="form-control form-control" value="<?=$Profil['Kredit']?>">
 						</div>
+						<!-- <div class="input-group mb-1">
+							<div class="input-group-prepend">
+								<label class="input-group-text bg-primary"><b>Semester Kredit Lama</b></label>
+							</div>
+							<select class="custom-select" id="semester">										
+								<option value="Ganjil">Ganjil</option>
+								<option value="Genap">Genap</option>
+							</select>
+						</div>
+						<div class="input-group mb-1">
+							<div class="input-group-prepend">
+								<label class="input-group-text bg-primary"><b>Tahun Kredit Lama</b></label>
+							</div>
+							<input type="text" id="tahun" class="form-control form-control" value="<?=$Profil['Tahun']?>" data-inputmask='"mask": "9999"' data-mask>
+						</div> -->
 					</div>
 					<div class="modal-footer justify-content-between">
 						<button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
@@ -169,21 +184,21 @@
 					var Tahun = $('#Tahun').val()
 					var Pisah = Tahun.split('-')
 					window.location = BaseURL + 'Dashboard/PAK/'+$('#Homebase').val()+'/'+$('#Semester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))
-					var PAK = ['Pendidikan','Penelitian','Pengabdian','Penunjang']
-					for (let i = 1; i < 5; i++) {
-						$.post(BaseURL+PAK[i-1]+"/Lampiran/"+$('#Homebase').val()+'/'+$('#Semester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))+'/'+PAK[i-1]).done(function(Respon) {
-							var array = JSON.parse(Respon)
-							var NomorLampiran = 1
-							array.forEach(function(object) {
-								if (object.Bukti != null) {
-									$('#LampiranPAK').attr('href',BaseURL+PAK[i-1]+'/'+object.Bukti)		
-									$('#LampiranPAK').attr('Download','Lampiran '+i+'.'+NomorLampiran)
-									$('#LampiranPAK')[0].click()
-								}
-								NomorLampiran++;
-							})
-						}) 	
-					}
+					// var PAK = ['Pendidikan','Penelitian','Pengabdian','Penunjang']
+					// for (let i = 1; i < 5; i++) {
+					// 	$.post(BaseURL+PAK[i-1]+"/Lampiran/"+$('#Homebase').val()+'/'+$('#Semester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))+'/'+PAK[i-1]).done(function(Respon) {
+					// 		var array = JSON.parse(Respon)
+					// 		var NomorLampiran = 1
+					// 		array.forEach(function(object) {
+					// 			if (object.Bukti != null) {
+					// 				$('#LampiranPAK').attr('href',BaseURL+PAK[i-1]+'/'+object.Bukti)		
+					// 				$('#LampiranPAK').attr('Download','Lampiran '+i+'.'+NomorLampiran)
+					// 				$('#LampiranPAK')[0].click()
+					// 			}
+					// 			NomorLampiran++;
+					// 		})
+					// 	}) 	
+					// }
 				})
 
 				$("#EditProfil").click(function() {
