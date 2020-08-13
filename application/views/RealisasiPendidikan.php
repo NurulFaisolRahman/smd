@@ -202,14 +202,14 @@
               <span class="input-group-text bg-primary"><b>Jabatan</b></span>
             </div>
             <select class="custom-select" id="JenisPND12">
-              <option value="6">Rektor</option>
-              <option value="5">Wakil rektor / dekan / direktur program pasca sarjana / ketua lembaga</option>
-              <option value="4">Ketua sekolah tinggi / pembantu dekan / asisten direktur program pasca sarjana / direktur politeknik / kepala LLDikti</option>
+              <option value="1">Rektor</option>
+              <option value="2">Wakil rektor / dekan / direktur program pasca sarjana / ketua lembaga</option>
+              <option value="3">Ketua sekolah tinggi / pembantu dekan / asisten direktur program pasca sarjana / direktur politeknik / kepala LLDikti</option>
               <option value="4">Pembantu ketua sekolah tinggi/pembantu direktur politeknik</option>
-              <option value="4">Direktur akademi</option>
-              <option value="3">Pembantu direktur politeknik, ketua jurusan / bagian pada universitas / institut / sekolah tinggi</option>
-              <option value="3">Pembantu direktur akademi / ketua jurusan / ketua prodipada universitas / politeknik / akademi, sekretaris jurusan / bagian pada universitas / institut / sekolah tinggi</option>
-              <option value="3">Sekretaris jurusan pada politeknik / akademi dan kepala laboratorium (bengkel) universitas / institut / sekolah tinggi / politeknik / akademi</option>
+              <option value="5">Direktur akademi</option>
+              <option value="6">Pembantu direktur politeknik, ketua jurusan / bagian pada universitas / institut / sekolah tinggi</option>
+              <option value="7">Pembantu direktur akademi / ketua jurusan / ketua prodipada universitas / politeknik / akademi, sekretaris jurusan / bagian pada universitas / institut / sekolah tinggi</option>
+              <option value="8">Sekretaris jurusan pada politeknik / akademi dan kepala laboratorium (bengkel) universitas / institut / sekolah tinggi / politeknik / akademi</option>
             </select>
           </div>
         </div>
@@ -241,13 +241,13 @@
               <span class="input-group-text bg-primary"><b>Rentang</b></span>
             </div>
             <select class="custom-select" id="JenisPND15">
-              <option value="15">lebih dari 960 jam</option>
-              <option value="9">antara 641-960 jam</option>
-              <option value="6">antara 481-640 jam</option>
-              <option value="3">antara 161-480 jam</option>
-              <option value="2">antara 81-160 jam</option>
-              <option value="1">antara 30-80 jam</option>
-              <option value="0.5">antara 10-30 jam</option>
+              <option value="1">lebih dari 960 jam</option>
+              <option value="2">antara 641-960 jam</option>
+              <option value="3">antara 481-640 jam</option>
+              <option value="4">antara 161-480 jam</option>
+              <option value="5">antara 81-160 jam</option>
+              <option value="6">antara 30-80 jam</option>
+              <option value="7">antara 10-30 jam</option>
             </select>
           </div>
         </div>

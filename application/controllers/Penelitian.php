@@ -297,8 +297,7 @@ class Penelitian extends CI_Controller {
 			if ($this->CekBukti($Pdf)){
 				$Tipe = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
 				$NamaPdf = date('Ymd',time()).substr(password_hash('Pendidikan', PASSWORD_DEFAULT),7,7).'.'.$Tipe;
-				str_replace("/","F",$NamaPdf);
-				move_uploaded_file($_FILES['file']['tmp_name'], "Penelitian/".$NamaPdf);
+				move_uploaded_file($_FILES['file']['tmp_name'], "Penelitian/".str_replace("/","F",$NamaPdf));
 				$this->db->insert('RealisasiPenelitian',
 										array('NIP' => $NIP, 
 													'Jabatan' => $Jabatan, 
@@ -558,8 +557,7 @@ class Penelitian extends CI_Controller {
 			if ($this->CekBukti($Pdf)){
 				$Tipe = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
 				$NamaPdf = date('Ymd',time()).substr(password_hash('Pendidikan', PASSWORD_DEFAULT),7,7).'.'.$Tipe;
-				str_replace("/","F",$NamaPdf);
-				move_uploaded_file($_FILES['file']['tmp_name'], "Penelitian/".$NamaPdf);
+				move_uploaded_file($_FILES['file']['tmp_name'], "Penelitian/".str_replace("/","F",$NamaPdf));
 				if($_POST['Bukti'] != ''){
 					unlink('Penelitian/'.$_POST['Bukti']);
 				}

@@ -588,13 +588,14 @@
 						fd.append('IdKegiatan',$("#InputIdKegiatanPendidikan").val())
 						fd.append('Kegiatan',$("#Uraian").val())		
 						fd.append('TanggalKegiatan',$("#TanggalKegiatan").val())
-						fd.append('Volume',parseFloat($("#Volume").val().replace(',','.')))									
-						if ($("#InputIdKegiatanPendidikan").val() == 'PND1' || $("#InputIdKegiatanPendidikan").val() == 'PND2' || $("#InputIdKegiatanPendidikan").val() == 'PND3' || $("#InputIdKegiatanPendidikan").val() == 'PND4' || $("#InputIdKegiatanPendidikan").val() == 'PND5' || $("#InputIdKegiatanPendidikan").val() == 'PND8' || $("#InputIdKegiatanPendidikan").val() == 'PND9' || $("#InputIdKegiatanPendidikan").val() == 'PND11' || $("#InputIdKegiatanPendidikan").val() == 'PND12') {
-							fd.append('Kode','0')
-						}
+						fd.append('Volume',parseFloat($("#Volume").val().replace(',','.')))
 						if ($("#InputIdKegiatanPendidikan").val() == 'PND1') {
+							$("#Jenjang").val() == 200? fd.append('Kode','0') : fd.append('Kode','1')
 							fd.append('Jenjang',$("#Jenjang").val())
 						}
+						if ($("#InputIdKegiatanPendidikan").val() == 'PND2' || $("#InputIdKegiatanPendidikan").val() == 'PND3' || $("#InputIdKegiatanPendidikan").val() == 'PND4' || $("#InputIdKegiatanPendidikan").val() == 'PND5' || $("#InputIdKegiatanPendidikan").val() == 'PND8' || $("#InputIdKegiatanPendidikan").val() == 'PND9' || $("#InputIdKegiatanPendidikan").val() == 'PND11') {
+							fd.append('Kode','0')
+						} 
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND6') {
 							fd.append('JenisPembimbing',$("#JenisPembimbing").val())
 							fd.append('JenisBimbingan',$("#JenisBimbingan").val())			
@@ -609,7 +610,25 @@
 							fd.append('Kode',$("#BahanPengajaran").val())
 						}
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND12') {
-							fd.append('JenisPND12',$("#JenisPND12").val())
+							fd.append('Kode',$("#JenisPND12").val())
+							var JenisPND12 = $("#JenisPND12").val()
+							if (JenisPND12 == 1) {
+								fd.append('JenisPND12',6)
+							} else if (JenisPND12 == 2) {
+								fd.append('JenisPND12',5)
+							} else if (JenisPND12 == 3) {
+								fd.append('JenisPND12',4)
+							} else if (JenisPND12 == 4) {
+								fd.append('JenisPND12',4)
+							} else if (JenisPND12 == 5) {
+								fd.append('JenisPND12',4)
+							} else if (JenisPND12 == 6) {
+								fd.append('JenisPND12',3)
+							} else if (JenisPND12 == 7) {
+								fd.append('JenisPND12',3)
+							} else if (JenisPND12 == 8) {
+								fd.append('JenisPND12',3)
+							}
 						}
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND13') {
 							fd.append('JenisPND13',$("#JenisPND13").val())
@@ -620,8 +639,23 @@
 							fd.append('Kode',$("#JenisPND14").val())
 						}
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND15') {
-							fd.append('JenisPND15',$("#JenisPND15").val())
 							fd.append('Kode',$("#JenisPND15").val())
+							var JenisPND15 = $("#JenisPND15").val()
+							if (JenisPND15 == 1) {
+								fd.append('JenisPND15',15)
+							} else if (JenisPND15 == 2) {
+								fd.append('JenisPND15',9)
+							} else if (JenisPND15 == 3) {
+								fd.append('JenisPND15',6)
+							} else if (JenisPND15 == 4) {
+								fd.append('JenisPND15',3)
+							} else if (JenisPND15 == 5) {
+								fd.append('JenisPND15',2)
+							} else if (JenisPND15 == 6) {
+								fd.append('JenisPND15',1)
+							} else if (JenisPND15 == 7) {
+								fd.append('JenisPND15',0.5)
+							} 
 						}
 						$.ajax({
 							url: BaseURL+'Pendidikan/InputRealisasi',
