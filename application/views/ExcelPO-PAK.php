@@ -1467,21 +1467,72 @@ Content-Type: text/html; charset="us-ascii"
           <td class="xl91pak" x:str>Lampiran 1.<?=$Lampiran++?></td>
         </tr>
         <?php $SubTotal += $Pendidikan[$i]['JumlahKredit'];  $Total += $Pendidikan[$i]['JumlahKredit'];?>
-      <?php if ($i+1 == count($Pendidikan)) { ?>  
+      <?php if ($i+1 == count($Pendidikan)) { 
+        if ($Pendidikan[$i]['Kode'][0] == 1 ) {
+          if ($Pendidikan[$i]['Kode'][2] == 1 ) {
+            $DupakPendidikan[6] = str_replace('.',',',$SubTotal);
+          } else if ($Pendidikan[$i]['Kode'][2] == 2 ) {
+            $DupakPendidikan[7] = str_replace('.',',',$SubTotal);
+          } else if ($Pendidikan[$i]['Kode'][2] == 3 ) {
+            $DupakPendidikan[8] = str_replace('.',',',$SubTotal);
+          }
+        } else {
+          if ($Pendidikan[$i]['Kode'][2] == 1 ) {
+            $DupakPendidikan[10] = str_replace('.',',',$SubTotal);
+          } else if ($Pendidikan[$i]['Kode'][2] == 2 ) {
+            $DupakPendidikan[11] = str_replace('.',',',$SubTotal);
+          } else if ($Pendidikan[$i]['Kode'][2] == 3 ) {
+            $DupakPendidikan[12] = str_replace('.',',',$SubTotal);
+          }
+        } ?>    
         <tr style='mso-height-source:userset;height:18pt;'>
           <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
           <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
           <td class="xl88pak"></td>
         </tr>
       <?php } else if ($Pendidikan[$i+1]['IdKegiatan'] == $Pendidikan[$i]['IdKegiatan']) { ?>
-        <?php if ($Pendidikan[$i]['Kode'] != $Pendidikan[$i+1]['Kode']) { ?>  
+        <?php if ($Pendidikan[$i]['Kode'] != $Pendidikan[$i+1]['Kode']) { 
+          if ($Pendidikan[$i]['Kode'][0] == 1 ) {
+            if ($Pendidikan[$i]['Kode'][2] == 1 ) {
+              $DupakPendidikan[6] = str_replace('.',',',$SubTotal);
+            } else if ($Pendidikan[$i]['Kode'][2] == 2 ) {
+              $DupakPendidikan[7] = str_replace('.',',',$SubTotal);
+            } else if ($Pendidikan[$i]['Kode'][2] == 3 ) {
+              $DupakPendidikan[8] = str_replace('.',',',$SubTotal);
+            }
+          } else {
+            if ($Pendidikan[$i]['Kode'][2] == 1 ) {
+              $DupakPendidikan[10] = str_replace('.',',',$SubTotal);
+            } else if ($Pendidikan[$i]['Kode'][2] == 2 ) {
+              $DupakPendidikan[11] = str_replace('.',',',$SubTotal);
+            } else if ($Pendidikan[$i]['Kode'][2] == 3 ) {
+              $DupakPendidikan[12] = str_replace('.',',',$SubTotal);
+            }
+          } ?>  
           <tr style='mso-height-source:userset;height:18pt;'>
             <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
             <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
             <td class="xl88pak"></td>
           </tr>
         <?php $SubTotal = 0; } ?>
-      <?php } else if ($Pendidikan[$i+1]['IdKegiatan'] != $Pendidikan[$i]['IdKegiatan']) { ?>
+      <?php } else if ($Pendidikan[$i+1]['IdKegiatan'] != $Pendidikan[$i]['IdKegiatan']) { 
+        if ($Pendidikan[$i]['Kode'][0] == 1 ) {
+          if ($Pendidikan[$i]['Kode'][2] == 1 ) {
+            $DupakPendidikan[6] = str_replace('.',',',$SubTotal);
+          } else if ($Pendidikan[$i]['Kode'][2] == 2 ) {
+            $DupakPendidikan[7] = str_replace('.',',',$SubTotal);
+          } else if ($Pendidikan[$i]['Kode'][2] == 3 ) {
+            $DupakPendidikan[8] = str_replace('.',',',$SubTotal);
+          }
+        } else {
+          if ($Pendidikan[$i]['Kode'][2] == 1 ) {
+            $DupakPendidikan[10] = str_replace('.',',',$SubTotal);
+          } else if ($Pendidikan[$i]['Kode'][2] == 2 ) {
+            $DupakPendidikan[11] = str_replace('.',',',$SubTotal);
+          } else if ($Pendidikan[$i]['Kode'][2] == 3 ) {
+            $DupakPendidikan[12] = str_replace('.',',',$SubTotal);
+          }
+        } ?>
         <tr style='mso-height-source:userset;height:18pt;'>
           <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
           <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
@@ -6956,8 +7007,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl226"></td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Melaksanakan perkulihan/tutorial dan membimbing, menguji serta menyelenggarakan pendidikan di Laboratorium, Praktik Keguruan Bengkel/Studio/ Kebun pada Fakultas/Sekolah Tinggi/Akademi/ Politeknik sendiri, pada fakultas lain dalam lingkungan Universitas/Institut sendiri, maupun di luar perguruan tinggi sendiri secara melembaga paling banyak 12 sks per semester</td>
     <td class=3D"xl242"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl242"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[3]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH42+I42"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -6983,8 +7034,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl166"></td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Membimbing mahasiswa seminar</td>
     <td class=3D"xl167"></td>
-    <td class=3D"xl253"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[4]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH44+I44"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7010,8 +7061,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl166"></td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Membimbing mahasiswa kuliah kerja nyata, pratek kerja nyata, praktek kerja lapangan<font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;</span></font></td>
     <td class=3D"xl243"></td>
-    <td class=3D"xl253"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[5]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH46+I46"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7052,8 +7103,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>a.</td>
     <td class=3D"xl136" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Disertasi</td>
     <td class=3D"xl243"></td>
-    <td class=3D"xl253"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[6]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH49+I49"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7067,8 +7118,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>b.</td>
     <td class=3D"xl136" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Thesis</td>
     <td class=3D"xl243"></td>
-    <td class=3D"xl253"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[7]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH50+I50"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7082,8 +7133,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>c.</td>
     <td class=3D"xl136" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Skripsi</td>
     <td class=3D"xl243"></td>
-    <td class=3D"xl253"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[8]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH51+I51"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7126,8 +7177,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>a.</td>
     <td class=3D"xl136" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Disertasi</td>
     <td class=3D"xl226"></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl242"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[10]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH54+I54"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7141,8 +7192,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>b.</td>
     <td class=3D"xl136" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Thesis</td>
     <td class=3D"xl245"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[11]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH55+I55"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -7156,8 +7207,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>c.</td>
     <td class=3D"xl136" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Skripsi</td>
     <td class=3D"xl245"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[12]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH56+I56"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -7198,8 +7249,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>1</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Ketua penguji</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl255"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[14]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH59+I59"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7212,8 +7263,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>2</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Anggota penguji</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl255"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[15]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH60+I60"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7239,8 +7290,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl163"></td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Melakukan pembinaan kegiatan mahasiswa di bidang Akademik dan kemahasiswaan</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl255"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[16]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH62+I62"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7266,8 +7317,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl163"></td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Melakukan kegiatan pengembangan program kuliah</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[17]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH64+I64"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7293,8 +7344,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>1</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Buku ajar</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[18]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH66+I66"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7307,8 +7358,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>2</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Diktat, modul, petunjuk praktikum, model, alat bantu, audio visual, naskah tutorial<font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;</span></font></td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[19]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH67+I67"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7334,8 +7385,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl163"></td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Melakukan kegiatan orasi ilmiah pada perguruan tinggi tiap tahun<font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;</span></font></td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[20]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH69+I69"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7361,8 +7412,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>1</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Rektor</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[21]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH71+I71"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7375,8 +7426,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>2</td>
     <td class=3D"xl259" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:none;' x:str>Pembantu rektor/dekan/direktur program pasca sarjana</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[22]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH72+I72"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7389,8 +7440,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>3</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Ketua sekolah tinggi/pembantu dekan/asisten direktur program pasca sarjana/direktur politeknik</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[23]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH73+I73"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7403,8 +7454,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>4</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Pembantu ketua sekolah tinggi/pembantu direktur politeknik<font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;</span></font></td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[24]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH74+I74"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7417,8 +7468,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>5</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Direktur akademi</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[25]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH75+I75"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7431,8 +7482,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>6</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Pembantu direktur akademi/ketua jurusan/bagian pada Universitas/institut/sekolah tinggi</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[26]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH76+I76"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7445,8 +7496,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>7</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Ketua jurusan pada politeknik/akademi/sekretaris jurusan/bagian pada universitas/institut/sekolah tinggi</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl271"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[27]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH77+I77"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7459,8 +7510,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>8</td>
     <td class=3D"xl246" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Sekretaris jurusan pada politeknik/akademik dan kepala laboratorium universitas/institut/sekolah tinggi/politeknik/akademi</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[28]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH78+I78"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7486,8 +7537,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>1</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Pembimbing pencangkokan</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[29]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH80+I80"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7500,8 +7551,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>2</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Reguler</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[30]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH81+I81"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7527,8 +7578,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>1</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Detasering</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[31]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH83+I83"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7541,8 +7592,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:num>2</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Pencangkokan</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[32]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH84+I84"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7568,8 +7619,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str=3D"'1.">1.</td>
     <td class=3D"xl261" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Lamanya lebih dari 960 jam</td>
     <td class=3D"xl268"></td>
-    <td class=3D"xl225"></td>
-    <td class=3D"xl135"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[33]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH86+I86"></td>
     <td class=3D"xl222"></td>
     <td class=3D"xl222"></td>
     <td class=3D"xl222"></td>
@@ -7582,8 +7633,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str=3D"'2.">2.</td>
     <td class=3D"xl261" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Lamanya 641-960 jam</td>
     <td class=3D"xl268"></td>
-    <td class=3D"xl225"></td>
-    <td class=3D"xl135"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[34]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH87+I87"></td>
     <td class=3D"xl222"></td>
     <td class=3D"xl222"></td>
     <td class=3D"xl222"></td>
@@ -7596,8 +7647,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str=3D"'3.">3.</td>
     <td class=3D"xl261" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Lamanya 481-640 jam</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[35]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH88+I88"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7610,8 +7661,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str=3D"'4.">4.</td>
     <td class=3D"xl261" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Lamanya 161-480 jam</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[36]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH89+I89"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7624,8 +7675,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str=3D"'5.">5.</td>
     <td class=3D"xl261" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Lamanya 81-160 jam</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[37]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH90+I90"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7638,8 +7689,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str=3D"'6.">6.</td>
     <td class=3D"xl261" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Lamanya 31-80 jam</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[38]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH91+I91"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7652,8 +7703,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str=3D"'7.">7.</td>
     <td class=3D"xl261" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Lamanya 10-30 jam</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPendidikan[39]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH92+I92"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
