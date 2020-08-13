@@ -63,9 +63,6 @@
                               <li class="nav-item">
                                 <a class="nav-link active btn btn-outline-success" id="pills-Masuk-tab" data-toggle="pill" href="#pills-Masuk" role="tab" aria-controls="pills-Masuk" aria-selected="true"><b>Masuk</b></a>
                               </li>
-                              <li class="nav-item">
-                                <a class="nav-link btn btn-outline-success" id="pills-Daftar-tab" data-toggle="pill" href="#pills-Daftar" role="tab" aria-controls="pills-Daftar" aria-selected="false"><b>Daftar</b></a>
-                              </li>
                             </ul>
                             <div class="tab-content" id="pills-tabContent">
                               <div class="tab-pane fade show active" id="pills-Masuk" role="tabpanel" aria-labelledby="pills-Masuk-tab">
@@ -73,7 +70,7 @@
                                   <div class="input-group-prepend">
                                     <span class="input-group-text bg-warning text-primary"><b>NIP</b></span>
                                   </div>
-                                  <input type="text" class="form-control" id="nip" data-inputmask='"mask": "999999999999999999"' data-mask>
+                                  <input type="text" class="form-control" id="nip">
                                 </div>
                                 <div class="input-group input-group-sm mb-2">
                                   <div class="input-group-prepend">
@@ -82,60 +79,6 @@
                                   <input type="password" class="form-control" id="sandi">
                                 </div>
                                 <div class="btn btn-primary" id="Masuk"><b>Masuk</b></div>
-                              </div>
-                              <div class="tab-pane fade" id="pills-Daftar" role="tabpanel" aria-labelledby="pills-Daftar-tab">
-                                <div class="input-group input-group-sm mb-2">
-                                  <div class="input-group-prepend">
-                                    <span class="input-group-text bg-warning text-primary"><b>NIP</b></span>
-                                  </div>
-                                  <input type="text" class="form-control" id="NIP" placeholder="Isi NIP">
-                                </div>
-                                <div class="input-group input-group-sm mb-2">
-                                  <div class="input-group-prepend">
-                                    <span class="input-group-text bg-warning text-primary"><b>NIDN</b></span>
-                                  </div>
-                                  <input type="text" class="form-control" id="NIDN" placeholder="Isi NIDN">
-                                </div>
-                                <div class="input-group input-group-sm mb-2">
-                                  <div class="input-group-prepend">
-                                    <span class="input-group-text bg-warning text-primary"><b>Nama</b></span>
-                                  </div>
-                                  <input type="text" class="form-control" id="Nama" placeholder="Nama + Gelar">
-                                </div>
-                                <div class="input-group input-group-sm mb-2">
-                                  <div class="input-group-prepend">
-                                    <span class="input-group-text bg-warning text-primary"><b>Password</b></span>
-                                  </div>
-                                  <input type="password" class="form-control" id="Sandi" placeholder="Minilmal 8 Karakter">
-                                </div>
-                                <div class="input-group mb-2">
-                                  <div class="input-group-prepend">
-                                    <label class="input-group-text bg-warning text-primary"><b>Golongan</b></label>
-                                  </div>
-                                  <select class="custom-select" id="Golongan">
-                                    <option value="Penata Muda/IIIa">/IIIa</option>
-                                    <option value="Penata Muda Tk. I/IIIb">IIIb</option>
-                                    <option value="Penata/IIIc">IIIc</option>
-                                    <option value="Penata Tk. I/IIId">IIId</option>
-                                    <option value="Pembina/IVa">IVa</option>
-                                    <option value="Pembina Tk. I/IVb">IVb</option>
-                                    <option value="Pembina Utama Muda/IVc">IVc</option>
-                                    <option value="Pembina Utama Madya/IVd">IVd</option>
-                                    <option value="Pembina Utama/IVe">IVe</option>
-                                  </select>
-                                </div>
-                                <div class="input-group mb-2">
-                                  <div class="input-group-prepend">
-                                    <label class="input-group-text bg-warning text-primary"><b>Jabatan</b></label>
-                                  </div>
-                                  <select class="custom-select" id="Jabatan">
-                                    <option value="Asisten Ahli">Asisten Ahli</option>
-                                    <option value="Lektor">Lektor</option>
-                                    <option value="Lektor Kepala">Lektor Kepala</option>
-                                    <option value="Profesor">Profesor</option>
-                                  </select>
-                                </div>
-                                <div class="btn btn-primary" id="Daftar"><b>Daftar</b></div>
                               </div>
                             </div>
                           </div>
@@ -154,10 +97,14 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="bootstrap/inputmask/min/jquery.inputmask.bundle.min.js"></script>
     <script>
+      
       var BaseURL = '<?=base_url()?>'
+      
       jQuery(document).ready(function($) {
         "use strict";
+        
         $('[data-mask]').inputmask()
+
         $('#nip').keypress(function(event){
           var keycode = (event.keyCode ? event.keyCode : event.which);
           if(keycode == '13'){
@@ -173,46 +120,30 @@
             document.getElementById("Masuk").click();  
           }
         });
+
         $("#Masuk").click(function() {
           var Akun = { NIP: $("#nip").val(),
                        Password: $("#sandi").val() }
-          $.post(BaseURL+"SMD/Masuk", Akun).done(function(Respon) {
-            Auth(Respon)
-          })
-          return false
-        })
-        $("#Daftar").click(function() {
-          if ($("#NIP").val().length != 18 || isNaN($("#NIP").val())) {
-            alert('Mohon Isi NIP 18 Angka!')
-          } else if ($("#NIDN").val().length != 10 || isNaN($("#NIDN").val())) {
-            alert('Mohon Isi NIDN 10 Angka!')
-          } else if ($("#Nama").val() === "") {
-            alert('Mohon Isi Nama + Gelar!')
-          } else if ($("#Sandi").val() === "" || $("#Sandi").val().length != 8) {
-            alert('Password Minimal 8 Karakter!')
-          } else {
-            var Pangkat = $("#Golongan").val().split("/") 
-            var Akun = { NIP: $("#NIP").val(),
-                         NIDN: $("#NIDN").val(),
-                         Nama: $("#Nama").val(),
-                         Password: $("#Sandi").val(),
-                         Pangkat: Pangkat[0],
-                         Golongan: Pangkat[1],
-                         Jabatan: $("#Jabatan").val() }
-            $.post(BaseURL+"SMD/Daftar", Akun).done(function(Respon) {
-              Auth(Respon)
+          if (isNaN($("#nip").val())) {
+            $.post(BaseURL+"SMD/AdminMasuk", Akun).done(function(Respon) {
+              if (Respon == '1') {
+                window.location = BaseURL + "Admin/AkunDosen"
+              }
+              else {
+                alert(Respon)
+              }
             })
-          }
-          return false
+          } else {
+            $.post(BaseURL+"SMD/Masuk", Akun).done(function(Respon) {
+              if (Respon == '1') {
+                window.location = BaseURL + "Dashboard/Profil"
+              }
+              else {
+                alert(Respon)
+              }
+            })
+          }                      
         })
-        function Auth(Pesan) {
-          if (Pesan == '1') {
-            window.location = BaseURL + "Dashboard/Profil"
-          }
-          else {
-            alert(Pesan)
-          }
-        }
       })
     </script>
   </body>
