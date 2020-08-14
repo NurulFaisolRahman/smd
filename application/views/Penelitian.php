@@ -50,7 +50,7 @@
 							array.forEach(function(object) {
 								if (object.Bukti != null) {
 									$('#LampiranPAK').attr('href',BaseURL+PAK[i-1]+'/'+object.Bukti)		
-									$('#LampiranPAK').attr('Download','Lampiran '+i+'.'+NomorLampiran)
+									$('#LampiranPAK').attr('Download','Lampiran '+i+'.'+NomorLampiran+'.pdf')
 									$('#LampiranPAK')[0].click()
 								}
 								NomorLampiran++;
@@ -95,7 +95,7 @@
 						array.forEach(function(object) {
 							if (object.Bukti != null) {
 								$('#Lampiran').attr('href',BaseURL+'Penelitian/'+object.Bukti)		
-								$('#Lampiran').attr('Download','Lampiran 2.'+NomorLampiran)
+								$('#Lampiran').attr('Download','Lampiran 2.'+NomorLampiran+'.pdf')
 								$('#Lampiran')[0].click()
 							}
 							NomorLampiran++;
@@ -162,8 +162,11 @@
 					var Pisah = Data.split("/")
 					$("#NoEditRencana").val(Pisah[0])
 					$("#EditJenjangRencanaPenelitian").val(Pisah[2])
+					$("#JenjangLama").val(Pisah[2])
 					$("#EditSemesterRencanaPenelitian").val(Pisah[3])
+					$("#SemesterLama").val(Pisah[3])
 					$("#EditTahunRencanaPenelitian").val(Pisah[4])
+					$("#TahunLama").val(Pisah[4])
 					var PisahKode = Pisah[5].split("|")
           <?php 
             for ($i = 1; $i <= 37 ; $i++) {
@@ -209,7 +212,7 @@
             echo $EditKodeRencana;
           ?>
 					var EditDataRencanaPenelitian = {No:$("#NoEditRencana").val(),Jenjang:$("#EditJenjangRencanaPenelitian").val(),Semester:$("#EditSemesterRencanaPenelitian").val(),
-																			 Tahun:$("#EditTahunRencanaPenelitian").val(),Kode:EditKodeRencana,Total:EditTotalKreditRencana}
+																			 Tahun:$("#EditTahunRencanaPenelitian").val(),Kode:EditKodeRencana,Total:EditTotalKreditRencana,JenjangLama:$('#JenjangLama').val(),SemesterLama:$('#SemesterLama').val(),TahunLama:$('#TahunLama').val()}
 					$.post(BaseURL+"Penelitian/EditRencana", EditDataRencanaPenelitian).done(function(Respon) {
 						if (Respon == '1') {
 							window.location = BaseURL + "Dashboard/Penelitian"
@@ -294,14 +297,14 @@
 							alert('Input Penulis Belum Benar')
 						} 
 						else if (isNaN(parseInt($("#Volume").val()))) {
-							alert('Volume Kegiatan Wajib Belum Benar!')
+							alert('Volume Kegiatan Belum Benar!')
 						}	
 						else {
 							Tambah()
 						}
 					}
 					else if (isNaN(parseInt($("#Volume").val()))) {
-						alert('Volume Kegiatan Wajib Belum Benar!')
+						alert('Volume Kegiatan Belum Benar!')
 					}
 					else {
 						Tambah()
@@ -336,8 +339,8 @@
 					if (isNaN(parseInt($("#EditKe").val())) || isNaN(parseInt($("#EditDari").val())) || parseInt($("#EditKe").val()) > parseInt($("#EditDari").val())) {
 						alert('Input Penulis Belum Benar')
 					} 
-					else if (isNaN(parseInt($("#EditVolume").val()))) {
-						alert('Volume Kegiatan Wajib Belum Benar!')
+					else if (isNaN(parseInt($("#EditVolume").val()))) { 
+						alert('Volume Kegiatan Belum Benar!')
 					} 
 					else {
 						var fd = new FormData()
@@ -354,9 +357,9 @@
 						fd.append('Penulis',$("#EditKe").val()+'/'+$("#EditDari").val())
 						fd.append('Kegiatan',$("#EditUraian").val())		
 						fd.append('TanggalKegiatan',$("#EditTanggalKegiatan").val())
-						fd.append('Volume',parseInt($("#EditVolume").val()))
+						fd.append('EditVolume',parseInt($("#EditVolume").val()))
 						fd.append('Bukti',$("#EditBuktiRealisasi").val())
-						$.ajax({
+						$.ajax({ 
 							url: BaseURL+'Penelitian/EditRealisasi',
 							type: 'post',
 							data: fd,

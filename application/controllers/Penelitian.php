@@ -5,7 +5,7 @@ class Penelitian extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
-		if(!$this->session->userdata('Login')){
+		if(!$this->session->userdata('Login') && $this->session->userdata('Akun') != 'Dosen'){
 			redirect(base_url());
 		}
 	}
@@ -34,18 +34,20 @@ class Penelitian extends CI_Controller {
   }
 
   public function EditRencana(){
-		$this->db->where('No', $_POST['No']);
-    $this->db->update('RencanaPenelitian', 
-                array('Jenjang' => $_POST['Jenjang'],
-                      'Semester' => $_POST['Semester'],
-                      'Tahun' => $_POST['Tahun'],
-                      'KodeRencana' => $_POST['Kode'],
-                      'TotalKredit' => $_POST['Total']));
-    if ($this->db->affected_rows()){
-      echo '1';
-    } else {
-      echo 'Gagal Menyimpnan';
-    }
+		$NIP = $this->session->userdata('NIP');
+		if($_POST['Jenjang'] === $_POST['JenjangLama'] && $_POST['Semester'] === $_POST['SemesterLama'] && $_POST['Tahun'] === $_POST['TahunLama'] || $this->db->get_where('RencanaPenelitian', array('NIP' => $NIP,'Jenjang' => $_POST['Jenjang'],'Semester' => $_POST['Semester'],'Tahun' => $_POST['Tahun']))->num_rows() === 0){			
+			$this->db->where('No', $_POST['No']);
+			$this->db->update('RencanaPenelitian', 
+									array('Jenjang' => $_POST['Jenjang'],
+												'Semester' => $_POST['Semester'],
+												'Tahun' => $_POST['Tahun'],
+												'KodeRencana' => $_POST['Kode'],
+												'TotalKredit' => $_POST['Total']));
+			echo '1';
+		} 
+		else {
+			echo 'Data Rencana Pendidikan Jenjang '.$_POST['Jenjang'].' Semester '.$_POST['Semester'].' Tahun '.$_POST['Tahun'].' Telah Ada';
+		}
 	}
 
 	public function HapusRencana(){
@@ -571,7 +573,7 @@ class Penelitian extends CI_Controller {
 													'Penulis' => $_POST['Penulis'],
 													'Kegiatan' => htmlentities($_POST['Kegiatan']),
 													'TanggalKegiatan' => htmlentities($_POST['TanggalKegiatan']),
-													'Volume' => $_POST['Volume'],
+													'Volume' => $_POST['EditVolume'],
 													'Kredit' => $Kredit,
 													'JumlahKredit' => $JumlahKredit,
 													'Bukti' => $NamaPdf));
@@ -592,7 +594,7 @@ class Penelitian extends CI_Controller {
 													'Penulis' => $_POST['Penulis'],
 													'Kegiatan' => htmlentities($_POST['Kegiatan']),
 													'TanggalKegiatan' => htmlentities($_POST['TanggalKegiatan']),
-													'Volume' => $_POST['Volume'],
+													'Volume' => $_POST['EditVolume'],
 													'Kredit' => $Kredit,
 													'JumlahKredit' => $JumlahKredit));
 			echo '1';

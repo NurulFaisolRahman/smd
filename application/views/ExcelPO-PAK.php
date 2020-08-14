@@ -1,6 +1,6 @@
 <?php
-  header('Content-Type: application/xlsx');
-  header('Content-Disposition: attachment; filename=PO-PAK.xlsx');
+  header('Content-Type:application/xls');
+  header('Content-Disposition: attachment; filename=PO-PAK.xls');
 ?>
 MIME-Version: 1.0
 X-Document-Type: Workbook

@@ -192,7 +192,7 @@
 							array.forEach(function(object) {
 								if (object.Bukti != null) {
 									$('#LampiranPAK').attr('href',BaseURL+PAK[i-1]+'/'+object.Bukti)		
-									$('#LampiranPAK').attr('Download','Lampiran '+i+'.'+NomorLampiran)
+									$('#LampiranPAK').attr('Download','Lampiran '+i+'.'+NomorLampiran+'.pdf')
 									$('#LampiranPAK')[0].click()
 								}
 								NomorLampiran++;

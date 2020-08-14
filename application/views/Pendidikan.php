@@ -51,7 +51,7 @@
 							array.forEach(function(object) {
 								if (object.Bukti != null) {
 									$('#LampiranPAK').attr('href',BaseURL+PAK[i-1]+'/'+object.Bukti)		
-									$('#LampiranPAK').attr('Download','Lampiran '+i+'.'+NomorLampiran)
+									$('#LampiranPAK').attr('Download','Lampiran '+i+'.'+NomorLampiran+'.pdf')
 									$('#LampiranPAK')[0].click()
 								}
 								NomorLampiran++;
@@ -96,7 +96,7 @@
 						array.forEach(function(object) {
 							if (object.Bukti != null) {
 								$('#Lampiran').attr('href',BaseURL+'Pendidikan/'+object.Bukti)		
-								$('#Lampiran').attr('Download','Lampiran 1.'+NomorLampiran)
+								$('#Lampiran').attr('Download','Lampiran 1.'+NomorLampiran+'.pdf')
 								$('#Lampiran')[0].click()
 							}
 							NomorLampiran++;
@@ -227,8 +227,11 @@
 					var Pisah = Data.split("/")
 					$("#NoEditRencana").val(Pisah[0])
 					$("#EditJenjangRencanaPendidikan").val(Pisah[2])
+					$("#JenjangLama").val(Pisah[2])
 					$("#EditSemesterRencanaPendidikan").val(Pisah[3])
+					$("#SemesterLama").val(Pisah[3])
 					$("#EditTahunRencanaPendidikan").val(Pisah[4])
+					$("#TahunLama").val(Pisah[4])
 					var PisahKode = Pisah[5].split("|")
 					if (PisahKode[0] == '1') {
 						$('#EditDoktor').attr('checked', true)	
@@ -448,7 +451,7 @@
 														+'|'+($('#EditPengembangan30').val() == ''? 0 : parseInt($('#EditPengembangan30').val()))
 														+'|'+($('#EditPengembangan10').val() == ''? 0 : parseInt($('#EditPengembangan10').val()))
 					var EditDataRencanaPendidikan = {No:$("#NoEditRencana").val(),Jenjang:$('#EditJenjangRencanaPendidikan').val(),Semester:$('#EditSemesterRencanaPendidikan').val(),
-																			 Tahun:$('#EditTahunRencanaPendidikan').val(),Kode:EditKodeRencana,Total:EditTotalKreditRencana}
+																			 Tahun:$('#EditTahunRencanaPendidikan').val(),Kode:EditKodeRencana,Total:EditTotalKreditRencana,JenjangLama:$('#JenjangLama').val(),SemesterLama:$('#SemesterLama').val(),TahunLama:$('#TahunLama').val()}
 					$.post(BaseURL+'Pendidikan/EditRencana', EditDataRencanaPendidikan).done(function(Respon) {
 						if (Respon == '1') {
 							window.location = BaseURL + 'Dashboard/Pendidikan'
@@ -577,7 +580,7 @@
 
 				$("#TambahRealisasiPendidikan").click(function() {
 					if (isNaN(parseFloat($("#Volume").val().replace(',','.')))) {
-						alert('Volume Kegiatan Wajib Belum Benar!')
+						alert('Volume Kegiatan Belum Benar!')
 					} 
 					else {
 						var fd = new FormData()

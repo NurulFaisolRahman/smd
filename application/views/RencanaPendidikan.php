@@ -17,7 +17,7 @@
 						<th class="text-center align-middle">Tahun</th>
 						<th class="text-center align-middle">Kredit Rencana</th>
 						<th class="text-center align-middle">Kredit Realisasi</th>
-						<th class="text-center align-middle">Target Prodi</th>
+						<th class="text-center align-middle">Target Kajur</th>
 						<th class="text-center align-middle">Status</th>
 						<th class="text-center align-middle">Aksi</th>
 					</tr>
@@ -379,7 +379,8 @@
 									<div class="input-group-prepend">
 										<label class="input-group-text bg-primary"><b>Homebase</b></label>
 									</div>
-									<select class="custom-select" id="EditJenjangRencanaPendidikan" disabled>										
+									<input class="form-control" type="hidden" id="JenjangLama">
+									<select class="custom-select" id="EditJenjangRencanaPendidikan">										
 											<option value="S1">S1</option>
 											<option value="S2">S2</option>
 									</select>
@@ -390,7 +391,8 @@
 									<div class="input-group-prepend">
 										<label class="input-group-text bg-primary"><b>Semester</b></label>
 									</div>
-									<select class="custom-select" id="EditSemesterRencanaPendidikan" disabled>										
+									<input class="form-control" type="hidden" id="SemesterLama">
+									<select class="custom-select" id="EditSemesterRencanaPendidikan">										
 											<option value="Ganjil">Ganjil</option>
 											<option value="Genap">Genap</option>
 									</select>
@@ -402,7 +404,8 @@
 										<label class="input-group-text bg-primary"><b>Tahun</b></label>
 									</div>
 									<input class="form-control" type="hidden" id="NoEditRencana">
-									<input class="form-control" type="text" id="EditTahunRencanaPendidikan"  data-inputmask='"mask": "9999"' data-mask disabled>
+									<input class="form-control" type="hidden" id="TahunLama">
+									<input class="form-control" type="text" id="EditTahunRencanaPendidikan"  data-inputmask='"mask": "9999"' data-mask>
 								</div>
 							</div>
 						</div>

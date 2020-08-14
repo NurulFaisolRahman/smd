@@ -41,44 +41,34 @@
         <span class="brand-text font-weight-bold">Dashboard</span>
         </a>
         <!-- Sidebar -->
-        <div class="sidebar">      
+        <div class="sidebar">       
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-              <a href="<?=base_url("Admin/AkunDosen")?>" class="nav-link <?php if ($Halaman == "Akun Dosen") { echo "active";} ?>">
-              <i class="nav-icon fas fa-plus"></i>
-              <p><b>Akun Dosen</b></p> 
-              </a>
+                <a href="<?=base_url("Kajur/MonitoringPendidikan")?>" class="nav-link <?php if ($Halaman == "Pendidikan") { echo "active";} ?>">
+                <i class="nav-icon fas fa-graduation-cap"></i>
+                <p><b>Pendidikan</b></p> 
+                </a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link" data-toggle="modal" data-target="#ModalKajur">
-              <i class="nav-icon fas fa-user"></i>
-              <p><b>Kepala Jurusan</b></p>
-              </a>
+                <a href="<?=base_url("Kajur/MonitoringPenelitian")?>" class="nav-link <?php if ($Halaman == "Penelitian") { echo "active";} ?>">
+                <i class="nav-icon fas fa-search-plus"></i>
+                <p><b>Penelitian</b></p> 
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="<?=base_url("Kajur/MonitoringPengabdian")?>" class="nav-link <?php if ($Halaman == "Pengabdian") { echo "active";} ?>">
+                <i class="nav-icon fas fa-users"></i>
+                <p><b>Pengabdian</b></p> 
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="<?=base_url("Kajur/MonitoringPenelitian")?>" class="nav-link <?php if ($Halaman == "Penelitian") { echo "active";} ?>">
+                <i class="nav-icon fas fa-chart-line"></i>
+                <p><b>Penelitian</b></p> 
+                </a>
             </li>
           </ul>
         </nav>
         </div>
       </aside> 
-      <div class="modal fade" id="ModalKajur">
-        <div class="modal-dialog">
-          <div class="modal-content bg-warning">
-            <div class="modal-body">
-              <div class="input-group mb-1">
-                <div class="input-group-prepend">
-                  <label class="input-group-text bg-primary"><b>Kajur</b></label>
-                </div>
-                <select class="custom-select" id="Kajur">										
-                  <?php foreach ($Kajur as $key) { ?>
-                    <option value="<?=$key['NIP']?>" <?php if ($key['JenisAkun'] == 2) { echo 'selected'; } ?> ><?=$key['Nama']?></option>
-                  <?php } ?>
-                </select>
-              </div>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
-              <button type="submit" class="btn btn-success" id="Simpan"><b>Simpan</b></button>
-            </div>
-          </div>
-        </div>
-      </div>

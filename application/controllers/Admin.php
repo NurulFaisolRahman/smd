@@ -2,9 +2,17 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
+
+	function __construct(){
+		parent::__construct();
+		if(!$this->session->userdata('Login') && $this->session->userdata('Akun') != 'Admin'){
+			redirect(base_url());
+		}
+	} 
  
   public function AkunDosen(){
-    $Data['Halaman'] = 'Akun Dosen';
+		$Data['Halaman'] = 'Akun Dosen';
+		$Data['Kajur'] = $this->db->query('SELECT Dosen.NIP,Dosen.Nama,Akun.JenisAkun FROM Akun,Dosen WHERE Akun.NIP=Dosen.NIP')->result_array();
     $this->load->view('HeaderAdmin',$Data);
     $this->load->view('AkunDosen',$Data); 
   }
@@ -24,4 +32,11 @@ class Admin extends CI_Controller {
 			echo "Akun Dosen Dengan NIP ".$_POST['NIP']." Sudah Ada!";
 		}
 	}
+
+	public function Kajur(){
+		$this->db->where('JenisAkun', 2);
+		$this->db->update('Akun',array('JenisAkun' => 1));
+		$this->db->where('NIP', $_POST['NIP']);
+		$this->db->update('Akun',array('JenisAkun' => 2));
+  }
 }

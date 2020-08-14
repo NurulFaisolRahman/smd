@@ -5,7 +5,11 @@ class SMD extends CI_Controller {
 
 	public function index(){
 		if($this->session->userdata('Login')){
-			redirect(base_url('Dashboard/Profil'));
+			if ($this->session->userdata('Akun') == 'Dosen') {
+				redirect(base_url('Dashboard/Profil'));
+			} else if ($this->session->userdata('Akun') == 'Admin') {
+				redirect(base_url('Admin/AkunDosen'));
+			}
 		} else {
 			$this->load->view('Home');
 		}
@@ -21,6 +25,7 @@ class SMD extends CI_Controller {
 			if (password_verify($_POST['Password'], $Akun[0]['Password'])) {
 				$Jabatan = $this->db->get_where('Dosen', array('NIP' => $_POST['NIP']))->result_array();
 				$Session = array('Login' => true, 
+												 'Akun' => 'Dosen',
 												 'NIP' => $_POST['NIP'], 
 												 'Jabatan' => $Jabatan[0]['Jabatan'],
 												 'IdKegiatanPendidikan' => 'PND1',
@@ -47,7 +52,7 @@ class SMD extends CI_Controller {
 		else{
 			$Akun = $CekLogin->result_array();
 			if (password_verify($_POST['Password'], $Akun[0]['Password'])) {
-				$Session = array('Login' => true);
+				$Session = array('Login' => true,'Akun' => 'Admin');
 				$this->session->set_userdata($Session);
 				echo '1';
 			} else {
@@ -59,9 +64,5 @@ class SMD extends CI_Controller {
 	public function SignOut(){
 		$this->session->sess_destroy();
 		redirect(base_url());
-	}
-
-	public function tes(){
-		$this->load->view('tes');
 	}
 }

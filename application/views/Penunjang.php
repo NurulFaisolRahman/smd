@@ -50,7 +50,7 @@
 							array.forEach(function(object) {
 								if (object.Bukti != null) {
 									$('#LampiranPAK').attr('href',BaseURL+PAK[i-1]+'/'+object.Bukti)		
-									$('#LampiranPAK').attr('Download','Lampiran '+i+'.'+NomorLampiran)
+									$('#LampiranPAK').attr('Download','Lampiran '+i+'.'+NomorLampiran+'.pdf')
 									$('#LampiranPAK')[0].click()
 								}
 								NomorLampiran++;
@@ -95,7 +95,7 @@
 						array.forEach(function(object) {
 							if (object.Bukti != null) {
 								$('#Lampiran').attr('href',BaseURL+'Penunjang/'+object.Bukti)		
-								$('#Lampiran').attr('Download','Lampiran 4.'+NomorLampiran)
+								$('#Lampiran').attr('Download','Lampiran 4.'+NomorLampiran+'.pdf')
 								$('#Lampiran')[0].click()
 							}
 							NomorLampiran++;
@@ -162,8 +162,11 @@
 					var Pisah = Data.split("/")
 					$("#NoEditRencana").val(Pisah[0])
 					$("#EditJenjangRencanaPenunjang").val(Pisah[2])
+					$("#JenjangLama").val(Pisah[2])
 					$("#EditSemesterRencanaPenunjang").val(Pisah[3])
+					$("#SemesterLama").val(Pisah[3])
 					$("#EditTahunRencanaPenunjang").val(Pisah[4])
+					$("#TahunLama").val(Pisah[4])
 					var PisahKode = Pisah[5].split("|")
           <?php 
             for ($i = 1; $i <= 32 ; $i++) {
@@ -209,7 +212,7 @@
             echo $EditKodeRencana;
           ?>
 					var EditDataRencanaPenunjang = {No:$("#NoEditRencana").val(),Jenjang:$("#EditJenjangRencanaPenunjang").val(),Semester:$("#EditSemesterRencanaPenunjang").val(),
-																			 Tahun:$("#EditTahunRencanaPenunjang").val(),Kode:EditKodeRencana,Total:EditTotalKreditRencana}
+																			 Tahun:$("#EditTahunRencanaPenunjang").val(),Kode:EditKodeRencana,Total:EditTotalKreditRencana,JenjangLama:$('#JenjangLama').val(),SemesterLama:$('#SemesterLama').val(),TahunLama:$('#TahunLama').val()}
 					$.post(BaseURL+"Penunjang/EditRencana", EditDataRencanaPenunjang).done(function(Respon) {
 						if (Respon == '1') {
 							window.location = BaseURL + "Dashboard/Penunjang"
@@ -242,7 +245,7 @@
 
 				$("#TambahRealisasiPenunjang").click(function() {
 					if (isNaN(parseInt($("#Volume").val()))) {
-						alert('Volume Kegiatan Wajib Belum Benar!')
+						alert('Volume Kegiatan Belum Benar!')
 					} 
 					else {
 						var fd = new FormData()
@@ -323,7 +326,7 @@
 
 				$("#UpdateRealisasiPenunjang").click(function() {
 					if (isNaN(parseInt($("#EditVolume").val()))) {
-						alert('Volume Kegiatan Wajib Belum Benar!')
+						alert('Volume Kegiatan Belum Benar!')
 					} 
 					else {
 						var fd = new FormData()

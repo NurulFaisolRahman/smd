@@ -90,6 +90,13 @@
 
 				var BaseURL = '<?=base_url()?>';
 				
+        $("#Simpan").click(function() {
+          var Kajur = { NIP: $("#Kajur").val() }
+          $.post(BaseURL+"Admin/Kajur", Kajur).done(function(Respon) {
+            window.location = BaseURL + "Admin/AkunDosen"
+          })
+        })
+
 				$("#Daftar").click(function() {
           if ($("#NIP").val().length != 18 || isNaN($("#NIP").val())) {
             alert('Mohon Isi NIP 18 Angka!')
