@@ -45,27 +45,27 @@
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-                <a href="<?=base_url("Kajur/MonitoringPendidikan")?>" class="nav-link <?php if ($Halaman == "Pendidikan") { echo "active";} ?>">
+                <a href="<?=base_url("Kajur/Monitoring/Pendidikan")?>" class="nav-link <?php if ($Halaman == "Monitoring Pendidikan") { echo "active";} ?>">
                 <i class="nav-icon fas fa-graduation-cap"></i>
                 <p><b>Pendidikan</b></p> 
                 </a>
             </li>
             <li class="nav-item">
-                <a href="<?=base_url("Kajur/MonitoringPenelitian")?>" class="nav-link <?php if ($Halaman == "Penelitian") { echo "active";} ?>">
+                <a href="<?=base_url("Kajur/Monitoring/Penelitian")?>" class="nav-link <?php if ($Halaman == "Monitoring Penelitian") { echo "active";} ?>">
                 <i class="nav-icon fas fa-search-plus"></i>
                 <p><b>Penelitian</b></p> 
                 </a>
             </li>
             <li class="nav-item">
-                <a href="<?=base_url("Kajur/MonitoringPengabdian")?>" class="nav-link <?php if ($Halaman == "Pengabdian") { echo "active";} ?>">
+                <a href="<?=base_url("Kajur/Monitoring/Pengabdian")?>" class="nav-link <?php if ($Halaman == "Monitoring Pengabdian") { echo "active";} ?>">
                 <i class="nav-icon fas fa-users"></i>
                 <p><b>Pengabdian</b></p> 
                 </a>
             </li>
             <li class="nav-item">
-                <a href="<?=base_url("Kajur/MonitoringPenelitian")?>" class="nav-link <?php if ($Halaman == "Penelitian") { echo "active";} ?>">
+                <a href="<?=base_url("Kajur/Monitoring/Penunjang")?>" class="nav-link <?php if ($Halaman == "Monitoring Penunjang") { echo "active";} ?>">
                 <i class="nav-icon fas fa-chart-line"></i>
-                <p><b>Penelitian</b></p> 
+                <p><b>Penunjang</b></p> 
                 </a>
             </li>
           </ul>

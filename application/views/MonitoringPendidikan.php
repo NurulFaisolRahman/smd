@@ -6,14 +6,14 @@
               <div class="col-sm-12 mt-2">
                 <ul class="nav nav-pills mb-2 border border-warning rounded bg-light" id="pills-tab" role="tablist">
                   <li class="nav-item">
-                      <a class="nav-link active" id="pills-MonitoringDosen-tab" data-toggle="pill" href="#pills-MonitoringDosen" role="tab" aria-controls="pills-MonitoringDosen" aria-selected="true"><i class="nav-icon fas fa-users"></i><b> Monitoring Pendidikan</b></a>
+                      <a class="nav-link active" id="pills-MonitoringPendidikan-tab" data-toggle="pill" href="#pills-MonitoringPendidikan" role="tab" aria-controls="pills-MonitoringPendidikan" aria-selected="true"><i class="nav-icon fas fa-users"></i><b> Monitoring Pendidikan</b></a>
                   </li>
                 </ul>
                 <div class="tab-content border border-warning rounded bg-light" id="pills-tabContent">
-                  <div class="tab-pane fade show active" id="pills-MonitoringDosen" role="tabpanel" aria-labelledby="pills-MonitoringDosen-tab">
+                  <div class="tab-pane fade show active" id="pills-MonitoringPendidikan" role="tabpanel" aria-labelledby="pills-MonitoringPendidikan-tab">
                     <div class="container-fluid">
                       <div class="row align-items-center">
-                        <div class="col-sm-auto my-2 ">     
+                        <div class="col-sm-12 my-2 ">     
                           <div class="table-responsive mb-2">
                             <table id="TabelMonitoringDosen" class="table table-bordered table-striped">
                               <thead class="bg-warning">
@@ -24,8 +24,10 @@
                                   <th class="align-middle">Homebase</th>
                                   <th class="align-middle">Semester</th>
                                   <th class="align-middle">Tahun</th>
-                                  <th class="align-middle">Rencana Pendidikan</th>
-                                  <th class="align-middle">Realisasi Pendidikan</th> 
+                                  <th class="align-middle">Realisasi</th> 
+                                  <th class="align-middle">Rencana</th>
+                                  <th class="align-middle">Status</th>
+                                  <th class="align-middle">Target</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -37,8 +39,18 @@
                                     <td class="text-center align-middle"><?=$key['Jenjang']?></td>
                                     <td class="text-center align-middle"><?=$key['Semester']?></td>
                                     <td class="text-center align-middle"><?=$key['Tahun']?></td>
-                                    <td class="text-center align-middle"><?=$key['TotalKredit']?>&nbsp;<button EditRencanaPendidikan="<?=$key['No']."/".$key['Jabatan']."/".$key['Jenjang']."/".$key['Semester']."/".$key['Tahun']."/".$key['KodeRencana']."/".$key['TotalKredit']?>" class="btn btn-sm btn-success EditRencanaPendidikan"><i class="fas fa-edit"></i></button></td>
                                     <td class="text-center align-middle"><?=$Realisasi[$No-2]?></td>
+                                    <td class="text-center align-middle"><?=$key['TotalKredit']?></td>
+                                    <td class="text-center align-middle">
+                                      <?php if ($key['TotalKredit'] == $key['TargetKajur']) { ?>
+                                        <h4 class="text-primary"><b>=</b></h4>
+                                        <?php } else if ($key['TotalKredit'] > $key['TargetKajur']) { ?>
+                                          <h4 class="text-success"><b>></b></h4>
+                                        <?php } else if ($key['TotalKredit'] < $key['TargetKajur']) { ?>
+                                          <h4 class="text-danger"><b><</b></h4>
+                                        <?php } ?>
+                                    </td>
+                                    <td class="text-center align-middle"><?=$key['TargetKajur']?>&nbsp;<button EditRencanaPendidikan="<?=$key['No']."/".$key['Jabatan']."/".$key['Jenjang']."/".$key['Semester']."/".$key['Tahun']."/".$key['KodeRencana']."/".$key['TotalKredit']."/".$key['TargetKajur']?>" class="btn btn-sm btn-success EditRencanaPendidikan"><i class="fas fa-edit"></i></button></td>
                                   </tr>
                                 <?php } ?>
                               </tbody>
@@ -348,12 +360,16 @@
                           <td class='text-center align-middle'><b id="EditKreditPengembangan10">0</b></td>
                         </tr>
                         <tr>
-                          <td colspan="2" class="text-right">
-                            <div class="input-group mb-1 w-50">
-                              <div class="input-group-prepend">
-                                <label class="input-group-text bg-primary"><b>Input Target</b></label>
+                          <td colspan="2">
+                            <div class="row">
+                              <div class="col-sm-auto">
+                                <div class="input-group mb-1" style="margin-left: 300px;width: 170px;">
+                                  <div class="input-group-prepend">
+                                    <label class="input-group-text bg-primary"><b>Input Target</b></label>
+                                  </div>
+                                  <input class="form-control text-right" type="text" id="Target"  data-inputmask='"mask": "9999"' data-mask>
+                                </div>
                               </div>
-                              <input class="form-control" type="text" id="Target"  data-inputmask='"mask": "9999"' data-mask>
                             </div>
                           </td>
                           <td class="text-center align-middle"><b id="EditRencanaTotalKredit">0</b></td>
@@ -401,6 +417,21 @@
 				$('[data-mask]').inputmask()
 
 				var BaseURL = '<?=base_url()?>';
+
+        $('#SimpanEditRencanaPendidikan').click(function() {
+          if (isNaN(parseInt($('#Target').val()))) {
+            alert('Input Target Belum Benar!')
+          } else {
+            var InputTarget = {No:$("#NoEditRencana").val(),Target:parseInt($('#Target').val()),Bidang:'RencanaPendidikan'}
+            $.post(BaseURL+'Kajur/InputTarget', InputTarget).done(function(Respon) {
+              if (Respon == '1') {
+                window.location = BaseURL + 'Kajur/Monitoring/Pendidikan'
+              } else {
+                alert(Respon)
+              }
+            }) 
+          }
+        })
 				
 				$(document).on("click",".EditRencanaPendidikan",function(){
 					var Data = $(this).attr('EditRencanaPendidikan')
@@ -530,6 +561,7 @@
 					$("#EditPengembangan10").val(PisahKode[36])
 					$("#EditKreditPengembangan10").html(PisahKode[36]*0.5)
 					$("#EditRencanaTotalKredit").html(Pisah[6])
+          $("#Target").val(Pisah[7])
 					$('#ModalEditRencanaPendidikan').modal("show");
 				});
 			})
