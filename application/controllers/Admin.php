@@ -5,8 +5,13 @@ class Admin extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
-		if(!$this->session->userdata('Login') && $this->session->userdata('Akun') != 'Admin'){
-			redirect(base_url());
+		if($this->session->userdata('Akun') != 'Admin'){
+			if ($this->session->userdata('Akun') == 'Dosen') {
+				redirect(base_url('Dashboard/Profil'));
+			} 
+			else {
+				redirect(base_url());
+			}
 		}
 	} 
  

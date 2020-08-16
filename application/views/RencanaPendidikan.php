@@ -15,10 +15,11 @@
 						<th class="text-center align-middle">Homebase</th>
 						<th class="text-center align-middle">Semester</th>
 						<th class="text-center align-middle">Tahun</th>
-						<th class="text-center align-middle">Kredit Rencana</th>
-						<th class="text-center align-middle">Kredit Realisasi</th>
-						<th class="text-center align-middle">Target Kajur</th>
+						<th class="text-center align-middle">Realisasi</th>
+						<th class="text-center align-middle">Persentase</th>
+						<th class="text-center align-middle">Rencana</th>
 						<th class="text-center align-middle">Status</th>
+						<th class="text-center align-middle">Target Kajur</th>
 						<th class="text-center align-middle">Aksi</th>
 					</tr>
 				</thead>
@@ -28,11 +29,28 @@
 							<td class="text-center align-middle"><?=$No++?></td>
 							<td class="text-center align-middle"><?=$key['Jenjang']?></td>
 							<td class="text-center align-middle"><?=$key['Semester']?></td>
-							<td class="text-center align-middle"><?=$key['Tahun']?></td>
-							<td class="text-center align-middle"><?=$key['TotalKredit']?></td>
-							<td class="text-center align-middle"><?=$KreditRealisasi[$No-2]?></td>
-							<td class="text-center align-middle"></td>
-							<td class="text-center align-middle"></td>
+							<td class="text-center align-middle"><?=$key['Tahun']?></td> 
+							<td class="text-center align-middle"><?=str_replace('.',',',$KreditRealisasi[$No-2]).' SKS'?></td>
+							<td class="text-center align-middle"><?=($KreditRealisasi[$No-2]/$key['TotalKredit']*100).' %'?></td> 
+							<td class="text-center align-middle"><?=str_replace('.',',',$key['TotalKredit']).' SKS'?></td>
+							<td class="text-center align-middle">
+								<?php if ($key['TotalKredit'] == $key['TargetKajur']) { ?>
+									<h4 class="text-primary mt-2"><b>=</b></h4>
+									<?php } else if ($key['TotalKredit'] > $key['TargetKajur']) { ?>
+										<h4 class="text-success mt-2"><b>></b></h4>
+									<?php } else if ($key['TotalKredit'] < $key['TargetKajur']) { ?>
+										<h4 class="text-danger mt-2"><b><</b></h4>
+									<?php } ?>
+							</td>
+							<td class="text-center align-middle">
+								<?php
+									if ($key['TargetKajur'] == null) {
+										echo '0 SKS';
+									} else {
+										echo $key['TargetKajur'].' SKS';
+									}
+								?>
+							</td>
 							<td class="text-center align-middle">                          
 								<button EditRencanaPendidikan="<?=$key['No']."/".$key['Jabatan']."/".$key['Jenjang']."/".$key['Semester']."/".$key['Tahun']."/".$key['KodeRencana']."/".$key['TotalKredit']?>" class="btn btn-sm btn-warning EditRencanaPendidikan"><i class="fas fa-edit"></i></button>
 								<button HapusRencanaPendidikan="<?=$key['No']?>" class="btn btn-sm btn-danger HapusRencanaPendidikan"><i class="fas fa-trash"></i></button>
@@ -47,8 +65,9 @@
 					<tfoot>
 						<tr>
 							<th colspan="4" class="text-center">Total</th>
-							<th class="bg-success text-center align-middle"><?=$TotalRencana?></th>
-							<th class="bg-success text-center align-middle"><?=$TotalRealisasi?></th>
+							<th class="bg-success text-center align-middle"><?=str_replace('.',',',$TotalRealisasi).' SKS'?></th>
+							<th></th>
+							<th class="bg-success text-center align-middle"><?=str_replace('.',',',$TotalRencana).' SKS'?></th>
 							<th></th>
 							<th></th>
 							<th></th>

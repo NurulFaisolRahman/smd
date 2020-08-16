@@ -133,7 +133,8 @@
                 alert(Respon)
               }
             })
-          } else {
+          } 
+          else {
             $.post(BaseURL+"SMD/Masuk", Akun).done(function(Respon) {
               if (Respon == '1') {
                 window.location = BaseURL + "Dashboard/Profil"

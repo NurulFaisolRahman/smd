@@ -13,7 +13,7 @@
 							<div class="tab-pane fade show active" id="pills-profil" role="tabpanel" aria-labelledby="pills-profil-tab">
 								<div class="container-fluid">
 									<div class="row align-items-center">
-										<div class="col-sm-auto my-1 text-center">
+										<div class="col-sm-3 my-1 text-center">
 											<?php if ($Profil['Foto'] == '') { ?>
 												<img src="<?=base_url('img/Avatar.png')?>" width="200px">
 											<?php	} else { ?>
@@ -77,13 +77,13 @@
 							<div class="input-group-prepend">
 								<label class="input-group-text bg-primary"><b>NIDN</b></label>
 							</div>
-							<input type="text" id="NIDN" class="form-control form-control" value="<?=$Profil['NIDN']?>">
+							<input type="text" id="NIDN" class="form-control form-control" value="<?=$Profil['NIDN']?>" data-inputmask='"mask": "9999999999"' data-mask>
 						</div>
 						<div class="input-group mb-1">
 							<div class="input-group-prepend">
 								<label class="input-group-text bg-primary"><b>NIP</b></label>
 							</div>
-							<input type="text" id="NIP" class="form-control form-control" value="<?=$Profil['NIP']?>">
+							<input type="text" id="NIP" class="form-control form-control" value="<?=$Profil['NIP']?>" data-inputmask='"mask": "999999999999999999"' data-mask>
 						</div>
 						<div class="input-group mb-1">
 							<div class="input-group-prepend">
@@ -142,13 +142,13 @@
 							<div class="input-group-prepend">
 								<label class="input-group-text bg-primary"><b>Kredit Lama</b></label>
 							</div>
-							<input type="text" id="Kredit" class="form-control form-control" value="<?=$Profil['Kredit']?>">
+							<input type="text" id="KreditLama" class="form-control form-control" value="<?=$Profil['Kredit']?>">
 						</div>
-						<!-- <div class="input-group mb-1">
+						<div class="input-group mb-1">
 							<div class="input-group-prepend">
 								<label class="input-group-text bg-primary"><b>Semester Kredit Lama</b></label>
 							</div>
-							<select class="custom-select" id="semester">										
+							<select class="custom-select" id="SemesterKreditLama">										
 								<option value="Ganjil">Ganjil</option>
 								<option value="Genap">Genap</option>
 							</select>
@@ -157,8 +157,8 @@
 							<div class="input-group-prepend">
 								<label class="input-group-text bg-primary"><b>Tahun Kredit Lama</b></label>
 							</div>
-							<input type="text" id="tahun" class="form-control form-control" value="<?=$Profil['Tahun']?>" data-inputmask='"mask": "9999"' data-mask>
-						</div> -->
+							<input type="text" id="TahunKreditLama" class="form-control form-control" value="<?=$Profil['Tahun']?>" data-inputmask='"mask": "9999"' data-mask>
+						</div>
 					</div>
 					<div class="modal-footer justify-content-between">
 						<button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
@@ -171,7 +171,7 @@
     <script src="<?=base_url('bootstrap/js/popper.min.js')?>" ></script>
     <script src="<?=base_url('bootstrap/js/bootstrap.min.js')?>"></script>
 		<script src="<?=base_url('bootstrap/js/adminlte.min.js')?>"></script>
-		<script src="<?=base_url('bootstrap/inputmask/min/jquery.inputmask.bundle.min.js')?>"></script>
+		<script src="<?=base_url('bootstrap/inputmask/min/jquery.inputmask.bundle.min.js')?>"></script> 
 		<script>
 			jQuery(document).ready(function($) {
 				"use strict";
@@ -200,7 +200,7 @@
 						}) 	
 					}
 				})
-
+ 
 				$("#EditProfil").click(function() {
 					if ($("#NIP").val().length != 18 || isNaN($("#NIP").val())) {
             alert('Mohon Isi NIP 18 Angka!')
@@ -208,8 +208,10 @@
             alert('Mohon Isi NIDN 10 Angka!')
           } else if ($("#Nama").val() === "") {
             alert('Mohon Isi Nama + Gelar!')
-          } else if (isNaN(parseFloat($("#Kredit").val().replace(',','.')))) {
+          } else if (isNaN(parseFloat($("#KreditLama").val().replace(',','.')))) {
 						alert('Input Kredit Belum Benar!')
+					} else if ($("#TahunKreditLama").val().length != 4 || isNaN($("#TahunKreditLama").val())) {
+						alert('Input Tahun Belum Benar!')
 					} else {
 						var Pangkat = $("#Golongan").val().split("/") 
 						var Data = {NIP: $("#NIP").val(),
@@ -218,7 +220,9 @@
 												Pangkat: Pangkat[0],
 												Golongan: Pangkat[1],
 												Jabatan: $("#Jabatan").val(),
-												Kredit: parseFloat($("#Kredit").val().replace(',','.')) }
+												Tahun: $("#TahunKreditLama").val(),
+												Semester: $("#SemesterKreditLama").val(),
+												Kredit: parseFloat($("#KreditLama").val().replace(',','.')) }
 						$.post(BaseURL+"Dashboard/EditProfil", Data).done(function(Respon) {
 							if (Respon == '1') {
 								window.location = BaseURL + "Dashboard/Profil"

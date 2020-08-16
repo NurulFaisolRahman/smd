@@ -50,14 +50,16 @@
                     <p><b>Profil</b></p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview menu-open">
+                <li class="nav-item has-treeview <?php if ($Halaman == "Kegiatan") {
+                      echo "menu-open";
+                    } ?>">
                     <a href="#" class="nav-link <?php if ($Halaman == "Kegiatan") {
-                    echo "active";
+                      echo "active"; 
                     } ?>">
                     <i class="nav-icon fas fa-tasks"></i>
                     <p>
-                        <b>Kegiatan</b>
-                        <i class="right fas fa-angle-left"></i>
+                      <b>Kegiatan</b>
+                      <i class="right fas fa-angle-left"></i>
                     </p>
                     </a>
                     <?php
@@ -67,9 +69,7 @@
                     <?php for ($i=0; $i < count($JenisKegiatan); $i++) {?>
                     <ul class="nav nav-treeview <ml-1></ml-3>">
                         <li class="nav-item">
-                        <a href="<?=base_url("Dashboard/").$JenisKegiatan[$i]?>" class="nav-link <?php if ($SubMenu == $JenisKegiatan[$i]) {
-                            echo "active";
-                        } ?>">
+                        <a href="<?=base_url("Dashboard/").$JenisKegiatan[$i]?>" class="nav-link <?php if ($SubMenu == $JenisKegiatan[$i]) { echo "active"; } ?>">
                             <i class="fas fa-<?=$Icon[$i]?> nav-icon"></i>
                             <p class="font-weight-bold"><?=$JenisKegiatan[$i]?></p>
                         </a>
@@ -83,6 +83,27 @@
                     <p><b>PO-PAK</b></p>
                     </a>
                 </li>
+                <?php if ($this->session->userdata('Kajur')) { ?>
+                  <li class="nav-item has-treeview <?php if ($Halaman == "Monitoring") { echo "menu-open"; } ?>">
+                    <a href="#" class="nav-link <?php if ($Halaman == "Monitoring") { echo "active"; } ?>">
+                    <i class="nav-icon fas fa-tasks"></i>
+                    <p>
+                      <b>Monitoring</b>
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
+                    </a>
+                    <?php for ($i=0; $i < count($JenisKegiatan); $i++) {?>
+                    <ul class="nav nav-treeview <ml-1></ml-3>">
+                        <li class="nav-item">
+                        <a href="<?=base_url("Kajur/Monitoring/".$JenisKegiatan[$i])?>" class="nav-link <?php if ($SubMenu == 'Monitoring '.$JenisKegiatan[$i]) { echo "active";} ?>">
+                            <i class="fas fa-<?=$Icon[$i]?> nav-icon"></i>
+                            <p class="font-weight-bold"><?=$JenisKegiatan[$i]?></p>
+                        </a>
+                        </li>
+                    </ul>
+                    <?php } ?>
+                  </li>
+                <?php } ?>
             </ul>
         </nav>
         </div>

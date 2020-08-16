@@ -62,8 +62,6 @@
 
 				$('#TabelRencana').DataTable( {
 					dom:'lfrtip',
-					"info": false,
-					"filter": false,
 					"lengthMenu": [ 5, 10, 20, 30 ],
 					"language": {
 						"paginate": {

@@ -4,13 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class SMD extends CI_Controller {
 
 	public function index(){
-		if($this->session->userdata('Login')){
-			if ($this->session->userdata('Akun') == 'Dosen') {
-				redirect(base_url('Dashboard/Profil'));
-			} else if ($this->session->userdata('Akun') == 'Admin') {
-				redirect(base_url('Admin/AkunDosen'));
-			}
-		} else {
+		if ($this->session->userdata('Akun') == 'Dosen') {
+			redirect(base_url('Dashboard/Profil'));
+		} 
+		else if ($this->session->userdata('Akun') == 'Admin') {
+			redirect(base_url('Admin/AkunDosen'));
+		} 
+		else {
 			$this->load->view('Home');
 		}
 	}
@@ -24,10 +24,9 @@ class SMD extends CI_Controller {
 			$Akun = $CekLogin->result_array();
 			if (password_verify($_POST['Password'], $Akun[0]['Password'])) {
 				$Jabatan = $this->db->get_where('Dosen', array('NIP' => $_POST['NIP']))->result_array();
-				$Session = array('Login' => true, 
-												 'Akun' => 'Dosen',
+				$Session = array('Akun' => 'Dosen',
 												 'NIP' => $_POST['NIP'], 
-												 'Jabatan' => $Jabatan[0]['Jabatan'],
+												 'Jabatan' => $Jabatan[0]['Jabatan'], 
 												 'IdKegiatanPendidikan' => 'PND1',
 												 'IdKegiatanPenelitian' => 'PNL1',
 												 'IdKegiatanPengabdian' => 'PNB1',
@@ -36,6 +35,9 @@ class SMD extends CI_Controller {
 												 'SubPenelitian' => 'Rencana',
 												 'SubPengabdian' => 'Rencana',
 												 'SubPenunjang' => 'Rencana');
+				if ($Akun[0]['JenisAkun'] == 2) {
+					$Session['Kajur'] = true;
+				}
 				$this->session->set_userdata($Session);
 				echo '1';
 			} else {
@@ -52,7 +54,7 @@ class SMD extends CI_Controller {
 		else{
 			$Akun = $CekLogin->result_array();
 			if (password_verify($_POST['Password'], $Akun[0]['Password'])) {
-				$Session = array('Login' => true,'Akun' => 'Admin');
+				$Session = array('Akun' => 'Admin');
 				$this->session->set_userdata($Session);
 				echo '1';
 			} else {

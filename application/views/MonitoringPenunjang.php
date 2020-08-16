@@ -15,42 +15,51 @@
                       <div class="row align-items-center">
                         <div class="col-sm-12 my-2 ">     
                           <div class="table-responsive mb-2">
-                            <table id="TabelMonitoringDosen" class="table table-bordered table-striped">
+                            <table id="TabelMonitoringPenunjang" class="table table-bordered table-striped">
                               <thead class="bg-warning">
                                 <tr>
-                                  <th class="align-middle">No</th>
+                                  <th class="text-center align-middle">No</th>
                                   <th class="align-middle">NIP</th>
                                   <th class="align-middle">Nama</th>
-                                  <th class="align-middle">Homebase</th>
-                                  <th class="align-middle">Semester</th>
-                                  <th class="align-middle">Tahun</th>
-                                  <th class="align-middle">Realisasi</th> 
-                                  <th class="align-middle">Rencana</th>
-                                  <th class="align-middle">Status</th>
-                                  <th class="align-middle">Target</th>
+                                  <th class="text-center align-middle">Home<br>base</th>
+                                  <th class="text-center align-middle">Seme<br>ster</th>
+                                  <th class="text-center align-middle">Tahun</th>
+                                  <th class="text-center align-middle">Realisasi</th> 
+                                  <th class="text-center align-middle">Persen<br>tase</th>
+                                  <th class="text-center align-middle">Rencana</th>
+                                  <th class="text-center align-middle">Status</th>
+                                  <th class="text-center align-middle">Target</th>
                                 </tr>
                               </thead>
                               <tbody>
                                 <?php $No = 1; foreach ($Rencana as $key) { ?>
                                   <tr>	
                                     <td class="text-center align-middle"><?=$No++?></td>
-                                    <td class="text-center align-middle"><?=$key['NIP']?></td>
-                                    <td class="text-center align-middle"><?=$Dosen[0]['Nama']?></td>
+                                    <td class="align-middle"><?=$key['NIP']?></td>
+                                    <td class="align-middle"><?=$Dosen[0]['Nama']?></td>
                                     <td class="text-center align-middle"><?=$key['Jenjang']?></td>
                                     <td class="text-center align-middle"><?=$key['Semester']?></td>
                                     <td class="text-center align-middle"><?=$key['Tahun']?></td>
-                                    <td class="text-center align-middle"><?=$Realisasi[$No-2]?></td>
-                                    <td class="text-center align-middle"><?=$key['TotalKredit']?></td>
+                                    <td class="text-center align-middle"><?=$Realisasi[$No-2].' SKS'?></td>
+                                    <td class="text-center align-middle"><?=($Realisasi[$No-2]/$key['TotalKredit']*100).' %'?></td> 
+                                    <td class="text-center align-middle"><?=$key['TotalKredit'].' SKS'?></td>
                                     <td class="text-center align-middle">
                                       <?php if ($key['TotalKredit'] == $key['TargetKajur']) { ?>
-                                        <h4 class="text-primary"><b>=</b></h4>
+                                        <h4 class="text-primary mt-2"><b>=</b></h4>
                                         <?php } else if ($key['TotalKredit'] > $key['TargetKajur']) { ?>
-                                          <h4 class="text-success"><b>></b></h4>
+                                          <h4 class="text-success mt-2"><b>></b></h4>
                                         <?php } else if ($key['TotalKredit'] < $key['TargetKajur']) { ?>
-                                          <h4 class="text-danger"><b><</b></h4>
+                                          <h4 class="text-danger mt-2"><b><</b></h4>
                                         <?php } ?>
                                     </td>
-                                    <td class="text-center align-middle"><?=$key['TargetKajur']?>&nbsp;<button EditRencanaPenunjang="<?=$key['No']."/".$key['Jabatan']."/".$key['Jenjang']."/".$key['Semester']."/".$key['Tahun']."/".$key['KodeRencana']."/".$key['TotalKredit']."/".$key['TargetKajur']?>" class="btn btn-sm btn-success EditRencanaPenunjang"><i class="fas fa-edit"></i></button></td>
+                                    <td class="text-center align-middle">
+                                      <?php
+                                        if ($key['TargetKajur'] == null) {
+                                          echo '0 SKS ';?><button EditRencanaPenunjang="<?=$key['No']."/".$key['Jabatan']."/".$key['Jenjang']."/".$key['Semester']."/".$key['Tahun']."/".$key['KodeRencana']."/".$key['TotalKredit']."/".$key['TargetKajur']?>" class="btn btn-sm btn-success EditRencanaPenunjang"><i class="fas fa-edit"></i></button>
+                                        <?php } else {
+                                          echo $key['TargetKajur'].' SKS ';?><button EditRencanaPenunjang="<?=$key['No']."/".$key['Jabatan']."/".$key['Jenjang']."/".$key['Semester']."/".$key['Tahun']."/".$key['KodeRencana']."/".$key['TotalKredit']."/".$key['TargetKajur']?>" class="btn btn-sm btn-success EditRencanaPenunjang"><i class="fas fa-edit"></i></button>
+                                      <?php }?>
+                                    </td>
                                   </tr>
                                 <?php } ?>
                               </tbody>
@@ -366,13 +375,36 @@
 			var EditJabatanRencanaPenunjang = ''
 			jQuery(document).ready(function($) {
 				"use strict";
+				
+        $('[data-mask]').inputmask()
+
 				var BaseURL = '<?=base_url()?>';
 
-				$('#TabelMonitoringDosen').DataTable( {
+        $("#pak").click(function() {
+					var Tahun = $('#Tahun').val()
+					var Pisah = Tahun.split('-')
+					window.location = BaseURL + 'Dashboard/PAK/'+$('#Homebase').val()+'/'+$('#Semester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))
+					var PAK = ['Pendidikan','Penelitian','Pengabdian','Penunjang']
+					for (let i = 1; i < 5; i++) {
+						$.post(BaseURL+PAK[i-1]+"/Lampiran/"+$('#Homebase').val()+'/'+$('#Semester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))+'/'+PAK[i-1]).done(function(Respon) {
+							var array = JSON.parse(Respon)
+							var NomorLampiran = 1
+							array.forEach(function(object) {
+								if (object.Bukti != null) {
+									$('#LampiranPAK').attr('href',BaseURL+PAK[i-1]+'/'+object.Bukti)		
+									$('#LampiranPAK').attr('Download','Lampiran '+i+'.'+NomorLampiran+'.pdf')
+									$('#LampiranPAK')[0].click()
+								}
+								NomorLampiran++;
+							})
+						}) 	
+					}
+				})
+
+				$('#TabelMonitoringPenunjang').DataTable( {
 					dom:'lfrtip',
-					"info": false,
-					// "filter": false,
-					// "lengthMenu": [ 5, 10, 20, 30 ],
+					"ordering": false,
+          "lengthMenu": [ 5, 10, 20, 30 ],
 					"language": {
 						"paginate": {
 							'previous': '<b class="text-primary"><</b>',
@@ -380,10 +412,6 @@
 						}
 					}
 				});
-
-				$('[data-mask]').inputmask()
-
-				var BaseURL = '<?=base_url()?>';
 
         $('#SimpanEditRencanaPenunjang').click(function() {
           if (isNaN(parseInt($('#Target').val()))) {
