@@ -41,7 +41,7 @@
                                     <td class="text-center align-middle"><?=$key['Semester']?></td>
                                     <td class="text-center align-middle"><?=$key['Tahun']?></td>
                                     <td class="text-center align-middle"><?=$Realisasi[$No-2].' SKS'?></td>
-                                    <td class="text-center align-middle"><?=($Realisasi[$No-2]/$key['TotalKredit']*100).' %'?></td> 
+                                    <td class="text-center align-middle"><?=round(($Realisasi[$No-2]/$key['TotalKredit']*100),2).' %'?></td> 
                                     <td class="text-center align-middle"><?=$key['TotalKredit'].' SKS'?></td>
                                     <td class="text-center align-middle">
                                       <?php if ($key['TotalKredit'] == $key['TargetKajur']) { ?>

@@ -36,7 +36,26 @@ class Kajur extends CI_Controller {
     $this->load->view('Header',$Data);
     $this->load->view('Monitoring'.$Bidang,$Data); 
 	}
-	
+	 
+	public function KreditDosen(){
+		$Data['Halaman'] = 'Monitoring';
+		$Data['SubMenu'] = 'Kredit Dosen';
+		$Data['Dosen'] = $this->db->get('Dosen')->result_array(); 
+		// $TahunKreditLama = $this->db->query("SELECT Tahun FROM Dosen WHERE NIP=".$NIP)->row_array();
+		$Bidang = array('Pendidikan','Penelitian','Pengabdian','Penunjang');
+		$TotalKredit = 0;
+		$Data['KreditBaru'] = array();
+		foreach ($Data['Dosen'] as $key) {
+			for ($i=0; $i < 4; $i++) { 
+				$TotalKredit += $this->db->query("SELECT SUM(JumlahKredit) AS JumlahKredit FROM Realisasi".$Bidang[$i]." WHERE NIP=".$key['NIP'])->row_array()['JumlahKredit'];
+			}
+			array_push($Data['KreditBaru'],$TotalKredit);
+			$TotalKredit = 0;
+		}
+		$this->load->view('Header',$Data);
+    $this->load->view('KreditDosen',$Data); 
+	}
+
 	public function InputTarget(){
 		$this->db->where('No', $_POST['No']);
 		$this->db->update($_POST['Bidang'],array('TargetKajur' => $_POST['Target']));

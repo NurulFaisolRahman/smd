@@ -6499,10 +6499,13 @@ Content-Type: text/html; charset="us-ascii"
        <x:Row>69</x:Row>
       </x:RowBreak>
       <x:RowBreak>
-       <x:Row>144</x:Row>
+       <x:Row>140</x:Row>
       </x:RowBreak>
       <x:RowBreak>
-       <x:Row>218</x:Row>
+       <x:Row>217</x:Row>
+      </x:RowBreak>
+      <x:RowBreak>
+       <x:Row>284</x:Row>
       </x:RowBreak>
      </x:RowBreaks>
     </x:PageBreaks>
@@ -7799,10 +7802,10 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td class=3D"xl138"></td>
+    <td class=3D"xl131"></td>
     <td class=3D"xl139"></td>
-    <td class=3D"xl216" x:str>b</td>
-    <td class=3D"xl136" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jurnal ilmiah:</td>
+    <td class=3D"xl216" x:str>b.</td>
+    <td class=3D"xl133" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Book Chapter</td>
     <td class=3D"xl269"></td>
     <td class=3D"xl252"></td>
     <td class=3D"xl167"></td>
@@ -7812,11 +7815,11 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
+   <tr height=3D"20" style=3D'height:15.00pt;mso-height-source:userset;mso-height-alt:300;'>
+    <td class=3D"xl230" height=3D"20" style=3D'height:15.00pt;'></td>
     <td class=3D"xl138"></td>
-    <td class=3D"xl263"></td>
-    <td class=3D"xl138"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl131"></td>
     <td class=3D"xl206" x:str>1)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Internasional</td>
     <td class=3D"xl269"></td>
@@ -7828,65 +7831,174 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td class=3D"xl138"></td>
-    <td class=3D"xl263"></td>
-    <td class=3D"xl138"></td>
-    <td class=3D"xl206" x:str>2)</td>
-    <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nasional terakreditasi</td>
-    <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
-    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"34" style=3D'height:25.50pt;'>
-    <td class=3D"xl230" height=3D"34" style=3D'height:25.50pt;'></td>
-    <td class=3D"xl138"></td>
-    <td class=3D"xl263"></td>
-    <td class=3D"xl138"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl136" x:str>b</td>
-    <td class=3D"xl136" x:str>Jurnal Nasional Terakrediatsi Kemenrstekdikti peringkat 1 dan 2</td>
-    <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
-    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"34" style=3D'height:25.50pt;'>
-    <td class=3D"xl230" height=3D"34" style=3D'height:25.50pt;'></td>
-    <td class=3D"xl138"></td>
-    <td class=3D"xl263"></td>
-    <td class=3D"xl138"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl136" x:str>c</td>
-    <td class=3D"xl136" x:str>Jurnal Nasional Terakrediatsi Kemenrstekdikti peringkat 3 dan 4</td>
-    <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
-    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
    <tr height=3D"19" style=3D'height:14.25pt;mso-height-source:userset;mso-height-alt:285;'>
     <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
     <td class=3D"xl138"></td>
-    <td class=3D"xl263"></td>
-    <td class=3D"xl225"></td>
-    <td class=3D"xl206" x:str>3)</td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl135"></td>
+    <td class=3D"xl206" x:str>2)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nasional</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl274"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr>
+    <td class=3D"xl230"></td>
+    <td class=3D"xl131"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl216" x:str>c.</td>
+    <td class=3D"xl133" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Hasil penelitian / hasil pemikiran yang dipublikasikan</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr>
+    <td class=3D"xl230"></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl131"></td>
+    <td class=3D"xl206" x:str>1)</td>
+    <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jurnal internasional bereputasi (terindeks pada database internasional bereputasi dan berfaktor dampak)</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr>
+    <td class=3D"xl230"></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl131"></td>
+    <td class=3D"xl206" x:str>2)</td>
+    <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jurnal internasional terindeks pada basis data internasional bereputasi</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr>
+    <td class=3D"xl230"></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl131"></td>
+    <td class=3D"xl206" x:str>3)</td>
+    <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jurnal internasional terindeks pada basis data internasional di luar kategori 2</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr>
+    <td class=3D"xl230"></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl131"></td>
+    <td class=3D"xl206" x:str>4)</td>
+    <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jurnal Nasional terakreditasi Dikti</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr>
+    <td class=3D"xl230"></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl131"></td>
+    <td class=3D"xl206" x:str>5)</td>
+    <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jurnal nasional terakreditasi Kemenristekdikti peringkat 1 dan 2</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr>
+    <td class=3D"xl230"></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl131"></td>
+    <td class=3D"xl206" x:str>6)</td>
+    <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jurnal Nasional berbahasa Inggris atau bahasa resmi (PBB) terindeks pada basis datayang diakui Kemenristekdikti, contohnya: CABIatau Index Copernicus International (ICI). b. Jurnal nasional terakreditasi peringkat 3 dan 4</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr>
+    <td class=3D"xl230"></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl131"></td>
+    <td class=3D"xl206" x:str>7)</td>
+    <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jurnal Nasional berbahasa Indonesia terindeks pada basis data yang diakui Kemenristekdikti, contohnya: akreditasi peringkat 5 dan 6</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr>
+    <td class=3D"xl230"></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl131"></td>
+    <td class=3D"xl206" x:str>8)</td>
+    <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jurnal Nasional</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr>
+    <td class=3D"xl230"></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl131"></td>
+    <td class=3D"xl206" x:str>9)</td>
+    <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jurnal ilmiah yang ditulisdalam Bahasa Resmi PBB namun tidak memenuhi syarat - syarat sebagai jurnal ilmiah internasional</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7895,30 +8007,73 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl231" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td class=3D"xl138"></td>
-    <td class=3D"xl263"></td>
-    <td class=3D"xl216" x:str>c.</td>
-    <td class=3D"xl136" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Seminar</td>
-    <td class=3D"xl269"></td>
-    <td class=3D"xl254"></td>
-    <td class=3D"xl254"></td>
-    <td class=3D"xl254"></td>
-    <td class=3D"xl254"></td>
-    <td class=3D"xl254"></td>
+    <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
+    <td class=3D"xl216" x:str>B</td>
+    <td class=3D"xl136" colspan=3D"5" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Hasil penelitian / hasil pemikiran<font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;</span></font></td>
+    <td class=3D"xl226"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
     <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl231" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td class=3D"xl138"></td>
-    <td class=3D"xl263"></td>
-    <td class=3D"xl138"></td>
-    <td class=3D"xl216" x:str>1)</td>
-    <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Disajikan tingkat:</td>
+    <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
+    <td class=3D"xl131"></td>
+    <td class=3D"xl216" x:num>1</td>
+    <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Hasil penelitian / hasil pemikiran yang didesiminasikan</td>
+    <td class=3D"xl226"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr>
+    <td class=3D"xl230"></td>
+    <td class=3D"xl131"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl216" x:str>a.</td>
+    <td class=3D"xl136" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN):</td>
     <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"20" style=3D'height:15.00pt;mso-height-source:userset;mso-height-alt:300;'>
+    <td class=3D"xl230" height=3D"20" style=3D'height:15.00pt;'></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl131"></td>
+    <td class=3D"xl206" x:str>1)</td>
+    <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Internasional terindeks pada Scimagojr dan Scopus</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr>
+    <td class=3D"xl230"></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl131"></td>
+    <td class=3D"xl206" x:str>2)</td>
+    <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Internasional terindeks pada SCOPUS, IEEE Explore, SPIE</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -7926,95 +8081,12 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;mso-height-source:userset;mso-height-alt:285;'>
-    <td class=3D"xl231" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td class=3D"xl138"></td>
-    <td class=3D"xl263"></td>
-    <td class=3D"xl138"></td>
-    <td class=3D"xl138"></td>
-    <td class=3D"xl270" x:str>a) Int<span style=3D'display:none;'><font class=3D"font8">ernasional</font></span></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl226"></td>
-    <td class=3D"xl275"></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
-    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl231" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td class=3D"xl138"></td>
-    <td class=3D"xl263"></td>
-    <td class=3D"xl138"></td>
-    <td class=3D"xl225"></td>
-    <td class=3D"xl270" x:str>b) N<font class=3D"font8">asional</font></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl226"></td>
-    <td class=3D"xl275"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
-    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl131" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td class=3D"xl138"></td>
-    <td class=3D"xl263"></td>
-    <td class=3D"xl138"></td>
-    <td class=3D"xl216" x:str>2)</td>
-    <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Poster tingkat:</td>
-    <td class=3D"xl269"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
-    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
     <td class=3D"xl138"></td>
-    <td class=3D"xl263"></td>
-    <td class=3D"xl138"></td>
-    <td class=3D"xl138"></td>
-    <td class=3D"xl270" x:str>a) Int<span style=3D'display:none;'><font class=3D"font8">ernasional</font></span></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl226"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
-    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td class=3D"xl138"></td>
-    <td class=3D"xl263"></td>
-    <td class=3D"xl225"></td>
-    <td class=3D"xl225"></td>
-    <td class=3D"xl270" x:str>b) N<font class=3D"font8">asional</font></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl226"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl242"></td>
-    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
-    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td class=3D"xl138"></td>
-    <td class=3D"xl264"></td>
-    <td class=3D"xl206" x:str>d</td>
-    <td class=3D"xl136" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Dalam koran/majalah populer/umum</td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl131"></td>
+    <td class=3D"xl206" x:str>3)</td>
+    <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Internasional</td>
     <td class=3D"xl269"></td>
     <td class=3D"xl252"></td>
     <td class=3D"xl167"></td>
@@ -8024,11 +8096,169 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"34" style=3D'height:25.50pt;mso-height-source:userset;mso-height-alt:510;'>
-    <td class=3D"xl230" height=3D"34" style=3D'height:25.50pt;'></td>
-    <td class=3D"xl225"></td>
-    <td class=3D"xl206" x:num>2</td>
-    <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Hasil penelitian atau hasil pemikiran yang tidak di publikasikan (tersimpan di perpustakaan perguruan tinggi)</td>
+   <tr height=3D"19" style=3D'height:14.25pt;mso-height-source:userset;mso-height-alt:285;'>
+    <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl135"></td>
+    <td class=3D"xl206" x:str>4)</td>
+    <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nasional</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr>
+    <td class=3D"xl230"></td>
+    <td class=3D"xl131"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl216" x:str>b.</td>
+    <td class=3D"xl136" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Disajikan dalam bentuk poster dan dimuat dalam prosiding yang dipublikasikan</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"19" style=3D'height:14.25pt;mso-height-source:userset;mso-height-alt:285;'>
+    <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl131"></td>
+    <td class=3D"xl206" x:str>1)</td>
+    <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Internasional</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"19" style=3D'height:14.25pt;mso-height-source:userset;mso-height-alt:285;'>
+    <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl135"></td>
+    <td class=3D"xl206" x:str>2)</td>
+    <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nasional</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr>
+    <td class=3D"xl230"></td>
+    <td class=3D"xl131"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl216" x:str>c.</td>
+    <td class=3D"xl136" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan:</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"19" style=3D'height:14.25pt;mso-height-source:userset;mso-height-alt:285;'>
+    <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl131"></td>
+    <td class=3D"xl206" x:str>1)</td>
+    <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Internasional</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"19" style=3D'height:14.25pt;mso-height-source:userset;mso-height-alt:285;'>
+    <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl135"></td>
+    <td class=3D"xl206" x:str>2)</td>
+    <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nasional</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr>
+    <td class=3D"xl230"></td>
+    <td class=3D"xl131"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl216" x:str>d.</td>
+    <td class=3D"xl136" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"19" style=3D'height:14.25pt;mso-height-source:userset;mso-height-alt:285;'>
+    <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl131"></td>
+    <td class=3D"xl206" x:str>1)</td>
+    <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Internasional</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"19" style=3D'height:14.25pt;mso-height-source:userset;mso-height-alt:285;'>
+    <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl135"></td>
+    <td class=3D"xl206" x:str>2)</td>
+    <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nasional</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr>
+    <td class=3D"xl230"></td>
+    <td class=3D"xl131"></td>
+    <td class=3D"xl139"></td>
+    <td class=3D"xl216" x:str>e.</td>
+    <td class=3D"xl136" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str> Hasil penelitian/pemikiran yang disajikan dalam koran/majalah populer/umum</td>
     <td class=3D"xl269"></td>
     <td class=3D"xl252"></td>
     <td class=3D"xl167"></td>
@@ -8040,7 +8270,34 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td class=3D"xl140" x:str>B</td>
+    <td class=3D"xl140" x:str>C</td>
+    <td class=3D"xl136" colspan=3D"5" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Hasil penelitian atau pemikiran/kerjasama industri yang tidak dipublikasikan</td>
+    <td class=3D"xl226"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"19" style=3D'height:14.25pt;'>
+    <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
+    <td class=3D"xl225"></td>
+    <td class=3D"xl166"></td>
+    <td class=3D"xl133" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Tersimpan dalam perpustakaan yang dilakukan secara melembaga</td>
+    <td class=3D"xl226"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"19" style=3D'height:14.25pt;'>
+    <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
+    <td class=3D"xl140" x:str>D</td>
     <td class=3D"xl136" colspan=3D"5" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Menerjemahkan / menyadur buku ilmiah</td>
     <td class=3D"xl226"></td>
     <td class=3D"xl252"></td>
@@ -8067,7 +8324,7 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td class=3D"xl140" x:str>C</td>
+    <td class=3D"xl140" x:str>E</td>
     <td class=3D"xl136" colspan=3D"5" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Mengedit/menyunting karya ilmiah</td>
     <td class=3D"xl226"></td>
     <td class=3D"xl252"></td>
@@ -8094,8 +8351,105 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td class=3D"xl140" x:str>D</td>
+    <td class=3D"xl140" x:str>F</td>
     <td class=3D"xl136" colspan=3D"5" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Membuat rencana dan karya teknologi yang dipatenkan</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr>
+    <td class=3D"xl230"></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl206" x:num>1</td>
+    <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Internasional yang sudah diimplementasikan di industri (paling sedikit diakui oleh 4 Negara)</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr>
+    <td class=3D"xl230"></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl206" x:num>2</td>
+    <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Internasional (paling sedikit diakui oleh 4 Negara)</td>
+    <td class=3D"xl226"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"19" style=3D'height:14.25pt;'>
+    <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl206" x:num>3</td>
+    <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nasional (yang sudah diimplementasikan di industri)</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr>
+    <td class=3D"xl230"></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl206" x:num>4</td>
+    <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nasional</td>
+    <td class=3D"xl226"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr>
+    <td class=3D"xl257"></td>
+    <td class=3D"xl257"></td>
+    <td class=3D"xl206" x:num>5</td>
+    <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nasional, dalam bentuk paten sederhana yang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr>
+    <td class=3D"xl258"></td>
+    <td class=3D"xl140"></td>
+    <td class=3D"xl265" x:num>6</td>
+    <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Karya buku, desain industri, indikasi geografis yang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham;</td>
+    <td class=3D"xl226"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"34" style=3D'height:25.50pt;mso-height-source:userset;mso-height-alt:510;'>
+    <td class=3D"xl230" height=3D"34" style=3D'height:25.50pt;'></td>
+    <td class=3D"xl140" x:str>G</td>
+    <td class=3D"xl136" colspan=3D"5" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Membuat rancangan dan karya teknologi, rancangan dan karya seni monumental/seni pertunjukan/karya sastra<font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;</span></font></td>
     <td class=3D"xl269"></td>
     <td class=3D"xl252"></td>
     <td class=3D"xl167"></td>
@@ -8109,7 +8463,21 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
     <td class=3D"xl138"></td>
     <td class=3D"xl206" x:num>1</td>
-    <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Internasional</td>
+    <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Tingkat internasional</td>
+    <td class=3D"xl269"></td>
+    <td class=3D"xl252"></td>
+    <td class=3D"xl167"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl242"></td>
+    <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"19" style=3D'height:14.25pt;'>
+    <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
+    <td class=3D"xl138"></td>
+    <td class=3D"xl206" x:num>2</td>
+    <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Tingkat nasional</td>
     <td class=3D"xl269"></td>
     <td class=3D"xl252"></td>
     <td class=3D"xl167"></td>
@@ -8122,8 +8490,8 @@ Content-Type: text/html; charset="us-ascii"
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
     <td class=3D"xl225"></td>
-    <td class=3D"xl265" x:num>2</td>
-    <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nasional</td>
+    <td class=3D"xl206" x:num>3</td>
+    <td class=3D"xl246" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Tingkat lokal</td>
     <td class=3D"xl226"></td>
     <td class=3D"xl252"></td>
     <td class=3D"xl167"></td>
@@ -8133,10 +8501,10 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl126" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
     <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"34" style=3D'height:25.50pt;mso-height-source:userset;mso-height-alt:510;'>
-    <td class=3D"xl230" height=3D"34" style=3D'height:25.50pt;'></td>
-    <td class=3D"xl140" x:str>E</td>
-    <td class=3D"xl136" colspan=3D"5" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Membuat rancangan dan karya teknologi, rancangan dan karya seni monumental/seni pertunjukan/karya sastra<font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;</span></font></td>
+   <tr>
+    <td class=3D"xl230"></td>
+    <td class=3D"xl140" x:str>H</td>
+    <td class=3D"xl136" colspan=3D"5" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Membuat rancangan dan karya seni yang tidak terdaftar HaKI</td>
     <td class=3D"xl269"></td>
     <td class=3D"xl252"></td>
     <td class=3D"xl167"></td>
@@ -9031,7 +9399,7 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;mso-height-source:userset;mso-height-alt:285;'>
     <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td class=3D"xl278" x:str>G</td>
+    <td class=3D"xl140" x:str>G</td>
     <td class=3D"xl136" colspan=3D"5" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Mendapat penghargaan/ tanda jasa</td>
     <td class=3D"xl247"></td>
     <td class=3D"xl252"></td>
@@ -9146,7 +9514,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;mso-height-source:userset;mso-height-alt:285;'>
-    <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
+    <td class=3D"xl135" height=3D"19" style=3D'height:14.25pt;'></td>
     <td class=3D"xl135"></td>
     <td class=3D"xl135"></td>
     <td class=3D"xl206" x:str>c</td>
@@ -9161,7 +9529,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl123" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;mso-height-source:userset;mso-height-alt:285;'>
-    <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
+    <td class=3D"xl140" height=3D"19" style=3D'height:14.25pt;'></td>
     <td class=3D"xl140" x:str>H</td>
     <td class=3D"xl136" colspan=3D"5" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Menulis buku pelajaran SLTA ke bawah yang diterbitkan dan diedarkan secara nasional</td>
     <td class=3D"xl245"></td>
@@ -28612,7 +28980,7 @@ Content-Type: text/html; charset="us-ascii"
     <x:PageBreaks>
      <x:RowBreaks>
       <x:RowBreak>
-       <x:Row>74</x:Row>
+       <x:Row>76</x:Row>
       </x:RowBreak>
      </x:RowBreaks>
     </x:PageBreaks>
@@ -28951,7 +29319,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl169"></td>
     <td class=3D"xl126" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"74" style=3D'height:55.50pt;mso-height-source:userset;mso-height-alt:1110;'>
+   <tr height=3D"74" style=3D'height:55.50pt;mso-height-source:userset;mso-height-alt:850;'>
     <td class=3D"xl143" height=3D"74" style=3D'height:55.50pt;'></td>
     <td class=3D"xl148"></td>
     <td class=3D"xl149"></td>
@@ -29196,9 +29564,9 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl126" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"68" style=3D'height:51.00pt;'>
-    <td class=3D"xl143" height=3D"68" style=3D'height:51.00pt;'></td>
-    <td class=3D"xl149"></td>
-    <td class=3D"xl158"></td>
+    <td class=3D"xl150" height=3D"68" style=3D'height:51.00pt;'></td>
+    <td class=3D"xl151"></td>
+    <td class=3D"xl152"></td>
     <td class=3D"xl141" x:num>1</td>
     <td class=3D"xl161" x:str>Menduduki jabatan pimpinan pada lembaga pemerintah/ pejabat negara yang dibebaskan dari jabatan organiknya</td>
     <td class=3D"xl169"></td>
@@ -29210,9 +29578,9 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl126" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"68" style=3D'height:51.00pt;'>
-    <td class=3D"xl143" height=3D"68" style=3D'height:51.00pt;'></td>
-    <td class=3D"xl149"></td>
-    <td class=3D"xl158"></td>
+    <td class=3D"xl153" height=3D"68" style=3D'height:51.00pt;'></td>
+    <td class=3D"xl146"></td>
+    <td class=3D"xl154"></td>
     <td class=3D"xl141" x:num>2</td>
     <td class=3D"xl161" x:str>Melaksanakan pengembangan hasil pendidikan dan penelitian yang dapat dimanfaatkan oleh masyarakat</td>
     <td class=3D"xl169"></td>
@@ -29420,7 +29788,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl161" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Mempunyai prestastasi dibidang olahraga / humaniora</td>
     <td class=3D"xl169"></td>
     <td class=3D"xl167"><?php if (in_array('PNJ9',$UsulPenunjang)) { echo str_replace('.',',',array_search('PNJ9', $UsulPenunjang)); } ?></td>
-    <td class=3D"xl167" x:fmla=3D"=3DF74+G714></td>
+    <td class=3D"xl167" x:fmla=3D"=3DF74+G74"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>

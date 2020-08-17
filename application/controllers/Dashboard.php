@@ -19,7 +19,13 @@ class Dashboard extends CI_Controller {
 		$NIP = $this->session->userdata('NIP');
     $Data['Halaman'] = 'Profil';
     $Data['SubMenu'] = '';
-    $Data['Profil'] = $this->db->get_where('Dosen', array('NIP' => $NIP))->row_array();
+		$Data['Profil'] = $this->db->get_where('Dosen', array('NIP' => $NIP))->row_array(); 
+		$TahunKreditLama = $this->db->query("SELECT Tahun FROM Dosen WHERE NIP=".$NIP)->row_array();
+		$Bidang = array('Pendidikan','Penelitian','Pengabdian','Penunjang');
+		$Data['KreditBaru'] = 0;
+		for ($i=0; $i < 4; $i++) { 
+			$Data['KreditBaru'] += $this->db->query("SELECT SUM(JumlahKredit) AS JumlahKredit FROM Realisasi".$Bidang[$i]." WHERE NIP=".$NIP." AND Tahun > ".$TahunKreditLama['Tahun'])->row_array()['JumlahKredit'];
+		}
 		$this->load->view('Header',$Data);
 		$this->load->view('Profil',$Data);
 	}

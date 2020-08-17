@@ -13,7 +13,7 @@
 							<div class="tab-pane fade show active" id="pills-profil" role="tabpanel" aria-labelledby="pills-profil-tab">
 								<div class="container-fluid">
 									<div class="row align-items-center">
-										<div class="col-sm-3 my-1 text-center">
+										<div class="col-sm-3 my-2 text-center">
 											<?php if ($Profil['Foto'] == '') { ?>
 												<img src="<?=base_url('img/Avatar.png')?>" width="200px">
 											<?php	} else { ?>
@@ -24,7 +24,7 @@
 												<input class="form-control-sm" type="file" id="Foto" onchange="Upload()">
 											</div>
 										</div>
-										<div class="col-sm-auto my-2 ">
+										<div class="col-sm-auto my-2">
 											<table class="table-responsive">
 												<tr>
 													<td><b>Nama</b></td>
@@ -47,8 +47,16 @@
 													<td><b>: <?=$Profil['Jabatan']?></b></td>
 												</tr>
 												<tr>
+													<td><b>Kredit Baru</b></td>
+													<td><b>: <?=str_replace('.',',',$KreditBaru).' SKS'?></b></td>
+												</tr>
+												<tr>
 													<td><b>Kredit Lama</b></td>
-													<td><b>: <?=$Profil['Kredit']?></b></td>
+													<td><b>: <?=str_replace('.',',',$Profil['Kredit']).' SKS'?></b></td>
+												</tr>
+												<tr>
+													<td><b>Total Kredit</b></td>
+													<td><b>: <?=str_replace('.',',',($Profil['Kredit']+$KreditBaru)).' SKS'?></b></td>
 												</tr>
 											</table>
 											<button class="btn btn-primary text-white" data-toggle="modal" data-target="#ModalEditProfil"><i class="fa fa-edit"></i> <b>Edit Profil</b></button>
@@ -184,21 +192,21 @@
 					var Tahun = $('#Tahun').val()
 					var Pisah = Tahun.split('-')
 					window.location = BaseURL + 'Dashboard/PAK/'+$('#Homebase').val()+'/'+$('#Semester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))
-					var PAK = ['Pendidikan','Penelitian','Pengabdian','Penunjang']
-					for (let i = 1; i < 5; i++) {
-						$.post(BaseURL+PAK[i-1]+"/Lampiran/"+$('#Homebase').val()+'/'+$('#Semester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))+'/'+PAK[i-1]).done(function(Respon) {
-							var array = JSON.parse(Respon)
-							var NomorLampiran = 1
-							array.forEach(function(object) {
-								if (object.Bukti != null) {
-									$('#LampiranPAK').attr('href',BaseURL+PAK[i-1]+'/'+object.Bukti)		
-									$('#LampiranPAK').attr('Download','Lampiran '+i+'.'+NomorLampiran+'.pdf')
-									$('#LampiranPAK')[0].click()
-								}
-								NomorLampiran++;
-							})
-						}) 	
-					}
+					// var PAK = ['Pendidikan','Penelitian','Pengabdian','Penunjang']
+					// for (let i = 1; i < 5; i++) {
+					// 	$.post(BaseURL+PAK[i-1]+"/Lampiran/"+$('#Homebase').val()+'/'+$('#Semester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))+'/'+PAK[i-1]).done(function(Respon) {
+					// 		var array = JSON.parse(Respon)
+					// 		var NomorLampiran = 1
+					// 		array.forEach(function(object) {
+					// 			if (object.Bukti != null) {
+					// 				$('#LampiranPAK').attr('href',BaseURL+PAK[i-1]+'/'+object.Bukti)		
+					// 				$('#LampiranPAK').attr('Download','Lampiran '+i+'.'+NomorLampiran+'.pdf')
+					// 				$('#LampiranPAK')[0].click()
+					// 			}
+					// 			NomorLampiran++;
+					// 		})
+					// 	}) 	
+					// }
 				})
  
 				$("#EditProfil").click(function() {

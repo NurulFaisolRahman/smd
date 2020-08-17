@@ -102,6 +102,14 @@
                         </li>
                     </ul>
                     <?php } ?>
+                    <ul class="nav nav-treeview <ml-1></ml-3>">
+                        <li class="nav-item">
+                        <a href="<?=base_url("Kajur/KreditDosen")?>" class="nav-link <?php if ($SubMenu == 'Kredit Dosen') { echo "active";} ?>">
+                            <i class="fa fa-credit-card nav-icon"></i>
+                            <p class="font-weight-bold">Kredit Dosen</p>
+                        </a>
+                        </li>
+                    </ul>
                   </li>
                 <?php } ?>
             </ul>
