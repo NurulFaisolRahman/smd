@@ -13,11 +13,11 @@ class Admin extends CI_Controller {
 				redirect(base_url());
 			}
 		}
-	} 
+	}  
  
   public function AkunDosen(){
 		$Data['Halaman'] = 'Akun Dosen';
-		$Data['Kajur'] = $this->db->query('SELECT Dosen.NIP,Dosen.Nama,Akun.JenisAkun FROM Akun,Dosen WHERE Akun.NIP=Dosen.NIP')->result_array();
+		$Data['Dosen'] = $this->db->query('SELECT Dosen.NIP,Dosen.Nama,Dosen.Pangkat,Dosen.Golongan,Dosen.Jabatan,Akun.JenisAkun FROM Akun,Dosen WHERE Akun.NIP=Dosen.NIP')->result_array();
     $this->load->view('HeaderAdmin',$Data);
     $this->load->view('AkunDosen',$Data); 
   }
@@ -27,7 +27,7 @@ class Admin extends CI_Controller {
 			$this->db->insert('Dosen',
 						array('NIP' => $_POST['NIP'], 
 									'NIDN' => $_POST['NIDN'],
-									'Nama' => $_POST['Nama'],
+									'Nama' => htmlentities($_POST['Nama']),
 									'Jabatan' => $_POST['Jabatan'],
 									'Pangkat' => $_POST['Pangkat'],
 									'Golongan' => $_POST['Golongan']));

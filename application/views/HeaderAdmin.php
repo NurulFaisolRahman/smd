@@ -69,7 +69,7 @@
                   <label class="input-group-text bg-primary"><b>Kajur</b></label>
                 </div>
                 <select class="custom-select" id="Kajur">										
-                  <?php foreach ($Kajur as $key) { ?>
+                  <?php foreach ($Dosen as $key) { ?>
                     <option value="<?=$key['NIP']?>" <?php if ($key['JenisAkun'] == 2) { echo 'selected'; } ?> ><?=$key['Nama']?></option>
                   <?php } ?>
                 </select>

@@ -215,7 +215,6 @@ class Dashboard extends CI_Controller {
 			$Penunjang[$key['Kredit']] = $key['IdKegiatan'];
 		}
 		$Data['UsulPenunjang'] = $Penunjang;
-		// $Data['DupakPendidikan'] = $this->db->query("SELECT * FROM `RealisasiPendidikan` WHERE NIP = ".$NIP." AND Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1]." ORDER BY SUBSTR(IdKegiatan FROM 1 FOR 3), CAST(SUBSTR(IdKegiatan FROM 4) AS UNSIGNED), SUBSTR(IdKegiatan FROM 4), Kode ASC")->result_array();
 		
 		$this->load->view('ExcelPO-PAK',$Data);
 	}

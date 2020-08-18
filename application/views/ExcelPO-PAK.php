@@ -1243,7 +1243,10 @@ Content-Type: text/html; charset="us-ascii"
     $Huruf = 'A'; $Pen = $Pel = true; $Lampiran = $No = 1; $Disertasi1 = $Disertasi2 = $Tesis1 = $Tesis2 = $Skripsi1 = $Skripsi2 = $PengajaranBuku = $PengajaranDiktat = true;
     $PND1 = $PND2 = $PND3 = $PND4 = $PND5 = $PND6 = $PND7 = $PND8 = $PND9 = $PND10 = $PND11 = $PND12 = $PND13 = $PND14 = $PND15 = true;
     $Penguji1 = $Penguji2 = $PembimbingPencangkokan = $PembimbingReguler = $Detasering = $Pencangkokan = true; $SubTotal = $Total = 0;
-    $DupakPendidikan = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+    $DupakPendidikan = array();
+    for ($i=0; $i < 40; $i++) { 
+      array_push($DupakPendidikan,0);
+    }
    ?>
   <?php for ($i=0; $i < count($Pendidikan); $i++) { ?>
     <?php if ($Pendidikan[$i]['IdKegiatan'] != 'PND1' && $Pendidikan[$i]['IdKegiatan'] != 'PND2') { ?>
@@ -5762,7 +5765,11 @@ Content-Type: text/html; charset="us-ascii"
    <?php 
     $Huruf = 'A'; $Lampiran = $No = 1; $Delegasi1 = $Delegasi2 = true; $SubTotal = $Total = 0; $Pemerintah1 = $Pemerintah2 = $KodePemerintah1 = $KodePemerintah2 = $KodePemerintah3 = $KodePemerintah4 = $Profesi1 = $Profesi2 = $KodeProfesi1 = $KodeProfesi2 = $KodeProfesi3 = $KodeProfesi4 = $KodeProfesi5 = $KodeProfesi6 = $Universitas1 = $Universitas2 = true;
     $PNJ1 = $PNJ2 = $PNJ3 = $PNJ4 = $PNJ5 = $PNJ6 = $PNJ7 = $PNJ8 = $PNJ9 = $PNJ10 = true; $Penghargaan1 = $Penghargaan2 = $Penghargaan3 = $Penghargaan4 = $Penghargaan5 = $Penghargaan6 = $Ilmiah1 = $Ilmiah2 = $KodeIlmiah1 = $KodeIlmiah2 = $KodeIlmiah3 = $KodeIlmiah4 = $Buku1 = $Buku2 = $Buku3 = $Humaniora1 = $Humaniora2 = $Humaniora3 = $Humaniora3 = true;
-   ?>
+    $DupakPenunjang = array();
+    for ($i=0; $i < 32; $i++) { 
+      array_push($DupakPenunjang,0);
+    }
+    ?>
   <?php for ($i=0; $i < count($Penunjang); $i++) { ?>
     <?php if ($Penunjang[$i]['IdKegiatan'] == 'PNJ1') { ?>
         <?php if ($PNJ1) { $PNJ1 = false; $No = 1;?>
@@ -5793,21 +5800,21 @@ Content-Type: text/html; charset="us-ascii"
           <td class="xl91pak" x:str>Lampiran 4.<?=$Lampiran++?></td>
         </tr>
         <?php $SubTotal += $Penunjang[$i]['JumlahKredit'];  $Total += $Penunjang[$i]['JumlahKredit'];?>
-      <?php if ($i+1 == count($Penunjang)) { ?>  
+      <?php if ($i+1 == count($Penunjang)) { $Penunjang[$i]['Kode'] == 1 ? $DupakPenunjang[0] = str_replace('.',',',$SubTotal) : $DupakPenunjang[1] = str_replace('.',',',$SubTotal);?>  
         <tr style='mso-height-source:userset;height:18pt;'>
           <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
           <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
           <td class="xl88pak"></td>
         </tr>
       <?php } else if ($Penunjang[$i+1]['IdKegiatan'] == $Penunjang[$i]['IdKegiatan']) { ?>
-        <?php if ($Penunjang[$i]['Kode'] != $Penunjang[$i+1]['Kode']) { ?>  
+        <?php if ($Penunjang[$i]['Kode'] != $Penunjang[$i+1]['Kode']) { $Penunjang[$i]['Kode'] == 1 ? $DupakPenunjang[0] = str_replace('.',',',$SubTotal) : $DupakPenunjang[1] = str_replace('.',',',$SubTotal);?>  
           <tr style='mso-height-source:userset;height:18pt;'>
             <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
             <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
             <td class="xl88pak"></td>
           </tr>
         <?php $SubTotal = 0; } ?>
-      <?php } else if ($Penunjang[$i+1]['IdKegiatan'] != $Penunjang[$i]['IdKegiatan']) { ?>
+      <?php } else if ($Penunjang[$i+1]['IdKegiatan'] != $Penunjang[$i]['IdKegiatan']) { $Penunjang[$i]['Kode'] == 1 ? $DupakPenunjang[0] = str_replace('.',',',$SubTotal) : $DupakPenunjang[1] = str_replace('.',',',$SubTotal);?>
         <tr style='mso-height-source:userset;height:18pt;'>
           <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
           <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
@@ -5865,21 +5872,51 @@ Content-Type: text/html; charset="us-ascii"
           <td class="xl91pak" x:str>Lampiran 3.<?=$Lampiran++?></td>
         </tr>
         <?php $SubTotal += $Penunjang[$i]['JumlahKredit'];  $Total += $Penunjang[$i]['JumlahKredit'];?>
-      <?php if ($i+1 == count($Penunjang)) { ?>  
+      <?php if ($i+1 == count($Penunjang)) { 
+        if ($Penunjang[$i]['Kode'] == 1) {
+          $DupakPenunjang[2] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 2) {
+          $DupakPenunjang[3] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 3) {
+          $DupakPenunjang[4] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 4) {
+          $DupakPenunjang[5] = str_replace('.',',',$SubTotal);
+        } 
+        ?>
         <tr style='mso-height-source:userset;height:18pt;'>
           <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
           <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
           <td class="xl88pak"></td>
         </tr>
       <?php } else if ($Penunjang[$i+1]['IdKegiatan'] == $Penunjang[$i]['IdKegiatan']) { ?>
-        <?php if ($Penunjang[$i]['Kode'] != $Penunjang[$i+1]['Kode']) { ?>  
+        <?php if ($Penunjang[$i]['Kode'] != $Penunjang[$i+1]['Kode']) { 
+          if ($Penunjang[$i]['Kode'] == 1) {
+            $DupakPenunjang[2] = str_replace('.',',',$SubTotal);
+          } else if ($Penunjang[$i]['Kode'] == 2) {
+            $DupakPenunjang[3] = str_replace('.',',',$SubTotal);
+          } else if ($Penunjang[$i]['Kode'] == 3) {
+            $DupakPenunjang[4] = str_replace('.',',',$SubTotal);
+          } else if ($Penunjang[$i]['Kode'] == 4) {
+            $DupakPenunjang[5] = str_replace('.',',',$SubTotal);
+          } 
+          ?> 
           <tr style='mso-height-source:userset;height:18pt;'>
             <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
             <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
             <td class="xl88pak"></td>
           </tr>
         <?php $SubTotal = 0; } ?>
-      <?php } else if ($Penunjang[$i+1]['IdKegiatan'] != $Penunjang[$i]['IdKegiatan']) { ?>
+      <?php } else if ($Penunjang[$i+1]['IdKegiatan'] != $Penunjang[$i]['IdKegiatan']) { 
+        if ($Penunjang[$i]['Kode'] == 1) {
+          $DupakPenunjang[2] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 2) {
+          $DupakPenunjang[3] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 3) {
+          $DupakPenunjang[4] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 4) {
+          $DupakPenunjang[5] = str_replace('.',',',$SubTotal);
+        } 
+        ?>
         <tr style='mso-height-source:userset;height:18pt;'>
           <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
           <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
@@ -5947,21 +5984,63 @@ Content-Type: text/html; charset="us-ascii"
           <td class="xl91pak" x:str>Lampiran 3.<?=$Lampiran++?></td>
         </tr>
         <?php $SubTotal += $Penunjang[$i]['JumlahKredit'];  $Total += $Penunjang[$i]['JumlahKredit'];?>
-      <?php if ($i+1 == count($Penunjang)) { ?>  
+      <?php if ($i+1 == count($Penunjang)) { 
+        if ($Penunjang[$i]['Kode'] == 1) {
+          $DupakPenunjang[6] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 2) {
+          $DupakPenunjang[7] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 3) {
+          $DupakPenunjang[8] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 4) {
+          $DupakPenunjang[9] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 5) {
+          $DupakPenunjang[10] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 6) {
+          $DupakPenunjang[11] = str_replace('.',',',$SubTotal);
+        }
+        ?>    
         <tr style='mso-height-source:userset;height:18pt;'>
           <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
           <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
           <td class="xl88pak"></td>
         </tr>
       <?php } else if ($Penunjang[$i+1]['IdKegiatan'] == $Penunjang[$i]['IdKegiatan']) { ?>
-        <?php if ($Penunjang[$i]['Kode'] != $Penunjang[$i+1]['Kode']) { ?>  
+        <?php if ($Penunjang[$i]['Kode'] != $Penunjang[$i+1]['Kode']) { 
+          if ($Penunjang[$i]['Kode'] == 1) {
+            $DupakPenunjang[6] = str_replace('.',',',$SubTotal);
+          } else if ($Penunjang[$i]['Kode'] == 2) {
+            $DupakPenunjang[7] = str_replace('.',',',$SubTotal);
+          } else if ($Penunjang[$i]['Kode'] == 3) {
+            $DupakPenunjang[8] = str_replace('.',',',$SubTotal);
+          } else if ($Penunjang[$i]['Kode'] == 4) {
+            $DupakPenunjang[9] = str_replace('.',',',$SubTotal);
+          } else if ($Penunjang[$i]['Kode'] == 5) {
+            $DupakPenunjang[10] = str_replace('.',',',$SubTotal);
+          } else if ($Penunjang[$i]['Kode'] == 6) {
+            $DupakPenunjang[11] = str_replace('.',',',$SubTotal);
+          }
+          ?>      
           <tr style='mso-height-source:userset;height:18pt;'>
             <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
             <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
             <td class="xl88pak"></td>
           </tr>
         <?php $SubTotal = 0; } ?>
-      <?php } else if ($Penunjang[$i+1]['IdKegiatan'] != $Penunjang[$i]['IdKegiatan']) { ?>
+      <?php } else if ($Penunjang[$i+1]['IdKegiatan'] != $Penunjang[$i]['IdKegiatan']) { 
+        if ($Penunjang[$i]['Kode'] == 1) {
+          $DupakPenunjang[6] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 2) {
+          $DupakPenunjang[7] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 3) {
+          $DupakPenunjang[8] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 4) {
+          $DupakPenunjang[9] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 5) {
+          $DupakPenunjang[10] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 6) {
+          $DupakPenunjang[11] = str_replace('.',',',$SubTotal);
+        }
+        ?>    
         <tr style='mso-height-source:userset;height:18pt;'>
           <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
           <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
@@ -5987,13 +6066,13 @@ Content-Type: text/html; charset="us-ascii"
           <td class="xl91pak" x:str>Lampiran 4.<?=$Lampiran++?></td>
         </tr>
         <?php $SubTotal += $Penunjang[$i]['JumlahKredit'];  $Total += $Penunjang[$i]['JumlahKredit'];?>
-      <?php if ($i+1 == count($Penunjang)) { ?>  
+      <?php if ($i+1 == count($Penunjang)) { $DupakPenunjang[12] = str_replace('.',',',$SubTotal);?>  
         <tr style='mso-height-source:userset;height:18pt;'>
           <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
           <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
           <td class="xl88pak"></td>
         </tr>
-      <?php } else if ($Penunjang[$i+1]['IdKegiatan'] != $Penunjang[$i]['IdKegiatan']) { ?>
+      <?php } else if ($Penunjang[$i+1]['IdKegiatan'] != $Penunjang[$i]['IdKegiatan']) { $DupakPenunjang[12] = str_replace('.',',',$SubTotal);?>
         <tr style='mso-height-source:userset;height:18pt;'>
           <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
           <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
@@ -6030,21 +6109,21 @@ Content-Type: text/html; charset="us-ascii"
           <td class="xl91pak" x:str>Lampiran 4.<?=$Lampiran++?></td>
         </tr>
         <?php $SubTotal += $Penunjang[$i]['JumlahKredit'];  $Total += $Penunjang[$i]['JumlahKredit'];?>
-      <?php if ($i+1 == count($Penunjang)) { ?>  
+      <?php if ($i+1 == count($Penunjang)) { $Penunjang[$i]['Kode'] == 1 ? $DupakPenunjang[13] = str_replace('.',',',$SubTotal) : $DupakPenunjang[14] = str_replace('.',',',$SubTotal);?>  
         <tr style='mso-height-source:userset;height:18pt;'>
           <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
           <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
           <td class="xl88pak"></td>
         </tr>
       <?php } else if ($Penunjang[$i+1]['IdKegiatan'] == $Penunjang[$i]['IdKegiatan']) { ?>
-        <?php if ($Penunjang[$i]['Kode'] != $Penunjang[$i+1]['Kode']) { ?>  
+        <?php if ($Penunjang[$i]['Kode'] != $Penunjang[$i+1]['Kode']) { $Penunjang[$i]['Kode'] == 1 ? $DupakPenunjang[13] = str_replace('.',',',$SubTotal) : $DupakPenunjang[14] = str_replace('.',',',$SubTotal);?>  
           <tr style='mso-height-source:userset;height:18pt;'>
             <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
             <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
             <td class="xl88pak"></td>
           </tr>
         <?php $SubTotal = 0; } ?>
-      <?php } else if ($Penunjang[$i+1]['IdKegiatan'] != $Penunjang[$i]['IdKegiatan']) { ?>
+      <?php } else if ($Penunjang[$i+1]['IdKegiatan'] != $Penunjang[$i]['IdKegiatan']) { $Penunjang[$i]['Kode'] == 1 ? $DupakPenunjang[13] = str_replace('.',',',$SubTotal) : $DupakPenunjang[14] = str_replace('.',',',$SubTotal);?>
         <tr style='mso-height-source:userset;height:18pt;'>
           <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
           <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
@@ -6102,21 +6181,51 @@ Content-Type: text/html; charset="us-ascii"
           <td class="xl91pak" x:str>Lampiran 3.<?=$Lampiran++?></td>
         </tr>
         <?php $SubTotal += $Penunjang[$i]['JumlahKredit'];  $Total += $Penunjang[$i]['JumlahKredit'];?>
-      <?php if ($i+1 == count($Penunjang)) { ?>  
+      <?php if ($i+1 == count($Penunjang)) { 
+        if ($Penunjang[$i]['Kode'] == 1) {
+          $DupakPenunjang[15] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 2) {
+          $DupakPenunjang[16] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 3) {
+          $DupakPenunjang[17] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 4) {
+          $DupakPenunjang[18] = str_replace('.',',',$SubTotal);
+        } 
+        ?>  
         <tr style='mso-height-source:userset;height:18pt;'>
           <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
           <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
           <td class="xl88pak"></td>
         </tr>
       <?php } else if ($Penunjang[$i+1]['IdKegiatan'] == $Penunjang[$i]['IdKegiatan']) { ?>
-        <?php if ($Penunjang[$i]['Kode'] != $Penunjang[$i+1]['Kode']) { ?>  
+        <?php if ($Penunjang[$i]['Kode'] != $Penunjang[$i+1]['Kode']) { 
+          if ($Penunjang[$i]['Kode'] == 1) {
+            $DupakPenunjang[15] = str_replace('.',',',$SubTotal);
+          } else if ($Penunjang[$i]['Kode'] == 2) {
+            $DupakPenunjang[16] = str_replace('.',',',$SubTotal);
+          } else if ($Penunjang[$i]['Kode'] == 3) {
+            $DupakPenunjang[17] = str_replace('.',',',$SubTotal);
+          } else if ($Penunjang[$i]['Kode'] == 4) {
+            $DupakPenunjang[18] = str_replace('.',',',$SubTotal);
+          } 
+          ?> 
           <tr style='mso-height-source:userset;height:18pt;'>
             <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
             <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
             <td class="xl88pak"></td>
           </tr>
         <?php $SubTotal = 0; } ?>
-      <?php } else if ($Penunjang[$i+1]['IdKegiatan'] != $Penunjang[$i]['IdKegiatan']) { ?>
+      <?php } else if ($Penunjang[$i+1]['IdKegiatan'] != $Penunjang[$i]['IdKegiatan']) { 
+        if ($Penunjang[$i]['Kode'] == 1) {
+          $DupakPenunjang[15] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 2) {
+          $DupakPenunjang[16] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 3) {
+          $DupakPenunjang[17] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 4) {
+          $DupakPenunjang[18] = str_replace('.',',',$SubTotal);
+        } 
+        ?>
         <tr style='mso-height-source:userset;height:18pt;'>
           <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
           <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
@@ -6173,21 +6282,63 @@ Content-Type: text/html; charset="us-ascii"
           <td class="xl91pak" x:str>Lampiran 4.<?=$Lampiran++?></td>
         </tr>
         <?php $SubTotal += $Penunjang[$i]['JumlahKredit'];  $Total += $Penunjang[$i]['JumlahKredit'];?>
-      <?php if ($i+1 == count($Penunjang)) { ?>  
+      <?php if ($i+1 == count($Penunjang)) { 
+        if ($Penunjang[$i]['Kode'] == 1) {
+          $DupakPenunjang[19] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 2) {
+          $DupakPenunjang[20] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 3) {
+          $DupakPenunjang[21] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 4) {
+          $DupakPenunjang[22] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 5) {
+          $DupakPenunjang[23] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 6) {
+          $DupakPenunjang[24] = str_replace('.',',',$SubTotal);
+        }
+        ?>  
         <tr style='mso-height-source:userset;height:18pt;'>
           <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
           <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
           <td class="xl88pak"></td>
         </tr>
       <?php } else if ($Penunjang[$i+1]['IdKegiatan'] == $Penunjang[$i]['IdKegiatan']) { ?>
-        <?php if ($Penunjang[$i]['Kode'] != $Penunjang[$i+1]['Kode']) { ?>  
+        <?php if ($Penunjang[$i]['Kode'] != $Penunjang[$i+1]['Kode']) { 
+          if ($Penunjang[$i]['Kode'] == 1) {
+            $DupakPenunjang[19] = str_replace('.',',',$SubTotal);
+          } else if ($Penunjang[$i]['Kode'] == 2) {
+            $DupakPenunjang[20] = str_replace('.',',',$SubTotal);
+          } else if ($Penunjang[$i]['Kode'] == 3) {
+            $DupakPenunjang[21] = str_replace('.',',',$SubTotal);
+          } else if ($Penunjang[$i]['Kode'] == 4) {
+            $DupakPenunjang[22] = str_replace('.',',',$SubTotal);
+          } else if ($Penunjang[$i]['Kode'] == 5) {
+            $DupakPenunjang[23] = str_replace('.',',',$SubTotal);
+          } else if ($Penunjang[$i]['Kode'] == 6) {
+            $DupakPenunjang[24] = str_replace('.',',',$SubTotal);
+          }
+          ?>  
           <tr style='mso-height-source:userset;height:18pt;'>
             <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
             <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
             <td class="xl88pak"></td>
           </tr>
         <?php $SubTotal = 0; } ?>
-      <?php } else if ($Penunjang[$i+1]['IdKegiatan'] != $Penunjang[$i]['IdKegiatan']) { ?>
+      <?php } else if ($Penunjang[$i+1]['IdKegiatan'] != $Penunjang[$i]['IdKegiatan']) { 
+        if ($Penunjang[$i]['Kode'] == 1) {
+          $DupakPenunjang[19] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 2) {
+          $DupakPenunjang[20] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 3) {
+          $DupakPenunjang[21] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 4) {
+          $DupakPenunjang[22] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 5) {
+          $DupakPenunjang[23] = str_replace('.',',',$SubTotal);
+        } else if ($Penunjang[$i]['Kode'] == 6) {
+          $DupakPenunjang[24] = str_replace('.',',',$SubTotal);
+        }
+        ?>
         <tr style='mso-height-source:userset;height:18pt;'>
           <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
           <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
@@ -6229,21 +6380,21 @@ Content-Type: text/html; charset="us-ascii"
           <td class="xl91pak" x:str>Lampiran 4.<?=$Lampiran++?></td>
         </tr>
         <?php $SubTotal += $Penunjang[$i]['JumlahKredit'];  $Total += $Penunjang[$i]['JumlahKredit'];?>
-      <?php if ($i+1 == count($Penunjang)) { ?>  
+      <?php if ($i+1 == count($Penunjang)) { $Penunjang[$i]['Kode'] == 1 ? $DupakPenunjang[25] = str_replace('.',',',$SubTotal) : $Penunjang[$i]['Kode'] == 2 ? $DupakPenunjang[26] = str_replace('.',',',$SubTotal) : $DupakPenunjang[27] = str_replace('.',',',$SubTotal);?>  
         <tr style='mso-height-source:userset;height:18pt;'>
           <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
           <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
           <td class="xl88pak"></td>
         </tr>
       <?php } else if ($Penunjang[$i+1]['IdKegiatan'] == $Penunjang[$i]['IdKegiatan']) { ?>
-        <?php if ($Penunjang[$i]['Kode'] != $Penunjang[$i+1]['Kode']) { ?>  
+        <?php if ($Penunjang[$i]['Kode'] != $Penunjang[$i+1]['Kode']) { $Penunjang[$i]['Kode'] == 1 ? $DupakPenunjang[25] = str_replace('.',',',$SubTotal) : $Penunjang[$i]['Kode'] == 2 ? $DupakPenunjang[26] = str_replace('.',',',$SubTotal) : $DupakPenunjang[27] = str_replace('.',',',$SubTotal);?>  
           <tr style='mso-height-source:userset;height:18pt;'>
             <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
             <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
             <td class="xl88pak"></td>
           </tr>
         <?php $SubTotal = 0; } ?>
-      <?php } else if ($Penunjang[$i+1]['IdKegiatan'] != $Penunjang[$i]['IdKegiatan']) { ?>
+      <?php } else if ($Penunjang[$i+1]['IdKegiatan'] != $Penunjang[$i]['IdKegiatan']) { $Penunjang[$i]['Kode'] == 1 ? $DupakPenunjang[25] = str_replace('.',',',$SubTotal) : $Penunjang[$i]['Kode'] == 2 ? $DupakPenunjang[26] = str_replace('.',',',$SubTotal) : $DupakPenunjang[27] = str_replace('.',',',$SubTotal);?>
         <tr style='mso-height-source:userset;height:18pt;'>
           <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
           <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
@@ -6285,21 +6436,21 @@ Content-Type: text/html; charset="us-ascii"
           <td class="xl91pak" x:str>Lampiran 4.<?=$Lampiran++?></td>
         </tr>
         <?php $SubTotal += $Penunjang[$i]['JumlahKredit'];  $Total += $Penunjang[$i]['JumlahKredit'];?>
-      <?php if ($i+1 == count($Penunjang)) { ?>  
+      <?php if ($i+1 == count($Penunjang)) { $Penunjang[$i]['Kode'] == 1 ? $DupakPenunjang[28] = str_replace('.',',',$SubTotal) : $Penunjang[$i]['Kode'] == 2 ? $DupakPenunjang[29] = str_replace('.',',',$SubTotal) : $DupakPenunjang[30] = str_replace('.',',',$SubTotal);?>  
         <tr style='mso-height-source:userset;height:18pt;'>
           <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
           <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
           <td class="xl88pak"></td>
         </tr>
       <?php } else if ($Penunjang[$i+1]['IdKegiatan'] == $Penunjang[$i]['IdKegiatan']) { ?>
-        <?php if ($Penunjang[$i]['Kode'] != $Penunjang[$i+1]['Kode']) { ?>  
+        <?php if ($Penunjang[$i]['Kode'] != $Penunjang[$i+1]['Kode']) { $Penunjang[$i]['Kode'] == 1 ? $DupakPenunjang[28] = str_replace('.',',',$SubTotal) : $Penunjang[$i]['Kode'] == 2 ? $DupakPenunjang[29] = str_replace('.',',',$SubTotal) : $DupakPenunjang[30] = str_replace('.',',',$SubTotal);?>  
           <tr style='mso-height-source:userset;height:18pt;'>
             <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
             <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
             <td class="xl88pak"></td>
           </tr>
         <?php $SubTotal = 0; } ?>
-      <?php } else if ($Penunjang[$i+1]['IdKegiatan'] != $Penunjang[$i]['IdKegiatan']) { ?>
+      <?php } else if ($Penunjang[$i+1]['IdKegiatan'] != $Penunjang[$i]['IdKegiatan']) { $Penunjang[$i]['Kode'] == 1 ? $DupakPenunjang[28] = str_replace('.',',',$SubTotal) : $Penunjang[$i]['Kode'] == 2 ? $DupakPenunjang[29] = str_replace('.',',',$SubTotal) : $DupakPenunjang[30] = str_replace('.',',',$SubTotal);?>
         <tr style='mso-height-source:userset;height:18pt;'>
           <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
           <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
@@ -6325,13 +6476,13 @@ Content-Type: text/html; charset="us-ascii"
           <td class="xl91pak" x:str>Lampiran 4.<?=$Lampiran++?></td>
         </tr>
         <?php $SubTotal += $Penunjang[$i]['JumlahKredit'];  $Total += $Penunjang[$i]['JumlahKredit'];?>
-      <?php if ($i+1 == count($Penunjang)) { ?>  
+      <?php if ($i+1 == count($Penunjang)) { $DupakPenunjang[31] = str_replace('.',',',$SubTotal);?>  
         <tr style='mso-height-source:userset;height:18pt;'>
           <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
           <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
           <td class="xl88pak"></td>
         </tr>
-      <?php } else if ($Penunjang[$i+1]['IdKegiatan'] != $Penunjang[$i]['IdKegiatan']) { ?>
+      <?php } else if ($Penunjang[$i+1]['IdKegiatan'] != $Penunjang[$i]['IdKegiatan']) { $DupakPenunjang[31] = str_replace('.',',',$SubTotal);?>
         <tr style='mso-height-source:userset;height:18pt;'>
           <td class="xl88pak" colspan="6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
           <td class="xl88pak" style="font-weight: bold;vertical-align: middle;"><?=str_replace('.',',',$SubTotal)?></td>
@@ -8974,8 +9125,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:num>1</td>
     <td class=3D"xl133" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Sebagai ketua/wakil ketua merangkap anggota</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[0]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH179+I179"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -8988,8 +9139,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:num>2</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Sebagai anggota</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[1]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH180+I180"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9030,8 +9181,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>a.</td>
     <td class=3D"xl136" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Ketua/Wakil Ketua</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl243"></td>
-    <td class=3D"xl243"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[2]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH183+I183"></td>
     <td class=3D"xl243"></td>
     <td class=3D"xl243"></td>
     <td class=3D"xl243"></td>
@@ -9045,8 +9196,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>b.</td>
     <td class=3D"xl133" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Anggota</td>
     <td class=3D"xl245"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[3]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH184+I184"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9074,8 +9225,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>a.</td>
     <td class=3D"xl136" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Ketua/Wakil Ketua</td>
     <td class=3D"xl245"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[4]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH186+I186"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9089,8 +9240,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>b.</td>
     <td class=3D"xl133" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Anggota</td>
     <td class=3D"xl245"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[5]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH187+I187"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9131,8 +9282,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>a</td>
     <td class=3D"xl133" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Pengurus</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[6]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH190+I190"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9146,8 +9297,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>b</td>
     <td class=3D"xl133" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Anggota atas permintaan</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[7]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH191+I191"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9161,8 +9312,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>c</td>
     <td class=3D"xl133" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Anggota</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[8]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH192+I192"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9190,8 +9341,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>a</td>
     <td class=3D"xl133" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Pengurus</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[9]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH194+I194"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9205,8 +9356,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>b</td>
     <td class=3D"xl133" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Anggota atas permintaan</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[10]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH195+I195"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9220,8 +9371,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>c</td>
     <td class=3D"xl133" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Anggota</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[11]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH196+I196"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9247,8 +9398,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl166"></td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Mewakili perguruan tinggi/lembaga pemerintah duduk dalam panitia antar lembaga</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl280"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[12]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH198+I198"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9274,8 +9425,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl216" x:num>1</td>
     <td class=3D"xl259" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:none;' x:str>Sebagai ketua delegasi</td>
     <td class=3D"xl267"></td>
-    <td class=3D"xl281"></td>
-    <td class=3D"xl272"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[13]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH200+I200"></td>
     <td class=3D"xl272"></td>
     <td class=3D"xl272"></td>
     <td class=3D"xl272"></td>
@@ -9288,8 +9439,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:num>2</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Sebagai anggota delegasi</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl282"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[14]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH201+I201"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9330,8 +9481,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>a.</td>
     <td class=3D"xl133" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Ketua</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[15]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH204+I204"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9345,8 +9496,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>b.</td>
     <td class=3D"xl133" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Anggota</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl283"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[16]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH205+I205"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9374,8 +9525,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>a.</td>
     <td class=3D"xl133" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Ketua</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[17]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH207+I207"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9389,8 +9540,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>b.</td>
     <td class=3D"xl133" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Anggota</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl274"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[18]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH208+I208"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9431,8 +9582,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>a</td>
     <td class=3D"xl136" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>30 (tiga puluh) tahun</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl280"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[19]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH211+I211"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9446,8 +9597,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>b</td>
     <td class=3D"xl136" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>20 (dua puluh) tahun</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl280"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[20]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH212+I212"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9461,8 +9612,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>c</td>
     <td class=3D"xl136" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>10 (sepuluh) tahun</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[21]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH213+I213"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9490,8 +9641,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>a.</td>
     <td class=3D"xl133" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Tingkat internasional</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl284"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[22]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH215+I215"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9505,8 +9656,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>b</td>
     <td class=3D"xl133" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Tingkat nasional</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl284"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[23]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH216+I216"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9520,8 +9671,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>c</td>
     <td class=3D"xl133" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Tingkat daerah / lokal</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[24]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH217+I217"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9547,8 +9698,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:num>1</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Buku SLTA atau setingkat</td>
     <td class=3D"xl245"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[25]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH219+I219"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9561,8 +9712,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:num>2</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Buku SLTP atau setingkat</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl284"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[26]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH220+I220"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9575,8 +9726,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:num>3</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Buku SD atau setingkat</td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl284"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[27]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH221+I221"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9605,8 +9756,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl284"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[28]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH223+I223"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9617,13 +9768,13 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
     <td class=3D"xl131"></td>
     <td class=3D"xl206" x:num>2</td>
-    <td class=3D"xl270" x:str>Tingka<font class=3D"font8">t nasional</font></td>
+    <td class=3D"xl270" x:str>Tingkat nasional &emsp;</font></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl284"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[29]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH224+I224"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9639,8 +9790,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl284"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[30]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH225+I225"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9666,8 +9817,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl285"></td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Menjadi anggota tim penilaian<font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">jabatan Akademik Dosen</font></td>
     <td class=3D"xl305"></td>
-    <td class=3D"xl167"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenunjang[31]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH227+I227"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
@@ -9678,8 +9829,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl135" height=3D"19" style=3D'height:14.25pt;'></td>
     <td class=3D"xl165" colspan=3D"6" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>JUMLAH UNSUR PENUNJANG</td>
     <td class=3D"xl305"></td>
-    <td class=3D"xl312"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167" x:fmla=3D"=3DSUM(I179:I227)"></td>
+    <td class=3D"xl167" x:fmla=3D"=3DSUM(J179:J227)"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
