@@ -51,7 +51,7 @@ class Penelitian extends CI_Controller {
 			echo '1';
 		} 
 		else {
-			echo 'Data Rencana Pendidikan Jenjang '.$_POST['Jenjang'].' Semester '.$_POST['Semester'].' Tahun '.$_POST['Tahun'].' Telah Ada';
+			echo 'Data Rencana Penelitian Jenjang '.$_POST['Jenjang'].' Semester '.$_POST['Semester'].' Tahun '.$_POST['Tahun'].' Telah Ada';
 		}
 	}
 
@@ -303,8 +303,10 @@ class Penelitian extends CI_Controller {
 		if ($Pdf > 0) {
 			if ($this->CekBukti($Pdf)){
 				$Tipe = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
-				$NamaPdf = date('Ymd',time()).substr(password_hash('Pendidikan', PASSWORD_DEFAULT),7,7).'.'.$Tipe;
-				move_uploaded_file($_FILES['file']['tmp_name'], "Penelitian/".str_replace("/","F",$NamaPdf));
+				$NamaPdf = date('Ymd',time()).substr(password_hash('Penelitian', PASSWORD_DEFAULT),7,7);
+				$NamaPdf = str_replace("/","F",$NamaPdf);
+				$NamaPdf = str_replace(".","F",$NamaPdf);
+				move_uploaded_file($_FILES['file']['tmp_name'], "Penelitian/".$NamaPdf.'.'.$Tipe);
 				$this->db->insert('RealisasiPenelitian',
 										array('NIP' => $NIP, 
 													'Jabatan' => $Jabatan, 
@@ -319,7 +321,7 @@ class Penelitian extends CI_Controller {
 													'Volume' => $_POST['Volume'],
 													'Kredit' => $Kredit,
 													'JumlahKredit' => $JumlahKredit,
-													'Bukti' => $NamaPdf));
+													'Bukti' => $NamaPdf.'.'.$Tipe));
 				if ($this->db->affected_rows()){
 					$this->session->set_userdata('IdKegiatanPenelitian', $_POST['IdKegiatan']);
 					echo '1';
@@ -563,8 +565,10 @@ class Penelitian extends CI_Controller {
 		if ($Pdf > 0) {
 			if ($this->CekBukti($Pdf)){
 				$Tipe = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
-				$NamaPdf = date('Ymd',time()).substr(password_hash('Pendidikan', PASSWORD_DEFAULT),7,7).'.'.$Tipe;
-				move_uploaded_file($_FILES['file']['tmp_name'], "Penelitian/".str_replace("/","F",$NamaPdf));
+				$NamaPdf = date('Ymd',time()).substr(password_hash('Penelitian', PASSWORD_DEFAULT),7,7);
+				$NamaPdf = str_replace("/","F",$NamaPdf);
+				$NamaPdf = str_replace(".","F",$NamaPdf);
+				move_uploaded_file($_FILES['file']['tmp_name'], "Penelitian/".$NamaPdf.'.'.$Tipe);
 				if($_POST['Bukti'] != ''){
 					unlink('Penelitian/'.$_POST['Bukti']);
 				}
@@ -581,7 +585,7 @@ class Penelitian extends CI_Controller {
 													'Volume' => $_POST['EditVolume'],
 													'Kredit' => $Kredit,
 													'JumlahKredit' => $JumlahKredit,
-													'Bukti' => $NamaPdf));
+													'Bukti' => $NamaPdf.'.'.$Tipe));
 				echo '1';
 			}
 			else {

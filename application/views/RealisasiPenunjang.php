@@ -67,12 +67,12 @@
               <td class="text-center align-middle"><?=$No++?></td>
               <td class="text-center align-middle"><?=$key['Jenjang']?></td>
               <td class="text-center align-middle"><?=$key['Semester']?></td>
-              <td class="text-center align-middle"><?=$key['Tahun']?></td>
+              <td class="text-center align-middle"><?=$key['Tahun']?></td> 
               <td class="align-middle"><?=limit_text($key['Kegiatan'],3)?></td>
               <td class="text-center align-middle"><?=$key['TanggalKegiatan']?></td>
               <td class="text-center align-middle"><?=$key['Volume']?></td>
-              <td class="text-center align-middle"><?=$key['Kredit']?></td>
-              <td class="text-center align-middle"><?=$key['JumlahKredit']?></td>
+              <td class="text-center align-middle"><?=str_replace('.',',',$key['Kredit']).' SKS'?></td>
+              <td class="text-center align-middle"><?=str_replace('.',',',$key['JumlahKredit']).' SKS'?></td>
               <td class="text-center align-middle text-success h3"><?php if ($key['Bukti'] != '') { ?>
                   <a href="<?=base_url('Penunjang/'.$key['Bukti'])?>" class="btn btn-sm btn-primary" download><i class="fas fa-download"></i></a>
                 <?php } ?></td>
@@ -89,7 +89,7 @@
         <tfoot>
           <tr>
             <th colspan="8" class="text-center">Total</th>
-            <th class="bg-success text-center align-middle"><?=$Total?></th>
+            <th class="bg-success text-center align-middle"><?=str_replace('.',',',$Total).' SKS'?></th>
             <td colspan="2"></td>
           </tr>
         </tfoot>

@@ -137,8 +137,10 @@ class Pengabdian extends CI_Controller {
 		if ($Pdf > 0) {
 			if ($this->CekBukti($Pdf)){
 				$Tipe = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
-				$NamaPdf = date('Ymd',time()).substr(password_hash('Penunjang', PASSWORD_DEFAULT),7,7).'.'.$Tipe;
-				move_uploaded_file($_FILES['file']['tmp_name'], "Pengabdian/".str_replace("/","F",$NamaPdf));
+				$NamaPdf = date('Ymd',time()).substr(password_hash('Pengabdian', PASSWORD_DEFAULT),7,7);
+				$NamaPdf = str_replace("/","F",$NamaPdf);
+				$NamaPdf = str_replace(".","F",$NamaPdf);
+				move_uploaded_file($_FILES['file']['tmp_name'], "Pengabdian/".$NamaPdf.'.'.$Tipe);
 				$this->db->insert('RealisasiPengabdian',
 										array('NIP' => $NIP, 
 													'Jabatan' => $Jabatan, 
@@ -152,7 +154,7 @@ class Pengabdian extends CI_Controller {
 													'Volume' => $_POST['Volume'],
 													'Kredit' => $Kredit,
 													'JumlahKredit' => $JumlahKredit,
-													'Bukti' => $NamaPdf));
+													'Bukti' => $NamaPdf.'.'.$Tipe));
 				if ($this->db->affected_rows()){
 					$this->session->set_userdata('IdKegiatanPengabdian', $_POST['IdKegiatan']);
 					echo '1';
@@ -240,8 +242,10 @@ class Pengabdian extends CI_Controller {
 		if ($Pdf > 0) {
 			if ($this->CekBukti($Pdf)){
 				$Tipe = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
-				$NamaPdf = date('Ymd',time()).substr(password_hash('Penunjang', PASSWORD_DEFAULT),7,7).'.'.$Tipe;
-				move_uploaded_file($_FILES['file']['tmp_name'], "Pengabdian/".str_replace("/","F",$NamaPdf));
+				$NamaPdf = date('Ymd',time()).substr(password_hash('Pengabdian', PASSWORD_DEFAULT),7,7);
+				$NamaPdf = str_replace("/","F",$NamaPdf);
+				$NamaPdf = str_replace(".","F",$NamaPdf);
+				move_uploaded_file($_FILES['file']['tmp_name'], "Pengabdian/".$NamaPdf.'.'.$Tipe);
 				if($_POST['Bukti'] != ''){
 					unlink('Pengabdian/'.$_POST['Bukti']);
 				}
@@ -257,7 +261,7 @@ class Pengabdian extends CI_Controller {
 													'Volume' => $_POST['Volume'],
 													'Kredit' => $Kredit,
 													'JumlahKredit' => $JumlahKredit,
-													'Bukti' => $NamaPdf));
+													'Bukti' => $NamaPdf.'.'.$Tipe));
 				echo '1';
 			}
 			else {

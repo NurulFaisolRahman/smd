@@ -1,6 +1,6 @@
 <?php
-  header('Content-Type: application/xlsx');
-  header('Content-Disposition: attachment; filename=Penunjang.xltx');
+  header('Content-Type: application/xls');
+  header('Content-Disposition: attachment; filename=Penunjang.xls'); 
 ?>
 <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
  <head>
@@ -1396,7 +1396,7 @@ td
           <td class="xl101" x:num><?=$Penunjang[$i]['Volume']?></td>
           <td class="xl91" x:str><?=str_replace('.',',',$Penunjang[$i]['Kredit'])?></td>
           <td class="xl91" x:num><?=str_replace('.',',',$Penunjang[$i]['JumlahKredit'])?></td>
-          <td class="xl91" x:str>Lampiran 3.<?=$Lampiran++?></td>
+          <td class="xl91" x:str>Lampiran 4.<?=$Lampiran++?></td>
         </tr>
         <?php $SubTotal += $Penunjang[$i]['JumlahKredit'];  $Total += $Penunjang[$i]['JumlahKredit'];?>
       <?php if ($i+1 == count($Penunjang)) { ?>  
@@ -1478,7 +1478,7 @@ td
           <td class="xl101" x:num><?=$Penunjang[$i]['Volume']?></td>
           <td class="xl91" x:str><?=str_replace('.',',',$Penunjang[$i]['Kredit'])?></td>
           <td class="xl91" x:num><?=str_replace('.',',',$Penunjang[$i]['JumlahKredit'])?></td>
-          <td class="xl91" x:str>Lampiran 3.<?=$Lampiran++?></td>
+          <td class="xl91" x:str>Lampiran 4.<?=$Lampiran++?></td>
         </tr>
         <?php $SubTotal += $Penunjang[$i]['JumlahKredit'];  $Total += $Penunjang[$i]['JumlahKredit'];?>
       <?php if ($i+1 == count($Penunjang)) { ?>  
@@ -1633,7 +1633,7 @@ td
           <td class="xl101" x:num><?=$Penunjang[$i]['Volume']?></td>
           <td class="xl91" x:str><?=str_replace('.',',',$Penunjang[$i]['Kredit'])?></td>
           <td class="xl91" x:num><?=str_replace('.',',',$Penunjang[$i]['JumlahKredit'])?></td>
-          <td class="xl91" x:str>Lampiran 3.<?=$Lampiran++?></td>
+          <td class="xl91" x:str>Lampiran 4.<?=$Lampiran++?></td>
         </tr>
         <?php $SubTotal += $Penunjang[$i]['JumlahKredit'];  $Total += $Penunjang[$i]['JumlahKredit'];?>
       <?php if ($i+1 == count($Penunjang)) { ?>  
