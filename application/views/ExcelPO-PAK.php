@@ -1965,13 +1965,13 @@ Content-Type: text/html; charset="us-ascii"
    <tr height=3D"20" class=3D"xl326" style=3D'height:15.00pt;mso-height-source:userset;mso-height-alt:300;'>
     <td class=3D"xl342" height=3D"20" colspan=3D"4" style=3D'height:15.00pt;border-right:none;border-bottom:none;' x:str>Total Angka Kredit</td>
     <td class=3D"xl351" colspan=3D"2" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'></td>
-    <td class=3D"xl352" x:num>0</td>
+    <td class=3D"xl352" x:num><?=$Total?></td>
     <td class=3D"xl353" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'></td>
     <td class=3D"xl356"></td>
     <td class=3D"xl326" colspan=3D"25" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"20" class=3D"xl326" style=3D'height:15.00pt;mso-height-source:userset;mso-height-alt:300;'>
-    <td class=3D"xl343" height=3D"20" colspan=3D"4" style=3D'height:15.00pt;border-right:none;border-bottom:.5pt solid windowtext;' x:str>Bidang I &#8211; Pendidikan dan Pengajaran</td>
+    <td class=3D"xl343" height=3D"20" colspan=3D"4" style=3D'height:15.00pt;border-right:none;border-bottom:.5pt solid windowtext;' x:str>Bidang I - Pendidikan dan Pengajaran</td>
     <td class=3D"xl354"></td>
     <td class=3D"xl356"></td>
     <td class=3D"xl326" colspan=3D"25" style=3D'mso-ignore:colspan;'></td>
@@ -2959,6 +2959,10 @@ Content-Type: text/html; charset="us-ascii"
     $Huruf = 'A'; $Lampiran = $No = 1; $SubTotal = $Total = 0; $Haki1 = $Haki2 = $Haki3 = $Haki4 = $Haki5 = $Haki6 = $Forum1 = $Forum2 = $Forum3 = true; $PNL1 = $PNL2 = $PNL3 = $PNL4 = $PNL5 = $PNL6 = $PNL7 = $PNL8 = true;
     $Desiminasi1 = $Desiminasi2 = $Desiminasi3 = $Desiminasi4 = $Desiminasi5 = $KodeDesiminasi1 = $KodeDesiminasi2 = $KodeDesiminasi3 = $KodeDesiminasi4 = $KodeDesiminasi5 =$KodeDesiminasi6 = $KodeDesiminasi7 = $KodeDesiminasi8 = $KodeDesiminasi9 = $KodeDesiminasi10 = true;
     $Ilmiah1 = $Ilmiah2 = $Ilmiah3 = $KodeIlmiah1 = $KodeIlmiah2 = $KodeIlmiah3 = $KodeIlmiah4 = $KodeIlmiah5 =$KodeIlmiah6 = $KodeIlmiah7 = $KodeIlmiah8 = $KodeIlmiah9 = $KodeIlmiah10 = $KodeIlmiah11 = $KodeIlmiah12 = $KodeIlmiah13 = true;
+    $DupakPenelitian = array();
+    for ($i=0; $i < 38; $i++) { 
+      array_push($DupakPenelitian,0);
+    }
    ?>
   <?php for ($i=0; $i < count($Penelitian); $i++) { ?>
     <?php if ($Penelitian[$i]['IdKegiatan'] == 'PNL1') { ?>
@@ -3458,7 +3462,7 @@ Content-Type: text/html; charset="us-ascii"
    <tr height=3D"20" class=3D"xl326" style=3D'height:15.00pt;mso-height-source:userset;mso-height-alt:300;'>
     <td class=3D"xl342" height=3D"20" colspan=3D"4" style=3D'height:15.00pt;border-right:none;border-bottom:none;' x:str>Total Angka Kredit</td>
     <td class=3D"xl351" colspan=3D"2" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'></td>
-    <td class=3D"xl352" x:num>0</td>
+    <td class=3D"xl352" x:num><?=$Total?></td>
     <td class=3D"xl353" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;'></td>
     <td class=3D"xl356"></td>
     <td class=3D"xl326" colspan=3D"25" style=3D'mso-ignore:colspan;'></td>
@@ -8003,8 +8007,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>1)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Buku Referensi</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[0]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH97+I97"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8019,8 +8023,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>2)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Monograf</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[1]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH98+I98"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8050,8 +8054,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>1)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Internasional</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[2]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH100+I100"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8066,8 +8070,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>2)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nasional</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[3]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH101+I101"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8097,8 +8101,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>1)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jurnal internasional bereputasi (terindeks pada database internasional bereputasi dan berfaktor dampak)</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[4]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH103+I103"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8113,8 +8117,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>2)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jurnal internasional terindeks pada basis data internasional bereputasi</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[5]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH104+I104"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8129,8 +8133,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>3)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jurnal internasional terindeks pada basis data internasional di luar kategori 2</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[6]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH105+I105"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8145,8 +8149,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>4)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jurnal Nasional terakreditasi Dikti</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[7]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH107+I106"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8161,8 +8165,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>5)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jurnal nasional terakreditasi Kemenristekdikti peringkat 1 dan 2</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[7]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH107+I107"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8177,8 +8181,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>6)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jurnal Nasional berbahasa Inggris atau bahasa resmi (PBB) terindeks pada basis datayang diakui Kemenristekdikti, contohnya: CABIatau Index Copernicus International (ICI). b. Jurnal nasional terakreditasi peringkat 3 dan 4</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[8]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH108+I108"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8193,8 +8197,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>7)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jurnal Nasional berbahasa Indonesia terindeks pada basis data yang diakui Kemenristekdikti, contohnya: akreditasi peringkat 5 dan 6</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[9]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH109+I109"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8209,8 +8213,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>8)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jurnal Nasional</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[10]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH110+I110"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8225,8 +8229,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>9)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jurnal ilmiah yang ditulisdalam Bahasa Resmi PBB namun tidak memenuhi syarat - syarat sebagai jurnal ilmiah internasional</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[11]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH111+I111"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8283,8 +8287,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>1)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Internasional terindeks pada Scimagojr dan Scopus</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[12]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH115+I115"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8299,8 +8303,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>2)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Internasional terindeks pada SCOPUS, IEEE Explore, SPIE</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[13]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH116+I116"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8315,8 +8319,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>3)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Internasional</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[14]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH117+I117"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8331,8 +8335,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>4)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nasional</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[15]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH118+I118"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8362,8 +8366,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>1)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Internasional</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[16]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH120+I120"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8378,8 +8382,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>2)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nasional</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[17]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH121+I121"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8409,8 +8413,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>1)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Internasional</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[18]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH123+I123"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8425,8 +8429,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>2)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nasional</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[19]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH124+I124"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8456,8 +8460,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>1)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Internasional</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[20]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH126+I126"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8472,8 +8476,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:str>2)</td>
     <td class=3D"xl136" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nasional</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[21]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH127+I127"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8487,8 +8491,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl216" x:str>e.</td>
     <td class=3D"xl136" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str> Hasil penelitian/pemikiran yang disajikan dalam koran/majalah populer/umum</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[22]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH128+I128"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8514,8 +8518,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl166"></td>
     <td class=3D"xl133" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Tersimpan dalam perpustakaan yang dilakukan secara melembaga</td>
     <td class=3D"xl226"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[23]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH130+I130"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8541,8 +8545,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl166"></td>
     <td class=3D"xl133" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Diterbitkan dan diedarkan secara nasional.</td>
     <td class=3D"xl226"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[24]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH132+I132"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8568,8 +8572,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl166"></td>
     <td class=3D"xl133" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Diterbitkan dan diedarkan secara nasional.</td>
     <td class=3D"xl226"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[25]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH134+I134"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8595,8 +8599,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:num>1</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Internasional yang sudah diimplementasikan di industri (paling sedikit diakui oleh 4 Negara)</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[26]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH136+I136"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8609,8 +8613,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:num>2</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Internasional (paling sedikit diakui oleh 4 Negara)</td>
     <td class=3D"xl226"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[27]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH137+I137"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8623,8 +8627,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:num>3</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nasional (yang sudah diimplementasikan di industri)</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[28]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH138+I138"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8637,8 +8641,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:num>4</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nasional</td>
     <td class=3D"xl226"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[29]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH139+I139"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8651,8 +8655,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:num>5</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nasional, dalam bentuk paten sederhana yang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[30]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH140+I140"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8665,8 +8669,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl265" x:num>6</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Karya buku, desain industri, indikasi geografis yang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham;</td>
     <td class=3D"xl226"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[31]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH141+I141"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8692,8 +8696,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:num>1</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Tingkat internasional</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[32]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH143+I143"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8706,8 +8710,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:num>2</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Tingkat nasional</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[33]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH144+I144"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8720,8 +8724,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:num>3</td>
     <td class=3D"xl246" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Tingkat lokal</td>
     <td class=3D"xl226"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[34]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH145+I145"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8747,8 +8751,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:num>1</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Tingkat internasional</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[35]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH147+I147"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8761,8 +8765,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:num>2</td>
     <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Tingkat nasional</td>
     <td class=3D"xl269"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[36]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH148+I148"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -8775,8 +8779,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl206" x:num>3</td>
     <td class=3D"xl246" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Tingkat lokal</td>
     <td class=3D"xl226"></td>
-    <td class=3D"xl252"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl167"><?=$DupakPenelitian[37]?></td>
+    <td class=3D"xl167" x:fmla=3D"=3DH149+I149"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
     <td class=3D"xl242"></td>
@@ -9162,8 +9166,8 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl257" height=3D"19" style=3D'height:14.25pt;'></td>
     <td class=3D"xl165" colspan=3D"6" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>JUMLAH UNSUR UTAMA<font class=3D"font7"><span style=3D'mso-spacerun:yes;'>&nbsp;</span></font></td>
     <td class=3D"xl247"></td>
-    <td class=3D"xl279"></td>
-    <td class=3D"xl167"></td>
+    <td class=3D"xl279" x:fmla=3D"=3DSUM(I36:I175)"></td>
+    <td class=3D"xl279" x:fmla=3D"=3DSUM(J36:J175)"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
     <td class=3D"xl167"></td>
