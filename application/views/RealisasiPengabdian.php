@@ -24,8 +24,8 @@
       </div>
     </div> 
     <div class="col-sm-4 mt-1 mb-1">
-      <button type="button" id="LihatRealisasi" class="btn btn-primary"><i class="fa fa-eye"></i><b> Lihat</b></button>
-      <button type="button" class="btn btn-danger text-light" data-toggle="modal" data-target="#InputRealisasiPengabdian"><i class="fa fa-plus"></i> <b>Input</b></button>       
+      <button type="button" id="LihatRealisasi" class="btn btn-primary mb-1"><i class="fa fa-eye"></i><b> Lihat</b></button>
+      <button type="button" class="btn btn-danger text-light mb-1" data-toggle="modal" data-target="#InputRealisasiPengabdian"><i class="fa fa-plus"></i> <b>Input</b></button>       
       <button class="btn btn-success" data-toggle="modal" data-target="#OutputPengabdian"><i class="fa fa-file-excel"></i> <b>Download</b></button>
       </div>        
     </div>   

@@ -311,6 +311,19 @@ class Pengabdian extends CI_Controller {
 		$Jenjang = $this->uri->segment('3');
 		$Semester = $this->uri->segment('4');
 		$Tahun = explode('-',$this->uri->segment('5'));
+		if ($Jenjang != 'S1' && $Jenjang != 'S2') {
+			if ($Semester != 'Ganjil' && $Semester != 'Genap') {
+				$Data['Filter'] = $this->uri->segment('5').'|Ganjil|Genap|S1|S2';
+			} else {
+				$Data['Filter'] = $this->uri->segment('5').'|'.$Semester.'|S1|S2';
+			}
+		} else {
+			if ($Semester != 'Ganjil' && $Semester != 'Genap') {
+				$Data['Filter'] = $this->uri->segment('5').'|Ganjil|Genap|'.$Jenjang;
+			} else {
+				$Data['Filter'] = $this->uri->segment('5').'|'.$Semester.'|'.$Jenjang;
+			}
+		}
 		$Data['Pengabdian'] = $this->db->query("SELECT * FROM `RealisasiPengabdian` WHERE NIP = ".$this->session->userdata('NIP')." AND Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1]." ORDER BY SUBSTR(IdKegiatan FROM 1 FOR 3), CAST(SUBSTR(IdKegiatan FROM 4) AS UNSIGNED), SUBSTR(IdKegiatan FROM 4), Kode ASC")->result_array();
 		$this->load->view('ExcelPengabdian',$Data);
 	}

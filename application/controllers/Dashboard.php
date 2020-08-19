@@ -62,26 +62,6 @@ class Dashboard extends CI_Controller {
 			echo '1';
 		}
 	}
-  
-  public function Pendidikan(){
-    $Data['Halaman'] = 'Kegiatan';
-		$Data['SubMenu'] = 'Pendidikan';		
-		$NIP = $this->session->userdata('NIP');
-		$ID = $this->session->userdata('IdKegiatanPendidikan');
-		$Data['Rencana'] = $this->db->get_where('RencanaPendidikan', array('NIP' => $NIP))->result_array();
-		$Data['KreditRealisasi'] = array();
-		foreach ($Data['Rencana'] as $key) {
-			$Tampung = $this->db->get_where('RealisasiPendidikan', array('NIP' => $NIP,'Jenjang' => $key['Jenjang'],'Semester' => $key['Semester'],'Tahun' => $key['Tahun']))->result_array();
-			$Total = 0;
-			foreach ($Tampung as $data) {
-				$Total+=$data['JumlahKredit'];
-			}
-			array_push($Data['KreditRealisasi'],$Total);
-		}
-		$Data['Realisasi'] = $this->db->get_where('RealisasiPendidikan', array('NIP' => $NIP,'IdKegiatan' => $ID))->result_array();
-		$this->load->view('Header',$Data);
-		$this->load->view('Pendidikan',$Data);
-	}
 
 	public function LihatRealisasiPendidikan(){
 		$this->session->set_userdata('IdKegiatanPendidikan', $_POST['ID']);
@@ -114,6 +94,26 @@ class Dashboard extends CI_Controller {
 	public function SubPenunjang(){
 		$this->session->set_userdata('SubPenunjang', $_POST['SubPenunjang']);
 	}
+
+	public function Pendidikan(){
+    $Data['Halaman'] = 'Kegiatan';
+		$Data['SubMenu'] = 'Pendidikan';		
+		$NIP = $this->session->userdata('NIP');
+		$ID = $this->session->userdata('IdKegiatanPendidikan');
+		$Data['Rencana'] = $this->db->get_where('RencanaPendidikan', array('NIP' => $NIP))->result_array();
+		$Data['KreditRealisasi'] = array();
+		foreach ($Data['Rencana'] as $key) {
+			$Tampung = $this->db->get_where('RealisasiPendidikan', array('NIP' => $NIP,'Jenjang' => $key['Jenjang'],'Semester' => $key['Semester'],'Tahun' => $key['Tahun']))->result_array();
+			$Total = 0;
+			foreach ($Tampung as $data) {
+				$Total+=$data['JumlahKredit'];
+			}
+			array_push($Data['KreditRealisasi'],$Total);
+		}
+		$Data['Realisasi'] = $this->db->get_where('RealisasiPendidikan', array('NIP' => $NIP,'IdKegiatan' => $ID))->result_array();
+		$this->load->view('Header',$Data);
+		$this->load->view('Pendidikan',$Data);
+	} 
 
 	public function Penelitian(){
     $Data['Halaman'] = 'Kegiatan';
@@ -215,7 +215,19 @@ class Dashboard extends CI_Controller {
 			$Penunjang[$key['Kredit']] = $key['IdKegiatan'];
 		}
 		$Data['UsulPenunjang'] = $Penunjang;
-		
+		if ($Jenjang != 'S1' && $Jenjang != 'S2') {
+			if ($Semester != 'Ganjil' && $Semester != 'Genap') {
+				$Data['Filter'] = $this->uri->segment('5').'|Ganjil|Genap|S1|S2';
+			} else {
+				$Data['Filter'] = $this->uri->segment('5').'|'.$Semester.'|S1|S2';
+			}
+		} else {
+			if ($Semester != 'Ganjil' && $Semester != 'Genap') {
+				$Data['Filter'] = $this->uri->segment('5').'|Ganjil|Genap|'.$Jenjang;
+			} else {
+				$Data['Filter'] = $this->uri->segment('5').'|'.$Semester.'|'.$Jenjang;
+			}
+		}
 		$this->load->view('ExcelPO-PAK',$Data);
 	}
 

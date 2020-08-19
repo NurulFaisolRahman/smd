@@ -225,7 +225,7 @@ class Pendidikan extends CI_Controller {
 													'Tahun' => $_POST['Tahun'], 
 													'IdKegiatan' => $_POST['IdKegiatan'],
 													'Kode' => $_POST['Kode'],
-													'Kegiatan' => htmlentities($_POST['Kegiatan']),
+													'Kegiatan' => htmlentities($_POST['SK']).' '.htmlentities($_POST['Kegiatan']),
 													'TanggalKegiatan' => htmlentities($_POST['TanggalKegiatan']),
 													'Satuan' => $Volume,
 													'Volume' => $_POST['Volume'],
@@ -234,6 +234,12 @@ class Pendidikan extends CI_Controller {
 													'Bukti' => $NamaPdf.'.'.$Tipe));
 				if ($this->db->affected_rows()){
 					$this->session->set_userdata('IdKegiatanPendidikan', $_POST['IdKegiatan']);
+					$this->db->insert('BkdPendidikan',
+										array('NIP' => $NIP, 
+													'Kegiatan' => htmlentities($_POST['Kegiatan']),
+													'Bukti' => htmlentities($_POST['SK']),
+													'Kredit' => $_POST['KreditBKD'],
+													'Tanggal' => htmlentities($_POST['TanggalKegiatan'])));
 					echo '1';
 				} else {
 					echo 'Gagal Menyimpan';
@@ -466,6 +472,19 @@ class Pendidikan extends CI_Controller {
 		$Jenjang = $this->uri->segment('3');
 		$Semester = $this->uri->segment('4');
 		$Tahun = explode('-',$this->uri->segment('5'));
+		if ($Jenjang != 'S1' && $Jenjang != 'S2') {
+			if ($Semester != 'Ganjil' && $Semester != 'Genap') {
+				$Data['Filter'] = $this->uri->segment('5').'|Ganjil|Genap|S1|S2';
+			} else {
+				$Data['Filter'] = $this->uri->segment('5').'|'.$Semester.'|S1|S2';
+			}
+		} else {
+			if ($Semester != 'Ganjil' && $Semester != 'Genap') {
+				$Data['Filter'] = $this->uri->segment('5').'|Ganjil|Genap|'.$Jenjang;
+			} else {
+				$Data['Filter'] = $this->uri->segment('5').'|'.$Semester.'|'.$Jenjang;
+			}
+		}
 		$Data['Pendidikan'] = $this->db->query("SELECT * FROM `RealisasiPendidikan` WHERE NIP = ".$this->session->userdata('NIP')." AND Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1]." ORDER BY SUBSTR(IdKegiatan FROM 1 FOR 3), CAST(SUBSTR(IdKegiatan FROM 4) AS UNSIGNED), SUBSTR(IdKegiatan FROM 4), Kode ASC")->result_array();
 		$this->load->view('ExcelPendidikan',$Data);
 	}

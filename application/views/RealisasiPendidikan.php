@@ -32,8 +32,8 @@
       </div>
     </div> 
     <div class="col-sm-4 mt-1 mb-1">
-      <button type="button" id="LihatRealisasi" class="btn btn-primary"><i class="fa fa-eye"></i><b> Lihat</b></button>
-      <button type="button" class="btn btn-danger text-light" data-toggle="modal" data-target="#InputRealisasiPendidikan"><i class="fa fa-plus"></i> <b>Input</b></button>       
+      <button type="button" id="LihatRealisasi" class="btn btn-primary mb-1"><i class="fa fa-eye"></i><b> Lihat</b></button>
+      <button type="button" class="btn btn-danger text-light mb-1" data-toggle="modal" data-target="#InputRealisasiPendidikan"><i class="fa fa-plus"></i> <b>Input</b></button>       
       <button class="btn btn-success" data-toggle="modal" data-target="#OutputPendidikan"><i class="fa fa-file-excel"></i> <b>Download</b></button>
       </div>        
     </div>   
@@ -130,7 +130,7 @@
           <div class="input-group-prepend">
             <label class="input-group-text bg-primary"><b>Tahun</b></label>
           </div>
-          <input class="form-control" type="text" id="TahunRealisasi"  data-inputmask='"mask": "9999"' data-mask value="20">
+          <input class="form-control" type="text" id="TahunRealisasi" data-inputmask='"mask": "9999"' data-mask value="20">
         </div>
         <div class="input-group mb-1">
           <div class="input-group-prepend">
@@ -250,6 +250,53 @@
               <option value="7">antara 10-30 jam</option>
             </select>
           </div>
+        </div>
+        <div id="OpsiPND3" style="display: none;">
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <label class="input-group-text bg-primary"><b>Jenjang</b></label>
+            </div>
+            <select class="custom-select" id="JenjangMengajar">										
+                <option value="S1">S1</option>
+                <option value="S2">S2</option>
+            </select>
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary"><b>Jumlah Dosen</b></span>
+            </div>
+            <select class="custom-select" id="DosenMengajar">										
+              <option value="0">1 Dosen Mengajar S1/S2</option>
+              <option value="1">2 Dosen Mengajar S1/S2</option>
+              <option value="2">3 Dosen Mengajar S1/S2</option>
+              <option value="3">4 Dosen Mengajar S1/S2</option>
+              <option value="4">5 Dosen Mengajar S1</option>
+            </select>
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+            <span class="input-group-text bg-primary"><b>Jumlah Mahasiswa Per Kelas</b></span>
+            </div>
+            <select class="custom-select" id="JumlahMhs">										
+              <option value="0">1-40 Untuk Jenjang S1</option>
+              <option value="1">41-80 Untuk Jenjang S1</option>
+              <option value="2">81-120 Untuk Jenjang S1</option>
+              <option value="0">1-25 Untuk Jenjang S2</option>
+              <option value="1">26-50 Untuk Jenjang S2</option>
+            </select>
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary"><b>Jumlah Kelas</b></span>
+            </div>
+            <input class="form-control" type="text" id="JumlahKelas" data-inputmask='"mask": "9"' data-mask>
+          </div>
+        </div>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-primary"><b>Surat Tugas/SK</b></span>
+          </div>
+          <input class="form-control" type="text" id="SK">
         </div>
         <div class="input-group mb-1">
           <span class="input-group-text bg-primary"><b>Uraian</b></span>

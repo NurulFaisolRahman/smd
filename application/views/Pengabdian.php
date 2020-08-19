@@ -87,18 +87,18 @@
 					var Tahun = $('#FilterTahun').val()
 					var Pisah = Tahun.split('-')
 					window.location = BaseURL + 'Pengabdian/Download/'+$('#FilterJenjang').val()+'/'+$('#FilterSemester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))
-					$.post(BaseURL+"Pengabdian/Lampiran/"+$('#FilterJenjang').val()+'/'+$('#FilterSemester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))).done(function(Respon) {
-						var array = JSON.parse(Respon)
-						var NomorLampiran = 1
-						array.forEach(function(object) {
-							if (object.Bukti != null) {
-								$('#Lampiran').attr('href',BaseURL+'Pengabdian/'+object.Bukti)		
-								$('#Lampiran').attr('Download','Lampiran 3.'+NomorLampiran+'.pdf')
-								$('#Lampiran')[0].click()
-							}
-							NomorLampiran++;
-						})
-					}) 
+					// $.post(BaseURL+"Pengabdian/Lampiran/"+$('#FilterJenjang').val()+'/'+$('#FilterSemester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))).done(function(Respon) {
+					// 	var array = JSON.parse(Respon)
+					// 	var NomorLampiran = 1
+					// 	array.forEach(function(object) {
+					// 		if (object.Bukti != null) {
+					// 			$('#Lampiran').attr('href',BaseURL+'Pengabdian/'+object.Bukti)		
+					// 			$('#Lampiran').attr('Download','Lampiran 3.'+NomorLampiran+'.pdf')
+					// 			$('#Lampiran')[0].click()
+					// 		}
+					// 		NomorLampiran++;
+					// 	})
+					// }) 
 				})
 
 				$("#pills-Rencana-tab").click(function() {

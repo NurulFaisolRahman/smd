@@ -27,36 +27,28 @@
 										<div class="col-sm-auto my-2">
 											<table class="table-responsive">
 												<tr>
-													<td><b>Nama</b></td>
-													<td><b>: <?=$Profil['Nama']?></b></td>
+													<td><b>Nama : <?=$Profil['Nama']?></b></td>
 												</tr>
 												<tr>
-													<td><b>NIDN</b></td>
-													<td><b>: <?=$Profil['NIDN']?></b></td>
+													<td><b>NIDN : <?=$Profil['NIDN']?></b></td>
 												</tr>
 												<tr>
-													<td><b>NIP</b></td>
-													<td><b>: <?=$Profil['NIP']?></b></td>
+													<td><b>NIP : <?=$Profil['NIP']?></b></td>
 												</tr>
 												<tr>
-													<td><b>Pangkat / Gol</b></td>
-													<td><b>: <?=$Profil['Pangkat'].' / '.$Profil['Golongan']?></b></td>
+													<td><b>Pangkat / Gol : <?=$Profil['Pangkat'].' / '.$Profil['Golongan']?></b></td>
 												</tr>
 												<tr>
-													<td><b>Jabatan</b></td>
-													<td><b>: <?=$Profil['Jabatan']?></b></td>
+													<td><b>Jabatan : <?=$Profil['Jabatan']?></b></td>
 												</tr>
 												<tr>
-													<td><b>Kredit Baru</b></td>
-													<td><b>: <?=str_replace('.',',',$KreditBaru).' SKS'?></b></td>
+													<td><b>Kredit Baru : <?=str_replace('.',',',$KreditBaru).' SKS'?></b></td>
 												</tr>
 												<tr>
-													<td><b>Kredit Lama</b></td>
-													<td><b>: <?=str_replace('.',',',$Profil['Kredit']).' SKS'?></b></td>
+													<td><b>Kredit Lama : <?=str_replace('.',',',$Profil['Kredit']).' SKS'?></b></td>
 												</tr>
 												<tr>
-													<td><b>Total Kredit</b></td>
-													<td><b>: <?=str_replace('.',',',($Profil['Kredit']+$KreditBaru)).' SKS'?></b></td>
+													<td><b>Total Kredit : <?=str_replace('.',',',($Profil['Kredit']+$KreditBaru)).' SKS'?></b></td>
 												</tr>
 											</table>
 											<button class="btn btn-primary text-white" data-toggle="modal" data-target="#ModalEditProfil"><i class="fa fa-edit"></i> <b>Edit Profil</b></button>
