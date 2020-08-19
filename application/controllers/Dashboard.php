@@ -217,15 +217,15 @@ class Dashboard extends CI_Controller {
 		$Data['UsulPenunjang'] = $Penunjang;
 		if ($Jenjang != 'S1' && $Jenjang != 'S2') {
 			if ($Semester != 'Ganjil' && $Semester != 'Genap') {
-				$Data['Filter'] = $this->uri->segment('5').'|Ganjil|Genap|S1|S2';
+				$Data['Filter'] = $this->uri->segment('5').'_Ganjil_Genap_S1_S2';
 			} else {
-				$Data['Filter'] = $this->uri->segment('5').'|'.$Semester.'|S1|S2';
+				$Data['Filter'] = $this->uri->segment('5').'_'.$Semester.'_S1_S2';
 			}
 		} else {
 			if ($Semester != 'Ganjil' && $Semester != 'Genap') {
-				$Data['Filter'] = $this->uri->segment('5').'|Ganjil|Genap|'.$Jenjang;
+				$Data['Filter'] = $this->uri->segment('5').'_Ganjil_Genap_'.$Jenjang;
 			} else {
-				$Data['Filter'] = $this->uri->segment('5').'|'.$Semester.'|'.$Jenjang;
+				$Data['Filter'] = $this->uri->segment('5').'_'.$Semester.'_'.$Jenjang;
 			}
 		}
 		$this->load->view('ExcelPO-PAK',$Data);
