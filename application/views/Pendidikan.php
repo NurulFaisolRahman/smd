@@ -579,12 +579,12 @@
 				$("#TambahRealisasiPendidikan").click(function() {
 					var MengajarS1 = [[1, 1.5, 2],
 											[0.5, 0.75, 1],
-											[0.33, 0.5, 0.67]
-											[0.25, 0.38, 0.5]
+											[0.33, 0.5, 0.67],
+											[0.25, 0.38, 0.5],
 											[0.2, 0.3, 0.4]];
 					var MengajarS2 = [[1, 1.5],
 											[0.5, 0.75],
-											[0.33, 0.5]
+											[0.33, 0.5],
 											[0.25, 0.37]];
 					if (isNaN(parseFloat($("#Volume").val().replace(',','.')))) {
 						alert('Volume Kegiatan Belum Benar!')
@@ -602,80 +602,81 @@
 						fd.append('Volume',parseFloat($("#Volume").val().replace(',','.')))
 						if ($("#InputIdKegiatanPendidikan").val() == 'PND1') {
 							$("#Jenjang").val() == 200? fd.append('Kode','0') : fd.append('Kode','1')
-							fd.append('Jenjang',$("#Jenjang").val())
+							fd.append('KreditPND1',$("#KreditPND1").val())
 						}
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND2' || $("#InputIdKegiatanPendidikan").val() == 'PND4' || $("#InputIdKegiatanPendidikan").val() == 'PND5' || $("#InputIdKegiatanPendidikan").val() == 'PND8' || $("#InputIdKegiatanPendidikan").val() == 'PND9' || $("#InputIdKegiatanPendidikan").val() == 'PND11') {
 							fd.append('Kode','0')
 						} 
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND3') {
-							if ($("#Jenjang").val() == 'S1') {
-								fd.append('KreditBKD',(MengajarS1[$("#DosenMengajar").val()][$("#JumlahMhs").val()]))	
+							if ($("#JenjangMengajar").val() == 'S1') {
+								fd.append('KreditBKD',(MengajarS1[$("#JumlahDosen").val()][$("#JumlahMhs").val()])*$("#JumlahKelas").val())	
 							} else {
-								fd.append('KreditBKD',(MengajarS2[$("#DosenMengajar").val()][$("#JumlahMhs").val()]))
+								fd.append('KreditBKD',(MengajarS2[$("#JumlahDosen").val()][$("#JumlahMhs").val()])*$("#JumlahKelas").val())
 							}
+							fd.append('KreditPAK',parseFloat($("#Volume").val().replace(',','.'))*$("#JumlahKelas").val()/(parseInt($("#DosenMengajar").val())+1))
 							fd.append('Kode','0')
 						}
-						else if ($("#InputIdKegiatanPendidikan").val() == 'PND6') {
-							fd.append('JenisPembimbing',$("#JenisPembimbing").val())
-							fd.append('JenisBimbingan',$("#JenisBimbingan").val())			
-							fd.append('Kode',($("#JenisPembimbing").val()+'/'+$("#JenisBimbingan").val()))				
-						}
-						else if ($("#InputIdKegiatanPendidikan").val() == 'PND7') {
-							fd.append('JenisPenguji',$("#JenisPenguji").val())
-							fd.append('Kode',$("#JenisPenguji").val())
-						}
-						else if ($("#InputIdKegiatanPendidikan").val() == 'PND10') {
-							fd.append('BahanPengajaran',$("#BahanPengajaran").val())
-							fd.append('Kode',$("#BahanPengajaran").val())
-						}
-						else if ($("#InputIdKegiatanPendidikan").val() == 'PND12') {
-							fd.append('Kode',$("#JenisPND12").val())
-							var JenisPND12 = $("#JenisPND12").val()
-							if (JenisPND12 == 1) {
-								fd.append('JenisPND12',6)
-							} else if (JenisPND12 == 2) {
-								fd.append('JenisPND12',5)
-							} else if (JenisPND12 == 3) {
-								fd.append('JenisPND12',4)
-							} else if (JenisPND12 == 4) {
-								fd.append('JenisPND12',4)
-							} else if (JenisPND12 == 5) {
-								fd.append('JenisPND12',4)
-							} else if (JenisPND12 == 6) {
-								fd.append('JenisPND12',3)
-							} else if (JenisPND12 == 7) {
-								fd.append('JenisPND12',3)
-							} else if (JenisPND12 == 8) {
-								fd.append('JenisPND12',3)
-							}
-						}
-						else if ($("#InputIdKegiatanPendidikan").val() == 'PND13') {
-							fd.append('JenisPND13',$("#JenisPND13").val())
-							fd.append('Kode',$("#JenisPND13").val())
-						}
-						else if ($("#InputIdKegiatanPendidikan").val() == 'PND14') {
-							fd.append('JenisPND14',$("#JenisPND14").val())
-							fd.append('Kode',$("#JenisPND14").val())
-						}
-						else if ($("#InputIdKegiatanPendidikan").val() == 'PND15') {
-							fd.append('Kode',$("#JenisPND15").val())
-							var JenisPND15 = $("#JenisPND15").val()
-							if (JenisPND15 == 1) {
-								fd.append('JenisPND15',15)
-							} else if (JenisPND15 == 2) {
-								fd.append('JenisPND15',9)
-							} else if (JenisPND15 == 3) {
-								fd.append('JenisPND15',6)
-							} else if (JenisPND15 == 4) {
-								fd.append('JenisPND15',3)
-							} else if (JenisPND15 == 5) {
-								fd.append('JenisPND15',2)
-							} else if (JenisPND15 == 6) {
-								fd.append('JenisPND15',1)
-							} else if (JenisPND15 == 7) {
-								fd.append('JenisPND15',0.5)
-							} 
-						}
+						// else if ($("#InputIdKegiatanPendidikan").val() == 'PND6') {
+						// 	fd.append('JenisPembimbing',$("#JenisPembimbing").val())
+						// 	fd.append('JenisBimbingan',$("#JenisBimbingan").val())			
+						// 	fd.append('Kode',($("#JenisPembimbing").val()+'/'+$("#JenisBimbingan").val()))				
+						// }
+						// else if ($("#InputIdKegiatanPendidikan").val() == 'PND7') {
+						// 	fd.append('JenisPenguji',$("#JenisPenguji").val())
+						// 	fd.append('Kode',$("#JenisPenguji").val())
+						// }
+						// else if ($("#InputIdKegiatanPendidikan").val() == 'PND10') {
+						// 	fd.append('BahanPengajaran',$("#BahanPengajaran").val())
+						// 	fd.append('Kode',$("#BahanPengajaran").val())
+						// }
+						// else if ($("#InputIdKegiatanPendidikan").val() == 'PND12') {
+						// 	fd.append('Kode',$("#JenisPND12").val())
+						// 	var JenisPND12 = $("#JenisPND12").val()
+						// 	if (JenisPND12 == 1) {
+						// 		fd.append('JenisPND12',6)
+						// 	} else if (JenisPND12 == 2) {
+						// 		fd.append('JenisPND12',5)
+						// 	} else if (JenisPND12 == 3) {
+						// 		fd.append('JenisPND12',4)
+						// 	} else if (JenisPND12 == 4) {
+						// 		fd.append('JenisPND12',4)
+						// 	} else if (JenisPND12 == 5) {
+						// 		fd.append('JenisPND12',4)
+						// 	} else if (JenisPND12 == 6) {
+						// 		fd.append('JenisPND12',3)
+						// 	} else if (JenisPND12 == 7) {
+						// 		fd.append('JenisPND12',3)
+						// 	} else if (JenisPND12 == 8) {
+						// 		fd.append('JenisPND12',3)
+						// 	}
+						// }
+						// else if ($("#InputIdKegiatanPendidikan").val() == 'PND13') {
+						// 	fd.append('JenisPND13',$("#JenisPND13").val())
+						// 	fd.append('Kode',$("#JenisPND13").val())
+						// }
+						// else if ($("#InputIdKegiatanPendidikan").val() == 'PND14') {
+						// 	fd.append('JenisPND14',$("#JenisPND14").val())
+						// 	fd.append('Kode',$("#JenisPND14").val())
+						// }
+						// else if ($("#InputIdKegiatanPendidikan").val() == 'PND15') {
+						// 	fd.append('Kode',$("#JenisPND15").val())
+						// 	var JenisPND15 = $("#JenisPND15").val()
+						// 	if (JenisPND15 == 1) {
+						// 		fd.append('JenisPND15',15)
+						// 	} else if (JenisPND15 == 2) {
+						// 		fd.append('JenisPND15',9)
+						// 	} else if (JenisPND15 == 3) {
+						// 		fd.append('JenisPND15',6)
+						// 	} else if (JenisPND15 == 4) {
+						// 		fd.append('JenisPND15',3)
+						// 	} else if (JenisPND15 == 5) {
+						// 		fd.append('JenisPND15',2)
+						// 	} else if (JenisPND15 == 6) {
+						// 		fd.append('JenisPND15',1)
+						// 	} else if (JenisPND15 == 7) {
+						// 		fd.append('JenisPND15',0.5)
+						// 	} 
+						// }
 						$.ajax({
 							url: BaseURL+'Pendidikan/InputRealisasi',
 							type: 'post',
@@ -708,6 +709,7 @@
 					$('#EditBuktiRealisasi').val(Pisah[8])
 					$("#EditTanggalKegiatan").val(Pisah[9])
 					$("#Kode").val(Pisah[10])
+					$("#EditSK").val(Pisah[11])
 					$('#EditRealisasiPendidikan').modal("show")
 				});
 
@@ -729,6 +731,7 @@
 						fd.append('Homebase',$("#EditJenisRealisasi").val())
 						fd.append('Semester',$("#EditSemesterRealisasi").val())
 						fd.append('Tahun',$("#EditTahunRealisasi").val())
+						fd.append('SK',$("#EditSK").val())
 						fd.append('Kegiatan',$("#EditUraian").val())		
 						fd.append('TanggalKegiatan',$("#EditTanggalKegiatan").val())
 						fd.append('Volume',parseFloat($("#EditVolume").val().replace(',','.')))
@@ -779,7 +782,7 @@
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
 				}
-				if ($("#InputIdKegiatanPendidikan").val() == 'PND3') {
+				else if ($("#InputIdKegiatanPendidikan").val() == 'PND3') {
 					document.getElementById("OpsiPND1").style.display = 'none'
 					document.getElementById("OpsiPND3").style.display = 'block'
 					document.getElementById("OpsiPND6").style.display = 'none'
