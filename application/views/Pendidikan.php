@@ -84,24 +84,6 @@
 
 				$('[data-mask]').inputmask()
 
-				$("#Download").click(function() {
-					var Tahun = $('#FilterTahun').val()
-					var Pisah = Tahun.split('-')
-					window.location = BaseURL + 'Pendidikan/Download/'+$('#FilterJenjang').val()+'/'+$('#FilterSemester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))
-					// $.post(BaseURL+"Pendidikan/Lampiran/"+$('#FilterJenjang').val()+'/'+$('#FilterSemester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))).done(function(Respon) {
-					// 	var array = JSON.parse(Respon)
-					// 	var NomorLampiran = 1
-					// 	array.forEach(function(object) {
-					// 		if (object.Bukti != null) {
-					// 			$('#Lampiran').attr('href',BaseURL+'Pendidikan/'+object.Bukti)		
-					// 			$('#Lampiran').attr('Download','Lampiran 1.'+NomorLampiran+'.pdf')
-					// 			$('#Lampiran')[0].click()
-					// 		}
-					// 		NomorLampiran++;
-					// 	})
-					// }) 
-				})
-
 				$("#pills-Rencana-tab").click(function() {
 					var Data = {SubPendidikan: 'Rencana'}
 					$.post(BaseURL+"Dashboard/SubPendidikan", Data)
@@ -578,14 +560,17 @@
 
 				$("#TambahRealisasiPendidikan").click(function() {
 					var MengajarS1 = [[1, 1.5, 2],
-											[0.5, 0.75, 1],
-											[0.33, 0.5, 0.67],
-											[0.25, 0.38, 0.5],
-											[0.2, 0.3, 0.4]];
+													 [0.5, 0.75, 1],
+													 [0.33, 0.5, 0.67],
+													 [0.25, 0.38, 0.5],
+													 [0.2, 0.3, 0.4]];
 					var MengajarS2 = [[1, 1.5],
-											[0.5, 0.75],
-											[0.33, 0.5],
-											[0.25, 0.37]];
+												   [0.5, 0.75],
+													 [0.33, 0.5],
+													 [0.25, 0.37]];
+					var KKN = [[1, 1.5, 2],
+													 [0.5, 0.75, 1],
+													 [0.25, 0.5, 0.75]];
 					if (isNaN(parseFloat($("#Volume").val().replace(',','.')))) {
 						alert('Volume Kegiatan Belum Benar!')
 					} 
@@ -604,7 +589,7 @@
 							$("#Jenjang").val() == 200? fd.append('Kode','0') : fd.append('Kode','1')
 							fd.append('KreditPND1',$("#KreditPND1").val())
 						}
-						else if ($("#InputIdKegiatanPendidikan").val() == 'PND2' || $("#InputIdKegiatanPendidikan").val() == 'PND4' || $("#InputIdKegiatanPendidikan").val() == 'PND5' || $("#InputIdKegiatanPendidikan").val() == 'PND8' || $("#InputIdKegiatanPendidikan").val() == 'PND9' || $("#InputIdKegiatanPendidikan").val() == 'PND11') {
+						else if ($("#InputIdKegiatanPendidikan").val() == 'PND2' || $("#InputIdKegiatanPendidikan").val() == 'PND4' || $("#InputIdKegiatanPendidikan").val() == 'PND8' || $("#InputIdKegiatanPendidikan").val() == 'PND9' || $("#InputIdKegiatanPendidikan").val() == 'PND11') {
 							fd.append('Kode','0')
 						} 
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND3') {
@@ -613,70 +598,79 @@
 							} else {
 								fd.append('KreditBKD',(MengajarS2[$("#JumlahDosen").val()][$("#JumlahMhs").val()])*$("#JumlahKelas").val())
 							}
-							fd.append('KreditPAK',parseFloat($("#Volume").val().replace(',','.'))*$("#JumlahKelas").val()/(parseInt($("#DosenMengajar").val())+1))
+							fd.append('KreditPAK',parseFloat($("#Volume").val().replace(',','.'))*$("#JumlahKelas").val()/(parseInt($("#JumlahDosen").val())+1))
 							fd.append('Kode','0')
 						}
-						// else if ($("#InputIdKegiatanPendidikan").val() == 'PND6') {
-						// 	fd.append('JenisPembimbing',$("#JenisPembimbing").val())
-						// 	fd.append('JenisBimbingan',$("#JenisBimbingan").val())			
-						// 	fd.append('Kode',($("#JenisPembimbing").val()+'/'+$("#JenisBimbingan").val()))				
-						// }
-						// else if ($("#InputIdKegiatanPendidikan").val() == 'PND7') {
-						// 	fd.append('JenisPenguji',$("#JenisPenguji").val())
-						// 	fd.append('Kode',$("#JenisPenguji").val())
-						// }
-						// else if ($("#InputIdKegiatanPendidikan").val() == 'PND10') {
-						// 	fd.append('BahanPengajaran',$("#BahanPengajaran").val())
-						// 	fd.append('Kode',$("#BahanPengajaran").val())
-						// }
-						// else if ($("#InputIdKegiatanPendidikan").val() == 'PND12') {
-						// 	fd.append('Kode',$("#JenisPND12").val())
-						// 	var JenisPND12 = $("#JenisPND12").val()
-						// 	if (JenisPND12 == 1) {
-						// 		fd.append('JenisPND12',6)
-						// 	} else if (JenisPND12 == 2) {
-						// 		fd.append('JenisPND12',5)
-						// 	} else if (JenisPND12 == 3) {
-						// 		fd.append('JenisPND12',4)
-						// 	} else if (JenisPND12 == 4) {
-						// 		fd.append('JenisPND12',4)
-						// 	} else if (JenisPND12 == 5) {
-						// 		fd.append('JenisPND12',4)
-						// 	} else if (JenisPND12 == 6) {
-						// 		fd.append('JenisPND12',3)
-						// 	} else if (JenisPND12 == 7) {
-						// 		fd.append('JenisPND12',3)
-						// 	} else if (JenisPND12 == 8) {
-						// 		fd.append('JenisPND12',3)
-						// 	}
-						// }
-						// else if ($("#InputIdKegiatanPendidikan").val() == 'PND13') {
-						// 	fd.append('JenisPND13',$("#JenisPND13").val())
-						// 	fd.append('Kode',$("#JenisPND13").val())
-						// }
-						// else if ($("#InputIdKegiatanPendidikan").val() == 'PND14') {
-						// 	fd.append('JenisPND14',$("#JenisPND14").val())
-						// 	fd.append('Kode',$("#JenisPND14").val())
-						// }
-						// else if ($("#InputIdKegiatanPendidikan").val() == 'PND15') {
-						// 	fd.append('Kode',$("#JenisPND15").val())
-						// 	var JenisPND15 = $("#JenisPND15").val()
-						// 	if (JenisPND15 == 1) {
-						// 		fd.append('JenisPND15',15)
-						// 	} else if (JenisPND15 == 2) {
-						// 		fd.append('JenisPND15',9)
-						// 	} else if (JenisPND15 == 3) {
-						// 		fd.append('JenisPND15',6)
-						// 	} else if (JenisPND15 == 4) {
-						// 		fd.append('JenisPND15',3)
-						// 	} else if (JenisPND15 == 5) {
-						// 		fd.append('JenisPND15',2)
-						// 	} else if (JenisPND15 == 6) {
-						// 		fd.append('JenisPND15',1)
-						// 	} else if (JenisPND15 == 7) {
-						// 		fd.append('JenisPND15',0.5)
-						// 	} 
-						// }
+						else if ($("#InputIdKegiatanPendidikan").val() == 'PND5') {
+							fd.append('KreditBKD',(KKN[$("#JumlahDosenKKN").val()][$("#JumlahMhsKKN").val()]))
+							fd.append('Kode','0')
+						}
+						else if ($("#InputIdKegiatanPendidikan").val() == 'PND6') {
+							fd.append('JenisPembimbing',$("#JenisPembimbing").val())
+							fd.append('JenisBimbingan',$("#JenisBimbingan").val())			
+							fd.append('Kode',($("#JenisPembimbing").val()+'/'+$("#JenisBimbingan").val()))				
+						}
+						else if ($("#InputIdKegiatanPendidikan").val() == 'PND7') {
+							fd.append('JenisPenguji',$("#JenisPenguji").val())
+							fd.append('JenisUjian',$("#JenisUjian").val())
+							fd.append('Kode',$("#JenisPenguji").val())
+						}
+						else if ($("#InputIdKegiatanPendidikan").val() == 'PND10') {
+							fd.append('BahanPengajaran',$("#BahanPengajaran").val())
+							fd.append('Kode',$("#BahanPengajaran").val())
+						}
+						else if ($("#InputIdKegiatanPendidikan").val() == 'PND12') {
+							fd.append('Kode',$("#JenisPND12").val())
+							var JenisPND12 = $("#JenisPND12").val()
+							if (JenisPND12 == 1) {
+								fd.append('JenisPND12',6)
+							} else if (JenisPND12 == 2) {
+								fd.append('JenisPND12',5)
+							} else if (JenisPND12 == 3) {
+								fd.append('JenisPND12',4)
+							} else if (JenisPND12 == 4) {
+								fd.append('JenisPND12',4)
+							} else if (JenisPND12 == 5) {
+								fd.append('JenisPND12',4)
+							} else if (JenisPND12 == 6) {
+								fd.append('JenisPND12',3)
+							} else if (JenisPND12 == 7) {
+								fd.append('JenisPND12',3)
+							} else if (JenisPND12 == 8) {
+								fd.append('JenisPND12',3)
+							}
+						}
+						else if ($("#InputIdKegiatanPendidikan").val() == 'PND13') {
+							fd.append('JenisPND13',$("#JenisPND13").val())
+							fd.append('Kode',$("#JenisPND13").val())
+						}
+						else if ($("#InputIdKegiatanPendidikan").val() == 'PND14') {
+							fd.append('JenisPND14',$("#JenisPND14").val())
+							fd.append('Kode',$("#JenisPND14").val())
+						}
+						else if ($("#InputIdKegiatanPendidikan").val() == 'PND15') {
+							fd.append('Kode',$("#JenisPND15").val())
+							var JenisPND15 = $("#JenisPND15").val()
+							if (JenisPND15 == 1) {
+								fd.append('JenisPND15',15)
+							} else if (JenisPND15 == 2) {
+								fd.append('JenisPND15',9)
+							} else if (JenisPND15 == 3) {
+								fd.append('JenisPND15',6)
+							} else if (JenisPND15 == 4) {
+								fd.append('JenisPND15',3)
+							} else if (JenisPND15 == 5) {
+								fd.append('JenisPND15',2)
+							} else if (JenisPND15 == 6) {
+								fd.append('JenisPND15',1)
+							} else if (JenisPND15 == 7) {
+								fd.append('JenisPND15',0.5)
+							} 
+						}
+						else if ($("#InputIdKegiatanPendidikan").val() == 'PND16') {
+							fd.append('KreditBKD',(MengajarS2[$("#JumlahDosenPraktikum").val()][$("#JumlahMhsPraktikum").val()]))
+							fd.append('Kode',0)
+						}
 						$.ajax({
 							url: BaseURL+'Pendidikan/InputRealisasi',
 							type: 'post',
@@ -702,14 +696,10 @@
 					Pisah[1] == 'S1'? $('#EditJenisRealisasi').val('S1') : $('#EditJenisRealisasi').val('S2')
 					Pisah[2] == 'Ganjil'? $('#EditSemesterRealisasi').val('Ganjil') : $('#EditSemesterRealisasi').val('Genap')
 					$('#EditTahunRealisasi').val(Pisah[3])
-					$('#EditUraian').val(Pisah[4])
-					$('#EditVolume').val(Pisah[5])
-					$('#EditIdKegiatan').val(Pisah[6])
-					$('#EditJabatanRealisasi').val(Pisah[7])
-					$('#EditBuktiRealisasi').val(Pisah[8])
-					$("#EditTanggalKegiatan").val(Pisah[9])
-					$("#Kode").val(Pisah[10])
-					$("#EditSK").val(Pisah[11])
+					$("#EditSK").val(Pisah[4])
+					$('#EditUraian').val(Pisah[5])
+					$("#EditTanggalKegiatan").val(Pisah[6])
+					$('#EditBuktiRealisasi').val(Pisah[7])
 					$('#EditRealisasiPendidikan').modal("show")
 				});
 
@@ -718,40 +708,31 @@
 				})
 
 				$("#UpdateRealisasiPendidikan").click(function() {
-					if (isNaN(parseFloat($("#EditVolume").val().replace(',','.')))) {
-						alert('Volume Kegiatan Belum Benar!')
-					} 
-					else {
-						var fd = new FormData()
-						fd.append("file", $('#EditBukti')[0].files[0])
-						fd.append('No',$("#EditNoRealisasi").val())
-						fd.append('Jabatan',$("#EditJabatanRealisasi").val())
-						fd.append('IdKegiatan',$("#EditIdKegiatan").val())
-						fd.append('Kode',$("#Kode").val())
-						fd.append('Homebase',$("#EditJenisRealisasi").val())
-						fd.append('Semester',$("#EditSemesterRealisasi").val())
-						fd.append('Tahun',$("#EditTahunRealisasi").val())
-						fd.append('SK',$("#EditSK").val())
-						fd.append('Kegiatan',$("#EditUraian").val())		
-						fd.append('TanggalKegiatan',$("#EditTanggalKegiatan").val())
-						fd.append('Volume',parseFloat($("#EditVolume").val().replace(',','.')))
-						fd.append('Bukti',$("#EditBuktiRealisasi").val())
-						$.ajax({
-							url: BaseURL+'Pendidikan/EditRealisasi',
-							type: 'post',
-							data: fd,
-							contentType: false,
-							processData: false,
-							success: function(Respon){
-								if (Respon == '1') {
-									window.location = BaseURL + "Dashboard/Pendidikan"
-								}
-								else {
-									alert(Respon)
-								}
+					var fd = new FormData()
+					fd.append("file", $('#EditBukti')[0].files[0])
+					fd.append('No',$("#EditNoRealisasi").val())
+					fd.append('Homebase',$("#EditJenisRealisasi").val())
+					fd.append('Semester',$("#EditSemesterRealisasi").val())
+					fd.append('Tahun',$("#EditTahunRealisasi").val())
+					fd.append('SK',$("#EditSK").val())
+					fd.append('Kegiatan',$("#EditUraian").val())		
+					fd.append('TanggalKegiatan',$("#EditTanggalKegiatan").val())
+					fd.append('Bukti',$("#EditBuktiRealisasi").val())
+					$.ajax({
+						url: BaseURL+'Pendidikan/EditRealisasi',
+						type: 'post',
+						data: fd,
+						contentType: false,
+						processData: false,
+						success: function(Respon){
+							if (Respon == '1') {
+								window.location = BaseURL + "Dashboard/Pendidikan"
 							}
-						});
-					}
+							else {
+								alert(Respon)
+							}
+						}
+					});
 				});
 
 				$(document).on("click",".HapusRealisasi",function(){
@@ -775,26 +756,43 @@
 				if ($("#InputIdKegiatanPendidikan").val() == 'PND1') {
 					document.getElementById("OpsiPND1").style.display = 'block'
 					document.getElementById("OpsiPND3").style.display = 'none'
+					document.getElementById("OpsiPND5").style.display = 'none'
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
 					document.getElementById("OpsiPND10").style.display = 'none'
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
+					document.getElementById("OpsiPND16").style.display = 'none'
 				}
 				else if ($("#InputIdKegiatanPendidikan").val() == 'PND3') {
 					document.getElementById("OpsiPND1").style.display = 'none'
 					document.getElementById("OpsiPND3").style.display = 'block'
+					document.getElementById("OpsiPND5").style.display = 'none'
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
 					document.getElementById("OpsiPND10").style.display = 'none'
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
+					document.getElementById("OpsiPND16").style.display = 'none'
+				}
+				else if ($("#InputIdKegiatanPendidikan").val() == 'PND5') {
+					document.getElementById("OpsiPND1").style.display = 'none'
+					document.getElementById("OpsiPND3").style.display = 'none'
+					document.getElementById("OpsiPND5").style.display = 'block'
+					document.getElementById("OpsiPND6").style.display = 'none'
+					document.getElementById("OpsiPND7").style.display = 'none'
+					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND13").style.display = 'none'
+					document.getElementById("OpsiPND14").style.display = 'none'
+					document.getElementById("OpsiPND15").style.display = 'none'
+					document.getElementById("OpsiPND16").style.display = 'none'
 				}
 				else if ($("#InputIdKegiatanPendidikan").val() == 'PND6') {
 					document.getElementById("OpsiPND1").style.display = 'none'
 					document.getElementById("OpsiPND3").style.display = 'none'
+					document.getElementById("OpsiPND5").style.display = 'none'
 					document.getElementById("OpsiPND6").style.display = 'block'
 					document.getElementById("OpsiPND7").style.display = 'none'
 					document.getElementById("OpsiPND10").style.display = 'none'
@@ -802,10 +800,12 @@
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
+					document.getElementById("OpsiPND16").style.display = 'none'
 				}
 				else if ($("#InputIdKegiatanPendidikan").val() == 'PND7') {
 					document.getElementById("OpsiPND1").style.display = 'none'
 					document.getElementById("OpsiPND3").style.display = 'none'
+					document.getElementById("OpsiPND5").style.display = 'none'
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'block'
 					document.getElementById("OpsiPND10").style.display = 'none'
@@ -813,10 +813,12 @@
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
+					document.getElementById("OpsiPND16").style.display = 'none'
 				}
 				else if ($("#InputIdKegiatanPendidikan").val() == 'PND10') {
 					document.getElementById("OpsiPND1").style.display = 'none'
 					document.getElementById("OpsiPND3").style.display = 'none'
+					document.getElementById("OpsiPND5").style.display = 'none'
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
 					document.getElementById("OpsiPND10").style.display = 'block'
@@ -824,10 +826,12 @@
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
+					document.getElementById("OpsiPND16").style.display = 'none'
 				}
 				else if ($("#InputIdKegiatanPendidikan").val() == 'PND12') {
 					document.getElementById("OpsiPND1").style.display = 'none'
 					document.getElementById("OpsiPND3").style.display = 'none'
+					document.getElementById("OpsiPND5").style.display = 'none'
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
 					document.getElementById("OpsiPND10").style.display = 'none'
@@ -835,10 +839,12 @@
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
+					document.getElementById("OpsiPND16").style.display = 'none'
 				}
 				else if ($("#InputIdKegiatanPendidikan").val() == 'PND13') {
 					document.getElementById("OpsiPND1").style.display = 'none'
 					document.getElementById("OpsiPND3").style.display = 'none'
+					document.getElementById("OpsiPND5").style.display = 'none'
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
 					document.getElementById("OpsiPND10").style.display = 'none'
@@ -846,10 +852,12 @@
 					document.getElementById("OpsiPND13").style.display = 'block'
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
+					document.getElementById("OpsiPND16").style.display = 'none'
 				}
 				else if ($("#InputIdKegiatanPendidikan").val() == 'PND14') {
 					document.getElementById("OpsiPND1").style.display = 'none'
 					document.getElementById("OpsiPND3").style.display = 'none'
+					document.getElementById("OpsiPND5").style.display = 'none'
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
 					document.getElementById("OpsiPND10").style.display = 'none'
@@ -857,10 +865,12 @@
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'block'
 					document.getElementById("OpsiPND15").style.display = 'none'
+					document.getElementById("OpsiPND16").style.display = 'none'
 				}
 				else if ($("#InputIdKegiatanPendidikan").val() == 'PND15') {
 					document.getElementById("OpsiPND1").style.display = 'none'
 					document.getElementById("OpsiPND3").style.display = 'none'
+					document.getElementById("OpsiPND5").style.display = 'none'
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
 					document.getElementById("OpsiPND10").style.display = 'none'
@@ -868,10 +878,12 @@
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'block'
+					document.getElementById("OpsiPND16").style.display = 'none'
 				}
-				else {
+				else if ($("#InputIdKegiatanPendidikan").val() == 'PND16') {
 					document.getElementById("OpsiPND1").style.display = 'none'
 					document.getElementById("OpsiPND3").style.display = 'none'
+					document.getElementById("OpsiPND5").style.display = 'none'
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
 					document.getElementById("OpsiPND10").style.display = 'none'
@@ -879,6 +891,20 @@
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
+					document.getElementById("OpsiPND16").style.display = 'block'
+				}
+				else {
+					document.getElementById("OpsiPND1").style.display = 'none'
+					document.getElementById("OpsiPND3").style.display = 'none'
+					document.getElementById("OpsiPND5").style.display = 'none'
+					document.getElementById("OpsiPND6").style.display = 'none'
+					document.getElementById("OpsiPND7").style.display = 'none'
+					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND12").style.display = 'none'
+					document.getElementById("OpsiPND13").style.display = 'none'
+					document.getElementById("OpsiPND14").style.display = 'none'
+					document.getElementById("OpsiPND15").style.display = 'none'
+					document.getElementById("OpsiPND16").style.display = 'none'
 				}
 			}
 
