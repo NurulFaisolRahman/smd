@@ -82,24 +82,6 @@
 				})
 
 				$('[data-mask]').inputmask()
-				
-				$("#Download").click(function() {
-					var Tahun = $('#FilterTahun').val()
-					var Pisah = Tahun.split('-')
-					window.location = BaseURL + 'Pengabdian/Download/'+$('#FilterJenjang').val()+'/'+$('#FilterSemester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))
-					// $.post(BaseURL+"Pengabdian/Lampiran/"+$('#FilterJenjang').val()+'/'+$('#FilterSemester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))).done(function(Respon) {
-					// 	var array = JSON.parse(Respon)
-					// 	var NomorLampiran = 1
-					// 	array.forEach(function(object) {
-					// 		if (object.Bukti != null) {
-					// 			$('#Lampiran').attr('href',BaseURL+'Pengabdian/'+object.Bukti)		
-					// 			$('#Lampiran').attr('Download','Lampiran 3.'+NomorLampiran+'.pdf')
-					// 			$('#Lampiran')[0].click()
-					// 		}
-					// 		NomorLampiran++;
-					// 	})
-					// }) 
-				})
 
 				$("#pills-Rencana-tab").click(function() {
 					var Data = {SubPengabdian: 'Rencana'}
@@ -252,6 +234,7 @@
 						fd.append('Semester',$("#SemesterRealisasi").val())
 						fd.append('Tahun',$("#TahunRealisasi").val())
 						fd.append('IdKegiatan',$("#InputIdKegiatanPengabdian").val())
+						fd.append('SK',$("#SK").val())
 						fd.append('Kegiatan',$("#Uraian").val())		
 						fd.append('Volume',parseInt($("#Volume").val()))
 						fd.append('TanggalKegiatan',$("#TanggalKegiatan").val())	
@@ -263,6 +246,10 @@
 						}
 						else if ($("#InputIdKegiatanPengabdian").val() == 'PNB7') {
 							fd.append('Kode',$("#Peran").val())
+						}
+						else if ($("#InputIdKegiatanPengabdian").val() == 'PNB8') {
+							fd.append('Proposal',$("#Proposal").val())
+							fd.append('Kode','0')
 						}
 						else {
 							fd.append('Kode','0')
@@ -293,14 +280,11 @@
 					Pisah[1] == 'S1'? $('#EditJenisRealisasi').val('S1') : $('#EditJenisRealisasi').val('S2')
 					Pisah[2] == 'Ganjil'? $('#EditSemesterRealisasi').val('Ganjil') : $('#EditSemesterRealisasi').val('Genap')
 					$('#EditTahunRealisasi').val(Pisah[3])
-					$('#EditUraian').val(Pisah[4])
-					$('#EditVolume').val(Pisah[5])
-					$('#EditIdKegiatan').val(Pisah[6])
-					$('#EditJabatanRealisasi').val(Pisah[7])
-					$('#EditBuktiRealisasi').val(Pisah[8])
-					$("#EditTanggalKegiatan").val(Pisah[9])
-					$("#Kode").val(Pisah[10])
-					$('#EditRealisasiPengabdian').modal("show")
+					$("#EditSK").val(Pisah[4])
+					$('#EditUraian').val(Pisah[5])
+					$("#EditTanggalKegiatan").val(Pisah[6])
+					$('#EditBuktiRealisasi').val(Pisah[7])
+					$('#EditRealisasiPengabdian').modal("show") 
 				});
 
 				$("#CancelBukti").click(function() {
@@ -308,39 +292,31 @@
 				})
 
 				$("#UpdateRealisasiPengabdian").click(function() {
-					if (isNaN(parseInt($("#EditVolume").val()))) {
-						alert('Volume Kegiatan Belum Benar!')
-					} 
-					else {
-						var fd = new FormData()
-						fd.append("file", $('#EditBukti')[0].files[0])
-						fd.append('No',$("#EditNoRealisasi").val())
-						fd.append('Jabatan',$("#EditJabatanRealisasi").val())
-						fd.append('IdKegiatan',$("#EditIdKegiatan").val())
-						fd.append('Kode',$("#Kode").val())
-						fd.append('Homebase',$("#EditJenisRealisasi").val())
-						fd.append('Semester',$("#EditSemesterRealisasi").val())
-						fd.append('Tahun',$("#EditTahunRealisasi").val())
-						fd.append('Kegiatan',$("#EditUraian").val())		
-						fd.append('TanggalKegiatan',$("#EditTanggalKegiatan").val())
-						fd.append('Volume',parseInt($("#EditVolume").val()))
-						fd.append('Bukti',$("#EditBuktiRealisasi").val())
-						$.ajax({
-							url: BaseURL+'Pengabdian/EditRealisasi',
-							type: 'post',
-							data: fd,
-							contentType: false,
-							processData: false,
-							success: function(Respon){
-								if (Respon == '1') {
-									window.location = BaseURL + "Dashboard/Pengabdian"
-								}
-								else {
-									alert(Respon)
-								}
+					var fd = new FormData()
+					fd.append("file", $('#EditBukti')[0].files[0])
+					fd.append('No',$("#EditNoRealisasi").val())
+					fd.append('Homebase',$("#EditJenisRealisasi").val())
+					fd.append('Semester',$("#EditSemesterRealisasi").val())
+					fd.append('Tahun',$("#EditTahunRealisasi").val())
+					fd.append('SK',$("#EditSK").val())
+					fd.append('Kegiatan',$("#EditUraian").val())		
+					fd.append('TanggalKegiatan',$("#EditTanggalKegiatan").val())
+					fd.append('Bukti',$("#EditBuktiRealisasi").val())
+					$.ajax({
+						url: BaseURL+'Pengabdian/EditRealisasi',
+						type: 'post',
+						data: fd,
+						contentType: false,
+						processData: false,
+						success: function(Respon){
+							if (Respon == '1') {
+								window.location = BaseURL + "Dashboard/Pengabdian"
 							}
-						});
-					}
+							else {
+								alert(Respon)
+							}
+						}
+					});
 				});
 
 				$(document).on("click",".HapusRealisasi",function(){
@@ -365,18 +341,27 @@
 					document.getElementById("OpsiPNB3").style.display = 'block'
 					document.getElementById("OpsiPNB4").style.display = 'none'
 					document.getElementById("OpsiPNB7").style.display = 'none'
+					document.getElementById("OpsiPNB8").style.display = 'none'
 				} else if ($("#InputIdKegiatanPengabdian").val() == 'PNB4') {
 					document.getElementById("OpsiPNB3").style.display = 'none'
 					document.getElementById("OpsiPNB4").style.display = 'block'
 					document.getElementById("OpsiPNB7").style.display = 'none'
+					document.getElementById("OpsiPNB8").style.display = 'none'
 				} else if ($("#InputIdKegiatanPengabdian").val() == 'PNB7') {
 					document.getElementById("OpsiPNB3").style.display = 'none'
 					document.getElementById("OpsiPNB4").style.display = 'none'
 					document.getElementById("OpsiPNB7").style.display = 'block'
+					document.getElementById("OpsiPNB8").style.display = 'none'
+				} else if ($("#InputIdKegiatanPengabdian").val() == 'PNB8') {
+					document.getElementById("OpsiPNB3").style.display = 'none'
+					document.getElementById("OpsiPNB4").style.display = 'none'
+					document.getElementById("OpsiPNB7").style.display = 'none'
+					document.getElementById("OpsiPNB8").style.display = 'block'
 				} else {
 					document.getElementById("OpsiPNB3").style.display = 'none'
 					document.getElementById("OpsiPNB4").style.display = 'none'
 					document.getElementById("OpsiPNB7").style.display = 'none'
+					document.getElementById("OpsiPNB8").style.display = 'none'
 				}
 			}
 

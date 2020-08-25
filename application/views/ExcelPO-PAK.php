@@ -30053,7 +30053,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>1</td>
     <td class=3D"xl161" x:str>Menduduki jabatan pimpinan pada lembaga pemerintah/ pejabat negara yang dibebaskan dari jabatan organiknya</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"><?php if (in_array('PNB1',$UsulPengabdian)) { echo array_search('PNB1', $UsulPengabdian); } ?></td>
+    <td class=3D"xl167"><?php if (array_key_exists("PNB1",$UsulPengabdian)) {echo $UsulPengabdian['PNB1']; } ?></td>
     <td class=3D"xl167" x:fmla=3D"=3DF56+G56"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -30067,7 +30067,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>2</td>
     <td class=3D"xl161" x:str>Melaksanakan pengembangan hasil pendidikan dan penelitian yang dapat dimanfaatkan oleh masyarakat</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"><?php if (in_array('PNB2',$UsulPengabdian)) { echo array_search('PNB2', $UsulPengabdian); } ?></td>
+    <td class=3D"xl167"><?php if (array_key_exists("PNB2",$UsulPengabdian)) {echo $UsulPengabdian['PNB2']; } ?></td>
     <td class=3D"xl167" x:fmla=3D"=3DF57+G57"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -30081,7 +30081,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>3</td>
     <td class=3D"xl161" x:str>Memberi latihan/ penyuluhan/ penataran/ ceramah pada masyarakat</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"><?php if (in_array('PNB3',$UsulPengabdian)) { echo array_search('PNB3', $UsulPengabdian); } ?></td>
+    <td class=3D"xl167"><?php if (array_key_exists("PNB3",$UsulPengabdian)) {echo $UsulPengabdian['PNB3']; } ?></td>
     <td class=3D"xl167" x:fmla=3D"=3DF58+G58"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -30095,7 +30095,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>4</td>
     <td class=3D"xl161" x:str>Memberi pelayanan pada masyarakat atau kegiatan lain yang menunjang pelaksanaan tugas umum pemerintahan dan pembangunan</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"><?php if (in_array('PNB4',$UsulPengabdian)) { echo array_search('PNB4', $UsulPengabdian); } ?></td>
+    <td class=3D"xl167"><?php if (array_key_exists("PNB4",$UsulPengabdian)) {echo $UsulPengabdian['PNB4']; } ?></td>
     <td class=3D"xl167" x:fmla=3D"=3DF59+G59"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -30109,7 +30109,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>5</td>
     <td class=3D"xl161" x:str>Menulis / membuat karya pengabdian pada masyarakat yang tidak dipublikasikan</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"><?php if (in_array('PNB5',$UsulPengabdian)) { echo array_search('PNB5', $UsulPengabdian); } ?></td>
+    <td class=3D"xl167"><?php if (array_key_exists("PNB5",$UsulPengabdian)) {echo $UsulPengabdian['PNB5']; } ?></td>
     <td class=3D"xl167" x:fmla=3D"=3DF60+G60"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -30123,7 +30123,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>6</td>
     <td class=3D"xl161" x:str>Hasil<font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">kegiatan</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">pengabdian</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">kepada</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">masyarakat</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">yang</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">dipublikasikan</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">di sebuah</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">berkala/jurnal</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">pengabdian</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">kepada</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">masyarakat</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">atau</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp; </span></font><font class=3D"font8">teknologi tepat</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp; </span></font><font class=3D"font8">guna,</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp; </span></font><font class=3D"font8">merupakan</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp; </span></font><font class=3D"font8">diseminasi</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp; </span></font><font class=3D"font8">dari</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp; </span></font><font class=3D"font8">luaran</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp; </span></font><font class=3D"font8">program</font><font class=3D"font8"><span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp; </span></font><font class=3D"font8">kegiatan pengabdian kepada masyarakat, tiap karya</font></td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"><?php if (in_array('PNB6',$UsulPengabdian)) { echo array_search('PNB6', $UsulPengabdian); } ?></td>
+    <td class=3D"xl167"><?php if (array_key_exists("PNB6",$UsulPengabdian)) {echo $UsulPengabdian['PNB6']; } ?></td>
     <td class=3D"xl167" x:fmla=3D"=3DF61+G61"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -30137,7 +30137,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>7</td>
     <td class=3D"xl161" x:str>Berperan serta aktif dalam pengelolaan jurnal ilmiah</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"><?php if (in_array('PNB7',$UsulPengabdian)) { echo array_search('PNB7', $UsulPengabdian); } ?></td>
+    <td class=3D"xl167"><?php if (array_key_exists("PNB7",$UsulPengabdian)) {echo $UsulPengabdian['PNB7']; } ?></td>
     <td class=3D"xl167" x:fmla=3D"=3DF62+G62"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>

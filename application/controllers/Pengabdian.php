@@ -67,6 +67,8 @@ class Pengabdian extends CI_Controller {
 	public function InputRealisasi(){
 		$NIP = $this->session->userdata('NIP');
 		$Jabatan = $this->session->userdata('Jabatan');
+		$Volume = $_POST['Volume'];
+		$KreditBkd = '';
 		if ($_POST['IdKegiatan'] == 'PNB1') {
 			$JumlahKredit = $_POST['Volume']*5.5;
 			$Kredit = 5.5;
@@ -100,6 +102,7 @@ class Pengabdian extends CI_Controller {
 				$JumlahKredit = $_POST['Volume'];
 				$Kredit = 1;
 			}
+			$KreditBkd = '0.2';
 		}
 		else if ($_POST['IdKegiatan'] == 'PNB4') {
 			if ($_POST['Kode'] == '1') {
@@ -114,10 +117,12 @@ class Pengabdian extends CI_Controller {
 				$JumlahKredit = $_POST['Volume']*0.5;
 				$Kredit = 0.5;
 			}
+			$KreditBkd = '0.2';
 		}
 		else if ($_POST['IdKegiatan'] == 'PNB5') {
 			$JumlahKredit = $_POST['Volume']*3;
 			$Kredit = 3;
+			$KreditBkd = '0.2';
 		}
 		else if ($_POST['IdKegiatan'] == 'PNB6') {
 			$JumlahKredit = $_POST['Volume']*5;
@@ -132,6 +137,14 @@ class Pengabdian extends CI_Controller {
 				$JumlahKredit = $_POST['Volume']*0.5;
 				$Kredit = 0.5;
 			}
+		}
+		else if ($_POST['IdKegiatan'] == 'PNB8') {
+			$JumlahKredit = $Kredit = '';
+			$KreditBkd = $_POST['Proposal'];
+		}
+		else if ($_POST['IdKegiatan'] == 'PNB9') {
+			$JumlahKredit = $Kredit = '';
+			$KreditBkd = '0.2';
 		}
 		$Pdf = count($_FILES);
 		if ($Pdf > 0) {
@@ -149,11 +162,13 @@ class Pengabdian extends CI_Controller {
 													'Tahun' => $_POST['Tahun'], 
 													'IdKegiatan' => $_POST['IdKegiatan'],
 													'Kode' => $_POST['Kode'],
+													'SK' => htmlentities($_POST['SK']),
 													'Kegiatan' => htmlentities($_POST['Kegiatan']),
 													'TanggalKegiatan' => htmlentities($_POST['TanggalKegiatan']),
-													'Volume' => $_POST['Volume'],
+													'Volume' => $Volume,
 													'Kredit' => $Kredit,
 													'JumlahKredit' => $JumlahKredit,
+													'KreditBkd' => $KreditBkd,
 													'Bukti' => $NamaPdf.'.'.$Tipe));
 				if ($this->db->affected_rows()){
 					$this->session->set_userdata('IdKegiatanPengabdian', $_POST['IdKegiatan']);
@@ -172,72 +187,6 @@ class Pengabdian extends CI_Controller {
 	}
 
 	public function EditRealisasi(){
-		if ($_POST['IdKegiatan'] == 'PNB1') {
-			$JumlahKredit = $_POST['Volume']*5.5;
-			$Kredit = 5.5;
-		}
-		else if ($_POST['IdKegiatan'] == 'PNB2') {
-			$JumlahKredit = $_POST['Volume']*3;
-			$Kredit = 3;
-		}
-		else if ($_POST['IdKegiatan'] == 'PNB3') {
-			if ($_POST['Kode'] == '1') {
-				$JumlahKredit = $_POST['Volume']*4;
-				$Kredit = 4;
-			}
-			else if ($_POST['Kode'] == '2') {
-				$JumlahKredit = $_POST['Volume']*3;
-				$Kredit = 3;
-			}
-			else if ($_POST['Kode'] == '3') {
-				$JumlahKredit = $_POST['Volume']*2;
-				$Kredit = 2;
-			}
-			else if ($_POST['Kode'] == '4') {
-				$JumlahKredit = $_POST['Volume']*3;
-				$Kredit = 3;
-			}
-			else if ($_POST['Kode'] == '5') {
-				$JumlahKredit = $_POST['Volume']*2;
-				$Kredit = 2;
-			}
-			else {
-				$JumlahKredit = $_POST['Volume'];
-				$Kredit = 1;
-			}
-		}
-		else if ($_POST['IdKegiatan'] == 'PNB4') {
-			if ($_POST['Kode'] == '1') {
-				$JumlahKredit = $_POST['Volume']*1.5;
-				$Kredit = 1.5;
-			}
-			else if ($_POST['Kode'] == '2') {
-				$JumlahKredit = $_POST['Volume'];
-				$Kredit = 1;
-			}
-			else if ($_POST['Kode'] == '3') {
-				$JumlahKredit = $_POST['Volume']*0.5;
-				$Kredit = 0.5;
-			}
-		}
-		else if ($_POST['IdKegiatan'] == 'PNB5') {
-			$JumlahKredit = $_POST['Volume']*3;
-			$Kredit = 3;
-		}
-		else if ($_POST['IdKegiatan'] == 'PNB6') {
-			$JumlahKredit = $_POST['Volume']*5;
-			$Kredit = 5;
-		}
-		else if ($_POST['IdKegiatan'] == 'PNB7') {
-			if ($_POST['Kode'] == '1') {
-				$JumlahKredit = $_POST['Volume'];
-				$Kredit = 1;
-			}
-			else if ($_POST['Kode'] == '2') {
-				$JumlahKredit = $_POST['Volume']*0.5;
-				$Kredit = 0.5;
-			}
-		}
 		$Pdf = count($_FILES);
 		if ($Pdf > 0) {
 			if ($this->CekBukti($Pdf)){
@@ -254,13 +203,9 @@ class Pengabdian extends CI_Controller {
 										array('Jenjang' => $_POST['Homebase'], 
 													'Semester' => $_POST['Semester'], 
 													'Tahun' => $_POST['Tahun'], 
-													'IdKegiatan' => $_POST['IdKegiatan'],
-													'Kode' => $_POST['Kode'],
+													'SK' => htmlentities($_POST['SK']),
 													'Kegiatan' => htmlentities($_POST['Kegiatan']),
 													'TanggalKegiatan' => htmlentities($_POST['TanggalKegiatan']),
-													'Volume' => $_POST['Volume'],
-													'Kredit' => $Kredit,
-													'JumlahKredit' => $JumlahKredit,
 													'Bukti' => $NamaPdf.'.'.$Tipe));
 				echo '1';
 			}
@@ -271,16 +216,12 @@ class Pengabdian extends CI_Controller {
 		else {
 			$this->db->where('No', $_POST['No']);
 			$this->db->update('RealisasiPengabdian',
-										array('Jenjang' => $_POST['Homebase'], 
-													'Semester' => $_POST['Semester'], 
-													'Tahun' => $_POST['Tahun'], 
-													'IdKegiatan' => $_POST['IdKegiatan'],
-													'Kode' => $_POST['Kode'],
-													'Kegiatan' => htmlentities($_POST['Kegiatan']),
-													'TanggalKegiatan' => htmlentities($_POST['TanggalKegiatan']),
-													'Volume' => $_POST['Volume'],
-													'Kredit' => $Kredit,
-													'JumlahKredit' => $JumlahKredit));
+									array('Jenjang' => $_POST['Homebase'], 
+												'Semester' => $_POST['Semester'], 
+												'Tahun' => $_POST['Tahun'], 
+												'SK' => htmlentities($_POST['SK']),
+												'Kegiatan' => htmlentities($_POST['Kegiatan']),
+												'TanggalKegiatan' => htmlentities($_POST['TanggalKegiatan'])));
 			echo '1';
 		}
 	}
@@ -304,35 +245,5 @@ class Pengabdian extends CI_Controller {
 		} else {
 			echo 'Gagal Menghapus';
 		}
-	}
-
-	public function Download(){
-		$Data['Profil'] = $this->db->get_where('Dosen', array('NIP' => $this->session->userdata('NIP')))->row_array();
-		$Jenjang = $this->uri->segment('3');
-		$Semester = $this->uri->segment('4');
-		$Tahun = explode('-',$this->uri->segment('5'));
-		if ($Jenjang != 'S1' && $Jenjang != 'S2') {
-			if ($Semester != 'Ganjil' && $Semester != 'Genap') {
-				$Data['Filter'] = $this->uri->segment('5').'|Ganjil|Genap|S1|S2';
-			} else {
-				$Data['Filter'] = $this->uri->segment('5').'|'.$Semester.'|S1|S2';
-			}
-		} else {
-			if ($Semester != 'Ganjil' && $Semester != 'Genap') {
-				$Data['Filter'] = $this->uri->segment('5').'|Ganjil|Genap|'.$Jenjang;
-			} else {
-				$Data['Filter'] = $this->uri->segment('5').'|'.$Semester.'|'.$Jenjang;
-			}
-		}
-		$Data['Pengabdian'] = $this->db->query("SELECT * FROM `RealisasiPengabdian` WHERE NIP = ".$this->session->userdata('NIP')." AND Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1]." ORDER BY SUBSTR(IdKegiatan FROM 1 FOR 3), CAST(SUBSTR(IdKegiatan FROM 4) AS UNSIGNED), SUBSTR(IdKegiatan FROM 4), Kode ASC")->result_array();
-		$this->load->view('ExcelPengabdian',$Data);
-	}
-
-	public function Lampiran(){
-		$Jenjang = $this->uri->segment('3');
-		$Semester = $this->uri->segment('4');
-		$Tahun = explode('-',$this->uri->segment('5'));
-		$DataPengabdian = $this->db->query("SELECT * FROM `RealisasiPengabdian` WHERE NIP = ".$this->session->userdata('NIP')." AND Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1]." ORDER BY SUBSTR(IdKegiatan FROM 1 FOR 3), CAST(SUBSTR(IdKegiatan FROM 4) AS UNSIGNED), SUBSTR(IdKegiatan FROM 4), Kode ASC")->result_array();
-		echo json_encode($DataPengabdian);
 	}
 }
