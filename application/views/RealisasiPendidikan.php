@@ -38,8 +38,7 @@
     </div> 
     <div class="col-sm-4 mt-1 mb-1">
       <button type="button" id="LihatRealisasi" class="btn btn-primary mb-1"><i class="fa fa-eye"></i><b> Lihat</b></button>
-      <button type="button" class="btn btn-danger text-light mb-1" data-toggle="modal" data-target="#InputRealisasiPendidikan"><i class="fa fa-plus"></i> <b>Input</b></button>       
-      </div>        
+      <button type="button" class="btn btn-danger text-light mb-1" data-toggle="modal" data-target="#InputRealisasiPendidikan"><i class="fa fa-plus"></i> <b>Input</b></button>               
     </div>   
   </div>
   <div class="container-fluid">
@@ -399,7 +398,7 @@
           <input class="form-control" type="text" id="EditSK">
         </div>
         <div class="input-group mb-1">
-          <span class="input-group-text bg-primary"><b>Uraian</b></span>
+          <span class="input-group-text bg-primary"><b>Uraian<br>Kegiatan</b></span>
           <textarea class="form-control" id="EditUraian" rows="2"></textarea>
         </div>
         <div class="input-group mb-1">
