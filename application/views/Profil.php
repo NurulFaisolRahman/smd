@@ -140,24 +140,9 @@
 						</div>
 						<div class="input-group mb-1">
 							<div class="input-group-prepend">
-								<label class="input-group-text bg-primary"><b>Kredit Lama</b></label>
+								<label class="input-group-text bg-primary"><b>Ganti Password</b></label>
 							</div>
-							<input type="text" id="KreditLama" class="form-control form-control" value="<?=$Profil['Kredit']?>">
-						</div>
-						<div class="input-group mb-1">
-							<div class="input-group-prepend">
-								<label class="input-group-text bg-primary"><b>Semester Kredit Lama</b></label>
-							</div>
-							<select class="custom-select" id="SemesterKreditLama">										
-								<option value="Ganjil">Ganjil</option>
-								<option value="Genap">Genap</option>
-							</select>
-						</div>
-						<div class="input-group mb-1">
-							<div class="input-group-prepend">
-								<label class="input-group-text bg-primary"><b>Tahun Kredit Lama</b></label>
-							</div>
-							<input type="text" id="TahunKreditLama" class="form-control form-control" value="<?=$Profil['Tahun']?>" data-inputmask='"mask": "9999"' data-mask>
+							<input type="text" id="GantiPassword" class="form-control form-control">
 						</div>
 					</div>
 					<div class="modal-footer justify-content-between">
@@ -199,7 +184,7 @@
 					// 		})
 					// 	}) 	
 					// }
-				})
+				}) 
  
 				$("#EditProfil").click(function() {
 					if ($("#NIP").val().length != 18 || isNaN($("#NIP").val())) {
@@ -208,11 +193,9 @@
             alert('Mohon Isi NIDN 10 Angka!')
           } else if ($("#Nama").val() === "") {
             alert('Mohon Isi Nama + Gelar!')
-          } else if (isNaN(parseFloat($("#KreditLama").val().replace(',','.')))) {
-						alert('Input Kredit Belum Benar!')
-					} else if ($("#TahunKreditLama").val().length != 4 || isNaN($("#TahunKreditLama").val())) {
-						alert('Input Tahun Belum Benar!')
-					} else {
+          } else if ($("#GantiPassword").val() != "" && $("#GantiPassword").val().length < 8) {
+            alert('Password Minimal 8 Karakter!')
+          } else { 
 						var Pangkat = $("#Golongan").val().split("/") 
 						var Data = {NIP: $("#NIP").val(),
 												NIDN: $("#NIDN").val(),
@@ -220,9 +203,7 @@
 												Pangkat: Pangkat[0],
 												Golongan: Pangkat[1],
 												Jabatan: $("#Jabatan").val(),
-												Tahun: $("#TahunKreditLama").val(),
-												Semester: $("#SemesterKreditLama").val(),
-												Kredit: parseFloat($("#KreditLama").val().replace(',','.')) }
+												GantiPassword: $("#GantiPassword").val()}
 						$.post(BaseURL+"Dashboard/EditProfil", Data).done(function(Respon) {
 							if (Respon == '1') {
 								window.location = BaseURL + "Dashboard/Profil"

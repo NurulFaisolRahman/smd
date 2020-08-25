@@ -154,7 +154,7 @@
         <div id="OpsiPNB8" style="display: none;">
           <div class="input-group mb-1">
             <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Capaian</b></span>
+              <span class="input-group-text bg-primary"><b>Progres</b></span>
             </div>
             <select class="custom-select" id="Proposal">
               <option value="0.2">Proposal Pengabdian</option>
