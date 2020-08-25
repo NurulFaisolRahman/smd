@@ -30181,7 +30181,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>1</td>
     <td class=3D"xl161" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Menjadi anggota dalam suatu panitia / badan pada Perguruan Tinggi</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"><?php if (in_array('PNJ1',$UsulPenunjang)) { echo array_search('PNJ1', $UsulPenunjang); } ?></td>
+    <td class=3D"xl167"><?php if (array_key_exists("PNJ1",$UsulPenunjang)) {echo $UsulPenunjang['PNJ1']; } ?></td>
     <td class=3D"xl167" x:fmla=3D"=3DF66+G66"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -30192,7 +30192,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>2</td>
     <td class=3D"xl161" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Menjadi anggota Panitia/ badan pada lembaga pemerintah</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"><?php if (in_array('PNJ2',$UsulPenunjang)) { echo array_search('PNJ2', $UsulPenunjang); } ?></td>
+    <td class=3D"xl167"><?php if (array_key_exists("PNJ2",$UsulPenunjang)) {echo $UsulPenunjang['PNJ2']; } ?></td>
     <td class=3D"xl167" x:fmla=3D"=3DF67+G67"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -30203,7 +30203,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>3</td>
     <td class=3D"xl161" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Menjadi anggota profesi</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"><?php if (in_array('PNJ3',$UsulPenunjang)) { echo array_search('PNJ3', $UsulPenunjang); } ?></td>
+    <td class=3D"xl167"><?php if (array_key_exists("PNJ3",$UsulPenunjang)) {echo $UsulPenunjang['PNJ3']; } ?></td>
     <td class=3D"xl167" x:fmla=3D"=3DF68+G68"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -30214,7 +30214,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>4</td>
     <td class=3D"xl161" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Mewakili perguruan tinggi / lembaga pemerintah duduk dalam panitia antar lembaga</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"><?php if (in_array('PNJ4',$UsulPenunjang)) { echo array_search('PNJ4', $UsulPenunjang); } ?></td>
+    <td class=3D"xl167"><?php if (array_key_exists("PNJ4",$UsulPenunjang)) {echo $UsulPenunjang['PNJ4']; } ?></td>
     <td class=3D"xl167" x:fmla=3D"=3DF69+G69"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -30225,7 +30225,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>5</td>
     <td class=3D"xl161" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Menjadi anggota delegasi Nasional ke pertemuan Internasional</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"><?php if (in_array('PNJ5',$UsulPenunjang)) { echo array_search('PNJ5', $UsulPenunjang); } ?></td>
+    <td class=3D"xl167"><?php if (array_key_exists("PNJ5",$UsulPenunjang)) {echo $UsulPenunjang['PNJ5']; } ?></td>
     <td class=3D"xl167" x:fmla=3D"=3DF70+G70"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -30236,7 +30236,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>6</td>
     <td class=3D"xl161" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Berperan serta aktif dalam pertemuan ilmiah</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"><?php if (in_array('PNJ6',$UsulPenunjang)) { echo array_search('PNJ6', $UsulPenunjang); } ?></td>
+    <td class=3D"xl167"><?php if (array_key_exists("PNJ6",$UsulPenunjang)) {echo $UsulPenunjang['PNJ6']; } ?></td>
     <td class=3D"xl167" x:fmla=3D"=3DF71+G71"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -30247,7 +30247,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>7</td>
     <td class=3D"xl161" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Mendapat tanda jasa / penghargaan</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"><?php if (in_array('PNJ7',$UsulPenunjang)) { echo array_search('PNJ7', $UsulPenunjang); } ?></td>
+    <td class=3D"xl167"><?php if (array_key_exists("PNJ7",$UsulPenunjang)) {echo $UsulPenunjang['PNJ7']; } ?></td>
     <td class=3D"xl167" x:fmla=3D"=3DF72+G72"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -30259,7 +30259,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>8</td>
     <td class=3D"xl161" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Menulis buku pelajaran SLTA kebawah yang diterbitkan dan diedarkan secara Nasional</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"><?php if (in_array('PNJ8',$UsulPenunjang)) { echo array_search('PNJ8', $UsulPenunjang); } ?></td>
+    <td class=3D"xl167"><?php if (array_key_exists("PNJ8",$UsulPenunjang)) {echo $UsulPenunjang['PNJ8']; } ?></td>
     <td class=3D"xl167" x:fmla=3D"=3DF73+G73"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -30270,7 +30270,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>9</td>
     <td class=3D"xl161" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Mempunyai prestastasi dibidang olahraga / humaniora</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"><?php if (in_array('PNJ9',$UsulPenunjang)) { echo array_search('PNJ9', $UsulPenunjang); } ?></td>
+    <td class=3D"xl167"><?php if (array_key_exists("PNJ9",$UsulPenunjang)) {echo $UsulPenunjang['PNJ9']; } ?></td>
     <td class=3D"xl167" x:fmla=3D"=3DF74+G74"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
@@ -30283,7 +30283,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl141" x:str>10</td>
     <td class=3D"xl168" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Keanggotaan dalam tim penilai jabatan akademik dosen</td>
     <td class=3D"xl169"></td>
-    <td class=3D"xl167"><?php if (in_array('PNJ10',$UsulPenunjang)) { echo array_search('PNJ10', $UsulPenunjang); } ?></td>
+    <td class=3D"xl167"><?php if (array_key_exists("PNJ10",$UsulPenunjang)) {echo $UsulPenunjang['PNJ10']; } ?></td>
     <td class=3D"xl167" x:fmla=3D"=3DF75+G75"></td>
     <td class=3D"xl169"></td>
     <td class=3D"xl169"></td>
