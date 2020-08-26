@@ -38,9 +38,9 @@
                                     <td class="text-center align-middle"><?=$key['Pangkat']?></td>
                                     <td class="text-center align-middle"><?=$key['Golongan']?></td>
                                     <td class="text-center align-middle"><?=$key['Jabatan']?></td>
-                                    <td class="text-center align-middle"><?=str_replace('.',',',$key['Kredit']).' SKS'?></td>
-                                    <td class="text-center align-middle"><?=str_replace('.',',',$KreditBaru[$No-2]).' SKS'?></td>
-                                    <td class="text-center align-middle"><?=str_replace('.',',',($key['Kredit']+$KreditBaru[$No-2])).' SKS'?></td>
+                                    <td class="text-center align-middle"><?=str_replace('.',',',$key['KreditLama'])?></td>
+                                    <td class="text-center align-middle"><?=str_replace('.',',',$KreditBaru[$No-2])?></td>
+                                    <td class="text-center align-middle"><?=str_replace('.',',',($key['KreditLama']+$KreditBaru[$No-2]))?></td>
                                   </tr>
                                 <?php } ?>
                               </tbody>

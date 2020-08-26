@@ -98,6 +98,18 @@
                 <option value="Profesor">Profesor</option>
               </select>
             </div>
+            <div class="input-group input-group-sm mb-2">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-primary text-primary"><b>Tahun Kredit Lama</b></span>
+              </div>
+              <input type="text" class="form-control" id="TahunKreditLama" data-inputmask='"mask": "9999"' data-mask value="20">
+            </div>
+            <div class="input-group input-group-sm mb-2">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-primary text-primary"><b>Kredit Lama</b></span>
+              </div>
+              <input type="text" class="form-control" id="KreditLama">
+            </div>
           </div>
           <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
@@ -147,7 +159,9 @@
             alert('Mohon Isi NIDN 10 Angka!')
           } else if ($("#Nama").val() === "") {
             alert('Mohon Isi Nama + Gelar!')
-          } else if ($("#Sandi").val() === "" || $("#Sandi").val().length < 8) {
+          } else if (isNaN(parseFloat($("#KreditLama").val().replace(',','.')))) {
+						alert('Kredit Lama Belum Benar!')
+					} else if ($("#Sandi").val() === "" || $("#Sandi").val().length < 8) {
             alert('Password Minimal 8 Karakter!')
           } else {
             var Pangkat = $("#Golongan").val().split("/") 
@@ -157,7 +171,9 @@
                          Password: $("#Sandi").val(),
                          Pangkat: Pangkat[0],
                          Golongan: Pangkat[1],
-                         Jabatan: $("#Jabatan").val() }
+                         Jabatan: $("#Jabatan").val(),
+                         Tahun: $("#TahunKreditLama").val(),
+												 KreditLama: $("#KreditLama").val() }
             $.post(BaseURL+"Admin/Daftar", Akun).done(function(Respon) {
               if (Respon == '1') {
                 alert('Akun Dosen Dengan NIP '+$("#NIP").val()+' & Password '+$("#Sandi").val()+' Berhasil Di Tambahkan!')

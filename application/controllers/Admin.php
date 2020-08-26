@@ -30,7 +30,9 @@ class Admin extends CI_Controller {
 									'Nama' => htmlentities($_POST['Nama']),
 									'Jabatan' => $_POST['Jabatan'],
 									'Pangkat' => $_POST['Pangkat'],
-									'Golongan' => $_POST['Golongan']));
+									'Golongan' => $_POST['Golongan'],
+									'Tahun' => $_POST['Tahun'],
+									'KreditLama' => $_POST['KreditLama']));
 			$this->db->insert('Akun',array('NIP' => $_POST['NIP'],'Password' => password_hash($_POST['Password'], PASSWORD_DEFAULT),'JenisAkun' => '1'));
 			echo '1';
 		} else{

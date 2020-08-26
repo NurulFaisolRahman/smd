@@ -42,13 +42,16 @@
 													<td><b>Jabatan : <?=$Profil['Jabatan']?></b></td>
 												</tr>
 												<tr>
-													<td><b>Kredit Lama : <?=str_replace('.',',',$KreditLama)?></b></td>
+													<td><b>Tahun Kredit Lama : <?=str_replace('.',',',$Profil['Tahun'])?></b></td>
+												</tr>
+												<tr>
+													<td><b>Kredit Lama : <?=str_replace('.',',',$Profil['KreditLama'])?></b></td>
 												</tr>
 												<tr>
 													<td><b>Kredit Baru : <?=str_replace('.',',',$KreditBaru)?></b></td>
 												</tr>
 												<tr>
-													<td><b>Total Kredit : <?=str_replace('.',',',($KreditLama+$KreditBaru))?></b></td>
+													<td><b>Total Kredit : <?=str_replace('.',',',($Profil['KreditLama']+$KreditBaru))?></b></td>
 												</tr>
 											</table>
 											<button class="btn btn-primary text-white" data-toggle="modal" data-target="#ModalEditProfil"><i class="fa fa-edit"></i> <b>Edit Profil</b></button>
@@ -140,6 +143,18 @@
 						</div>
 						<div class="input-group mb-1">
 							<div class="input-group-prepend">
+								<label class="input-group-text bg-primary"><b>Tahun Kredit Lama</b></label>
+							</div>
+							<input type="text" id="TahunKreditLama" class="form-control form-control" value="<?=$Profil['Tahun']?>" data-inputmask='"mask": "9999"' data-mask>
+						</div>
+						<div class="input-group mb-1">
+							<div class="input-group-prepend">
+								<label class="input-group-text bg-primary"><b>Kredit Lama</b></label>
+							</div>
+							<input type="text" id="KreditLama" class="form-control form-control" value="<?=$Profil['KreditLama']?>">
+						</div>
+						<div class="input-group mb-1">
+							<div class="input-group-prepend">
 								<label class="input-group-text bg-primary"><b>Ganti Password</b></label>
 							</div>
 							<input type="text" id="GantiPassword" class="form-control form-control">
@@ -214,9 +229,11 @@
             alert('Mohon Isi NIDN 10 Angka!')
           } else if ($("#Nama").val() === "") {
             alert('Mohon Isi Nama + Gelar!')
-          } else if ($("#GantiPassword").val() != "" && $("#GantiPassword").val().length < 8) {
+          } else if (isNaN(parseFloat($("#KreditLama").val().replace(',','.')))) {
+						alert('Kredit Lama Belum Benar!')
+					} else if ($("#GantiPassword").val() != "" && $("#GantiPassword").val().length < 8) {
             alert('Password Minimal 8 Karakter!')
-          } else { 
+          } else {  
 						var Pangkat = $("#Golongan").val().split("/") 
 						var Data = {NIP: $("#NIP").val(),
 												NIDN: $("#NIDN").val(),
@@ -224,6 +241,8 @@
 												Pangkat: Pangkat[0],
 												Golongan: Pangkat[1],
 												Jabatan: $("#Jabatan").val(),
+												Tahun: $("#TahunKreditLama").val(),
+												KreditLama: $("#KreditLama").val(),
 												GantiPassword: $("#GantiPassword").val()}
 						$.post(BaseURL+"Dashboard/EditProfil", Data).done(function(Respon) {
 							if (Respon == '1') {
