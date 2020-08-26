@@ -78,9 +78,9 @@
                     <?php } ?>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link" data-toggle="modal" data-target="#PAK">
+                    <a href="" class="nav-link" data-toggle="modal" data-target="#Excel">
                     <i class="nav-icon fas fa-file-excel"></i>
-                    <p><b>PO-PAK</b></p>
+                    <p><b>Excel</b></p>
                     </a>
                 </li>
                 <?php if ($this->session->userdata('Kajur')) { ?>
@@ -116,7 +116,7 @@
         </nav>
         </div>
     </aside>
-    <div class="modal fade" id="PAK">
+    <div class="modal fade" id="Excel">
       <div class="modal-dialog">
         <div class="modal-content bg-warning">
           <div class="modal-body">
@@ -150,7 +150,8 @@
           </div>
           <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
-            <button type="submit" class="btn btn-success" id="pak"><b>Download</b></button>
+            <button type="submit" class="btn btn-primary" id="pak"><b>Download PAK</b></button>
+            <button type="submit" class="btn btn-success" id="bkd"><b>Download BKD</b></button>
           </div>
         </div>
       </div>

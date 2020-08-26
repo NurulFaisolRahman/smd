@@ -47,57 +47,57 @@
       <div class="modal-dialog">
         <div class="modal-content bg-warning">
           <div class="modal-body">
-          <div class="input-group input-group-sm mb-2">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary text-primary"><b>NIP</b></span>
+            <div class="input-group input-group-sm mb-2">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-primary text-primary"><b>NIP</b></span>
+              </div>
+              <input type="text" class="form-control" id="NIP" data-inputmask='"mask": "999999999999999999"' data-mask>
             </div>
-            <input type="text" class="form-control" id="NIP" data-inputmask='"mask": "999999999999999999"' data-mask>
-          </div>
-          <div class="input-group input-group-sm mb-2">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary text-primary"><b>NIDN</b></span>
+            <div class="input-group input-group-sm mb-2">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-primary text-primary"><b>NIDN</b></span>
+              </div>
+              <input type="text" class="form-control" id="NIDN" data-inputmask='"mask": "9999999999"' data-mask>
             </div>
-            <input type="text" class="form-control" id="NIDN" data-inputmask='"mask": "9999999999"' data-mask>
-          </div>
-          <div class="input-group input-group-sm mb-2">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary text-primary"><b>Nama</b></span>
+            <div class="input-group input-group-sm mb-2">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-primary text-primary"><b>Nama</b></span>
+              </div>
+              <input type="text" class="form-control" id="Nama" placeholder="Nama + Gelar">
             </div>
-            <input type="text" class="form-control" id="Nama" placeholder="Nama + Gelar">
-          </div>
-          <div class="input-group input-group-sm mb-2">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary text-primary"><b>Password</b></span>
+            <div class="input-group input-group-sm mb-2">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-primary text-primary"><b>Password</b></span>
+              </div>
+              <input type="password" class="form-control" id="Sandi" placeholder="Minilmal 8 Karakter">
             </div>
-            <input type="password" class="form-control" id="Sandi" placeholder="Minilmal 8 Karakter">
-          </div>
-          <div class="input-group input-group-sm mb-2">
-            <div class="input-group-prepend">
-              <label class="input-group-text bg-primary text-primary"><b>Golongan</b></label>
+            <div class="input-group input-group-sm mb-2">
+              <div class="input-group-prepend">
+                <label class="input-group-text bg-primary text-primary"><b>Golongan</b></label>
+              </div>
+              <select class="custom-select" id="Golongan">
+                <option value="Penata Muda/IIIa">IIIa</option>
+                <option value="Penata Muda Tk. I/IIIb">IIIb</option>
+                <option value="Penata/IIIc">IIIc</option>
+                <option value="Penata Tk. I/IIId">IIId</option>
+                <option value="Pembina/IVa">IVa</option>
+                <option value="Pembina Tk. I/IVb">IVb</option>
+                <option value="Pembina Utama Muda/IVc">IVc</option>
+                <option value="Pembina Utama Madya/IVd">IVd</option>
+                <option value="Pembina Utama/IVe">IVe</option>
+              </select>
             </div>
-            <select class="custom-select" id="Golongan">
-              <option value="Penata Muda/IIIa">IIIa</option>
-              <option value="Penata Muda Tk. I/IIIb">IIIb</option>
-              <option value="Penata/IIIc">IIIc</option>
-              <option value="Penata Tk. I/IIId">IIId</option>
-              <option value="Pembina/IVa">IVa</option>
-              <option value="Pembina Tk. I/IVb">IVb</option>
-              <option value="Pembina Utama Muda/IVc">IVc</option>
-              <option value="Pembina Utama Madya/IVd">IVd</option>
-              <option value="Pembina Utama/IVe">IVe</option>
-            </select>
-          </div>
-          <div class="input-group input-group-sm mb-2">
-            <div class="input-group-prepend">
-              <label class="input-group-text bg-primary text-primary"><b>Jabatan</b></label>
+            <div class="input-group input-group-sm mb-2">
+              <div class="input-group-prepend">
+                <label class="input-group-text bg-primary text-primary"><b>Jabatan</b></label>
+              </div>
+              <select class="custom-select" id="Jabatan">
+                <option value="Asisten Ahli">Asisten Ahli</option>
+                <option value="Lektor">Lektor</option>
+                <option value="Lektor Kepala">Lektor Kepala</option>
+                <option value="Profesor">Profesor</option>
+              </select>
             </div>
-            <select class="custom-select" id="Jabatan">
-              <option value="Asisten Ahli">Asisten Ahli</option>
-              <option value="Lektor">Lektor</option>
-              <option value="Lektor Kepala">Lektor Kepala</option>
-              <option value="Profesor">Profesor</option>
-            </select>
-          </div>
           </div>
           <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>

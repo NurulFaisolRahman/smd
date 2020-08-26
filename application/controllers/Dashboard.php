@@ -20,12 +20,87 @@ class Dashboard extends CI_Controller {
     $Data['Halaman'] = 'Profil';
     $Data['SubMenu'] = '';
 		$Data['Profil'] = $this->db->get_where('Dosen', array('NIP' => $NIP))->row_array(); 
-		$TahunKreditLama = $this->db->query("SELECT Tahun FROM Dosen WHERE NIP=".$NIP)->row_array();
-		$Bidang = array('Pendidikan','Penelitian','Pengabdian','Penunjang');
+		$Bidang = array('Penelitian','Pengabdian','Penunjang');
+		$Data['KreditLama'] = 0;
 		$Data['KreditBaru'] = 0;
-		for ($i=0; $i < 4; $i++) { 
-			$Data['KreditBaru'] += $this->db->query("SELECT SUM(JumlahKredit) AS JumlahKredit FROM Realisasi".$Bidang[$i]." WHERE NIP=".$NIP." AND Tahun > ".$TahunKreditLama['Tahun'])->row_array()['JumlahKredit'];
+		for ($i=0; $i < 3; $i++) { 
+			$Data['KreditLama'] += $this->db->query("SELECT SUM(JumlahKredit) AS JumlahKredit FROM Realisasi".$Bidang[$i]." WHERE NIP=".$NIP." AND JumlahKredit != '' AND Tahun < 2020")->row_array()['JumlahKredit'];
+			$Data['KreditBaru'] += $this->db->query("SELECT SUM(JumlahKredit) AS JumlahKredit FROM Realisasi".$Bidang[$i]." WHERE NIP=".$NIP." AND JumlahKredit != '' AND Tahun > 2019")->row_array()['JumlahKredit'];
 		}
+		$Data['KreditLama'] += $this->db->query("SELECT SUM(JumlahKredit) AS JumlahKredit FROM `RealisasiPendidikan` WHERE NIP = ".$NIP." AND JumlahKredit != '' AND IdKegiatan != 'PND3' AND Tahun < 2020")->row_array()['JumlahKredit'];
+		$Sortir = $this->db->query("SELECT DISTINCT Jenjang,Semester,Tahun FROM RealisasiPendidikan WHERE NIP = ".$NIP." AND IdKegiatan = 'PND3' AND Tahun < 2020")->result_array();
+		$data = $this->db->query("SELECT * FROM RealisasiPendidikan WHERE NIP = ".$NIP." AND IdKegiatan = 'PND3' AND Tahun < 2020")->result_array();
+		$Mk = array();
+		for ($i=0; $i < count($Sortir); $i++) { 
+			$Cek = true;
+			for ($j=0; $j < count($data); $j++) {
+				if ($Sortir[$i]['Jenjang'] == $data[$j]['Jenjang'] && $Sortir[$i]['Semester'] == $data[$j]['Semester'] && $Sortir[$i]['Tahun'] == $data[$j]['Tahun']) {
+					if ($Cek) {
+						$Mk[$i] = $data[$j];
+						$Cek = false;
+					} 
+					else {
+						$Mk[$i]['Kegiatan'] .= ', '.$data[$j]['Kegiatan'];
+						$Mk[$i]['JumlahKredit'] += $data[$j]['JumlahKredit'];
+					}
+				} 
+			}
+		}
+		for ($i=0; $i < count($Mk); $i++) {
+			if ($Mk[$i]['JumlahKredit'] > 10) {
+				if ($Mk[$i]['Jabatan'] == 'Asisten Ahli') {
+					$Mk[$i]['JumlahKredit'] = 5+(($Mk[$i]['JumlahKredit']-10)*0.25);
+				} else {
+					$Mk[$i]['JumlahKredit'] = 10+(($Mk[$i]['JumlahKredit']-10)*0.5);
+				}
+			} else {
+				if ($Mk[$i]['Jabatan'] == 'Asisten Ahli') {
+					$Mk[$i]['JumlahKredit'] = $Mk[$i]['JumlahKredit']*0.5;
+				} else {
+					$Mk[$i]['JumlahKredit'] = $Mk[$i]['JumlahKredit'];
+				}
+			}
+		}
+		for ($i=0; $i < count($Mk); $i++) {
+			$Data['KreditLama'] += $Mk[$i]['JumlahKredit'];
+		} 
+		$Data['KreditBaru'] += $this->db->query("SELECT SUM(JumlahKredit) AS JumlahKredit FROM `RealisasiPendidikan` WHERE NIP = ".$NIP." AND JumlahKredit != '' AND IdKegiatan != 'PND3' AND Tahun > 2019")->row_array()['JumlahKredit'];
+		$Sortir = $this->db->query("SELECT DISTINCT Jenjang,Semester,Tahun FROM RealisasiPendidikan WHERE NIP = ".$NIP." AND IdKegiatan = 'PND3' AND Tahun > 2019")->result_array();
+		$data = $this->db->query("SELECT * FROM RealisasiPendidikan WHERE NIP = ".$NIP." AND IdKegiatan = 'PND3' AND Tahun > 2019")->result_array();
+		$Mk = array();
+		for ($i=0; $i < count($Sortir); $i++) { 
+			$Cek = true;
+			for ($j=0; $j < count($data); $j++) {
+				if ($Sortir[$i]['Jenjang'] == $data[$j]['Jenjang'] && $Sortir[$i]['Semester'] == $data[$j]['Semester'] && $Sortir[$i]['Tahun'] == $data[$j]['Tahun']) {
+					if ($Cek) {
+						$Mk[$i] = $data[$j];
+						$Cek = false;
+					} 
+					else {
+						$Mk[$i]['Kegiatan'] .= ', '.$data[$j]['Kegiatan'];
+						$Mk[$i]['JumlahKredit'] += $data[$j]['JumlahKredit'];
+					}
+				} 
+			}
+		}
+		for ($i=0; $i < count($Mk); $i++) {
+			if ($Mk[$i]['JumlahKredit'] > 10) {
+				if ($Mk[$i]['Jabatan'] == 'Asisten Ahli') {
+					$Mk[$i]['JumlahKredit'] = 5+(($Mk[$i]['JumlahKredit']-10)*0.25);
+				} else {
+					$Mk[$i]['JumlahKredit'] = 10+(($Mk[$i]['JumlahKredit']-10)*0.5);
+				}
+			} else {
+				if ($Mk[$i]['Jabatan'] == 'Asisten Ahli') {
+					$Mk[$i]['JumlahKredit'] = $Mk[$i]['JumlahKredit']*0.5;
+				} else {
+					$Mk[$i]['JumlahKredit'] = $Mk[$i]['JumlahKredit'];
+				}
+			}
+		}
+		for ($i=0; $i < count($Mk); $i++) {
+			$Data['KreditBaru'] += $Mk[$i]['JumlahKredit'];
+		} 
 		$this->load->view('Header',$Data);
 		$this->load->view('Profil',$Data);
 	}
@@ -288,11 +363,97 @@ class Dashboard extends CI_Controller {
 	}
 
 	public function Lampiran(){
+		$NIP = $this->session->userdata('NIP');
 		$Jenjang = $this->uri->segment('3');
 		$Semester = $this->uri->segment('4');
 		$Tahun = explode('-',$this->uri->segment('5'));
 		$Kegiatan = $this->uri->segment('6');
-		$Data = $this->db->query("SELECT * FROM Realisasi".$Kegiatan."  WHERE NIP = ".$this->session->userdata('NIP')." AND Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1]." ORDER BY SUBSTR(IdKegiatan FROM 1 FOR 3), CAST(SUBSTR(IdKegiatan FROM 4) AS UNSIGNED), SUBSTR(IdKegiatan FROM 4), Kode ASC")->result_array();
+		if ($Kegiatan != 'Pendidikan') {
+			$Data = $this->db->query("SELECT * FROM Realisasi".$Kegiatan."  WHERE NIP = ".$this->session->userdata('NIP')." AND JumlahKredit != '' AND Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1]." ORDER BY SUBSTR(IdKegiatan FROM 1 FOR 3), CAST(SUBSTR(IdKegiatan FROM 4) AS UNSIGNED), SUBSTR(IdKegiatan FROM 4), Kode ASC")->result_array();
+		} 
+		else {
+			$Data = $this->db->query("SELECT * FROM `RealisasiPendidikan` WHERE NIP = ".$NIP." AND JumlahKredit != '' AND IdKegiatan != 'PND3' AND Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1]." ORDER BY SUBSTR(IdKegiatan FROM 1 FOR 3), CAST(SUBSTR(IdKegiatan FROM 4) AS UNSIGNED), SUBSTR(IdKegiatan FROM 4), Kode ASC")->result_array();
+			$Sortir = $this->db->query("SELECT DISTINCT Jenjang,Semester,Tahun FROM RealisasiPendidikan WHERE NIP = ".$NIP." AND IdKegiatan = 'PND3' AND Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1])->result_array();
+			$data = $this->db->query("SELECT * FROM RealisasiPendidikan WHERE NIP = ".$NIP." AND IdKegiatan = 'PND3' AND Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1])->result_array();
+			$Mk = array();
+			for ($i=0; $i < count($Sortir); $i++) { 
+				$Cek = true;
+				for ($j=0; $j < count($data); $j++) {
+					if ($Sortir[$i]['Jenjang'] == $data[$j]['Jenjang'] && $Sortir[$i]['Semester'] == $data[$j]['Semester'] && $Sortir[$i]['Tahun'] == $data[$j]['Tahun']) {
+						if ($Cek) {
+							$Mk[$i] = $data[$j];
+							$Cek = false;
+						} 
+						else {
+							$Mk[$i]['Kegiatan'] .= ', '.$data[$j]['Kegiatan'];
+							$Mk[$i]['JumlahKredit'] += $data[$j]['JumlahKredit'];
+						}
+					} 
+				}
+			}
+			for ($i=0; $i < count($Mk); $i++) {
+				if ($Mk[$i]['JumlahKredit'] > 10) {
+					if ($Mk[$i]['Jabatan'] == 'Asisten Ahli') {
+						$Mk[$i]['Volume'] = $Mk[$i]['JumlahKredit'];
+						$Mk[$i]['Kredit'] = '0.5 & 0.25';
+						$Mk[$i]['JumlahKredit'] = 5+(($Mk[$i]['JumlahKredit']-10)*0.25);
+					} else {
+						$Mk[$i]['Volume'] = $Mk[$i]['JumlahKredit'];
+						$Mk[$i]['Kredit'] = '1 & 0.5';
+						$Mk[$i]['JumlahKredit'] = 10+(($Mk[$i]['JumlahKredit']-10)*0.5);
+					}
+					$Mk[$i]['Satuan'] = '10 sks Pertama & 2 sks Berikutnya';
+				} else {
+					if ($Mk[$i]['Jabatan'] == 'Asisten Ahli') {
+						$Mk[$i]['Volume'] = $Mk[$i]['JumlahKredit'];
+						$Mk[$i]['Kredit'] = '0.5';
+						$Mk[$i]['JumlahKredit'] = $Mk[$i]['JumlahKredit']*0.5;
+					} else {
+						$Mk[$i]['Volume'] = $Mk[$i]['JumlahKredit'];
+						$Mk[$i]['Kredit'] = '1';
+						$Mk[$i]['JumlahKredit'] = $Mk[$i]['JumlahKredit'];
+					}
+					$Mk[$i]['Satuan'] = '10 sks Pertama';
+				}
+			}
+			array_splice($Data,0,0,$Mk);
+			usort($Data, function($a, $b) {return strnatcmp($a['IdKegiatan'], $b['IdKegiatan']);});
+		}
+		echo json_encode($Data);
+	}
+
+	public function BKD(){
+		$NIP = $this->session->userdata('NIP');
+		$Jenjang = $this->uri->segment('3');
+		$Semester = $this->uri->segment('4');
+		$Tahun = explode('-',$this->uri->segment('5'));
+		$Data['Pendidikan'] = $this->db->query("SELECT * FROM RealisasiPendidikan WHERE NIP = ".$NIP." AND KreditBkd != ''"." AND Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1])->result_array();
+		$Data['Penelitian'] = $this->db->query("SELECT * FROM RealisasiPenelitian WHERE NIP = ".$NIP." AND KreditBkd != ''"." AND Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1])->result_array();
+		$Data['Pengabdian'] = $this->db->query("SELECT * FROM RealisasiPengabdian WHERE NIP = ".$NIP." AND KreditBkd != ''"." AND Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1])->result_array();
+		$Data['Penunjang'] = $this->db->query("SELECT * FROM RealisasiPenunjang WHERE NIP = ".$NIP." AND KreditBkd != ''"." AND Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1])->result_array();
+		if ($Jenjang != 'S1' && $Jenjang != 'S2') {
+			if ($Semester != 'Ganjil' && $Semester != 'Genap') {
+				$Data['Filter'] = $this->uri->segment('5').'_Ganjil_Genap_S1_S2';
+			} else {
+				$Data['Filter'] = $this->uri->segment('5').'_'.$Semester.'_S1_S2';
+			}
+		} else {
+			if ($Semester != 'Ganjil' && $Semester != 'Genap') {
+				$Data['Filter'] = $this->uri->segment('5').'_Ganjil_Genap_'.$Jenjang;
+			} else {
+				$Data['Filter'] = $this->uri->segment('5').'_'.$Semester.'_'.$Jenjang;
+			}
+		}
+		$this->load->view('ExcelBKD',$Data);
+	}
+
+	public function LampiranBKD(){
+		$NIP = $this->session->userdata('NIP');
+		$Jenjang = $this->uri->segment('3');
+		$Semester = $this->uri->segment('4');
+		$Tahun = explode('-',$this->uri->segment('5'));
+		$Kegiatan = $this->uri->segment('6');
+		$Data = $this->db->query("SELECT * FROM Realisasi".$Kegiatan."  WHERE NIP = ".$NIP." AND KreditBkd != '' AND Jenjang LIKE "."'%".$Jenjang."%'"." AND Semester LIKE "."'%".$Semester."%'"." AND Tahun >= ".$Tahun[0]." AND Tahun <= ".$Tahun[1])->result_array();
 		echo json_encode($Data);
 	}
 }
