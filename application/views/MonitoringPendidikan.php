@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-      <!-- Main content -->
+      <!-- Main content --> 
         <section class="content">
           <div class="container-fluid">
             <div class="row">
@@ -11,6 +11,13 @@
                 </ul>
                 <div class="tab-content border border-warning rounded bg-light" id="pills-tabContent">
                   <div class="tab-pane fade show active" id="pills-MonitoringPendidikan" role="tabpanel" aria-labelledby="pills-MonitoringPendidikan-tab">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-sm-4 mt-1 mb-1">       
+                          <button type="button" id="TambahTarget" class="btn btn-primary" data-toggle="modal" data-target="#ModalTarget"><i class="fa fa-plus"></i> <b>Target Rencana Dosen</b></button>
+                        </div>
+                      </div>
+                    </div>
                     <div class="container-fluid">
                       <div class="row align-items-center">
                         <div class="col-sm-12 my-2 ">     
@@ -24,11 +31,11 @@
                                   <th class="text-center align-middle">Home<br>base</th>
                                   <th class="text-center align-middle">Seme<br>ster</th>
                                   <th class="text-center align-middle">Tahun</th>
-                                  <th class="text-center align-middle">Realisasi</th> 
+                                  <th class="text-center align-middle">Realisasi<br>Dosen</th> 
                                   <th class="text-center align-middle">Persen<br>tase</th>
-                                  <th class="text-center align-middle">Rencana</th>
+                                  <th class="text-center align-middle">Rencana<br>Dosen</th>
                                   <th class="text-center align-middle">Status</th>
-                                  <th class="text-center align-middle">Target</th>
+                                  <th class="text-center align-middle">Target<br>Kajur</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -41,24 +48,20 @@
                                     <td class="text-center align-middle"><?=$key['Semester']?></td>
                                     <td class="text-center align-middle"><?=$key['Tahun']?></td>
                                     <td class="text-center align-middle"><?=$Realisasi[$No-2].' SKS'?></td>
-                                    <td class="text-center align-middle"><?=round(($Realisasi[$No-2]/$key['TotalKredit']*100),2).' %'?></td> 
+                                    <td class="text-center align-middle"><?=round(($Realisasi[$No-2]/$key['TargetKajur']*100),2).' %'?></td> 
                                     <td class="text-center align-middle"><?=$key['TotalKredit'].' SKS'?></td>
                                     <td class="text-center align-middle">
-                                      <?php if ($key['TotalKredit'] == $key['TargetKajur']) { ?>
+                                      <?php if ($Realisasi[$No-2] == $key['TargetKajur']) { ?>
                                         <h4 class="text-primary mt-2"><b>=</b></h4>
-                                        <?php } else if ($key['TotalKredit'] > $key['TargetKajur']) { ?>
+                                        <?php } else if ($Realisasi[$No-2] > $key['TargetKajur']) { ?>
                                           <h4 class="text-success mt-2"><b>></b></h4>
-                                        <?php } else if ($key['TotalKredit'] < $key['TargetKajur']) { ?>
+                                        <?php } else if ($Realisasi[$No-2] < $key['TargetKajur']) { ?>
                                           <h4 class="text-danger mt-2"><b><</b></h4>
                                         <?php } ?>
                                     </td>
                                     <td class="text-center align-middle">
-                                      <?php
-                                        if ($key['TargetKajur'] == null) {
-                                          echo '0 SKS ';?><button EditRencanaPendidikan="<?=$key['No']."/".$key['Jabatan']."/".$key['Jenjang']."/".$key['Semester']."/".$key['Tahun']."/".$key['KodeRencana']."/".$key['TotalKredit']."/".$key['TargetKajur']?>" class="btn btn-sm btn-success EditRencanaPendidikan"><i class="fas fa-edit"></i></button>
-                                        <?php } else {
-                                          echo $key['TargetKajur'].' SKS ';?><button EditRencanaPendidikan="<?=$key['No']."/".$key['Jabatan']."/".$key['Jenjang']."/".$key['Semester']."/".$key['Tahun']."/".$key['KodeRencana']."/".$key['TotalKredit']."/".$key['TargetKajur']?>" class="btn btn-sm btn-success EditRencanaPendidikan"><i class="fas fa-edit"></i></button>
-                                      <?php }?>
+                                      <?php echo $key['TargetKajur'];?>&nbsp;<button EditRencanaPendidikan="<?=$key['No']."/".$key['Jabatan']."/".$key['Jenjang']."/".$key['Semester']."/".$key['Tahun']."/".$key['KodeRencana']."/".$key['TotalKredit']."/".$key['TargetKajur']."/".$key['NIP']?>" class="btn btn-sm btn-success EditRencanaPendidikan"><i class="fas fa-edit"></i></button>
+                                      <button HapusRencanaPendidikan="<?=$key['No']?>" class="btn btn-sm btn-danger HapusRencanaPendidikan"><i class="fas fa-trash"></i></button>
                                     </td>
                                   </tr>
                                 <?php } ?>
@@ -76,6 +79,58 @@
         </section>
       </div>
     </div>
+    <div class="modal fade" id="ModalTarget">
+      <div class="modal-dialog">
+        <div class="modal-content bg-warning">
+          <div class="modal-body">
+            <div class="input-group mb-1">
+              <div class="input-group-prepend">
+                <label class="input-group-text bg-primary"><b>Dosen</b></label>
+              </div>
+              <select class="custom-select" id="TargetDosen">	 									
+                <?php foreach ($DaftarDosen as $key) { ?>
+                  <option value="<?=$key['NIP'].'|'.$key['Jabatan']?>"><?=$key['Nama']?></option>
+                <?php } ?>
+              </select>
+            </div>
+            <div class="input-group mb-1">
+              <div class="input-group-prepend">
+                <label class="input-group-text bg-primary"><b>Homebase</b></label>
+              </div>
+              <select class="custom-select" id="HomebaseTarget">										
+                  <option value="S1">S1</option>
+                  <option value="S2">S2</option>
+              </select>
+            </div>
+            <div class="input-group mb-1">
+              <div class="input-group-prepend">
+                <label class="input-group-text bg-primary"><b>Semester</b></label>
+              </div>
+              <select class="custom-select" id="SemesterTarget">										
+                  <option value="Ganjil">Ganjil</option>
+                  <option value="Genap">Genap</option>
+              </select>
+            </div>
+            <div class="input-group mb-1">
+              <div class="input-group-prepend">
+                <label class="input-group-text bg-primary"><b>Tahun</b></label>
+              </div>
+              <input class="form-control" type="text" id="TahunTarget"  data-inputmask='"mask": "9999"' data-mask value="20">
+            </div>
+            <div class="input-group mb-1">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-primary"><b>Target Rencana</b></span>
+              </div>
+              <input class="form-control" type="text" id="InputTarget" data-inputmask='"mask": "999"' data-mask>
+            </div>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
+            <button type="submit" class="btn btn-success" id="TambahTargetKajur"><b>Simpan</b></button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="modal fade" id="ModalEditRencanaPendidikan">
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
@@ -87,7 +142,8 @@
                     <div class="input-group-prepend">
                       <label class="input-group-text bg-primary"><b>Homebase</b></label>
                     </div>
-                    <select class="custom-select" id="EditJenjangRencanaPendidikan" disabled>										
+                    <input class="form-control" type="hidden" id="JenjangLama">
+                    <select class="custom-select" id="EditJenjangRencanaPendidikan">										
                         <option value="S1">S1</option>
                         <option value="S2">S2</option>
                     </select>
@@ -98,7 +154,8 @@
                     <div class="input-group-prepend">
                       <label class="input-group-text bg-primary"><b>Semester</b></label>
                     </div>
-                    <select class="custom-select" id="EditSemesterRencanaPendidikan" disabled>										
+                    <input class="form-control" type="hidden" id="SemesterLama">
+                    <select class="custom-select" id="EditSemesterRencanaPendidikan">										
                         <option value="Ganjil">Ganjil</option>
                         <option value="Genap">Genap</option>
                     </select>
@@ -110,7 +167,9 @@
                       <label class="input-group-text bg-primary"><b>Tahun</b></label>
                     </div>
                     <input class="form-control" type="hidden" id="NoEditRencana">
-                    <input class="form-control" type="text" id="EditTahunRencanaPendidikan"  data-inputmask='"mask": "9999"' data-mask disabled>
+                    <input class="form-control" type="hidden" id="NIPTarget">
+                    <input class="form-control" type="hidden" id="TahunLama">
+                    <input class="form-control" type="text" id="EditTahunRencanaPendidikan"  data-inputmask='"mask": "9999"' data-mask>
                   </div>
                 </div>
               </div>
@@ -121,8 +180,8 @@
                       <thead>
                         <tr>
                           <th class='align-middle bg-warning'>No</th>
-                          <th class='align-middle bg-warning'> Komponen Kegiatan</th>
-                          <th class='align-middle bg-warning'> Kredit</th>
+                          <th class='align-middle bg-warning'>Komponen Kegiatan</th>
+                          <th class='align-middle bg-warning'>Kredit</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -261,8 +320,8 @@
                       <thead>
                         <tr>
                           <th class='align-middle bg-warning'>No</th>
-                          <th class='align-middle bg-warning'> Komponen Kegiatan</th>
-                          <th class='align-middle bg-warning'> Kredit</th>
+                          <th class='align-middle bg-warning'>Komponen Kegiatan</th>
+                          <th class='align-middle bg-warning'>Kredit</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -303,7 +362,6 @@
                           <td class='align-middle'><label><input disabled type="checkbox" id="EditSekretaris" onchange="EditSekretaris()"> Sekretaris jurusan pada politeknik / akademi dan kepala laboratorium (bengkel) universitas / institut / sekolah tinggi / politeknik / akademi</label></td>
                           <td class='text-center align-middle'><b id="EditKreditSekretaris">0</b></td>
                         </tr>
-                        <?php if ($this->session->userdata('Jabatan') == 'Lektor Kepala' || $this->session->userdata('Jabatan') == 'Profesor') { ?>
                         <tr>
                           <td rowspan="3" class='text-center'>13</td>
                           <td class='align-middle'>Membimbing dosen yang mempunyai jabatan akademik lebih rendah</td>
@@ -330,13 +388,8 @@
                           <td><b>Pencangkokan :</b> <input disabled style="width: 50px;" oninput="EditPencangkokan()" class="form-control-sm" type="text" id="EditPencangkokan"  data-inputmask='"mask": "99"' data-mask> <b>Orang</b></td>
                           <td class='text-center align-middle'><b id="EditKreditPencangkokan">0</b></td>
                         </tr>
-                        <?php } ?>
                         <tr>
-                          <?php if ($this->session->userdata('Jabatan') == 'Lektor Kepala' || $this->session->userdata('Jabatan') == 'Profesor') { ?>
                           <td rowspan="8" class='text-center'>15</td>
-                          <?php } else { ?>
-                            <td rowspan="8" class='text-center'>13</td>
-                          <?php } ?>
                           <td class='align-middle'>Melaksanakan pengembangan diri untuk meningkatkan kompetensi</td>
                           <td></td>
                         </tr>
@@ -467,11 +520,19 @@
 					}
 				});
 
-        $('#SimpanEditRencanaPendidikan').click(function() {
-          if (isNaN(parseInt($('#Target').val()))) {
-            alert('Input Target Belum Benar!')
+        $('#TambahTargetKajur').click(function() {
+          if (isNaN(parseInt($('#InputTarget').val()))) {
+            alert('Target Rencana Belum Benar!')
           } else {
-            var InputTarget = {No:$("#NoEditRencana").val(),Target:parseInt($('#Target').val()),Bidang:'RencanaPendidikan'}
+            var Pisah = $('#TargetDosen').val().split('|')
+            var InputTarget = { TargetDosen: Pisah[0],
+                                Jabatan: Pisah[1],
+                                Jenjang: $('#HomebaseTarget').val(),
+                                Semester: $('#SemesterTarget').val(),
+                                Tahun: $('#TahunTarget').val(),
+                                Kode: '0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0',
+                                Target: parseInt($('#InputTarget').val()),
+                                Bidang: 'RencanaPendidikan',}
             $.post(BaseURL+'Kajur/InputTarget', InputTarget).done(function(Respon) {
               if (Respon == '1') {
                 window.location = BaseURL + 'Kajur/Monitoring/Pendidikan'
@@ -481,8 +542,46 @@
             }) 
           }
         })
-				
-				$(document).on("click",".EditRencanaPendidikan",function(){
+
+        $('#SimpanEditRencanaPendidikan').click(function() {
+          if (isNaN(parseInt($('#Target').val()))) {
+            alert('Input Target Belum Benar!')
+          } else {
+            var InputTarget = { No:$("#NoEditRencana").val(),
+                                NIP: $('#NIPTarget').val(),
+                                JenjangLama: $('#JenjangLama').val(),
+                                SemesterLama: $('#SemesterLama').val(),
+                                TahunLama: $('#TahunLama').val(),
+                                Jenjang: $('#EditJenjangRencanaPendidikan').val(),
+                                Semester: $('#EditSemesterRencanaPendidikan').val(),
+                                Tahun: $('#EditTahunRencanaPendidikan').val(),
+                                Target:parseInt($('#Target').val()),
+                                Bidang:'RencanaPendidikan'}
+            $.post(BaseURL+'Kajur/EditTarget', InputTarget).done(function(Respon) {
+              if (Respon == '1') {
+                window.location = BaseURL + 'Kajur/Monitoring/Pendidikan'
+              } else {
+                alert(Respon)
+              }
+            }) 
+          }
+        })
+
+        $(document).on("click",".HapusRencanaPendidikan",function(){
+					var Hapus = {No: $(this).attr('HapusRencanaPendidikan'),Bidang:'RencanaPendidikan'}
+					var Konfirmasi = confirm("Yakin Ingin Menghapus?");
+      		if (Konfirmasi == true) {
+						$.post(BaseURL+"Kajur/HapusTarget", Hapus).done(function(Respon) {
+							if (Respon == '1') {
+								window.location = BaseURL + 'Kajur/Monitoring/Pendidikan'
+							} else {
+								alert(Respon)
+							}
+						});
+					}
+				});
+
+        $(document).on("click",".EditRencanaPendidikan",function(){
 					var Data = $(this).attr('EditRencanaPendidikan')
 					var Pisah = Data.split("/")
 					$("#NoEditRencana").val(Pisah[0])
@@ -611,8 +710,9 @@
 					$("#EditKreditPengembangan10").html(PisahKode[36]*0.5)
 					$("#EditRencanaTotalKredit").html(Pisah[6])
           $("#Target").val(Pisah[7])
+          $("#NIPTarget").val(Pisah[8])
 					$('#ModalEditRencanaPendidikan').modal("show");
-				});
+				})
 			})
 		</script>
   </body>

@@ -22,11 +22,12 @@ class Kajur extends CI_Controller {
 		$Bidang = $this->uri->segment('3');
 		$Data['Halaman'] = 'Monitoring';
 		$Data['SubMenu'] = 'Monitoring '.$Bidang;
+		$Data['DaftarDosen'] = $this->db->query('SELECT Dosen.NIP,Dosen.Nama,Dosen.Pangkat,Dosen.Golongan,Dosen.Jabatan,Akun.JenisAkun FROM Akun,Dosen WHERE Akun.NIP=Dosen.NIP')->result_array();
 		$Data['Rencana'] = $this->db->get('Rencana'.$Bidang)->result_array();
 		$Data['Dosen'] = $this->db->query("SELECT Dosen.Nama FROM Dosen WHERE Dosen.NIP in (SELECT Rencana".$Bidang.".NIP FROM Rencana".$Bidang.")")->result_array();
 		$Data['Realisasi'] = array();
 		foreach ($Data['Rencana'] as $key) {
-			$Tampung = $this->db->get_where('Realisasi'.$Bidang, array('NIP' => $key['NIP'],'Jenjang' => $key['Jenjang'],'Semester' => $key['Semester'],'Tahun' => $key['Tahun']))->result_array();
+			$Tampung = $this->db->query("SELECT * FROM Realisasi".$Bidang." WHERE NIP=".$key['NIP']." AND JumlahKredit != '' AND Jenjang="."'".$key['Jenjang']."'"." AND Semester="."'".$key['Semester']."'"." AND Tahun="."'".$key['Tahun']."'")->result_array();
 			$Total = 0;
 			foreach ($Tampung as $data) {
 				$Total+=$data['JumlahKredit'];
@@ -97,8 +98,48 @@ class Kajur extends CI_Controller {
 	}
 
 	public function InputTarget(){
-		$this->db->where('No', $_POST['No']);
-		$this->db->update($_POST['Bidang'],array('TargetKajur' => $_POST['Target']));
-		echo '1';
+		if($this->db->get_where($_POST['Bidang'], array('NIP' => $_POST['TargetDosen'],'Jenjang' => $_POST['Jenjang'],'Semester' => $_POST['Semester'],'Tahun' => $_POST['Tahun']))->num_rows() === 0){
+			$this->db->insert($_POST['Bidang'],
+								array('NIP' => $_POST['TargetDosen'], 
+											'Jabatan' => $_POST['Jabatan'],
+											'Jenjang' => $_POST['Jenjang'],
+											'Semester' => $_POST['Semester'],
+											'Tahun' => $_POST['Tahun'],
+											'KodeRencana' => $_POST['Kode'],
+											'TotalKredit' => 0,
+											'TargetKajur' => $_POST['Target']));
+			if ($this->db->affected_rows()){
+				echo '1';
+			} else {
+				echo 'Gagal Menyimpnan';
+			}
+		}
+		else {
+			echo 'Data Rencana Pendidikan Dosen Yang Dipilih Dengan Homebase '.$_POST['Jenjang'].' Semester '.$_POST['Semester'].' Tahun '.$_POST['Tahun'].' Sudah Ada';
+		}
+	}
+
+	public function EditTarget(){
+		if($_POST['Jenjang'] === $_POST['JenjangLama'] && $_POST['Semester'] === $_POST['SemesterLama'] && $_POST['Tahun'] === $_POST['TahunLama'] || $this->db->get_where('RencanaPendidikan', array('NIP' => $_POST['NIP'],'Jenjang' => $_POST['Jenjang'],'Semester' => $_POST['Semester'],'Tahun' => $_POST['Tahun']))->num_rows() === 0){			
+			$this->db->where('No', $_POST['No']);
+			$this->db->update($_POST['Bidang'],
+											array('Jenjang' => $_POST['Jenjang'],
+														'Semester' => $_POST['Semester'],
+														'Tahun' => $_POST['Tahun'],
+														'TargetKajur' => $_POST['Target']));
+			echo '1';
+		}
+		else {
+			echo 'Data Rencana Pendidikan Homebase '.$_POST['Jenjang'].' Semester '.$_POST['Semester'].' Tahun '.$_POST['Tahun'].' Sudah Ada';
+		}
+	}
+
+	public function HapusTarget(){
+		$this->db->delete($_POST['Bidang'], array('No' => $_POST['No']));
+		if ($this->db->affected_rows()){
+			echo '1';
+		} else {
+			echo 'Gagal Menghapus';
+		}
 	}
 }
