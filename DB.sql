@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 25, 2020 at 03:17 PM
+-- Generation Time: Aug 26, 2020 at 04:42 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.2.20
 
@@ -58,8 +58,7 @@ CREATE TABLE `Akun` (
 --
 
 INSERT INTO `Akun` (`NIP`, `Password`, `JenisAkun`) VALUES
-('197508092008121003', '$2y$10$TQbQATyoZ91YQPjddOU2XuCLB0mwtSCG.rfDyoN4mvDitGun9pdxK', '2'),
-('198303282015041001', '$2y$10$.QUi7.rJQ7hgBfjjLk3bHOjgVxt1/Xg607Bf3ohfLxM/ZC6Vu3f.S', '1');
+('197508092008121003', '$2y$10$TQbQATyoZ91YQPjddOU2XuCLB0mwtSCG.rfDyoN4mvDitGun9pdxK', '2');
 
 -- --------------------------------------------------------
 
@@ -74,9 +73,8 @@ CREATE TABLE `Dosen` (
   `Jabatan` varchar(25) NOT NULL,
   `Pangkat` varchar(25) NOT NULL,
   `Golongan` varchar(5) NOT NULL,
-  `Kredit` varchar(10) DEFAULT '0',
-  `Semester` varchar(7) DEFAULT NULL,
-  `Tahun` varchar(5) DEFAULT NULL,
+  `KreditLama` varchar(15) NOT NULL,
+  `Tahun` varchar(4) NOT NULL,
   `Foto` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -84,9 +82,8 @@ CREATE TABLE `Dosen` (
 -- Dumping data for table `Dosen`
 --
 
-INSERT INTO `Dosen` (`NIP`, `NIDN`, `Nama`, `Jabatan`, `Pangkat`, `Golongan`, `Kredit`, `Semester`, `Tahun`, `Foto`) VALUES
-('197508092008121003', '1234554321', 'Dr. Sutikno, SE., ME.', 'Lektor', 'Penata', 'IIIc', '200', 'Ganjil', '2010', '20200725NE3.png'),
-('198303282015041001', '0028038306', 'Titov Chuk\'s Mayvani', 'Asisten Ahli', 'Penata Muda', 'IIIa', '150', NULL, NULL, NULL);
+INSERT INTO `Dosen` (`NIP`, `NIDN`, `Nama`, `Jabatan`, `Pangkat`, `Golongan`, `KreditLama`, `Tahun`, `Foto`) VALUES
+('197508092008121003', '1234554321', 'Dr. Sutikno, SE., ME.', 'Lektor', 'Penata', 'IIIc', '150', '2014', '20200725NE3.png');
 
 -- --------------------------------------------------------
 
@@ -135,7 +132,7 @@ INSERT INTO `RealisasiPendidikan` (`No`, `NIP`, `Jabatan`, `Jenjang`, `Semester`
 (92, '197508092008121003', 'Lektor', 'S1', 'Ganjil', '2015', 'PND14', '1', 'SK Detasering', 'Detasering', '2015', '1 Orang', '1', '5', '', '5', '20200824ASlp7A4.pdf'),
 (93, '197508092008121003', 'Lektor', 'S1', 'Ganjil', '2015', 'PND15', '3', 'SK Pengembangan Diri', 'Pengembangan', '2015', '', '1', '6', '1', '6', '20200824y1EeFV4.pdf'),
 (94, '197508092008121003', 'Lektor', 'S1', 'Ganjil', '2015', 'PND16', '0', 'SK Praktikum', 'Ekonomi', '2015', '', '1', '', '0.75', '', '20200824GYAKeEE.pdf'),
-(95, '197508092008121003', 'Lektor', 'S1', 'Ganjil', '2015', 'PND3', '0', 'Surat Tugas Nomor 3640/UN.1.12/DK/2015', 'Mengajar Ekonomi Kelembagaan Sebanyak 5 Kelas 2 Dosen', '2015', '10 sks Pertama', '7.5', '1', '3.75', '7.5', '20200824bfEfwu6.pdf'),
+(95, '197508092008121003', 'Lektor', 'S1', 'Ganjil', '2015', 'PND3', '0', 'Surat Tugas Nomor 3640/UN.1.12/DK/2015', 'Mengajar Ekonomi Kelembagaan Sebanyak 5 Kelas 2 Dosen Mengajar Ekonomi Kelembagaan Sebanyak 5 Kelas 2 Dosen', '2015', '10 sks Pertama', '7.5', '1', '3.75', '7.5', '20200824bfEfwu6.pdf'),
 (96, '197508092008121003', 'Lektor', 'S1', 'Genap', '2015', 'PND3', '0', 'Surat Tugas Nomor 3640/UN.1.12/DK/2015', 'Mengajar Matakuliah Ekonomi Regional S1 Sebanyak 3 Kelas 2 Dosen', '2015', '10 sks Pertama', '7.5', '1', '3.75', '7.5', '20200824mRL7LR9.pdf');
 
 -- --------------------------------------------------------
@@ -283,6 +280,13 @@ CREATE TABLE `RencanaPendidikan` (
   `TargetKajur` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `RencanaPendidikan`
+--
+
+INSERT INTO `RencanaPendidikan` (`No`, `NIP`, `Jabatan`, `Jenjang`, `Semester`, `Tahun`, `KodeRencana`, `TotalKredit`, `TargetKajur`) VALUES
+(9, '197508092008121003', 'Lektor', 'S1', 'Ganjil', '2015', '0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|1|0|0|0|0|0|0|0|0|0|0|0|0|0', '5', '150');
+
 -- --------------------------------------------------------
 
 --
@@ -300,6 +304,13 @@ CREATE TABLE `RencanaPenelitian` (
   `TotalKredit` varchar(7) NOT NULL,
   `TargetKajur` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `RencanaPenelitian`
+--
+
+INSERT INTO `RencanaPenelitian` (`No`, `NIP`, `Jabatan`, `Jenjang`, `Semester`, `Tahun`, `KodeRencana`, `TotalKredit`, `TargetKajur`) VALUES
+(5, '197508092008121003', 'Lektor', 'S1', 'Ganjil', '2015', '0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0', '0', '70');
 
 -- --------------------------------------------------------
 
@@ -319,6 +330,13 @@ CREATE TABLE `RencanaPengabdian` (
   `TargetKajur` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `RencanaPengabdian`
+--
+
+INSERT INTO `RencanaPengabdian` (`No`, `NIP`, `Jabatan`, `Jenjang`, `Semester`, `Tahun`, `KodeRencana`, `TotalKredit`, `TargetKajur`) VALUES
+(4, '197508092008121003', 'Lektor', 'S1', 'Ganjil', '2015', '0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0', '0', '95');
+
 -- --------------------------------------------------------
 
 --
@@ -336,6 +354,13 @@ CREATE TABLE `RencanaPenunjang` (
   `TotalKredit` varchar(7) NOT NULL,
   `TargetKajur` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `RencanaPenunjang`
+--
+
+INSERT INTO `RencanaPenunjang` (`No`, `NIP`, `Jabatan`, `Jenjang`, `Semester`, `Tahun`, `KodeRencana`, `TotalKredit`, `TargetKajur`) VALUES
+(4, '197508092008121003', 'Lektor', 'S1', 'Ganjil', '2015', '0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0', '0', '96');
 
 --
 -- Indexes for dumped tables
@@ -453,25 +478,25 @@ ALTER TABLE `RealisasiPenunjang`
 -- AUTO_INCREMENT for table `RencanaPendidikan`
 --
 ALTER TABLE `RencanaPendidikan`
-  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `RencanaPenelitian`
 --
 ALTER TABLE `RencanaPenelitian`
-  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `RencanaPengabdian`
 --
 ALTER TABLE `RencanaPengabdian`
-  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `RencanaPenunjang`
 --
 ALTER TABLE `RencanaPenunjang`
-  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
