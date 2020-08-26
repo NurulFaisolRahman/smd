@@ -114,49 +114,6 @@
 					$.post(BaseURL+"Dashboard/SubPenunjang", Data)
 				})
 
-				$("#InputRencanaPenunjang").click(function() {
-					<?php 
-            $TotalKreditRencana = "var TotalKreditRencana = ";
-            $KodeRencana = "var KodeRencana = ''+";
-            for ($i = 1; $i <= 32 ; $i++) {
-              echo "var RencanaPNJ".$i." = parseFloat(document.getElementById('RencanaKreditPNJ".$i."').innerHTML)\n";
-              if ($i == 32) {
-                $TotalKreditRencana .= "RencanaPNJ".$i;
-                $KodeRencana .= "(document.getElementById('RencanaPNJ".$i."').checked ? 1 : 0)\n";
-              } else {
-                $TotalKreditRencana .= "RencanaPNJ".$i."+";
-                $KodeRencana .= "(document.getElementById('RencanaPNJ".$i."').checked ? 1 : 0)+'|'+";
-              }
-            }            
-            echo $TotalKreditRencana."\n";
-            echo $KodeRencana;
-          ?>
-					var DataRencanaPenunjang = {Jenjang:$("#JenjangRencanaPenunjang").val(),Semester:$("#SemesterRencanaPenunjang").val(),
-																			 Tahun:$("#TahunRencanaPenunjang").val(),Kode:KodeRencana,Total:TotalKreditRencana}
-					$.post(BaseURL+"Penunjang/InputRencana", DataRencanaPenunjang).done(function(Respon) {
-						if (Respon == '1') {
-							window.location = BaseURL + "Dashboard/Penunjang"
-						} else {
-							alert(Respon)
-						}
-					})
-				})
-
-				$("#TombolRencanaTotalKredit").click(function() {
-          <?php 
-            $TotalRencana = "document.getElementById('RencanaTotalKredit').innerHTML = ";
-            for ($i = 1; $i <= 32 ; $i++) {
-              echo "var RencanaPNJ".$i." = parseFloat(document.getElementById('RencanaKreditPNJ".$i."').innerHTML)\n";
-              if ($i == 32) {
-                $TotalRencana .= "RencanaPNJ".$i;
-              } else {
-                $TotalRencana .= "RencanaPNJ".$i."+";
-              }
-            }            
-            echo $TotalRencana;
-          ?>
-				})
-
 				$(document).on("click",".EditRencanaPenunjang",function(){
           <?php $Kredit = array(3,2,3,2,2,1,2,1,0.5,1.5,1,0.5,1,3,2,3,2,2,1,3,2,1,5,3,1,5,5,5,5,3,1,0.5); ?>
 					var Data = $(this).attr('EditRencanaPenunjang')
@@ -177,6 +134,7 @@
             } 
           ?>
 					$("#EditRencanaTotalKredit").html(Pisah[6])
+					$("#TargetKajur").val(Pisah[7])
 					$('#ModalEditRencanaPenunjang').modal("show");
 				})
 
@@ -213,29 +171,20 @@
             echo $EditKodeRencana;
           ?>
 					var EditDataRencanaPenunjang = {No:$("#NoEditRencana").val(),Jenjang:$("#EditJenjangRencanaPenunjang").val(),Semester:$("#EditSemesterRencanaPenunjang").val(),
-																			 Tahun:$("#EditTahunRencanaPenunjang").val(),Kode:EditKodeRencana,Total:EditTotalKreditRencana,JenjangLama:$('#JenjangLama').val(),SemesterLama:$('#SemesterLama').val(),TahunLama:$('#TahunLama').val()}
-					$.post(BaseURL+"Penunjang/EditRencana", EditDataRencanaPenunjang).done(function(Respon) {
-						if (Respon == '1') {
-							window.location = BaseURL + "Dashboard/Penunjang"
-						} else {
-							alert(Respon)
-						}
-					})
-				})
-
-				$(document).on("click",".HapusRencanaPenunjang",function(){
-					var Hapus = {No: $(this).attr('HapusRencanaPenunjang')}
-					var Konfirmasi = confirm("Yakin Ingin Menghapus?");
-      		if (Konfirmasi == true) {
-						$.post(BaseURL+"Penunjang/HapusRencana", Hapus).done(function(Respon) {
+																			 Tahun:$("#EditTahunRencanaPenunjang").val(),Kode:EditKodeRencana,Total:EditTotalKreditRencana}
+					if (EditTotalKreditRencana < $('#TargetKajur').val()) {
+						alert('Belum Memenuhi Target Kajur Yaitu '+$('#TargetKajur').val())
+					} 
+					else {
+						$.post(BaseURL+"Penunjang/EditRencana", EditDataRencanaPenunjang).done(function(Respon) {
 							if (Respon == '1') {
 								window.location = BaseURL + "Dashboard/Penunjang"
 							} else {
 								alert(Respon)
 							}
-						});
+						})
 					}
-				});
+				})
 
 				$("#LihatRealisasi").click(function() {
 					var Data = {ID: $("#IdKegiatanPenunjang").val()}
@@ -478,9 +427,6 @@
 
       <?php 
         $Kredit = array(3,2,3,2,2,1,2,1,0.5,1.5,1,0.5,1,3,2,3,2,2,1,3,2,1,5,3,1,5,5,5,5,3,1,0.5);
-        for ($i = 1; $i <= 32 ; $i++) {
-          echo "function RencanaPNJ".$i."() {document.getElementById('RencanaPNJ".$i."').checked? document.getElementById('RencanaKreditPNJ".$i."').innerHTML = ".$Kredit[$i-1]." : document.getElementById('RencanaKreditPNJ".$i."').innerHTML = 0}\n";
-        } 
         for ($i = 1; $i <= 32 ; $i++) {
           echo "function EditRencanaPNJ".$i."() {document.getElementById('EditRencanaPNJ".$i."').checked? document.getElementById('EditRencanaKreditPNJ".$i."').innerHTML = ".$Kredit[$i-1]." : document.getElementById('EditRencanaKreditPNJ".$i."').innerHTML = 0}";
         }

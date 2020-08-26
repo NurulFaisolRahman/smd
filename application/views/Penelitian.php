@@ -114,49 +114,6 @@
 					$.post(BaseURL+"Dashboard/SubPenelitian", Data)
 				})
 
-				$("#InputRencanaPenelitian").click(function() {
-					<?php 
-            $TotalKreditRencana = "var TotalKreditRencana = ";
-            $KodeRencana = "var KodeRencana = ''+";
-            for ($i = 1; $i <= 37 ; $i++) {
-              echo "var RencanaPNL".$i." = parseInt(document.getElementById('RencanaKreditPNL".$i."').innerHTML)\n";
-              if ($i == 37) {
-                $TotalKreditRencana .= "RencanaPNL".$i;
-                $KodeRencana .= "(document.getElementById('RencanaPNL".$i."').checked ? 1 : 0)\n";
-              } else {
-                $TotalKreditRencana .= "RencanaPNL".$i."+";
-                $KodeRencana .= "(document.getElementById('RencanaPNL".$i."').checked ? 1 : 0)+'|'+";
-              }
-            }            
-            echo $TotalKreditRencana."\n";
-            echo $KodeRencana;
-          ?>
-					var DataRencanaPenelitian = {Jenjang:$("#JenjangRencanaPenelitian").val(),Semester:$("#SemesterRencanaPenelitian").val(),
-																			 Tahun:$("#TahunRencanaPenelitian").val(),Kode:KodeRencana,Total:TotalKreditRencana}
-					$.post(BaseURL+"Penelitian/InputRencana", DataRencanaPenelitian).done(function(Respon) {
-						if (Respon == '1') {
-							window.location = BaseURL + "Dashboard/Penelitian"
-						} else {
-							alert(Respon)
-						}
-					})
-				})
-
-				$("#TombolRencanaTotalKredit").click(function() {
-          <?php 
-            $TotalRencana = "document.getElementById('RencanaTotalKredit').innerHTML = ";
-            for ($i = 1; $i <= 37 ; $i++) {
-              echo "var RencanaPNL".$i." = parseInt(document.getElementById('RencanaKreditPNL".$i."').innerHTML)\n";
-              if ($i == 37) {
-                $TotalRencana .= "RencanaPNL".$i;
-              } else {
-                $TotalRencana .= "RencanaPNL".$i."+";
-              }
-            }            
-            echo $TotalRencana;
-          ?>
-				})
-
 				$(document).on("click",".EditRencanaPenelitian",function(){
           <?php $Kredit = array(40,20,15,10,40,30,20,25,25,20,15,10,10,20,15,10,7,30,25,15,10,10,5,5,3,10,5,1,2,15,10,60,50,40,30,20,15); ?>
 					var Data = $(this).attr('EditRencanaPenelitian')
@@ -177,6 +134,7 @@
             } 
           ?>
 					$("#EditRencanaTotalKredit").html(Pisah[6])
+					$("#TargetKajur").val(Pisah[7])
 					$('#ModalEditRencanaPenelitian').modal("show");
 				})
 
@@ -213,29 +171,20 @@
             echo $EditKodeRencana;
           ?>
 					var EditDataRencanaPenelitian = {No:$("#NoEditRencana").val(),Jenjang:$("#EditJenjangRencanaPenelitian").val(),Semester:$("#EditSemesterRencanaPenelitian").val(),
-																			 Tahun:$("#EditTahunRencanaPenelitian").val(),Kode:EditKodeRencana,Total:EditTotalKreditRencana,JenjangLama:$('#JenjangLama').val(),SemesterLama:$('#SemesterLama').val(),TahunLama:$('#TahunLama').val()}
-					$.post(BaseURL+"Penelitian/EditRencana", EditDataRencanaPenelitian).done(function(Respon) {
-						if (Respon == '1') {
-							window.location = BaseURL + "Dashboard/Penelitian"
-						} else {
-							alert(Respon)
-						}
-					})
-				})
-
-				$(document).on("click",".HapusRencanaPenelitian",function(){
-					var Hapus = {No: $(this).attr('HapusRencanaPenelitian')}
-					var Konfirmasi = confirm("Yakin Ingin Menghapus?");
-      		if (Konfirmasi == true) {
-						$.post(BaseURL+"Penelitian/HapusRencana", Hapus).done(function(Respon) {
+																			 Tahun:$("#EditTahunRencanaPenelitian").val(),Kode:EditKodeRencana,Total:EditTotalKreditRencana}
+					if (EditTotalKreditRencana < $('#TargetKajur').val()) {
+						alert('Belum Memenuhi Target Kajur Yaitu '+$('#TargetKajur').val())
+					} 
+					else {
+						$.post(BaseURL+"Penelitian/EditRencana", EditDataRencanaPenelitian).done(function(Respon) {
 							if (Respon == '1') {
 								window.location = BaseURL + "Dashboard/Penelitian"
 							} else {
 								alert(Respon)
 							}
-						});
+						})
 					}
-				});
+				})
 
 				$("#LihatRealisasi").click(function() {
 					var Data = {ID: $("#IdKegiatanPenelitian").val()}
@@ -466,9 +415,6 @@
 
       <?php 
         $Kredit = array(40,20,15,10,40,30,20,25,25,20,15,10,10,20,15,10,20,30,25,15,10,10,5,5,3,10,5,1,2,15,10,60,50,40,30,20,15);
-        for ($i = 1; $i <= 37 ; $i++) {
-          echo "function RencanaPNL".$i."() {document.getElementById('RencanaPNL".$i."').checked? document.getElementById('RencanaKreditPNL".$i."').innerHTML = ".$Kredit[$i-1]." : document.getElementById('RencanaKreditPNL".$i."').innerHTML = 0}\n";
-        } 
         for ($i = 1; $i <= 37 ; $i++) {
           echo "function EditRencanaPNL".$i."() {document.getElementById('EditRencanaPNL".$i."').checked? document.getElementById('EditRencanaKreditPNL".$i."').innerHTML = ".$Kredit[$i-1]." : document.getElementById('EditRencanaKreditPNL".$i."').innerHTML = 0}";
         }

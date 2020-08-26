@@ -243,6 +243,7 @@
 					$("#EditPengembangan10").val(PisahKode[36])
 					$("#EditKreditPengembangan10").html(PisahKode[36]*0.5)
 					$("#EditRencanaTotalKredit").html(Pisah[6])
+					$("#TargetKajur").val(Pisah[7])
 					$('#ModalEditRencanaPendidikan').modal("show");
 				});
 
@@ -344,62 +345,19 @@
 														+'|'+($('#EditPengembangan30').val() == ''? 0 : parseInt($('#EditPengembangan30').val()))
 														+'|'+($('#EditPengembangan10').val() == ''? 0 : parseInt($('#EditPengembangan10').val()))
 					var EditDataRencanaPendidikan = {No:$("#NoEditRencana").val(),Jenjang:$('#EditJenjangRencanaPendidikan').val(),Semester:$('#EditSemesterRencanaPendidikan').val(),
-																			 Tahun:$('#EditTahunRencanaPendidikan').val(),Kode:EditKodeRencana,Total:EditTotalKreditRencana,JenjangLama:$('#JenjangLama').val(),SemesterLama:$('#SemesterLama').val(),TahunLama:$('#TahunLama').val()}
-					$.post(BaseURL+'Pendidikan/EditRencana', EditDataRencanaPendidikan).done(function(Respon) {
-						if (Respon == '1') {
-							window.location = BaseURL + 'Dashboard/Pendidikan'
-						} else {
-							alert(Respon)
-						}
-					})
-				})
-
-				$("#TombolRencanaTotalKredit").click(function() {
-					var KreditSekolah = parseFloat(document.getElementById('KreditSekolah').innerHTML)
-					var KreditDiklat = parseFloat(document.getElementById('KreditDiklat').innerHTML)
-					var KreditMengajar = parseFloat(document.getElementById('KreditMengajar').innerHTML)
-					var KreditBimbingSeminar = parseFloat(document.getElementById('KreditBimbingSeminar').innerHTML)
-					var KreditBimbingKKN = parseFloat(document.getElementById('KreditBimbingKKN').innerHTML)
-					var KreditDisertasiUtama = parseFloat(document.getElementById('KreditDisertasiUtama').innerHTML)
-					var KreditTesisUtama = parseFloat(document.getElementById('KreditTesisUtama').innerHTML)
-					var KreditSkripsiUtama = parseFloat(document.getElementById('KreditSkripsiUtama').innerHTML)
-					var KreditDisertasiPendamping = parseFloat(document.getElementById('KreditDisertasiPendamping').innerHTML)
-					var KreditTesisPendamping = parseFloat(document.getElementById('KreditTesisPendamping').innerHTML)
-					var KreditSkripsiPendamping = parseFloat(document.getElementById('KreditSkripsiPendamping').innerHTML)
-					var KreditPengujiUtama = parseFloat(document.getElementById('KreditPengujiUtama').innerHTML)
-					var KreditAnggotaPenguji = parseFloat(document.getElementById('KreditAnggotaPenguji').innerHTML)
-					var KreditMembinaKegiatan = parseFloat(document.getElementById('KreditMembinaKegiatan').innerHTML)
-					var KreditMengembangkanProgram = parseFloat(document.getElementById('KreditMengembangkanProgram').innerHTML)
-					var KreditBukuAjar = parseFloat(document.getElementById('KreditBukuAjar').innerHTML)
-					var KreditProdukPengajaran = parseFloat(document.getElementById('KreditProdukPengajaran').innerHTML)
-					var KreditOrasi = parseFloat(document.getElementById('KreditOrasi').innerHTML)
-					var KreditRektor = parseFloat(document.getElementById('KreditRektor').innerHTML)
-					var KreditWakilRektor = parseFloat(document.getElementById('KreditWakilRektor').innerHTML)
-					var KreditKetua = parseFloat(document.getElementById('KreditKetua').innerHTML)
-					var KreditPembantuKetua = parseFloat(document.getElementById('KreditPembantuKetua').innerHTML)
-					var KreditDirekturAkademi = parseFloat(document.getElementById('KreditDirekturAkademi').innerHTML)
-					var KreditPembantuDirekturPoliteknik = parseFloat(document.getElementById('KreditPembantuDirekturPoliteknik').innerHTML)
-					var KreditPembantuDirekturAkademi = parseFloat(document.getElementById('KreditPembantuDirekturAkademi').innerHTML)
-					var KreditSekretaris = parseFloat(document.getElementById('KreditSekretaris').innerHTML)
-					var KreditPembimbingPencangkokan = 0
-					var KreditPembimbingReguler = 0
-					var KreditDetasering = 0
-					var KreditPencangkokan = 0
-					var CekJabatan = document.getElementById('KreditPembimbingPencangkokan')
-					if (CekJabatan) {
-						KreditPembimbingPencangkokan = parseFloat(document.getElementById('KreditPembimbingPencangkokan').innerHTML)
-						KreditPembimbingReguler = parseFloat(document.getElementById('KreditPembimbingReguler').innerHTML)
-						KreditDetasering = parseFloat(document.getElementById('KreditDetasering').innerHTML)
-						KreditPencangkokan = parseFloat(document.getElementById('KreditPencangkokan').innerHTML)	
+																			 Tahun:$('#EditTahunRencanaPendidikan').val(),Kode:EditKodeRencana,Total:EditTotalKreditRencana}
+					if (EditTotalKreditRencana < $('#TargetKajur').val()) {
+						alert('Belum Memenuhi Target Kajur Yaitu '+$('#TargetKajur').val())
+					} 
+					else {
+						$.post(BaseURL+'Pendidikan/EditRencana', EditDataRencanaPendidikan).done(function(Respon) {
+							if (Respon == '1') {
+								window.location = BaseURL + 'Dashboard/Pendidikan'
+							} else {
+								alert(Respon)
+							}
+						})
 					}
-					var KreditPengembangan960 = parseFloat(document.getElementById('KreditPengembangan960').innerHTML)
-					var KreditPengembangan641 = parseFloat(document.getElementById('KreditPengembangan641').innerHTML)
-					var KreditPengembangan481 = parseFloat(document.getElementById('KreditPengembangan481').innerHTML)
-					var KreditPengembangan161 = parseFloat(document.getElementById('KreditPengembangan161').innerHTML)
-					var KreditPengembangan81 = parseFloat(document.getElementById('KreditPengembangan81').innerHTML)
-					var KreditPengembangan30 = parseFloat(document.getElementById('KreditPengembangan30').innerHTML)
-					var KreditPengembangan10 = parseFloat(document.getElementById('KreditPengembangan10').innerHTML)
-					document.getElementById('RencanaTotalKredit').innerHTML = KreditSekolah + KreditDiklat + KreditMengajar + KreditBimbingSeminar + KreditBimbingKKN + KreditDisertasiUtama + KreditTesisUtama + KreditSkripsiUtama + KreditDisertasiPendamping + KreditTesisPendamping + KreditSkripsiPendamping + KreditPengujiUtama + KreditAnggotaPenguji + KreditMembinaKegiatan + KreditMengembangkanProgram + KreditBukuAjar + KreditProdukPengajaran + KreditOrasi + KreditRektor + KreditWakilRektor + KreditKetua + KreditPembantuKetua + KreditDirekturAkademi + KreditPembantuDirekturPoliteknik + KreditPembantuDirekturAkademi + KreditSekretaris + KreditPembimbingPencangkokan + KreditPembimbingReguler + KreditDetasering + KreditPencangkokan + KreditPengembangan960 + KreditPengembangan641 + KreditPengembangan481 + KreditPengembangan161 + KreditPengembangan81 + KreditPengembangan30 + KreditPengembangan10
 				})
 
 				$("#TombolEditRencanaTotalKredit").click(function() {

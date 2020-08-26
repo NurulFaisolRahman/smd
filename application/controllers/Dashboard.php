@@ -141,10 +141,10 @@ class Dashboard extends CI_Controller {
 		$Data['SubMenu'] = 'Pendidikan';		
 		$NIP = $this->session->userdata('NIP');
 		$ID = $this->session->userdata('IdKegiatanPendidikan');
-		$Data['Rencana'] = $this->db->query("SELECT * FROM RencanaPendidikan WHERE NIP=".$NIP." AND Tahun > 2019")->result_array();
+		$Data['Rencana'] = $this->db->query("SELECT * FROM RencanaPendidikan WHERE NIP=".$NIP)->result_array();
 		$Data['KreditRealisasi'] = array();
 		foreach ($Data['Rencana'] as $key) {
-			$Tampung = $this->db->get_where('RealisasiPendidikan', array('NIP' => $NIP,'Jenjang' => $key['Jenjang'],'Semester' => $key['Semester'],'Tahun' => $key['Tahun']))->result_array();
+			$Tampung = $this->db->query("SELECT * FROM RealisasiPendidikan"." WHERE NIP=".$NIP." AND JumlahKredit != '' AND Jenjang="."'".$key['Jenjang']."'"." AND Semester="."'".$key['Semester']."'"." AND Tahun="."'".$key['Tahun']."'")->result_array();
 			$Total = 0;
 			foreach ($Tampung as $data) {
 				$Total+=$data['JumlahKredit'];
@@ -161,10 +161,10 @@ class Dashboard extends CI_Controller {
 		$Data['SubMenu'] = 'Penelitian';		
 		$NIP = $this->session->userdata('NIP');
 		$ID = $this->session->userdata('IdKegiatanPenelitian');
-		$Data['Rencana'] = $this->db->get_where('RencanaPenelitian', array('NIP' => $NIP))->result_array();
+		$Data['Rencana'] = $this->db->query("SELECT * FROM RencanaPenelitian WHERE NIP=".$NIP)->result_array();
 		$Data['KreditRealisasi'] = array();
 		foreach ($Data['Rencana'] as $key) {
-			$Tampung = $this->db->get_where('RealisasiPenelitian', array('NIP' => $NIP,'Jenjang' => $key['Jenjang'],'Semester' => $key['Semester'],'Tahun' => $key['Tahun']))->result_array();
+			$Tampung = $this->db->query("SELECT * FROM RealisasiPenelitian"." WHERE NIP=".$NIP." AND JumlahKredit != '' AND Jenjang="."'".$key['Jenjang']."'"." AND Semester="."'".$key['Semester']."'"." AND Tahun="."'".$key['Tahun']."'")->result_array();
 			$Total = 0;
 			foreach ($Tampung as $data) {
 				$Total+=$data['JumlahKredit'];
@@ -181,10 +181,10 @@ class Dashboard extends CI_Controller {
 		$Data['SubMenu'] = 'Pengabdian';		
 		$NIP = $this->session->userdata('NIP');
 		$ID = $this->session->userdata('IdKegiatanPengabdian');
-		$Data['Rencana'] = $this->db->get_where('RencanaPengabdian', array('NIP' => $NIP))->result_array();
+		$Data['Rencana'] = $this->db->query("SELECT * FROM RencanaPengabdian WHERE NIP=".$NIP)->result_array();
 		$Data['KreditRealisasi'] = array();
 		foreach ($Data['Rencana'] as $key) {
-			$Tampung = $this->db->get_where('RealisasiPengabdian', array('NIP' => $NIP,'Jenjang' => $key['Jenjang'],'Semester' => $key['Semester'],'Tahun' => $key['Tahun']))->result_array();
+			$Tampung = $this->db->query("SELECT * FROM RealisasiPengabdian"." WHERE NIP=".$NIP." AND JumlahKredit != '' AND Jenjang="."'".$key['Jenjang']."'"." AND Semester="."'".$key['Semester']."'"." AND Tahun="."'".$key['Tahun']."'")->result_array();
 			$Total = 0;
 			foreach ($Tampung as $data) {
 				$Total+=$data['JumlahKredit'];
@@ -201,10 +201,10 @@ class Dashboard extends CI_Controller {
 		$Data['SubMenu'] = 'Penunjang';		
 		$NIP = $this->session->userdata('NIP');
 		$ID = $this->session->userdata('IdKegiatanPenunjang');
-		$Data['Rencana'] = $this->db->get_where('RencanaPenunjang', array('NIP' => $NIP))->result_array();
+		$Data['Rencana'] = $this->db->query("SELECT * FROM RencanaPenunjang WHERE NIP=".$NIP)->result_array();
 		$Data['KreditRealisasi'] = array();
 		foreach ($Data['Rencana'] as $key) {
-			$Tampung = $this->db->get_where('RealisasiPenunjang', array('NIP' => $NIP,'Jenjang' => $key['Jenjang'],'Semester' => $key['Semester'],'Tahun' => $key['Tahun']))->result_array();
+			$Tampung = $this->db->query("SELECT * FROM RealisasiPenunjang"." WHERE NIP=".$NIP." AND JumlahKredit != '' AND Jenjang="."'".$key['Jenjang']."'"." AND Semester="."'".$key['Semester']."'"." AND Tahun="."'".$key['Tahun']."'")->result_array();
 			$Total = 0;
 			foreach ($Tampung as $data) {
 				$Total+=$data['JumlahKredit'];

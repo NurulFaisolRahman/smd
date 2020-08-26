@@ -31,9 +31,9 @@
                                   <th class="text-center align-middle">Home<br>base</th>
                                   <th class="text-center align-middle">Seme<br>ster</th>
                                   <th class="text-center align-middle">Tahun</th>
-                                  <th class="text-center align-middle">Realisasi<br>Dosen</th> 
-                                  <th class="text-center align-middle">Persen<br>tase</th>
                                   <th class="text-center align-middle">Rencana<br>Dosen</th>
+                                  <th class="text-center align-middle">Persen<br>tase</th>
+                                  <th class="text-center align-middle">Realisasi<br>Dosen</th> 
                                   <th class="text-center align-middle">Status</th>
                                   <th class="text-center align-middle">Target<br>Kajur</th>
                                 </tr>
@@ -47,9 +47,9 @@
                                     <td class="text-center align-middle"><?=$key['Jenjang']?></td>
                                     <td class="text-center align-middle"><?=$key['Semester']?></td>
                                     <td class="text-center align-middle"><?=$key['Tahun']?></td>
-                                    <td class="text-center align-middle"><?=$Realisasi[$No-2].' SKS'?></td>
+                                    <td class="text-center align-middle"><?=$key['TotalKredit']?></td>
                                     <td class="text-center align-middle"><?=round(($Realisasi[$No-2]/$key['TargetKajur']*100),2).' %'?></td> 
-                                    <td class="text-center align-middle"><?=$key['TotalKredit'].' SKS'?></td>
+                                    <td class="text-center align-middle"><?=$Realisasi[$No-2]?></td>
                                     <td class="text-center align-middle">
                                       <?php if ($Realisasi[$No-2] == $key['TargetKajur']) { ?>
                                         <h4 class="text-primary mt-2"><b>=</b></h4>
@@ -60,8 +60,8 @@
                                         <?php } ?>
                                     </td>
                                     <td class="text-center align-middle">
-                                      <?php echo $key['TargetKajur'];?>&nbsp;<button EditRencanaPendidikan="<?=$key['No']."/".$key['Jabatan']."/".$key['Jenjang']."/".$key['Semester']."/".$key['Tahun']."/".$key['KodeRencana']."/".$key['TotalKredit']."/".$key['TargetKajur']."/".$key['NIP']?>" class="btn btn-sm btn-success EditRencanaPendidikan"><i class="fas fa-edit"></i></button>
-                                      <button HapusRencanaPendidikan="<?=$key['No']?>" class="btn btn-sm btn-danger HapusRencanaPendidikan"><i class="fas fa-trash"></i></button>
+                                      <?php echo $key['TargetKajur'];?>&nbsp;<button EditRencana="<?=$key['No']."/".$key['Jabatan']."/".$key['Jenjang']."/".$key['Semester']."/".$key['Tahun']."/".$key['KodeRencana']."/".$key['TotalKredit']."/".$key['TargetKajur']."/".$key['NIP']?>" class="btn btn-sm btn-success EditRencana"><i class="fas fa-edit"></i></button>
+                                      <button HapusRencana="<?=$key['No']?>" class="btn btn-sm btn-danger HapusRencana"><i class="fas fa-trash"></i></button>
                                     </td>
                                   </tr>
                                 <?php } ?>
@@ -567,8 +567,8 @@
           }
         })
 
-        $(document).on("click",".HapusRencanaPendidikan",function(){
-					var Hapus = {No: $(this).attr('HapusRencanaPendidikan'),Bidang:'RencanaPendidikan'}
+        $(document).on("click",".HapusRencana",function(){
+					var Hapus = {No: $(this).attr('HapusRencana'),Bidang:'RencanaPendidikan'}
 					var Konfirmasi = confirm("Yakin Ingin Menghapus?");
       		if (Konfirmasi == true) {
 						$.post(BaseURL+"Kajur/HapusTarget", Hapus).done(function(Respon) {
@@ -581,8 +581,8 @@
 					}
 				});
 
-        $(document).on("click",".EditRencanaPendidikan",function(){
-					var Data = $(this).attr('EditRencanaPendidikan')
+        $(document).on("click",".EditRencana",function(){
+					var Data = $(this).attr('EditRencana')
 					var Pisah = Data.split("/")
 					$("#NoEditRencana").val(Pisah[0])
 					$("#EditJenjangRencanaPendidikan").val(Pisah[2])

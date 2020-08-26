@@ -115,12 +115,12 @@ class Kajur extends CI_Controller {
 			}
 		}
 		else {
-			echo 'Data Rencana Pendidikan Dosen Yang Dipilih Dengan Homebase '.$_POST['Jenjang'].' Semester '.$_POST['Semester'].' Tahun '.$_POST['Tahun'].' Sudah Ada';
+			echo 'Data '.$_POST['Bidang'].' Dosen Yang Dipilih Dengan Homebase '.$_POST['Jenjang'].' Semester '.$_POST['Semester'].' Tahun '.$_POST['Tahun'].' Sudah Ada';
 		}
 	}
 
 	public function EditTarget(){
-		if($_POST['Jenjang'] === $_POST['JenjangLama'] && $_POST['Semester'] === $_POST['SemesterLama'] && $_POST['Tahun'] === $_POST['TahunLama'] || $this->db->get_where('RencanaPendidikan', array('NIP' => $_POST['NIP'],'Jenjang' => $_POST['Jenjang'],'Semester' => $_POST['Semester'],'Tahun' => $_POST['Tahun']))->num_rows() === 0){			
+		if($_POST['Jenjang'] === $_POST['JenjangLama'] && $_POST['Semester'] === $_POST['SemesterLama'] && $_POST['Tahun'] === $_POST['TahunLama'] || $this->db->get_where($_POST['Bidang'], array('NIP' => $_POST['NIP'],'Jenjang' => $_POST['Jenjang'],'Semester' => $_POST['Semester'],'Tahun' => $_POST['Tahun']))->num_rows() === 0){			
 			$this->db->where('No', $_POST['No']);
 			$this->db->update($_POST['Bidang'],
 											array('Jenjang' => $_POST['Jenjang'],
@@ -130,7 +130,7 @@ class Kajur extends CI_Controller {
 			echo '1';
 		}
 		else {
-			echo 'Data Rencana Pendidikan Homebase '.$_POST['Jenjang'].' Semester '.$_POST['Semester'].' Tahun '.$_POST['Tahun'].' Sudah Ada';
+			echo 'Data '.$_POST['Bidang'].' Dosen Yang Dipilih Homebase '.$_POST['Jenjang'].' Semester '.$_POST['Semester'].' Tahun '.$_POST['Tahun'].' Sudah Ada';
 		}
 	}
 

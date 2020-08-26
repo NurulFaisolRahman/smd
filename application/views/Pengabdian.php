@@ -114,49 +114,6 @@
 					$.post(BaseURL+"Dashboard/SubPengabdian", Data)
 				})
 
-				$("#InputRencanaPengabdian").click(function() {
-					<?php 
-            $TotalKreditRencana = "var TotalKreditRencana = ";
-            $KodeRencana = "var KodeRencana = ''+";
-            for ($i = 1; $i <= 16 ; $i++) {
-              echo "var RencanaPNB".$i." = parseFloat(document.getElementById('RencanaKreditPNB".$i."').innerHTML)\n";
-              if ($i == 16) {
-                $TotalKreditRencana .= "RencanaPNB".$i;
-                $KodeRencana .= "(document.getElementById('RencanaPNB".$i."').checked ? 1 : 0)\n";
-              } else {
-                $TotalKreditRencana .= "RencanaPNB".$i."+";
-                $KodeRencana .= "(document.getElementById('RencanaPNB".$i."').checked ? 1 : 0)+'|'+";
-              }
-            }            
-            echo $TotalKreditRencana."\n";
-            echo $KodeRencana;
-          ?>
-					var DataRencanaPengabdian = {Jenjang:$("#JenjangRencanaPengabdian").val(),Semester:$("#SemesterRencanaPengabdian").val(),
-																			 Tahun:$("#TahunRencanaPengabdian").val(),Kode:KodeRencana,Total:TotalKreditRencana}
-					$.post(BaseURL+"Pengabdian/InputRencana", DataRencanaPengabdian).done(function(Respon) {
-						if (Respon == '1') {
-							window.location = BaseURL + "Dashboard/Pengabdian"
-						} else {
-							alert(Respon)
-						}
-					})
-				})
-
-				$("#TombolRencanaTotalKredit").click(function() {
-          <?php 
-            $TotalRencana = "document.getElementById('RencanaTotalKredit').innerHTML = ";
-            for ($i = 1; $i <= 16 ; $i++) {
-              echo "var RencanaPNB".$i." = parseFloat(document.getElementById('RencanaKreditPNB".$i."').innerHTML)\n";
-              if ($i == 16) {
-                $TotalRencana .= "RencanaPNB".$i;
-              } else {
-                $TotalRencana .= "RencanaPNB".$i."+";
-              }
-            }            
-            echo $TotalRencana;
-          ?>
-				})
-
 				$(document).on("click",".EditRencanaPengabdian",function(){
           <?php  $Kredit = array(5.5,3,4,3,2,3,2,1,1,1.5,1,0.5,3,5,1,0.5); ?>
 					var Data = $(this).attr('EditRencanaPengabdian')
@@ -177,6 +134,7 @@
             } 
           ?>
 					$("#EditRencanaTotalKredit").html(Pisah[6])
+					$("#TargetKajur").val(Pisah[7])
 					$('#ModalEditRencanaPengabdian').modal("show");
 				})
 
@@ -213,29 +171,20 @@
             echo $EditKodeRencana;
           ?>
 					var EditDataRencanaPengabdian = {No:$("#NoEditRencana").val(),Jenjang:$("#EditJenjangRencanaPengabdian").val(),Semester:$("#EditSemesterRencanaPengabdian").val(),
-																			 Tahun:$("#EditTahunRencanaPengabdian").val(),Kode:EditKodeRencana,Total:EditTotalKreditRencana,JenjangLama:$('#JenjangLama').val(),SemesterLama:$('#SemesterLama').val(),TahunLama:$('#TahunLama').val()}
-					$.post(BaseURL+"Pengabdian/EditRencana", EditDataRencanaPengabdian).done(function(Respon) {
-						if (Respon == '1') {
-							window.location = BaseURL + "Dashboard/Pengabdian"
-						} else {
-							alert(Respon)
-						}
-					})
-				})
-
-				$(document).on("click",".HapusRencanaPengabdian",function(){
-					var Hapus = {No: $(this).attr('HapusRencanaPengabdian')}
-					var Konfirmasi = confirm("Yakin Ingin Menghapus?");
-      		if (Konfirmasi == true) {
-						$.post(BaseURL+"Pengabdian/HapusRencana", Hapus).done(function(Respon) {
+																			 Tahun:$("#EditTahunRencanaPengabdian").val(),Kode:EditKodeRencana,Total:EditTotalKreditRencana}
+					if (EditTotalKreditRencana < $('#TargetKajur').val()) {
+						alert('Belum Memenuhi Target Kajur Yaitu '+$('#TargetKajur').val())
+					} 
+					else {
+						$.post(BaseURL+"Pengabdian/EditRencana", EditDataRencanaPengabdian).done(function(Respon) {
 							if (Respon == '1') {
 								window.location = BaseURL + "Dashboard/Pengabdian"
 							} else {
 								alert(Respon)
 							}
-						});
+						})
 					}
-				});
+				})
 
 				$("#LihatRealisasi").click(function() {
 					var Data = {ID: $("#IdKegiatanPengabdian").val()}
@@ -388,9 +337,6 @@
 
       <?php 
         $Kredit = array(5.5,3,4,3,2,3,2,1,1,1.5,1,0.5,3,5,1,0.5);
-        for ($i = 1; $i <= 16 ; $i++) {
-          echo "function RencanaPNB".$i."() {document.getElementById('RencanaPNB".$i."').checked? document.getElementById('RencanaKreditPNB".$i."').innerHTML = ".$Kredit[$i-1]." : document.getElementById('RencanaKreditPNB".$i."').innerHTML = 0}";
-        } 
         for ($i = 1; $i <= 16 ; $i++) {
           echo "function EditRencanaPNB".$i."() {document.getElementById('EditRencanaPNB".$i."').checked? document.getElementById('EditRencanaKreditPNB".$i."').innerHTML = ".$Kredit[$i-1]." : document.getElementById('EditRencanaKreditPNB".$i."').innerHTML = 0}";
         }

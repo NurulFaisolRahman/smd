@@ -15,53 +15,15 @@ class Penelitian extends CI_Controller {
 		}
 	}
 
-	public function InputRencana(){
-		$NIP = $this->session->userdata('NIP');
-		$Jabatan = $this->session->userdata('Jabatan');
-		if($this->db->get_where('RencanaPenelitian', array('NIP' => $NIP,'Jenjang' => $_POST['Jenjang'],'Semester' => $_POST['Semester'],'Tahun' => $_POST['Tahun']))->num_rows() === 0){
-			$this->db->insert('RencanaPenelitian',
-								array('NIP' => $NIP, 
-											'Jabatan' => $Jabatan,
-											'Jenjang' => $_POST['Jenjang'],
+	public function EditRencana(){		
+		$this->db->where('No', $_POST['No']);
+		$this->db->update('RencanaPenelitian', 
+								array('Jenjang' => $_POST['Jenjang'],
 											'Semester' => $_POST['Semester'],
 											'Tahun' => $_POST['Tahun'],
 											'KodeRencana' => $_POST['Kode'],
 											'TotalKredit' => $_POST['Total']));
-			if ($this->db->affected_rows()){
-				echo '1';
-			} else {
-				echo 'Gagal Menyimpnan';
-			}
-		}
-		else {
-			echo 'Data Rencana Penelitian Homebase '.$_POST['Jenjang'].' Semester '.$_POST['Semester'].' Tahun '.$_POST['Tahun'].' Telah Ada';
-		}
-  }
-
-  public function EditRencana(){
-		$NIP = $this->session->userdata('NIP');
-		if($_POST['Jenjang'] === $_POST['JenjangLama'] && $_POST['Semester'] === $_POST['SemesterLama'] && $_POST['Tahun'] === $_POST['TahunLama'] || $this->db->get_where('RencanaPenelitian', array('NIP' => $NIP,'Jenjang' => $_POST['Jenjang'],'Semester' => $_POST['Semester'],'Tahun' => $_POST['Tahun']))->num_rows() === 0){			
-			$this->db->where('No', $_POST['No']);
-			$this->db->update('RencanaPenelitian', 
-									array('Jenjang' => $_POST['Jenjang'],
-												'Semester' => $_POST['Semester'],
-												'Tahun' => $_POST['Tahun'],
-												'KodeRencana' => $_POST['Kode'],
-												'TotalKredit' => $_POST['Total']));
-			echo '1';
-		} 
-		else {
-			echo 'Data Rencana Penelitian Jenjang '.$_POST['Jenjang'].' Semester '.$_POST['Semester'].' Tahun '.$_POST['Tahun'].' Telah Ada';
-		}
-	}
-
-	public function HapusRencana(){
-		$this->db->delete('RencanaPenelitian', array('No' => $_POST['No']));
-		if ($this->db->affected_rows()){
-			echo '1';
-		} else {
-			echo 'Gagal Menghapus';
-		}
+		echo '1';
 	}
 
 	public function KreditPenulis($ke,$dari,$kredit,$volume){

@@ -7,9 +7,9 @@
 					<th class="text-center align-middle">Homebase</th>
 					<th class="text-center align-middle">Semester</th>
 					<th class="text-center align-middle">Tahun</th>
-					<th class="text-center align-middle">Realisasi</th>
-					<th class="text-center align-middle">Persentase</th>
 					<th class="text-center align-middle">Rencana</th>
+					<th class="text-center align-middle">Persentase</th>
+					<th class="text-center align-middle">Realisasi</th>
 					<th class="text-center align-middle">Status</th>
 					<th class="text-center align-middle">Target Kajur</th>
 					<th class="text-center align-middle">Aksi</th>
@@ -22,30 +22,22 @@
 						<td class="text-center align-middle"><?=$key['Jenjang']?></td>
 						<td class="text-center align-middle"><?=$key['Semester']?></td>
 						<td class="text-center align-middle"><?=$key['Tahun']?></td> 
-						<td class="text-center align-middle"><?=str_replace('.',',',$KreditRealisasi[$No-2])?></td>
-						<td class="text-center align-middle"><?=round(($KreditRealisasi[$No-2]/$key['TargetKajur']*100),2).' %'?></td> 
 						<td class="text-center align-middle"><?=str_replace('.',',',$key['TotalKredit'])?></td>
+						<td class="text-center align-middle"><?=round(($KreditRealisasi[$No-2]/$key['TargetKajur']*100),2).' %'?></td> 
+						<td class="text-center align-middle"><?=str_replace('.',',',$KreditRealisasi[$No-2])?></td>
 						<td class="text-center align-middle">
-							<?php if ($key['TotalKredit'] == $key['TargetKajur']) { ?>
+							<?php if ($KreditRealisasi[$No-2] == $key['TargetKajur']) { ?>
 								<h4 class="text-primary mt-2"><b>=</b></h4>
-								<?php } else if ($key['TotalKredit'] > $key['TargetKajur']) { ?>
+								<?php } else if ($KreditRealisasi[$No-2] > $key['TargetKajur']) { ?>
 									<h4 class="text-success mt-2"><b>></b></h4>
-								<?php } else if ($key['TotalKredit'] < $key['TargetKajur']) { ?>
+								<?php } else if ($KreditRealisasi[$No-2] < $key['TargetKajur']) { ?>
 									<h4 class="text-danger mt-2"><b><</b></h4>
 								<?php } ?>
 						</td>
-						<td class="text-center align-middle">
-							<?php
-								if ($key['TargetKajur'] == null) {
-									echo '0';
-								} else {
-									echo $key['TargetKajur'];
-								}
-							?>
-						</td>
+						<td class="text-center align-middle"><?=$key['TargetKajur']?></td>
 						<td class="text-center align-middle">                          
-							<button EditRencanaPendidikan="<?=$key['No']."/".$key['Jabatan']."/".$key['Jenjang']."/".$key['Semester']."/".$key['Tahun']."/".$key['KodeRencana']."/".$key['TotalKredit']?>" class="btn btn-sm btn-warning EditRencanaPendidikan"><i class="fas fa-edit"></i></button>
-						</td>
+							<button EditRencanaPendidikan="<?=$key['No']."/".$key['Jabatan']."/".$key['Jenjang']."/".$key['Semester']."/".$key['Tahun']."/".$key['KodeRencana']."/".$key['TotalKredit']."/".$key['TargetKajur']?>" class="btn btn-sm btn-warning EditRencanaPendidikan"><i class="fas fa-edit"></i></button>
+						</td> 
 					</tr>
 				<?php } ?>
 			</tbody>
@@ -63,7 +55,7 @@
 										<label class="input-group-text bg-primary"><b>Homebase</b></label>
 									</div>
 									<input class="form-control" type="hidden" id="JenjangLama">
-									<select class="custom-select" id="EditJenjangRencanaPendidikan">										
+									<select class="custom-select" id="EditJenjangRencanaPendidikan" disabled>										
 											<option value="S1">S1</option>
 											<option value="S2">S2</option>
 									</select>
@@ -75,7 +67,7 @@
 										<label class="input-group-text bg-primary"><b>Semester</b></label>
 									</div>
 									<input class="form-control" type="hidden" id="SemesterLama">
-									<select class="custom-select" id="EditSemesterRencanaPendidikan">										
+									<select class="custom-select" id="EditSemesterRencanaPendidikan" disabled>										
 											<option value="Ganjil">Ganjil</option>
 											<option value="Genap">Genap</option>
 									</select>
@@ -87,8 +79,9 @@
 										<label class="input-group-text bg-primary"><b>Tahun</b></label>
 									</div>
 									<input class="form-control" type="hidden" id="NoEditRencana">
+									<input class="form-control" type="hidden" id="TargetKajur">
 									<input class="form-control" type="hidden" id="TahunLama">
-									<input class="form-control" type="text" id="EditTahunRencanaPendidikan"  data-inputmask='"mask": "9999"' data-mask>
+									<input class="form-control" type="text" id="EditTahunRencanaPendidikan"  data-inputmask='"mask": "9999"' data-mask disabled>
 								</div>
 							</div>
 						</div>
@@ -281,7 +274,6 @@
 												<td class='align-middle'><label><input type="checkbox" id="EditSekretaris" onchange="EditSekretaris()"> Sekretaris jurusan pada politeknik / akademi dan kepala laboratorium (bengkel) universitas / institut / sekolah tinggi / politeknik / akademi</label></td>
 												<td class='text-center align-middle'><b id="EditKreditSekretaris">0</b></td>
 											</tr>
-											<?php if ($this->session->userdata('Jabatan') == 'Lektor Kepala' || $this->session->userdata('Jabatan') == 'Profesor') { ?>
 											<tr>
 												<td rowspan="3" class='text-center'>13</td>
 												<td class='align-middle'>Membimbing dosen yang mempunyai jabatan akademik lebih rendah</td>
@@ -308,13 +300,8 @@
 												<td><b>Pencangkokan :</b> <input style="width: 50px;" oninput="EditPencangkokan()" class="form-control-sm" type="text" id="EditPencangkokan"  data-inputmask='"mask": "99"' data-mask> <b>Orang</b></td>
 												<td class='text-center align-middle'><b id="EditKreditPencangkokan">0</b></td>
 											</tr>
-											<?php } ?>
 											<tr>
-												<?php if ($this->session->userdata('Jabatan') == 'Lektor Kepala' || $this->session->userdata('Jabatan') == 'Profesor') { ?>
 												<td rowspan="8" class='text-center'>15</td>
-												<?php } else { ?>
-													<td rowspan="8" class='text-center'>13</td>
-												<?php } ?>
 												<td class='align-middle'>Melaksanakan pengembangan diri untuk meningkatkan kompetensi</td>
 												<td></td>
 											</tr>

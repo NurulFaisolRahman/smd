@@ -15,21 +15,15 @@ class Pendidikan extends CI_Controller {
 		}
 	}
 
-	public function EditRencana(){
-		$NIP = $this->session->userdata('NIP');
-		if($_POST['Jenjang'] === $_POST['JenjangLama'] && $_POST['Semester'] === $_POST['SemesterLama'] && $_POST['Tahun'] === $_POST['TahunLama'] || $this->db->get_where('RencanaPendidikan', array('NIP' => $NIP,'Jenjang' => $_POST['Jenjang'],'Semester' => $_POST['Semester'],'Tahun' => $_POST['Tahun']))->num_rows() === 0){			
-			$this->db->where('No', $_POST['No']);
-			$this->db->update('RencanaPendidikan', 
-									array('Jenjang' => $_POST['Jenjang'],
-												'Semester' => $_POST['Semester'],
-												'Tahun' => $_POST['Tahun'],
-												'KodeRencana' => $_POST['Kode'],
-												'TotalKredit' => $_POST['Total']));
-			echo '1';
-		} 
-		else {
-			echo 'Data Rencana Pendidikan Jenjang '.$_POST['Jenjang'].' Semester '.$_POST['Semester'].' Tahun '.$_POST['Tahun'].' Telah Ada';
-		}
+	public function EditRencana(){		
+		$this->db->where('No', $_POST['No']);
+		$this->db->update('RencanaPendidikan', 
+								array('Jenjang' => $_POST['Jenjang'],
+											'Semester' => $_POST['Semester'],
+											'Tahun' => $_POST['Tahun'],
+											'KodeRencana' => $_POST['Kode'],
+											'TotalKredit' => $_POST['Total']));
+		echo '1';
 	}
 
 	public function InputRealisasi(){
