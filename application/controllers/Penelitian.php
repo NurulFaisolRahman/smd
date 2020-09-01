@@ -277,13 +277,33 @@ class Penelitian extends CI_Controller {
 				$Kredit = 10;
 			}
 		}
-		else if ($_POST['IdKegiatan'] == 'PNL9') {
+		else if ($_POST['IdKegiatan'] == 'PNL9' || $_POST['IdKegiatan'] == 'PNL10'|| $_POST['IdKegiatan'] == 'PNL11' || $_POST['IdKegiatan'] == 'PNL12' || $_POST['IdKegiatan'] == 'PNL15' || $_POST['IdKegiatan'] == 'PNL16' || $_POST['IdKegiatan'] == 'PNL17') {
 			$JumlahKredit = $Kredit = '';
 			$KreditBkd = $_POST['KreditBKD'];
 		}
-		else if ($_POST['IdKegiatan'] == 'PNL10') {
+		else if ($_POST['IdKegiatan'] == 'PNL13') {
 			$JumlahKredit = $Kredit = '';
-			$KreditBkd = $_POST['KreditBKD'];
+			$KreditBkd = 1;
+		}
+		else if ($_POST['IdKegiatan'] == 'PNL14') {
+			$JumlahKredit = $Kredit = '';
+			$KreditBkd = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],$_POST['KreditBKD'],1);
+		}
+		else if ($_POST['IdKegiatan'] == 'PNL18') {
+			$JumlahKredit = $Kredit = '';
+			$KreditBkd = 6;
+		}
+		else if ($_POST['IdKegiatan'] == 'PNL19') {
+			$JumlahKredit = $Kredit = '';
+			$KreditBkd = 4;
+		}
+		else if ($_POST['IdKegiatan'] == 'PNL20') {
+			$JumlahKredit = $Kredit = '';
+			$KreditBkd = 3;
+		}
+		else if ($_POST['IdKegiatan'] == 'PNL21') {
+			$JumlahKredit = $Kredit = '';
+			$KreditBkd = 5;
 		}
 		$Pdf = count($_FILES);
 		if ($Pdf > 0) {

@@ -20,14 +20,14 @@
         <select class="custom-select" id="IdKegiatanPenunjang">
             <option value="PNJ11" <?php if ($this->session->userdata('IdKegiatanPenunjang') == "PNJ11") {
               echo 'selected';
-            } ?>>1. Bimbingan akademik(perwalian) / Konseling</option>
+            } ?>>Bimbingan akademik(perwalian) / Konseling</option>
             <option value="PNJ12" <?php if ($this->session->userdata('IdKegiatanPenunjang') == "PNJ12") {
               echo 'selected';
-            } ?>>2. Menjabat Posisi Tertentu</option>
-          <?php $Id = 1; $Nomor = 3; foreach ($Kegiatan as $key) { $ID = 'PNJ'.$Id;?>
+            } ?>>Menjabat Posisi Tertentu</option>
+          <?php $Id = 1; foreach ($Kegiatan as $key) { $ID = 'PNJ'.$Id;?>
             <option value="<?='PNJ'.$Id++?>" <?php if ($this->session->userdata('IdKegiatanPenunjang') == $ID) {
               echo 'selected';
-            } ?>><?=''.($Nomor++).'. '.$key?></option>
+            } ?>><?=$key?></option>
           <?php } ?>
         </select>
       </div>
@@ -108,10 +108,10 @@
             <span class="input-group-text bg-primary"><b>Kegiatan</b></span>
           </div>
           <select class="custom-select" id="InputIdKegiatanPenunjang" onchange="InputIdKegiatanPenunjang()">
-            <option value="PNJ11">1. Bimbingan akademik(perwalian) / Konseling</option>
-            <option value="PNJ12">2. Menjabat Posisi Tertentu</option>
-            <?php $Id = 1; $Nomor = 3; foreach ($Kegiatan as $key) { ?>
-              <option value="<?='PNJ'.$Id++?>"><?=''.($Nomor++).'. '.$key?></option>
+            <option value="PNJ11">Bimbingan akademik(perwalian) / Konseling</option>
+            <option value="PNJ12">Menjabat Posisi Tertentu</option>
+            <?php $Id = 1; foreach ($Kegiatan as $key) { ?>
+              <option value="<?='PNJ'.$Id++?>"><?=$key?></option>
             <?php } ?>
           </select>
         </div>

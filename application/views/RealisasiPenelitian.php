@@ -6,14 +6,27 @@
           <label class="input-group-text bg-warning"><i class="fa fa-tasks"></i><b>&nbsp;Kegiatan</b></label>
         </div>
         <?php 
-          $Kegiatan = array('1. Menghasilkan karya ilmiah sesuai dengan bidang ilmunya',
-          '2. Hasil penelitian atau hasil pemikiran yang didesiminasikan',
-          '3. Hasil penelitian atau pemikiran atau kerjasama industri yang tidak dipublikasikan (tersimpan dalam perpustakaan) yang dilakukan secara melembaga',
-          '4. Menerjemahkan/menyadur buku ilmiah yang diterbitkan (ber ISBN)',
-          '5. Mengedit/menyunting karya ilmiah dalam bentuk buku yang diterbitkan (ber ISBN)',
-          '6. Membuat rancangan dan karya teknologi yang dipatenkan atau seni yang terdaftar di HaKI secara nasional atau internasional',
-          '7. Membuat rancangan dan karya teknologi yang tidak dipatenkan; rancangan dan karya seni monumental yang tidak terdaftar di HaKI tetapi telah dipresentasikan pada forum yang teragenda',
-          '8. Membuat rancangan dan karya seni yang tidak terdaftar HaKI');
+          $Kegiatan = array('Menghasilkan karya ilmiah sesuai dengan bidang ilmunya',
+          'Hasil penelitian atau hasil pemikiran yang didesiminasikan',
+          'Hasil penelitian atau pemikiran atau kerjasama industri yang tidak dipublikasikan (tersimpan dalam perpustakaan) yang dilakukan secara melembaga',
+          'Menerjemahkan/menyadur buku ilmiah yang diterbitkan (ber ISBN)',
+          'Mengedit/menyunting karya ilmiah dalam bentuk buku yang diterbitkan (ber ISBN)',
+          'Membuat rancangan dan karya teknologi yang dipatenkan atau seni yang terdaftar di HaKI secara nasional atau internasional',
+          'Membuat rancangan dan karya teknologi yang tidak dipatenkan; rancangan dan karya seni monumental yang tidak terdaftar di HaKI tetapi telah dipresentasikan pada forum yang teragenda',
+          'Membuat rancangan dan karya seni yang tidak terdaftar HaKI',
+          'Keterlibatan dalam 1 judul penelitian/pembuatan karya seni/teknologi yang dilakukan oleh kelompok',
+          'Ketua Pelaksanaan penelitian/pembuatan karya seni/teknologi mandiri',
+          'Menulis 1 judul buku yang akan diterbitkan dalam waktu maksimal 4 semester',
+          'Menulis 1 judul buku internasional(berbahasa & diedarkan secara internasional minimal 3 negara)',
+          'Sebagai asesor beban kerja dosen & evaluasi pelaksanaan tri dharma',
+          'Menulis jurnal ilmiah',
+          'Menulis artikel ilmiah',
+          'Membuat 1 naskah monografi yang diterbitkan',
+          'Memperoleh hak paten minimal 3 Negara',
+          'Tugas belajar untuk akta mengajar sama dengan 6 sks',
+          'Pekerti tatap muka dan tugas mandiri',
+          'Magang Dosen Muda',
+          'AA tatap muka dan tugas mandiri');
         ?>
         <select class="custom-select" id="IdKegiatanPenelitian">
           <?php $Id = 1; foreach ($Kegiatan as $key) { $ID = 'PNL'.$Id;?>
@@ -21,12 +34,6 @@
               echo 'selected';
             } ?>><?=$key?></option>
           <?php } ?>
-          <option value="PNL9" <?php if ($this->session->userdata('IdKegiatanPenelitian') == "PNL9") {
-              echo 'selected';
-            } ?>>9. Keterlibatan dalam 1 judul penelitian/pembuatan karya seni/teknologi yang dilakukan oleh kelompok</option>
-          <option value="PNL10" <?php if ($this->session->userdata('IdKegiatanPenelitian') == "PNL10") {
-              echo 'selected';
-            } ?>>10. Ketua Pelaksanaan penelitian/pembuatan karya seni/teknologi mandiri</option>
         </select>
       </div>
     </div> 
@@ -109,8 +116,6 @@
           <?php $Id = 1; foreach ($Kegiatan as $key) { ?>
               <option value="<?='PNL'.$Id++?>"><?=$key?></option>
             <?php } ?>
-            <option value="PNL9">9. Keterlibatan dalam 1 judul penelitian/pembuatan karya seni/teknologi yang dilakukan oleh kelompok</option>
-            <option value="PNL10">10. Ketua Pelaksanaan penelitian/pembuatan karya seni/teknologi mandiri</option>
           </select>
         </div>
         <div id="OpsiPNL1">
@@ -244,6 +249,111 @@
               <option value="0.6">Analisa data</option>
               <option value="0.85">Penulisan laporan</option>
               <option value="1">Penulisan artikel ilmiah(terpublikasi)</option>
+            </select>
+          </div>
+        </div>
+        <div id="OpsiPNL11" style="display: none;">
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary"><b>Opsi</b></span>
+            </div>
+            <select class="custom-select" id="JenisPNL11">
+              <option value="1">Menulis 1 judul buku/bahan ajar utuh Ber ISBN</option>
+              <option value="1.8">Menulis 1 judul buku/bahan ajar, ada editor</option>
+              <option value="1.2">Kontributor untuk 1 buku utuh, tidak tiap chapter</option>
+              <option value="2">Menulis Modul/Diktat/BahanAjar oleh 1 Dosen (Tidak diterbitkan, tetapi digunakan oleh mahasiswa)</option>
+            </select>
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary"><b>Progres</b></span>
+            </div>
+            <select class="custom-select" id="ProgresPNL11">
+              <option value="0.1">Bab Pendahuluan</option>
+              <option value="0.6">Bab Isi Buku</option>
+              <option value="0.75">Bab Penutup & Referensi</option>
+              <option value="0.85">Persetujuan Penerbit</option>
+              <option value="1">Proses pencetakan selesai</option>
+            </select>
+          </div>
+        </div>
+        <div id="OpsiPNL14" style="display: none;">
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary"><b>Jenis</b></span>
+            </div>
+            <select class="custom-select" id="JenisPNL14">
+              <option value="3">jurnal/proseding tidak terakreditasi(lokal)</option>
+              <option value="5">jurnal terakreditasi(nasional)</option>
+              <option value="8">jurnal terakreditasi internasional(bhs internasional)</option>
+            </select>
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary"><b>Progres</b></span>
+            </div>
+            <select class="custom-select" id="ProgresPNL14">
+              <option value="0.1">submit</option>
+              <option value="0.3">Perbaikan/revisi</option>
+              <option value="0.4">Sudah Revisi</option>
+              <option value="0.9">Diterima (tapi belum terbit)</option>
+              <option value="1">Dicetak (terbit)</option>
+            </select>
+          </div>
+        </div>
+        <div id="OpsiPNL15" style="display: none;">
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary"><b>Jenis</b></span>
+            </div>
+            <select class="custom-select" id="JenisPNL15">
+              <option value="0">presentasi ilmiah</option>
+              <option value="1">poster</option>
+              <option value="2">majalah/koran</option>
+            </select>
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary"><b>Lingkup</b></span>
+            </div>
+            <select class="custom-select" id="LingkupPNL15">
+              <option value="0">Lokal/Regional</option>
+              <option value="1">Nasional</option>
+              <option value="2">Internasional</option>
+            </select>
+          </div>
+        </div>
+        <div id="OpsiPNL16" style="display: none;">
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary"><b>Lingkup</b></span>
+            </div>
+            <select class="custom-select" id="LingkupPNL16">
+              <option value="0.75">Kalangan sendiri</option>
+              <option value="1.5">Nasional</option>
+            </select>
+          </div>
+        </div>
+        <div id="OpsiPNL17" style="display: none;">
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary"><b>Jenis</b></span>
+            </div>
+            <select class="custom-select" id="JenisPNL17">
+              <option value="3">Proses pengurusan paten sederhana</option>
+              <option value="4">Proses pengurusan paten biasa</option>
+              <option value="5">Proses pengurusan paten internasional</option>
+            </select>
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary"><b>Progres</b></span>
+            </div>
+            <select class="custom-select" id="ProgresPNL17">
+              <option value="0.1">Pendaftaran</option>
+              <option value="0.3">Pemeriksaan Substantif</option>
+              <option value="0.6">Uji publik</option>
+              <option value="1">Sertifikat</option>
             </select>
           </div>
         </div>
