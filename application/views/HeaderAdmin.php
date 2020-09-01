@@ -53,7 +53,7 @@
             <li class="nav-item">
               <a href="" class="nav-link" data-toggle="modal" data-target="#ModalKajur">
               <i class="nav-icon fas fa-user"></i>
-              <p><b>Kepala Jurusan</b></p>
+              <p><b>Ketua Jurusan</b></p>
               </a>
             </li>
           </ul>

@@ -528,6 +528,13 @@
 							fd.append('KreditBKD',(MengajarS2[$("#JumlahDosenPraktikum").val()][$("#JumlahMhsPraktikum").val()]))
 							fd.append('Kode',0)
 						}
+						else if ($("#InputIdKegiatanPendidikan").val() == 'PND17') {
+							fd.append('KreditBKD',$("#Koordinator").val())
+							fd.append('Kode',0)
+						}
+						else if ($("#InputIdKegiatanPendidikan").val() == 'PND18' || $("#InputIdKegiatanPendidikan").val() == 'PND19') {
+							fd.append('Kode',0)
+						}
 						$.ajax({
 							url: BaseURL+'Pendidikan/InputRealisasi',
 							type: 'post',
@@ -621,6 +628,7 @@
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
 					document.getElementById("OpsiPND16").style.display = 'none'
+					document.getElementById("OpsiPND17").style.display = 'none'
 				}
 				else if ($("#InputIdKegiatanPendidikan").val() == 'PND3') {
 					document.getElementById("OpsiPND1").style.display = 'none'
@@ -633,6 +641,7 @@
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
 					document.getElementById("OpsiPND16").style.display = 'none'
+					document.getElementById("OpsiPND17").style.display = 'none'
 				}
 				else if ($("#InputIdKegiatanPendidikan").val() == 'PND5') {
 					document.getElementById("OpsiPND1").style.display = 'none'
@@ -645,6 +654,7 @@
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
 					document.getElementById("OpsiPND16").style.display = 'none'
+					document.getElementById("OpsiPND17").style.display = 'none'
 				}
 				else if ($("#InputIdKegiatanPendidikan").val() == 'PND6') {
 					document.getElementById("OpsiPND1").style.display = 'none'
@@ -658,6 +668,7 @@
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
 					document.getElementById("OpsiPND16").style.display = 'none'
+					document.getElementById("OpsiPND17").style.display = 'none'
 				}
 				else if ($("#InputIdKegiatanPendidikan").val() == 'PND7') {
 					document.getElementById("OpsiPND1").style.display = 'none'
@@ -671,6 +682,7 @@
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
 					document.getElementById("OpsiPND16").style.display = 'none'
+					document.getElementById("OpsiPND17").style.display = 'none'
 				}
 				else if ($("#InputIdKegiatanPendidikan").val() == 'PND10') {
 					document.getElementById("OpsiPND1").style.display = 'none'
@@ -684,6 +696,7 @@
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
 					document.getElementById("OpsiPND16").style.display = 'none'
+					document.getElementById("OpsiPND17").style.display = 'none'
 				}
 				else if ($("#InputIdKegiatanPendidikan").val() == 'PND12') {
 					document.getElementById("OpsiPND1").style.display = 'none'
@@ -697,6 +710,7 @@
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
 					document.getElementById("OpsiPND16").style.display = 'none'
+					document.getElementById("OpsiPND17").style.display = 'none'
 				}
 				else if ($("#InputIdKegiatanPendidikan").val() == 'PND13') {
 					document.getElementById("OpsiPND1").style.display = 'none'
@@ -710,6 +724,7 @@
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
 					document.getElementById("OpsiPND16").style.display = 'none'
+					document.getElementById("OpsiPND17").style.display = 'none'
 				}
 				else if ($("#InputIdKegiatanPendidikan").val() == 'PND14') {
 					document.getElementById("OpsiPND1").style.display = 'none'
@@ -723,6 +738,7 @@
 					document.getElementById("OpsiPND14").style.display = 'block'
 					document.getElementById("OpsiPND15").style.display = 'none'
 					document.getElementById("OpsiPND16").style.display = 'none'
+					document.getElementById("OpsiPND17").style.display = 'none'
 				}
 				else if ($("#InputIdKegiatanPendidikan").val() == 'PND15') {
 					document.getElementById("OpsiPND1").style.display = 'none'
@@ -736,6 +752,7 @@
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'block'
 					document.getElementById("OpsiPND16").style.display = 'none'
+					document.getElementById("OpsiPND17").style.display = 'none'
 				}
 				else if ($("#InputIdKegiatanPendidikan").val() == 'PND16') {
 					document.getElementById("OpsiPND1").style.display = 'none'
@@ -749,6 +766,21 @@
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
 					document.getElementById("OpsiPND16").style.display = 'block'
+					document.getElementById("OpsiPND17").style.display = 'none'
+				}
+				else if ($("#InputIdKegiatanPendidikan").val() == 'PND17') {
+					document.getElementById("OpsiPND1").style.display = 'none'
+					document.getElementById("OpsiPND3").style.display = 'none'
+					document.getElementById("OpsiPND5").style.display = 'none'
+					document.getElementById("OpsiPND6").style.display = 'none'
+					document.getElementById("OpsiPND7").style.display = 'none'
+					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND12").style.display = 'none'
+					document.getElementById("OpsiPND13").style.display = 'none'
+					document.getElementById("OpsiPND14").style.display = 'none'
+					document.getElementById("OpsiPND15").style.display = 'none'
+					document.getElementById("OpsiPND16").style.display = 'none'
+					document.getElementById("OpsiPND17").style.display = 'block'
 				}
 				else {
 					document.getElementById("OpsiPND1").style.display = 'none'
@@ -762,6 +794,7 @@
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
 					document.getElementById("OpsiPND16").style.display = 'none'
+					document.getElementById("OpsiPND17").style.display = 'none'
 				}
 			}
 

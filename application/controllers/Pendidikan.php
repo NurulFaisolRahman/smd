@@ -205,6 +205,20 @@ class Pendidikan extends CI_Controller {
 			$Kredit = '';
 			$KreditBkd = $_POST['KreditBKD'];
 		}
+		else if ($_POST['IdKegiatan'] == 'PND17') {
+			$Volume = $_POST['Volume'];
+			$Satuan = '';
+			$JumlahKredit = '';
+			$Kredit = '';
+			$KreditBkd = $_POST['KreditBKD'];
+		}
+		else if ($_POST['IdKegiatan'] == 'PND18' || $_POST['IdKegiatan'] == 'PND19') {
+			$Volume = $_POST['Volume'];
+			$Satuan = '';
+			$JumlahKredit = '';
+			$Kredit = '';
+			$KreditBkd = $_POST['Volume']*0.2;
+		}
 		$Pdf = count($_FILES);
 		if ($Pdf > 0) {
 			if ($this->CekBukti($Pdf)){

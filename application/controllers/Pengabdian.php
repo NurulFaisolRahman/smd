@@ -32,62 +32,62 @@ class Pengabdian extends CI_Controller {
 		$Volume = $_POST['Volume'];
 		$KreditBkd = '';
 		if ($_POST['IdKegiatan'] == 'PNB1') {
-			$JumlahKredit = $_POST['Volume']*5.5;
+			$JumlahKredit = 5.5;
 			$Kredit = 5.5;
 		}
 		else if ($_POST['IdKegiatan'] == 'PNB2') {
-			$JumlahKredit = $_POST['Volume']*3;
+			$JumlahKredit = 3;
 			$Kredit = 3;
 		}
 		else if ($_POST['IdKegiatan'] == 'PNB3') {
 			if ($_POST['Kode'] == '1') {
-				$JumlahKredit = $_POST['Volume']*4;
+				$JumlahKredit = 4;
 				$Kredit = 4;
 			}
 			else if ($_POST['Kode'] == '2') {
-				$JumlahKredit = $_POST['Volume']*3;
+				$JumlahKredit = 3;
 				$Kredit = 3;
 			}
 			else if ($_POST['Kode'] == '3') {
-				$JumlahKredit = $_POST['Volume']*2;
+				$JumlahKredit = 2;
 				$Kredit = 2;
 			}
 			else if ($_POST['Kode'] == '4') {
-				$JumlahKredit = $_POST['Volume']*3;
+				$JumlahKredit = 3;
 				$Kredit = 3;
 			}
 			else if ($_POST['Kode'] == '5') {
-				$JumlahKredit = $_POST['Volume']*2;
+				$JumlahKredit = 2;
 				$Kredit = 2;
 			}
 			else {
-				$JumlahKredit = $_POST['Volume'];
+				$JumlahKredit = 1;
 				$Kredit = 1;
 			}
 			$KreditBkd = '0.2';
 		}
 		else if ($_POST['IdKegiatan'] == 'PNB4') {
 			if ($_POST['Kode'] == '1') {
-				$JumlahKredit = $_POST['Volume']*1.5;
+				$JumlahKredit = 1.5;
 				$Kredit = 1.5;
 			}
 			else if ($_POST['Kode'] == '2') {
-				$JumlahKredit = $_POST['Volume'];
+				$JumlahKredit = 1;
 				$Kredit = 1;
 			}
 			else if ($_POST['Kode'] == '3') {
-				$JumlahKredit = $_POST['Volume']*0.5;
+				$JumlahKredit = 0.5;
 				$Kredit = 0.5;
 			}
 			$KreditBkd = '0.2';
 		}
 		else if ($_POST['IdKegiatan'] == 'PNB5') {
-			$JumlahKredit = $_POST['Volume']*3;
+			$JumlahKredit = 3;
 			$Kredit = 3;
-			$KreditBkd = '0.2';
+			$KreditBkd = $_POST['KreditBKD'];
 		}
 		else if ($_POST['IdKegiatan'] == 'PNB6') {
-			$JumlahKredit = $_POST['Volume']*5;
+			$JumlahKredit = 5;
 			$Kredit = 5;
 		}
 		else if ($_POST['IdKegiatan'] == 'PNB7') {
@@ -96,7 +96,7 @@ class Pengabdian extends CI_Controller {
 				$Kredit = 1;
 			}
 			else if ($_POST['Kode'] == '2') {
-				$JumlahKredit = $_POST['Volume']*0.5;
+				$JumlahKredit = 0.5;
 				$Kredit = 0.5;
 			}
 		}
@@ -107,6 +107,10 @@ class Pengabdian extends CI_Controller {
 		else if ($_POST['IdKegiatan'] == 'PNB9') {
 			$JumlahKredit = $Kredit = '';
 			$KreditBkd = '0.2';
+		}
+		else if ($_POST['IdKegiatan'] == 'PNB10') {
+			$JumlahKredit = $Kredit = '';
+			$KreditBkd = $_POST['KreditBKD'];
 		}
 		$Pdf = count($_FILES);
 		if ($Pdf > 0) {

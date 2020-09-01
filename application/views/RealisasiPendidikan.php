@@ -6,33 +6,43 @@
           <label class="input-group-text bg-warning"><i class="fa fa-tasks"></i><b>&nbsp;Kegiatan</b></label>
         </div>
         <?php 
-          $Kegiatan = array('A1. Menyelesaikan pendidikan formal dan memperoleh ijazah',
-          'A2. Mengikuti diklat prajabatan golongan III',
-          'B1. Mengajar mata kuliah',
-          'B2. Membimbing seminar mahasiswa',
-          'B3. Membimbing KKN, PKL, Magang',
-          'B4. Membimbing disertasi/tesis/skripsi',
-          'B5. Penguji ujian akhir/Profesi (setiap mahasiswa)',
-          'B6. Membina mahasiswa di bidang akademik/kemahasiswaan',
-          'B7. Mengembangkan program kuliah yang mempunyai nilai kebaharuan metode/substansi',
-          'B8. Mengembangkan bahan pengajaran yang mempunyai nilai kebaharuan',
-          'B9. Menyampaikan orasi ilmiah di tingkat perguruan tinggi',
-          'B10. Menduduki jabatan pimpinan perguruan tinggi',
-          'B11. Membimbing dosen yang mempunyai jabatan akademik lebih rendah',
-          'B12. Melaksanakan kegiatan detasering dan pencangkokan di luar institusi tempat bekerja',
-          'B13. Melaksanakan pengembangan diri untuk meningkatkan kompetensi');
+          $Kegiatan = array('Menyelesaikan pendidikan formal dan memperoleh ijazah',
+          'Mengikuti diklat prajabatan golongan III',
+          'Mengajar mata kuliah',
+          'Membimbing seminar mahasiswa',
+          'Membimbing KKN, PKL, Magang',
+          'Membimbing disertasi/tesis/skripsi',
+          'Menguji ujian akhir/Profesi (setiap mahasiswa)',
+          'Membina mahasiswa di bidang akademik/kemahasiswaan',
+          'Mengembangkan program kuliah yang mempunyai nilai kebaharuan metode/substansi',
+          'Mengembangkan bahan pengajaran yang mempunyai nilai kebaharuan',
+          'Menyampaikan orasi ilmiah di tingkat perguruan tinggi',
+          'Menduduki jabatan pimpinan perguruan tinggi',
+          'Membimbing dosen yang mempunyai jabatan akademik lebih rendah',
+          'Melaksanakan kegiatan detasering dan pencangkokan di luar institusi tempat bekerja',
+          'Melaksanakan pengembangan diri untuk meningkatkan kompetensi');
         ?>
         <select class="custom-select" id="IdKegiatanPendidikan">
           <?php $Id = 1; foreach ($Kegiatan as $key) { $ID = 'PND'.$Id;?>
             <?php if ($Id == 4) { ?>
               <option value="<?='PND16'?>" <?php if ($this->session->userdata('IdKegiatanPendidikan') == 'PND16') {
               echo 'selected';
-            } ?>>B1. Praktikum</option>
+            } ?>>Mengajar Praktikum</option>
+            <?php } else if ($Id == 9) { ?>
+              <option value="<?='PND17'?>" <?php if ($this->session->userdata('IdKegiatanPendidikan') == 'PND17') {
+              echo 'selected';
+            } ?>>Koordinator kegiatan akademik dalam 1 semester</option>
             <?php } ?>
             <option value="<?='PND'.$Id++?>" <?php if ($this->session->userdata('IdKegiatanPendidikan') == $ID) {
               echo 'selected';
             } ?>><?=$key?></option>
           <?php } ?>
+            <option value="<?='PND18'?>" <?php if ($this->session->userdata('IdKegiatanPendidikan') == 'PND18') {
+              echo 'selected';
+            } ?>>Bimbingan penulisan laporan deskripsi diri sertifikasi dosen</option>
+            <option value="<?='PND19'?>" <?php if ($this->session->userdata('IdKegiatanPendidikan') == 'PND19') {
+              echo 'selected';
+            } ?>>Menilai portofolio sertifikasi dosen</option>
         </select>
       </div>
     </div> 
@@ -114,10 +124,14 @@
           <select class="custom-select" id="InputIdKegiatanPendidikan" onchange="InputIdKegiatanPendidikan()">
           <?php $Id = 1; foreach ($Kegiatan as $key) { ?>
             <?php if ($Id == 4) { ?>
-              <option value="<?='PND16'?>">B1. Praktikum</option>
+              <option value="PND16">Mengajar Praktikum</option>
+            <?php } else if ($Id == 9) { ?>
+              <option value="PND17">Koordinator kegiatan akademik dalam 1 semester</option>
             <?php } ?>
               <option value="<?='PND'.$Id++?>"><?=$key?></option>
             <?php } ?>
+            <option value="PND18">Bimbingan penulisan laporan deskripsi diri sertifikasi dosen</option>
+            <option value="PND19">Menilai portofolio sertifikasi dosen</option>
           </select>
         </div>
         <div id="OpsiPND1">
@@ -320,6 +334,18 @@
             <select class="custom-select" id="JumlahMhsPraktikum">										
               <option value="0">1-25 Mahasiswa</option>
               <option value="1">26-50 Mahasiswa</option>
+            </select>
+          </div>
+        </div>
+        <div id="OpsiPND17" style="display: none;">
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary"><b>Jabatan</b></span>
+            </div>
+            <select class="custom-select" id="Koordinator">										
+              <option value="1">Koordinator/Sekretaris seminar akademik</option>
+              <option value="0.5">Anggota seminar akademik</option>
+              <option value="1">Koordinator Bidang Minat</option>
             </select>
           </div>
         </div>

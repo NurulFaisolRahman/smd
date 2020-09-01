@@ -6,13 +6,13 @@
           <label class="input-group-text bg-warning"><i class="fa fa-tasks"></i><b>&nbsp;Kegiatan</b></label>
         </div>
         <?php 
-          $Kegiatan = array('1. Menduduki jabatan pimpinan pada lembaga pemerintahan/pejabat negara yang harus dibebaskan dari jabatan organiknya tiap semester',
-          '2. Melaksanakan pengembangan hasil pendidikan, dan penelitian yang dapat dimanfaatkan oleh masyarakat/industry setiap program',
-          '3. Memberi latihan/penyuluhan/penataran/ceramah pada masyarakat, terjadwal/terprogram',
-          '4. Memberi pelayanan kepada masyarakat atau kegiatan lain yang menunjang pelaksanaan tugas pemerintahan dan pembangunan',
-          '5. Membuat/menulis karya pengabdian pada masyarakat yang tidak dipublikasikan,tiap karya',
-          '6. Hasil kegiatan pengabdian kepada masyarakat yang dipublikasikan di sebuah jurnal/teknologi tepat guna, merupakan diseminasi dari luaran program kegiatan pengabdian kepada masyarakat, tiap karya',
-          '7. Berperan serta aktif dalam pengelolaan jurnal ilmiah (per tahun)');
+          $Kegiatan = array('Menduduki jabatan pimpinan pada lembaga pemerintahan/pejabat negara yang harus dibebaskan dari jabatan organiknya tiap semester',
+          'Melaksanakan pengembangan hasil pendidikan, dan penelitian yang dapat dimanfaatkan oleh masyarakat/industry setiap program',
+          'Memberi latihan/penyuluhan/penataran/ceramah pada masyarakat, terjadwal/terprogram',
+          'Memberi pelayanan kepada masyarakat atau kegiatan lain yang menunjang pelaksanaan tugas pemerintahan dan pembangunan',
+          'Membuat/menulis karya pengabdian pada masyarakat',
+          'Hasil kegiatan pengabdian kepada masyarakat yang dipublikasikan di sebuah jurnal/teknologi tepat guna, merupakan diseminasi dari luaran program kegiatan pengabdian kepada masyarakat, tiap karya',
+          'Berperan serta aktif dalam pengelolaan jurnal ilmiah (per tahun)');
         ?>
         <select class="custom-select" id="IdKegiatanPengabdian">
           <?php $Id = 1; foreach ($Kegiatan as $key) { $ID = 'PNB'.$Id;?>
@@ -22,11 +22,14 @@
           <?php } ?>
           <option value="PNB8" <?php if ($this->session->userdata('IdKegiatanPengabdian') == "PNB8") {
               echo 'selected';
-            } ?>>8. Suatu kegiatan yang setara dengan 50 jam kerja per semester(disetujui pimpinan & tercatat)</option>
+            } ?>>Suatu kegiatan yang setara dengan 50 jam kerja per semester(disetujui pimpinan & tercatat)</option>
           <option value="PNB9" <?php if ($this->session->userdata('IdKegiatanPengabdian') == "PNB9") {
               echo 'selected';
-            } ?>>9. Reviewer kegiatan(Bedah buku,tim penilai pustakawan/dosen/mahasiswa/karyawan/laboran berprestasi,reviewer artikel ilmiah,hibah pengajaran) </option>
-        </select>
+            } ?>>Reviewer insidental kegiatan(Bedah buku,tim penilai pustakawan/dosen/mahasiswa/karyawan/laboran berprestasi,reviewer artikel ilmiah,hibah pengajaran) </option>
+          <option value="PNB10" <?php if ($this->session->userdata('IdKegiatanPengabdian') == "PNB10") {
+              echo 'selected';
+            } ?>>Reviewer terstruktur (minimal 2 semester) </option>  
+      </select>
       </div>
     </div> 
     <div class="col-sm-4 mt-1 mb-1">
@@ -108,8 +111,9 @@
           <?php $Id = 1; foreach ($Kegiatan as $key) { ?>
               <option value="<?='PNB'.$Id++?>"><?=$key?></option>
             <?php } ?>
-            <option value="PNB8">8. Suatu kegiatan yang setara dengan 50 jam kerja per semester(disetujui pimpinan & tercatat)</option>
-          <option value="PNB9">9. Reviewer kegiatan(Bedah buku,tim penilai pustakawan/dosen/mahasiswa/karyawan/laboran berprestasi,reviewer artikel ilmiah,hibah pengajaran)</option>
+            <option value="PNB8">Suatu kegiatan yang setara dengan 50 jam kerja per semester(disetujui pimpinan & tercatat)</option>
+          <option value="PNB9">Reviewer insidental kegiatan(Bedah buku,tim penilai pustakawan/dosen/mahasiswa/karyawan/laboran berprestasi,reviewer artikel ilmiah,hibah pengajaran)</option>
+          <option value="PNB10">Reviewer terstruktur (minimal 2 semester) </option>  
           </select>
         </div>
         <div id="OpsiPNB3" style="display: none;">
@@ -140,6 +144,17 @@
             </select>
           </div>
         </div>
+        <div id="OpsiPNB5" style="display: none;">
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary"><b>Jenis</b></span>
+            </div>
+            <select class="custom-select" id="JenisPNB5">
+              <option value="3">Publikasi Ber ISBN</option>
+              <option value="2">Tidak Dipublikasi</option>
+            </select>
+          </div>
+        </div>
         <div id="OpsiPNB7" style="display: none;">
           <div class="input-group mb-1">
             <div class="input-group-prepend">
@@ -161,6 +176,18 @@
               <option value="0.3">Persiapan Pengabdian</option>
               <option value="0.7">Pelaksanaan kegiatan</option>
               <option value="1">Penulisan laporan</option>
+            </select>
+          </div>
+        </div>
+        <div id="OpsiPNB10" style="display: none;">
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary"><b>Tingkat</b></span>
+            </div>
+            <select class="custom-select" id="TingkatPNB10">
+              <option value="0.5">Lokal</option>
+              <option value="1">Nasional</option>
+              <option value="1.5">Internasional</option>
             </select>
           </div>
         </div>
