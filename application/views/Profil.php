@@ -1,163 +1,261 @@
     <div class="content-wrapper">
     <!-- Main content -->
     <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-					<div class="col-sm-12 mt-2">
-						<ul class="nav nav-pills mb-2 border border-warning rounded bg-light" id="pills-tab" role="tablist">
-							<li class="nav-item">
-									<a class="nav-link active" id="pills-profil-tab" data-toggle="pill" href="#pills-profil" role="tab" aria-controls="pills-profil" aria-selected="true"><b>Profil</b></a>
-							</li>
-						</ul>
-						<div class="tab-content border border-warning rounded bg-light" id="pills-tabContent">
-							<div class="tab-pane fade show active" id="pills-profil" role="tabpanel" aria-labelledby="pills-profil-tab">
-								<div class="container-fluid">
-									<div class="row align-items-center">
-										<div class="col-sm-3 my-2 text-center">
-											<?php if ($Profil['Foto'] == '') { ?>
-												<img src="<?=base_url('img/Avatar.png')?>" width="200px">
-											<?php	} else { ?>
-												<img src="<?=base_url('img/'.$Profil['Foto'])?>" width="200px">
-											<?php } ?>
-											<div class="input-group mb-1">
-												<input class="form-control-sm" type="hidden" id="NamaFoto" value="<?=$Profil['Foto']?>">
-												<input class="form-control-sm" type="file" id="Foto" onchange="Upload()">
-											</div>
-										</div>
-										<div class="col-sm-auto my-2">
-											<table class="table-responsive">
-												<tr>
-													<td><b>Nama : <?=$Profil['Nama']?></b></td>
-												</tr>
-												<tr>
-													<td><b>NIDN : <?=$Profil['NIDN']?></b></td>
-												</tr>
-												<tr>
-													<td><b>NIP : <?=$Profil['NIP']?></b></td>
-												</tr>
-												<tr>
-													<td><b>Pangkat / Gol : <?=$Profil['Pangkat'].' / '.$Profil['Golongan']?></b></td>
-												</tr>
-												<tr>
-													<td><b>Jabatan : <?=$Profil['Jabatan']?></b></td>
-												</tr>
-												<tr>
-													<td><b>Tahun Kredit Lama : <?=str_replace('.',',',$Profil['Tahun'])?></b></td>
-												</tr>
-												<tr>
-													<td><b>Kredit Lama : <?=str_replace('.',',',$Profil['KreditLama'])?></b></td>
-												</tr>
-												<tr>
-													<td><b>Kredit Baru : <?=str_replace('.',',',$KreditBaru)?></b></td>
-												</tr>
-												<tr>
-													<td><b>Total Kredit : <?=str_replace('.',',',($Profil['KreditLama']+$KreditBaru))?></b></td>
-												</tr>
-											</table>
-											<button class="btn btn-primary text-white" data-toggle="modal" data-target="#ModalEditProfil"><i class="fa fa-edit"></i> <b>Edit Profil</b></button>
-										</div>
-									</div>
+			<div class="card mt-2">
+				<div class="card-header bg-primary">
+					<b>Profil</b>
+				</div>
+				<div class="card-body border border-primary">
+					<div class="container bg-light">
+						<div class="row">
+							<div class="col-sm-3 my-2 text-center">
+								<?php if ($Profil['Foto'] == '') { ?>
+									<img src="<?=base_url('img/Avatar.png')?>" width="200px">
+								<?php	} else { ?>
+									<img src="<?=base_url('img/'.$Profil['Foto'])?>" width="200px">
+								<?php } ?>
+								<div class="input-group mb-1">
+									<input class="form-control-sm" type="hidden" id="NamaFoto" value="<?=$Profil['Foto']?>">
+									<input class="form-control-sm" type="file" id="Foto" onchange="Upload()">
 								</div>
+								<button class="btn btn-primary text-white" data-toggle="modal" data-target="#ModalEditProfil"><i class="fa fa-edit"></i> <b>Edit Profil</b></button>
+							</div>
+							<div class="col-sm-auto my-2">
+								<table class="table-responsive">
+									<tr>
+										<td><b>Nama</b></td>
+										<td><b>: <?=$Profil['Nama']?></b></td>
+									</tr>
+									<tr>
+										<td><b>NIDN</b></td>
+										<td><b>: <?=$Profil['NIDN']?></b></td>
+									</tr>
+									<tr>
+										<td><b>NIP</b></td>
+										<td><b>: <?=$Profil['NIP']?></b></td>
+									</tr>
+									<tr>
+										<td><b>Pangkat</b></td>
+										<td><b>: <?=$Profil['Pangkat']?></b></td>
+									</tr>
+									<tr>
+										<td><b>Golongan</b></td>
+										<td><b>: <?=$Profil['Golongan']?></b></td>
+									</tr>
+									<tr>
+										<td><b>Jabatan</b></td>
+										<td><b>: <?=$Profil['Jabatan']?></b></td>
+									</tr>
+									<tr>
+										<td><b>Kredit Lama</b></td>
+										<td><b>: <?=str_replace('.',',',$Profil['KreditLama'])?>&nbsp;<sub>Tahun <?=$Profil['Tahun']?></sub></b></td>
+									</tr>
+									<tr>
+										<td><b>Kredit Baru</b></td>
+										<td><b>: <?=str_replace('.',',',$KreditBaru)?></b></td>
+									</tr>
+									<tr>
+										<td><b>Total Kredit</b></td>
+										<td><b>: <?=str_replace('.',',',($Profil['KreditLama']+$KreditBaru))?></b></td>
+									</tr>
+								</table>
 							</div>
 						</div>
 					</div>
-        </div>
-      </div>
+				</div>
+			</div>
     </section>
     </div>
 		</div>
 		<div class="modal fade" id="ModalEditProfil">
-			<div class="modal-dialog">
+			<div class="modal-dialog modal-lg">
 				<div class="modal-content bg-warning">
 					<div class="modal-body">
-						<div class="input-group mb-1">
-							<div class="input-group-prepend">
-								<label class="input-group-text bg-primary"><b>Nama</b></label>
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-4">
+									<div class="input-group mb-1">
+										<div class="input-group-prepend">
+											<label class="input-group-text bg-primary"><b>Nama</b></label>
+										</div>
+										<input type="text" id="Nama" class="form-control" value="<?=$Profil['Nama']?>">
+									</div>
+									<div class="input-group mb-1">
+										<div class="input-group-prepend">
+											<label class="input-group-text bg-primary"><b>NIP</b></label>
+										</div>
+										<input type="text" id="NIP" class="form-control" value="<?=$Profil['NIP']?>" data-inputmask='"mask": "999999999999999999"' data-mask>
+									</div>
+									<div class="input-group mb-1">
+										<div class="input-group-prepend">
+											<label class="input-group-text bg-primary"><b>NIDN</b></label>
+										</div>
+										<input type="text" id="NIDN" class="form-control" value="<?=$Profil['NIDN']?>" data-inputmask='"mask": "9999999999"' data-mask>
+									</div>
+									<div class="input-group mb-1">
+										<div class="input-group-prepend">
+											<label class="input-group-text bg-primary"><b>Golongan</b></label>
+										</div>
+										<select class="custom-select" id="Golongan">
+											<option value="Penata Muda/IIIa" <?php if ($Profil['Golongan'] == 'IIIa') {
+												echo 'selected';
+											}?>>IIIa</option>
+											<option value="Penata Muda Tk. I/IIIb" <?php if ($Profil['Golongan'] == 'IIIb') {
+												echo 'selected';
+											}?>>IIIb</option>
+											<option value="Penata/IIIc" <?php if ($Profil['Golongan'] == 'IIIc') {
+												echo 'selected';
+											}?>>IIIc</option>
+											<option value="Penata Tk. I/IIId" <?php if ($Profil['Golongan'] == 'IIId') {
+												echo 'selected';
+											}?>>IIId</option>
+											<option value="Pembina/IVa" <?php if ($Profil['Golongan'] == 'IVa') {
+												echo 'selected';
+											}?>>IVa</option>
+											<option value="Pembina Tk. I/IVb" <?php if ($Profil['Golongan'] == 'IVb') {
+												echo 'selected';
+											}?>>IVb</option>
+											<option value="Pembina Utama Muda/IVc" <?php if ($Profil['Golongan'] == 'IVc') {
+												echo 'selected';
+											}?>>IVc</option>
+											<option value="Pembina Utama Madya/IVd" <?php if ($Profil['Golongan'] == 'IVd') {
+												echo 'selected';
+											}?>>IVd</option>
+											<option value="Pembina Utama/IVe" <?php if ($Profil['Golongan'] == 'IVe') {
+												echo 'selected';
+											}?>>IVe</option>
+										</select>
+									</div>
+									<div class="input-group mb-1">
+										<div class="input-group-prepend">
+											<label class="input-group-text bg-primary"><b>Jabatan</b></label>
+										</div>
+										<select class="custom-select" id="Jabatan">
+											<option value="Asisten Ahli" <?php if ($Profil['Jabatan'] == 'Asisten Ahli') {
+												echo 'selected';
+											}?>>Asisten Ahli</option>
+											<option value="Lektor" <?php if ($Profil['Jabatan'] == 'Lektor') {
+												echo 'selected';
+											}?>>Lektor</option>
+											<option value="Lektor Kepala" <?php if ($Profil['Jabatan'] == 'Lektor Kepala') {
+												echo 'selected';
+											}?>>Lektor Kepala</option>
+											<option value="Profesor" <?php if ($Profil['Jabatan'] == 'Profesor') {
+												echo 'selected';
+											}?>>Profesor</option>
+										</select>
+									</div>
+									<div class="input-group mb-1">
+										<div class="input-group-prepend">
+											<label class="input-group-text bg-primary"><b>Tahun Kredit Lama</b></label>
+										</div>
+										<input type="text" id="TahunKreditLama" class="form-control" value="<?=$Profil['Tahun']?>" data-inputmask='"mask": "9999"' data-mask>
+									</div>
+									<div class="input-group mb-1">
+										<div class="input-group-prepend">
+											<label class="input-group-text bg-primary"><b>Kredit Lama</b></label>
+										</div>
+										<input type="text" id="KreditLama" class="form-control" value="<?=$Profil['KreditLama']?>">
+									</div>
+									<div class="input-group mb-1">
+										<div class="input-group-prepend">
+											<label class="input-group-text bg-primary"><b>Ganti Password</b></label>
+										</div>
+										<input type="text" id="GantiPassword" class="form-control">
+									</div>
+								</div>
+								<div class="col-sm-8">
+									<div class="input-group mb-1">
+										<div class="input-group-prepend">
+											<label class="input-group-text bg-primary"><b>S2</b></label>
+										</div>
+										<input type="text" id="S2" class="form-control" value="<?=$Profil['Nama']?>">
+									</div>
+									<div class="input-group mb-1">
+										<div class="input-group-prepend">
+											<label class="input-group-text bg-primary"><b>S3</b></label>
+										</div>
+										<input type="text" id="S3" class="form-control" value="<?=$Profil['NIDN']?>" data-inputmask='"mask": "9999999999"' data-mask>
+									</div>
+									<div class="input-group mb-1">
+										<div class="input-group-prepend">
+											<label class="input-group-text bg-primary"><b>NIP</b></label>
+										</div>
+										<input type="text" id="NIP" class="form-control" value="<?=$Profil['NIP']?>" data-inputmask='"mask": "999999999999999999"' data-mask>
+									</div>
+									<div class="input-group mb-1">
+										<div class="input-group-prepend">
+											<label class="input-group-text bg-primary"><b>Golongan</b></label>
+										</div>
+										<select class="custom-select" id="Golongan">
+											<option value="Penata Muda/IIIa" <?php if ($Profil['Golongan'] == 'IIIa') {
+												echo 'selected';
+											}?>>IIIa</option>
+											<option value="Penata Muda Tk. I/IIIb" <?php if ($Profil['Golongan'] == 'IIIb') {
+												echo 'selected';
+											}?>>IIIb</option>
+											<option value="Penata/IIIc" <?php if ($Profil['Golongan'] == 'IIIc') {
+												echo 'selected';
+											}?>>IIIc</option>
+											<option value="Penata Tk. I/IIId" <?php if ($Profil['Golongan'] == 'IIId') {
+												echo 'selected';
+											}?>>IIId</option>
+											<option value="Pembina/IVa" <?php if ($Profil['Golongan'] == 'IVa') {
+												echo 'selected';
+											}?>>IVa</option>
+											<option value="Pembina Tk. I/IVb" <?php if ($Profil['Golongan'] == 'IVb') {
+												echo 'selected';
+											}?>>IVb</option>
+											<option value="Pembina Utama Muda/IVc" <?php if ($Profil['Golongan'] == 'IVc') {
+												echo 'selected';
+											}?>>IVc</option>
+											<option value="Pembina Utama Madya/IVd" <?php if ($Profil['Golongan'] == 'IVd') {
+												echo 'selected';
+											}?>>IVd</option>
+											<option value="Pembina Utama/IVe" <?php if ($Profil['Golongan'] == 'IVe') {
+												echo 'selected';
+											}?>>IVe</option>
+										</select>
+									</div>
+									<div class="input-group mb-1">
+										<div class="input-group-prepend">
+											<label class="input-group-text bg-primary"><b>Jabatan</b></label>
+										</div>
+										<select class="custom-select" id="Jabatan">
+											<option value="Asisten Ahli" <?php if ($Profil['Jabatan'] == 'Asisten Ahli') {
+												echo 'selected';
+											}?>>Asisten Ahli</option>
+											<option value="Lektor" <?php if ($Profil['Jabatan'] == 'Lektor') {
+												echo 'selected';
+											}?>>Lektor</option>
+											<option value="Lektor Kepala" <?php if ($Profil['Jabatan'] == 'Lektor Kepala') {
+												echo 'selected';
+											}?>>Lektor Kepala</option>
+											<option value="Profesor" <?php if ($Profil['Jabatan'] == 'Profesor') {
+												echo 'selected';
+											}?>>Profesor</option>
+										</select>
+									</div>
+									<div class="input-group mb-1">
+										<div class="input-group-prepend">
+											<label class="input-group-text bg-primary"><b>Tahun Kredit Lama</b></label>
+										</div>
+										<input type="text" id="TahunKreditLama" class="form-control" value="<?=$Profil['Tahun']?>" data-inputmask='"mask": "9999"' data-mask>
+									</div>
+									<div class="input-group mb-1">
+										<div class="input-group-prepend">
+											<label class="input-group-text bg-primary"><b>Kredit Lama</b></label>
+										</div>
+										<input type="text" id="KreditLama" class="form-control" value="<?=$Profil['KreditLama']?>">
+									</div>
+									<div class="input-group mb-1">
+										<div class="input-group-prepend">
+											<label class="input-group-text bg-primary"><b>Ganti Password</b></label>
+										</div>
+										<input type="text" id="GantiPassword" class="form-control">
+									</div>
+								</div>
 							</div>
-							<input type="text" id="Nama" class="form-control form-control" value="<?=$Profil['Nama']?>">
-						</div>
-						<div class="input-group mb-1">
-							<div class="input-group-prepend">
-								<label class="input-group-text bg-primary"><b>NIDN</b></label>
-							</div>
-							<input type="text" id="NIDN" class="form-control form-control" value="<?=$Profil['NIDN']?>" data-inputmask='"mask": "9999999999"' data-mask>
-						</div>
-						<div class="input-group mb-1">
-							<div class="input-group-prepend">
-								<label class="input-group-text bg-primary"><b>NIP</b></label>
-							</div>
-							<input type="text" id="NIP" class="form-control form-control" value="<?=$Profil['NIP']?>" data-inputmask='"mask": "999999999999999999"' data-mask>
-						</div>
-						<div class="input-group mb-1">
-							<div class="input-group-prepend">
-								<label class="input-group-text bg-primary"><b>Golongan</b></label>
-							</div>
-							<select class="custom-select" id="Golongan">
-								<option value="Penata Muda/IIIa" <?php if ($Profil['Golongan'] == 'IIIa') {
-									echo 'selected';
-								}?>>IIIa</option>
-								<option value="Penata Muda Tk. I/IIIb" <?php if ($Profil['Golongan'] == 'IIIb') {
-									echo 'selected';
-								}?>>IIIb</option>
-								<option value="Penata/IIIc" <?php if ($Profil['Golongan'] == 'IIIc') {
-									echo 'selected';
-								}?>>IIIc</option>
-								<option value="Penata Tk. I/IIId" <?php if ($Profil['Golongan'] == 'IIId') {
-									echo 'selected';
-								}?>>IIId</option>
-								<option value="Pembina/IVa" <?php if ($Profil['Golongan'] == 'IVa') {
-									echo 'selected';
-								}?>>IVa</option>
-								<option value="Pembina Tk. I/IVb" <?php if ($Profil['Golongan'] == 'IVb') {
-									echo 'selected';
-								}?>>IVb</option>
-								<option value="Pembina Utama Muda/IVc" <?php if ($Profil['Golongan'] == 'IVc') {
-									echo 'selected';
-								}?>>IVc</option>
-								<option value="Pembina Utama Madya/IVd" <?php if ($Profil['Golongan'] == 'IVd') {
-									echo 'selected';
-								}?>>IVd</option>
-								<option value="Pembina Utama/IVe" <?php if ($Profil['Golongan'] == 'IVe') {
-									echo 'selected';
-								}?>>IVe</option>
-							</select>
-						</div>
-						<div class="input-group mb-1">
-							<div class="input-group-prepend">
-								<label class="input-group-text bg-primary"><b>Jabatan</b></label>
-							</div>
-							<select class="custom-select" id="Jabatan">
-								<option value="Asisten Ahli" <?php if ($Profil['Jabatan'] == 'Asisten Ahli') {
-									echo 'selected';
-								}?>>Asisten Ahli</option>
-								<option value="Lektor" <?php if ($Profil['Jabatan'] == 'Lektor') {
-									echo 'selected';
-								}?>>Lektor</option>
-								<option value="Lektor Kepala" <?php if ($Profil['Jabatan'] == 'Lektor Kepala') {
-									echo 'selected';
-								}?>>Lektor Kepala</option>
-								<option value="Profesor" <?php if ($Profil['Jabatan'] == 'Profesor') {
-									echo 'selected';
-								}?>>Profesor</option>
-							</select>
-						</div>
-						<div class="input-group mb-1">
-							<div class="input-group-prepend">
-								<label class="input-group-text bg-primary"><b>Tahun Kredit Lama</b></label>
-							</div>
-							<input type="text" id="TahunKreditLama" class="form-control form-control" value="<?=$Profil['Tahun']?>" data-inputmask='"mask": "9999"' data-mask>
-						</div>
-						<div class="input-group mb-1">
-							<div class="input-group-prepend">
-								<label class="input-group-text bg-primary"><b>Kredit Lama</b></label>
-							</div>
-							<input type="text" id="KreditLama" class="form-control form-control" value="<?=$Profil['KreditLama']?>">
-						</div>
-						<div class="input-group mb-1">
-							<div class="input-group-prepend">
-								<label class="input-group-text bg-primary"><b>Ganti Password</b></label>
-							</div>
-							<input type="text" id="GantiPassword" class="form-control form-control">
 						</div>
 					</div>
 					<div class="modal-footer justify-content-between">

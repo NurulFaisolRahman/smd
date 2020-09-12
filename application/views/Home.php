@@ -68,7 +68,7 @@
                               <div class="tab-pane fade show active" id="pills-Masuk" role="tabpanel" aria-labelledby="pills-Masuk-tab">
                                 <div class="input-group input-group-sm mb-2">
                                   <div class="input-group-prepend">
-                                    <span class="input-group-text bg-warning text-primary"><b>NIP</b></span>
+                                    <span class="input-group-text bg-warning text-primary"><b>Username</b></span>
                                   </div>
                                   <input type="text" class="form-control" id="nip">
                                 </div>

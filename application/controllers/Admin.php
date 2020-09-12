@@ -33,7 +33,7 @@ class Admin extends CI_Controller {
 									'Golongan' => $_POST['Golongan'],
 									'Tahun' => $_POST['Tahun'],
 									'KreditLama' => $_POST['KreditLama']));
-			$this->db->insert('Akun',array('NIP' => $_POST['NIP'],'Password' => password_hash($_POST['Password'], PASSWORD_DEFAULT),'JenisAkun' => '1'));
+			$this->db->insert('Akun',array('NIP' => $_POST['NIP'],'Password' => password_hash($_POST['NIP'], PASSWORD_DEFAULT),'JenisAkun' => '1'));
 			echo '1';
 		} else{
 			echo "Akun Dosen Dengan NIP ".$_POST['NIP']." Sudah Ada!";

@@ -44,71 +44,137 @@
       </div>
     </div>
     <div class="modal fade" id="ModalAkunDosen">
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-lg">
         <div class="modal-content bg-warning">
           <div class="modal-body">
-            <div class="input-group input-group-sm mb-2">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-primary text-primary"><b>NIP</b></span>
+            <div class="container">
+							<div class="row">
+								<div class="col-sm-4">
+                  <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-primary text-primary"><b>Nama</b></span>
+                    </div>
+                    <input type="text" class="form-control" id="Nama" placeholder="Input Nama + Gelar">
+                  </div>
+                  <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-primary text-primary"><b>NIP</b></span>
+                    </div>
+                    <input type="text" class="form-control" id="NIP" data-inputmask='"mask": "999999999999999999"' data-mask>
+                  </div>
+                  <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-primary text-primary"><b>NIDN</b></span>
+                    </div>
+                    <input type="text" class="form-control" id="NIDN" data-inputmask='"mask": "9999999999"' data-mask>
+                  </div>
+                  <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text bg-primary text-primary"><b>Golongan</b></label>
+                    </div>
+                    <select class="custom-select" id="Golongan">
+                      <option value="Penata Muda/IIIa">IIIa</option>
+                      <option value="Penata Muda Tk. I/IIIb">IIIb</option>
+                      <option value="Penata/IIIc">IIIc</option>
+                      <option value="Penata Tk. I/IIId">IIId</option>
+                      <option value="Pembina/IVa">IVa</option>
+                      <option value="Pembina Tk. I/IVb">IVb</option>
+                      <option value="Pembina Utama Muda/IVc">IVc</option>
+                      <option value="Pembina Utama Madya/IVd">IVd</option>
+                      <option value="Pembina Utama/IVe">IVe</option>
+                    </select>
+                  </div>
+                  <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text bg-primary text-primary"><b>Jabatan</b></label>
+                    </div>
+                    <select class="custom-select" id="Jabatan">
+                      <option value="Asisten Ahli">Asisten Ahli</option>
+                      <option value="Lektor">Lektor</option>
+                      <option value="Lektor Kepala">Lektor Kepala</option>
+                      <option value="Profesor">Profesor</option>
+                    </select>
+                  </div>
+                  <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-primary text-primary"><b>Tahun Kredit Lama</b></span>
+                    </div>
+                    <input type="text" class="form-control" id="TahunKreditLama" data-inputmask='"mask": "9999"' data-mask value="20">
+                  </div>
+                  <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-primary text-primary"><b>Kredit Lama</b></span>
+                    </div>
+                    <input type="text" class="form-control" id="KreditLama">
+                  </div>
+                </div>
+                <div class="col-sm-8">
+                  <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-primary text-primary"><b>S2</b></span>
+                    </div>
+                    <input type="text" class="form-control" id="S2" placeholder="Input Jurusan + Universitas">
+                  </div>
+                  <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-primary text-primary"><b>S3</b></span>
+                    </div>
+                    <input type="text" class="form-control" id="S3" placeholder="Input Jurusan + Universitas">
+                  </div>
+                  <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-primary text-primary"><b>Bidang Keahlian</b></span>
+                    </div>
+                    <input type="text" class="form-control" id="BidangKeahlian">
+                  </div>
+                  <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text bg-primary text-primary"><b>Kesesuaian dengan Kompetensi Inti Program Studi</b></label>
+                    </div>
+                    <select class="custom-select" id="KesesuaianKompetensi">
+                      <option value="Sesuai">Sesuai</option>
+                      <option value="Tidak Sesuai">Tidak Sesuai</option>
+                    </select>
+                  </div>
+                  <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text bg-primary text-primary"><b>Kesesuaian Dengan Mata Kuliah Yang Diampu</b></label>
+                    </div>
+                    <select class="custom-select" id="KesesuaianBidang">
+                      <option value="Sesuai">Sesuai</option>
+                      <option value="Tidak Sesuai">Tidak Sesuai</option>
+                    </select>
+                  </div>
+                  <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-primary text-primary"><b>Sertifikat Pendidik Profesional</b></span>
+                    </div>
+                    <input type="text" class="form-control" id="SertifikatPendidik">
+                  </div>
+                  <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-primary text-primary"><b>Sertifikat Kompetensi/Profesi/Industri</b></span>
+                    </div>
+                    <input type="text" class="form-control" id="SertifikatKompetensi">
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-primary text-primary"><b>Mata Kuliah Yang Diampu Pada<br>Program Studi Yang Diakreditasi</b></span>
+                    </div>
+                    <textarea class="form-control" id="MengajarPS" rows="2"></textarea>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-primary text-primary"><b>Mata Kuliah Yang Diampu Pada<br>Program Studi Lain</b></span>
+                    </div>
+                    <textarea class="form-control" id="MengajarPSLain" rows="2"></textarea>
+                  </div>
+                </div>
               </div>
-              <input type="text" class="form-control" id="NIP" data-inputmask='"mask": "999999999999999999"' data-mask>
-            </div>
-            <div class="input-group input-group-sm mb-2">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-primary text-primary"><b>NIDN</b></span>
-              </div>
-              <input type="text" class="form-control" id="NIDN" data-inputmask='"mask": "9999999999"' data-mask>
-            </div>
-            <div class="input-group input-group-sm mb-2">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-primary text-primary"><b>Nama</b></span>
-              </div>
-              <input type="text" class="form-control" id="Nama" placeholder="Nama + Gelar">
-            </div>
-            <div class="input-group input-group-sm mb-2">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-primary text-primary"><b>Password</b></span>
-              </div>
-              <input type="password" class="form-control" id="Sandi" placeholder="Minilmal 8 Karakter">
-            </div>
-            <div class="input-group input-group-sm mb-2">
-              <div class="input-group-prepend">
-                <label class="input-group-text bg-primary text-primary"><b>Golongan</b></label>
-              </div>
-              <select class="custom-select" id="Golongan">
-                <option value="Penata Muda/IIIa">IIIa</option>
-                <option value="Penata Muda Tk. I/IIIb">IIIb</option>
-                <option value="Penata/IIIc">IIIc</option>
-                <option value="Penata Tk. I/IIId">IIId</option>
-                <option value="Pembina/IVa">IVa</option>
-                <option value="Pembina Tk. I/IVb">IVb</option>
-                <option value="Pembina Utama Muda/IVc">IVc</option>
-                <option value="Pembina Utama Madya/IVd">IVd</option>
-                <option value="Pembina Utama/IVe">IVe</option>
-              </select>
-            </div>
-            <div class="input-group input-group-sm mb-2">
-              <div class="input-group-prepend">
-                <label class="input-group-text bg-primary text-primary"><b>Jabatan</b></label>
-              </div>
-              <select class="custom-select" id="Jabatan">
-                <option value="Asisten Ahli">Asisten Ahli</option>
-                <option value="Lektor">Lektor</option>
-                <option value="Lektor Kepala">Lektor Kepala</option>
-                <option value="Profesor">Profesor</option>
-              </select>
-            </div>
-            <div class="input-group input-group-sm mb-2">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-primary text-primary"><b>Tahun Kredit Lama</b></span>
-              </div>
-              <input type="text" class="form-control" id="TahunKreditLama" data-inputmask='"mask": "9999"' data-mask value="20">
-            </div>
-            <div class="input-group input-group-sm mb-2">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-primary text-primary"><b>Kredit Lama</b></span>
-              </div>
-              <input type="text" class="form-control" id="KreditLama">
             </div>
           </div>
           <div class="modal-footer justify-content-between">
@@ -159,16 +225,15 @@
             alert('Mohon Isi NIDN 10 Angka!')
           } else if ($("#Nama").val() === "") {
             alert('Mohon Isi Nama + Gelar!')
+          } else if (isNaN($("#TahunKreditLama").val())) {
+            alert('Tahun Kredit Lama Belum BEnar!')
           } else if (isNaN(parseFloat($("#KreditLama").val().replace(',','.')))) {
 						alert('Kredit Lama Belum Benar!')
-					} else if ($("#Sandi").val() === "" || $("#Sandi").val().length < 8) {
-            alert('Password Minimal 8 Karakter!')
-          } else {
+					} else {
             var Pangkat = $("#Golongan").val().split("/") 
             var Akun = { NIP: $("#NIP").val(),
                          NIDN: $("#NIDN").val(),
                          Nama: $("#Nama").val(),
-                         Password: $("#Sandi").val(),
                          Pangkat: Pangkat[0],
                          Golongan: Pangkat[1],
                          Jabatan: $("#Jabatan").val(),
@@ -176,7 +241,7 @@
 												 KreditLama: $("#KreditLama").val() }
             $.post(BaseURL+"Admin/Daftar", Akun).done(function(Respon) {
               if (Respon == '1') {
-                alert('Akun Dosen Dengan NIP '+$("#NIP").val()+' & Password '+$("#Sandi").val()+' Berhasil Di Tambahkan!')
+                alert('Akun Dosen Dengan NIP '+$("#NIP").val()+' & Password '+$("#NIP").val()+' Berhasil Di Tambahkan!')
                 window.location = BaseURL + "Admin/AkunDosen"
               }
               else {
