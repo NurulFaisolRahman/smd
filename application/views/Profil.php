@@ -20,7 +20,115 @@
 								</div>
 								<button class="btn btn-primary text-white" data-toggle="modal" data-target="#ModalEditProfil"><i class="fa fa-edit"></i> <b>Edit Profil</b></button>
 							</div>
-							<div class="col-sm-auto my-2">
+							<div class="col-sm-4 mt-2">
+								<div class="input-group input-group-sm mb-2">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-primary text-primary"><b>Nama</b></span>
+									</div>
+									<input type="text" class="form-control" value="<?=$Profil['Nama']?>" disabled>
+								</div>
+								<div class="input-group input-group-sm mb-2">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-primary text-primary"><b>NIP</b></span>
+									</div>
+									<input type="text" class="form-control" value="<?=$Profil['NIP']?>" disabled>
+								</div>
+								<div class="input-group input-group-sm mb-2">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-primary text-primary"><b>NIDN</b></span>
+									</div>
+									<input type="text" class="form-control" value="<?=$Profil['NIDN']?>" disabled>
+								</div>
+								<div class="input-group input-group-sm mb-2">
+									<div class="input-group-prepend">
+										<label class="input-group-text bg-primary text-primary"><b>Pangkat</b></label>
+									</div>
+									<input type="text" class="form-control" value="<?=$Profil['Pangkat']?>" disabled>
+								</div>
+								<div class="input-group input-group-sm mb-2">
+									<div class="input-group-prepend">
+										<label class="input-group-text bg-primary text-primary"><b>Golongan</b></label>
+									</div>
+									<input type="text" class="form-control" value="<?=$Profil['Golongan']?>" disabled>
+								</div>
+								<div class="input-group input-group-sm mb-2">
+									<div class="input-group-prepend">
+										<label class="input-group-text bg-primary text-primary"><b>Jabatan</b></label>
+									</div>
+									<input type="text" class="form-control" value="<?=$Profil['Jabatan']?>" disabled>
+								</div>
+								<div class="input-group input-group-sm mb-2">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-primary text-primary"><b>Kredit Lama</b></span>
+									</div>
+									<input type="text" class="form-control" value="<?=$Profil['KreditLama']?>" disabled>
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-primary text-primary"><b>Tahun</b></span>
+									</div>
+									<input type="text" class="form-control" value="<?=$Profil['Tahun']?>" disabled>
+								</div>
+								<div class="input-group input-group-sm mb-2">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-primary text-primary"><b>Kredit Baru</b></span>
+									</div>
+									<input type="text" class="form-control" value="<?=str_replace('.',',',$KreditBaru)?>" disabled>
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-primary text-primary"><b>Total Kredit</b></span>
+									</div>
+									<input type="text" class="form-control" value="<?=str_replace('.',',',($Profil['KreditLama']+$KreditBaru))?>" disabled>
+								</div>
+							</div>
+							<div class="col-sm-5 mt-2">
+								<div class="input-group input-group-sm mb-2">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-primary text-primary"><b>Nomor Whatsapp</b></span>
+									</div>
+									<input type="text" class="form-control" value="<?=$Profil['WA']?>" disabled>
+								</div>
+								<div class="input-group input-group-sm mb-2">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-primary text-primary"><b>S2</b></span>
+									</div>
+									<input type="text" class="form-control" value="<?=$Profil['S2']?>" disabled>
+								</div>
+								<div class="input-group input-group-sm mb-2">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-primary text-primary"><b>S3</b></span>
+									</div>
+									<input type="text" class="form-control" value="<?=$Profil['S3']?>" disabled>
+								</div>
+								<div class="input-group input-group-sm mb-2">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-primary text-primary"><b>Bidang Keahlian</b></span>
+									</div>
+									<input type="text" class="form-control" value="<?=$Profil['BidangKeahlian']?>" disabled>
+								</div>
+								<div class="input-group input-group-sm mb-2">
+									<div class="input-group-prepend">
+										<label class="input-group-text bg-primary text-primary"><b>Kesesuaian Kompetensi</b></label>
+									</div>
+									<input type="text" class="form-control" value="<?= $Profil['KesesuaianKompetensi'] == 1 ? 'Sesuai' : 'Tidak Sesuai'?>" disabled>
+								</div>
+								<div class="input-group input-group-sm mb-2">
+									<div class="input-group-prepend">
+										<label class="input-group-text bg-primary text-primary"><b>Kesesuaian Mata Kuliah</b></label>
+									</div>
+									<input type="text" class="form-control" value="<?= $Profil['KesesuaianBidang'] == 1 ? 'Sesuai' : 'Tidak Sesuai'?>" disabled>
+								</div>
+								<div class="input-group input-group-sm mb-2">
+									<div class="input-group-prepend">
+										<label class="input-group-text bg-primary text-primary"><b>Sertifikat Pendidik</b></label>
+									</div>
+									<input type="text" class="form-control" value="<?=$Profil['SertifikatPendidik']?>" disabled>
+								</div>
+								<div class="input-group input-group-sm mb-2">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-primary text-primary"><b>Sertifikat Kompetensi</b></span>
+									</div>
+									<input type="text" class="form-control" value="<?=$Profil['SertifikatKompetensi']?>" disabled>
+								</div>
+							</div>
+							<!-- <div class="col-sm-auto my-2">
 								<table class="table-responsive">
 									<tr>
 										<td><b>Nama</b></td>
@@ -58,8 +166,12 @@
 										<td><b>Total Kredit</b></td>
 										<td><b>: <?=str_replace('.',',',($Profil['KreditLama']+$KreditBaru))?></b></td>
 									</tr>
+									<tr>
+										<td><b>Whatsapp</b></td>
+										<td><b>: <?=$Profil['WA']?></b></td>
+									</tr>
 								</table>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>

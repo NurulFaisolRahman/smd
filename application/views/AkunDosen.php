@@ -49,7 +49,7 @@
           <div class="modal-body">
             <div class="container">
 							<div class="row">
-								<div class="col-sm-4">
+								<div class="col-sm-5">
                   <div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
                       <span class="input-group-text bg-primary text-primary"><b>Nama</b></span>
@@ -97,18 +97,22 @@
                   </div>
                   <div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
-                      <span class="input-group-text bg-primary text-primary"><b>Tahun Kredit Lama</b></span>
+                      <span class="input-group-text bg-primary text-primary"><b>Kredit Lama</b></span>
+                    </div>
+                    <input type="text" class="form-control" id="KreditLama">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-primary text-primary"><b>Tahun</b></span>
                     </div>
                     <input type="text" class="form-control" id="TahunKreditLama" data-inputmask='"mask": "9999"' data-mask value="20">
                   </div>
                   <div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
-                      <span class="input-group-text bg-primary text-primary"><b>Kredit Lama</b></span>
+                      <span class="input-group-text bg-primary text-primary"><b>Nomor Whatsapp</b></span>
                     </div>
-                    <input type="text" class="form-control" id="KreditLama">
+                    <input type="text" class="form-control" id="WA">
                   </div>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-7">
                   <div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
                       <span class="input-group-text bg-primary text-primary"><b>S2</b></span>
@@ -129,11 +133,11 @@
                   </div>
                   <div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
-                      <label class="input-group-text bg-primary text-primary"><b>Kesesuaian dengan Kompetensi Inti Program Studi</b></label>
+                      <label class="input-group-text bg-primary text-primary"><b>Kesesuaian Dengan Kompetensi Program Studi</b></label>
                     </div>
                     <select class="custom-select" id="KesesuaianKompetensi">
-                      <option value="Sesuai">Sesuai</option>
-                      <option value="Tidak Sesuai">Tidak Sesuai</option>
+                      <option value="1">Sesuai</option>
+                      <option value="2">Tidak Sesuai</option>
                     </select>
                   </div>
                   <div class="input-group input-group-sm mb-2">
@@ -141,8 +145,8 @@
                       <label class="input-group-text bg-primary text-primary"><b>Kesesuaian Dengan Mata Kuliah Yang Diampu</b></label>
                     </div>
                     <select class="custom-select" id="KesesuaianBidang">
-                      <option value="Sesuai">Sesuai</option>
-                      <option value="Tidak Sesuai">Tidak Sesuai</option>
+                      <option value="1">Sesuai</option>
+                      <option value="2">Tidak Sesuai</option>
                     </select>
                   </div>
                   <div class="input-group input-group-sm mb-2">
@@ -238,7 +242,17 @@
                          Golongan: Pangkat[1],
                          Jabatan: $("#Jabatan").val(),
                          Tahun: $("#TahunKreditLama").val(),
-												 KreditLama: $("#KreditLama").val() }
+												 KreditLama: $("#KreditLama").val(),
+                         WA: $("#WA").val(),
+                         S2: $("#S2").val(),
+                         S3: $("#S3").val(),
+                         BidangKeahlian: $("#BidangKeahlian").val(),
+                         KesesuaianKompetensi: $("#KesesuaianKompetensi").val(),
+                         KesesuaianBidang: $("#KesesuaianBidang").val(),
+                         SertifikatPendidik: $("#SertifikatPendidik").val(),
+                         SertifikatKompetensi: $("#SertifikatKompetensi").val(),
+                         MengajarPS: $("#MengajarPS").val(),
+                         MengajarPSLain: $("#MengajarPSLain").val() }
             $.post(BaseURL+"Admin/Daftar", Akun).done(function(Respon) {
               if (Respon == '1') {
                 alert('Akun Dosen Dengan NIP '+$("#NIP").val()+' & Password '+$("#NIP").val()+' Berhasil Di Tambahkan!')

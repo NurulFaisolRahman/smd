@@ -32,7 +32,17 @@ class Admin extends CI_Controller {
 									'Pangkat' => $_POST['Pangkat'],
 									'Golongan' => $_POST['Golongan'],
 									'Tahun' => $_POST['Tahun'],
-									'KreditLama' => $_POST['KreditLama']));
+									'KreditLama' => $_POST['KreditLama'],
+								 	'WA' => $_POST['WA'],
+									'S2' => $_POST['S2'],
+									'S3' => $_POST['S3'],
+									'BidangKeahlian' => $_POST['BidangKeahlian'],
+									'KesesuaianKompetensi' => $_POST['KesesuaianKompetensi'],
+									'KesesuaianBidang' => $_POST['KesesuaianBidang'],
+									'SertifikatPendidik' => $_POST['SertifikatPendidik'],
+									'SertifikatKompetensi' => $_POST['SertifikatKompetensi'],
+									'MengajarPS' => $_POST['MengajarPS'],
+									'MengajarPSLain' => $_POST['MengajarPSLain']));
 			$this->db->insert('Akun',array('NIP' => $_POST['NIP'],'Password' => password_hash($_POST['NIP'], PASSWORD_DEFAULT),'JenisAkun' => '1'));
 			echo '1';
 		} else{
