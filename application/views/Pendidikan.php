@@ -93,7 +93,7 @@
 				});
 
 				$('#TabelRealisasi').DataTable( {
-					dom:'lfrtip',
+					// dom:'lfrtip',
 					"lengthMenu": [ 5, 10, 20, 30 ],
 					"language": {
 						"paginate": {

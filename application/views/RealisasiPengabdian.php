@@ -1,6 +1,10 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-4 mt-1 mb-1">
+    <div class="col-sm-auto mt-1 mb-1">
+      <button type="button" id="LihatRealisasi" class="btn btn-primary mb-1"><i class="fa fa-eye"></i><b> Lihat</b></button>
+      <button type="button" class="btn btn-danger text-light mb-1" data-toggle="modal" data-target="#InputRealisasiPengabdian"><i class="fa fa-plus"></i> <b>Input</b></button>            
+    </div>   
+    <div class="col-sm-9 mt-1 mb-1">
       <div class="input-group mb-1">
         <div class="input-group-prepend">
           <label class="input-group-text bg-warning"><i class="fa fa-tasks"></i><b>&nbsp;Kegiatan</b></label>
@@ -32,10 +36,6 @@
       </select>
       </div>
     </div> 
-    <div class="col-sm-4 mt-1 mb-1">
-      <button type="button" id="LihatRealisasi" class="btn btn-primary mb-1"><i class="fa fa-eye"></i><b> Lihat</b></button>
-      <button type="button" class="btn btn-danger text-light mb-1" data-toggle="modal" data-target="#InputRealisasiPengabdian"><i class="fa fa-plus"></i> <b>Input</b></button>            
-    </div>   
   </div>
   <div class="container-fluid">
     <div class="table-responsive mb-2">
@@ -76,150 +76,189 @@
   </div>
 </div>
 <div class="modal fade" id="InputRealisasiPengabdian">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content bg-warning">
       <div class="modal-body">
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <label class="input-group-text bg-primary"><b>Homebase</b></label>
-          </div>
-          <select class="custom-select" id="JenisRealisasi">										
-              <option value="S1">S1</option>
-              <option value="S2">S2</option>
-          </select>
-        </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <label class="input-group-text bg-primary"><b>Semester</b></label>
-          </div>
-          <select class="custom-select" id="SemesterRealisasi">										
-              <option value="Ganjil">Ganjil</option>
-              <option value="Genap">Genap</option>
-          </select>
-        </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <label class="input-group-text bg-primary"><b>Tahun</b></label>
-          </div>
-          <input class="form-control" type="text" id="TahunRealisasi"  data-inputmask='"mask": "9999"' data-mask value="20">
-        </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Kegiatan</b></span>
-          </div>
-          <select class="custom-select" id="InputIdKegiatanPengabdian" onchange="InputIdKegiatanPengabdian()">
-          <?php $Id = 1; foreach ($Kegiatan as $key) { ?>
-              <option value="<?='PNB'.$Id++?>"><?=$key?></option>
-            <?php } ?>
-            <option value="PNB8">Suatu kegiatan yang setara dengan 50 jam kerja per semester(disetujui pimpinan & tercatat)</option>
-          <option value="PNB9">Reviewer insidental kegiatan(Bedah buku,tim penilai pustakawan/dosen/mahasiswa/karyawan/laboran berprestasi,reviewer artikel ilmiah,hibah pengajaran)</option>
-          <option value="PNB10">Reviewer terstruktur (minimal 2 semester) </option>  
-          </select>
-        </div>
-        <div id="OpsiPNB3" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Tingkat</b></span>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <label class="input-group-text bg-primary"><b>Homebase</b></label>
+                </div>
+                <select class="custom-select" id="JenisRealisasi">										
+                  <option value="S1">S1</option>
+                  <option value="S2">S2</option>
+                </select>
+              </div>
             </div>
-            <select class="custom-select" id="Tingkat">
-              <option value="1">Dalam 1 semester/lebih Tingkat Internasional tiap program</option>
-              <option value="2">Dalam 1 semester/lebih Tingkat Nasional tiap program</option>
-              <option value="3">Dalam 1 semester/lebih Tingkat Lokal tiap program</option>
-              <option value="4">Kurang dari 1 semester dan minimal 1 bulan Tingkat Internasional tiap program</option>
-              <option value="5">Kurang dari 1 semester dan minimal 1 bulan Tingkat Nasional tiap program</option>
-              <option value="6">Kurang dari 1 semester dan minimal 1 bulan Tingkat Lokal tiap program</option>
-              <option value="7">Kurang dari 1 semester dan minimal 1 bulan Insidental tiap program</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNB4" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Dasar</b></span>
+            <div class="col-sm-4">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <label class="input-group-text bg-primary"><b>Semester</b></label>
+                </div>
+                <select class="custom-select" id="SemesterRealisasi">										
+                    <option value="Ganjil">Ganjil</option>
+                    <option value="Genap">Genap</option>
+                </select>
+              </div>
             </div>
-            <select class="custom-select" id="Dasar">
-              <option value="1">Berdasarkan bidang keahlian, tiap program</option>
-              <option value="2">Berdasarkan penugasan lembaga perguruan tinggi, tiap program</option>
-              <option value="3">Berdasarkan fungsi/jabatan tiap program</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNB5" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis</b></span>
+            <div class="col-sm-4">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <label class="input-group-text bg-primary"><b>Tahun</b></label>
+                </div>
+                <input class="form-control" type="text" id="TahunRealisasi"  data-inputmask='"mask": "9999"' data-mask value="20">
+              </div>
             </div>
-            <select class="custom-select" id="JenisPNB5">
-              <option value="3">Publikasi Ber ISBN</option>
-              <option value="2">Tidak Dipublikasi</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNB7" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Peran</b></span>
+            <div class="col-sm-12">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><b>Kegiatan</b></span>
+                </div>
+                <select class="custom-select" id="InputIdKegiatanPengabdian" onchange="InputIdKegiatanPengabdian()">
+                <?php $Id = 1; foreach ($Kegiatan as $key) { ?>
+                    <option value="<?='PNB'.$Id++?>"><?=$key?></option>
+                  <?php } ?>
+                  <option value="PNB8">Suatu kegiatan yang setara dengan 50 jam kerja per semester(disetujui pimpinan & tercatat)</option>
+                <option value="PNB9">Reviewer insidental kegiatan(Bedah buku,tim penilai pustakawan/dosen/mahasiswa/karyawan/laboran berprestasi,reviewer artikel ilmiah,hibah pengajaran)</option>
+                <option value="PNB10">Reviewer terstruktur (minimal 2 semester) </option>  
+                </select>
+              </div>
             </div>
-            <select class="custom-select" id="Peran">
-              <option value="1">Editor/dewan penyunting/dewan redaksi  jurnal ilmiah internasiona</option>
-              <option value="2">Editor/dewan penyunting/dewan redaksi  jurnal ilmiah nasional</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNB8" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Progres</b></span>
+            <div class="col-sm-12">
+              <div id="OpsiPNB3" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Tingkat</b></span>
+                  </div>
+                  <select class="custom-select" id="Tingkat">
+                    <option value="1">Dalam 1 semester/lebih Tingkat Internasional tiap program</option>
+                    <option value="2">Dalam 1 semester/lebih Tingkat Nasional tiap program</option>
+                    <option value="3">Dalam 1 semester/lebih Tingkat Lokal tiap program</option>
+                    <option value="4">Kurang dari 1 semester dan minimal 1 bulan Tingkat Internasional tiap program</option>
+                    <option value="5">Kurang dari 1 semester dan minimal 1 bulan Tingkat Nasional tiap program</option>
+                    <option value="6">Kurang dari 1 semester dan minimal 1 bulan Tingkat Lokal tiap program</option>
+                    <option value="7">Kurang dari 1 semester dan minimal 1 bulan Insidental tiap program</option>
+                  </select>
+                </div>
+              </div>
             </div>
-            <select class="custom-select" id="Proposal">
-              <option value="0.2">Proposal Pengabdian</option>
-              <option value="0.3">Persiapan Pengabdian</option>
-              <option value="0.7">Pelaksanaan kegiatan</option>
-              <option value="1">Penulisan laporan</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNB10" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Tingkat</b></span>
+            <div class="col-sm-12">
+              <div id="OpsiPNB4" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Dasar</b></span>
+                  </div>
+                  <select class="custom-select" id="Dasar">
+                    <option value="1">Berdasarkan bidang keahlian, tiap program</option>
+                    <option value="2">Berdasarkan penugasan lembaga perguruan tinggi, tiap program</option>
+                    <option value="3">Berdasarkan fungsi/jabatan tiap program</option>
+                  </select>
+                </div>
+              </div>
             </div>
-            <select class="custom-select" id="TingkatPNB10">
-              <option value="0.5">Lokal</option>
-              <option value="1">Nasional</option>
-              <option value="1.5">Internasional</option>
-            </select>
+            <div class="col-sm-12">
+              <div id="OpsiPNB5" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Jenis</b></span>
+                  </div>
+                  <select class="custom-select" id="JenisPNB5">
+                    <option value="3">Publikasi Ber ISBN</option>
+                    <option value="2">Tidak Dipublikasi</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div id="OpsiPNB7" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Peran</b></span>
+                  </div>
+                  <select class="custom-select" id="Peran">
+                    <option value="1">Editor/dewan penyunting/dewan redaksi  jurnal ilmiah internasiona</option>
+                    <option value="2">Editor/dewan penyunting/dewan redaksi  jurnal ilmiah nasional</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div id="OpsiPNB8" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Progres</b></span>
+                  </div>
+                  <select class="custom-select" id="Proposal">
+                    <option value="0.2">Proposal Pengabdian</option>
+                    <option value="0.3">Persiapan Pengabdian</option>
+                    <option value="0.7">Pelaksanaan kegiatan</option>
+                    <option value="1">Penulisan laporan</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div id="OpsiPNB10" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Tingkat</b></span>
+                  </div>
+                  <select class="custom-select" id="TingkatPNB10">
+                    <option value="0.5">Lokal</option>
+                    <option value="1">Nasional</option>
+                    <option value="1.5">Internasional</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><b>Volume Kegiatan</b></span>
+                </div>
+                <input class="form-control" type="text" id="Volume" data-inputmask='"mask": "99"' data-mask>
+              </div>
+            </div>
+            <div class="col-sm-9">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><b>Surat Tugas/SK</b></span>
+                </div>
+                <input class="form-control" type="text" id="SK">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <pre class="text-danger"><b>Volume Kegiatan Merujuk Pada Konteks Kegiatan</b></pre>
+            </div>
+            <div class="col-sm-12">
+              <div class="input-group input-group-sm mb-1">
+                <span class="input-group-text bg-primary"><b>Uraian<br>Kegiatan</b></span>
+                <textarea class="form-control" id="Uraian" rows="2"></textarea>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><b>Tanggal Kegiatan</b></span>
+                </div>
+                <input class="form-control" type="text" id="TanggalKegiatan">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><b>Bukti</b></span>
+                </div>
+                <input class="form-control" type="file" id="Bukti">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <pre class="text-danger"><b>Bukti Berupa Pdf & Wajib Menyertakan Surat Tugas/SK</b></pre>
+            </div>
           </div>
         </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Surat Tugas/SK</b></span>
-          </div>
-          <input class="form-control" type="text" id="SK">
-        </div>
-        <div class="input-group mb-1">
-          <span class="input-group-text bg-primary"><b>Uraian<br>Kegiatan</b></span>
-          <textarea class="form-control" id="Uraian" rows="2"></textarea>
-        </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Tanggal Kegiatan</b></span>
-          </div>
-          <input class="form-control" type="text" id="TanggalKegiatan">
-        </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Volume Kegiatan</b></span>
-          </div>
-          <input class="form-control" type="text" id="Volume" data-inputmask='"mask": "99"' data-mask>
-        </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Bukti</b></span>
-          </div>
-          <input class="form-control" type="file" id="Bukti">
-        </div>
-        <pre class="text-danger"><b>Bukti Berupa Pdf & Wajib Menyertakan Surat Tugas/SK</b></pre>
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
@@ -232,7 +271,7 @@
   <div class="modal-dialog">
     <div class="modal-content bg-warning">
       <div class="modal-body">
-        <div class="input-group mb-1">
+        <div class="input-group input-group-sm mb-1">
           <div class="input-group-prepend">
             <label class="input-group-text bg-primary"><b>Homebase</b></label>
           </div>
@@ -243,7 +282,7 @@
               <option value="S2">S2</option>
           </select>
         </div>
-        <div class="input-group mb-1">
+        <div class="input-group input-group-sm mb-1">
           <div class="input-group-prepend">
             <label class="input-group-text bg-primary"><b>Semester</b></label>
           </div>
@@ -252,29 +291,29 @@
               <option value="Genap">Genap</option>
           </select>
         </div>
-        <div class="input-group mb-1">
+        <div class="input-group input-group-sm mb-1">
           <div class="input-group-prepend">
             <label class="input-group-text bg-primary"><b>Tahun</b></label>
           </div>
           <input class="form-control" type="text" id="EditTahunRealisasi"  data-inputmask='"mask": "9999"' data-mask value="20">
         </div>
-        <div class="input-group mb-1">
+        <div class="input-group input-group-sm mb-1">
           <div class="input-group-prepend">
             <span class="input-group-text bg-primary"><b>Surat Tugas/SK</b></span>
           </div>
           <input class="form-control" type="text" id="EditSK">
         </div>
-        <div class="input-group mb-1">
+        <div class="input-group input-group-sm mb-1">
           <span class="input-group-text bg-primary"><b>Uraian<br>Kegiatan</b></span>
           <textarea class="form-control" id="EditUraian" rows="2"></textarea>
         </div>
-        <div class="input-group mb-1">
+        <div class="input-group input-group-sm mb-1">
           <div class="input-group-prepend">
             <span class="input-group-text bg-primary"><b>Tanggal Kegiatan</b></span>
           </div>
           <input class="form-control" type="text" id="EditTanggalKegiatan">
         </div>
-        <div class="input-group mb-1">
+        <div class="input-group input-group-sm mb-1">
           <div class="input-group-prepend">
             <span class="input-group-text bg-primary"><b>Bukti</b></span>
           </div>

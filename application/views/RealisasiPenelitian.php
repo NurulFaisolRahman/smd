@@ -1,6 +1,10 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-4 mt-1 mb-1">
+    <div class="col-sm-auto mt-1 mb-1">
+      <button type="button" id="LihatRealisasi" class="btn btn-primary mb-1"><i class="fa fa-eye"></i><b> Lihat</b></button>
+      <button type="button" class="btn btn-danger text-light mb-1" data-toggle="modal" data-target="#InputRealisasiPenelitian"><i class="fa fa-plus"></i> <b>Input</b></button>            
+    </div>   
+    <div class="col-sm-9 mt-1 mb-1">
       <div class="input-group mb-1">
         <div class="input-group-prepend">
           <label class="input-group-text bg-warning"><i class="fa fa-tasks"></i><b>&nbsp;Kegiatan</b></label>
@@ -37,10 +41,6 @@
         </select>
       </div>
     </div> 
-    <div class="col-sm-4 mt-1 mb-1">
-      <button type="button" id="LihatRealisasi" class="btn btn-primary mb-1"><i class="fa fa-eye"></i><b> Lihat</b></button>
-      <button type="button" class="btn btn-danger text-light mb-1" data-toggle="modal" data-target="#InputRealisasiPenelitian"><i class="fa fa-plus"></i> <b>Input</b></button>            
-    </div>   
   </div>
   <div class="container-fluid">
     <div class="table-responsive mb-2">
@@ -81,326 +81,379 @@
   </div>
 </div>
 <div class="modal fade" id="InputRealisasiPenelitian">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content bg-warning">
       <div class="modal-body">
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <label class="input-group-text bg-primary"><b>Homebase</b></label>
-          </div>
-          <select class="custom-select" id="JenisRealisasi">										
-              <option value="S1">S1</option>
-              <option value="S2">S2</option>
-          </select>
-        </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <label class="input-group-text bg-primary"><b>Semester</b></label>
-          </div>
-          <select class="custom-select" id="SemesterRealisasi">										
-              <option value="Ganjil">Ganjil</option>
-              <option value="Genap">Genap</option>
-          </select>
-        </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <label class="input-group-text bg-primary"><b>Tahun</b></label>
-          </div>
-          <input class="form-control" type="text" id="TahunRealisasi"  data-inputmask='"mask": "9999"' data-mask value="20">
-        </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Kegiatan</b></span>
-          </div>
-          <select class="custom-select" id="InputIdKegiatanPenelitian" onchange="InputIdKegiatanPenelitian()">
-          <?php $Id = 1; foreach ($Kegiatan as $key) { ?>
-              <option value="<?='PNL'.$Id++?>"><?=$key?></option>
-            <?php } ?>
-          </select>
-        </div>
-        <div id="OpsiPNL1">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis</b></span>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <label class="input-group-text bg-primary"><b>Homebase</b></label>
+                </div>
+                <select class="custom-select" id="JenisRealisasi">										
+                  <option value="S1">S1</option>
+                  <option value="S2">S2</option>
+                </select>
+              </div>
             </div>
-            <select class="custom-select" id="Point1">
-              <option value="1">a1. Hasil penelitian yang dipublikasikan dalam bentuk buku referensi</option>
-              <option value="2">a2. Hasil penelitian yang dipublikasikan dalam bentuk Monograf</option>
-              <option value="3">b1. Hasil penelitian dalam buku yang dipublikasikan dan berisi berbagai tulisan dari berbagai penulis (book chapter) Internasional</option>
-              <option value="4">b2. Hasil penelitian dalam buku yang dipublikasikan dan berisi berbagai tulisan dari berbagai penulis (book chapter) Nasional</option>
-              <option value="5">c1. Hasil penelitian yang dipublikasikan dalam bentuk 1) Jurnal internasional bereputasi (terindeks pada database internasional bereputasi dan berfaktor dampak)</option>
-              <option value="6">c2. Hasil penelitian yang dipublikasikan dalam bentuk 2) Jurnal internasional terindeks pada basis datainternasional bereputasi</option>
-              <option value="7">c3. Hasil penelitian yang dipublikasikan dalam bentuk 3) Jurnal internasionalterindekspada basis data internasional di luar kategori 2)</option>
-              <option value="8">c4. Hasil penelitian yang dipublikasikan dalam bentuk 4) a. Jurnal Nasional terakreditasiDikti, b. Jurnal nasional terakreditasi Kemenristekdiktiperingkat 1 dan 2</option>
-              <option value="9">c5a. Hasil penelitian yang dipublikasikan dalam bentuk Jurnal Nasional berbahasa Inggris/bahasa resmi (PBB) terindeks pada basis data yang diakui Kemenristekdikti, contoh : CABI/ICI, Jurnal nasional terakreditasi peringkat 3 dan 4</option>
-              <option value="10">c5b. Hasil penelitian yang dipublikasikan dalam bentuk Jurnal Nasional berbahasa Indonesia terindeks pada basis datayang diakui Kemenristekdikti, contoh : akreditasi peringkat 5 dan 6</option>
-              <option value="11">c6. Hasil penelitian yang dipublikasikan dalam bentuk 6) Jurnal Nasional</option>
-              <option value="12">c7. Hasil penelitian yang dipublikasikan dalam bentuk 7) Jurnal ilmiah yang ditulis dalam Bahasa Resmi PBB namun tidak memenuhi syarat-syarat sebagai jurnal ilmiah internasional</option>
-            </select>
+            <div class="col-sm-4">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <label class="input-group-text bg-primary"><b>Semester</b></label>
+                </div>
+                <select class="custom-select" id="SemesterRealisasi">										
+                    <option value="Ganjil">Ganjil</option>
+                    <option value="Genap">Genap</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <label class="input-group-text bg-primary"><b>Tahun</b></label>
+                </div>
+                <input class="form-control" type="text" id="TahunRealisasi"  data-inputmask='"mask": "9999"' data-mask value="20">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><b>Kegiatan</b></span>
+                </div>
+                <select class="custom-select" id="InputIdKegiatanPenelitian" onchange="InputIdKegiatanPenelitian()">
+                <?php $Id = 1; foreach ($Kegiatan as $key) { ?>
+                    <option value="<?='PNL'.$Id++?>"><?=$key?></option>
+                  <?php } ?>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div id="OpsiPNL1">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Jenis</b></span>
+                  </div>
+                  <select class="custom-select" id="Point1">
+                    <option value="1">a1. Hasil penelitian yang dipublikasikan dalam bentuk buku referensi</option>
+                    <option value="2">a2. Hasil penelitian yang dipublikasikan dalam bentuk Monograf</option>
+                    <option value="3">b1. Hasil penelitian dalam buku yang dipublikasikan dan berisi berbagai tulisan dari berbagai penulis (book chapter) Internasional</option>
+                    <option value="4">b2. Hasil penelitian dalam buku yang dipublikasikan dan berisi berbagai tulisan dari berbagai penulis (book chapter) Nasional</option>
+                    <option value="5">c1. Hasil penelitian yang dipublikasikan dalam bentuk 1) Jurnal internasional bereputasi (terindeks pada database internasional bereputasi dan berfaktor dampak)</option>
+                    <option value="6">c2. Hasil penelitian yang dipublikasikan dalam bentuk 2) Jurnal internasional terindeks pada basis datainternasional bereputasi</option>
+                    <option value="7">c3. Hasil penelitian yang dipublikasikan dalam bentuk 3) Jurnal internasionalterindekspada basis data internasional di luar kategori 2)</option>
+                    <option value="8">c4. Hasil penelitian yang dipublikasikan dalam bentuk 4) a. Jurnal Nasional terakreditasiDikti, b. Jurnal nasional terakreditasi Kemenristekdiktiperingkat 1 dan 2</option>
+                    <option value="9">c5a. Hasil penelitian yang dipublikasikan dalam bentuk Jurnal Nasional berbahasa Inggris/bahasa resmi (PBB) terindeks pada basis data yang diakui Kemenristekdikti, contoh : CABI/ICI, Jurnal nasional terakreditasi peringkat 3 dan 4</option>
+                    <option value="10">c5b. Hasil penelitian yang dipublikasikan dalam bentuk Jurnal Nasional berbahasa Indonesia terindeks pada basis datayang diakui Kemenristekdikti, contoh : akreditasi peringkat 5 dan 6</option>
+                    <option value="11">c6. Hasil penelitian yang dipublikasikan dalam bentuk 6) Jurnal Nasional</option>
+                    <option value="12">c7. Hasil penelitian yang dipublikasikan dalam bentuk 7) Jurnal ilmiah yang ditulis dalam Bahasa Resmi PBB namun tidak memenuhi syarat-syarat sebagai jurnal ilmiah internasional</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div id="OpsiPNL2" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Jenis</b></span>
+                  </div>
+                  <select class="custom-select" id="Point2">
+                    <option value="1">a1. Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 1) Internasional terindeks pada Scimagojr & Scopus</option>
+                    <option value="2">a2. Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 2) Internasional terindeks pada SCOPUS, IEEE Explore, SPIE</option>
+                    <option value="3">a3. Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 3) Internasional</option>
+                    <option value="4">a4. Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 4) Nasional</option>
+                    <option value="5">b1. Disajikan dalam bentuk poster & dimuat dalam prosiding yang dipublikasikan Internasional</option>
+                    <option value="6">b2. Disajikan dalam bentuk poster & dimuat dalam prosiding yang dipublikasikan Nasional</option>
+                    <option value="7">c1. Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan Internasional</option>
+                    <option value="8">c2. Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan Nasional</option>
+                    <option value="9">d1. Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding Internasional</option>
+                    <option value="10">d2. Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding Nasional</option>
+                    <option value="11">e. Hasil penelitian/pemikiran yang disajikan dalam koran/majalah populer/umum</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div id="OpsiPNL6" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Jenis</b></span>
+                  </div>
+                  <select class="custom-select" id="Point6">
+                    <option value="1">a. Internasionalyang sudah diimplementasikan di industri (paling sedikit diakui oleh 4 Negara)</option>
+                    <option value="2">b. Internasional (paling sedikit diakui oleh 4 Negara)</option>
+                    <option value="3">c. Nasional (yang sudah diimplementasikan di industri)</option>
+                    <option value="4">d. Nasional</option>
+                    <option value="5">e. Nasional, dalam bentuk paten sederhana yang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham</option>
+                    <option value="6">f. Karya buku, desain industri, indikasi geografisyang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div id="OpsiPNL7" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Tingkat</b></span>
+                  </div>
+                  <select class="custom-select" id="Point7">
+                    <option value="1">Tingkat Internasional</option>
+                    <option value="2">Tingkat Nasional</option>
+                    <option value="3">Tingkat Lokal</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div id="OpsiPNL8" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Tingkat</b></span>
+                  </div>
+                  <select class="custom-select" id="Point8">
+                    <option value="1"><b>Internasional</b> Sebagai Komposer/Penulis Naskah/Sutradara/Perancang/Pencipta/Penggubah/Kameramen/Animator/Kurator/Editor Audio-Visual</option>
+                    <option value="2"><b>Nasional</b> Sebagai Komposer/Penulis Naskah/Sutradara/Perancang/Pencipta/Penggubah/Kameramen/Animator/Kurator/Editor Audio-Visual</option>
+                    <option value="3"><b>Lokal</b> Sebagai Komposer/Penulis Naskah/Sutradara/Perancang/Pencipta/Penggubah/Kameramen/Animator/Kurator/Editor Audio-Visual</option>
+                    <option value="4"><b>Internasional</b> Sebagai Penata Arstistik/Penata Musik/Penata Rias/PenataBusana/Penata Tari/Penata Lampu/Penata Suara/Penata Panggung/Ilustrator Foto/Kunduktor</option>
+                    <option value="5"><b>Nasional</b> Sebagai Penata Arstistik/Penata Musik/Penata Rias/PenataBusana/Penata Tari/Penata Lampu/Penata Suara/Penata Panggung/Ilustrator Foto/Kunduktor</option>
+                    <option value="6"><b>Lokal</b> Sebagai Penata Arstistik/Penata Musik/Penata Rias/PenataBusana/Penata Tari/Penata Lampu/Penata Suara/Penata Panggung/Ilustrator Foto/Kunduktor</option>
+                    <option value="7"><b>Internasional</b> Sebagai Pemusik/Pengrawit/Penari/Dalang/Pemeran/Pengarah Acara Televisi/Pelaksana Perancangan/Pendisplay Pameran/Pembuat FotoDokumentasi/Pewarta Foto/Pembawa Acara/Reporter/RedakturPelaksana</option>
+                    <option value="8"><b>Nasional</b> Sebagai Pemusik/Pengrawit/Penari/Dalang/Pemeran/Pengarah Acara Televisi/Pelaksana Perancangan/Pendisplay Pameran/Pembuat FotoDokumentasi/Pewarta Foto/Pembawa Acara/Reporter/RedakturPelaksana</option>
+                    <option value="9"><b>Lokal</b> Sebagai Pemusik/Pengrawit/Penari/Dalang/Pemeran/Pengarah Acara Televisi/Pelaksana Perancangan/Pendisplay Pameran/Pembuat FotoDokumentasi/Pewarta Foto/Pembawa Acara/Reporter/RedakturPelaksana</option>
+                    <option value="10"><b>Internasional</b> Sebagai Penulis Naskah Drama/Novel</option>
+                    <option value="11"><b>Nasional</b> Sebagai Penulis Naskah Drama/Novel</option>
+                    <option value="12"><b>Lokal</b> Sebagai Penulis Naskah Drama/Novel</option>
+                    <option value="13"><b>Internasional</b> Sebagai Penulis Buku Kumpulan Cerpen</option>
+                    <option value="14"><b>Nasional</b> Sebagai Penulis Buku Kumpulan Cerpen</option>
+                    <option value="15"><b>Lokal</b> Sebagai Penulis Buku Kumpulan Cerpen</option>
+                    <option value="16"><b>Internasional</b> Sebagai Penulis Buku Kumpulan Puisi</option>
+                    <option value="17"><b>Nasional</b> Sebagai Penulis Buku Kumpulan Puisi</option>
+                    <option value="18"><b>Lokal</b> Sebagai Penulis Buku Kumpulan Puisi</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div id="OpsiPNL9" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Sebagai</b></span>
+                  </div>
+                  <select class="custom-select" id="SebagaiPNL9">
+                    <option value="1">Ketua</option>
+                    <option value="2">Anggota</option>
+                  </select>
+                </div>
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Progres</b></span>
+                  </div>
+                  <select class="custom-select" id="ProgresPNL9">
+                    <option value="0.2">Proposal penelitian</option>
+                    <option value="0.3">Persiapan penelitian</option>
+                    <option value="0.5">Pengumpulan data</option>
+                    <option value="0.6">Analisa data</option>
+                    <option value="0.85">Penulisan laporan</option>
+                    <option value="1">Penulisan artikel ilmiah(terpublikasi)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div id="OpsiPNL10" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Progres</b></span>
+                  </div>
+                  <select class="custom-select" id="ProgresPNL10">
+                    <option value="0.2">Proposal penelitian</option>
+                    <option value="0.3">Persiapan penelitian</option>
+                    <option value="0.5">Pengumpulan data</option>
+                    <option value="0.6">Analisa data</option>
+                    <option value="0.85">Penulisan laporan</option>
+                    <option value="1">Penulisan artikel ilmiah(terpublikasi)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div id="OpsiPNL11" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Opsi</b></span>
+                  </div>
+                  <select class="custom-select" id="JenisPNL11">
+                    <option value="1">Menulis 1 judul buku/bahan ajar utuh Ber ISBN</option>
+                    <option value="1.8">Menulis 1 judul buku/bahan ajar, ada editor</option>
+                    <option value="1.2">Kontributor untuk 1 buku utuh, tidak tiap chapter</option>
+                    <option value="2">Menulis Modul/Diktat/BahanAjar oleh 1 Dosen (Tidak diterbitkan, tetapi digunakan oleh mahasiswa)</option>
+                  </select>
+                </div>
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Progres</b></span>
+                  </div>
+                  <select class="custom-select" id="ProgresPNL11">
+                    <option value="0.1">Bab Pendahuluan</option>
+                    <option value="0.6">Bab Isi Buku</option>
+                    <option value="0.75">Bab Penutup & Referensi</option>
+                    <option value="0.85">Persetujuan Penerbit</option>
+                    <option value="1">Proses pencetakan selesai</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div id="OpsiPNL14" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Jenis</b></span>
+                  </div>
+                  <select class="custom-select" id="JenisPNL14">
+                    <option value="3">jurnal/proseding tidak terakreditasi(lokal)</option>
+                    <option value="5">jurnal terakreditasi(nasional)</option>
+                    <option value="8">jurnal terakreditasi internasional(bhs internasional)</option>
+                  </select>
+                </div>
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Progres</b></span>
+                  </div>
+                  <select class="custom-select" id="ProgresPNL14">
+                    <option value="0.1">submit</option>
+                    <option value="0.3">Perbaikan/revisi</option>
+                    <option value="0.4">Sudah Revisi</option>
+                    <option value="0.9">Diterima (tapi belum terbit)</option>
+                    <option value="1">Dicetak (terbit)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div id="OpsiPNL15" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Jenis</b></span>
+                  </div>
+                  <select class="custom-select" id="JenisPNL15">
+                    <option value="0">presentasi ilmiah</option>
+                    <option value="1">poster</option>
+                    <option value="2">majalah/koran</option>
+                  </select>
+                </div>
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Lingkup</b></span>
+                  </div>
+                  <select class="custom-select" id="LingkupPNL15">
+                    <option value="0">Lokal/Regional</option>
+                    <option value="1">Nasional</option>
+                    <option value="2">Internasional</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div id="OpsiPNL16" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Lingkup</b></span>
+                  </div>
+                  <select class="custom-select" id="LingkupPNL16">
+                    <option value="0.75">Kalangan sendiri</option>
+                    <option value="1.5">Nasional</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div id="OpsiPNL17" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Jenis</b></span>
+                  </div>
+                  <select class="custom-select" id="JenisPNL17">
+                    <option value="3">Proses pengurusan paten sederhana</option>
+                    <option value="4">Proses pengurusan paten biasa</option>
+                    <option value="5">Proses pengurusan paten internasional</option>
+                  </select>
+                </div>
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Progres</b></span>
+                  </div>
+                  <select class="custom-select" id="ProgresPNL17">
+                    <option value="0.1">Pendaftaran</option>
+                    <option value="0.3">Pemeriksaan Substantif</option>
+                    <option value="0.6">Uji publik</option>
+                    <option value="1">Sertifikat</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div id="OpsiPenulis">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Penulis Ke</b></span>
+                  </div>
+                  <input class="form-control" type="text" id="Ke" data-inputmask='"mask": "9"' data-mask placeholder="1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Dari</b></span>
+                  </div>
+                  <input class="form-control" type="text" id="Dari" data-inputmask='"mask": "9"' data-mask placeholder="1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Penulis</b></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><b>Volume Kegiatan</b></span>
+                </div>
+                <input class="form-control" type="text" id="Volume" data-inputmask='"mask": "99"' data-mask>
+              </div>
+            </div>
+            <div class="col-sm-9">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><b>Surat Tugas/SK</b></span>
+                </div>
+                <input class="form-control" type="text" id="SK">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <pre class="text-danger"><b>Volume Kegiatan Merujuk Pada Konteks Kegiatan</b></pre>
+            </div>
+            <div class="col-sm-12">
+              <div class="input-group input-group-sm mb-1">
+                <span class="input-group-text bg-primary"><b>Uraian<br>Kegiatan</b></span>
+                <textarea class="form-control" id="Uraian" rows="2"></textarea>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><b>Tanggal Kegiatan</b></span>
+                </div>
+                <input class="form-control" type="text" id="TanggalKegiatan">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><b>Bukti</b></span>
+                </div>
+                <input class="form-control" type="file" id="Bukti">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <pre class="text-danger"><b>Bukti Berupa Pdf & Wajib Menyertakan Surat Tugas/SK</b></pre>
+            </div>
           </div>
         </div>
-        <div id="OpsiPNL2" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis</b></span>
-            </div>
-            <select class="custom-select" id="Point2">
-              <option value="1">a1. Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 1) Internasional terindeks pada Scimagojr & Scopus</option>
-              <option value="2">a2. Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 2) Internasional terindeks pada SCOPUS, IEEE Explore, SPIE</option>
-              <option value="3">a3. Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 3) Internasional</option>
-              <option value="4">a4. Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 4) Nasional</option>
-              <option value="5">b1. Disajikan dalam bentuk poster & dimuat dalam prosiding yang dipublikasikan Internasional</option>
-              <option value="6">b2. Disajikan dalam bentuk poster & dimuat dalam prosiding yang dipublikasikan Nasional</option>
-              <option value="7">c1. Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan Internasional</option>
-              <option value="8">c2. Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan Nasional</option>
-              <option value="9">d1. Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding Internasional</option>
-              <option value="10">d2. Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding Nasional</option>
-              <option value="11">e. Hasil penelitian/pemikiran yang disajikan dalam koran/majalah populer/umum</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNL6" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis</b></span>
-            </div>
-            <select class="custom-select" id="Point6">
-              <option value="1">a. Internasionalyang sudah diimplementasikan di industri (paling sedikit diakui oleh 4 Negara)</option>
-              <option value="2">b. Internasional (paling sedikit diakui oleh 4 Negara)</option>
-              <option value="3">c. Nasional (yang sudah diimplementasikan di industri)</option>
-              <option value="4">d. Nasional</option>
-              <option value="5">e. Nasional, dalam bentuk paten sederhana yang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham</option>
-              <option value="6">f. Karya buku, desain industri, indikasi geografisyang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNL7" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Tingkat</b></span>
-            </div>
-            <select class="custom-select" id="Point7">
-              <option value="1">Tingkat Internasional</option>
-              <option value="2">Tingkat Nasional</option>
-              <option value="3">Tingkat Lokal</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNL8" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Tingkat</b></span>
-            </div>
-            <select class="custom-select" id="Point8">
-              <option value="1"><b>Internasional</b> Sebagai Komposer/Penulis Naskah/Sutradara/Perancang/Pencipta/Penggubah/Kameramen/Animator/Kurator/Editor Audio-Visual</option>
-              <option value="2"><b>Nasional</b> Sebagai Komposer/Penulis Naskah/Sutradara/Perancang/Pencipta/Penggubah/Kameramen/Animator/Kurator/Editor Audio-Visual</option>
-              <option value="3"><b>Lokal</b> Sebagai Komposer/Penulis Naskah/Sutradara/Perancang/Pencipta/Penggubah/Kameramen/Animator/Kurator/Editor Audio-Visual</option>
-              <option value="4"><b>Internasional</b> Sebagai Penata Arstistik/Penata Musik/Penata Rias/PenataBusana/Penata Tari/Penata Lampu/Penata Suara/Penata Panggung/Ilustrator Foto/Kunduktor</option>
-              <option value="5"><b>Nasional</b> Sebagai Penata Arstistik/Penata Musik/Penata Rias/PenataBusana/Penata Tari/Penata Lampu/Penata Suara/Penata Panggung/Ilustrator Foto/Kunduktor</option>
-              <option value="6"><b>Lokal</b> Sebagai Penata Arstistik/Penata Musik/Penata Rias/PenataBusana/Penata Tari/Penata Lampu/Penata Suara/Penata Panggung/Ilustrator Foto/Kunduktor</option>
-              <option value="7"><b>Internasional</b> Sebagai Pemusik/Pengrawit/Penari/Dalang/Pemeran/Pengarah Acara Televisi/Pelaksana Perancangan/Pendisplay Pameran/Pembuat FotoDokumentasi/Pewarta Foto/Pembawa Acara/Reporter/RedakturPelaksana</option>
-              <option value="8"><b>Nasional</b> Sebagai Pemusik/Pengrawit/Penari/Dalang/Pemeran/Pengarah Acara Televisi/Pelaksana Perancangan/Pendisplay Pameran/Pembuat FotoDokumentasi/Pewarta Foto/Pembawa Acara/Reporter/RedakturPelaksana</option>
-              <option value="9"><b>Lokal</b> Sebagai Pemusik/Pengrawit/Penari/Dalang/Pemeran/Pengarah Acara Televisi/Pelaksana Perancangan/Pendisplay Pameran/Pembuat FotoDokumentasi/Pewarta Foto/Pembawa Acara/Reporter/RedakturPelaksana</option>
-              <option value="10"><b>Internasional</b> Sebagai Penulis Naskah Drama/Novel</option>
-              <option value="11"><b>Nasional</b> Sebagai Penulis Naskah Drama/Novel</option>
-              <option value="12"><b>Lokal</b> Sebagai Penulis Naskah Drama/Novel</option>
-              <option value="13"><b>Internasional</b> Sebagai Penulis Buku Kumpulan Cerpen</option>
-              <option value="14"><b>Nasional</b> Sebagai Penulis Buku Kumpulan Cerpen</option>
-              <option value="15"><b>Lokal</b> Sebagai Penulis Buku Kumpulan Cerpen</option>
-              <option value="16"><b>Internasional</b> Sebagai Penulis Buku Kumpulan Puisi</option>
-              <option value="17"><b>Nasional</b> Sebagai Penulis Buku Kumpulan Puisi</option>
-              <option value="18"><b>Lokal</b> Sebagai Penulis Buku Kumpulan Puisi</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNL9" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Sebagai</b></span>
-            </div>
-            <select class="custom-select" id="SebagaiPNL9">
-              <option value="1">Ketua</option>
-              <option value="2">Anggota</option>
-            </select>
-          </div>
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Progres</b></span>
-            </div>
-            <select class="custom-select" id="ProgresPNL9">
-              <option value="0.2">Proposal penelitian</option>
-              <option value="0.3">Persiapan penelitian</option>
-              <option value="0.5">Pengumpulan data</option>
-              <option value="0.6">Analisa data</option>
-              <option value="0.85">Penulisan laporan</option>
-              <option value="1">Penulisan artikel ilmiah(terpublikasi)</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNL10" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Progres</b></span>
-            </div>
-            <select class="custom-select" id="ProgresPNL10">
-              <option value="0.2">Proposal penelitian</option>
-              <option value="0.3">Persiapan penelitian</option>
-              <option value="0.5">Pengumpulan data</option>
-              <option value="0.6">Analisa data</option>
-              <option value="0.85">Penulisan laporan</option>
-              <option value="1">Penulisan artikel ilmiah(terpublikasi)</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNL11" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Opsi</b></span>
-            </div>
-            <select class="custom-select" id="JenisPNL11">
-              <option value="1">Menulis 1 judul buku/bahan ajar utuh Ber ISBN</option>
-              <option value="1.8">Menulis 1 judul buku/bahan ajar, ada editor</option>
-              <option value="1.2">Kontributor untuk 1 buku utuh, tidak tiap chapter</option>
-              <option value="2">Menulis Modul/Diktat/BahanAjar oleh 1 Dosen (Tidak diterbitkan, tetapi digunakan oleh mahasiswa)</option>
-            </select>
-          </div>
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Progres</b></span>
-            </div>
-            <select class="custom-select" id="ProgresPNL11">
-              <option value="0.1">Bab Pendahuluan</option>
-              <option value="0.6">Bab Isi Buku</option>
-              <option value="0.75">Bab Penutup & Referensi</option>
-              <option value="0.85">Persetujuan Penerbit</option>
-              <option value="1">Proses pencetakan selesai</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNL14" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis</b></span>
-            </div>
-            <select class="custom-select" id="JenisPNL14">
-              <option value="3">jurnal/proseding tidak terakreditasi(lokal)</option>
-              <option value="5">jurnal terakreditasi(nasional)</option>
-              <option value="8">jurnal terakreditasi internasional(bhs internasional)</option>
-            </select>
-          </div>
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Progres</b></span>
-            </div>
-            <select class="custom-select" id="ProgresPNL14">
-              <option value="0.1">submit</option>
-              <option value="0.3">Perbaikan/revisi</option>
-              <option value="0.4">Sudah Revisi</option>
-              <option value="0.9">Diterima (tapi belum terbit)</option>
-              <option value="1">Dicetak (terbit)</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNL15" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis</b></span>
-            </div>
-            <select class="custom-select" id="JenisPNL15">
-              <option value="0">presentasi ilmiah</option>
-              <option value="1">poster</option>
-              <option value="2">majalah/koran</option>
-            </select>
-          </div>
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Lingkup</b></span>
-            </div>
-            <select class="custom-select" id="LingkupPNL15">
-              <option value="0">Lokal/Regional</option>
-              <option value="1">Nasional</option>
-              <option value="2">Internasional</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNL16" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Lingkup</b></span>
-            </div>
-            <select class="custom-select" id="LingkupPNL16">
-              <option value="0.75">Kalangan sendiri</option>
-              <option value="1.5">Nasional</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNL17" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis</b></span>
-            </div>
-            <select class="custom-select" id="JenisPNL17">
-              <option value="3">Proses pengurusan paten sederhana</option>
-              <option value="4">Proses pengurusan paten biasa</option>
-              <option value="5">Proses pengurusan paten internasional</option>
-            </select>
-          </div>
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Progres</b></span>
-            </div>
-            <select class="custom-select" id="ProgresPNL17">
-              <option value="0.1">Pendaftaran</option>
-              <option value="0.3">Pemeriksaan Substantif</option>
-              <option value="0.6">Uji publik</option>
-              <option value="1">Sertifikat</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPenulis">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Penulis Ke</b></span>
-            </div>
-            <input class="form-control" type="text" id="Ke" data-inputmask='"mask": "9"' data-mask placeholder="1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Dari</b></span>
-            </div>
-            <input class="form-control" type="text" id="Dari" data-inputmask='"mask": "9"' data-mask placeholder="1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Penulis</b></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Surat Tugas/SK</b></span>
-          </div>
-          <input class="form-control" type="text" id="SK">
-        </div>
-        <div class="input-group mb-1">
-          <span class="input-group-text bg-primary"><b>Uraian<br>Kegiatan</b></span>
-          <textarea class="form-control" id="Uraian" rows="2"></textarea>
-        </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Tanggal Kegiatan</b></span>
-          </div>
-          <input class="form-control" type="text" id="TanggalKegiatan">
-        </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Volume Kegiatan</b></span>
-          </div>
-          <input class="form-control" type="text" id="Volume" data-inputmask='"mask": "99"' data-mask>
-        </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Bukti</b></span>
-          </div>
-          <input class="form-control" type="file" id="Bukti">
-        </div>
-        <pre class="text-danger"><b>Bukti Berupa Pdf & Wajib Menyertakan Surat Tugas/SK</b></pre>
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
@@ -413,7 +466,7 @@
   <div class="modal-dialog">
     <div class="modal-content bg-warning">
       <div class="modal-body">
-        <div class="input-group mb-1">
+        <div class="input-group input-group-sm mb-1">
           <div class="input-group-prepend">
             <label class="input-group-text bg-primary"><b>Homebase</b></label>
           </div>
@@ -424,7 +477,7 @@
               <option value="S2">S2</option>
           </select>
         </div>
-        <div class="input-group mb-1">
+        <div class="input-group input-group-sm mb-1">
           <div class="input-group-prepend">
             <label class="input-group-text bg-primary"><b>Semester</b></label>
           </div>
@@ -433,13 +486,13 @@
               <option value="Genap">Genap</option>
           </select>
         </div>
-        <div class="input-group mb-1">
+        <div class="input-group input-group-sm mb-1">
           <div class="input-group-prepend">
             <label class="input-group-text bg-primary"><b>Tahun</b></label>
           </div>
           <input class="form-control" type="text" id="EditTahunRealisasi"  data-inputmask='"mask": "9999"' data-mask value="20">
         </div>
-        <div class="input-group mb-1">
+        <div class="input-group input-group-sm mb-1">
           <div class="input-group-prepend">
             <span class="input-group-text bg-primary"><b>Penulis Ke</b></span>
           </div>
@@ -452,23 +505,23 @@
             <span class="input-group-text bg-primary"><b>Penulis</b></span>
           </div>
         </div>
-        <div class="input-group mb-1">
+        <div class="input-group input-group-sm mb-1">
           <div class="input-group-prepend">
             <span class="input-group-text bg-primary"><b>Surat Tugas/SK</b></span>
           </div>
           <input class="form-control" type="text" id="EditSK">
         </div>
-        <div class="input-group mb-1">
+        <div class="input-group input-group-sm mb-1">
           <span class="input-group-text bg-primary"><b>Uraian<br>Kegiatan</b></span>
           <textarea class="form-control" id="EditUraian" rows="2"></textarea>
         </div>
-        <div class="input-group mb-1">
+        <div class="input-group input-group-sm mb-1">
           <div class="input-group-prepend">
             <span class="input-group-text bg-primary"><b>Tanggal Kegiatan</b></span>
           </div>
           <input class="form-control" type="text" id="EditTanggalKegiatan">
         </div>
-        <div class="input-group mb-1">
+        <div class="input-group input-group-sm mb-1">
           <div class="input-group-prepend">
             <span class="input-group-text bg-primary"><b>Bukti</b></span>
           </div>

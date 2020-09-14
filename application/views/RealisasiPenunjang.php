@@ -1,6 +1,10 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-4 mt-1 mb-1">
+    <div class="col-sm-auto mt-1 mb-1">
+      <button type="button" id="LihatRealisasi" class="btn btn-primary mb-1"><i class="fa fa-eye"></i><b> Lihat</b></button>
+      <button type="button" class="btn btn-danger text-light mb-1" data-toggle="modal" data-target="#InputRealisasiPenunjang"><i class="fa fa-plus"></i> <b>Input</b></button>       
+    </div>  
+    <div class="col-sm-auto mt-1 mb-1">
       <div class="input-group mb-1">
         <div class="input-group-prepend">
           <label class="input-group-text bg-warning"><i class="fa fa-tasks"></i><b>&nbsp;Kegiatan</b></label>
@@ -31,11 +35,7 @@
           <?php } ?>
         </select>
       </div>
-    </div> 
-    <div class="col-sm-4 mt-1 mb-1">
-      <button type="button" id="LihatRealisasi" class="btn btn-primary mb-1"><i class="fa fa-eye"></i><b> Lihat</b></button>
-      <button type="button" class="btn btn-danger text-light mb-1" data-toggle="modal" data-target="#InputRealisasiPenunjang"><i class="fa fa-plus"></i> <b>Input</b></button>       
-    </div>   
+    </div>  
   </div>
   <div class="container-fluid">
     <div class="table-responsive mb-2">
@@ -76,214 +76,258 @@
   </div>
 </div>
 <div class="modal fade" id="InputRealisasiPenunjang">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content bg-warning">
       <div class="modal-body">
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <label class="input-group-text bg-primary"><b>Homebase</b></label>
-          </div>
-          <select class="custom-select" id="JenisRealisasi">										
-              <option value="S1">S1</option>
-              <option value="S2">S2</option>
-          </select>
-        </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <label class="input-group-text bg-primary"><b>Semester</b></label>
-          </div>
-          <select class="custom-select" id="SemesterRealisasi">										
-              <option value="Ganjil">Ganjil</option>
-              <option value="Genap">Genap</option>
-          </select>
-        </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <label class="input-group-text bg-primary"><b>Tahun</b></label>
-          </div>
-          <input class="form-control" type="text" id="TahunRealisasi"  data-inputmask='"mask": "9999"' data-mask value="20">
-        </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Kegiatan</b></span>
-          </div>
-          <select class="custom-select" id="InputIdKegiatanPenunjang" onchange="InputIdKegiatanPenunjang()">
-            <option value="PNJ11">Bimbingan akademik(perwalian) / Konseling</option>
-            <option value="PNJ12">Menjabat Posisi Tertentu</option>
-            <?php $Id = 1; foreach ($Kegiatan as $key) { ?>
-              <option value="<?='PNJ'.$Id++?>"><?=$key?></option>
-            <?php } ?>
-          </select>
-        </div>
-        <div id="OpsiPNJ12" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Sebagai</b></span>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <label class="input-group-text bg-primary"><b>Homebase</b></label>
+                </div>
+                <select class="custom-select" id="JenisRealisasi">										
+                  <option value="S1">S1</option>
+                  <option value="S2">S2</option>
+                </select>
+              </div>
             </div>
-            <select class="custom-select" id="JabatanBKD">
-              <option value="1">Pembina kegiatan mahasiswa(UKM,PKM,LKTI,BEM,SenatMahasiswa,HMJ)</option>
-              <option value="1">Ketua Organisasi sosial intern(pengurus koperasi,dharma wanita,takmir masjid kampus/sejenisnya</option>
-              <option value="0.75">Wakil Ketua/Sekretaris/Bendahara Organisasi sosial intern(pengurus koperasi,dharma wanita,takmir masjid kampus/sejenisnya</option>
-              <option value="0.5">Seksi/Anggota Organisasi sosial intern(pengurus koperasi,dharma wanita,takmir masjid kampus/sejenisnya</option>
-              <option value="1">Panitia Ad Hoc (umur panitia minimal 1 semester)</option>
-              <option value="0.5">Panitia Ad Hoc (bersifat insidental)</option>
-              <option value="0.2">Berperan aktif dalam seminar sebagai peserta seminar Lokal/Regional</option>
-              <option value="0.3">Berperan aktif dalam seminar sebagai peserta seminar Nasional</option>
-              <option value="0.5">Berperan aktif dalam seminar sebagai peserta seminar Internasional</option>
-              <option value="4">Ketua P3AI,PJM,SPI,PAK,Perencanaan,UPL</option>
-              <option value="3">Sekretaris P3AI,PJM,SPI,PAK,Perencanaan,UPL</option>
-              <option value="2">Anggota P3AI,PJM,SPI,PAK,Perencanaan,UPL</option>
-              <option value="4">Sekretaris LPPM</option>
-              <option value="2">Ketua Pusat Studi Universitas/Fakultas</option>
-              <option value="2">Ketua BINAP/Dewan Kehormatan</option>
-              <option value="1">Anggota BINAP/Dewan Kehormatan</option>
-              <option value="4">Ketua Program studi</option>
-              <option value="3">Sekretaris Program studi</option>
-              <option value="3">Kepala Laboratorium/Studio</option>
-              <option value="3">Koordinator MKDU/Humas/Biro Hukum</option>
-              <option value="2">Ketua bagian/Konsentrasi</option>
-              <option value="4">Sekretaris Senat Universitas</option>
-              <option value="2">Anggota Senat Universitas</option>
-              <option value="4">Sekretaris Senat Fakultas</option>
-              <option value="2">Anggota Senat Fakultas</option>
-              <option value="2">Ketua Unit Kewirausahaan</option>
-              <option value="2">Pengelola Perpustakaan</option>
-              <option value="1">Pengelola Ruang Baca</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNJ1" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Panitia</b></span>
+            <div class="col-sm-4">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <label class="input-group-text bg-primary"><b>Semester</b></label>
+                </div>
+                <select class="custom-select" id="SemesterRealisasi">										
+                    <option value="Ganjil">Ganjil</option>
+                    <option value="Genap">Genap</option>
+                </select>
+              </div>
             </div>
-            <select class="custom-select" id="PanitiaUniversitas">
-              <option value="1">Sebagai Ketua/Wakil Ketua merangkap Anggota, tiap tahun</option>
-              <option value="2">Sebagai Anggota, tiap tahun</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNJ2" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Panitia</b></span>
+            <div class="col-sm-4">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <label class="input-group-text bg-primary"><b>Tahun</b></label>
+                </div>
+                <input class="form-control" type="text" id="TahunRealisasi"  data-inputmask='"mask": "9999"' data-mask value="20">
+              </div>
             </div>
-            <select class="custom-select" id="PanitiaLembagaPemerintah">
-              <option value="1">Panitia Pusat, sebagai Ketua/Wakil Ketua, tiap kepanitiaan</option>
-              <option value="2">Panitia Pusat, sebagai Anggota, tiap kepanitiaan</option>
-              <option value="3">Panitia Daerah, sebagai Ketua/Wakil Ketua, tiap kepanitiaan</option>
-              <option value="4">Panitia Daerah, sebagai Anggota, tiap kepanitiaan</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNJ3" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Tingkat</b></span>
+            <div class="col-sm-12">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><b>Kegiatan</b></span>
+                </div>
+                <select class="custom-select" id="InputIdKegiatanPenunjang" onchange="InputIdKegiatanPenunjang()">
+                  <option value="PNJ11">Bimbingan akademik(perwalian) / Konseling</option>
+                  <option value="PNJ12">Menjabat Posisi Tertentu</option>
+                  <?php $Id = 1; foreach ($Kegiatan as $key) { ?>
+                    <option value="<?='PNJ'.$Id++?>"><?=$key?></option>
+                  <?php } ?>
+                </select>
+              </div>
             </div>
-            <select class="custom-select" id="AnggotaProfesi">
-              <option value="1">Tingkat Internasional, sebagai Pengurus, tiap periode jabatan</option>
-              <option value="2">Tingkat Internasional, Anggota atas permintaan, tiap periode jabatan</option>
-              <option value="3">Tingkat Internasional, Anggota, tiap periode jabatan</option>
-              <option value="4">Tingkat Nasional, sebagai Pengurus, tiap periode jabatan</option>
-              <option value="5">Tingkat Nasional, Anggota atas permintaan, tiap periode jabatan</option>
-              <option value="6">Tingkat Nasional, Anggota, tiap periode jabatan</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNJ5" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Panitia</b></span>
+            <div class="col-sm-12">
+              <div id="OpsiPNJ12" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Sebagai</b></span>
+                  </div>
+                  <select class="custom-select" id="JabatanBKD">
+                    <option value="1">Pembina kegiatan mahasiswa(UKM,PKM,LKTI,BEM,SenatMahasiswa,HMJ)</option>
+                    <option value="1">Ketua Organisasi sosial intern(pengurus koperasi,dharma wanita,takmir masjid kampus/sejenisnya</option>
+                    <option value="0.75">Wakil Ketua/Sekretaris/Bendahara Organisasi sosial intern(pengurus koperasi,dharma wanita,takmir masjid kampus/sejenisnya</option>
+                    <option value="0.5">Seksi/Anggota Organisasi sosial intern(pengurus koperasi,dharma wanita,takmir masjid kampus/sejenisnya</option>
+                    <option value="1">Panitia Ad Hoc (umur panitia minimal 1 semester)</option>
+                    <option value="0.5">Panitia Ad Hoc (bersifat insidental)</option>
+                    <option value="0.2">Berperan aktif dalam seminar sebagai peserta seminar Lokal/Regional</option>
+                    <option value="0.3">Berperan aktif dalam seminar sebagai peserta seminar Nasional</option>
+                    <option value="0.5">Berperan aktif dalam seminar sebagai peserta seminar Internasional</option>
+                    <option value="4">Ketua P3AI,PJM,SPI,PAK,Perencanaan,UPL</option>
+                    <option value="3">Sekretaris P3AI,PJM,SPI,PAK,Perencanaan,UPL</option>
+                    <option value="2">Anggota P3AI,PJM,SPI,PAK,Perencanaan,UPL</option>
+                    <option value="4">Sekretaris LPPM</option>
+                    <option value="2">Ketua Pusat Studi Universitas/Fakultas</option>
+                    <option value="2">Ketua BINAP/Dewan Kehormatan</option>
+                    <option value="1">Anggota BINAP/Dewan Kehormatan</option>
+                    <option value="4">Ketua Program studi</option>
+                    <option value="3">Sekretaris Program studi</option>
+                    <option value="3">Kepala Laboratorium/Studio</option>
+                    <option value="3">Koordinator MKDU/Humas/Biro Hukum</option>
+                    <option value="2">Ketua bagian/Konsentrasi</option>
+                    <option value="4">Sekretaris Senat Universitas</option>
+                    <option value="2">Anggota Senat Universitas</option>
+                    <option value="4">Sekretaris Senat Fakultas</option>
+                    <option value="2">Anggota Senat Fakultas</option>
+                    <option value="2">Ketua Unit Kewirausahaan</option>
+                    <option value="2">Pengelola Perpustakaan</option>
+                    <option value="1">Pengelola Ruang Baca</option>
+                  </select>
+                </div>
+              </div>
             </div>
-            <select class="custom-select" id="AnggotaDelegasi">
-              <option value="1">Sebagai Ketua delegasi, tiap kegiatan</option>
-              <option value="2">Sebagai Anggota, tiap kegiatan</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNJ6" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Tingkat</b></span>
+            <div class="col-sm-12">
+              <div id="OpsiPNJ1" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Panitia</b></span>
+                  </div>
+                  <select class="custom-select" id="PanitiaUniversitas">
+                    <option value="1">Sebagai Ketua/Wakil Ketua merangkap Anggota, tiap tahun</option>
+                    <option value="2">Sebagai Anggota, tiap tahun</option>
+                  </select>
+                </div>
+              </div>
             </div>
-            <select class="custom-select" id="PeranIlmiah">
-              <option value="1">Tingkat Internasional/Nasional/Regional sebagai Ketua, tiap kegiatan</option>
-              <option value="2">Tingkat Internasional/Nasional/Regional sebagai Anggota/peserta, tiap kegiatan</option>
-              <option value="3">Di lingkungan Perguruan Tinggi sebagai Ketua, tiap kegiatan</option>
-              <option value="4">Di lingkungan Perguruan Tinggi sebagai Anggota/peserta, tiap kegiatan</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNJ7" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Penghargaan</b></span>
+            <div class="col-sm-12">
+              <div id="OpsiPNJ2" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Panitia</b></span>
+                  </div>
+                  <select class="custom-select" id="PanitiaLembagaPemerintah">
+                    <option value="1">Panitia Pusat, sebagai Ketua/Wakil Ketua, tiap kepanitiaan</option>
+                    <option value="2">Panitia Pusat, sebagai Anggota, tiap kepanitiaan</option>
+                    <option value="3">Panitia Daerah, sebagai Ketua/Wakil Ketua, tiap kepanitiaan</option>
+                    <option value="4">Panitia Daerah, sebagai Anggota, tiap kepanitiaan</option>
+                  </select>
+                </div>
+              </div>
             </div>
-            <select class="custom-select" id="Penghargaan">
-              <option value="1">Penghargaan/tanda jasa Satya lencana 30 tahun</option>
-              <option value="2">Penghargaan/tanda jasa Satya lencana 20 tahun</option>
-              <option value="3">Penghargaan/tanda jasa Satya lencana 10 tahun</option>
-              <option value="4">Tingkat Internasional, tiap tanda jasa/penghargaan</option>
-              <option value="5">Tingkat Nasional, tiap tanda jasa/penghargaan</option>
-              <option value="6">Tingkat Daerah/Lokal, tiap tanda jasa/penghargaan</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNJ8" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Jenis Buku</b></span>
+            <div class="col-sm-12">
+              <div id="OpsiPNJ3" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Tingkat</b></span>
+                  </div>
+                  <select class="custom-select" id="AnggotaProfesi">
+                    <option value="1">Tingkat Internasional, sebagai Pengurus, tiap periode jabatan</option>
+                    <option value="2">Tingkat Internasional, Anggota atas permintaan, tiap periode jabatan</option>
+                    <option value="3">Tingkat Internasional, Anggota, tiap periode jabatan</option>
+                    <option value="4">Tingkat Nasional, sebagai Pengurus, tiap periode jabatan</option>
+                    <option value="5">Tingkat Nasional, Anggota atas permintaan, tiap periode jabatan</option>
+                    <option value="6">Tingkat Nasional, Anggota, tiap periode jabatan</option>
+                  </select>
+                </div>
+              </div>
             </div>
-            <select class="custom-select" id="Buku">
-              <option value="1">Buku SMTA atau setingkat, tiap buku</option>
-              <option value="2">Buku SMTP atau setingkat, tiap buku</option>
-              <option value="3">Buku SD atau setingkat, tiap buku</option>
-            </select>
-          </div>
-        </div>
-        <div id="OpsiPNJ9" style="display: none;">
-          <div class="input-group mb-1">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary"><b>Tingkat</b></span> 
+            <div class="col-sm-12">
+              <div id="OpsiPNJ5" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Panitia</b></span>
+                  </div>
+                  <select class="custom-select" id="AnggotaDelegasi">
+                    <option value="1">Sebagai Ketua delegasi, tiap kegiatan</option>
+                    <option value="2">Sebagai Anggota, tiap kegiatan</option>
+                  </select>
+                </div>
+              </div>
             </div>
-            <select class="custom-select" id="Humaniora">
-              <option value="1"> Tingkat Internasional, tiap piagam/medali</option>
-              <option value="2"> Nasional, tiap piagam/medali</option>
-              <option value="3">Tingkat Daerah/Lokal, tiap piagam/medali</option>
-            </select>
+            <div class="col-sm-12">
+              <div id="OpsiPNJ6" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Tingkat</b></span>
+                  </div>
+                  <select class="custom-select" id="PeranIlmiah">
+                    <option value="1">Tingkat Internasional/Nasional/Regional sebagai Ketua, tiap kegiatan</option>
+                    <option value="2">Tingkat Internasional/Nasional/Regional sebagai Anggota/peserta, tiap kegiatan</option>
+                    <option value="3">Di lingkungan Perguruan Tinggi sebagai Ketua, tiap kegiatan</option>
+                    <option value="4">Di lingkungan Perguruan Tinggi sebagai Anggota/peserta, tiap kegiatan</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div id="OpsiPNJ7" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Penghargaan</b></span>
+                  </div>
+                  <select class="custom-select" id="Penghargaan">
+                    <option value="1">Penghargaan/tanda jasa Satya lencana 30 tahun</option>
+                    <option value="2">Penghargaan/tanda jasa Satya lencana 20 tahun</option>
+                    <option value="3">Penghargaan/tanda jasa Satya lencana 10 tahun</option>
+                    <option value="4">Tingkat Internasional, tiap tanda jasa/penghargaan</option>
+                    <option value="5">Tingkat Nasional, tiap tanda jasa/penghargaan</option>
+                    <option value="6">Tingkat Daerah/Lokal, tiap tanda jasa/penghargaan</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div id="OpsiPNJ8" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Jenis Buku</b></span>
+                  </div>
+                  <select class="custom-select" id="Buku">
+                    <option value="1">Buku SMTA atau setingkat, tiap buku</option>
+                    <option value="2">Buku SMTP atau setingkat, tiap buku</option>
+                    <option value="3">Buku SD atau setingkat, tiap buku</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div id="OpsiPNJ9" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Tingkat</b></span> 
+                  </div>
+                  <select class="custom-select" id="Humaniora">
+                    <option value="1"> Tingkat Internasional, tiap piagam/medali</option>
+                    <option value="2"> Nasional, tiap piagam/medali</option>
+                    <option value="3">Tingkat Daerah/Lokal, tiap piagam/medali</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><b>Volume Kegiatan</b></span>
+                </div>
+                <input class="form-control" type="text" id="Volume" data-inputmask='"mask": "99"' data-mask>
+              </div>
+            </div>
+            <div class="col-sm-9">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><b>Surat Tugas/SK</b></span>
+                </div>
+                <input class="form-control" type="text" id="SK">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <pre class="text-danger"><b>Volume Kegiatan Merujuk Pada Konteks Kegiatan</b></pre>
+            </div>
+            <div class="col-sm-12">
+              <div class="input-group input-group-sm mb-1">
+                <span class="input-group-text bg-primary"><b>Uraian<br>Kegiatan</b></span>
+                <textarea class="form-control" id="Uraian" rows="2"></textarea>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><b>Tanggal Kegiatan</b></span>
+                </div>
+                <input class="form-control" type="text" id="TanggalKegiatan">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><b>Bukti</b></span>
+                </div>
+                <input class="form-control" type="file" id="Bukti">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <pre class="text-danger"><b>Bukti Berupa Pdf & Wajib Menyertakan Surat Tugas/SK</b></pre>
+            </div>
           </div>
         </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Surat Tugas/SK</b></span>
-          </div>
-          <input class="form-control" type="text" id="SK">
-        </div>
-        <div class="input-group mb-1">
-          <span class="input-group-text bg-primary"><b>Uraian<br>Kegiatan</b></span>
-          <textarea class="form-control" id="Uraian" rows="2"></textarea>
-        </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Tanggal Kegiatan</b></span>
-          </div>
-          <input class="form-control" type="text" id="TanggalKegiatan">
-        </div>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Volume Kegiatan</b></span>
-          </div>
-          <input class="form-control" type="text" id="Volume" data-inputmask='"mask": "99"' data-mask>
-        </div>
-        <pre class="text-danger"><b>Volume Kegiatan Merujuk Pada Konteks Kegiatan</b></pre>
-        <div class="input-group mb-1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Bukti</b></span>
-          </div>
-          <input class="form-control" type="file" id="Bukti">
-        </div>
-        <pre class="text-danger"><b>Bukti Berupa Pdf & Wajib Menyertakan Surat Tugas/SK</b></pre>
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
@@ -296,7 +340,7 @@
   <div class="modal-dialog">
     <div class="modal-content bg-warning">
       <div class="modal-body">
-        <div class="input-group mb-1"> 
+        <div class="input-group input-group-sm mb-1"> 
           <div class="input-group-prepend">
             <label class="input-group-text bg-primary"><b>Homebase</b></label>
           </div>
@@ -307,7 +351,7 @@
               <option value="S2">S2</option>
           </select>
         </div>
-        <div class="input-group mb-1">
+        <div class="input-group input-group-sm mb-1">
           <div class="input-group-prepend">
             <label class="input-group-text bg-primary"><b>Semester</b></label>
           </div>
@@ -316,29 +360,29 @@
               <option value="Genap">Genap</option>
           </select>
         </div>
-        <div class="input-group mb-1">
+        <div class="input-group input-group-sm mb-1">
           <div class="input-group-prepend">
             <label class="input-group-text bg-primary"><b>Tahun</b></label>
           </div>
           <input class="form-control" type="text" id="EditTahunRealisasi"  data-inputmask='"mask": "9999"' data-mask value="20">
         </div>
-        <div class="input-group mb-1">
+        <div class="input-group input-group-sm mb-1">
           <div class="input-group-prepend">
             <span class="input-group-text bg-primary"><b>Surat Tugas/SK</b></span>
           </div>
           <input class="form-control" type="text" id="EditSK">
         </div>
-        <div class="input-group mb-1">
+        <div class="input-group input-group-sm mb-1">
           <span class="input-group-text bg-primary"><b>Uraian<br>Kegiatan</b></span>
           <textarea class="form-control" id="EditUraian" rows="2"></textarea>
         </div>
-        <div class="input-group mb-1">
+        <div class="input-group input-group-sm mb-1">
           <div class="input-group-prepend">
             <span class="input-group-text bg-primary"><b>Tanggal Kegiatan</b></span>
           </div>
           <input class="form-control" type="text" id="EditTanggalKegiatan">
         </div>
-        <div class="input-group mb-1">
+        <div class="input-group input-group-sm mb-1">
           <div class="input-group-prepend">
             <span class="input-group-text bg-primary"><b>Bukti</b></span>
           </div>
