@@ -97,16 +97,6 @@
                   </div>
                   <div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
-                      <span class="input-group-text bg-primary text-primary"><b>Kredit Lama</b></span>
-                    </div>
-                    <input type="text" class="form-control" id="KreditLama">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text bg-primary text-primary"><b>Tahun</b></span>
-                    </div>
-                    <input type="text" class="form-control" id="TahunKreditLama" data-inputmask='"mask": "9999"' data-mask value="20">
-                  </div>
-                  <div class="input-group input-group-sm mb-2">
-                    <div class="input-group-prepend">
                       <span class="input-group-text bg-primary text-primary"><b>Nomor Whatsapp</b></span>
                     </div>
                     <input type="text" class="form-control" id="WA">
@@ -151,6 +141,18 @@
                   </div>
                   <div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
+                      <span class="input-group-text bg-primary text-primary"><b>Kredit Divalidasi Asesor</b></span>
+                    </div>
+                    <input type="text" class="form-control" id="KreditLama">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-primary text-primary"><b>Tahun</b></span>
+                    </div>
+                    <input type="text" class="form-control" id="TahunKreditLama" data-inputmask='"mask": "9999"' data-mask value="20">
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
                       <span class="input-group-text bg-primary text-primary"><b>Sertifikat Pendidik Profesional</b></span>
                     </div>
                     <input type="text" class="form-control" id="SertifikatPendidik">
@@ -161,16 +163,12 @@
                     </div>
                     <input type="text" class="form-control" id="SertifikatKompetensi">
                   </div>
-                </div>
-                <div class="col-sm-12">
                   <div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
                       <span class="input-group-text bg-primary text-primary"><b>Mata Kuliah Yang Diampu Pada<br>Program Studi Yang Diakreditasi</b></span>
                     </div>
                     <textarea class="form-control" id="MengajarPS" rows="2"></textarea>
                   </div>
-                </div>
-                <div class="col-sm-12">
                   <div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
                       <span class="input-group-text bg-primary text-primary"><b>Mata Kuliah Yang Diampu Pada<br>Program Studi Lain</b></span>
