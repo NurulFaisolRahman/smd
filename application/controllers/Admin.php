@@ -55,5 +55,10 @@ class Admin extends CI_Controller {
 		$this->db->update('Akun',array('JenisAkun' => 1));
 		$this->db->where('NIP', $_POST['NIP']);
 		$this->db->update('Akun',array('JenisAkun' => 2));
+	}
+	
+	public function Borang(){
+		$Data['Dosen'] = $this->db->get('Dosen')->result_array();
+		$this->load->view('ExcelBorang3a1',$Data);
   }
 }

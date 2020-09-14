@@ -56,6 +56,12 @@
               <p><b>Ketua Jurusan</b></p>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="<?=base_url("Admin/Borang")?>" class="nav-link ">
+              <i class="nav-icon fas fa-file-excel"></i>
+              <p><b>Borang</b></p>
+              </a>
+            </li>
           </ul>
         </nav>
         </div>
