@@ -56,14 +56,14 @@
       <table id="TabelRealisasi" class="table table-bordered table-striped">
         <thead class="bg-warning">
           <tr>
-            <th class="align-middle">No</th>
-            <th class="align-middle">Home<br>base</th>
-            <th class="align-middle">Seme<br>ster</th>
-            <th class="align-middle">Tahun</th>
+            <th class="align-middle text-center">No</th>
+            <th class="align-middle text-center">Home<br>base</th>
+            <th class="align-middle text-center">Seme<br>ster</th>
+            <th class="align-middle text-center">Tahun</th>
             <th class="align-middle">Uraian Kegiatan</th>
-            <th class="align-middle">Tanggal</th>
-            <th class="align-middle">Bukti</th>
-            <th class="align-middle">Aksi</th>
+            <th class="align-middle text-center">Tanggal</th>
+            <th class="align-middle text-center">Bukti</th>
+            <th class="align-middle text-center">Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -429,6 +429,7 @@
             </div>
           </div>
         </div>
+      </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
         <button type="submit" class="btn btn-success" id="TambahRealisasiPendidikan"><b>Simpan</b></button>
@@ -437,62 +438,82 @@
   </div>
 </div>
 <div class="modal fade" id="EditRealisasiPendidikan">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content bg-warning">
       <div class="modal-body">
-        <div class="input-group input-group-sm mb-1">
-          <div class="input-group-prepend">
-            <label class="input-group-text bg-primary"><b>Homebase</b></label>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="input-group input-group-sm mb-1"> 
+                <div class="input-group-prepend">
+                  <label class="input-group-text bg-primary"><b>Homebase</b></label>
+                </div>
+                <input class="form-control" type="hidden" id="EditNoRealisasi">
+                <input class="form-control" type="hidden" id="EditBuktiRealisasi">
+                <select class="custom-select" id="EditJenisRealisasi">										
+                    <option value="S1">S1</option>
+                    <option value="S2">S2</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <label class="input-group-text bg-primary"><b>Semester</b></label>
+                </div>
+                <select class="custom-select" id="EditSemesterRealisasi">										
+                    <option value="Ganjil">Ganjil</option>
+                    <option value="Genap">Genap</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <label class="input-group-text bg-primary"><b>Tahun</b></label>
+                </div>
+                <input class="form-control" type="text" id="EditTahunRealisasi"  data-inputmask='"mask": "9999"' data-mask value="20">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><b>Surat Tugas/SK</b></span>
+                </div>
+                <input class="form-control" type="text" id="EditSK">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="input-group input-group-sm mb-1">
+                <span class="input-group-text bg-primary"><b>Uraian<br>Kegiatan</b></span>
+                <textarea class="form-control" id="EditUraian" rows="2"></textarea>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><b>Tanggal Kegiatan</b></span>
+                </div>
+                <input class="form-control" type="text" id="EditTanggalKegiatan">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="input-group input-group-sm mb-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><b>Bukti</b></span>
+                </div>
+                <input class="form-control" type="file" id="EditBukti">
+                <div class="input-group-prepend">
+                  <button class="input-group-text bg-primary" id="CancelBukti"><b>X</b></button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <pre class="text-danger"><b>Bukti Berupa Pdf & Wajib Menyertakan Surat Tugas/SK</b></pre>
+            </div>
           </div>
-          <input class="form-control" type="hidden" id="EditNoRealisasi">
-          <input class="form-control" type="hidden" id="EditBuktiRealisasi">
-          <select class="custom-select" id="EditJenisRealisasi">										
-              <option value="S1">S1</option>
-              <option value="S2">S2</option>
-          </select>
         </div>
-        <div class="input-group input-group-sm mb-1">
-          <div class="input-group-prepend">
-            <label class="input-group-text bg-primary"><b>Semester</b></label>
-          </div>
-          <select class="custom-select" id="EditSemesterRealisasi">										
-              <option value="Ganjil">Ganjil</option>
-              <option value="Genap">Genap</option>
-          </select>
-        </div>
-        <div class="input-group input-group-sm mb-1">
-          <div class="input-group-prepend">
-            <label class="input-group-text bg-primary"><b>Tahun</b></label>
-          </div>
-          <input class="form-control" type="text" id="EditTahunRealisasi"  data-inputmask='"mask": "9999"' data-mask value="20">
-        </div>
-        <div class="input-group input-group-sm mb-1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Surat Tugas/SK</b></span>
-          </div>
-          <input class="form-control" type="text" id="EditSK">
-        </div>
-        <div class="input-group input-group-sm mb-1">
-          <span class="input-group-text bg-primary"><b>Uraian<br>Kegiatan</b></span>
-          <textarea class="form-control" id="EditUraian" rows="2"></textarea>
-        </div>
-        <div class="input-group input-group-sm mb-1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Tanggal Kegiatan</b></span>
-          </div>
-          <input class="form-control" type="text" id="EditTanggalKegiatan">
-        </div>
-        <div class="input-group input-group-sm mb-1">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-primary"><b>Bukti</b></span>
-          </div>
-          <input class="form-control" type="file" id="EditBukti">
-          <div class="input-group-prepend">
-            <button class="input-group-text bg-primary" id="CancelBukti"><b>X</b></button>
-          </div>
-        </div>
-        <pre class="text-danger"><b>Bukti Berupa Pdf & Wajib Menyertakan Surat Tugas/SK</b></pre>
-      </div>
+      </div>  
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
         <button type="submit" class="btn btn-success" id="UpdateRealisasiPendidikan"><b>Simpan</b></button>

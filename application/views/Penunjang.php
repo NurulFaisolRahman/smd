@@ -81,7 +81,8 @@
 				})
 
 				$('#TabelRencana').DataTable( {
-					dom:'lfrtip',
+					// dom:'lfrtip',
+					"ordering": false,
 					"lengthMenu": [ 5, 10, 20, 30 ],
 					"language": {
 						"paginate": {
@@ -93,6 +94,7 @@
 
 				$('#TabelRealisasi').DataTable( {
 					// dom:'lfrtip',
+					"ordering": false,
 					"lengthMenu": [ 5, 10, 20, 30 ],
 					"language": {
 						"paginate": {
