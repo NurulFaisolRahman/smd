@@ -58,7 +58,24 @@ class Admin extends CI_Controller {
 	}
 	
 	public function Borang(){
+		$TS = explode('-',$this->uri->segment('3'));
 		$Data['Dosen'] = $this->db->get('Dosen')->result_array();
-		$this->load->view('ExcelBorang3a1',$Data);
-  }
+		$Data['TS'] = $TS[1]-$TS[0]+1;
+		$Data['DPU'] = array();
+		$DPUDistinct = $this->db->query("SELECT DISTINCT(NIP) FROM RealisasiPendidikan WHERE IdKegiatan='PND6' AND Tahun >= ".$TS[0]." AND Tahun <= ".$TS[1])->result_array();
+		foreach ($DPUDistinct as $key) {
+			$Dosen = array();
+			array_push($Dosen,$this->db->query("SELECT Nama FROM Dosen WHERE NIP = ".$key['NIP'])->row_array()['Nama']);
+			for ($i = $TS[0]; $i <= $TS[1]; $i++) { 
+				$Tampung = $this->db->query("SELECT SUM(Volume) as Total FROM `RealisasiPendidikan` WHERE IdKegiatan = 'PND6' AND Kode LIKE '%1' AND NIP = ".$key['NIP']. " AND Tahun = ".$i)->row_array()['Total'];
+				$Tampung == '' ? array_push($Dosen,0) : array_push($Dosen,$Tampung);
+			}	
+			for ($i = $TS[0]; $i <= $TS[1]; $i++) { 
+				$Tampung = $this->db->query("SELECT SUM(Volume) as Total FROM `RealisasiPendidikan` WHERE IdKegiatan = 'PND6' AND Kode LIKE '%2' AND NIP = ".$key['NIP']. " AND Tahun = ".$i)->row_array()['Total'];
+				$Tampung == '' ? array_push($Dosen,0) : array_push($Dosen,$Tampung);
+			}	
+			array_push($Data['DPU'],$Dosen);
+		}
+		$this->load->view('ExcelBorang',$Data); 
+  } 
 }

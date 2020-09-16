@@ -245,6 +245,15 @@
                     <option value="3">Skripsi</option>
                   </select>
                 </div>
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Lingkup</b></span>
+                  </div>
+                  <select class="custom-select" id="LingkupPND6">
+                    <option value="1">Program Studi EP</option>
+                    <option value="2">Program Studi Lain</option>
+                  </select>
+                </div>
               </div>
             </div>
             <div class="col-sm-12">

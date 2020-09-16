@@ -57,7 +57,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?=base_url("Admin/Borang")?>" class="nav-link ">
+            <a href="" class="nav-link" data-toggle="modal" data-target="#ModalBorang">
               <i class="nav-icon fas fa-file-excel"></i>
               <p><b>Borang</b></p>
               </a>
@@ -67,7 +67,7 @@
         </div>
       </aside> 
       <div class="modal fade" id="ModalKajur">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content bg-warning">
             <div class="modal-body">
               <div class="input-group mb-1">
@@ -84,6 +84,24 @@
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
               <button type="submit" class="btn btn-success" id="Simpan"><b>Simpan</b></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="ModalBorang">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+          <div class="modal-content bg-warning">
+            <div class="modal-body">
+              <div class="input-group mb-1">
+                <div class="input-group-prepend">
+                  <label class="input-group-text bg-primary"><b>Tahun</b></label>
+                </div>
+                <input class="form-control" type="text" id="TS"  data-inputmask='"mask": "9999-9999"' data-mask>
+              </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
+              <button type="submit" class="btn btn-success" id="DownloadBorang"><b>Download</b></button>
             </div>
           </div>
         </div>

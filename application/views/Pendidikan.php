@@ -467,7 +467,7 @@
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND6') {
 							fd.append('JenisPembimbing',$("#JenisPembimbing").val())
 							fd.append('JenisBimbingan',$("#JenisBimbingan").val())			
-							fd.append('Kode',($("#JenisPembimbing").val()+'/'+$("#JenisBimbingan").val()))				
+							fd.append('Kode',($("#JenisPembimbing").val()+'/'+$("#JenisBimbingan").val()+'/'+$("#LingkupPND6").val()))				
 						}
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND7') {
 							fd.append('JenisPenguji',$("#JenisPenguji").val())

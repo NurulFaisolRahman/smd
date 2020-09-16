@@ -220,6 +220,10 @@
           })
         })
 
+        $("#DownloadBorang").click(function() {
+          window.location = BaseURL + 'Admin/Borang/'+$('#TS').val()
+        })
+
 				$("#Daftar").click(function() {
           if ($("#NIP").val().length != 18 || isNaN($("#NIP").val())) {
             alert('Mohon Isi NIP 18 Angka!')
