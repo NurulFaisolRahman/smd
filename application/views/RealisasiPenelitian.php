@@ -16,7 +16,7 @@
           'Menerjemahkan/menyadur buku ilmiah yang diterbitkan (ber ISBN)',
           'Mengedit/menyunting karya ilmiah dalam bentuk buku yang diterbitkan (ber ISBN)',
           'Membuat rancangan dan karya teknologi yang dipatenkan atau seni yang terdaftar di HaKI secara nasional atau internasional',
-          'Membuat rancangan dan karya teknologi yang tidak dipatenkan; rancangan dan karya seni monumental yang tidak terdaftar di HaKI tetapi telah dipresentasikan pada forum yang teragenda',
+          'Membuat rancangan dan karya teknologi yang tidak dipatenkan; rancangan dan karya seni monumental yang tidak terdaftar di HaKI tetapi telah dipresentasikan pada forum teragenda',
           'Membuat rancangan dan karya seni yang tidak terdaftar HaKI',
           'Keterlibatan dalam 1 judul penelitian/pembuatan karya seni/teknologi yang dilakukan oleh kelompok',
           'Ketua Pelaksanaan penelitian/pembuatan karya seni/teknologi mandiri',
@@ -135,18 +135,18 @@
                     <span class="input-group-text bg-primary"><b>Jenis</b></span>
                   </div>
                   <select class="custom-select" id="Point1">
-                    <option value="1">a1. Hasil penelitian yang dipublikasikan dalam bentuk buku referensi</option>
-                    <option value="2">a2. Hasil penelitian yang dipublikasikan dalam bentuk Monograf</option>
-                    <option value="3">b1. Hasil penelitian dalam buku yang dipublikasikan dan berisi berbagai tulisan dari berbagai penulis (book chapter) Internasional</option>
-                    <option value="4">b2. Hasil penelitian dalam buku yang dipublikasikan dan berisi berbagai tulisan dari berbagai penulis (book chapter) Nasional</option>
-                    <option value="5">c1. Hasil penelitian yang dipublikasikan dalam bentuk 1) Jurnal internasional bereputasi (terindeks pada database internasional bereputasi dan berfaktor dampak)</option>
-                    <option value="6">c2. Hasil penelitian yang dipublikasikan dalam bentuk 2) Jurnal internasional terindeks pada basis datainternasional bereputasi</option>
-                    <option value="7">c3. Hasil penelitian yang dipublikasikan dalam bentuk 3) Jurnal internasionalterindekspada basis data internasional di luar kategori 2)</option>
-                    <option value="8">c4. Hasil penelitian yang dipublikasikan dalam bentuk 4) a. Jurnal Nasional terakreditasiDikti, b. Jurnal nasional terakreditasi Kemenristekdiktiperingkat 1 dan 2</option>
-                    <option value="9">c5a. Hasil penelitian yang dipublikasikan dalam bentuk Jurnal Nasional berbahasa Inggris/bahasa resmi (PBB) terindeks pada basis data yang diakui Kemenristekdikti, contoh : CABI/ICI, Jurnal nasional terakreditasi peringkat 3 dan 4</option>
-                    <option value="10">c5b. Hasil penelitian yang dipublikasikan dalam bentuk Jurnal Nasional berbahasa Indonesia terindeks pada basis datayang diakui Kemenristekdikti, contoh : akreditasi peringkat 5 dan 6</option>
-                    <option value="11">c6. Hasil penelitian yang dipublikasikan dalam bentuk 6) Jurnal Nasional</option>
-                    <option value="12">c7. Hasil penelitian yang dipublikasikan dalam bentuk 7) Jurnal ilmiah yang ditulis dalam Bahasa Resmi PBB namun tidak memenuhi syarat-syarat sebagai jurnal ilmiah internasional</option>
+                    <option value="1">Hasil penelitian yang dipublikasikan dalam bentuk buku referensi</option>
+                    <option value="2">Hasil penelitian yang dipublikasikan dalam bentuk Monograf</option>
+                    <option value="3">Hasil penelitian dalam buku yang dipublikasikan dan berisi berbagai tulisan dari berbagai penulis (book chapter) Internasional</option>
+                    <option value="4">Hasil penelitian dalam buku yang dipublikasikan dan berisi berbagai tulisan dari berbagai penulis (book chapter) Nasional</option>
+                    <option value="5">Hasil penelitian yang dipublikasikan dalam bentuk Jurnal internasional bereputasi (terindeks pada database internasional bereputasi dan berfaktor dampak)</option>
+                    <option value="6">Hasil penelitian yang dipublikasikan dalam bentuk Jurnal internasional terindeks pada basis datainternasional bereputasi</option>
+                    <option value="7">Hasil penelitian yang dipublikasikan dalam bentuk Jurnal internasionalterindekspada basis data internasional di luar kategori 2)</option>
+                    <option value="8">Hasil penelitian yang dipublikasikan dalam bentuk Jurnal Nasional terakreditasiDikti/Jurnal nasional terakreditasi Kemenristekdiktiperingkat 1 dan 2</option>
+                    <option value="9">Hasil penelitian yang dipublikasikan dalam bentuk Jurnal Nasional berbahasa Inggris/bahasa resmi (PBB) terindeks pada basis data yang diakui Kemenristekdikti, contoh : CABI/ICI, Jurnal nasional terakreditasi peringkat 3 dan 4</option>
+                    <option value="10">Hasil penelitian yang dipublikasikan dalam bentuk Jurnal Nasional berbahasa Indonesia terindeks pada basis datayang diakui Kemenristekdikti, contoh : akreditasi peringkat 5 dan 6</option>
+                    <option value="11">Hasil penelitian yang dipublikasikan dalam bentuk Jurnal Nasional</option>
+                    <option value="12">Hasil penelitian yang dipublikasikan dalam bentuk Jurnal ilmiah yang ditulis dalam Bahasa Resmi PBB namun tidak memenuhi syarat-syarat sebagai jurnal ilmiah internasional</option>
                   </select>
                 </div>
               </div>
@@ -158,17 +158,17 @@
                     <span class="input-group-text bg-primary"><b>Jenis</b></span>
                   </div>
                   <select class="custom-select" id="Point2">
-                    <option value="1">a1. Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 1) Internasional terindeks pada Scimagojr & Scopus</option>
-                    <option value="2">a2. Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 2) Internasional terindeks pada SCOPUS, IEEE Explore, SPIE</option>
-                    <option value="3">a3. Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 3) Internasional</option>
-                    <option value="4">a4. Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) 4) Nasional</option>
-                    <option value="5">b1. Disajikan dalam bentuk poster & dimuat dalam prosiding yang dipublikasikan Internasional</option>
-                    <option value="6">b2. Disajikan dalam bentuk poster & dimuat dalam prosiding yang dipublikasikan Nasional</option>
-                    <option value="7">c1. Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan Internasional</option>
-                    <option value="8">c2. Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan Nasional</option>
-                    <option value="9">d1. Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding Internasional</option>
-                    <option value="10">d2. Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding Nasional</option>
-                    <option value="11">e. Hasil penelitian/pemikiran yang disajikan dalam koran/majalah populer/umum</option>
+                    <option value="1">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) Internasional terindeks pada Scimagojr & Scopus</option>
+                    <option value="2">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) Internasional terindeks pada SCOPUS, IEEE Explore, SPIE</option>
+                    <option value="3">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) Internasional</option>
+                    <option value="4">Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) Nasional</option>
+                    <option value="5">Disajikan dalam bentuk poster & dimuat dalam prosiding yang dipublikasikan Internasional</option>
+                    <option value="6">Disajikan dalam bentuk poster & dimuat dalam prosiding yang dipublikasikan Nasional</option>
+                    <option value="7">Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan Internasional</option>
+                    <option value="8">Disajikan dalam seminar/simposium/lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan Nasional</option>
+                    <option value="9">Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding Internasional</option>
+                    <option value="10">Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding Nasional</option>
+                    <option value="11">Hasil penelitian/pemikiran yang disajikan dalam koran/majalah populer/umum</option>
                   </select>
                 </div>
               </div>
@@ -180,12 +180,12 @@
                     <span class="input-group-text bg-primary"><b>Jenis</b></span>
                   </div>
                   <select class="custom-select" id="Point6">
-                    <option value="1">a. Internasionalyang sudah diimplementasikan di industri (paling sedikit diakui oleh 4 Negara)</option>
-                    <option value="2">b. Internasional (paling sedikit diakui oleh 4 Negara)</option>
-                    <option value="3">c. Nasional (yang sudah diimplementasikan di industri)</option>
-                    <option value="4">d. Nasional</option>
-                    <option value="5">e. Nasional, dalam bentuk paten sederhana yang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham</option>
-                    <option value="6">f. Karya buku, desain industri, indikasi geografisyang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham</option>
+                    <option value="1">Internasional yang sudah diimplementasikan di industri (paling sedikit diakui oleh 4 Negara)</option>
+                    <option value="2">Internasional (paling sedikit diakui oleh 4 Negara)</option>
+                    <option value="3">Nasional (yang sudah diimplementasikan di industri)</option>
+                    <option value="4">Nasional</option>
+                    <option value="5">Nasional, dalam bentuk paten sederhana yang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham</option>
+                    <option value="6">Karya buku, desain industri, indikasi geografisyang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham</option>
                   </select>
                 </div>
               </div>
@@ -387,6 +387,20 @@
                     <option value="0.3">Pemeriksaan Substantif</option>
                     <option value="0.6">Uji publik</option>
                     <option value="1">Sertifikat</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div id="OpsiSumberPembiayaan">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Sumber Pembiayaan</b></span>
+                  </div>
+                  <select class="custom-select" id="SumberPembiayaan">
+                    <option value="1">Didalam Perguruan Tinggi / Mandiri</option>
+                    <option value="2">Lembaga Dalam Negeri (Diluar Perguruan Tinggi)</option>
+                    <option value="3">Lembaga Luar Negeri</option>
                   </select>
                 </div>
               </div>

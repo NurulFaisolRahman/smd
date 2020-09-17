@@ -4,10 +4,10 @@
 ?>
 MIME-Version: 1.0
 X-Document-Type: Workbook
-Content-Type: multipart/related; boundary="----=_NextPart_482017781dbb413399e58e9338ebfea1"
+Content-Type: multipart/related; boundary="----=_NextPart_f60c0f1f971b469883cd118064933b06"
 
-------=_NextPart_482017781dbb413399e58e9338ebfea1
-Content-Location: file:///C:/ksoet/Borank.htm
+------=_NextPart_f60c0f1f971b469883cd118064933b06
+Content-Location: file:///C:/ksoet/Boranc.htm
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/html; charset="us-ascii"
 
@@ -17,26 +17,30 @@ Content-Type: text/html; charset="us-ascii"
   <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"/>
   <meta name=3D"ProgId" content=3D"Excel.Sheet"/>
   <meta name=3D"Generator" content=3D"WPS Office ET"/>
-  <link rel=3D"File-List" href=3D"Borank.files/filelist.xml"/>
-  <link id=3D"shLink" href=3D"Borank.files/sheet001.htm"/>
-  <link id=3D"shLink" href=3D"Borank.files/sheet002.htm"/>
-  <script src=3D"Borank.files\js.js"></script>
-  <script type=3D"text/javascript">window.g_iIEVer=3DfnGetIEVer();fnBuildFrameset(1);</script>
+  <link rel=3D"File-List" href=3D"Boranc.files/filelist.xml"/>
+  <link id=3D"shLink" href=3D"Boranc.files/sheet001.htm"/>
+  <link id=3D"shLink" href=3D"Boranc.files/sheet002.htm"/>
+  <link id=3D"shLink" href=3D"Boranc.files/sheet003.htm"/>
+  <script src=3D"Boranc.files\js.js"></script>
+  <script type=3D"text/javascript">window.g_iIEVer=3DfnGetIEVer();fnBuildFrameset(0);</script>
   
    <xml>
     <x:ExcelWorkbook>
      <x:ExcelWorksheets>
       <x:ExcelWorksheet>
        <x:Name>3a1</x:Name>
-       <x:WorksheetSource HRef=3D"Borank.files/sheet001.htm"/>
+       <x:WorksheetSource HRef=3D"Boranc.files/sheet001.htm"/>
       </x:ExcelWorksheet>
       <x:ExcelWorksheet>
        <x:Name>3a2</x:Name>
-       <x:WorksheetSource HRef=3D"Borank.files/sheet002.htm"/>
+       <x:WorksheetSource HRef=3D"Boranc.files/sheet002.htm"/>
+      </x:ExcelWorksheet>
+      <x:ExcelWorksheet>
+       <x:Name>3b2</x:Name>
+       <x:WorksheetSource HRef=3D"Boranc.files/sheet003.htm"/>
       </x:ExcelWorksheet>
      </x:ExcelWorksheets>
-     <x:Stylesheet HRef=3D"Borank.files/stylesheet.css"/>
-     <x:ActiveSheet>1</x:ActiveSheet>
+     <x:Stylesheet HRef=3D"Boranc.files/stylesheet.css"/>
      <x:ProtectStructure>False</x:ProtectStructure>
      <x:ProtectWindows>False</x:ProtectWindows>
      <x:WindowHeight>7695</x:WindowHeight>
@@ -51,12 +55,80 @@ Content-Type: text/html; charset="us-ascii"
      <x:SheetIndex>2</x:SheetIndex>
      <x:Formula>=3D'#REF!'!#REF!</x:Formula>
     </x:ExcelName>
+    <x:ExcelName>
+     <x:Name>diploma</x:Name>
+     <x:SheetIndex>3</x:SheetIndex>
+     <x:Formula>=3D'[Borank.xlsx]#REF!'!#REF!</x:Formula>
+    </x:ExcelName>
+    <x:SupBook>
+     <x:Path>/home/econk/Downloads/Borank.xlsx</x:Path>
+     <x:SheetName>Menu</x:SheetName>
+     <x:SheetName>Daftar Tabel</x:SheetName>
+     <x:SheetName>PS</x:SheetName>
+     <x:SheetName>1-1</x:SheetName>
+     <x:SheetName>1-2</x:SheetName>
+     <x:SheetName>1-3</x:SheetName>
+     <x:SheetName>2a</x:SheetName>
+     <x:SheetName>2b</x:SheetName>
+     <x:SheetName>3a1</x:SheetName>
+     <x:SheetName>3a2</x:SheetName>
+     <x:SheetName>3a3</x:SheetName>
+     <x:SheetName>3a4</x:SheetName>
+     <x:SheetName>3a5</x:SheetName>
+     <x:SheetName>3b1</x:SheetName>
+     <x:SheetName>3b2</x:SheetName>
+     <x:SheetName>3b3</x:SheetName>
+     <x:SheetName>3b4-1</x:SheetName>
+     <x:SheetName>3b4-2</x:SheetName>
+     <x:SheetName>3b5-1</x:SheetName>
+     <x:SheetName>3b5-2</x:SheetName>
+     <x:SheetName>3b5-3</x:SheetName>
+     <x:SheetName>3b5-4</x:SheetName>
+     <x:SheetName>3b6</x:SheetName>
+     <x:SheetName>3b7</x:SheetName>
+     <x:SheetName>4</x:SheetName>
+     <x:SheetName>5a</x:SheetName>
+     <x:SheetName>5b</x:SheetName>
+     <x:SheetName>5c</x:SheetName>
+     <x:SheetName>6a</x:SheetName>
+     <x:SheetName>6b</x:SheetName>
+     <x:SheetName>7</x:SheetName>
+     <x:SheetName>8a</x:SheetName>
+     <x:SheetName>8b1</x:SheetName>
+     <x:SheetName>8b2</x:SheetName>
+     <x:SheetName>8c</x:SheetName>
+     <x:SheetName>8d1</x:SheetName>
+     <x:SheetName>8d2</x:SheetName>
+     <x:SheetName>8e1</x:SheetName>
+     <x:SheetName>Ref 8e2</x:SheetName>
+     <x:SheetName>8e2</x:SheetName>
+     <x:SheetName>8f1-1</x:SheetName>
+     <x:SheetName>8f1-2</x:SheetName>
+     <x:SheetName>8f2</x:SheetName>
+     <x:SheetName>8f3</x:SheetName>
+     <x:SheetName>8f4-1</x:SheetName>
+     <x:SheetName>8f4-2</x:SheetName>
+     <x:SheetName>8f4-3</x:SheetName>
+     <x:SheetName>8f4-4</x:SheetName>
+     <x:ExternName>
+      <x:Name>diploma</x:Name>
+     </x:ExternName>
+     <x:ExternName>
+      <x:Name>diploma</x:Name>
+     </x:ExternName>
+     <x:ExternName>
+      <x:Name>diploma</x:Name>
+     </x:ExternName>
+     <x:ExternName>
+      <x:Name>diploma</x:Name>
+     </x:ExternName>
+    </x:SupBook>
    </xml>
   
  </head>
  <frameset rows=3D"*,36" border=3D"0" width=3D"0" frameborder=3D"no">
-  <frame src=3D"Borank.files/sheet002.htm" name=3D"frSheet" noresize/>
-  <frame src=3D"Borank.files/tabstrip.htm" name=3D"frTabs" marginwidth=3D"0" marginheight=3D"0"/>
+  <frame src=3D"Boranc.files/sheet001.htm" name=3D"frSheet" noresize/>
+  <frame src=3D"Boranc.files/tabstrip.htm" name=3D"frTabs" marginwidth=3D"0" marginheight=3D"0"/>
   <noframes>
    <body>
     <p>&#27492;&#39029;&#38754;&#20351;&#29992;&#20102;&#26694;&#26550;&#65292;&#32780;&#24744;&#30340;&#27983;&#35272;&#22120;&#19981;&#25903;&#25345;&#26694;&#26550;</p>
@@ -65,16 +137,17 @@ Content-Type: text/html; charset="us-ascii"
  </frameset>
 </html>
 
-------=_NextPart_482017781dbb413399e58e9338ebfea1
-Content-Location: file:///C:/ksoet/Borank.files/js.js
+------=_NextPart_f60c0f1f971b469883cd118064933b06
+Content-Location: file:///C:/ksoet/Boranc.files/js.js
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/html; charset="us-ascii"
 
-var c_lTabs=3D2;
+var c_lTabs=3D3;
 var c_rgszSh=3Dnew Array(c_lTabs);
 c_rgszSh[0]=3D"3a1";
 c_rgszSh[1]=3D"3a2";
-var g_iShCur=3D1;
+c_rgszSh[2]=3D"3b2";
+var g_iShCur=3D0;
 var g_rglTabX=3Dnew Array(c_lTabs+1);
 var g_clrs=3Dnew Array(8);
 g_clrs[0]=3D"window";
@@ -225,8 +298,8 @@ function fnBuildTabStrip()
 	}
 }
 
-------=_NextPart_482017781dbb413399e58e9338ebfea1
-Content-Location: file:///C:/ksoet/Borank.files/tabstrip.htm
+------=_NextPart_f60c0f1f971b469883cd118064933b06
+Content-Location: file:///C:/ksoet/Boranc.files/tabstrip.htm
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/html; charset="us-ascii"
 
@@ -235,7 +308,7 @@ Content-Type: text/html; charset="us-ascii"
   <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8"/>
   <meta name=3D"ProgId" content=3D"Excel.Sheet"/>
   <meta name=3D"Generator" content=3D"WPS Office ET"/>
-  <link id=3D"Main-File" rel=3D"Main-File" href=3D"../Borank.mhtml"/>
+  <link id=3D"Main-File" rel=3D"Main-File" href=3D"../Boranc.mhtml"/>
   <style>A:link,A:visited,A:active{text-decoration:none;color:#000000;font-size:9pt;}		 table{cursor:hand;background:buttonface;font:9pt &#23435;&#20307;;text-align:center;}		 td{white-space:nowrap}</style>
   <script language=3D"JavaScript">if(window.name!=3D'frTabs')
  	window.location.replace(document.getElementById('Main-File').href);</script>
@@ -245,13 +318,14 @@ Content-Type: text/html; charset="us-ascii"
    <tr>
     <td><a href=3D"sheet001.htm" target=3D"frSheet">&nbsp;3a1&nbsp;</a></td>
     <td><a href=3D"sheet002.htm" target=3D"frSheet">&nbsp;3a2&nbsp;</a></td>
+    <td><a href=3D"sheet003.htm" target=3D"frSheet">&nbsp;3b2&nbsp;</a></td>
    </tr>
   </table>
  </body>
 </html>
 
-------=_NextPart_482017781dbb413399e58e9338ebfea1
-Content-Location: file:///C:/ksoet/Borank.files/sheet001.htm
+------=_NextPart_f60c0f1f971b469883cd118064933b06
+Content-Location: file:///C:/ksoet/Boranc.files/sheet001.htm
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/html; charset="us-ascii"
 
@@ -260,7 +334,7 @@ Content-Type: text/html; charset="us-ascii"
   <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8"/>
   <meta name=3D"ProgId" content=3D"Excel.Sheet"/>
   <meta name=3D"Generator" content=3D"WPS Office ET"/>
-  <link id=3D"Main-File" rel=3D"Main-File" href=3D"../Borank.mhtml"/>
+  <link id=3D"Main-File" rel=3D"Main-File" href=3D"../Boranc.mhtml"/>
   <link rel=3D"File-List" href=3D"filelist.xml"/>
   <link rel=3D"Stylesheet" href=3D"stylesheet.css"/>
   <style>
@@ -274,6 +348,7 @@ Content-Type: text/html; charset="us-ascii"
     <x:WorksheetOptions>
      <x:DefaultRowHeight>285</x:DefaultRowHeight>
      <x:StandardWidth>2274</x:StandardWidth>
+     <x:Selected/>
      <x:FreezePanes/>
      <x:FrozenNoSplit/>
      <x:SplitHorizontal>13</x:SplitHorizontal>
@@ -312,141 +387,141 @@ Content-Type: text/html; charset="us-ascii"
   
   <script language=3D"JavaScript">
 	if (window.name!=3D"frSheet")
-		window.location.replace("../Borank.mhtml");
+		window.location.replace("../Boranc.mhtml");
 	else
 		parent.fnUpdateTabs(0);
 </script>
  </head>
- <body link=3D"blue" vlink=3D"purple" class=3D"xl77">
+ <body link=3D"blue" vlink=3D"purple" class=3D"xl88">
   <table width=3D"1519.07" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D'width:1139.30pt;border-collapse:collapse;table-layout:fixed;'>
-   <col width=3D"44.47" class=3D"xl77" style=3D'mso-width-source:userset;mso-width-alt:1422;'/>
-   <col width=3D"155.53" class=3D"xl77" style=3D'mso-width-source:userset;mso-width-alt:4977;'/>
-   <col width=3D"84.47" span=3D"2" class=3D"xl77" style=3D'mso-width-source:userset;mso-width-alt:2702;'/>
-   <col width=3D"95.07" class=3D"xl77" style=3D'mso-width-source:userset;mso-width-alt:3042;'/>
-   <col width=3D"100.47" span=3D"2" class=3D"xl77" style=3D'mso-width-source:userset;mso-width-alt:3214;'/>
-   <col width=3D"84.47" class=3D"xl77" style=3D'mso-width-source:userset;mso-width-alt:2702;'/>
-   <col width=3D"92.47" class=3D"xl77" style=3D'mso-width-source:userset;mso-width-alt:2958;'/>
-   <col width=3D"91.53" class=3D"xl77" style=3D'mso-width-source:userset;mso-width-alt:2929;'/>
-   <col width=3D"104.87" class=3D"xl77" style=3D'mso-width-source:userset;mso-width-alt:3355;'/>
-   <col width=3D"115.53" class=3D"xl77" style=3D'mso-width-source:userset;mso-width-alt:3697;'/>
-   <col width=3D"106.67" class=3D"xl77" style=3D'mso-width-source:userset;mso-width-alt:3413;'/>
-   <col width=3D"116.47" class=3D"xl77" style=3D'mso-width-source:userset;mso-width-alt:3726;'/>
-   <col width=3D"71.07" span=3D"16370" class=3D"xl77" style=3D'mso-width-source:userset;mso-width-alt:2274;'/>
+   <col width=3D"44.47" class=3D"xl88" style=3D'mso-width-source:userset;mso-width-alt:1422;'/>
+   <col width=3D"155.53" class=3D"xl88" style=3D'mso-width-source:userset;mso-width-alt:4977;'/>
+   <col width=3D"84.47" span=3D"2" class=3D"xl88" style=3D'mso-width-source:userset;mso-width-alt:2702;'/>
+   <col width=3D"95.07" class=3D"xl88" style=3D'mso-width-source:userset;mso-width-alt:3042;'/>
+   <col width=3D"100.47" span=3D"2" class=3D"xl88" style=3D'mso-width-source:userset;mso-width-alt:3214;'/>
+   <col width=3D"84.47" class=3D"xl88" style=3D'mso-width-source:userset;mso-width-alt:2702;'/>
+   <col width=3D"92.47" class=3D"xl88" style=3D'mso-width-source:userset;mso-width-alt:2958;'/>
+   <col width=3D"91.53" class=3D"xl88" style=3D'mso-width-source:userset;mso-width-alt:2929;'/>
+   <col width=3D"104.87" class=3D"xl88" style=3D'mso-width-source:userset;mso-width-alt:3355;'/>
+   <col width=3D"115.53" class=3D"xl88" style=3D'mso-width-source:userset;mso-width-alt:3697;'/>
+   <col width=3D"106.67" class=3D"xl88" style=3D'mso-width-source:userset;mso-width-alt:3413;'/>
+   <col width=3D"116.47" class=3D"xl88" style=3D'mso-width-source:userset;mso-width-alt:3726;'/>
+   <col width=3D"71.07" span=3D"16370" class=3D"xl88" style=3D'mso-width-source:userset;mso-width-alt:2274;'/>
    <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" width=3D"284.47" colspan=3D"3" style=3D'height:14.25pt;width:213.35pt;mso-ignore:colspan;' x:str>Tabel 3.a.1) Dosen Tetap Perguruan Tinggi</td>
-    <td class=3D"xl77" width=3D"84.47" style=3D'width:63.35pt;'></td>
-    <td class=3D"xl77" width=3D"95.07" style=3D'width:71.30pt;'></td>
-    <td class=3D"xl77" width=3D"100.47" style=3D'width:75.35pt;'></td>
-    <td class=3D"xl77" width=3D"100.47" style=3D'width:75.35pt;'></td>
-    <td class=3D"xl77" width=3D"84.47" style=3D'width:63.35pt;'></td>
-    <td class=3D"xl77" width=3D"92.47" style=3D'width:69.35pt;'></td>
-    <td class=3D"xl77" width=3D"91.53" style=3D'width:68.65pt;'></td>
-    <td class=3D"xl77" width=3D"104.87" style=3D'width:78.65pt;'></td>
-    <td class=3D"xl77" width=3D"115.53" style=3D'width:86.65pt;'></td>
-    <td class=3D"xl77" width=3D"106.67" style=3D'width:80.00pt;'></td>
-    <td class=3D"xl90" width=3D"116.47" style=3D'width:87.35pt;'></td>
-    <td class=3D"xl77" width=3D"71.07" style=3D'width:53.30pt;'></td>
-    <td class=3D"xl77" width=3D"71.07" style=3D'width:53.30pt;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" colspan=3D"16" style=3D'height:14.25pt;mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"0" style=3D'height:0.00pt;display:none;'>
-    <td class=3D"xl77" height=3D"0" colspan=3D"6" style=3D'height:0.00pt;mso-ignore:colspan;'></td>
-    <td class=3D"xl77" x:str>Check</td>
-    <td class=3D"xl77" x:str>JA</td>
-    <td class=3D"xl77" colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"0" style=3D'height:0.00pt;display:none;'>
-    <td class=3D"xl77" height=3D"0" colspan=3D"16" style=3D'height:0.00pt;mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"0" style=3D'height:0.00pt;display:none;'>
-    <td class=3D"xl77" height=3D"0" colspan=3D"6" style=3D'height:0.00pt;mso-ignore:colspan;'></td>
-    <td class=3D"xl77" x:str>V</td>
-    <td class=3D"xl77" colspan=3D"2" style=3D'mso-ignore:colspan;' x:str>Tenaga Pengajar</td>
-    <td class=3D"xl77" colspan=3D"7" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"0" style=3D'height:0.00pt;display:none;'>
-    <td class=3D"xl77" height=3D"0" colspan=3D"7" style=3D'height:0.00pt;mso-ignore:colspan;'></td>
-    <td class=3D"xl77" x:str>Asisten Ahli</td>
-    <td class=3D"xl77" colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"0" style=3D'height:0.00pt;display:none;'>
-    <td class=3D"xl77" height=3D"0" colspan=3D"7" style=3D'height:0.00pt;mso-ignore:colspan;'></td>
-    <td class=3D"xl77" x:str>Lektor</td>
-    <td class=3D"xl77" colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"0" style=3D'height:0.00pt;display:none;'>
-    <td class=3D"xl77" height=3D"0" colspan=3D"7" style=3D'height:0.00pt;mso-ignore:colspan;'></td>
-    <td class=3D"xl77" colspan=3D"2" style=3D'mso-ignore:colspan;' x:str>Lektor Kepala</td>
-    <td class=3D"xl77" colspan=3D"7" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"0" style=3D'height:0.00pt;display:none;'>
-    <td class=3D"xl77" height=3D"0" colspan=3D"7" style=3D'height:0.00pt;mso-ignore:colspan;'></td>
-    <td class=3D"xl77" x:str>Guru Besar</td>
-    <td class=3D"xl77" colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"0" style=3D'height:0.00pt;display:none;'>
-    <td class=3D"xl77" height=3D"0" colspan=3D"16" style=3D'height:0.00pt;mso-ignore:colspan;'></td>
+    <td class=3D"xl88" height=3D"19" width=3D"284.47" colspan=3D"3" style=3D'height:14.25pt;width:213.35pt;mso-ignore:colspan;' x:str>Tabel 3.a.1) Dosen Tetap Perguruan Tinggi</td>
+    <td class=3D"xl88" width=3D"84.47" style=3D'width:63.35pt;'></td>
+    <td class=3D"xl88" width=3D"95.07" style=3D'width:71.30pt;'></td>
+    <td class=3D"xl88" width=3D"100.47" style=3D'width:75.35pt;'></td>
+    <td class=3D"xl88" width=3D"100.47" style=3D'width:75.35pt;'></td>
+    <td class=3D"xl88" width=3D"84.47" style=3D'width:63.35pt;'></td>
+    <td class=3D"xl88" width=3D"92.47" style=3D'width:69.35pt;'></td>
+    <td class=3D"xl88" width=3D"91.53" style=3D'width:68.65pt;'></td>
+    <td class=3D"xl88" width=3D"104.87" style=3D'width:78.65pt;'></td>
+    <td class=3D"xl88" width=3D"115.53" style=3D'width:86.65pt;'></td>
+    <td class=3D"xl88" width=3D"106.67" style=3D'width:80.00pt;'></td>
+    <td class=3D"xl101" width=3D"116.47" style=3D'width:87.35pt;'></td>
+    <td class=3D"xl88" width=3D"71.07" style=3D'width:53.30pt;'></td>
+    <td class=3D"xl88" width=3D"71.07" style=3D'width:53.30pt;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl78" height=3D"87" rowspan=3D"2" style=3D'height:65.25pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>No.</td>
-    <td class=3D"xl78" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nama Dosen</td>
-    <td class=3D"xl78" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>NIDN/NIDK</td>
-    <td class=3D"xl79" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Pendidikan Pasca Sarjana</td>
-    <td class=3D"xl78" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Bidang Keahlian</td>
-    <td class=3D"xl78" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Kesesuaian dengan Kompetensi Inti PS</td>
-    <td class=3D"xl78" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jabatan Akademik</td>
-    <td class=3D"xl78" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Sertifikat Pendidik Profesional</td>
-    <td class=3D"xl78" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Sertifikat<span style=3D'mso-spacerun:yes;'>&nbsp; </span>Kompetensi/ Profesi/<span style=3D'mso-spacerun:yes;'>&nbsp; </span>Industri</td>
-    <td class=3D"xl78" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Mata Kuliah yang Diampu pada PS yang Diakreditasi</td>
-    <td class=3D"xl78" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Kesesuaian Bidang Keahlian dengan Mata Kuliah yang Diampu</td>
-    <td class=3D"xl78" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Mata Kuliah yang Diampu pada PS Lain</td>
-    <td class=3D"xl77" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl88" height=3D"19" colspan=3D"16" style=3D'height:14.25pt;mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"0" style=3D'height:0.00pt;display:none;'>
+    <td class=3D"xl88" height=3D"0" colspan=3D"6" style=3D'height:0.00pt;mso-ignore:colspan;'></td>
+    <td class=3D"xl88" x:str>Check</td>
+    <td class=3D"xl88" x:str>JA</td>
+    <td class=3D"xl88" colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"0" style=3D'height:0.00pt;display:none;'>
+    <td class=3D"xl88" height=3D"0" colspan=3D"16" style=3D'height:0.00pt;mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"0" style=3D'height:0.00pt;display:none;'>
+    <td class=3D"xl88" height=3D"0" colspan=3D"6" style=3D'height:0.00pt;mso-ignore:colspan;'></td>
+    <td class=3D"xl88" x:str>V</td>
+    <td class=3D"xl88" colspan=3D"2" style=3D'mso-ignore:colspan;' x:str>Tenaga Pengajar</td>
+    <td class=3D"xl88" colspan=3D"7" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"0" style=3D'height:0.00pt;display:none;'>
+    <td class=3D"xl88" height=3D"0" colspan=3D"7" style=3D'height:0.00pt;mso-ignore:colspan;'></td>
+    <td class=3D"xl88" x:str>Asisten Ahli</td>
+    <td class=3D"xl88" colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"0" style=3D'height:0.00pt;display:none;'>
+    <td class=3D"xl88" height=3D"0" colspan=3D"7" style=3D'height:0.00pt;mso-ignore:colspan;'></td>
+    <td class=3D"xl88" x:str>Lektor</td>
+    <td class=3D"xl88" colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"0" style=3D'height:0.00pt;display:none;'>
+    <td class=3D"xl88" height=3D"0" colspan=3D"7" style=3D'height:0.00pt;mso-ignore:colspan;'></td>
+    <td class=3D"xl88" colspan=3D"2" style=3D'mso-ignore:colspan;' x:str>Lektor Kepala</td>
+    <td class=3D"xl88" colspan=3D"7" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"0" style=3D'height:0.00pt;display:none;'>
+    <td class=3D"xl88" height=3D"0" colspan=3D"7" style=3D'height:0.00pt;mso-ignore:colspan;'></td>
+    <td class=3D"xl88" x:str>Guru Besar</td>
+    <td class=3D"xl88" colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"0" style=3D'height:0.00pt;display:none;'>
+    <td class=3D"xl88" height=3D"0" colspan=3D"16" style=3D'height:0.00pt;mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"19" style=3D'height:14.25pt;'>
+    <td class=3D"xl89" height=3D"87" rowspan=3D"2" style=3D'height:65.25pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>No.</td>
+    <td class=3D"xl89" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nama Dosen</td>
+    <td class=3D"xl89" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>NIDN/NIDK</td>
+    <td class=3D"xl90" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Pendidikan Pasca Sarjana</td>
+    <td class=3D"xl89" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Bidang Keahlian</td>
+    <td class=3D"xl89" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Kesesuaian dengan Kompetensi Inti PS</td>
+    <td class=3D"xl89" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jabatan Akademik</td>
+    <td class=3D"xl89" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Sertifikat Pendidik Profesional</td>
+    <td class=3D"xl89" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Sertifikat<span style=3D'mso-spacerun:yes;'>&nbsp; </span>Kompetensi/ Profesi/<span style=3D'mso-spacerun:yes;'>&nbsp; </span>Industri</td>
+    <td class=3D"xl89" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Mata Kuliah yang Diampu pada PS yang Diakreditasi</td>
+    <td class=3D"xl89" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Kesesuaian Bidang Keahlian dengan Mata Kuliah yang Diampu</td>
+    <td class=3D"xl89" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Mata Kuliah yang Diampu pada PS Lain</td>
+    <td class=3D"xl88" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"68" style=3D'height:51.00pt;'>
-    <td class=3D"xl81" x:str>Magister/ Magister Terapan/ Spesialis</td>
-    <td class=3D"xl81" x:str>Doktor/ Doktor Terapan/ Spesialis</td>
-    <td class=3D"xl77" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl92" x:str>Magister/ Magister Terapan/ Spesialis</td>
+    <td class=3D"xl92" x:str>Doktor/ Doktor Terapan/ Spesialis</td>
+    <td class=3D"xl88" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl68" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl68" x:num>2</td>
-    <td class=3D"xl68" x:num>3</td>
-    <td class=3D"xl82" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:num>4</td>
-    <td class=3D"xl68" x:num>5</td>
-    <td class=3D"xl68" x:num>6</td>
-    <td class=3D"xl68" x:num>7</td>
-    <td class=3D"xl68" x:num>8</td>
-    <td class=3D"xl68" x:num>9</td>
-    <td class=3D"xl68" x:num>10</td>
-    <td class=3D"xl68" x:num>11</td>
-    <td class=3D"xl68" x:num>12</td>
-    <td class=3D"xl77" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl79" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
+    <td class=3D"xl79" x:num>2</td>
+    <td class=3D"xl79" x:num>3</td>
+    <td class=3D"xl93" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:num>4</td>
+    <td class=3D"xl79" x:num>5</td>
+    <td class=3D"xl79" x:num>6</td>
+    <td class=3D"xl79" x:num>7</td>
+    <td class=3D"xl79" x:num>8</td>
+    <td class=3D"xl79" x:num>9</td>
+    <td class=3D"xl79" x:num>10</td>
+    <td class=3D"xl79" x:num>11</td>
+    <td class=3D"xl79" x:num>12</td>
+    <td class=3D"xl88" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
    </tr>
-	 <?php $No = 1; foreach ($Dosen as $key) { ?>
-    <tr height=3D"19" style=3D'height:14.25pt;'>
-			<td class=3D"xl83" height=3D"19" style=3D'height:14.25pt;' x:num><?=$No++?></td>
-			<td class=3D"xl84" x:str><?=$key['Nama']?></td>
-			<td class=3D"xl84" x:str><?=$key['NIDN']?></td>
-			<td class=3D"xl84" x:str><?=$key['S2']?></td>
-			<td class=3D"xl70" x:str><?=$key['S3']?></td>
-			<td class=3D"xl70" x:str><?=$key['BidangKeahlian']?></td>
-			<td class=3D"xl71"><?=$key['KesesuaianKompetensi']==1?'V':''?></td>
-			<td class=3D"xl71"><?=$key['Jabatan']?></td>
-			<td class=3D"xl71"><?=$key['SertifikatPendidik']?></td>
-			<td class=3D"xl71" x:str><?=$key['SertifikatKompetensi']?></td>
-			<td class=3D"xl70"><?=$key['MengajarPS']?></td>
-			<td class=3D"xl71"><?=$key['KesesuaianBidang']==1?'V':''?></td>
-			<td class=3D"xl70"><?=$key['MengajarPSLain']?></td>
-		</tr>
-	 <?php } ?>
+		<?php $No = 1; foreach ($Dosen as $key) { ?>
+			<tr height=3D"19" style=3D'height:14.25pt;'>
+				<td class=3D"xl94" height=3D"19" style=3D'height:14.25pt;' x:num><?=$No++?></td>
+				<td class=3D"xl95" x:str><?=$key['Nama']?></td>
+				<td class=3D"xl95" x:str><?=$key['NIDN']?></td>
+				<td class=3D"xl95" x:str><?=$key['S2']?></td>
+				<td class=3D"xl81" x:str><?=$key['S3']?></td>
+				<td class=3D"xl81" x:str><?=$key['BidangKeahlian']?></td>
+				<td class=3D"xl82"><?=$key['KesesuaianKompetensi']==1?'V':''?></td>
+				<td class=3D"xl82"><?=$key['Jabatan']?></td>
+				<td class=3D"xl82"><?=$key['SertifikatPendidik']?></td>
+				<td class=3D"xl82"><?=$key['SertifikatKompetensi']?></td>
+				<td class=3D"xl81"><?=$key['MengajarPS']?></td>
+				<td class=3D"xl82"><?=$key['KesesuaianBidang']==1?'V':''?></td>
+				<td class=3D"xl81"><?=$key['MengajarPSLain']?></td>
+			</tr>
+		<?php } ?>
   </table>
  </body>
 </html>
 
-------=_NextPart_482017781dbb413399e58e9338ebfea1
-Content-Location: file:///C:/ksoet/Borank.files/sheet002.htm
+------=_NextPart_f60c0f1f971b469883cd118064933b06
+Content-Location: file:///C:/ksoet/Boranc.files/sheet002.htm
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/html; charset="us-ascii"
 
@@ -455,7 +530,7 @@ Content-Type: text/html; charset="us-ascii"
   <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8"/>
   <meta name=3D"ProgId" content=3D"Excel.Sheet"/>
   <meta name=3D"Generator" content=3D"WPS Office ET"/>
-  <link id=3D"Main-File" rel=3D"Main-File" href=3D"../Borank.mhtml"/>
+  <link id=3D"Main-File" rel=3D"Main-File" href=3D"../Boranc.mhtml"/>
   <link rel=3D"File-List" href=3D"filelist.xml"/>
   <link rel=3D"Stylesheet" href=3D"stylesheet.css"/>
   <style>
@@ -469,11 +544,151 @@ Content-Type: text/html; charset="us-ascii"
     <x:WorksheetOptions>
      <x:DefaultRowHeight>285</x:DefaultRowHeight>
      <x:StandardWidth>2274</x:StandardWidth>
-     <x:Selected/>
      <x:FreezePanes/>
      <x:FrozenNoSplit/>
      <x:SplitHorizontal>6</x:SplitHorizontal>
      <x:TopRowBottomPane>6</x:TopRowBottomPane>
+     <x:SplitVertical>1</x:SplitVertical>
+     <x:LeftColumnRightPane>1</x:LeftColumnRightPane>
+     <x:ActivePane>0</x:ActivePane>
+     <x:Panes>
+      <x:Pane>
+       <x:Number>0</x:Number>
+       <x:ActiveCol>9</x:ActiveCol>
+       <x:ActiveRow>5</x:ActiveRow>
+       <x:RangeSelection>J6</x:RangeSelection>
+      </x:Pane>
+      <x:Pane>
+       <x:Number>1</x:Number>
+      </x:Pane>
+      <x:Pane>
+       <x:Number>2</x:Number>
+      </x:Pane>
+      <x:Pane>
+       <x:Number>3</x:Number>
+      </x:Pane>
+     </x:Panes>
+     <x:ProtectContents>False</x:ProtectContents>
+     <x:ProtectObjects>False</x:ProtectObjects>
+     <x:ProtectScenarios>False</x:ProtectScenarios>
+     <x:PageBreakZoom>100</x:PageBreakZoom>
+     <x:Print>
+      <x:PaperSizeIndex>9</x:PaperSizeIndex>
+     </x:Print>
+    </x:WorksheetOptions>
+   </xml>
+  
+  <script language=3D"JavaScript">
+	if (window.name!=3D"frSheet")
+		window.location.replace("../Boranc.mhtml");
+	else
+		parent.fnUpdateTabs(1);
+</script>
+ </head>
+ <body link=3D"blue" vlink=3D"purple" class=3D"xl76">
+  <table width=3D"1163.47" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D'width:872.60pt;border-collapse:collapse;table-layout:fixed;'>
+   <col width=3D"44.47" class=3D"xl76" style=3D'mso-width-source:userset;mso-width-alt:1422;'/>
+   <col width=3D"184" class=3D"xl76" style=3D'mso-width-source:userset;mso-width-alt:5888;'/>
+   <col width=3D"60.47" span=3D"4" class=3D"xl76" style=3D'mso-width-source:userset;mso-width-alt:1934;'/>
+   <col width=3D"62.20" span=3D"4" class=3D"xl76" style=3D'mso-width-source:userset;mso-width-alt:1990;'/>
+   <col width=3D"71.07" span=3D"16372" class=3D"xl76" style=3D'mso-width-source:userset;mso-width-alt:2274;'/>
+   <tr height=3D"19" style=3D'height:14.25pt;'>
+    <td class=3D"xl77" height=3D"19" width=3D"349.40" colspan=3D"4" style=3D'height:14.25pt;width:262.05pt;mso-ignore:colspan;' x:str>Tabel 3.a.2) Dosen Pembimbing Utama Tugas Akhir</td>
+    <td class=3D"xl76" width=3D"60.47" style=3D'width:45.35pt;'></td>
+    <td class=3D"xl76" width=3D"60.47" style=3D'width:45.35pt;'></td>
+    <td class=3D"xl76" width=3D"62.20" style=3D'width:46.65pt;'></td>
+    <td class=3D"xl76" width=3D"62.20" style=3D'width:46.65pt;'></td>
+    <td class=3D"xl76" width=3D"62.20" style=3D'width:46.65pt;'></td>
+    <td class=3D"xl76" width=3D"62.20" style=3D'width:46.65pt;'></td>
+    <td class=3D"xl76" width=3D"114.67" style=3D'width:86.00pt;'></td>
+    <td class=3D"xl87" width=3D"116.47" style=3D'width:87.35pt;'></td>
+    <td class=3D"xl76" width=3D"71.07" style=3D'width:53.30pt;'></td>
+    <td class=3D"xl76" width=3D"71.07" style=3D'width:53.30pt;'></td>
+    <td class=3D"xl76" width=3D"71.07" style=3D'width:53.30pt;'></td>
+   </tr>
+   <tr height=3D"19" style=3D'height:14.25pt;'>
+    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;'></td>
+    <td class=3D"xl76" colspan=3D"14" style=3D'mso-ignore:colspan;'></td>
+	 </tr>
+
+	<tr height=3D"29.20" style=3D'height:21.90pt;mso-height-source:userset;mso-height-alt:438;'>
+    <td class=3D"xl78" height=3D"88.20" rowspan=3D"3" style=3D'height:66.15pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>No.</td>
+    <td class=3D"xl78" rowspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nama Dosen</td>
+    <td class=3D"xl78" colspan=3D"<?=(($TS*2)+2)?>" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah Mahasiswa yang Dibimbing</td>
+    <td class=3D"xl78" rowspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Rata-rata Jumlah Bimbingan di semua Program/ Semester</td>
+	</tr>
+
+  <tr height=3D"40" style=3D'height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
+    <td class=3D"xl78" colspan=3D"<?=($TS+1)?>" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>pada PS yang Diakreditasi</td>
+    <td class=3D"xl78" colspan=3D"<?=($TS+1)?>" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>pada PS Lain pada Program yang sama di PT</td> 
+	</tr>
+	 
+	<tr height=3D"19" style=3D'height:14.25pt;'>
+		<?php for ($i = $TS; $i > 1; $i--) { ?>
+			<td class=3D"xl78" x:str>TS-<?=($i-1)?></td>
+		<?php } ?>
+			<td class=3D"xl78" x:str>TS</td>
+			<td class=3D"xl78" x:str>Rata-rata</td>
+		<?php for ($i = $TS; $i > 1; $i--) { ?>
+			<td class=3D"xl78" x:str>TS-<?=($i-1)?></td>
+		<?php } ?>
+			<td class=3D"xl78" x:str>TS</td>
+			<td class=3D"xl78" x:str>Rata-rata</td>
+	</tr>
+
+	<tr height=3D"19" style=3D'height:14.25pt;'>
+		<?php for ($i = 1; $i <= (5+($TS*2)); $i++) { ?>
+			<td class=3D"xl79" x:num><?=$i?></td>
+		<?php } ?>
+	</tr>
+	
+	<?php $No = 1; foreach ($DPU as $key) { $A = $B = 0;?>
+		<tr height=3D"19" style=3D'height:14.25pt;'>
+			<td class=3D"xl80" height=3D"19" style=3D'height:14.25pt;' x:num><?=$No++?></td>
+			<td class=3D"xl81" x:str><?=$key[0]?></td>
+			<?php for ($i = 1; $i <= $TS; $i++) { ?>
+				<td class=3D"xl82" x:num><?=$key[$i]?></td>
+			<?php $A += $key[$i]; } ?>
+			<td class=3D"xl85"><?=round(($A/$TS),2)?></td>
+			<?php for ($i = 1; $i <= $TS; $i++) { ?>
+				<td class=3D"xl82" x:num><?=$key[$i+$TS]?></td>
+			<?php $B += $key[$i+$TS]; } ?>
+			<td class=3D"xl85"><?=round(($B/$TS),1)?></td>
+			<td class=3D"xl85"><?=round(((round(($A/$TS),1)+round(($B/$TS),1))/2),1)?></td>
+		</tr>
+	<?php } ?>
+	</table>
+ </body>
+</html>
+
+------=_NextPart_f60c0f1f971b469883cd118064933b06
+Content-Location: file:///C:/ksoet/Boranc.files/sheet003.htm
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="us-ascii"
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmlns:x=3D"urn:schemas-microsoft-com:office:excel" xmlns=3D"http://www.w3.org/TR/REC-html40">
+ <head>
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8"/>
+  <meta name=3D"ProgId" content=3D"Excel.Sheet"/>
+  <meta name=3D"Generator" content=3D"WPS Office ET"/>
+  <link id=3D"Main-File" rel=3D"Main-File" href=3D"../Boranc.mhtml"/>
+  <link rel=3D"File-List" href=3D"filelist.xml"/>
+  <link rel=3D"Stylesheet" href=3D"stylesheet.css"/>
+  <style>
+ @page
+	{margin:0.75in 0.70in 0.75in 0.70in;
+	mso-header-margin:0.30in;
+	mso-footer-margin:0.30in;}
+   </style>
+  
+   <xml>
+    <x:WorksheetOptions>
+     <x:DefaultRowHeight>285</x:DefaultRowHeight>
+     <x:StandardWidth>2274</x:StandardWidth>
+     <x:FreezePanes/>
+     <x:FrozenNoSplit/>
+     <x:SplitHorizontal>5</x:SplitHorizontal>
+     <x:TopRowBottomPane>5</x:TopRowBottomPane>
      <x:SplitVertical>1</x:SplitVertical>
      <x:LeftColumnRightPane>1</x:LeftColumnRightPane>
      <x:ActivePane>0</x:ActivePane>
@@ -506,81 +721,90 @@ Content-Type: text/html; charset="us-ascii"
   
   <script language=3D"JavaScript">
 	if (window.name!=3D"frSheet")
-		window.location.replace("../Borank.mhtml");
+		window.location.replace("../Boranc.mhtml");
 	else
-		parent.fnUpdateTabs(1);
+		parent.fnUpdateTabs(2);
 </script>
  </head>
  <body link=3D"blue" vlink=3D"purple" class=3D"xl65">
-  <table width=3D"1163.47" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D'width:872.60pt;border-collapse:collapse;table-layout:fixed;'>
+  <table width=3D"760.73" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D'width:570.55pt;border-collapse:collapse;table-layout:fixed;'>
    <col width=3D"44.47" class=3D"xl65" style=3D'mso-width-source:userset;mso-width-alt:1422;'/>
-   <col width=3D"184" class=3D"xl65" style=3D'mso-width-source:userset;mso-width-alt:5888;'/>
-   <col width=3D"60.47" span=3D"4" class=3D"xl65" style=3D'mso-width-source:userset;mso-width-alt:1934;'/>
-   <col width=3D"62.20" span=3D"4" class=3D"xl65" style=3D'mso-width-source:userset;mso-width-alt:1990;'/>
-   
-   <col width=3D"71.07" span=3D"16372" class=3D"xl65" style=3D'mso-width-source:userset;mso-width-alt:2274;'/>
+   <col width=3D"244.47" class=3D"xl65" style=3D'mso-width-source:userset;mso-width-alt:7822;'/>
+   <col width=3D"71.07" span=3D"4" class=3D"xl65" style=3D'mso-width-source:userset;mso-width-alt:2274;'/>
+   <col width=3D"116.47" class=3D"xl65" style=3D'mso-width-source:userset;mso-width-alt:3726;'/>
+   <col width=3D"71.07" span=3D"16377" class=3D"xl65" style=3D'mso-width-source:userset;mso-width-alt:2274;'/>
    <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl66" height=3D"19" width=3D"349.40" colspan=3D"4" style=3D'height:14.25pt;width:262.05pt;mso-ignore:colspan;' x:str>Tabel 3.a.2) Dosen Pembimbing Utama Tugas Akhir</td>
-    <td class=3D"xl65" width=3D"60.47" style=3D'width:45.35pt;'></td>
-    <td class=3D"xl65" width=3D"60.47" style=3D'width:45.35pt;'></td>
-    <td class=3D"xl65" width=3D"62.20" style=3D'width:46.65pt;'></td>
-    <td class=3D"xl65" width=3D"62.20" style=3D'width:46.65pt;'></td>
-    <td class=3D"xl65" width=3D"62.20" style=3D'width:46.65pt;'></td>
-    <td class=3D"xl65" width=3D"62.20" style=3D'width:46.65pt;'></td>
+    <td class=3D"xl66" height=3D"19" width=3D"288.93" colspan=3D"2" style=3D'height:14.25pt;width:216.70pt;mso-ignore:colspan;' x:str>Tabel 3.b.2) Penelitian DTPS</td>
+    <td class=3D"xl65" width=3D"71.07" style=3D'width:53.30pt;'></td>
+    <td class=3D"xl65" width=3D"71.07" style=3D'width:53.30pt;'></td>
+    <td class=3D"xl65" width=3D"71.07" style=3D'width:53.30pt;'></td>
+    <td class=3D"xl65" width=3D"71.07" style=3D'width:53.30pt;'></td>
+    <td class=3D"xl75" width=3D"116.47" style=3D'width:87.35pt;'></td>
+    <td class=3D"xl65" width=3D"71.07" style=3D'width:53.30pt;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl66" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td class=3D"xl65" colspan=3D"14" style=3D'mso-ignore:colspan;'></td>
+    <td class=3D"xl65" colspan=3D"7" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"29.20" style=3D'height:21.90pt;mso-height-source:userset;mso-height-alt:438;'>
-    <td class=3D"xl67" height=3D"88.20" rowspan=3D"3" style=3D'height:66.15pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>No.</td>
-    <td class=3D"xl67" rowspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nama Dosen</td>
-    <td class=3D"xl67" colspan=3D"<?=(($TS*2)+2)?>" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah Mahasiswa yang Dibimbing</td>
-    <td class=3D"xl67" width=3D"100" rowspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Rata-rata Jumlah Bimbingan di semua Program/ Semester</td>
-   </tr>
-   <tr height=3D"40" style=3D'height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
-    <td class=3D"xl67" colspan=3D"<?=($TS+1)?>" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>pada PS yang Diakreditasi</td>
-    <td class=3D"xl67" colspan=3D"<?=($TS+1)?>" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>pada PS Lain pada Program yang sama di PT</td>
-   </tr>
-	 <tr height=3D"19" style=3D'height:14.25pt;'>
-		<?php for ($i = $TS; $i > 1; $i--) { ?>
-			<td class=3D"xl67" x:str>TS-<?=($i-1)?></td>
-		<?php } ?>
-			<td class=3D"xl67" x:str>TS</td>
-			<td class=3D"xl67" x:str>Rata-rata</td>
-		<?php for ($i = $TS; $i > 1; $i--) { ?>
-			<td class=3D"xl67" x:str>TS-<?=($i-1)?></td>
-		<?php } ?>
-			<td class=3D"xl67" x:str>TS</td>
-			<td class=3D"xl67" x:str>Rata-rata</td>
-   </tr>
-	 <tr height=3D"19" style=3D'height:14.25pt;'>
-		<?php for ($i = 1; $i <= (5+($TS*2)); $i++) { ?>
-			<td class=3D"xl68" x:num><?=$i?></td>
-		<?php } ?>
+   <tr height=3D"19" style=3D'height:14.25pt;'>
+    <td class=3D"xl67" height=3D"38" rowspan=3D"2" style=3D'height:28.50pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>No.</td>
+    <td class=3D"xl68" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Sumber Pembiayaan</td>
+    <td class=3D"xl67" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah Judul Penelitian</td>
+    <td class=3D"xl67" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
+    <td class=3D"xl65" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
 	 </tr>
-	 <?php $No = 1; foreach ($DPU as $key) { $A = $B = 0;?>
-
-		<tr height=3D"19" style=3D'height:14.25pt;'>
-			<td class=3D"xl69" height=3D"19" style=3D'height:14.25pt;' x:num><?=$No++?></td>
-			<td class=3D"xl70" x:str><?=$key[0]?></td>
-			<?php for ($i = 1; $i <= $TS; $i++) { ?>
-				<td class=3D"xl71" x:num><?=$key[$i]?></td>
-			<?php $A += $key[$i]; } ?>
-			<td class=3D"xl74"><?=round(($A/$TS),2)?></td>
-			<?php for ($i = 1; $i <= $TS; $i++) { ?>
-				<td class=3D"xl71" x:num><?=$key[$i+$TS]?></td>
-			<?php $B += $key[$i+$TS]; } ?>
-			<td class=3D"xl74"><?=round(($B/$TS),1)?></td>
-			<td class=3D"xl74"><?=round(((round(($A/$TS),1)+round(($B/$TS),1))/2),1)?></td>
-		</tr>
-	 <?php } ?>
+	 <tr height=3D"19" style=3D'height:14.25pt;'>
+		<?php for ($i = $TS; $i > 1; $i--) { ?>
+			<td class=3D"xl67" x:str>TS-<?=($i-1)?></td>
+		<?php } ?>
+			<td class=3D"xl67" x:str>TS</td>
+	 </tr>
+	 <tr height=3D"19" style=3D'height:14.25pt;'>
+		<?php for ($i = 1; $i <= (3+($TS)); $i++) { ?>
+			<td class=3D"xl70" x:num><?=$i?></td>
+		<?php } ?>
+	</tr>
+   <tr height=3D"34" style=3D'height:25.50pt;'>
+    <td class=3D"xl71" height=3D"34" style=3D'height:25.50pt;' x:num>1</td>
+		<td class=3D"xl72" x:str>a) Perguruan tinggi<br/>b) Mandiri</td>
+		<?php for ($i = 0; $i < $TS; $i++) { ?>
+			<td class=3D"xl73" x:num><?=$PenelitianDTPS[0][$i]?></td>
+		<?php } ?>
+    <td class=3D"xl71" x:num><?=$PenelitianDTPS[0][$TS]?></td>
+    <td class=3D"xl65" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"19" style=3D'height:14.25pt;'>
+    <td class=3D"xl71" height=3D"19" style=3D'height:14.25pt;' x:num>2</td>
+    <td class=3D"xl72" x:str>Lembaga dalam negeri (diluar PT)</td>
+    <?php for ($i = 0; $i < $TS; $i++) { ?>
+			<td class=3D"xl73" x:num><?=$PenelitianDTPS[1][$i]?></td>
+		<?php } ?>
+    <td class=3D"xl71" x:num><?=$PenelitianDTPS[1][$TS]?></td>
+    <td class=3D"xl65" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"19" style=3D'height:14.25pt;'>
+    <td class=3D"xl71" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
+    <td class=3D"xl72" x:str>Lembaga luar negeri</td>
+    <?php for ($i = 0; $i < $TS; $i++) { ?>
+			<td class=3D"xl73" x:num><?=$PenelitianDTPS[2][$i]?></td>
+		<?php } ?>
+    <td class=3D"xl71" x:num><?=$PenelitianDTPS[2][$TS]?></td>
+    <td class=3D"xl65" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
+   </tr>
+   <tr height=3D"19" style=3D'height:14.25pt;'>
+    <td class=3D"xl74" height=3D"19" colspan=3D"2" style=3D'height:14.25pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
+		<?php for ($i = 0; $i <= $TS; $i++) { $Total = 0; ?>
+			<?php for ($j = 0; $j < 3; $j++) { $Total += $PenelitianDTPS[$j][$i]; }?>
+			<td class=3D"xl74" x:num><?=$Total?></td>
+		<?php } ?>
+    <td class=3D"xl65" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
+   </tr>
   </table>
  </body>
 </html>
 
-------=_NextPart_482017781dbb413399e58e9338ebfea1
-Content-Location: file:///C:/ksoet/Borank.files/stylesheet.css
+------=_NextPart_f60c0f1f971b469883cd118064933b06
+Content-Location: file:///C:/ksoet/Boranc.files/stylesheet.css
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/html; charset="us-ascii"
 
@@ -1184,7 +1408,7 @@ td
 	text-align:center;
 	vertical-align:middle;
 	white-space:normal;
-	mso-pattern:auto none;
+	mso-pattern:auto gray-25;
 	background:#ACB9CA;
 	font-size:10.0pt;
 	font-weight:700;
@@ -1195,27 +1419,22 @@ td
 	text-align:center;
 	vertical-align:middle;
 	white-space:normal;
-	mso-pattern:auto gray-125;
-	background:#D9D9D9;
-	font-size:9.0pt;
+	mso-pattern:auto gray-25;
+	background:#ACB9CA;
+	font-size:10.0pt;
+	font-weight:700;
 	mso-font-charset:134;
-	border:.5pt solid windowtext;}
-.xl69
+	border-left:.5pt solid windowtext;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;}
+.xl70
 	{mso-style-parent:style0;
 	text-align:center;
 	vertical-align:middle;
 	white-space:normal;
-	font-size:10.0pt;
-	mso-font-charset:134;
-	border:.5pt solid windowtext;}
-.xl70
-	{mso-style-parent:style0;
-	text-align:left;
-	vertical-align:middle;
-	white-space:normal;
-	mso-pattern:auto none;
-	background:#FFFF00;
-	font-size:10.0pt;
+	mso-pattern:auto gray-25;
+	background:#CCCCCC;
+	font-size:9.0pt;
 	mso-font-charset:134;
 	border:.5pt solid windowtext;}
 .xl71
@@ -1223,28 +1442,18 @@ td
 	text-align:center;
 	vertical-align:middle;
 	white-space:normal;
-	mso-pattern:auto none;
-	background:#FFFF00;
 	font-size:10.0pt;
 	mso-font-charset:134;
 	border:.5pt solid windowtext;}
 .xl72
 	{mso-style-parent:style0;
-	text-align:center;
 	vertical-align:middle;
 	white-space:normal;
 	font-size:10.0pt;
-	mso-font-charset:134;}
+	mso-font-charset:134;
+	border:.5pt solid windowtext;}
 .xl73
 	{mso-style-parent:style0;
-	text-align:left;
-	vertical-align:middle;
-	white-space:normal;
-	font-size:10.0pt;
-	mso-font-charset:134;}
-.xl74
-	{mso-style-parent:style0;
-	mso-number-format:"0\.0";
 	text-align:center;
 	vertical-align:middle;
 	white-space:normal;
@@ -1253,26 +1462,125 @@ td
 	font-size:10.0pt;
 	mso-font-charset:134;
 	border:.5pt solid windowtext;}
-.xl75
+.xl74
 	{mso-style-parent:style0;
-	mso-number-format:"0\.0";
 	text-align:center;
 	vertical-align:middle;
 	white-space:normal;
 	font-size:10.0pt;
-	mso-font-charset:134;}
-.xl76
+	font-weight:700;
+	mso-font-charset:134;
+	border:.5pt solid windowtext;}
+.xl75
 	{mso-style-parent:style63;
 	vertical-align:middle;
 	color:#0563C1;
 	text-decoration:underline;
 	text-underline-style:single;
 	mso-font-charset:134;}
-.xl77
+.xl76
 	{mso-style-parent:style0;
 	vertical-align:middle;
 	mso-font-charset:134;}
+.xl77
+	{mso-style-parent:style0;
+	text-align:left;
+	vertical-align:middle;
+	mso-font-charset:134;}
 .xl78
+	{mso-style-parent:style0;
+	text-align:center;
+	vertical-align:middle;
+	white-space:normal;
+	mso-pattern:auto none;
+	background:#ACB9CA;
+	font-size:10.0pt;
+	font-weight:700;
+	mso-font-charset:134;
+	border:.5pt solid windowtext;}
+.xl79
+	{mso-style-parent:style0;
+	text-align:center;
+	vertical-align:middle;
+	white-space:normal;
+	mso-pattern:auto gray-125;
+	background:#D9D9D9;
+	font-size:9.0pt;
+	mso-font-charset:134;
+	border:.5pt solid windowtext;}
+.xl80
+	{mso-style-parent:style0;
+	text-align:center;
+	vertical-align:middle;
+	white-space:normal;
+	font-size:10.0pt;
+	mso-font-charset:134;
+	border:.5pt solid windowtext;}
+.xl81
+	{mso-style-parent:style0;
+	text-align:left;
+	vertical-align:middle;
+	white-space:normal;
+	mso-pattern:auto none;
+	background:#FFFF00;
+	font-size:10.0pt;
+	mso-font-charset:134;
+	border:.5pt solid windowtext;}
+.xl82
+	{mso-style-parent:style0;
+	text-align:center;
+	vertical-align:middle;
+	white-space:normal;
+	mso-pattern:auto none;
+	background:#FFFF00;
+	font-size:10.0pt;
+	mso-font-charset:134;
+	border:.5pt solid windowtext;}
+.xl83
+	{mso-style-parent:style0;
+	text-align:center;
+	vertical-align:middle;
+	white-space:normal;
+	font-size:10.0pt;
+	mso-font-charset:134;}
+.xl84
+	{mso-style-parent:style0;
+	text-align:left;
+	vertical-align:middle;
+	white-space:normal;
+	font-size:10.0pt;
+	mso-font-charset:134;}
+.xl85
+	{mso-style-parent:style0;
+	mso-number-format:"0\.0";
+	text-align:center;
+	vertical-align:middle;
+	white-space:normal;
+	mso-pattern:auto none;
+	background:#FFFF00;
+	font-size:10.0pt;
+	mso-font-charset:134;
+	border:.5pt solid windowtext;}
+.xl86
+	{mso-style-parent:style0;
+	mso-number-format:"0\.0";
+	text-align:center;
+	vertical-align:middle;
+	white-space:normal;
+	font-size:10.0pt;
+	mso-font-charset:134;}
+.xl87
+	{mso-style-parent:style63;
+	vertical-align:middle;
+	color:#0563C1;
+	text-decoration:underline;
+	text-underline-style:single;
+	mso-font-charset:134;}
+.xl88
+	{mso-style-parent:style0;
+	vertical-align:middle;
+	mso-font-charset:134;}
+.xl89
 	{mso-style-parent:style0;
 	text-align:center;
 	vertical-align:middle;
@@ -1285,7 +1593,7 @@ td
 	border-left:.5pt solid windowtext;
 	border-top:.5pt solid windowtext;
 	border-right:.5pt solid windowtext;}
-.xl79
+.xl90
 	{mso-style-parent:style0;
 	text-align:center;
 	vertical-align:middle;
@@ -1298,7 +1606,7 @@ td
 	border-left:.5pt solid windowtext;
 	border-top:.5pt solid windowtext;
 	border-bottom:.5pt solid windowtext;}
-.xl81
+.xl92
 	{mso-style-parent:style0;
 	text-align:center;
 	vertical-align:middle;
@@ -1309,7 +1617,7 @@ td
 	font-weight:700;
 	mso-font-charset:134;
 	border:.5pt solid windowtext;}
-.xl82
+.xl93
 	{mso-style-parent:style0;
 	text-align:center;
 	vertical-align:middle;
@@ -1321,7 +1629,7 @@ td
 	border-left:.5pt solid windowtext;
 	border-top:.5pt solid windowtext;
 	border-bottom:.5pt solid windowtext;}
-.xl83
+.xl94
 	{mso-style-parent:style0;
 	text-align:center;
 	vertical-align:middle;
@@ -1329,7 +1637,7 @@ td
 	font-size:10.0pt;
 	mso-font-charset:134;
 	border:.5pt solid windowtext;}
-.xl84
+.xl95
 	{mso-style-parent:style0;
 	vertical-align:middle;
 	white-space:normal;
@@ -1338,26 +1646,26 @@ td
 	font-size:10.0pt;
 	mso-font-charset:134;
 	border:.5pt solid windowtext;}
-.xl85
+.xl96
 	{mso-style-parent:style0;
 	vertical-align:middle;
 	white-space:normal;
 	font-size:10.0pt;
 	mso-font-charset:134;}
-.xl86
+.xl97
 	{mso-style-parent:style0;
 	text-align:left;
 	vertical-align:middle;
 	white-space:normal;
 	font-size:10.0pt;
 	mso-font-charset:134;}
-.xl89
+.xl100
 	{mso-style-parent:style0;
 	mso-pattern:auto none;
 	background:#FFFF00;
 	mso-font-charset:134;
 	border:.5pt solid windowtext;}
-.xl90
+.xl101
 	{mso-style-parent:style63;
 	vertical-align:middle;
 	color:#800080;
@@ -1366,18 +1674,19 @@ td
 	mso-font-charset:134;}
 
 
-------=_NextPart_482017781dbb413399e58e9338ebfea1
-Content-Location: file:///C:/ksoet/Borank.files/filelist.xml
+------=_NextPart_f60c0f1f971b469883cd118064933b06
+Content-Location: file:///C:/ksoet/Boranc.files/filelist.xml
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/xml; charset="us-ascii"
 
 <xml xmlns:o=3D"urn:schemas-microsoft-com:office:office">
- <o:MainFile href=3D"../Borank"/>
+ <o:MainFile href=3D"../Boranc"/>
  <o:File href=3D"js.js"/>
  <o:File href=3D"tabstrip.htm"/>
  <o:File href=3D"sheet001.htm"/>
  <o:File href=3D"sheet002.htm"/>
+ <o:File href=3D"sheet003.htm"/>
  <o:File href=3D"stylesheet.css"/>
  <o:File href=3D"filelist.xml"/>
 </xml>
-------=_NextPart_482017781dbb413399e58e9338ebfea1--
+------=_NextPart_f60c0f1f971b469883cd118064933b06--

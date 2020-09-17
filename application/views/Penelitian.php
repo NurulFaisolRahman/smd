@@ -214,18 +214,27 @@
 					fd.append('TanggalKegiatan',$("#TanggalKegiatan").val())	
 					if ($("#InputIdKegiatanPenelitian").val() == 'PNL1') {
 						fd.append('Kode',$("#Point1").val())
+						fd.append('Biaya',$("#SumberPembiayaan").val())
 					}
 					else if ($("#InputIdKegiatanPenelitian").val() == 'PNL2') {
 						fd.append('Kode',$("#Point2").val())				
+						fd.append('Biaya',$("#SumberPembiayaan").val())
+					}
+					else if ($("#InputIdKegiatanPenelitian").val() == 'PNL3') {
+						fd.append('Kode',0)				
+						fd.append('Biaya',$("#SumberPembiayaan").val())
 					}
 					else if ($("#InputIdKegiatanPenelitian").val() == 'PNL6') {
 						fd.append('Kode',$("#Point6").val())
+						fd.append('Biaya',$("#SumberPembiayaan").val())
 					}
 					else if ($("#InputIdKegiatanPenelitian").val() == 'PNL7') {
 						fd.append('Kode',$("#Point7").val())
+						fd.append('Biaya',$("#SumberPembiayaan").val())
 					}
 					else if ($("#InputIdKegiatanPenelitian").val() == 'PNL8') {
 						fd.append('Kode',$("#Point8").val())
+						fd.append('Biaya',$("#SumberPembiayaan").val())
 					}
 					else if ($("#InputIdKegiatanPenelitian").val() == 'PNL9') {
 						if ($("#SebagaiPNL9").val() == 1) {
@@ -234,10 +243,12 @@
 							fd.append('KreditBKD',$("#ProgresPNL9").val())
 						}
 						fd.append('Kode','0')
+						fd.append('Biaya',$("#SumberPembiayaan").val())
 					}
 					else if ($("#InputIdKegiatanPenelitian").val() == 'PNL10') {
 						fd.append('KreditBKD',$("#ProgresPNL10").val()*4)
 						fd.append('Kode','0')
+						fd.append('Biaya',$("#SumberPembiayaan").val())
 					}
 					else if ($("#InputIdKegiatanPenelitian").val() == 'PNL11') {
 						if ($("#JenisPNL11").val() == '1') {
@@ -246,6 +257,7 @@
 							fd.append('KreditBKD',$("#ProgresPNL11").val()*$("#JenisPNL11").val())
 						}
 						fd.append('Kode','0')
+						fd.append('Biaya',$("#SumberPembiayaan").val())
 					}
 					else if ($("#InputIdKegiatanPenelitian").val() == 'PNL12') {
 						if ($("#JenisPNL11").val() == '1') {
@@ -254,25 +266,31 @@
 							fd.append('KreditBKD',$("#ProgresPNL11").val()*$("#JenisPNL11").val())
 						}
 						fd.append('Kode','0')
+						fd.append('Biaya',$("#SumberPembiayaan").val())
 					}
 					else if ($("#InputIdKegiatanPenelitian").val() == 'PNL14') {
 						fd.append('KreditBKD',$("#ProgresPNL14").val()*$("#JenisPNL14").val())
 						fd.append('Kode','0')
+						fd.append('Biaya',$("#SumberPembiayaan").val())
 					}
 					else if ($("#InputIdKegiatanPenelitian").val() == 'PNL15') {
 						fd.append('KreditBKD',(PNL15[$("#JenisPNL15").val()][$("#LingkupPNL15").val()]))
 						fd.append('Kode','0')
+						fd.append('Biaya',$("#SumberPembiayaan").val())
 					}
 					else if ($("#InputIdKegiatanPenelitian").val() == 'PNL16') {
 						fd.append('KreditBKD',$("#LingkupPNL16").val())
 						fd.append('Kode','0')
+						fd.append('Biaya',$("#SumberPembiayaan").val())
 					}
 					else if ($("#InputIdKegiatanPenelitian").val() == 'PNL17') {
 						fd.append('KreditBKD',$("#ProgresPNL17").val()*$("#JenisPNL17").val())
 						fd.append('Kode','0')
+						fd.append('Biaya',$("#SumberPembiayaan").val())
 					}
 					else {
 						fd.append('Kode','0')
+						fd.append('Biaya','0')
 					}
 					$.ajax({
 						url: BaseURL+'Penelitian/InputRealisasi',
@@ -292,7 +310,7 @@
 				}
 
 				$("#TambahRealisasiPenelitian").click(function() {
-					if ($("#InputIdKegiatanPenelitian").val() != 'PNL8' && $("#InputIdKegiatanPenelitian").val() != 'PNL9' && $("#InputIdKegiatanPenelitian").val() != 'PNL10' && $("#InputIdKegiatanPenelitian").val() != 'PNL11' && $("#InputIdKegiatanPenelitian").val() != 'PNL12' && $("#InputIdKegiatanPenelitian").val() != 'PNL13' && $("#InputIdKegiatanPenelitian").val() != 'PNL15' && $("#InputIdKegiatanPenelitian").val() != 'PNL16' && $("#InputIdKegiatanPenelitian").val() != 'PNL17' && $("#InputIdKegiatanPenelitian").val() != 'PNL18' && $("#InputIdKegiatanPenelitian").val() != 'PNL19' && $("#InputIdKegiatanPenelitian").val() != 'PNL20' && $("#InputIdKegiatanPenelitian").val() != 'PNL21') {
+					if ($("#InputIdKegiatanPenelitian").val() != 'PNL13' && $("#InputIdKegiatanPenelitian").val() != 'PNL18' && $("#InputIdKegiatanPenelitian").val() != 'PNL19' && $("#InputIdKegiatanPenelitian").val() != 'PNL20' && $("#InputIdKegiatanPenelitian").val() != 'PNL21') {
 						if (isNaN(parseInt($("#Ke").val())) || isNaN(parseInt($("#Dari").val())) || parseInt($("#Ke").val()) > parseInt($("#Dari").val())) {
 							alert('Input Penulis Belum Benar')
 						} 
@@ -377,6 +395,7 @@
 			function InputIdKegiatanPenelitian() {
 				if ($("#InputIdKegiatanPenelitian").val() == 'PNL1') {
 					document.getElementById("OpsiPNL1").style.display = 'block'
+					document.getElementById("OpsiSumberPembiayaan").style.display = 'block'
 					document.getElementById("OpsiPNL2").style.display = 'none'
 					document.getElementById("OpsiPNL6").style.display = 'none'
 					document.getElementById("OpsiPNL7").style.display = 'none'
@@ -392,6 +411,37 @@
 				} else if ($("#InputIdKegiatanPenelitian").val() == 'PNL2') {
 					document.getElementById("OpsiPNL1").style.display = 'none'
 					document.getElementById("OpsiPNL2").style.display = 'block'
+					document.getElementById("OpsiSumberPembiayaan").style.display = 'block'
+					document.getElementById("OpsiPNL6").style.display = 'none'
+					document.getElementById("OpsiPNL7").style.display = 'none'
+					document.getElementById("OpsiPNL8").style.display = 'none'
+					document.getElementById("OpsiPNL9").style.display = 'none'
+					document.getElementById("OpsiPNL10").style.display = 'none'
+					document.getElementById("OpsiPNL11").style.display = 'none'
+					document.getElementById("OpsiPNL14").style.display = 'none'
+					document.getElementById("OpsiPNL15").style.display = 'none'
+					document.getElementById("OpsiPNL16").style.display = 'none'
+					document.getElementById("OpsiPNL17").style.display = 'none'
+					document.getElementById("OpsiPenulis").style.display = 'block'
+				} else if ($("#InputIdKegiatanPenelitian").val() == 'PNL3') {
+					document.getElementById("OpsiPNL1").style.display = 'none'
+					document.getElementById("OpsiPNL2").style.display = 'none'
+					document.getElementById("OpsiSumberPembiayaan").style.display = 'block'
+					document.getElementById("OpsiPNL6").style.display = 'none'
+					document.getElementById("OpsiPNL7").style.display = 'none'
+					document.getElementById("OpsiPNL8").style.display = 'none'
+					document.getElementById("OpsiPNL9").style.display = 'none'
+					document.getElementById("OpsiPNL10").style.display = 'none'
+					document.getElementById("OpsiPNL11").style.display = 'none'
+					document.getElementById("OpsiPNL14").style.display = 'none'
+					document.getElementById("OpsiPNL15").style.display = 'none'
+					document.getElementById("OpsiPNL16").style.display = 'none'
+					document.getElementById("OpsiPNL17").style.display = 'none'
+					document.getElementById("OpsiPenulis").style.display = 'block'
+				} else if ($("#InputIdKegiatanPenelitian").val() == 'PNL4' || $("#InputIdKegiatanPenelitian").val() == 'PNL5') {
+					document.getElementById("OpsiPNL1").style.display = 'none'
+					document.getElementById("OpsiPNL2").style.display = 'none'
+					document.getElementById("OpsiSumberPembiayaan").style.display = 'none'
 					document.getElementById("OpsiPNL6").style.display = 'none'
 					document.getElementById("OpsiPNL7").style.display = 'none'
 					document.getElementById("OpsiPNL8").style.display = 'none'
@@ -407,6 +457,7 @@
 					document.getElementById("OpsiPNL1").style.display = 'none'
 					document.getElementById("OpsiPNL2").style.display = 'none'
 					document.getElementById("OpsiPNL6").style.display = 'block'
+					document.getElementById("OpsiSumberPembiayaan").style.display = 'block'
 					document.getElementById("OpsiPNL7").style.display = 'none'
 					document.getElementById("OpsiPNL8").style.display = 'none'
 					document.getElementById("OpsiPNL9").style.display = 'none'
@@ -422,6 +473,7 @@
 					document.getElementById("OpsiPNL2").style.display = 'none'
 					document.getElementById("OpsiPNL6").style.display = 'none'
 					document.getElementById("OpsiPNL7").style.display = 'block'
+					document.getElementById("OpsiSumberPembiayaan").style.display = 'block'
 					document.getElementById("OpsiPNL8").style.display = 'none'
 					document.getElementById("OpsiPNL9").style.display = 'none'
 					document.getElementById("OpsiPNL10").style.display = 'none'
@@ -437,6 +489,7 @@
 					document.getElementById("OpsiPNL6").style.display = 'none'
 					document.getElementById("OpsiPNL7").style.display = 'none'
 					document.getElementById("OpsiPNL8").style.display = 'block'
+					document.getElementById("OpsiSumberPembiayaan").style.display = 'block'
 					document.getElementById("OpsiPNL9").style.display = 'none'
 					document.getElementById("OpsiPNL10").style.display = 'none'
 					document.getElementById("OpsiPNL11").style.display = 'none'
@@ -444,7 +497,7 @@
 					document.getElementById("OpsiPNL15").style.display = 'none'
 					document.getElementById("OpsiPNL16").style.display = 'none'
 					document.getElementById("OpsiPNL17").style.display = 'none'
-					document.getElementById("OpsiPenulis").style.display = 'none'
+					document.getElementById("OpsiPenulis").style.display = 'block'
 				} else if ($("#InputIdKegiatanPenelitian").val() == 'PNL9') {
 					document.getElementById("OpsiPNL1").style.display = 'none'
 					document.getElementById("OpsiPNL2").style.display = 'none'
@@ -452,13 +505,14 @@
 					document.getElementById("OpsiPNL7").style.display = 'none'
 					document.getElementById("OpsiPNL8").style.display = 'none'
 					document.getElementById("OpsiPNL9").style.display = 'block'
+					document.getElementById("OpsiSumberPembiayaan").style.display = 'block'
 					document.getElementById("OpsiPNL10").style.display = 'none'
 					document.getElementById("OpsiPNL11").style.display = 'none'
 					document.getElementById("OpsiPNL14").style.display = 'none'
 					document.getElementById("OpsiPNL15").style.display = 'none'
 					document.getElementById("OpsiPNL16").style.display = 'none'
 					document.getElementById("OpsiPNL17").style.display = 'none'
-					document.getElementById("OpsiPenulis").style.display = 'none'
+					document.getElementById("OpsiPenulis").style.display = 'block'
 				} else if ($("#InputIdKegiatanPenelitian").val() == 'PNL10') {
 					document.getElementById("OpsiPNL1").style.display = 'none'
 					document.getElementById("OpsiPNL2").style.display = 'none'
@@ -467,12 +521,13 @@
 					document.getElementById("OpsiPNL8").style.display = 'none'
 					document.getElementById("OpsiPNL9").style.display = 'none'
 					document.getElementById("OpsiPNL10").style.display = 'block'
+					document.getElementById("OpsiSumberPembiayaan").style.display = 'block'
 					document.getElementById("OpsiPNL11").style.display = 'none'
 					document.getElementById("OpsiPNL14").style.display = 'none'
 					document.getElementById("OpsiPNL15").style.display = 'none'
 					document.getElementById("OpsiPNL16").style.display = 'none'
 					document.getElementById("OpsiPNL17").style.display = 'none'
-					document.getElementById("OpsiPenulis").style.display = 'none'
+					document.getElementById("OpsiPenulis").style.display = 'block'
 				} else if ($("#InputIdKegiatanPenelitian").val() == 'PNL11' || $("#InputIdKegiatanPenelitian").val() == 'PNL12') {
 					document.getElementById("OpsiPNL1").style.display = 'none'
 					document.getElementById("OpsiPNL2").style.display = 'none'
@@ -482,11 +537,12 @@
 					document.getElementById("OpsiPNL9").style.display = 'none'
 					document.getElementById("OpsiPNL10").style.display = 'none'
 					document.getElementById("OpsiPNL11").style.display = 'block'
+					document.getElementById("OpsiSumberPembiayaan").style.display = 'block'
 					document.getElementById("OpsiPNL14").style.display = 'none'
 					document.getElementById("OpsiPNL15").style.display = 'none'
 					document.getElementById("OpsiPNL16").style.display = 'none'
 					document.getElementById("OpsiPNL17").style.display = 'none'
-					document.getElementById("OpsiPenulis").style.display = 'none'
+					document.getElementById("OpsiPenulis").style.display = 'block'
 				} else if ($("#InputIdKegiatanPenelitian").val() == 'PNL13') {
 					document.getElementById("OpsiPNL1").style.display = 'none'
 					document.getElementById("OpsiPNL2").style.display = 'none'
@@ -501,6 +557,7 @@
 					document.getElementById("OpsiPNL16").style.display = 'none'
 					document.getElementById("OpsiPNL17").style.display = 'none'
 					document.getElementById("OpsiPenulis").style.display = 'none'
+					document.getElementById("OpsiSumberPembiayaan").style.display = 'none'
 				} else if ($("#InputIdKegiatanPenelitian").val() == 'PNL14') {
 					document.getElementById("OpsiPNL1").style.display = 'none'
 					document.getElementById("OpsiPNL2").style.display = 'none'
@@ -511,6 +568,7 @@
 					document.getElementById("OpsiPNL10").style.display = 'none'
 					document.getElementById("OpsiPNL11").style.display = 'none'
 					document.getElementById("OpsiPNL14").style.display = 'block'
+					document.getElementById("OpsiSumberPembiayaan").style.display = 'block'
 					document.getElementById("OpsiPNL15").style.display = 'none'
 					document.getElementById("OpsiPNL16").style.display = 'none'
 					document.getElementById("OpsiPNL17").style.display = 'none'
@@ -526,9 +584,10 @@
 					document.getElementById("OpsiPNL11").style.display = 'none'
 					document.getElementById("OpsiPNL14").style.display = 'none'
 					document.getElementById("OpsiPNL15").style.display = 'block'
+					document.getElementById("OpsiSumberPembiayaan").style.display = 'block'
 					document.getElementById("OpsiPNL16").style.display = 'none'
 					document.getElementById("OpsiPNL17").style.display = 'none'
-					document.getElementById("OpsiPenulis").style.display = 'none'
+					document.getElementById("OpsiPenulis").style.display = 'block'
 				} else if ($("#InputIdKegiatanPenelitian").val() == 'PNL16') {
 					document.getElementById("OpsiPNL1").style.display = 'none'
 					document.getElementById("OpsiPNL2").style.display = 'none'
@@ -541,8 +600,9 @@
 					document.getElementById("OpsiPNL14").style.display = 'none'
 					document.getElementById("OpsiPNL15").style.display = 'none'
 					document.getElementById("OpsiPNL16").style.display = 'block'
+					document.getElementById("OpsiSumberPembiayaan").style.display = 'block'
 					document.getElementById("OpsiPNL17").style.display = 'none'
-					document.getElementById("OpsiPenulis").style.display = 'none'
+					document.getElementById("OpsiPenulis").style.display = 'block'
 				} else if ($("#InputIdKegiatanPenelitian").val() == 'PNL17') {
 					document.getElementById("OpsiPNL1").style.display = 'none'
 					document.getElementById("OpsiPNL2").style.display = 'none'
@@ -556,7 +616,8 @@
 					document.getElementById("OpsiPNL15").style.display = 'none'
 					document.getElementById("OpsiPNL16").style.display = 'none'
 					document.getElementById("OpsiPNL17").style.display = 'block'
-					document.getElementById("OpsiPenulis").style.display = 'none'
+					document.getElementById("OpsiSumberPembiayaan").style.display = 'block'
+					document.getElementById("OpsiPenulis").style.display = 'block'
 				} else if ($("#InputIdKegiatanPenelitian").val() == 'PNL18' || $("#InputIdKegiatanPenelitian").val() == 'PNL19' || $("#InputIdKegiatanPenelitian").val() == 'PNL20' || $("#InputIdKegiatanPenelitian").val() == 'PNL21') {
 					document.getElementById("OpsiPNL1").style.display = 'none'
 					document.getElementById("OpsiPNL2").style.display = 'none'
@@ -571,21 +632,8 @@
 					document.getElementById("OpsiPNL16").style.display = 'none'
 					document.getElementById("OpsiPNL17").style.display = 'none'
 					document.getElementById("OpsiPenulis").style.display = 'none'
-				} else {
-					document.getElementById("OpsiPNL1").style.display = 'none'
-					document.getElementById("OpsiPNL2").style.display = 'none'
-					document.getElementById("OpsiPNL6").style.display = 'none'
-					document.getElementById("OpsiPNL7").style.display = 'none'
-					document.getElementById("OpsiPNL8").style.display = 'none'
-					document.getElementById("OpsiPNL9").style.display = 'none'
-					document.getElementById("OpsiPNL10").style.display = 'none'
-					document.getElementById("OpsiPNL11").style.display = 'none'
-					document.getElementById("OpsiPNL14").style.display = 'none'
-					document.getElementById("OpsiPNL15").style.display = 'none'
-					document.getElementById("OpsiPNL16").style.display = 'none'
-					document.getElementById("OpsiPNL17").style.display = 'none'
-					document.getElementById("OpsiPenulis").style.display = 'block'
-				}
+					document.getElementById("OpsiSumberPembiayaan").style.display = 'none'
+				} 
 			}
 
       <?php 

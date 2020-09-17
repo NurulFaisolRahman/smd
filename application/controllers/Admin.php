@@ -76,6 +76,17 @@ class Admin extends CI_Controller {
 			}	
 			array_push($Data['DPU'],$Dosen);
 		}
+		$Data['PenelitianDTPS'] = array();
+		for ($j = 1; $j <= 3; $j++) { 
+			$Jumlah = array(); $Total = 0;
+			for ($i = $TS[0]; $i <= $TS[1]; $i++) { 
+				$Tampung = $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE Kode LIKE '%".$j."' AND Tahun = ".$i)->row_array()['Volume'];		
+				$Tampung == '' ? array_push($Jumlah,0) : array_push($Jumlah,$Tampung);
+				$Tampung == '' ? $Total += 0 : $Total += $Tampung;
+			}
+			array_push($Jumlah,$Total);
+			array_push($Data['PenelitianDTPS'],$Jumlah);
+		}	
 		$this->load->view('ExcelBorang',$Data); 
   } 
 }

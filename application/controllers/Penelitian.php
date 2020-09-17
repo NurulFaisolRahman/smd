@@ -205,81 +205,81 @@ class Penelitian extends CI_Controller {
 		}
 		else if ($_POST['IdKegiatan'] == 'PNL8') {
 			if ($_POST['Kode'] == '1') {
-				$JumlahKredit = $_POST['Volume']*20;
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],20,$_POST['Volume']);
 				$Kredit = 20;
 			}
 			else if ($_POST['Kode'] == '2') {
-				$JumlahKredit = $_POST['Volume']*15;
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],15,$_POST['Volume']);
 				$Kredit = 15;
 			}
 			else if ($_POST['Kode'] == '3') {
-				$JumlahKredit = $_POST['Volume']*10;
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10,$_POST['Volume']);
 				$Kredit = 10;
 			}
 			else if ($_POST['Kode'] == '4') {
-				$JumlahKredit = $_POST['Volume']*10;
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10,$_POST['Volume']);
 				$Kredit = 10;
 			}
 			else if ($_POST['Kode'] == '5') {
-				$JumlahKredit = $_POST['Volume']*6;
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],6,$_POST['Volume']);
 				$Kredit = 6;
 			}
 			else if ($_POST['Kode'] == '6') {
-				$JumlahKredit = $_POST['Volume']*3;
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],3,$_POST['Volume']);
 				$Kredit = 3;
 			}
 			else if ($_POST['Kode'] == '7') {
-				$JumlahKredit = $_POST['Volume']*6;
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],6,$_POST['Volume']);
 				$Kredit = 6;
 			}
 			else if ($_POST['Kode'] == '8') {
-				$JumlahKredit = $_POST['Volume']*4;
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],4,$_POST['Volume']);
 				$Kredit = 4;
 			}
 			else if ($_POST['Kode'] == '9') {
-				$JumlahKredit = $_POST['Volume']*2;
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],2,$_POST['Volume']);
 				$Kredit = 2;
 			}
 			else if ($_POST['Kode'] == '10') {
-				$JumlahKredit = $_POST['Volume']*20;
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],20,$_POST['Volume']);
 				$Kredit = 20;
 			}
 			else if ($_POST['Kode'] == '11') {
-				$JumlahKredit = $_POST['Volume']*15;
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],15,$_POST['Volume']);
 				$Kredit = 15;
 			}
 			else if ($_POST['Kode'] == '12') {
-				$JumlahKredit = $_POST['Volume']*10;
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10,$_POST['Volume']);
 				$Kredit = 10;
 			}
 			else if ($_POST['Kode'] == '13') {
-				$JumlahKredit = $_POST['Volume']*20;
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],20,$_POST['Volume']);
 				$Kredit = 20;
 			}
 			else if ($_POST['Kode'] == '14') {
-				$JumlahKredit = $_POST['Volume']*15;
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],15,$_POST['Volume']);
 				$Kredit = 15;
 			}
 			else if ($_POST['Kode'] == '15') {
-				$JumlahKredit = $_POST['Volume']*10;
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10,$_POST['Volume']);
 				$Kredit = 10;
 			}
 			else if ($_POST['Kode'] == '16') {
-				$JumlahKredit = $_POST['Volume']*20;
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],20,$_POST['Volume']);
 				$Kredit = 20;
 			}
 			else if ($_POST['Kode'] == '17') {
-				$JumlahKredit = $_POST['Volume']*15;
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],15,$_POST['Volume']);
 				$Kredit = 15;
 			}
 			else if ($_POST['Kode'] == '18') {
-				$JumlahKredit = $_POST['Volume']*10;
+				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],10,$_POST['Volume']);
 				$Kredit = 10;
 			}
 		}
 		else if ($_POST['IdKegiatan'] == 'PNL9' || $_POST['IdKegiatan'] == 'PNL10'|| $_POST['IdKegiatan'] == 'PNL11' || $_POST['IdKegiatan'] == 'PNL12' || $_POST['IdKegiatan'] == 'PNL15' || $_POST['IdKegiatan'] == 'PNL16' || $_POST['IdKegiatan'] == 'PNL17') {
 			$JumlahKredit = $Kredit = '';
-			$KreditBkd = $_POST['KreditBKD'];
+			$KreditBkd = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],$_POST['KreditBKD'],$_POST['Volume']);
 		}
 		else if ($_POST['IdKegiatan'] == 'PNL13') {
 			$JumlahKredit = $Kredit = '';
@@ -320,7 +320,7 @@ class Penelitian extends CI_Controller {
 													'Semester' => $_POST['Semester'], 
 													'Tahun' => $_POST['Tahun'], 
 													'IdKegiatan' => $_POST['IdKegiatan'],
-													'Kode' => $_POST['Kode'],
+													'Kode' => $_POST['Kode'].'/'.$_POST['Biaya'],
 													'SK' => htmlentities($_POST['SK']),
 													'Kegiatan' => htmlentities($_POST['Kegiatan']),
 													'TanggalKegiatan' => htmlentities($_POST['TanggalKegiatan']),
