@@ -59,6 +59,7 @@ class Admin extends CI_Controller {
 	
 	public function Borang(){
 		$TS = explode('-',$this->uri->segment('3'));
+		$Data['Tahun'] = $this->uri->segment('3');
 		$Data['Dosen'] = $this->db->get('Dosen')->result_array();
 		$Data['TS'] = $TS[1]-$TS[0]+1;
 		$Data['DPU'] = array();
