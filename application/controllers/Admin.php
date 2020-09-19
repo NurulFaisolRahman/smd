@@ -17,7 +17,7 @@ class Admin extends CI_Controller {
  
   public function AkunDosen(){
 		$Data['Halaman'] = 'Akun Dosen';
-		$Data['Dosen'] = $this->db->query('SELECT Dosen.NIP,Dosen.Nama,Dosen.Pangkat,Dosen.Golongan,Dosen.Jabatan,Akun.JenisAkun FROM Akun,Dosen WHERE Akun.NIP=Dosen.NIP')->result_array();
+		$Data['Dosen'] = $this->db->query('SELECT Dosen.NIP,Dosen.Nama,Akun.JenisAkun FROM Akun,Dosen WHERE Akun.NIP=Dosen.NIP')->result_array();
     $this->load->view('HeaderAdmin',$Data);
     $this->load->view('AkunDosen',$Data); 
   }
@@ -26,23 +26,9 @@ class Admin extends CI_Controller {
 		if($this->db->get_where('Dosen', array('NIP' => $_POST['NIP']))->num_rows() === 0){
 			$this->db->insert('Dosen',
 						array('NIP' => $_POST['NIP'], 
-									'NIDN' => $_POST['NIDN'],
 									'Nama' => htmlentities($_POST['Nama']),
-									'Jabatan' => $_POST['Jabatan'],
-									'Pangkat' => $_POST['Pangkat'],
-									'Golongan' => $_POST['Golongan'],
 									'Tahun' => $_POST['Tahun'],
-									'KreditLama' => $_POST['KreditLama'],
-								 	'WA' => $_POST['WA'],
-									'S2' => $_POST['S2'],
-									'S3' => $_POST['S3'],
-									'BidangKeahlian' => $_POST['BidangKeahlian'],
-									'KesesuaianKompetensi' => $_POST['KesesuaianKompetensi'],
-									'KesesuaianBidang' => $_POST['KesesuaianBidang'],
-									'SertifikatPendidik' => $_POST['SertifikatPendidik'],
-									'SertifikatKompetensi' => $_POST['SertifikatKompetensi'],
-									'MengajarPS' => $_POST['MengajarPS'],
-									'MengajarPSLain' => $_POST['MengajarPSLain']));
+									'KreditLama' => $_POST['KreditLama']));
 			$this->db->insert('Akun',array('NIP' => $_POST['NIP'],'Password' => password_hash($_POST['NIP'], PASSWORD_DEFAULT),'JenisAkun' => '1'));
 			echo '1';
 		} else{

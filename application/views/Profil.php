@@ -68,7 +68,7 @@
 										</div>
 										<div class="input-group input-group-sm mb-2">
 											<div class="input-group-prepend">
-												<span class="input-group-text bg-primary text-primary"><b>Kredit Divalidasi Asesor</b></span>
+												<span class="input-group-text bg-primary text-primary"><b>Kredit Yang Divalidasi Asesor</b></span>
 											</div>
 											<input type="text" class="form-control" value="<?=$Profil['KreditLama']?>" disabled>
 											<div class="input-group-prepend">
@@ -78,7 +78,7 @@
 										</div>
 										<div class="input-group input-group-sm mb-2">
 											<div class="input-group-prepend">
-												<span class="input-group-text bg-primary text-primary"><b>Kredit Belum Divalidasi Asesor</b></span>
+												<span class="input-group-text bg-primary text-primary"><b>Kredit Yang Belum Divalidasi Asesor</b></span>
 											</div>
 											<input type="text" class="form-control" value="<?=str_replace('.',',',$KreditBaru)?>" disabled>
 											<div class="input-group-prepend">
@@ -268,7 +268,7 @@
 									</div>
 									<div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
-                      <span class="input-group-text bg-primary text-primary"><b>Kredit Divalidasi Asesor</b></span>
+                      <span class="input-group-text bg-primary text-primary"><b>Kredit Yang Divalidasi Asesor</b></span>
                     </div>
                     <input type="text" class="form-control" id="KreditLama" value="<?=$Profil['KreditLama']?>">
                     <div class="input-group-prepend">

@@ -22,7 +22,6 @@ class Dashboard extends CI_Controller {
 		$Data['Profil'] = $this->db->get_where('Dosen', array('NIP' => $NIP))->row_array(); 
 		$TahunKreditLama = $this->db->query("SELECT Tahun FROM Dosen WHERE NIP=".$NIP)->row_array()['Tahun']; 
 		$Bidang = array('Penelitian','Pengabdian','Penunjang');
-		$Data['KreditLama'] = 0;
 		$Data['KreditBaru'] = 0;
 		for ($i=0; $i < 3; $i++) { 
 			$Data['KreditBaru'] += $this->db->query("SELECT SUM(JumlahKredit) AS JumlahKredit FROM Realisasi".$Bidang[$i]." WHERE NIP=".$NIP." AND JumlahKredit != '' AND Tahun > ".$TahunKreditLama)->row_array()['JumlahKredit'];
