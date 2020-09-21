@@ -20,81 +20,114 @@ class Dashboard extends CI_Controller {
     $Data['Halaman'] = 'Profil';
     $Data['SubMenu'] = '';
 		$Data['Profil'] = $this->db->get_where('Dosen', array('NIP' => $NIP))->row_array(); 
-		$TahunKreditLama = $this->db->query("SELECT Tahun FROM Dosen WHERE NIP=".$NIP)->row_array()['Tahun']; 
+		if ($Data['Profil']['KreditLama'] == null) {
+			$Data['Profil']['KreditLama'] = 0;
+		}
 		$Bidang = array('Penelitian','Pengabdian','Penunjang');
+		$TahunKreditLama = $this->db->query("SELECT Tahun FROM Dosen WHERE NIP=".$NIP)->row_array()['Tahun']; 
 		$Data['KreditBaru'] = 0;
-		for ($i=0; $i < 3; $i++) { 
-			$Data['KreditBaru'] += $this->db->query("SELECT SUM(JumlahKredit) AS JumlahKredit FROM Realisasi".$Bidang[$i]." WHERE NIP=".$NIP." AND JumlahKredit != '' AND Tahun > ".$TahunKreditLama)->row_array()['JumlahKredit'];
-		}
-		$Data['KreditBaru'] += $this->db->query("SELECT SUM(JumlahKredit) AS JumlahKredit FROM `RealisasiPendidikan` WHERE NIP = ".$NIP." AND JumlahKredit != '' AND IdKegiatan != 'PND3' AND Tahun > ".$TahunKreditLama)->row_array()['JumlahKredit'];
-		$Sortir = $this->db->query("SELECT DISTINCT Jenjang,Semester,Tahun FROM RealisasiPendidikan WHERE NIP = ".$NIP." AND IdKegiatan = 'PND3' AND Tahun > ".$TahunKreditLama)->result_array();
-		$data = $this->db->query("SELECT * FROM RealisasiPendidikan WHERE NIP = ".$NIP." AND IdKegiatan = 'PND3' AND Tahun > ".$TahunKreditLama)->result_array();
-		$Mk = array();
-		for ($i=0; $i < count($Sortir); $i++) { 
-			$Cek = true;
-			for ($j=0; $j < count($data); $j++) {
-				if ($Sortir[$i]['Jenjang'] == $data[$j]['Jenjang'] && $Sortir[$i]['Semester'] == $data[$j]['Semester'] && $Sortir[$i]['Tahun'] == $data[$j]['Tahun']) {
-					if ($Cek) {
-						$Mk[$i] = $data[$j];
-						$Cek = false;
+		if ($TahunKreditLama != null) {
+			for ($i=0; $i < 3; $i++) { 
+				$Data['KreditBaru'] += $this->db->query("SELECT SUM(JumlahKredit) AS JumlahKredit FROM Realisasi".$Bidang[$i]." WHERE NIP=".$NIP." AND JumlahKredit != '' AND Tahun > ".$TahunKreditLama)->row_array()['JumlahKredit'];
+			}
+			$Data['KreditBaru'] += $this->db->query("SELECT SUM(JumlahKredit) AS JumlahKredit FROM `RealisasiPendidikan` WHERE NIP = ".$NIP." AND JumlahKredit != '' AND IdKegiatan != 'PND3' AND Tahun > ".$TahunKreditLama)->row_array()['JumlahKredit'];
+			$Sortir = $this->db->query("SELECT DISTINCT Jenjang,Semester,Tahun FROM RealisasiPendidikan WHERE NIP = ".$NIP." AND IdKegiatan = 'PND3' AND Tahun > ".$TahunKreditLama)->result_array();
+			$data = $this->db->query("SELECT * FROM RealisasiPendidikan WHERE NIP = ".$NIP." AND IdKegiatan = 'PND3' AND Tahun > ".$TahunKreditLama)->result_array();
+			$Mk = array();
+			for ($i=0; $i < count($Sortir); $i++) { 
+				$Cek = true;
+				for ($j=0; $j < count($data); $j++) {
+					if ($Sortir[$i]['Jenjang'] == $data[$j]['Jenjang'] && $Sortir[$i]['Semester'] == $data[$j]['Semester'] && $Sortir[$i]['Tahun'] == $data[$j]['Tahun']) {
+						if ($Cek) {
+							$Mk[$i] = $data[$j];
+							$Cek = false;
+						} 
+						else {
+							$Mk[$i]['Kegiatan'] .= ', '.$data[$j]['Kegiatan'];
+							$Mk[$i]['JumlahKredit'] += $data[$j]['JumlahKredit'];
+						}
 					} 
-					else {
-						$Mk[$i]['Kegiatan'] .= ', '.$data[$j]['Kegiatan'];
-						$Mk[$i]['JumlahKredit'] += $data[$j]['JumlahKredit'];
+				}
+			}
+			for ($i=0; $i < count($Mk); $i++) {
+				if ($Mk[$i]['JumlahKredit'] > 10) {
+					if ($Mk[$i]['Jabatan'] == 'Asisten Ahli') {
+						$Mk[$i]['JumlahKredit'] = 5+(($Mk[$i]['JumlahKredit']-10)*0.25);
+					} else {
+						$Mk[$i]['JumlahKredit'] = 10+(($Mk[$i]['JumlahKredit']-10)*0.5);
 					}
-				} 
-			}
-		}
-		for ($i=0; $i < count($Mk); $i++) {
-			if ($Mk[$i]['JumlahKredit'] > 10) {
-				if ($Mk[$i]['Jabatan'] == 'Asisten Ahli') {
-					$Mk[$i]['JumlahKredit'] = 5+(($Mk[$i]['JumlahKredit']-10)*0.25);
 				} else {
-					$Mk[$i]['JumlahKredit'] = 10+(($Mk[$i]['JumlahKredit']-10)*0.5);
-				}
-			} else {
-				if ($Mk[$i]['Jabatan'] == 'Asisten Ahli') {
-					$Mk[$i]['JumlahKredit'] = $Mk[$i]['JumlahKredit']*0.5;
-				} else {
-					$Mk[$i]['JumlahKredit'] = $Mk[$i]['JumlahKredit'];
+					if ($Mk[$i]['Jabatan'] == 'Asisten Ahli') {
+						$Mk[$i]['JumlahKredit'] = $Mk[$i]['JumlahKredit']*0.5;
+					} else {
+						$Mk[$i]['JumlahKredit'] = $Mk[$i]['JumlahKredit'];
+					}
 				}
 			}
+			for ($i=0; $i < count($Mk); $i++) {
+				$Data['KreditBaru'] += $Mk[$i]['JumlahKredit'];
+			} 
 		}
-		for ($i=0; $i < count($Mk); $i++) {
-			$Data['KreditBaru'] += $Mk[$i]['JumlahKredit'];
-		} 
 		$this->load->view('Header',$Data);
 		$this->load->view('Profil',$Data);
 	}
 
-	public function EditProfil(){
-		if($this->db->get_where('Dosen', array('NIP' => $_POST['NIP']))->num_rows() === 0 || $this->session->userdata('NIP') == $_POST['NIP']){
-			$this->db->where('NIP', $this->session->userdata('NIP'));
-			$this->db->update('Dosen',
-											array('NIP' => $_POST['NIP'], 
-														'NIDN' => $_POST['NIDN'],
-														'Nama' => htmlentities($_POST['Nama']),
-														'Jabatan' => $_POST['Jabatan'],
-														'Pangkat' => $_POST['Pangkat'],
-														'Golongan' => $_POST['Golongan'],
-														'Tahun' => $_POST['Tahun'],
-														'KreditLama' => $_POST['KreditLama'],
-														'WA' => $_POST['WA'],
-														'S2' => $_POST['S2'],
-														'S3' => $_POST['S3'],
-														'BidangKeahlian' => $_POST['BidangKeahlian'],
-														'KesesuaianKompetensi' => $_POST['KesesuaianKompetensi'],
-														'KesesuaianBidang' => $_POST['KesesuaianBidang'],
-														'SertifikatPendidik' => $_POST['SertifikatPendidik'],
-														'SertifikatKompetensi' => $_POST['SertifikatKompetensi'],
-														'MengajarPS' => $_POST['MengajarPS'],
-														'MengajarPSLain' => $_POST['MengajarPSLain']));											
-			$this->session->set_userdata('NIP', $_POST['NIP']);
-			$this->session->set_userdata('Jabatan', $_POST['Jabatan']);
-			echo '1';
-		} else{
-			echo "Akun Dosen Dengan NIP ".$_POST['NIP']." Sudah Ada!";
+	public function EditProfil(){ 
+		if ($this->CekBukti($_FILES)){
+			$BuktiSertifikatPendidik = $_POST['BuktiSertifikatPendidikLama'];
+			$BuktiSertifikatKompetensi = $_POST['BuktiSertifikatKompetensiLama'];
+			if (isset($_FILES['BuktiSertifikatPendidik'])) {
+				move_uploaded_file($_FILES['BuktiSertifikatPendidik']['tmp_name'], "Dosen/Sertifikat Pendidik ".$_POST['Nama'].".pdf");
+				$BuktiSertifikatPendidik = "Sertifikat Pendidik ".$_POST['Nama'].".pdf";
+			}
+			if (isset($_FILES['BuktiSertifikatKompetensi'])) {
+				move_uploaded_file($_FILES['BuktiSertifikatKompetensi']['tmp_name'], "Dosen/Sertifikat Kompetensi ".$_POST['Nama'].".pdf");
+				$BuktiSertifikatKompetensi = "Sertifikat Kompetensi ".$_POST['Nama'].".pdf";
+			}
+			if($this->db->get_where('Dosen', array('NIP' => $_POST['NIP']))->num_rows() === 0 || $this->session->userdata('NIP') == $_POST['NIP']){
+				$this->db->where('NIP', $this->session->userdata('NIP'));
+				$this->db->update('Dosen',
+												array('NIP' => $_POST['NIP'], 
+															'NIDN' => $_POST['NIDN'],
+															'Nama' => htmlentities($_POST['Nama']),
+															'Jabatan' => $_POST['Jabatan'],
+															'Pangkat' => $_POST['Pangkat'],
+															'Golongan' => $_POST['Golongan'],
+															'Tahun' => $_POST['Tahun'],
+															'KreditLama' => $_POST['KreditLama'],
+															'WA' => $_POST['WA'],
+															'S2' => $_POST['S2'],
+															'S3' => $_POST['S3'],
+															'BidangKeahlian' => $_POST['BidangKeahlian'],
+															'KesesuaianKompetensi' => $_POST['KesesuaianKompetensi'],
+															'KesesuaianBidang' => $_POST['KesesuaianBidang'],
+															'SertifikatPendidik' => $_POST['SertifikatPendidik'],
+															'SertifikatKompetensi' => $_POST['SertifikatKompetensi'],
+															'BuktiPendidik' => $BuktiSertifikatPendidik,
+															'BuktiKompetensi' => $BuktiSertifikatKompetensi,
+															'MengajarPS' => $_POST['MengajarPS'],
+															'MengajarPSLain' => $_POST['MengajarPSLain']));											
+				$this->session->set_userdata('NIP', $_POST['NIP']);
+				$this->session->set_userdata('Jabatan', $_POST['Jabatan']);
+				echo '1';
+			} else {
+				echo "Akun Dosen Dengan NIP ".$_POST['NIP']." Sudah Ada!";
+			}
 		}
+		else {
+			echo 'Bukti Sertifikat Hanya Boleh PDF!';
+		}
+	}
+
+	public function CekBukti($file){
+		$valid_extensions = array("pdf");
+		foreach ($file as $key) {
+			$Tipe = pathinfo($key['name'],PATHINFO_EXTENSION);
+			if(!in_array(strtolower($Tipe),$valid_extensions)) {
+				return false;
+			} 
+		}
+		return true;
 	}
 
 	public function GantiPassword(){

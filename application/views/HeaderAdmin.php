@@ -96,6 +96,7 @@
                 <div class="input-group-prepend">
                   <label class="input-group-text bg-primary"><b>Tahun</b></label>
                 </div>
+                <a id="LampiranDTPS" href="LampiranDTPS" download="LampiranDTPS"></a>
                 <input class="form-control" type="text" id="TS"  data-inputmask='"mask": "9999-9999"' data-mask>
               </div>
             </div>

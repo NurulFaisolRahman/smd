@@ -38,7 +38,7 @@
       </div>
     </div>
     <div class="modal fade" id="ModalAkunDosen">
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content bg-warning">
           <div class="modal-body">
             <div class="container">
@@ -55,16 +55,6 @@
                       <span class="input-group-text bg-primary text-primary"><b>NIP</b></span>
                     </div>
                     <input type="text" class="form-control" id="NIP" data-inputmask='"mask": "999999999999999999"' data-mask>
-                  </div>
-                  <div class="input-group input-group-sm mb-2">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text bg-primary text-primary"><b>Kredit Yang Divalidasi Asesor</b></span>
-                    </div>
-                    <input type="text" class="form-control" id="KreditLama">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text bg-primary text-primary"><b>Tahun</b></span>
-                    </div>
-                    <input type="text" class="form-control" id="TahunKreditLama" data-inputmask='"mask": "9999"' data-mask value="20">
                   </div>
                 </div>
               </div>
@@ -112,7 +102,28 @@
         })
 
         $("#DownloadBorang").click(function() {
-          window.location = BaseURL + 'Admin/Borang/'+$('#TS').val()
+					var Pisah = $('#TS').val().split('-')
+          if (Pisah[1]-Pisah[0] >= 0) {
+            window.location = BaseURL + 'Admin/Borang/'+$('#TS').val()
+            $.post(BaseURL+"Admin"+"/DTPS").done(function(Respon) {
+              var array = JSON.parse(Respon) 
+              array.forEach(function(object) {
+                if (object.BuktiPendidik != null) {
+                  $('#LampiranDTPS').attr('href',BaseURL+'Dosen/'+object.BuktiPendidik)		
+                  $('#LampiranDTPS').attr('Download',object.BuktiPendidik) 
+                  $('#LampiranDTPS')[0].click()
+                }
+                if (object.BuktiKompetensi != null) {
+                  $('#LampiranDTPS').attr('href',BaseURL+'Dosen/'+object.BuktiKompetensi)		
+                  $('#LampiranDTPS').attr('Download',object.BuktiKompetensi) 
+                  $('#LampiranDTPS')[0].click()
+                }
+              })
+            }) 	
+          }
+          else {
+            alert('Input Tahun Belum Benar!')
+          }
         })
 
 				$("#Daftar").click(function() {
@@ -120,11 +131,7 @@
             alert('Mohon Isi NIP 18 Angka!')
           } else if ($("#Nama").val() === "") {
             alert('Mohon Isi Nama + Gelar!')
-          } else if (isNaN($("#TahunKreditLama").val())) {
-            alert('Tahun Kredit Lama Belum Benar!')
-          } else if (isNaN(parseFloat($("#KreditLama").val().replace(',','.')))) {
-						alert('Kredit Lama Belum Benar!')
-					} else {
+          } else {
             var Akun = { NIP: $("#NIP").val(),
                          Nama: $("#Nama").val(),
                          Tahun: $("#TahunKreditLama").val(),

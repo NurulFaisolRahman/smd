@@ -26,9 +26,7 @@ class Admin extends CI_Controller {
 		if($this->db->get_where('Dosen', array('NIP' => $_POST['NIP']))->num_rows() === 0){
 			$this->db->insert('Dosen',
 						array('NIP' => $_POST['NIP'], 
-									'Nama' => htmlentities($_POST['Nama']),
-									'Tahun' => $_POST['Tahun'],
-									'KreditLama' => $_POST['KreditLama']));
+									'Nama' => htmlentities($_POST['Nama'])));
 			$this->db->insert('Akun',array('NIP' => $_POST['NIP'],'Password' => password_hash($_POST['NIP'], PASSWORD_DEFAULT),'JenisAkun' => '1'));
 			echo '1';
 		} else{
@@ -41,6 +39,11 @@ class Admin extends CI_Controller {
 		$this->db->update('Akun',array('JenisAkun' => 1));
 		$this->db->where('NIP', $_POST['NIP']);
 		$this->db->update('Akun',array('JenisAkun' => 2));
+	}
+
+	public function DTPS(){
+		$DTPS = $this->db->query("SELECT BuktiPendidik,BuktiKompetensi FROM Dosen")->result_array();
+		echo json_encode($DTPS);
 	}
 	
 	public function Borang(){
@@ -74,6 +77,6 @@ class Admin extends CI_Controller {
 			array_push($Jumlah,$Total);
 			array_push($Data['PenelitianDTPS'],$Jumlah);
 		}	
-		$this->load->view('ExcelBorang',$Data); 
+		$this->load->view('ExcelBorang',$Data);  
   } 
 }

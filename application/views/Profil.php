@@ -110,13 +110,13 @@
 											<div class="input-group-prepend">
 												<label class="input-group-text bg-primary text-primary"><b>Kesesuaian dengan Kompetensi Inti Program Studi</b></label>
 											</div>
-											<input type="text" class="form-control" value="<?= $Profil['KesesuaianKompetensi'] == 1 ? 'Sesuai' : 'Tidak Sesuai'?>" disabled>
+											<input type="text" class="form-control" value="<?= $Profil['KesesuaianKompetensi'] == null ? '' : ($Profil['KesesuaianKompetensi'] == 1 ? 'Sesuai' : 'Tidak Sesuai');?>" disabled>
 										</div>
 										<div class="input-group input-group-sm mb-2">
 											<div class="input-group-prepend">
 												<label class="input-group-text bg-primary text-primary"><b>Kesesuaian Bidang Keahlian dengan Mata Kuliah yang Diampu</b></label>
 											</div>
-											<input type="text" class="form-control" value="<?= $Profil['KesesuaianBidang'] == 1 ? 'Sesuai' : 'Tidak Sesuai'?>" disabled>
+											<input type="text" class="form-control" value="<?= $Profil['KesesuaianBidang'] == null ? '' : ($Profil['KesesuaianBidang'] == 1 ? 'Sesuai' : 'Tidak Sesuai');?>" disabled>
 										</div>
 										<div class="input-group input-group-sm mb-2">
 											<div class="input-group-prepend">
@@ -280,15 +280,35 @@
                 <div class="col-sm-12">
 									<div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
-                      <span class="input-group-text bg-primary text-primary"><b>Sertifikat Pendidik Profesional</b></span>
+                      <span class="input-group-text bg-primary text-primary"><b>Sertifikat Pendidik Profesional</b></span> 
                     </div>
-                    <input type="text" class="form-control" id="SertifikatPendidik" value="<?=$Profil['SertifikatPendidik']?>">
+                    <input type="text" class="form-control" id="SertifikatPendidik" value="<?=$Profil['SertifikatPendidik']?>" placeholder="Nomor Sertifikat">
+                  </div>
+									<div class="input-group input-group-sm mb-2">
+										<div class="input-group-prepend">
+											<span class="input-group-text bg-primary"><b>Bukti Sertifikat Pendidik Profesional</b></span>
+										</div>
+										<input class="form-control" type="hidden" id="BuktiSertifikatPendidikLama" value="<?=$Profil['BuktiPendidik']?>">
+										<input class="form-control" type="file" id="BuktiSertifikatPendidik">
+										<div class="input-group-prepend">
+											<button class="input-group-text bg-primary" id="CancelBuktiSertifikatPendidik"><b>X</b></button>
+										</div>
                   </div>
                   <div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
                       <span class="input-group-text bg-primary text-primary"><b>Sertifikat Kompetensi/Profesi/Industri</b></span>
                     </div>
                     <input type="text" class="form-control" id="SertifikatKompetensi" value="<?=$Profil['SertifikatKompetensi']?>">
+									</div>
+									<div class="input-group input-group-sm mb-2">
+										<div class="input-group-prepend">
+											<span class="input-group-text bg-primary"><b>Bukti Sertifikat Kompetensi/Profesi/Industri</b></span>
+										</div>
+										<input class="form-control" type="hidden" id="BuktiSertifikatKompetensiLama" value="<?=$Profil['BuktiKompetensi']?>">
+										<input class="form-control" type="file" id="BuktiSertifikatKompetensi">
+										<div class="input-group-prepend">
+											<button class="input-group-text bg-primary" id="CancelBuktiSertifikatKompetensi"><b>X</b></button>
+										</div>
                   </div>
                   <div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
@@ -347,6 +367,14 @@
 					}
 				}) 
 
+				$("#CancelBuktiSertifikatKompetensi").click(function() {
+					$("#BuktiSertifikatKompetensi").val("")
+				})
+
+				$("#CancelBuktiSertifikatPendidik").click(function() {
+					$("#BuktiSertifikatPendidik").val("")
+				})
+
 				$("#bkd").click(function() {
 					var Tahun = $('#Tahun').val()
 					var Pisah = Tahun.split('-')
@@ -396,31 +424,42 @@
 						alert('Kredit Lama Belum Benar!')
 					} else {  
 						var Pangkat = $("#Golongan").val().split("/") 
-						var Data = {NIP: $("#NIP").val(),
-												NIDN: $("#NIDN").val(),
-												Nama: $("#Nama").val(),
-												Pangkat: Pangkat[0],
-												Golongan: Pangkat[1],
-												Jabatan: $("#Jabatan").val(),
-												Tahun: $("#TahunKreditLama").val(),
-												KreditLama: $("#KreditLama").val(),
-												GantiPassword: $("#GantiPassword").val(),
-												WA: $("#WA").val(),
-												S2: $("#S2").val(),
-												S3: $("#S3").val(),
-												BidangKeahlian: $("#BidangKeahlian").val(),
-												KesesuaianKompetensi: $("#KesesuaianKompetensi").val(),
-												KesesuaianBidang: $("#KesesuaianBidang").val(),
-												SertifikatPendidik: $("#SertifikatPendidik").val(),
-												SertifikatKompetensi: $("#SertifikatKompetensi").val(),
-												MengajarPS: $("#MengajarPS").val(),
-												MengajarPSLain: $("#MengajarPSLain").val() }
-						$.post(BaseURL+"Dashboard/EditProfil", Data).done(function(Respon) {
-							if (Respon == '1') {
-								window.location = BaseURL + "Dashboard/Profil"
-							}
-							else {
-								alert(Respon)
+						var fd = new FormData()
+						fd.append('NIP',$("#NIP").val())
+						fd.append('NIDN',$("#NIDN").val())
+						fd.append('Nama',$("#Nama").val())
+						fd.append('Pangkat',Pangkat[0])
+						fd.append('Golongan',Pangkat[1])
+						fd.append('Jabatan',$("#Jabatan").val())
+						fd.append('Tahun',$("#TahunKreditLama").val())
+						fd.append('KreditLama',$("#KreditLama").val())
+						fd.append('WA',$("#WA").val())
+						fd.append('S2',$("#S2").val())
+						fd.append('S3',$("#S3").val())
+						fd.append('BidangKeahlian',$("#BidangKeahlian").val())
+						fd.append('KesesuaianKompetensi',$("#KesesuaianKompetensi").val())
+						fd.append('KesesuaianBidang',$("#KesesuaianBidang").val())
+						fd.append('SertifikatPendidik',$("#SertifikatPendidik").val())
+						fd.append('SertifikatKompetensi',$("#SertifikatKompetensi").val())
+						fd.append('MengajarPS',$("#MengajarPS").val())
+						fd.append('MengajarPSLain',$("#MengajarPSLain").val())
+						fd.append("BuktiSertifikatPendidikLama", $('#BuktiSertifikatPendidikLama').val())
+						fd.append("BuktiSertifikatKompetensiLama", $('#BuktiSertifikatKompetensiLama').val())
+						fd.append("BuktiSertifikatPendidik", $('#BuktiSertifikatPendidik')[0].files[0])
+						fd.append("BuktiSertifikatKompetensi", $('#BuktiSertifikatKompetensi')[0].files[0])
+							$.ajax({
+							url: BaseURL+'Dashboard/EditProfil',
+							type: 'post',
+							data: fd,
+							contentType: false,
+							processData: false,
+							success: function(Respon){
+								if (Respon == '1') {
+									window.location = BaseURL + "Dashboard/Profil"
+								}
+								else {
+									alert(Respon)
+								}
 							}
 						})
           }
