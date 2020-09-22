@@ -262,7 +262,7 @@
                       <label class="input-group-text bg-primary text-primary"><b>Kesesuaian Dengan Mata Kuliah Yang Diampu</b></label>
                     </div>
                     <select class="custom-select" id="KesesuaianBidang">
-										<option value="1" <?=$Profil['KesesuaianBidang']==1?'selected':''?>>Sesuai</option>
+											<option value="1" <?=$Profil['KesesuaianBidang']==1?'selected':''?>>Sesuai</option>
                       <option value="2" <?=$Profil['KesesuaianBidang']==2?'selected':''?>>Tidak Sesuai</option>
                     </select>
 									</div>
@@ -447,7 +447,7 @@
 						fd.append("BuktiSertifikatKompetensiLama", $('#BuktiSertifikatKompetensiLama').val())
 						fd.append("BuktiSertifikatPendidik", $('#BuktiSertifikatPendidik')[0].files[0])
 						fd.append("BuktiSertifikatKompetensi", $('#BuktiSertifikatKompetensi')[0].files[0])
-							$.ajax({
+						$.ajax({
 							url: BaseURL+'Dashboard/EditProfil',
 							type: 'post',
 							data: fd,

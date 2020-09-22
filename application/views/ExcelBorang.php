@@ -3092,19 +3092,21 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl86" x:num>10</td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl165" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl166" x:str>Lembaga</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88" x:str>V</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl166" x:str>Judul</td>
-    <td class=3D"xl166" x:str>Manfaat</td>
-    <td class=3D"xl166" x:str>Waktu</td>
-    <td class=3D"xl166" x:str>Bukti</td>
-    <td class=3D"xl166" x:str>Tahun</td>
-    <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
+   <?php $No = 1; foreach ($KerjaSamaPendidikan as $key) { ?>
+    <tr height=3D"19" style=3D'height:14.25pt;'>
+      <td class=3D"xl165" height=3D"19" style=3D'height:14.25pt;' x:num><?=$No++?></td>
+      <td class=3D"xl166" x:str><?=$key['Mitra']?></td>
+      <td class=3D"xl88"><?=$key['Tingkat'] == 'Internasional' ? 'V' : '';?></td>
+      <td class=3D"xl88"><?=$key['Tingkat'] == 'Nasional' ? 'V' : '';?></td>
+      <td class=3D"xl88"><?=$key['Tingkat'] == 'Lokal' ? 'V' : '';?></td>
+      <td class=3D"xl166" x:str><?=$key['Judul']?></td>
+      <td class=3D"xl166" x:str><?=$key['Manfaat']?></td>
+      <td class=3D"xl166" x:str><?=$key['Waktu']?></td>
+      <td class=3D"xl166" x:str><?=$key['KerjaSama']?></td>
+      <td class=3D"xl166" x:str><?=$key['Tahun']?></td>
+      <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
+    </tr>
+   <?php } ?>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td height=3D"19" colspan=3D"10" style=3D'height:14.25pt;mso-ignore:colspan;'></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
@@ -3430,19 +3432,21 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl86" x:num>10</td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl165" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl166" x:str>Lembaga</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88" x:str>V</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl166" x:str>Judul</td>
-    <td class=3D"xl166" x:str>Manfaat</td>
-    <td class=3D"xl166" x:str>Waktu</td>
-    <td class=3D"xl166" x:str>Bukti</td>
-    <td class=3D"xl166" x:str>Tahun</td>
-    <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
+   <?php $No = 1; foreach ($KerjaSamaPenelitian as $key) { ?>
+    <tr height=3D"19" style=3D'height:14.25pt;'>
+      <td class=3D"xl165" height=3D"19" style=3D'height:14.25pt;' x:num><?=$No++?></td>
+      <td class=3D"xl166" x:str><?=$key['Mitra']?></td>
+      <td class=3D"xl88"><?=$key['Tingkat'] == 'Internasional' ? 'V' : '';?></td>
+      <td class=3D"xl88"><?=$key['Tingkat'] == 'Nasional' ? 'V' : '';?></td>
+      <td class=3D"xl88"><?=$key['Tingkat'] == 'Lokal' ? 'V' : '';?></td>
+      <td class=3D"xl166" x:str><?=$key['Judul']?></td>
+      <td class=3D"xl166" x:str><?=$key['Manfaat']?></td>
+      <td class=3D"xl166" x:str><?=$key['Waktu']?></td>
+      <td class=3D"xl166" x:str><?=$key['KerjaSama']?></td>
+      <td class=3D"xl166" x:str><?=$key['Tahun']?></td>
+      <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
+    </tr>
+   <?php } ?>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td height=3D"19" colspan=3D"10" style=3D'height:14.25pt;mso-ignore:colspan;'></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
@@ -3768,19 +3772,21 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl86" x:num>10</td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl165" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl166" x:str>Lembaga</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88" x:str>V</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl166" x:str>Judul</td>
-    <td class=3D"xl166" x:str>Manfaat</td>
-    <td class=3D"xl166" x:str>Waktu</td>
-    <td class=3D"xl166" x:str>Bukti</td>
-    <td class=3D"xl166" x:str>Tahun</td>
-    <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
+   <?php $No = 1; foreach ($KerjaSamaPengabdian as $key) { ?>
+    <tr height=3D"19" style=3D'height:14.25pt;'>
+      <td class=3D"xl165" height=3D"19" style=3D'height:14.25pt;' x:num><?=$No++?></td>
+      <td class=3D"xl166" x:str><?=$key['Mitra']?></td>
+      <td class=3D"xl88"><?=$key['Tingkat'] == 'Internasional' ? 'V' : '';?></td>
+      <td class=3D"xl88"><?=$key['Tingkat'] == 'Nasional' ? 'V' : '';?></td>
+      <td class=3D"xl88"><?=$key['Tingkat'] == 'Lokal' ? 'V' : '';?></td>
+      <td class=3D"xl166" x:str><?=$key['Judul']?></td>
+      <td class=3D"xl166" x:str><?=$key['Manfaat']?></td>
+      <td class=3D"xl166" x:str><?=$key['Waktu']?></td>
+      <td class=3D"xl166" x:str><?=$key['KerjaSama']?></td>
+      <td class=3D"xl166" x:str><?=$key['Tahun']?></td>
+      <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
+    </tr>
+   <?php } ?>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td height=3D"19" colspan=3D"10" style=3D'height:14.25pt;mso-ignore:colspan;'></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>

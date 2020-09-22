@@ -51,6 +51,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a href="<?=base_url("Admin/KerjaSama")?>" class="nav-link <?php if ($Halaman == "Kerja Sama") { echo "active";} ?>">
+              <i class="nav-icon fas fa-handshake"></i>
+              <p><b>Kerja Sama</b></p> 
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="" class="nav-link" data-toggle="modal" data-target="#ModalKajur">
               <i class="nav-icon fas fa-user"></i>
               <p><b>Ketua Jurusan</b></p>
@@ -97,6 +103,7 @@
                   <label class="input-group-text bg-primary"><b>Tahun</b></label>
                 </div>
                 <a id="LampiranDTPS" href="LampiranDTPS" download="LampiranDTPS"></a>
+                <a id="LampiranKerjaSama" href="LampiranKerjaSama" download="LampiranKerjaSama"></a>
                 <input class="form-control" type="text" id="TS"  data-inputmask='"mask": "9999-9999"' data-mask>
               </div>
             </div>

@@ -77,11 +77,17 @@ class Dashboard extends CI_Controller {
 			$BuktiSertifikatPendidik = $_POST['BuktiSertifikatPendidikLama'];
 			$BuktiSertifikatKompetensi = $_POST['BuktiSertifikatKompetensiLama'];
 			if (isset($_FILES['BuktiSertifikatPendidik'])) {
-				move_uploaded_file($_FILES['BuktiSertifikatPendidik']['tmp_name'], "Dosen/Sertifikat Pendidik ".$_POST['Nama'].".pdf");
-				$BuktiSertifikatPendidik = "Sertifikat Pendidik ".$_POST['Nama'].".pdf";
+				if($BuktiSertifikatPendidik != ''){
+					unlink('DTPS/'.$BuktiSertifikatPendidik);
+				}
+				move_uploaded_file($_FILES['BuktiSertifikatPendidik']['tmp_name'], "DTPS/Sertifikat Pendidik ".$_POST['Nama'].".pdf");
+				$BuktiSertifikatPendidik = "Sertifikat Pendidik ".$_POST['Nama'].".pdf"; 
 			}
 			if (isset($_FILES['BuktiSertifikatKompetensi'])) {
-				move_uploaded_file($_FILES['BuktiSertifikatKompetensi']['tmp_name'], "Dosen/Sertifikat Kompetensi ".$_POST['Nama'].".pdf");
+				if($BuktiSertifikatKompetensi != ''){
+					unlink('DTPS/'.$BuktiSertifikatKompetensi);
+				}
+				move_uploaded_file($_FILES['BuktiSertifikatKompetensi']['tmp_name'], "DTPS/Sertifikat Kompetensi ".$_POST['Nama'].".pdf");
 				$BuktiSertifikatKompetensi = "Sertifikat Kompetensi ".$_POST['Nama'].".pdf";
 			}
 			if($this->db->get_where('Dosen', array('NIP' => $_POST['NIP']))->num_rows() === 0 || $this->session->userdata('NIP') == $_POST['NIP']){

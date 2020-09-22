@@ -20,9 +20,94 @@ class Admin extends CI_Controller {
 		$Data['Dosen'] = $this->db->query('SELECT Dosen.NIP,Dosen.Nama,Akun.JenisAkun FROM Akun,Dosen WHERE Akun.NIP=Dosen.NIP')->result_array();
     $this->load->view('HeaderAdmin',$Data);
     $this->load->view('AkunDosen',$Data); 
+	}
+	
+	public function KerjaSama(){
+		$Data['Halaman'] = 'Kerja Sama';
+		$Data['KerjaSama'] = $this->db->query("SELECT * FROM KerjaSama")->result_array();
+    $this->load->view('HeaderAdmin',$Data);
+    $this->load->view('KerjaSama',$Data); 
   }
 
-  public function Daftar(){
+	public function InputKerjaSama(){
+		if (count($_FILES) > 0) {
+			if ($this->CekBukti($_FILES)){
+				$NamaPdf = date('Ymd',time()).substr(password_hash('KerjaSama', PASSWORD_DEFAULT),7,7);
+				$NamaPdf = str_replace("/","F",$NamaPdf);
+				$NamaPdf = str_replace(".","F",$NamaPdf);
+				move_uploaded_file($_FILES['BuktiKerjaSama']['tmp_name'], "KerjaSama/".$NamaPdf.".pdf");
+				$BuktiKerjaSama = $NamaPdf.".pdf";
+				$this->db->insert('KerjaSama',
+									array('Mitra' => $_POST['Mitra'], 
+												'Tingkat' => $_POST['Tingkat'], 
+												'Bidang' => $_POST['Bidang'], 
+												'Judul' => htmlentities($_POST['Judul']), 
+												'Manfaat' => htmlentities($_POST['Manfaat']), 
+												'Waktu' => htmlentities($_POST['Waktu']), 
+												'Tahun' => $_POST['Expired'], 
+												'KerjaSama' => htmlentities($_POST['KerjaSama']),
+												'Bukti' => $BuktiKerjaSama));
+				echo '1';
+			} else {
+				echo 'Upload Bukti Kerja Sama Hanya Boleh PDF!';
+			}
+		} else {
+			echo 'Mohon Upload Bukti Kerja Sama Berupa PDF!';
+		}
+	}
+
+	public function UpdateKerjaSama(){
+		if ($this->CekBukti($_FILES)){
+			$BuktiKerjaSama = $_POST['BuktiKerjaSamaLama'];
+			if (isset($_FILES['BuktiKerjaSama'])) {
+				if($BuktiKerjaSama != ''){
+					unlink('KerjaSama/'.$BuktiKerjaSama);
+				} 
+				$NamaPdf = date('Ymd',time()).substr(password_hash('KerjaSama', PASSWORD_DEFAULT),7,7);
+				$NamaPdf = str_replace("/","F",$NamaPdf);
+				$NamaPdf = str_replace(".","F",$NamaPdf);
+				move_uploaded_file($_FILES['BuktiKerjaSama']['tmp_name'], "KerjaSama/".$NamaPdf.".pdf");
+				$BuktiKerjaSama = $NamaPdf.".pdf";
+			}
+			$this->db->where('Id', $_POST['Id']);
+			$this->db->update('KerjaSama',
+								array('Mitra' => $_POST['Mitra'], 
+											'Tingkat' => $_POST['Tingkat'], 
+											'Bidang' => $_POST['Bidang'], 
+											'Judul' => htmlentities($_POST['Judul']), 
+											'Manfaat' => htmlentities($_POST['Manfaat']), 
+											'Waktu' => htmlentities($_POST['Waktu']), 
+											'Tahun' => $_POST['Expired'], 
+											'KerjaSama' => htmlentities($_POST['KerjaSama']),
+											'Bukti' => $BuktiKerjaSama));
+			echo '1';
+		} else {
+			echo 'Upload Bukti Kerja Sama Hanya Boleh PDF!';
+		}
+	}
+
+	public function CekBukti($file){
+		$valid_extensions = array("pdf");
+		foreach ($file as $key) {
+			$Tipe = pathinfo($key['name'],PATHINFO_EXTENSION);
+			if(!in_array(strtolower($Tipe),$valid_extensions)) {
+				return false;
+			} 
+		}
+		return true;
+	}
+
+	public function HapusKerjaSama(){
+		$this->db->delete('KerjaSama', array('Id' => $_POST['Id']));
+		if ($this->db->affected_rows()){
+			unlink('KerjaSama/'.$_POST['Bukti']);
+			echo '1';
+		} else {
+			echo 'Gagal Menghapus';
+		}
+	}
+
+	public function Daftar(){
 		if($this->db->get_where('Dosen', array('NIP' => $_POST['NIP']))->num_rows() === 0){
 			$this->db->insert('Dosen',
 						array('NIP' => $_POST['NIP'], 
@@ -45,10 +130,19 @@ class Admin extends CI_Controller {
 		$DTPS = $this->db->query("SELECT BuktiPendidik,BuktiKompetensi FROM Dosen")->result_array();
 		echo json_encode($DTPS);
 	}
+
+	public function LampiranKerjaSama(){
+		$Bidang = $this->uri->segment('3');
+		$KerjaSama = $this->db->get_where('KerjaSama', array('Bidang' => $Bidang))->result_array();
+		echo json_encode($KerjaSama);
+	}
 	
 	public function Borang(){
 		$TS = explode('-',$this->uri->segment('3'));
 		$Data['Tahun'] = $this->uri->segment('3');
+		$Data['KerjaSamaPendidikan'] = $this->db->get_where('KerjaSama', array('Bidang' => 'Pendidikan'))->result_array(); 
+		$Data['KerjaSamaPenelitian'] = $this->db->get_where('KerjaSama', array('Bidang' => 'Penelitian'))->result_array(); 
+		$Data['KerjaSamaPengabdian'] = $this->db->get_where('KerjaSama', array('Bidang' => 'Pengabdian'))->result_array(); 
 		$Data['Dosen'] = $this->db->get('Dosen')->result_array();
 		$Data['TS'] = $TS[1]-$TS[0]+1;
 		$Data['DPU'] = array();
