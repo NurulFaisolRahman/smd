@@ -212,26 +212,37 @@
 						fd.append('TanggalKegiatan',$("#TanggalKegiatan").val())	
 						if ($("#InputIdKegiatanPengabdian").val() == 'PNB3') {
 							fd.append('Kode',$("#Tingkat").val())
+							fd.append('Biaya',$("#SumberPembiayaan").val())
 						}
 						else if ($("#InputIdKegiatanPengabdian").val() == 'PNB4') {
 							fd.append('Kode',$("#Dasar").val())				
+							fd.append('Biaya',$("#SumberPembiayaan").val())
 						}
 						else if ($("#InputIdKegiatanPengabdian").val() == 'PNB5') {
 							fd.append('KreditBKD',$("#JenisPNB5").val())		
 							fd.append('Kode',0)				
+							fd.append('Biaya',$("#SumberPembiayaan").val())
 						}
 						else if ($("#InputIdKegiatanPengabdian").val() == 'PNB7') {
 							fd.append('Kode',$("#Peran").val())
+							fd.append('Biaya',$("#SumberPembiayaan").val())
 						}
 						else if ($("#InputIdKegiatanPengabdian").val() == 'PNB8') {
 							fd.append('Proposal',$("#Proposal").val())
 							fd.append('Kode','0')
+							fd.append('Biaya',$("#SumberPembiayaan").val())
 						}
 						else if ($("#InputIdKegiatanPengabdian").val() == 'PNB10') {
 							fd.append('KreditBKD',$("#TingkatPNB10").val())
 							fd.append('Kode','0')
+							fd.append('Biaya',$("#SumberPembiayaan").val())
 						}
 						else {
+							if ($("#InputIdKegiatanPengabdian").val() == 'PNB1') {
+								fd.append('Biaya','0')
+							} else {
+								fd.append('Biaya',$("#SumberPembiayaan").val())
+							}
 							fd.append('Kode','0')
 						}
 						$.ajax({
@@ -319,6 +330,7 @@
 			function InputIdKegiatanPengabdian() {
 				if ($("#InputIdKegiatanPengabdian").val() == 'PNB3') { 
 					document.getElementById("OpsiPNB3").style.display = 'block'
+					document.getElementById("OpsiSumberPembiayaan").style.display = 'block'
 					document.getElementById("OpsiPNB4").style.display = 'none'
 					document.getElementById("OpsiPNB5").style.display = 'none'
 					document.getElementById("OpsiPNB7").style.display = 'none'
@@ -327,6 +339,7 @@
 				} else if ($("#InputIdKegiatanPengabdian").val() == 'PNB4') {
 					document.getElementById("OpsiPNB3").style.display = 'none'
 					document.getElementById("OpsiPNB4").style.display = 'block'
+					document.getElementById("OpsiSumberPembiayaan").style.display = 'block'
 					document.getElementById("OpsiPNB5").style.display = 'none'
 					document.getElementById("OpsiPNB7").style.display = 'none'
 					document.getElementById("OpsiPNB8").style.display = 'none'
@@ -335,6 +348,7 @@
 					document.getElementById("OpsiPNB3").style.display = 'none'
 					document.getElementById("OpsiPNB4").style.display = 'none'
 					document.getElementById("OpsiPNB5").style.display = 'block'
+					document.getElementById("OpsiSumberPembiayaan").style.display = 'block'
 					document.getElementById("OpsiPNB7").style.display = 'none'
 					document.getElementById("OpsiPNB8").style.display = 'none'
 					document.getElementById("OpsiPNB10").style.display = 'none'
@@ -343,6 +357,7 @@
 					document.getElementById("OpsiPNB4").style.display = 'none'
 					document.getElementById("OpsiPNB5").style.display = 'none'
 					document.getElementById("OpsiPNB7").style.display = 'block'
+					document.getElementById("OpsiSumberPembiayaan").style.display = 'block'
 					document.getElementById("OpsiPNB8").style.display = 'none'
 					document.getElementById("OpsiPNB10").style.display = 'none'
 				} else if ($("#InputIdKegiatanPengabdian").val() == 'PNB8') {
@@ -351,6 +366,7 @@
 					document.getElementById("OpsiPNB5").style.display = 'none'
 					document.getElementById("OpsiPNB7").style.display = 'none'
 					document.getElementById("OpsiPNB8").style.display = 'block'
+					document.getElementById("OpsiSumberPembiayaan").style.display = 'block'
 					document.getElementById("OpsiPNB10").style.display = 'none'
 				} else if ($("#InputIdKegiatanPengabdian").val() == 'PNB10') {
 					document.getElementById("OpsiPNB3").style.display = 'none'
@@ -359,7 +375,13 @@
 					document.getElementById("OpsiPNB7").style.display = 'none'
 					document.getElementById("OpsiPNB8").style.display = 'none'
 					document.getElementById("OpsiPNB10").style.display = 'block'
+					document.getElementById("OpsiSumberPembiayaan").style.display = 'block'
 				} else {
+					if ($("#InputIdKegiatanPengabdian").val() == 'PNB1') {
+						document.getElementById("OpsiSumberPembiayaan").style.display = 'none'
+					} else {
+						document.getElementById("OpsiSumberPembiayaan").style.display = 'block'
+					}
 					document.getElementById("OpsiPNB3").style.display = 'none'
 					document.getElementById("OpsiPNB4").style.display = 'none'
 					document.getElementById("OpsiPNB5").style.display = 'none'

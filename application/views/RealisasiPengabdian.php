@@ -213,6 +213,20 @@
                 </div>
               </div>
             </div>
+            <div class="col-sm-12">
+              <div id="OpsiSumberPembiayaan" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Sumber Pembiayaan</b></span>
+                  </div>
+                  <select class="custom-select" id="SumberPembiayaan">
+                    <option value="1">Didalam Perguruan Tinggi / Mandiri</option>
+                    <option value="2">Lembaga Dalam Negeri (Diluar Perguruan Tinggi)</option>
+                    <option value="3">Lembaga Luar Negeri</option>
+                  </select>
+                </div>
+              </div>
+            </div>
             <div class="col-sm-3">
               <div class="input-group input-group-sm mb-1">
                 <div class="input-group-prepend">

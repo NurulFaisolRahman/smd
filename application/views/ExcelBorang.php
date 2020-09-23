@@ -6049,58 +6049,54 @@ Content-Type: text/html; charset="us-ascii"
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl71" height=3D"38" rowspan=3D"2" style=3D'height:28.50pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>No.</td>
     <td class=3D"xl108" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Sumber Pembiayaan</td>
-    <td class=3D"xl71" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah Judul PkM</td>
+    <td class=3D"xl71" colspan=3D"<?=$TS?>" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah Judul PkM</td>
     <td class=3D"xl71" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl71" x:str>TS-2</td>
-    <td class=3D"xl71" x:str>TS-1</td>
-    <td class=3D"xl71" x:str>TS</td>
-    <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
+		<?php for ($i = $TS; $i > 1; $i--) { ?>
+			<td class=3D"xl71" x:str>TS-<?=($i-1)?></td>
+		<?php } ?>
+			<td class=3D"xl71" x:str>TS</td>
+	 </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl86" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl86" x:num>2</td>
-    <td class=3D"xl86" x:num>3</td>
-    <td class=3D"xl86" x:num>4</td>
-    <td class=3D"xl86" x:num>5</td>
-    <td class=3D"xl86" x:num>6</td>
-    <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
+		<?php for ($i = 1; $i <= (3+($TS)); $i++) { ?>
+			<td class=3D"xl86" x:num><?=$i?></td>
+		<?php } ?>
+	 </tr>
    <tr height=3D"34" style=3D'height:25.50pt;'>
     <td class=3D"xl87" height=3D"34" style=3D'height:25.50pt;' x:num>1</td>
-    <td class=3D"xl90" x:str>a) Perguruan tinggi<br/>b) Mandiri</td>
-    <td class=3D"xl88" x:num>2</td>
-    <td class=3D"xl88" x:num>2</td>
-    <td class=3D"xl88" x:num>2</td>
-    <td class=3D"xl87" x:fmla=3D"=3DSUM(C6:E6)" x:num>6</td>
+		<td class=3D"xl90" x:str>a) Perguruan tinggi<br/>b) Mandiri</td>
+		<?php for ($i = 0; $i < $TS; $i++) { ?>
+			<td class=3D"xl88" x:num><?=$PengabdianDTPS[0][$i]?></td>
+		<?php } ?>
+    <td class=3D"xl87" x:num><?=$PengabdianDTPS[0][$TS]?></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>2</td>
     <td class=3D"xl90" x:str>Lembaga dalam negeri (diluar PT)</td>
-    <td class=3D"xl88" x:num>3</td>
-    <td class=3D"xl88" x:num>3</td>
-    <td class=3D"xl88" x:num>4</td>
-    <td class=3D"xl87" x:fmla=3D"=3DSUM(C7:E7)" x:num>10</td>
+    <?php for ($i = 0; $i < $TS; $i++) { ?>
+			<td class=3D"xl88" x:num><?=$PengabdianDTPS[1][$i]?></td>
+		<?php } ?>
+    <td class=3D"xl87" x:num><?=$PengabdianDTPS[1][$TS]?></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
     <td class=3D"xl90" x:str>Lembaga luar negeri</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88" x:num>1</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl87" x:fmla=3D"=3DSUM(C8:E8)" x:num>1</td>
+    <?php for ($i = 0; $i < $TS; $i++) { ?>
+			<td class=3D"xl88" x:num><?=$PengabdianDTPS[2][$i]?></td>
+		<?php } ?>
+    <td class=3D"xl87" x:num><?=$PengabdianDTPS[2][$TS]?></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl94" height=3D"19" colspan=3D"2" style=3D'height:14.25pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
-    <td class=3D"xl94" x:fmla=3D"=3DSUM(C6:C8)" x:num>5</td>
-    <td class=3D"xl94" x:fmla=3D"=3DSUM(D6:D8)" x:num>6</td>
-    <td class=3D"xl94" x:fmla=3D"=3DSUM(E6:E8)" x:num>6</td>
-    <td class=3D"xl94" x:fmla=3D"=3DSUM(C9:E9)" x:num>17</td>
+    <td class=3D"xl74" height=3D"19" colspan=3D"2" style=3D'height:14.25pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
+		<?php for ($i = 0; $i <= $TS; $i++) { $Total = 0; ?>
+			<?php for ($j = 0; $j < 3; $j++) { $Total += $PengabdianDTPS[$j][$i]; }?>
+			<td class=3D"xl94" x:num><?=$Total?></td>
+		<?php } ?>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <![if supportMisalignedColumns]>
