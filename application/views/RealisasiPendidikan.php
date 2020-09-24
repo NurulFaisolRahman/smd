@@ -292,20 +292,32 @@
               </div>
             </div>
             <div class="col-sm-12">
+              <div id="OpsiPND11" style="display: none;">
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Tingkat</b></span>
+                  </div>
+                  <select class="custom-select" id="TingkatOrasi">
+                    <option value="1">Tingkat regional daerah, institusional (minimal fakultas)</option>
+                    <option value="2">Tingkat nasional</option>
+                    <option value="3">Tingkat internasional (dengan bahasa internasional)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
               <div id="OpsiPND12" style="display: none;">
                 <div class="input-group input-group-sm mb-1">
                   <div class="input-group-prepend">
                     <span class="input-group-text bg-primary"><b>Jabatan</b></span>
                   </div>
-                  <select class="custom-select" id="JenisPND12">
+                  <select class="custom-select" id="JenisPND12"> 
                     <option value="1">Rektor</option>
-                    <option value="2">Wakil rektor / dekan / direktur program pasca sarjana / ketua lembaga</option>
-                    <option value="3">Ketua sekolah tinggi / pembantu dekan / asisten direktur program pasca sarjana / direktur politeknik / kepala LLDikti</option>
-                    <option value="4">Pembantu ketua sekolah tinggi/pembantu direktur politeknik</option>
-                    <option value="5">Direktur akademi</option>
-                    <option value="6">Pembantu direktur politeknik, ketua jurusan / bagian pada universitas / institut / sekolah tinggi</option>
-                    <option value="7">Pembantu direktur akademi / ketua jurusan / ketua prodipada universitas / politeknik / akademi, sekretaris jurusan / bagian pada universitas / institut / sekolah tinggi</option>
-                    <option value="8">Sekretaris jurusan pada politeknik / akademi dan kepala laboratorium (bengkel) universitas / institut / sekolah tinggi / politeknik / akademi</option>
+                    <option value="2">Pembantu rektor</option>
+                    <option value="3">Dekan/Direktur program pasca sarjana/Ketua lembaga</option>
+                    <option value="4">Pembantu Dekan/Ketua sekolah tinggi/asisten direktur program pasca sarjana/kepala LLDikti</option>
+                    <option value="5">Kepala UPT : Pusat Bahasa,Lab. Dasar,Perpustakaan,PTIK,Kebun Percobaan,Unit Pelayanan Kesehatan,LPPM</option>
+                    <option value="6">Ketua Jurusan/ketua prodi/sekretaris jurusan</option>
                   </select>
                 </div>
               </div>

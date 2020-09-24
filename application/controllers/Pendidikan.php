@@ -154,14 +154,24 @@ class Pendidikan extends CI_Controller {
 			$Satuan = '2 orasi / semester';
 			$JumlahKredit = $_POST['Volume']*2.5;
 			$Kredit = '5';
-			$KreditBkd = '1';
+			if ($Jabatan == 'Profesor') {
+				if ($_POST['TingkatOrasi'] == '1') {
+					$KreditBkd = '3';
+				} else if ($_POST['TingkatOrasi'] == '2') {
+					$KreditBkd = '5';
+				} else if ($_POST['TingkatOrasi'] == '3') {
+					$KreditBkd = '6';
+				}
+			} else {
+				$KreditBkd = '1';
+			}
 		}
 		else if ($_POST['IdKegiatan'] == 'PND12') {
 			$Volume = $_POST['Volume'];
 			$Satuan = '1 jabatan / semester';
 			$JumlahKredit = $_POST['JenisPND12'];
 			$Kredit = $_POST['JenisPND12'];
-			$KreditBkd = '';
+			$KreditBkd = $_POST['KreditBkd'];
 		}
 		else if ($_POST['IdKegiatan'] == 'PND13') {
 			$Volume = $_POST['Volume'];

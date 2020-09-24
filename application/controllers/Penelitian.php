@@ -305,6 +305,10 @@ class Penelitian extends CI_Controller {
 			$JumlahKredit = $Kredit = '';
 			$KreditBkd = 5;
 		}
+		else if ($_POST['IdKegiatan'] == 'PNL22') {
+			$JumlahKredit = $Kredit = '';
+			$KreditBkd = 3;
+		}
 		$Pdf = count($_FILES);
 		if ($Pdf > 0) {
 			if ($this->CekBukti($Pdf)){

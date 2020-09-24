@@ -30,7 +30,8 @@
           'Tugas belajar untuk akta mengajar sama dengan 6 sks',
           'Pekerti tatap muka dan tugas mandiri',
           'Magang Dosen Muda',
-          'AA tatap muka dan tugas mandiri');
+          'AA tatap muka dan tugas mandiri',
+          'Mendiskusikan (menyebarluaskan) temuan karya teknologi/seni Khusus Jabatan Profesor');
         ?>
         <select class="custom-select" id="IdKegiatanPenelitian">
           <?php $Id = 1; foreach ($Kegiatan as $key) { $ID = 'PNL'.$Id;?>

@@ -64,7 +64,7 @@ class Pengabdian extends CI_Controller {
 				$JumlahKredit = 1;
 				$Kredit = 1;
 			}
-			$KreditBkd = '0.2';
+			$Jabatan == 'Profesor' ? $KreditBkd = '3' : $KreditBkd = '0.2';
 		}
 		else if ($_POST['IdKegiatan'] == 'PNB4') {
 			if ($_POST['Kode'] == '1') {

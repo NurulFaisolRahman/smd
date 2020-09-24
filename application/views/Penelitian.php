@@ -310,7 +310,7 @@
 				}
 
 				$("#TambahRealisasiPenelitian").click(function() {
-					if ($("#InputIdKegiatanPenelitian").val() != 'PNL13' && $("#InputIdKegiatanPenelitian").val() != 'PNL18' && $("#InputIdKegiatanPenelitian").val() != 'PNL19' && $("#InputIdKegiatanPenelitian").val() != 'PNL20' && $("#InputIdKegiatanPenelitian").val() != 'PNL21') {
+					if ($("#InputIdKegiatanPenelitian").val() != 'PNL13' && $("#InputIdKegiatanPenelitian").val() != 'PNL18' && $("#InputIdKegiatanPenelitian").val() != 'PNL19' && $("#InputIdKegiatanPenelitian").val() != 'PNL20' && $("#InputIdKegiatanPenelitian").val() != 'PNL21' && $("#InputIdKegiatanPenelitian").val() != 'PNL22') {
 						if (isNaN(parseInt($("#Ke").val())) || isNaN(parseInt($("#Dari").val())) || parseInt($("#Ke").val()) > parseInt($("#Dari").val())) {
 							alert('Input Penulis Belum Benar')
 						} 
@@ -618,7 +618,7 @@
 					document.getElementById("OpsiPNL17").style.display = 'block'
 					document.getElementById("OpsiSumberPembiayaan").style.display = 'block'
 					document.getElementById("OpsiPenulis").style.display = 'block'
-				} else if ($("#InputIdKegiatanPenelitian").val() == 'PNL18' || $("#InputIdKegiatanPenelitian").val() == 'PNL19' || $("#InputIdKegiatanPenelitian").val() == 'PNL20' || $("#InputIdKegiatanPenelitian").val() == 'PNL21') {
+				} else if ($("#InputIdKegiatanPenelitian").val() == 'PNL18' || $("#InputIdKegiatanPenelitian").val() == 'PNL19' || $("#InputIdKegiatanPenelitian").val() == 'PNL20' || $("#InputIdKegiatanPenelitian").val() == 'PNL21' || $("#InputIdKegiatanPenelitian").val() == 'PNL22') {
 					document.getElementById("OpsiPNL1").style.display = 'none'
 					document.getElementById("OpsiPNL2").style.display = 'none'
 					document.getElementById("OpsiPNL6").style.display = 'none'

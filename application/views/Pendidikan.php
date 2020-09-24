@@ -448,7 +448,7 @@
 							$("#Jenjang").val() == 200? fd.append('Kode','0') : fd.append('Kode','1')
 							fd.append('KreditPND1',$("#KreditPND1").val())
 						}
-						else if ($("#InputIdKegiatanPendidikan").val() == 'PND2' || $("#InputIdKegiatanPendidikan").val() == 'PND4' || $("#InputIdKegiatanPendidikan").val() == 'PND8' || $("#InputIdKegiatanPendidikan").val() == 'PND9' || $("#InputIdKegiatanPendidikan").val() == 'PND11') {
+						else if ($("#InputIdKegiatanPendidikan").val() == 'PND2' || $("#InputIdKegiatanPendidikan").val() == 'PND4' || $("#InputIdKegiatanPendidikan").val() == 'PND8' || $("#InputIdKegiatanPendidikan").val() == 'PND9') {
 							fd.append('Kode','0')
 						} 
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND3') {
@@ -478,26 +478,32 @@
 							fd.append('BahanPengajaran',$("#BahanPengajaran").val())
 							fd.append('Kode',$("#BahanPengajaran").val())
 						}
+						else if ($("#InputIdKegiatanPendidikan").val() == 'PND11') {
+							fd.append('TingkatOrasi',$("#TingkatOrasi").val())
+							fd.append('Kode',0)
+						}
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND12') {
 							fd.append('Kode',$("#JenisPND12").val())
 							var JenisPND12 = $("#JenisPND12").val()
 							if (JenisPND12 == 1) {
-								fd.append('JenisPND12',6)
+								fd.append('JenisPND12',6) 
+								fd.append('KreditBKD',12)
 							} else if (JenisPND12 == 2) {
 								fd.append('JenisPND12',5)
+								fd.append('KreditBKD',10)
 							} else if (JenisPND12 == 3) {
-								fd.append('JenisPND12',4)
+								fd.append('JenisPND12',5)
+								fd.append('KreditBKD',8)
 							} else if (JenisPND12 == 4) {
 								fd.append('JenisPND12',4)
+								fd.append('KreditBKD',6)
 							} else if (JenisPND12 == 5) {
-								fd.append('JenisPND12',4)
+								fd.append('JenisPND12','')
+								fd.append('KreditBKD',6)
 							} else if (JenisPND12 == 6) {
 								fd.append('JenisPND12',3)
-							} else if (JenisPND12 == 7) {
-								fd.append('JenisPND12',3)
-							} else if (JenisPND12 == 8) {
-								fd.append('JenisPND12',3)
-							}
+								fd.append('KreditBKD',6)
+							} 
 						}
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND13') {
 							fd.append('JenisPND13',$("#JenisPND13").val())
@@ -626,6 +632,8 @@
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
 					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND11").style.display = 'none'
+					document.getElementById("OpsiPND12").style.display = 'none'
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
@@ -639,6 +647,8 @@
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
 					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND11").style.display = 'none'
+					document.getElementById("OpsiPND12").style.display = 'none'
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
@@ -652,6 +662,8 @@
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
 					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND11").style.display = 'none'
+					document.getElementById("OpsiPND12").style.display = 'none'
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'none'
 					document.getElementById("OpsiPND15").style.display = 'none'
@@ -665,6 +677,7 @@
 					document.getElementById("OpsiPND6").style.display = 'block'
 					document.getElementById("OpsiPND7").style.display = 'none'
 					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND11").style.display = 'none'
 					document.getElementById("OpsiPND12").style.display = 'none'
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'none'
@@ -679,6 +692,7 @@
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'block'
 					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND11").style.display = 'none'
 					document.getElementById("OpsiPND12").style.display = 'none'
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'none'
@@ -693,6 +707,22 @@
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
 					document.getElementById("OpsiPND10").style.display = 'block'
+					document.getElementById("OpsiPND11").style.display = 'none'
+					document.getElementById("OpsiPND12").style.display = 'none'
+					document.getElementById("OpsiPND13").style.display = 'none'
+					document.getElementById("OpsiPND14").style.display = 'none'
+					document.getElementById("OpsiPND15").style.display = 'none'
+					document.getElementById("OpsiPND16").style.display = 'none'
+					document.getElementById("OpsiPND17").style.display = 'none'
+				}
+				else if ($("#InputIdKegiatanPendidikan").val() == 'PND11') {
+					document.getElementById("OpsiPND1").style.display = 'none'
+					document.getElementById("OpsiPND3").style.display = 'none'
+					document.getElementById("OpsiPND5").style.display = 'none'
+					document.getElementById("OpsiPND6").style.display = 'none'
+					document.getElementById("OpsiPND7").style.display = 'none'
+					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND11").style.display = 'block'
 					document.getElementById("OpsiPND12").style.display = 'none'
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'none'
@@ -707,6 +737,7 @@
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
 					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND11").style.display = 'none'
 					document.getElementById("OpsiPND12").style.display = 'block'
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'none'
@@ -721,6 +752,7 @@
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
 					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND11").style.display = 'none'
 					document.getElementById("OpsiPND12").style.display = 'none'
 					document.getElementById("OpsiPND13").style.display = 'block'
 					document.getElementById("OpsiPND14").style.display = 'none'
@@ -735,6 +767,7 @@
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
 					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND11").style.display = 'none'
 					document.getElementById("OpsiPND12").style.display = 'none'
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'block'
@@ -749,6 +782,7 @@
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
 					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND11").style.display = 'none'
 					document.getElementById("OpsiPND12").style.display = 'none'
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'none'
@@ -763,6 +797,7 @@
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
 					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND11").style.display = 'none'
 					document.getElementById("OpsiPND12").style.display = 'none'
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'none'
@@ -777,6 +812,7 @@
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
 					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND11").style.display = 'none'
 					document.getElementById("OpsiPND12").style.display = 'none'
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'none'
@@ -791,6 +827,7 @@
 					document.getElementById("OpsiPND6").style.display = 'none'
 					document.getElementById("OpsiPND7").style.display = 'none'
 					document.getElementById("OpsiPND10").style.display = 'none'
+					document.getElementById("OpsiPND11").style.display = 'none'
 					document.getElementById("OpsiPND12").style.display = 'none'
 					document.getElementById("OpsiPND13").style.display = 'none'
 					document.getElementById("OpsiPND14").style.display = 'none'
