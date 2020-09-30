@@ -229,10 +229,14 @@
                     <span class="input-group-text bg-primary"><b>Tingkat</b></span>
                   </div>
                   <select class="custom-select" id="PeranIlmiah">
-                    <option value="1">Tingkat Internasional/Nasional/Regional sebagai Ketua, tiap kegiatan</option>
-                    <option value="2">Tingkat Internasional/Nasional/Regional sebagai Anggota/peserta, tiap kegiatan</option>
-                    <option value="3">Di lingkungan Perguruan Tinggi sebagai Ketua, tiap kegiatan</option>
-                    <option value="4">Di lingkungan Perguruan Tinggi sebagai Anggota/peserta, tiap kegiatan</option>
+                    <option value="1">Tingkat Internasional sebagai Ketua, tiap kegiatan</option>
+                    <option value="2">Tingkat Nasional sebagai Ketua, tiap kegiatan</option>
+                    <option value="3">Tingkat Regional sebagai Ketua, tiap kegiatan</option>
+                    <option value="4">Tingkat Internasional sebagai Anggota/peserta, tiap kegiatan</option>
+                    <option value="5">Tingkat Nasional sebagai Anggota/peserta, tiap kegiatan</option>
+                    <option value="6">Tingkat Regional sebagai Anggota/peserta, tiap kegiatan</option>
+                    <option value="7">Di lingkungan Perguruan Tinggi sebagai Ketua, tiap kegiatan</option>
+                    <option value="8">Di lingkungan Perguruan Tinggi sebagai Anggota/peserta, tiap kegiatan</option>
                   </select>
                 </div>
               </div>

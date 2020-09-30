@@ -2965,7 +2965,7 @@ Content-Type: text/html; charset="us-ascii"
       array_push($DupakPenelitian,0);
     }
    ?>
-  <?php for ($i=0; $i < count($Penelitian); $i++) { ?>
+  <?php for ($i=0; $i < count($Penelitian); $i++) { $KODE = explode('/',$Penelitian[$i]['Kode']) ?>
     <?php if ($Penelitian[$i]['IdKegiatan'] == 'PNL1') { ?>
         <?php if ($PNL1) { $PNL1 = false; $No = 1;?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
@@ -2973,83 +2973,83 @@ Content-Type: text/html; charset="us-ascii"
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>Menghasilkan karya ilmiahsesuai dengan bidang ilmunya :</td>
         </tr>
       <?php } ?>
-      <?php if ((int) $Penelitian[$i]['Kode'] < 3 && $Ilmiah1) { $Ilmiah1 = false;$No = 1; ?>
+      <?php if ((int) $KODE[0] < 3 && $Ilmiah1) { $Ilmiah1 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>a) Hasil penelitian atau hasil pemikiran yang dipublikasikan dalam bentuk buku </td>
         </tr>
-      <?php } else if ((int) $Penelitian[$i]['Kode'] < 5 && $Ilmiah2) { $Ilmiah2 = false;$No = 1; ?>
+      <?php } else if ((int) $KODE[0] < 5 && $Ilmiah2) { $Ilmiah2 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>b) Hasil penelitian atau hasil pemikiran dalam buku yang dipublikasikan dan berisi berbagai tulisan dari berbagai penulis (book chapter) :</td>
         </tr>
-      <?php } else if ((int) $Penelitian[$i]['Kode'] > 4 && $Ilmiah3) { $Ilmiah3 = false;$No = 1; ?>
+      <?php } else if ((int) $KODE[0] > 4 && $Ilmiah3) { $Ilmiah3 = false;$No = 1; ?>
       <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
         <td style="text-align: center;" class=3D"xl86pak" x:str></td>
         <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>c) Hasil  penelitian  atau  hasil  pemikiran yang dipublikasikan :</td>
       </tr>
       <?php } ?>
-      <?php if ($Penelitian[$i]['Kode'] == '1' && $KodeIlmiah1) { $KodeIlmiah1 = false;$No = 1; ?>
+      <?php if ($KODE[0] == '1' && $KodeIlmiah1) { $KodeIlmiah1 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>1) Buku referensi</td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '2' && $KodeIlmiah2) { $KodeIlmiah2 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '2' && $KodeIlmiah2) { $KodeIlmiah2 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>2) Monograf</td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '3' && $KodeIlmiah3) { $KodeIlmiah3 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '3' && $KodeIlmiah3) { $KodeIlmiah3 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>1) Internasional</td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '4' && $KodeIlmiah4) { $KodeIlmiah4 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '4' && $KodeIlmiah4) { $KodeIlmiah4 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>2) Nasional</td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '5' && $KodeIlmiah5) { $KodeIlmiah5 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '5' && $KodeIlmiah5) { $KodeIlmiah5 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>1) Jurnal internasional bereputasi (terindeks pada database internasional bereputasi dan berfaktor dampak)</td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '6' && $KodeIlmiah6) { $KodeIlmiah6 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '6' && $KodeIlmiah6) { $KodeIlmiah6 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>2) Jurnal internasional terindeks pada basis data internasional bereputasi</td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '7' && $KodeIlmiah7) { $KodeIlmiah7 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '7' && $KodeIlmiah7) { $KodeIlmiah7 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>3) Jurnal internasional terindeks pada basis data internasional di luar kategori 2)</td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '8' && $KodeIlmiah8) { $KodeIlmiah8 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '8' && $KodeIlmiah8) { $KodeIlmiah8 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>4) a. Jurnal Nasional terakreditasi Dikti</td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '9' && $KodeIlmiah9) { $KodeIlmiah9 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '9' && $KodeIlmiah9) { $KodeIlmiah9 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>4) b. Jurnal nasional terakreditasi Kemenristekdikti peringkat 1 dan 2</td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '10' && $KodeIlmiah10) { $KodeIlmiah10 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '10' && $KodeIlmiah10) { $KodeIlmiah10 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>5) a. Jurnal Nasional berbahasa Inggris atau bahasa resmi (PBB) terindeks pada basis data yang diakui Kemenristekdikti, contohnya: CABIatau Index Copernicus International (ICI). b. Jurnal nasional terakreditasi peringkat 3 dan 4 </td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '11' && $KodeIlmiah11) { $KodeIlmiah11 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '11' && $KodeIlmiah11) { $KodeIlmiah11 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>5) b. Jurnal Nasional berbahasa Indonesia terindeks pada basis data yang diakui Kemenristekdikti, contohnya: akreditasi peringkat 5 dan 6</td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '12' && $KodeIlmiah12) { $KodeIlmiah12 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '12' && $KodeIlmiah12) { $KodeIlmiah12 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>6) Jurnal Nasional </td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '13' && $KodeIlmiah13) { $KodeIlmiah13 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '13' && $KodeIlmiah13) { $KodeIlmiah13 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>7) Jurnal ilmiah yang ditulis dalam Bahasa Resmi PBB namun tidak memenuhi syarat-syarat sebagai jurnal ilmiah internasional</td>
@@ -3067,29 +3067,29 @@ Content-Type: text/html; charset="us-ascii"
         </tr>
         <?php $SubTotal += $Penelitian[$i]['JumlahKredit'];  $Total += $Penelitian[$i]['JumlahKredit'];?>
       <?php if ($i+1 == count($Penelitian)) { 
-        if ($Penelitian[$i]['Kode'] == 1) {
+        if ($KODE[0] == 1) {
           $DupakPenelitian[0] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 2) {
+        } else if ($KODE[0] == 2) {
           $DupakPenelitian[1] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 3) {
+        } else if ($KODE[0] == 3) {
           $DupakPenelitian[2] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 4) {
+        } else if ($KODE[0] == 4) {
           $DupakPenelitian[3] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 5) {
+        } else if ($KODE[0] == 5) {
           $DupakPenelitian[4] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 6) {
+        } else if ($KODE[0] == 6) {
           $DupakPenelitian[5] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 7) {
+        } else if ($KODE[0] == 7) {
           $DupakPenelitian[6] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 8) {
+        } else if ($KODE[0] == 8) {
           $DupakPenelitian[7] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 9) {
+        } else if ($KODE[0] == 9) {
           $DupakPenelitian[8] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 10) {
+        } else if ($KODE[0] == 10) {
           $DupakPenelitian[9] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 11) {
+        } else if ($KODE[0] == 11) {
           $DupakPenelitian[10] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 12) {
+        } else if ($KODE[0] == 12) {
           $DupakPenelitian[11] = $SubTotal;
         }
         ?>  
@@ -3099,30 +3099,30 @@ Content-Type: text/html; charset="us-ascii"
           <td class=3D"xl88pak"></td>
         </tr>
       <?php } else if ($Penelitian[$i+1]['IdKegiatan'] == $Penelitian[$i]['IdKegiatan']) { ?>
-        <?php if ($Penelitian[$i]['Kode'] != $Penelitian[$i+1]['Kode']) { 
-          if ($Penelitian[$i]['Kode'] == 1) {
+        <?php if ($KODE[0] != $Penelitian[$i+1]['Kode']) { 
+          if ($KODE[0] == 1) {
             $DupakPenelitian[0] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 2) {
+          } else if ($KODE[0] == 2) {
             $DupakPenelitian[1] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 3) {
+          } else if ($KODE[0] == 3) {
             $DupakPenelitian[2] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 4) {
+          } else if ($KODE[0] == 4) {
             $DupakPenelitian[3] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 5) {
+          } else if ($KODE[0] == 5) {
             $DupakPenelitian[4] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 6) {
+          } else if ($KODE[0] == 6) {
             $DupakPenelitian[5] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 7) {
+          } else if ($KODE[0] == 7) {
             $DupakPenelitian[6] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 8) {
+          } else if ($KODE[0] == 8) {
             $DupakPenelitian[7] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 9) {
+          } else if ($KODE[0] == 9) {
             $DupakPenelitian[8] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 10) {
+          } else if ($KODE[0] == 10) {
             $DupakPenelitian[9] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 11) {
+          } else if ($KODE[0] == 11) {
             $DupakPenelitian[10] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 12) {
+          } else if ($KODE[0] == 12) {
             $DupakPenelitian[11] = $SubTotal;
           }
           ?>  
@@ -3133,29 +3133,29 @@ Content-Type: text/html; charset="us-ascii"
           </tr>
         <?php $SubTotal = 0; } ?>
       <?php } else if ($Penelitian[$i+1]['IdKegiatan'] != $Penelitian[$i]['IdKegiatan']) { 
-        if ($Penelitian[$i]['Kode'] == 1) {
+        if ($KODE[0] == 1) {
           $DupakPenelitian[0] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 2) {
+        } else if ($KODE[0] == 2) {
           $DupakPenelitian[1] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 3) {
+        } else if ($KODE[0] == 3) {
           $DupakPenelitian[2] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 4) {
+        } else if ($KODE[0] == 4) {
           $DupakPenelitian[3] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 5) {
+        } else if ($KODE[0] == 5) {
           $DupakPenelitian[4] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 6) {
+        } else if ($KODE[0] == 6) {
           $DupakPenelitian[5] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 7) {
+        } else if ($KODE[0] == 7) {
           $DupakPenelitian[6] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 8) {
+        } else if ($KODE[0] == 8) {
           $DupakPenelitian[7] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 9) {
+        } else if ($KODE[0] == 9) {
           $DupakPenelitian[8] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 10) {
+        } else if ($KODE[0] == 10) {
           $DupakPenelitian[9] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 11) {
+        } else if ($KODE[0] == 11) {
           $DupakPenelitian[10] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 12) {
+        } else if ($KODE[0] == 12) {
           $DupakPenelitian[11] = $SubTotal;
         }
         ?>
@@ -3173,78 +3173,78 @@ Content-Type: text/html; charset="us-ascii"
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>Hasil penelitian atau hasil pemikiran yang didesiminasikan</td>
         </tr>
       <?php } ?>
-      <?php if ((int) $Penelitian[$i]['Kode'] < 5 && $Desiminasi1) { $Desiminasi1 = false;$No = 1; ?>
+      <?php if ((int) $KODE[0] < 5 && $Desiminasi1) { $Desiminasi1 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>a. Dipresentasikan secara oral dan dimuat dalam prosiding yang dipublikasikan (ber ISSN/ISBN) :</td>
         </tr>
-      <?php } else if ((int) $Penelitian[$i]['Kode'] < 7 && $Desiminasi2) { $Desiminasi2 = false;$No = 1; ?>
+      <?php } else if ((int) $KODE[0] < 7 && $Desiminasi2) { $Desiminasi2 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>b. Disajikan dalam bentuk poster dan dimuat dalam prosiding yang dipublikasikan :</td>
         </tr>
-      <?php } else if ((int) $Penelitian[$i]['Kode'] < 9 && $Desiminasi3) { $Desiminasi3 = false;$No = 1; ?>
+      <?php } else if ((int) $KODE[0] < 9 && $Desiminasi3) { $Desiminasi3 = false;$No = 1; ?>
       <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
         <td style="text-align: center;" class=3D"xl86pak" x:str></td>
         <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>c. Disajikan dalam seminar/simposium/ lokakarya, tetapi tidak dimuat dalam prosiding yang dipublikasikan :</td>
       </tr>
-      <?php } else if ((int) $Penelitian[$i]['Kode'] < 11 && $Desiminasi4) { $Desiminasi4 = false;$No = 1; ?>
+      <?php } else if ((int) $KODE[0] < 11 && $Desiminasi4) { $Desiminasi4 = false;$No = 1; ?>
       <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
         <td style="text-align: center;" class=3D"xl86pak" x:str></td>
         <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>d. Hasil penelitian/pemikiran yang tidak disajikan dalam seminar/simposium/lokakarya, tetapi dimuat dalam prosiding :</td>
       </tr>
-      <?php } else if ((int) $Penelitian[$i]['Kode'] <= 11 && $Desiminasi5) { $Desiminasi5 = false;$No = 1; ?>
+      <?php } else if ((int) $KODE[0] <= 11 && $Desiminasi5) { $Desiminasi5 = false;$No = 1; ?>
       <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
         <td style="text-align: center;" class=3D"xl86pak" x:str></td>
         <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>e. Hasil penelitian/pemikiran yang disajikan dalam koran/majalah populer/umum :</td>
       </tr>
       <?php } ?>
-      <?php if ($Penelitian[$i]['Kode'] == '1' && $KodeDesiminasi1) { $KodeDesiminasi1 = false;$No = 1; ?>
+      <?php if ($KODE[0] == '1' && $KodeDesiminasi1) { $KodeDesiminasi1 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>1). Internasional terindeks pada Scimagojr dan Scopus</td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '2' && $KodeDesiminasi2) { $KodeDesiminasi2 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '2' && $KodeDesiminasi2) { $KodeDesiminasi2 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>2). Internasional terindeks pada SCOPUS, IEEE Explore, SPIE </td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '3' && $KodeDesiminasi3) { $KodeDesiminasi3 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '3' && $KodeDesiminasi3) { $KodeDesiminasi3 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>3). Internasional</td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '4' && $KodeDesiminasi4) { $KodeDesiminasi4 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '4' && $KodeDesiminasi4) { $KodeDesiminasi4 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>4). Nasional</td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '5' && $KodeDesiminasi5) { $KodeDesiminasi5 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '5' && $KodeDesiminasi5) { $KodeDesiminasi5 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>1). Internasional</td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '6' && $KodeDesiminasi6) { $KodeDesiminasi6 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '6' && $KodeDesiminasi6) { $KodeDesiminasi6 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>2). Nasional</td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '7' && $KodeDesiminasi7) { $KodeDesiminasi7 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '7' && $KodeDesiminasi7) { $KodeDesiminasi7 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>1). Internasional</td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '8' && $KodeDesiminasi8) { $KodeDesiminasi8 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '8' && $KodeDesiminasi8) { $KodeDesiminasi8 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>2). Nasional</td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '9' && $KodeDesiminasi9) { $KodeDesiminasi9 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '9' && $KodeDesiminasi9) { $KodeDesiminasi9 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>1). Internasional</td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '10' && $KodeDesiminasi10) { $KodeDesiminasi10 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '10' && $KodeDesiminasi10) { $KodeDesiminasi10 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>2). Nasional</td>
@@ -3262,27 +3262,27 @@ Content-Type: text/html; charset="us-ascii"
         </tr>
         <?php $SubTotal += $Penelitian[$i]['JumlahKredit'];  $Total += $Penelitian[$i]['JumlahKredit'];?>
       <?php if ($i+1 == count($Penelitian)) { 
-        if ($Penelitian[$i]['Kode'] == 1) {
+        if ($KODE[0] == 1) {
           $DupakPenelitian[12] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 2) {
+        } else if ($KODE[0] == 2) {
           $DupakPenelitian[13] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 3) {
+        } else if ($KODE[0] == 3) {
           $DupakPenelitian[14] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 4) {
+        } else if ($KODE[0] == 4) {
           $DupakPenelitian[15] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 5) {
+        } else if ($KODE[0] == 5) {
           $DupakPenelitian[16] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 6) {
+        } else if ($KODE[0] == 6) {
           $DupakPenelitian[17] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 7) {
+        } else if ($KODE[0] == 7) {
           $DupakPenelitian[18] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 8) {
+        } else if ($KODE[0] == 8) {
           $DupakPenelitian[19] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 9) {
+        } else if ($KODE[0] == 9) {
           $DupakPenelitian[20] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 10) {
+        } else if ($KODE[0] == 10) {
           $DupakPenelitian[21] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 11) {
+        } else if ($KODE[0] == 11) {
           $DupakPenelitian[22] = $SubTotal;
         } 
         ?>  
@@ -3292,28 +3292,28 @@ Content-Type: text/html; charset="us-ascii"
           <td class=3D"xl88pak"></td>
         </tr>
       <?php } else if ($Penelitian[$i+1]['IdKegiatan'] == $Penelitian[$i]['IdKegiatan']) { ?>
-        <?php if ($Penelitian[$i]['Kode'] != $Penelitian[$i+1]['Kode']) { 
-          if ($Penelitian[$i]['Kode'] == 1) {
+        <?php if ($KODE[0] != $Penelitian[$i+1]['Kode']) { 
+          if ($KODE[0] == 1) {
             $DupakPenelitian[12] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 2) {
+          } else if ($KODE[0] == 2) {
             $DupakPenelitian[13] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 3) {
+          } else if ($KODE[0] == 3) {
             $DupakPenelitian[14] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 4) {
+          } else if ($KODE[0] == 4) {
             $DupakPenelitian[15] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 5) {
+          } else if ($KODE[0] == 5) {
             $DupakPenelitian[16] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 6) {
+          } else if ($KODE[0] == 6) {
             $DupakPenelitian[17] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 7) {
+          } else if ($KODE[0] == 7) {
             $DupakPenelitian[18] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 8) {
+          } else if ($KODE[0] == 8) {
             $DupakPenelitian[19] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 9) {
+          } else if ($KODE[0] == 9) {
             $DupakPenelitian[20] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 10) {
+          } else if ($KODE[0] == 10) {
             $DupakPenelitian[21] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 11) {
+          } else if ($KODE[0] == 11) {
             $DupakPenelitian[22] = $SubTotal;
           } 
           ?>  
@@ -3324,27 +3324,27 @@ Content-Type: text/html; charset="us-ascii"
           </tr>
         <?php $SubTotal = 0; } ?>
       <?php } else if ($Penelitian[$i+1]['IdKegiatan'] != $Penelitian[$i]['IdKegiatan']) { 
-        if ($Penelitian[$i]['Kode'] == 1) {
+        if ($KODE[0] == 1) {
           $DupakPenelitian[12] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 2) {
+        } else if ($KODE[0] == 2) {
           $DupakPenelitian[13] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 3) {
+        } else if ($KODE[0] == 3) {
           $DupakPenelitian[14] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 4) {
+        } else if ($KODE[0] == 4) {
           $DupakPenelitian[15] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 5) {
+        } else if ($KODE[0] == 5) {
           $DupakPenelitian[16] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 6) {
+        } else if ($KODE[0] == 6) {
           $DupakPenelitian[17] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 7) {
+        } else if ($KODE[0] == 7) {
           $DupakPenelitian[18] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 8) {
+        } else if ($KODE[0] == 8) {
           $DupakPenelitian[19] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 9) {
+        } else if ($KODE[0] == 9) {
           $DupakPenelitian[20] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 10) {
+        } else if ($KODE[0] == 10) {
           $DupakPenelitian[21] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 11) {
+        } else if ($KODE[0] == 11) {
           $DupakPenelitian[22] = $SubTotal;
         } 
         ?> 
@@ -3458,32 +3458,32 @@ Content-Type: text/html; charset="us-ascii"
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>Membuat rancangan dan karya teknologi yang dipatenkan atau seni yang terdaftar di HaKI secara nasional atau internasional</td>
         </tr>
       <?php } ?>
-      <?php if ($Penelitian[$i]['Kode'] == '1' && $Haki1) { $Haki1 = false;$No = 1; ?>
+      <?php if ($KODE[0] == '1' && $Haki1) { $Haki1 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>a) Internasionalyang sudah diimplementasikan di industri (paling sedikit diakui oleh 4 Negara)</td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '2' && $Haki2) { $Haki2 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '2' && $Haki2) { $Haki2 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>b) Internasional (paling sedikit diakui oleh 4 Negara)</td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '3' && $Haki3) { $Haki3 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '3' && $Haki3) { $Haki3 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>c) Nasional (yang sudah diimplementasikan di industri)</td>
         </tr>
-        <?php } else if ($Penelitian[$i]['Kode'] == '4' && $Haki2) { $Haki2 = false;$No = 1; ?>
+        <?php } else if ($KODE[0] == '4' && $Haki2) { $Haki2 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>d) Nasional</td>
         </tr>
-        <?php } else if ($Penelitian[$i]['Kode'] == '5' && $Haki2) { $Haki2 = false;$No = 1; ?>
+        <?php } else if ($KODE[0] == '5' && $Haki2) { $Haki2 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>e) Nasional, dalam bentuk paten sederhana yang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham</td>
         </tr>
-        <?php } else if ($Penelitian[$i]['Kode'] == '6' && $Haki2) { $Haki2 = false;$No = 1; ?>
+        <?php } else if ($KODE[0] == '6' && $Haki2) { $Haki2 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>e) Karya buku, desain industri, indikasi geografisyang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham</td>
@@ -3501,17 +3501,17 @@ Content-Type: text/html; charset="us-ascii"
         </tr>
         <?php $SubTotal += $Penelitian[$i]['JumlahKredit'];  $Total += $Penelitian[$i]['JumlahKredit'];?>
       <?php if ($i+1 == count($Penelitian)) { 
-        if ($Penelitian[$i]['Kode'] == 1) {
+        if ($KODE[0] == 1) {
           $DupakPenelitian[26] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 2) {
+        } else if ($KODE[0] == 2) {
           $DupakPenelitian[27] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 3) {
+        } else if ($KODE[0] == 3) {
           $DupakPenelitian[28] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 4) {
+        } else if ($KODE[0] == 4) {
           $DupakPenelitian[29] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 5) {
+        } else if ($KODE[0] == 5) {
           $DupakPenelitian[30] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 6) {
+        } else if ($KODE[0] == 6) {
           $DupakPenelitian[31] = $SubTotal;
         } 
         ?>   
@@ -3521,18 +3521,18 @@ Content-Type: text/html; charset="us-ascii"
           <td class=3D"xl88pak"></td>
         </tr>
       <?php } else if ($Penelitian[$i+1]['IdKegiatan'] == $Penelitian[$i]['IdKegiatan']) { ?>
-        <?php if ($Penelitian[$i]['Kode'] != $Penelitian[$i+1]['Kode']) { 
-          if ($Penelitian[$i]['Kode'] == 1) {
+        <?php if ($KODE[0] != $Penelitian[$i+1]['Kode']) { 
+          if ($KODE[0] == 1) {
             $DupakPenelitian[26] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 2) {
+          } else if ($KODE[0] == 2) {
             $DupakPenelitian[27] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 3) {
+          } else if ($KODE[0] == 3) {
             $DupakPenelitian[28] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 4) {
+          } else if ($KODE[0] == 4) {
             $DupakPenelitian[29] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 5) {
+          } else if ($KODE[0] == 5) {
             $DupakPenelitian[30] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 6) {
+          } else if ($KODE[0] == 6) {
             $DupakPenelitian[31] = $SubTotal;
           } 
           ?> 
@@ -3543,17 +3543,17 @@ Content-Type: text/html; charset="us-ascii"
           </tr>
         <?php $SubTotal = 0; } ?>
       <?php } else if ($Penelitian[$i+1]['IdKegiatan'] != $Penelitian[$i]['IdKegiatan']) { 
-        if ($Penelitian[$i]['Kode'] == 1) {
+        if ($KODE[0] == 1) {
           $DupakPenelitian[26] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 2) {
+        } else if ($KODE[0] == 2) {
           $DupakPenelitian[27] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 3) {
+        } else if ($KODE[0] == 3) {
           $DupakPenelitian[28] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 4) {
+        } else if ($KODE[0] == 4) {
           $DupakPenelitian[29] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 5) {
+        } else if ($KODE[0] == 5) {
           $DupakPenelitian[30] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 6) {
+        } else if ($KODE[0] == 6) {
           $DupakPenelitian[31] = $SubTotal;
         } 
         ?> 
@@ -3571,17 +3571,17 @@ Content-Type: text/html; charset="us-ascii"
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>Membuat rancangan dan karya teknologi yang tidak dipatenkan; rancangan dan karya seni monumental yang tidak terdaftar di HaKI tetapi telah dipresentasikan pada forum yang teragenda :</td>
         </tr>
       <?php } ?>
-      <?php if ($Penelitian[$i]['Kode'] == '1' && $Forum1) { $Forum1 = false;$No = 1; ?>
+      <?php if ($KODE[0] == '1' && $Forum1) { $Forum1 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>a). Tingkat Internasional</td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '2' && $Forum2) { $Forum2 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '2' && $Forum2) { $Forum2 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>b). Tingkat Nasional</td>
         </tr>
-      <?php } else if ($Penelitian[$i]['Kode'] == '3' && $Forum3) { $Forum3 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '3' && $Forum3) { $Forum3 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>c). Tingkat  Lokal</td>
@@ -3599,11 +3599,11 @@ Content-Type: text/html; charset="us-ascii"
         </tr>
         <?php $SubTotal += $Penelitian[$i]['JumlahKredit'];  $Total += $Penelitian[$i]['JumlahKredit'];?>
       <?php if ($i+1 == count($Penelitian)) { 
-        if ($Penelitian[$i]['Kode'] == 1) {
+        if ($KODE[0] == 1) {
           $DupakPenelitian[32] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 2) {
+        } else if ($KODE[0] == 2) {
           $DupakPenelitian[33] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 3) {
+        } else if ($KODE[0] == 3) {
           $DupakPenelitian[34] = $SubTotal;
         } 
         ?>   
@@ -3613,12 +3613,12 @@ Content-Type: text/html; charset="us-ascii"
           <td class=3D"xl88pak"></td>
         </tr>
       <?php } else if ($Penelitian[$i+1]['IdKegiatan'] == $Penelitian[$i]['IdKegiatan']) { ?>
-        <?php if ($Penelitian[$i]['Kode'] != $Penelitian[$i+1]['Kode']) { 
-          if ($Penelitian[$i]['Kode'] == 1) {
+        <?php if ($KODE[0] != $Penelitian[$i+1]['Kode']) { 
+          if ($KODE[0] == 1) {
             $DupakPenelitian[32] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 2) {
+          } else if ($KODE[0] == 2) {
             $DupakPenelitian[33] = $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] == 3) {
+          } else if ($KODE[0] == 3) {
             $DupakPenelitian[34] = $SubTotal;
           } 
           ?>   
@@ -3629,11 +3629,11 @@ Content-Type: text/html; charset="us-ascii"
           </tr>
         <?php $SubTotal = 0; } ?>
       <?php } else if ($Penelitian[$i+1]['IdKegiatan'] != $Penelitian[$i]['IdKegiatan']) { 
-        if ($Penelitian[$i]['Kode'] == 1) {
+        if ($KODE[0] == 1) {
           $DupakPenelitian[32] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 2) {
+        } else if ($KODE[0] == 2) {
           $DupakPenelitian[33] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] == 3) {
+        } else if ($KODE[0] == 3) {
           $DupakPenelitian[34] = $SubTotal;
         } 
         ?> 
@@ -3662,14 +3662,14 @@ Content-Type: text/html; charset="us-ascii"
           <td class=3D"xl91pak" x:str>Lampiran 2.<?=$Lampiran++?></td>
         </tr>
         <?php $SubTotal += $Penelitian[$i]['JumlahKredit'];  $Total += $Penelitian[$i]['JumlahKredit'];?>
-      <?php if ($i+1 == count($Penelitian)) { 
-        if ($Penelitian[$i]['Kode'] % 3 == 1) {
+      <?php if ($i+1 == count($Penelitian)) {
+        if ($KODE[0] % 3 == 1) {
           $DupakPenelitian[35] += $SubTotal;
           $DupakPenelitian[35] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] % 3 == 2) {
+        } else if ($KODE[0] % 3 == 2) {
           $DupakPenelitian[36] += $SubTotal;
           $DupakPenelitian[36] = $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] % 3 == 0) {
+        } else if ($KODE[0] % 3 == 0) {
           $DupakPenelitian[37] += $SubTotal;
           $DupakPenelitian[37] = $SubTotal;
         } 
@@ -3680,12 +3680,12 @@ Content-Type: text/html; charset="us-ascii"
           <td class=3D"xl88pak"></td>
         </tr>
       <?php } else if ($Penelitian[$i+1]['IdKegiatan'] == $Penelitian[$i]['IdKegiatan']) { ?>
-        <?php if ($Penelitian[$i]['Kode'] != $Penelitian[$i+1]['Kode']) { 
-          if ($Penelitian[$i]['Kode'] % 3 == 1) {
+        <?php if ($KODE[0] != $Penelitian[$i+1]['Kode']) { 
+          if ($KODE[0] % 3 == 1) {
             $DupakPenelitian[35] += $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] % 3 == 2) {
+          } else if ($KODE[0] % 3 == 2) {
             $DupakPenelitian[36] += $SubTotal;
-          } else if ($Penelitian[$i]['Kode'] % 3 == 0) {
+          } else if ($KODE[0] % 3 == 0) {
             $DupakPenelitian[37] += $SubTotal;
           } 
           ?>
@@ -3696,11 +3696,11 @@ Content-Type: text/html; charset="us-ascii"
           </tr>
         <?php $SubTotal = 0; } ?>
       <?php } else if ($Penelitian[$i+1]['IdKegiatan'] != $Penelitian[$i]['IdKegiatan']) { 
-        if ($Penelitian[$i]['Kode'] % 3 == 1) {
+        if ($KODE[0] % 3 == 1) {
           $DupakPenelitian[35] += $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] % 3 == 2) {
+        } else if ($KODE[0] % 3 == 2) {
           $DupakPenelitian[36] += $SubTotal;
-        } else if ($Penelitian[$i]['Kode'] % 3 == 0) {
+        } else if ($KODE[0] % 3 == 0) {
           $DupakPenelitian[37] += $SubTotal;
         } 
         ?>
@@ -4712,7 +4712,7 @@ Content-Type: text/html; charset="us-ascii"
       array_push($DupakPengabdian,0);
     }
    ?>
-  <?php for ($i=0; $i < count($Pengabdian); $i++) { ?>
+  <?php for ($i=0; $i < count($Pengabdian); $i++) { $KODE = explode('/',$Pengabdian[$i]['Kode'])?>
     <?php if ($Pengabdian[$i]['IdKegiatan'] == 'PNB1') { ?>
       <?php if ($PNB1) { $PNB1 = false; $No = 1;?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
@@ -4782,48 +4782,48 @@ Content-Type: text/html; charset="us-ascii"
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>Memberi pelayanan kepada masyarakat atau kegiatan lain yang menunjang pelaksanaan tugas pemerintahan dan pembangunan</td>
         </tr>
       <?php } ?>
-      <?php if ((int) $Pengabdian[$i]['Kode'] < 4 && $JenisTingkat1) { $JenisTingkat1 = false;$No = 1; ?>
+      <?php if ((int) $KODE[0] < 4 && $JenisTingkat1) { $JenisTingkat1 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>1) Dalam satu semester atau lebih :</td>
         </tr>
-      <?php } else if ((int) $Pengabdian[$i]['Kode'] > 3 && $JenisTingkat2) { $JenisTingkat2 = false;$No = 1; ?>
+      <?php } else if ((int) $KODE[0] > 3 && $JenisTingkat2) { $JenisTingkat2 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>2) Kurang dari satu semester dan minimal satu bulan</td>
         </tr>
       <?php } ?>
-      <?php if ($Pengabdian[$i]['Kode'] == '1' && $Tingkat1) { $Tingkat1 = false;$No = 1; ?>
+      <?php if ($KODE[0] == '1' && $Tingkat1) { $Tingkat1 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>a) Tingkat Internasional, tiap program</td>
         </tr>
-      <?php } else if ($Pengabdian[$i]['Kode'] == '2' && $Tingkat2) { $Tingkat2 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '2' && $Tingkat2) { $Tingkat2 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>b) Tingkat Nasional, tiap program</td>
         </tr>
-      <?php } else if ($Pengabdian[$i]['Kode'] == '3' && $Tingkat3) { $Tingkat3 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '3' && $Tingkat3) { $Tingkat3 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>c) Tingkat Lokal, tiap program</td>
         </tr>
-      <?php } else if ($Pengabdian[$i]['Kode'] == '4' && $Tingkat4) { $Tingkat4 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '4' && $Tingkat4) { $Tingkat4 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>a) Tingkat Internasional, tiap program</td>
         </tr>
-      <?php } else if ($Pengabdian[$i]['Kode'] == '5' && $Tingkat5) { $Tingkat5 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '5' && $Tingkat5) { $Tingkat5 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>b) Tingkat Nasional, tiap program</td>
         </tr>
-      <?php } else if ($Pengabdian[$i]['Kode'] == '6' && $Tingkat6) { $Tingkat6 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '6' && $Tingkat6) { $Tingkat6 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>c) Tingkat Lokal, tiap program</td>
         </tr>
-      <?php } else if ($Pengabdian[$i]['Kode'] == '7' && $Tingkat7) { $Tingkat7 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '7' && $Tingkat7) { $Tingkat7 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>d) Insidental, tiap program</td>
@@ -4841,19 +4841,19 @@ Content-Type: text/html; charset="us-ascii"
         </tr>
         <?php $SubTotal += $Pengabdian[$i]['JumlahKredit'];  $Total += $Pengabdian[$i]['JumlahKredit'];?>
       <?php if ($i+1 == count($Pengabdian)) { 
-        if ($Pengabdian[$i]['Kode'] == 1) {
+        if ($KODE[0] == 1) {
           $DupakPengabdian[2] = $SubTotal;
-        } else if ($Pengabdian[$i]['Kode'] == 2) {
+        } else if ($KODE[0] == 2) {
           $DupakPengabdian[3] = $SubTotal;
-        } else if ($Pengabdian[$i]['Kode'] == 3) {
+        } else if ($KODE[0] == 3) {
           $DupakPengabdian[4] = $SubTotal;
-        } else if ($Pengabdian[$i]['Kode'] == 4) {
+        } else if ($KODE[0] == 4) {
           $DupakPengabdian[5] = $SubTotal;
-        } else if ($Pengabdian[$i]['Kode'] == 5) {
+        } else if ($KODE[0] == 5) {
           $DupakPengabdian[6] = $SubTotal;
-        } else if ($Pengabdian[$i]['Kode'] == 6) {
+        } else if ($KODE[0] == 6) {
           $DupakPengabdian[7] = $SubTotal;
-        } else if ($Pengabdian[$i]['Kode'] == 7) {
+        } else if ($KODE[0] == 7) {
           $DupakPengabdian[8] = $SubTotal;
         }
         ?>  
@@ -4863,20 +4863,20 @@ Content-Type: text/html; charset="us-ascii"
           <td class=3D"xl88pak"></td>
         </tr>
       <?php } else if ($Pengabdian[$i+1]['IdKegiatan'] == $Pengabdian[$i]['IdKegiatan']) { ?>
-        <?php if ($Pengabdian[$i]['Kode'] != $Pengabdian[$i+1]['Kode']) { 
-          if ($Pengabdian[$i]['Kode'] == 1) {
+        <?php if ($KODE[0] != $Pengabdian[$i+1]['Kode']) { 
+          if ($KODE[0] == 1) {
             $DupakPengabdian[2] = $SubTotal;
-          } else if ($Pengabdian[$i]['Kode'] == 2) {
+          } else if ($KODE[0] == 2) {
             $DupakPengabdian[3] = $SubTotal;
-          } else if ($Pengabdian[$i]['Kode'] == 3) {
+          } else if ($KODE[0] == 3) {
             $DupakPengabdian[4] = $SubTotal;
-          } else if ($Pengabdian[$i]['Kode'] == 4) {
+          } else if ($KODE[0] == 4) {
             $DupakPengabdian[5] = $SubTotal;
-          } else if ($Pengabdian[$i]['Kode'] == 5) {
+          } else if ($KODE[0] == 5) {
             $DupakPengabdian[6] = $SubTotal;
-          } else if ($Pengabdian[$i]['Kode'] == 6) {
+          } else if ($KODE[0] == 6) {
             $DupakPengabdian[7] = $SubTotal;
-          } else if ($Pengabdian[$i]['Kode'] == 7) {
+          } else if ($KODE[0] == 7) {
             $DupakPengabdian[8] = $SubTotal;
           }
           ?>   
@@ -4887,19 +4887,19 @@ Content-Type: text/html; charset="us-ascii"
           </tr>
         <?php $SubTotal = 0; } ?>
       <?php } else if ($Pengabdian[$i+1]['IdKegiatan'] != $Pengabdian[$i]['IdKegiatan']) { 
-        if ($Pengabdian[$i]['Kode'] == 1) {
+        if ($KODE[0] == 1) {
           $DupakPengabdian[2] = $SubTotal;
-        } else if ($Pengabdian[$i]['Kode'] == 2) {
+        } else if ($KODE[0] == 2) {
           $DupakPengabdian[3] = $SubTotal;
-        } else if ($Pengabdian[$i]['Kode'] == 3) {
+        } else if ($KODE[0] == 3) {
           $DupakPengabdian[4] = $SubTotal;
-        } else if ($Pengabdian[$i]['Kode'] == 4) {
+        } else if ($KODE[0] == 4) {
           $DupakPengabdian[5] = $SubTotal;
-        } else if ($Pengabdian[$i]['Kode'] == 5) {
+        } else if ($KODE[0] == 5) {
           $DupakPengabdian[6] = $SubTotal;
-        } else if ($Pengabdian[$i]['Kode'] == 6) {
+        } else if ($KODE[0] == 6) {
           $DupakPengabdian[7] = $SubTotal;
-        } else if ($Pengabdian[$i]['Kode'] == 7) {
+        } else if ($KODE[0] == 7) {
           $DupakPengabdian[8] = $SubTotal;
         }
         ?> 
@@ -4916,17 +4916,17 @@ Content-Type: text/html; charset="us-ascii"
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>Memberi latihan / penyuluhan / penataran / ceramah pada masyarakat, terjadwal / terprogram :</td>
         </tr>
       <?php } ?>
-      <?php if ($Pengabdian[$i]['Kode'] == '1' && $Dasar1) { $Dasar1 = false;$No = 1; ?>
+      <?php if ($KODE[0] == '1' && $Dasar1) { $Dasar1 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>a) Tingkat Internasional tiap program</td>
         </tr>
-      <?php } else if ($Pengabdian[$i]['Kode'] == '2' && $Dasar2) { $Dasar2 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '2' && $Dasar2) { $Dasar2 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>b) Tingkat Nasional, tiap program</td>
         </tr>
-      <?php } else if ($Pengabdian[$i]['Kode'] == '3' && $Dasar3) { $Dasar3 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '3' && $Dasar3) { $Dasar3 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>c) Tingkat Lokal, tiap program</td>
@@ -4944,11 +4944,11 @@ Content-Type: text/html; charset="us-ascii"
         </tr>
         <?php $SubTotal += $Pengabdian[$i]['JumlahKredit'];  $Total += $Pengabdian[$i]['JumlahKredit'];?>
       <?php if ($i+1 == count($Pengabdian)) { 
-        if ($Pengabdian[$i]['Kode'] == 1) {
+        if ($KODE[0] == 1) {
           $DupakPengabdian[9] = $SubTotal;
-        } else if ($Pengabdian[$i]['Kode'] == 2) {
+        } else if ($KODE[0] == 2) {
           $DupakPengabdian[10] = $SubTotal;
-        } else if ($Pengabdian[$i]['Kode'] == 3) {
+        } else if ($KODE[0] == 3) {
           $DupakPengabdian[11] = $SubTotal;
         }
         ?>  
@@ -4958,12 +4958,12 @@ Content-Type: text/html; charset="us-ascii"
           <td class=3D"xl88pak"></td>
         </tr>
       <?php } else if ($Pengabdian[$i+1]['IdKegiatan'] == $Pengabdian[$i]['IdKegiatan']) { ?>
-        <?php if ($Pengabdian[$i]['Kode'] != $Pengabdian[$i+1]['Kode']) { 
-          if ($Pengabdian[$i]['Kode'] == 1) {
+        <?php if ($KODE[0] != $Pengabdian[$i+1]['Kode']) { 
+          if ($KODE[0] == 1) {
             $DupakPengabdian[9] = $SubTotal;
-          } else if ($Pengabdian[$i]['Kode'] == 2) {
+          } else if ($KODE[0] == 2) {
             $DupakPengabdian[10] = $SubTotal;
-          } else if ($Pengabdian[$i]['Kode'] == 3) {
+          } else if ($KODE[0] == 3) {
             $DupakPengabdian[11] = $SubTotal;
           }
           ?> 
@@ -4974,11 +4974,11 @@ Content-Type: text/html; charset="us-ascii"
           </tr>
         <?php $SubTotal = 0; } ?>
       <?php } else if ($Pengabdian[$i+1]['IdKegiatan'] != $Pengabdian[$i]['IdKegiatan']) { 
-        if ($Pengabdian[$i]['Kode'] == 1) {
+        if ($KODE[0] == 1) {
           $DupakPengabdian[9] = $SubTotal;
-        } else if ($Pengabdian[$i]['Kode'] == 2) {
+        } else if ($KODE[0] == 2) {
           $DupakPengabdian[10] = $SubTotal;
-        } else if ($Pengabdian[$i]['Kode'] == 3) {
+        } else if ($KODE[0] == 3) {
           $DupakPengabdian[11] = $SubTotal;
         }
         ?>
@@ -5057,12 +5057,12 @@ Content-Type: text/html; charset="us-ascii"
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>Berperan serta aktif dalam pengelolaan jurnal ilmiah (per tahun)*</td>
         </tr>
       <?php } ?>
-      <?php if ($Pengabdian[$i]['Kode'] == '1' && $Editor1) { $Editor1 = false;$No = 1; ?>
+      <?php if ($KODE[0] == '1' && $Editor1) { $Editor1 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>a. Editor / dewan penyunting / dewan redaksi  jurnal ilmiah internasional</td>
         </tr>
-      <?php } else if ($Pengabdian[$i]['Kode'] == '2' && $Editor2) { $Editor2 = false;$No = 1; ?>
+      <?php } else if ($KODE[0] == '2' && $Editor2) { $Editor2 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>b. Editor/ dewan penyunting/ dewan redaksi  jurnal ilmiah nasional</td>
@@ -5086,7 +5086,7 @@ Content-Type: text/html; charset="us-ascii"
           <td class=3D"xl88pak"></td>
         </tr>
       <?php } else if ($Pengabdian[$i+1]['IdKegiatan'] == $Pengabdian[$i]['IdKegiatan']) { $DupakPengabdian[14] += $SubTotal;?>
-        <?php if ($Pengabdian[$i]['Kode'] != $Pengabdian[$i+1]['Kode']) { ?>  
+        <?php if ($KODE[0] != $Pengabdian[$i+1]['Kode']) { ?>  
           <tr style=3D'mso-height-source:userset;height:18pt;'>
             <td class=3D"xl88pak" colspan=3D"6" style="text-align: center;font-weight: bold;vertical-align: middle;">Sub Total</td>
             <td class=3D"xl88pak" style="font-weight: bold;vertical-align: middle;"><?=$SubTotal?></td>
@@ -6470,33 +6470,33 @@ Content-Type: text/html; charset="us-ascii"
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>Berperan serta aktif dalam pertemuan ilmiah</td>
         </tr>
       <?php } ?>
-      <?php if ((int) $Penunjang[$i]['Kode'] < 3 && $Ilmiah1) { $Ilmiah1 = false;$No = 1; ?>
+      <?php if ((int) $Penunjang[$i]['Kode'] < 7 && $Ilmiah1) { $Ilmiah1 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>a. Tingkat Internasional / Nasional / Regional sebagai :</td>
         </tr>
-      <?php } else if ((int) $Penunjang[$i]['Kode'] > 2 && $Ilmiah2) { $Ilmiah2 = false;$No = 1; ?>
+      <?php } else if ((int) $Penunjang[$i]['Kode'] > 6 && $Ilmiah2) { $Ilmiah2 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>b. Di lingkungan Perguruan Tinggi sebagai :</td>
         </tr>
       <?php } ?>
-      <?php if ($Penunjang[$i]['Kode'] == '1' && $KodeIlmiah1) { $KodeIlmiah1 = false;$No = 1; ?>
+      <?php if ((int) $Penunjang[$i]['Kode'] < 4 && $KodeIlmiah1) { $KodeIlmiah1 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>1) Ketua, tiap kegiatan</td>
         </tr>
-      <?php } else if ($Penunjang[$i]['Kode'] == '2' && $KodeIlmiah2) { $KodeIlmiah2 = false;$No = 1; ?>
+      <?php } else if ((int) $Penunjang[$i]['Kode'] < 7 && $KodeIlmiah2) { $KodeIlmiah2 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>2) Anggota/peserta, tiap kegiatan</td>
         </tr>
-      <?php } else if ($Penunjang[$i]['Kode'] == '3' && $KodeIlmiah3) { $KodeIlmiah3 = false;$No = 1; ?>
+      <?php } else if ($Penunjang[$i]['Kode'] == '7' && $KodeIlmiah3) { $KodeIlmiah3 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>1) Ketua, tiap kegiatan</td>
         </tr>
-      <?php } else if ($Penunjang[$i]['Kode'] == '4' && $KodeIlmiah4) { $KodeIlmiah4 = false;$No = 1; ?>
+      <?php } else if ($Penunjang[$i]['Kode'] == '8' && $KodeIlmiah4) { $KodeIlmiah4 = false;$No = 1; ?>
         <tr class=3D"xl66pak" style=3D'mso-height-source:userset;'>
           <td style="text-align: center;" class=3D"xl86pak" x:str></td>
           <td class=3D"xl87pak" colspan=3D"7" style=3D'border-right:.5pt solid ;border-bottom:.5pt solid ;' x:str>2) Anggota/peserta, tiap kegiatan</td>

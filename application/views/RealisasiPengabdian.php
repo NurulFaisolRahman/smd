@@ -178,8 +178,8 @@
                     <span class="input-group-text bg-primary"><b>Peran</b></span>
                   </div>
                   <select class="custom-select" id="Peran">
-                    <option value="1">Editor/dewan penyunting/dewan redaksi  jurnal ilmiah internasiona</option>
-                    <option value="2">Editor/dewan penyunting/dewan redaksi  jurnal ilmiah nasional</option>
+                    <option value="1">Editor/dewan penyunting/dewan redaksi jurnal ilmiah internasional</option>
+                    <option value="2">Editor/dewan penyunting/dewan redaksi jurnal ilmiah nasional</option>
                   </select>
                 </div>
               </div>

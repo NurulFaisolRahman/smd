@@ -100,19 +100,19 @@ class Penunjang extends CI_Controller {
 			}
 		}
 		else if ($_POST['IdKegiatan'] == 'PNJ6') {
-			if ($_POST['Kode'] == '1') {
+			if ($_POST['Kode'] < 4) {
 				$JumlahKredit = $_POST['Volume']*3;
 				$Kredit = 3;
 			}
-			else if ($_POST['Kode'] == '2') {
+			else if ($_POST['Kode'] < 7) {
 				$JumlahKredit = $_POST['Volume']*2;
 				$Kredit = 2;
 			}
-			else if ($_POST['Kode'] == '3') {
+			else if ($_POST['Kode'] == 7) {
 				$JumlahKredit = $_POST['Volume']*2;
 				$Kredit = 2;
 			}
-			else if ($_POST['Kode'] == '4') {
+			else if ($_POST['Kode'] == 8) {
 				$JumlahKredit = $_POST['Volume'];
 				$Kredit = 1;
 			}

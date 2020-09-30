@@ -4646,8 +4646,8 @@ Content-Type: text/html; charset="us-ascii"
   <?php $No = 1; foreach ($Dosen as $key) { ?>
     <tr height=3D"19" style=3D'height:14.25pt;'>
       <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num><?=$No++?></td>
-      <td class=3D"xl102" x:str><?=$key['Nama']?></td>
-      <td class=3D"xl102"><?=$key['NIDN']?></td>
+      <td class=3D"xl144" x:str><?=$key['Nama']?></td>
+      <td class=3D"xl102" x:str><?=$key['NIDN']?></td>
       <td class=3D"xl102" x:str><?=$key['S2']?></td>
       <td class=3D"xl144" x:str><?=$key['S3']?></td>
       <td class=3D"xl144"><?=$key['BidangKeahlian']?></td>
@@ -5775,26 +5775,19 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl98" x:num>8</td>
     <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl138" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl139" x:str>A</td>
+  <?php $No = 1; foreach ($Rekognisi as $key) { ?>
+    <tr height=3D"19" style=3D'height:14.25pt;'>
+    <td class=3D"xl88" height=3D"19" style=3D'height:14.25pt;' x:num><?=$No++?></td>
+    <td class=3D"xl144" x:str><?=$key['Nama']?></td>
+    <td class=3D"xl144"><?=$key['BidangKeahlian']?></td>
     <td class=3D"xl139"></td>
-    <td class=3D"xl139"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
+    <td class=3D"xl88"><?=$key['Kode'] == 1 ? 'V' : '';?></td>
+    <td class=3D"xl88"><?=$key['Kode'] == 2 ? 'V' : '';?></td>
+    <td class=3D"xl88"><?=$key['Kode'] == 3 ? 'V' : '';?></td>
+    <td class=3D"xl88"><?=$key['Tahun']?></td>
     <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"95" style=3D'height:71.25pt;mso-xlrowspan:5;'>
-    <td height=3D"95" style=3D'height:71.25pt;'></td>
-    <td colspan=3D"10" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl140" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td class=3D"xl141" colspan=3D"7" style=3D'mso-ignore:colspan;'></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
+  <?php } ?>
    <![if supportMisalignedColumns]>
     <tr width=3D"0" style=3D'display:none;'>
      <td width=3D"44" style=3D'width:33;'></td>
@@ -6651,48 +6644,15 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl74" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>HKI: a) Paten, b) Paten Sederhana</td>
     <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>2</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>4</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>5</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:str>&#8230;</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
+   <?php $No = 1; foreach ($Paten as $key) { ?>
+    <tr height=3D"19" style=3D'height:14.25pt;'>
+      <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num><?=$No++?></td>
+      <td class=3D"xl78" x:str><?=$key['Kegiatan']?></td>
+      <td class=3D"xl79"><?=$key['Tahun']?></td>
+      <td class=3D"xl80"></td>
+      <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
+    </tr>
+   <?php } ?>
    <![if supportMisalignedColumns]>
     <tr width=3D"0" style=3D'display:none;'>
      <td width=3D"44" style=3D'width:33;'></td>
@@ -6815,71 +6775,15 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl74" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>HKI: a) Hak Cipta, b) Desain Produk Industri,<span style=3D'mso-spacerun:yes;'>&nbsp; </span>c) Perlindungan Varietas Tanaman (Sertifikat Perlindungan Varietas Tanaman, Sertifikat Pelepasan Varietas, Sertifikat Pendaftaran Varietas), d) Desain Tata Letak Sirkuit Terpadu, e) dll.)</td>
     <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>2</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>4</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>5</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:str>&#8230;</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td height=3D"19" colspan=3D"2" style=3D'height:14.25pt;mso-ignore:colspan;'></td>
-    <td class=3D"xl67"></td>
-    <td colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl68" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td></td>
-    <td class=3D"xl67"></td>
-    <td colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl68" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td></td>
-    <td class=3D"xl67"></td>
-    <td colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl68" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td></td>
-    <td class=3D"xl67"></td>
-    <td colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
+   <?php $No = 1; foreach ($HakCipta as $key) { ?>
+    <tr height=3D"19" style=3D'height:14.25pt;'>
+      <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num><?=$No++?></td>
+      <td class=3D"xl78" x:str><?=$key['Kegiatan']?></td>
+      <td class=3D"xl79"><?=$key['Tahun']?></td>
+      <td class=3D"xl80"></td>
+      <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
+    </tr>
+   <?php } ?>
    <![if supportMisalignedColumns]>
     <tr width=3D"0" style=3D'display:none;'>
      <td width=3D"44" style=3D'width:33;'></td>
@@ -7002,71 +6906,15 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl74" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Teknologi Tepat Guna, Produk (Produk Terstandarisasi, Produk Tersertifikasi), Karya Seni, Rekayasa Sosial</td>
     <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl78" x:str>TTG 1</td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>2</td>
-    <td class=3D"xl78" x:str>TTG 2</td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
-    <td class=3D"xl78" x:str>Produk 1</td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>4</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>5</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:str>&#8230;</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td height=3D"19" colspan=3D"2" style=3D'height:14.25pt;mso-ignore:colspan;'></td>
-    <td class=3D"xl67"></td>
-    <td colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl68" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td></td>
-    <td class=3D"xl67"></td>
-    <td colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl68" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td></td>
-    <td class=3D"xl67"></td>
-    <td colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl68" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td></td>
-    <td class=3D"xl67"></td>
-    <td colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
+   <?php $No = 1; foreach ($TepatGuna as $key) { ?>
+    <tr height=3D"19" style=3D'height:14.25pt;'>
+      <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num><?=$No++?></td>
+      <td class=3D"xl78" x:str><?=$key['Kegiatan']?></td>
+      <td class=3D"xl79"><?=$key['Tahun']?></td>
+      <td class=3D"xl80"></td>
+      <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
+    </tr>
+   <?php } ?>
    <![if supportMisalignedColumns]>
     <tr width=3D"0" style=3D'display:none;'>
      <td width=3D"44" style=3D'width:33;'></td>
@@ -7190,48 +7038,15 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl74" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str><font class=3D"font2">Buku ber-ISBN, </font><font class=3D"font47">Book Chapter</font></td>
     <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl78" x:str>Buku 1</td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>2</td>
-    <td class=3D"xl78" x:str>Buku 2</td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
-    <td class=3D"xl78" x:str>Buku 3</td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>4</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>5</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:str>&#8230;</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
+   <?php $No = 1; foreach ($BukuISBN as $key) { ?>
+    <tr height=3D"19" style=3D'height:14.25pt;'>
+      <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num><?=$No++?></td>
+      <td class=3D"xl78" x:str><?=$key['Kegiatan']?></td>
+      <td class=3D"xl79"><?=$key['Tahun']?></td>
+      <td class=3D"xl80"></td>
+      <td colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
+    </tr>
+   <?php } ?>
    <![if supportMisalignedColumns]>
     <tr width=3D"0" style=3D'display:none;'>
      <td width=3D"44" style=3D'width:33;'></td>

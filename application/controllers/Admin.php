@@ -182,6 +182,28 @@ class Admin extends CI_Controller {
 			array_push($Jumlah,$Total);
 			array_push($Data['PengabdianDTPS'],$Jumlah);
 		}	
+		$Data['BukuISBN'] = $this->db->query("SELECT Kegiatan,Tahun FROM `RealisasiPenelitian` WHERE IdKegiatan = 'PNL4' OR IdKegiatan = 'PNL5' OR IdKegiatan = 'PNL11' OR IdKegiatan = 'PNL12' OR IdKegiatan = 'PNL13' AND Tahun >= ".$TS[0]." AND Tahun <= ".$TS[1])->result_array();		
+		foreach ($this->db->query("SELECT Kegiatan,Tahun FROM `RealisasiPenelitian` WHERE IdKegiatan = 'PNL1' AND Kode LIKE '1%' OR IdKegiatan = 'PNL1' AND Kode LIKE '2%' AND Tahun >= ".$TS[0]." AND Tahun <= ".$TS[1])->result_array() as $key => $value) {
+			array_push($Data['BukuISBN'],$value);
+		}
+		$Data['Paten'] = $this->db->query("SELECT Kegiatan,Tahun FROM `RealisasiPenelitian` WHERE IdKegiatan = 'PNL6' OR IdKegiatan = 'PNL17' AND Tahun >= ".$TS[0]." AND Tahun <= ".$TS[1])->result_array();		
+		$Data['TepatGuna'] = $this->db->query("SELECT Kegiatan,Tahun FROM `RealisasiPengabdian` WHERE IdKegiatan = 'PNB6' AND Tahun >= ".$TS[0]." AND Tahun <= ".$TS[1])->result_array();		
+		$Data['HakCipta'] = $this->db->query("SELECT Kegiatan,Tahun FROM `RealisasiPenelitian` WHERE IdKegiatan = 'PNL6' AND Tahun >= ".$TS[0]." AND Tahun <= ".$TS[1])->result_array();		
+		$Data['Rekognisi'] = array();
+		foreach ($this->db->query("SELECT Dosen.Nama,Dosen.BidangKeahlian,RealisasiPengabdian.Kode,RealisasiPengabdian.Tahun FROM Dosen,RealisasiPengabdian WHERE RealisasiPengabdian.IdKegiatan = 'PNB7' AND RealisasiPengabdian.Tahun >= ".$TS[0]." AND RealisasiPengabdian.Tahun <= ".$TS[1])->result_array() as $key => $value) {
+			$value['Kode'][0] == 1 ? $value['Kode'] = 3 : $value['Kode'] = 2 ;
+			array_push($Data['Rekognisi'],$value);
+		}
+		foreach ($this->db->query("SELECT Dosen.Nama,Dosen.BidangKeahlian,RealisasiPenunjang.Kode,RealisasiPenunjang.Tahun FROM Dosen,RealisasiPenunjang WHERE RealisasiPenunjang.IdKegiatan = 'PNJ6' AND RealisasiPenunjang.Tahun >= ".$TS[0]." AND RealisasiPenunjang.Tahun <= ".$TS[1])->result_array() as $key => $value) {
+			if ($value['Kode'][0] == 1 || $value['Kode'][0] == 4) {
+				$value['Kode'] = 3;
+			} else if ($value['Kode'][0] == 2 || $value['Kode'][0] == 5) {
+				$value['Kode'] = 2;
+			} else {
+				$value['Kode'] = 1;
+			}
+			array_push($Data['Rekognisi'],$value);
+		}
 		$this->load->view('ExcelBorang',$Data);  
   } 
 }
