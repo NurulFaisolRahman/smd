@@ -141,7 +141,7 @@
                     <option value="3">Hasil penelitian dalam buku yang dipublikasikan dan berisi berbagai tulisan dari berbagai penulis (book chapter) Internasional</option>
                     <option value="4">Hasil penelitian dalam buku yang dipublikasikan dan berisi berbagai tulisan dari berbagai penulis (book chapter) Nasional</option>
                     <option value="5">Hasil penelitian yang dipublikasikan dalam bentuk Jurnal internasional bereputasi (terindeks pada database internasional bereputasi dan berfaktor dampak)</option>
-                    <option value="6">Hasil penelitian yang dipublikasikan dalam bentuk Jurnal internasional terindeks pada basis datainternasional bereputasi</option>
+                    <option value="6">Hasil penelitian yang dipublikasikan dalam bentuk Jurnal internasional terindeks pada basis data internasional bereputasi</option>
                     <option value="7">Hasil penelitian yang dipublikasikan dalam bentuk Jurnal internasionalterindekspada basis data internasional di luar kategori 2)</option>
                     <option value="8">Hasil penelitian yang dipublikasikan dalam bentuk Jurnal Nasional terakreditasiDikti/Jurnal nasional terakreditasi Kemenristekdiktiperingkat 1 dan 2</option>
                     <option value="9">Hasil penelitian yang dipublikasikan dalam bentuk Jurnal Nasional berbahasa Inggris/bahasa resmi (PBB) terindeks pada basis data yang diakui Kemenristekdikti, contoh : CABI/ICI, Jurnal nasional terakreditasi peringkat 3 dan 4</option>

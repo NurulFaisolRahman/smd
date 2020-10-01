@@ -5934,7 +5934,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl74" height=3D"19" colspan=3D"2" style=3D'height:14.25pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
+    <td class=3D"xl94" height=3D"19" colspan=3D"2" style=3D'height:14.25pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
 		<?php for ($i = 0; $i <= $TS; $i++) { $Total = 0; ?>
 			<?php for ($j = 0; $j < 3; $j++) { $Total += $PenelitianDTPS[$j][$i]; }?>
 			<td class=3D"xl94" x:num><?=$Total?></td>
@@ -6085,7 +6085,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl74" height=3D"19" colspan=3D"2" style=3D'height:14.25pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
+    <td class=3D"xl94" height=3D"19" colspan=3D"2" style=3D'height:14.25pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
 		<?php for ($i = 0; $i <= $TS; $i++) { $Total = 0; ?>
 			<?php for ($j = 0; $j < 3; $j++) { $Total += $PengabdianDTPS[$j][$i]; }?>
 			<td class=3D"xl94" x:num><?=$Total?></td>
@@ -6131,8 +6131,8 @@ Content-Type: text/html; charset="us-ascii"
      <x:StandardWidth>2274</x:StandardWidth>
      <x:FreezePanes/>
      <x:FrozenNoSplit/>
-     <x:SplitHorizontal>2</x:SplitHorizontal>
-     <x:TopRowBottomPane>2</x:TopRowBottomPane>
+     <x:SplitHorizontal>6</x:SplitHorizontal>
+     <x:TopRowBottomPane>6</x:TopRowBottomPane>
      <x:ActivePane>2</x:ActivePane>
      <x:Panes>
       <x:Pane>
@@ -6189,121 +6189,48 @@ Content-Type: text/html; charset="us-ascii"
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl71" height=3D"38" rowspan=3D"2" style=3D'height:28.50pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>No.</td>
     <td class=3D"xl71" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jenis Publikasi</td>
-    <td class=3D"xl71" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah Judul<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl71" colspan=3D"<?=$TS?>" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah Judul<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
     <td class=3D"xl71" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
+
    <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl71" x:str>TS-2</td>
-    <td class=3D"xl71" x:str>TS-1</td>
+   <?php for ($i = $TS; $i > 1; $i--) { ?>
+    <td class=3D"xl71" x:str>TS-<?=($i-1)?></td>
+   <?php } ?>
     <td class=3D"xl71" x:str>TS</td>
-    <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl86" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl86" x:num>2</td>
-    <td class=3D"xl86" x:num>3</td>
-    <td class=3D"xl86" x:num>4</td>
-    <td class=3D"xl86" x:num>5</td>
-    <td class=3D"xl86" x:num>6</td>
-    <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
+    <?php for ($i = 1; $i <= (3+$TS); $i++) { ?>
+      <td class=3D"xl86" x:num><?=$i?></td>
+    <?php } ?>
    </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl90" x:str>Jurnal penelitian tidak terakreditasi</td>
-    <td class=3D"xl88" x:num>12</td>
-    <td class=3D"xl88" x:num>15</td>
-    <td class=3D"xl88" x:num>16</td>
-    <td class=3D"xl87" x:fmla=3D"=3DSUM(C7:E7)" x:num>43</td>
-    <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>2</td>
-    <td class=3D"xl90" x:str>Jurnal penelitian nasional terakreditasi</td>
-    <td class=3D"xl88" x:num>5</td>
-    <td class=3D"xl88" x:num>7</td>
-    <td class=3D"xl88" x:num>8</td>
-    <td class=3D"xl87" x:fmla=3D"=3DSUM(C8:E8)" x:num>20</td>
-    <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
-    <td class=3D"xl90" x:str>Jurnal penelitian internasional</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88" x:num>1</td>
-    <td class=3D"xl88" x:num>1</td>
-    <td class=3D"xl87" x:fmla=3D"=3DSUM(C9:E9)" x:num>2</td>
-    <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>4</td>
-    <td class=3D"xl91" x:str>Jurnal penelitian internasional bereputasi</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl87" x:fmla=3D"=3DSUM(C10:E10)" x:num>0</td>
-    <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl92" height=3D"19" style=3D'height:14.25pt;' x:num>5</td>
-    <td class=3D"xl90" x:str>Seminar wilayah/lokal/perguruan tinggi</td>
-    <td class=3D"xl93" x:num>11</td>
-    <td class=3D"xl88" x:num>9</td>
-    <td class=3D"xl88" x:num>4</td>
-    <td class=3D"xl87" x:fmla=3D"=3DSUM(C11:E11)" x:num>24</td>
-    <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl92" height=3D"19" style=3D'height:14.25pt;' x:num>6</td>
-    <td class=3D"xl90" x:str>Seminar nasional</td>
-    <td class=3D"xl93" x:num>5</td>
-    <td class=3D"xl88" x:num>7</td>
-    <td class=3D"xl88" x:num>14</td>
-    <td class=3D"xl87" x:fmla=3D"=3DSUM(C12:E12)" x:num>26</td>
-    <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl92" height=3D"19" style=3D'height:14.25pt;' x:num>7</td>
-    <td class=3D"xl90" x:str>Seminar internasional</td>
-    <td class=3D"xl93"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88" x:num>1</td>
-    <td class=3D"xl87" x:fmla=3D"=3DSUM(C13:E13)" x:num>1</td>
-    <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl92" height=3D"19" style=3D'height:14.25pt;' x:num>8</td>
-    <td class=3D"xl90" x:str>Tulisan di media massa wilayah</td>
-    <td class=3D"xl93"></td>
-    <td class=3D"xl88" x:num>2</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl87" x:fmla=3D"=3DSUM(C14:E14)" x:num>2</td>
-    <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl92" height=3D"19" style=3D'height:14.25pt;' x:num>9</td>
-    <td class=3D"xl90" x:str>Tulisan di media massa nasional</td>
-    <td class=3D"xl93"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88" x:num>3</td>
-    <td class=3D"xl87" x:fmla=3D"=3DSUM(C15:E15)" x:num>3</td>
-    <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl92" height=3D"19" style=3D'height:14.25pt;' x:num>10</td>
-    <td class=3D"xl90" x:str>Tulisan di media massa internasional</td>
-    <td class=3D"xl93" x:num>1</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl87" x:fmla=3D"=3DSUM(C16:E16)" x:num>1</td>
-    <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
+
+   <?php 
+    $JenisPublikasi = array('Jurnal penelitian tidak terakreditasi','Jurnal penelitian nasional terakreditasi',
+                            'Jurnal penelitian internasional','Jurnal penelitian internasional bereputasi',
+                            'Seminar wilayah/lokal/perguruan tinggi','Seminar nasional',
+                            'Seminar internasional','Tulisan di media massa wilayah',
+                            'Tulisan di media massa nasional','Tulisan di media massa internasional',); 
+   ?> 
+   <?php $No = 1; for ($i = 0; $i < 7; $i++) { ?>
+    <tr height=3D"19" style=3D'height:14.25pt;'>
+      <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num><?=$No++?></td>
+      <td class=3D"xl90" x:str><?=$JenisPublikasi[$i]?></td>
+      <?php for ($j = 0; $j < $TS; $j++) { ?>
+      <td class=3D"xl88" x:num><?=$Publikasi[$i][$j]?></td>
+      <?php } ?>
+      <td class=3D"xl87" x:num><?=$Publikasi[$i][$TS]?></td>
+      <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
+    </tr>
+   <?php } ?>
+
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl94" height=3D"19" colspan=3D"2" style=3D'height:14.25pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
-    <td class=3D"xl94" x:fmla=3D"=3DSUM(C7:C16)" x:num>34</td>
-    <td class=3D"xl94" x:fmla=3D"=3DSUM(D7:D16)" x:num>41</td>
-    <td class=3D"xl94" x:fmla=3D"=3DSUM(E7:E16)" x:num>47</td>
-    <td class=3D"xl94" x:fmla=3D"=3DSUM(C17:E17)" x:num>122</td>
+    <?php for ($i = 0; $i <= $TS; $i++) { $Total = 0; ?>
+			<?php for ($j = 0; $j < 7; $j++) { $Total += $Publikasi[$j][$i]; }?>
+			<td class=3D"xl94" x:num><?=$Total?></td>
+		<?php } ?>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <![if supportMisalignedColumns]>

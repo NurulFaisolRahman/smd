@@ -43,7 +43,7 @@
                 <div class="container-fluid">
                   <div class="row">
                     <div id="Judul" class="col-sm-12 mb-1">
-                    <h3 id="Merah" class="text-center"><b>SISTEM MONITORING DOSEN</b></h3>
+                    <h3 id="Merah" class="text-center mt-1"><b>SISTEM MONITORING DOSEN</b></h3>
                     <h3 class="text-center text-warning"><b>JURUSAN ILMU EKONOMI</b></h3>
                     <h4 class="text-center text-light"><b>UNIVERSITAS TRUNOJOYO MADURA</b></h4>
                     </div>

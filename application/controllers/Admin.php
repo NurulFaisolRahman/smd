@@ -204,6 +204,39 @@ class Admin extends CI_Controller {
 			}
 			array_push($Data['Rekognisi'],$value);
 		}
+		$Data['Publikasi'] = array();
+		$KodePublikasi = array(3,5,8);
+		for ($j = 0; $j < 3; $j++) { 
+			$Jumlah = array(); $Total = 0;
+			for ($i = $TS[0]; $i <= $TS[1]; $i++) { 
+				$Tampung = $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE IdKegiatan = 'PNL14' AND Kode LIKE '".$KodePublikasi[$j]."%' AND Tahun = ".$i)->row_array()['Volume'];		
+				$Tampung == '' ? array_push($Jumlah,0) : array_push($Jumlah,$Tampung);
+				$Tampung == '' ? $Total += 0 : $Total += $Tampung;
+			}
+			array_push($Jumlah,$Total);
+			array_push($Data['Publikasi'],$Jumlah);
+		}	
+		for ($j = 0; $j < 1; $j++) { 
+			$Jumlah = array(); $Total = 0;
+			for ($i = $TS[0]; $i <= $TS[1]; $i++) { 
+				$Tampung = $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE IdKegiatan = 'PNL1' AND Tahun = ".$i." AND (Kode LIKE '5%' OR Kode LIKE '6%')")->row_array()['Volume'];		
+				$Tampung == '' ? array_push($Jumlah,0) : array_push($Jumlah,$Tampung);
+				$Tampung == '' ? $Total += 0 : $Total += $Tampung;
+			}
+			array_push($Jumlah,$Total);
+			array_push($Data['Publikasi'],$Jumlah);
+		}	
+		for ($j = 1; $j <= 3; $j++) { 
+			$Jumlah = array(); $Total = 0;
+			for ($i = $TS[0]; $i <= $TS[1]; $i++) { 
+				$Tampung = $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE IdKegiatan = 'PNL15' AND Tahun = ".$i." AND Kode LIKE '".$j."%'")->row_array()['Volume'];		
+				$Tampung == '' ? array_push($Jumlah,0) : array_push($Jumlah,$Tampung);
+				$Tampung == '' ? $Total += 0 : $Total += $Tampung;
+			}
+			array_push($Jumlah,$Total);
+			array_push($Data['Publikasi'],$Jumlah);
+		}	
+		// echo json_encode($Data['Publikasi']);
 		$this->load->view('ExcelBorang',$Data);  
   } 
 }

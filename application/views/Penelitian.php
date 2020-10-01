@@ -270,12 +270,22 @@
 					}
 					else if ($("#InputIdKegiatanPenelitian").val() == 'PNL14') {
 						fd.append('KreditBKD',$("#ProgresPNL14").val()*$("#JenisPNL14").val())
-						fd.append('Kode','0')
+						fd.append('Kode',$("#JenisPNL14").val())
 						fd.append('Biaya',$("#SumberPembiayaan").val())
 					}
 					else if ($("#InputIdKegiatanPenelitian").val() == 'PNL15') {
 						fd.append('KreditBKD',(PNL15[$("#JenisPNL15").val()][$("#LingkupPNL15").val()]))
-						fd.append('Kode','0')
+						if ($("#JenisPNL15").val() == 0) {
+							if ($("#LingkupPNL15").val() == 0) {
+								fd.append('Kode','1')
+							} else if ($("#LingkupPNL15").val() == 1) {
+								fd.append('Kode','2')
+							} else {
+								fd.append('Kode','3')	
+							}
+						} else {
+							fd.append('Kode','0')	
+						}
 						fd.append('Biaya',$("#SumberPembiayaan").val())
 					}
 					else if ($("#InputIdKegiatanPenelitian").val() == 'PNL16') {
