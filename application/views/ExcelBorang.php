@@ -6211,9 +6211,9 @@ Content-Type: text/html; charset="us-ascii"
                             'Jurnal penelitian internasional','Jurnal penelitian internasional bereputasi',
                             'Seminar wilayah/lokal/perguruan tinggi','Seminar nasional',
                             'Seminar internasional','Tulisan di media massa wilayah',
-                            'Tulisan di media massa nasional','Tulisan di media massa internasional',); 
+                            'Tulisan di media massa nasional','Tulisan di media massa internasional'); 
    ?> 
-   <?php $No = 1; for ($i = 0; $i < 7; $i++) { ?>
+   <?php $No = 1; for ($i = 0; $i < 10; $i++) { ?>
     <tr height=3D"19" style=3D'height:14.25pt;'>
       <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num><?=$No++?></td>
       <td class=3D"xl90" x:str><?=$JenisPublikasi[$i]?></td>
@@ -6228,7 +6228,7 @@ Content-Type: text/html; charset="us-ascii"
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl94" height=3D"19" colspan=3D"2" style=3D'height:14.25pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
     <?php for ($i = 0; $i <= $TS; $i++) { $Total = 0; ?>
-			<?php for ($j = 0; $j < 7; $j++) { $Total += $Publikasi[$j][$i]; }?>
+			<?php for ($j = 0; $j < 10; $j++) { $Total += $Publikasi[$j][$i]; }?>
 			<td class=3D"xl94" x:num><?=$Total?></td>
 		<?php } ?>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>

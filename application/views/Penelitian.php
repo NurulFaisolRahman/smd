@@ -195,6 +195,14 @@
 					})
 				})
 
+				$("#Point2").change(function (){
+          if ($("#Point2").val() == 11) {
+						document.getElementById("JenisPNL2").style.display = 'block'
+					} else {
+						document.getElementById("JenisPNL2").style.display = 'none'
+					}
+        })
+
 				function Tambah() {
 					var PNL15 = [[2, 3, 6],
 										   [0.5, 1, 2],
@@ -217,7 +225,17 @@
 						fd.append('Biaya',$("#SumberPembiayaan").val())
 					}
 					else if ($("#InputIdKegiatanPenelitian").val() == 'PNL2') {
-						fd.append('Kode',$("#Point2").val())				
+						if ($("#Point2").val() == 11) {
+							if ($("#TingkatPNL2").val() == 2) {
+								fd.append('Kode',12)		
+							} else if ($("#TingkatPNL2").val() == 3) {
+								fd.append('Kode',13)		
+							} else {
+								fd.append('Kode',$("#Point2").val())		
+							}
+						} else {
+							fd.append('Kode',$("#Point2").val())		
+						}			
 						fd.append('Biaya',$("#SumberPembiayaan").val())
 					}
 					else if ($("#InputIdKegiatanPenelitian").val() == 'PNL3') {

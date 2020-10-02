@@ -172,6 +172,18 @@
                     <option value="11">Hasil penelitian/pemikiran yang disajikan dalam koran/majalah populer/umum</option>
                   </select>
                 </div>
+                <div id="JenisPNL2" style="display: none;">
+                  <div class="input-group input-group-sm mb-1">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-primary"><b>Tingkat</b></span>
+                    </div>
+                    <select class="custom-select" id="TingkatPNL2">
+                      <option value="1">Wilayah</option>
+                      <option value="2">Nasional</option>
+                      <option value="3">Internasional</option>
+                    </select>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-sm-12">

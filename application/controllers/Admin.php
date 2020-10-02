@@ -236,7 +236,16 @@ class Admin extends CI_Controller {
 			array_push($Jumlah,$Total);
 			array_push($Data['Publikasi'],$Jumlah);
 		}	
-		// echo json_encode($Data['Publikasi']);
+		for ($j = 11; $j <= 13; $j++) { 
+			$Jumlah = array(); $Total = 0;
+			for ($i = $TS[0]; $i <= $TS[1]; $i++) { 
+				$Tampung = $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE IdKegiatan = 'PNL2' AND Tahun = ".$i." AND Kode LIKE '".$j."%'")->row_array()['Volume'];		
+				$Tampung == '' ? array_push($Jumlah,0) : array_push($Jumlah,$Tampung);
+				$Tampung == '' ? $Total += 0 : $Total += $Tampung;
+			}
+			array_push($Jumlah,$Total);
+			array_push($Data['Publikasi'],$Jumlah);
+		}	
 		$this->load->view('ExcelBorang',$Data);  
   } 
 }

@@ -132,7 +132,7 @@ class Penelitian extends CI_Controller {
 				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],5,$_POST['Volume']);
 				$Kredit = 5;
 			}
-			else if ($_POST['Kode'] == '11') {
+			else {
 				$JumlahKredit = $this->KreditPenulis($_POST['Ke'],$_POST['Dari'],1,$_POST['Volume']);
 				$Kredit = 1;
 			}
