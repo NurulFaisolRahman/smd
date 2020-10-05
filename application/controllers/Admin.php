@@ -204,6 +204,26 @@ class Admin extends CI_Controller {
 			}
 			array_push($Data['Rekognisi'],$value);
 		}
+		foreach ($this->db->query("SELECT Dosen.Nama,Dosen.BidangKeahlian,RealisasiPengabdian.Kode,RealisasiPengabdian.Tahun FROM Dosen,RealisasiPengabdian WHERE RealisasiPengabdian.IdKegiatan = 'PNB3' AND RealisasiPengabdian.Tahun >= ".$TS[0]." AND RealisasiPengabdian.Tahun <= ".$TS[1])->result_array() as $key => $value) {
+			if ($value['Kode'][0] == 1 || $value['Kode'][0] == 4) {
+				$value['Kode'] = 3;
+			} else if ($value['Kode'][0] == 2 || $value['Kode'][0] == 5) {
+				$value['Kode'] = 2;
+			} else {
+				$value['Kode'] = 1;
+			}
+			array_push($Data['Rekognisi'],$value);
+		}
+		foreach ($this->db->query("SELECT Dosen.Nama,Dosen.BidangKeahlian,RealisasiPenunjang.Kode,RealisasiPenunjang.Tahun FROM Dosen,RealisasiPenunjang WHERE RealisasiPenunjang.IdKegiatan = 'PNJ7' AND RealisasiPenunjang.Tahun >= ".$TS[0]." AND RealisasiPenunjang.Tahun <= ".$TS[1])->result_array() as $key => $value) {
+			if ($value['Kode'][0] == 4) {
+				$value['Kode'] = 3;
+			} else if ($value['Kode'][0] == 5) {
+				$value['Kode'] = 2;
+			} else if ($value['Kode'][0] == 6) {
+				$value['Kode'] = 1;
+			}
+			array_push($Data['Rekognisi'],$value);
+		}
 		$Data['Publikasi'] = array();
 		$KodePublikasi = array(3,5,8);
 		for ($j = 0; $j < 3; $j++) { 

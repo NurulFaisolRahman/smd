@@ -12,7 +12,7 @@
         <?php 
           $Kegiatan = array('Menduduki jabatan pimpinan pada lembaga pemerintahan/pejabat negara yang harus dibebaskan dari jabatan organiknya tiap semester',
           'Melaksanakan pengembangan hasil pendidikan, dan penelitian yang dapat dimanfaatkan oleh masyarakat/industry setiap program',
-          'Memberi latihan/penyuluhan/penataran/ceramah pada masyarakat, terjadwal/terprogram',
+          'Memberi latihan/penyuluhan/penataran/narasumber/instruktur/ceramah pada masyarakat, terjadwal/terprogram',
           'Memberi pelayanan kepada masyarakat atau kegiatan lain yang menunjang pelaksanaan tugas pemerintahan dan pembangunan',
           'Membuat/menulis karya pengabdian pada masyarakat',
           'Hasil kegiatan pengabdian kepada masyarakat yang dipublikasikan di sebuah jurnal/teknologi tepat guna, merupakan diseminasi dari luaran program kegiatan pengabdian kepada masyarakat, tiap karya',
