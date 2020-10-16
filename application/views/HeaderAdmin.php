@@ -57,6 +57,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a href="<?=base_url("Admin/MahasiswaBaru")?>" class="nav-link <?php if ($Halaman == "Mahasiswa Baru") { echo "active";} ?>">
+              <i class="nav-icon fas fa-tasks"></i>
+              <p><b>Mahasiswa Baru</b></p> 
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="" class="nav-link" data-toggle="modal" data-target="#ModalKajur">
               <i class="nav-icon fas fa-user"></i>
               <p><b>Ketua Jurusan</b></p>

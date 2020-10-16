@@ -107,6 +107,13 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function MahasiswaBaru(){
+		$Data['Halaman'] = 'Mahasiswa Baru';
+		$Data['MahasiswaBaru'] = $this->db->query("SELECT * FROM MahasiswaBaru")->result_array();
+    $this->load->view('HeaderAdmin',$Data);
+    $this->load->view('MahasiswaBaru',$Data); 
+  }
+
 	public function Daftar(){
 		if($this->db->get_where('Dosen', array('NIP' => $_POST['NIP']))->num_rows() === 0){
 			$this->db->insert('Dosen',
@@ -182,7 +189,7 @@ class Admin extends CI_Controller {
 			array_push($Jumlah,$Total);
 			array_push($Data['PengabdianDTPS'],$Jumlah);
 		}	
-		$Data['BukuISBN'] = $this->db->query("SELECT Kegiatan,Tahun FROM `RealisasiPenelitian` WHERE IdKegiatan = 'PNL4' OR IdKegiatan = 'PNL5' OR IdKegiatan = 'PNL11' OR IdKegiatan = 'PNL12' OR IdKegiatan = 'PNL13' AND Tahun >= ".$TS[0]." AND Tahun <= ".$TS[1])->result_array();		
+		$Data['BukuISBN'] = $this->db->query("SELECT Kegiatan,Tahun FROM `RealisasiPenelitian` WHERE IdKegiatan = 'PNL4' OR IdKegiatan = 'PNL5' OR IdKegiatan = 'PNL11' OR IdKegiatan = 'PNL12' AND Tahun >= ".$TS[0]." AND Tahun <= ".$TS[1])->result_array();		
 		foreach ($this->db->query("SELECT Kegiatan,Tahun FROM `RealisasiPenelitian` WHERE IdKegiatan = 'PNL1' AND Kode LIKE '1%' OR IdKegiatan = 'PNL1' AND Kode LIKE '2%' AND Tahun >= ".$TS[0]." AND Tahun <= ".$TS[1])->result_array() as $key => $value) {
 			array_push($Data['BukuISBN'],$value);
 		}
@@ -230,6 +237,9 @@ class Admin extends CI_Controller {
 			$Jumlah = array(); $Total = 0;
 			for ($i = $TS[0]; $i <= $TS[1]; $i++) { 
 				$Tampung = $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE IdKegiatan = 'PNL14' AND Kode LIKE '".$KodePublikasi[$j]."%' AND Tahun = ".$i)->row_array()['Volume'];		
+				if ($j == 1) {
+					$Tampung += $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE IdKegiatan = 'PNL1' AND Tahun = ".$i." AND (Kode LIKE '8%' OR Kode LIKE '9%' OR Kode LIKE '10%' OR Kode LIKE '11%')")->row_array()['Volume'];		
+				}
 				$Tampung == '' ? array_push($Jumlah,0) : array_push($Jumlah,$Tampung);
 				$Tampung == '' ? $Total += 0 : $Total += $Tampung;
 			}
