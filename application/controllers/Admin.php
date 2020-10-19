@@ -112,7 +112,37 @@ class Admin extends CI_Controller {
 		$Data['MahasiswaBaru'] = $this->db->query("SELECT * FROM MahasiswaBaru")->result_array();
     $this->load->view('HeaderAdmin',$Data);
     $this->load->view('MahasiswaBaru',$Data); 
-  }
+	}
+
+	public function InputMahasiswaBaru(){
+		if($this->db->get_where('MahasiswaBaru', array('Homebase' => $_POST['Homebase'],'Tahun' => $_POST['Tahun']))->num_rows() === 0){
+			$this->db->insert('MahasiswaBaru',$_POST);
+			echo '1';
+		} else {
+			echo "Data Homebase ".$_POST['Homebase']." & Tahun ".$_POST['Tahun']." Sudah Ada!";
+		}
+	}
+
+	public function UpdateMahasiswaBaru(){
+		if($this->db->get_where('MahasiswaBaru', array('Homebase' => $_POST['Homebase'],'Tahun' => $_POST['Tahun']))->num_rows() === 0 || ($_POST['Homebase'] == $_POST['HomebaseLama'] && $_POST['Tahun'] == $_POST['TahunLama'])){
+			$this->db->where('Homebase',$_POST['HomebaseLama']);
+			$this->db->where('Tahun',$_POST['TahunLama']);
+			unset($_POST['HomebaseLama']); unset($_POST['TahunLama']); 
+			$this->db->update('MahasiswaBaru', $_POST);
+			echo '1';
+		} else {
+			echo "Data Homebase ".$_POST['Homebase']." & Tahun ".$_POST['Tahun']." Sudah Ada!";
+		}
+	}
+	
+	public function HapusMahasiswaBaru(){
+		$this->db->delete('MahasiswaBaru', array('Homebase' => $_POST['Homebase'],'Tahun' => $_POST['Tahun']));
+		if ($this->db->affected_rows()){
+			echo '1';
+		} else {
+			echo 'Gagal Menghapus';
+		}
+	}
 
 	public function Daftar(){
 		if($this->db->get_where('Dosen', array('NIP' => $_POST['NIP']))->num_rows() === 0){

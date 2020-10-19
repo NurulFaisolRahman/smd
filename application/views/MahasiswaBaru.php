@@ -13,7 +13,7 @@
                           <thead class="bg-warning">
                             <tr>
                               <th class="text-center align-middle" rowspan="2">No</th>
-                              <th class="text-center align-middle" rowspan="2">Homebase</th>
+                              <th class="text-center align-middle" rowspan="2">Home<br>base</th>
                               <th class="text-center align-middle" rowspan="2">Tahun</th>
                               <th class="text-center align-middle" rowspan="2">Daya<br>Tampung</th>
                               <th class="text-center align-middle" rowspan="2">Aksi</th>
@@ -37,16 +37,16 @@
                                 <td class="text-center align-middle"><?=$key['Homebase']?></td>
                                 <td class="text-center align-middle"><?=$key['Tahun']?></td>
                                 <td class="text-center align-middle"><?=$key['DayaTampung']?></td>
+                                <td class="text-center align-middle">
+                                  <button Edit="<?=$key['Homebase']."|".$key['Tahun']."|".$key['DayaTampung']."|".$key['MhsPendaftar']."|".$key['MhsLulus']."|".$key['MhsBaruReguler']."|".$key['MhsBaruTransfer']."|".$key['MhsAktifReguler']."|".$key['MhsAktifTransfer']?>" class="btn btn-sm btn-warning Edit"><i class="fas fa-edit"></i></button>
+                                  <button Hapus="<?=$key['Homebase']."|".$key['Tahun']?>" class="btn btn-sm btn-danger Hapus"><i class="fas fa-trash"></i></button>  
+                                </td> 
                                 <td class="text-center align-middle"><?=$key['MhsPendaftar']?></td>
                                 <td class="text-center align-middle"><?=$key['MhsLulus']?></td>
                                 <td class="text-center align-middle"><?=$key['MhsBaruReguler']?></td>
                                 <td class="text-center align-middle"><?=$key['MhsBaruTransfer']?></td>
                                 <td class="text-center align-middle"><?=$key['MhsAktifReguler']?></td>
                                 <td class="text-center align-middle"><?=$key['MhsAktifTransfer']?></td>
-                                <td class="align-middle">
-                                  <button Edit="<?=$key['Homebase']."|".$key['Tahun']."|".$key['DayaTampung']."|".$key['MhsPendaftar']."|".$key['MhsLulus']."|".$key['MhsBaruReguler']."|".$key['MhsBaruTransfer']."|".$key['MhsAktifReguler']."|".$key['MhsAktifTransfer']?>" class="btn btn-sm btn-warning Edit"><i class="fas fa-edit"></i></button>
-                                  <button Hapus="<?=$key['Homebase']."|".$key['Tahun']?>" class="btn btn-sm btn-danger Hapus"><i class="fas fa-trash"></i></button>  
-                                </td> 
                               </tr>
                             <?php } ?>
                           </tbody>
@@ -91,7 +91,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text bg-primary"><b>Daya Tampung</b></span>
                     </div>
-                    <input type="text" class="form-control" id="DayaTampung"> 
+                    <input type="text" class="form-control" id="DayaTampung" placeholder="0"> 
                   </div>
                 </div>
                 <div class="col-sm-12">
@@ -149,94 +149,85 @@
         </div>
       </div>
     </div>
-    <!-- <div class="modal fade" id="ModalEditMahasiswaBaru">
+    <div class="modal fade" id="ModalEditMahasiswaBaru">
       <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content bg-warning">
           <div class="modal-body">
             <div class="container">
 							<div class="row">
-								<div class="col-sm-12">
+                <div class="col-sm-4">
                   <div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
-                      <span class="input-group-text bg-primary text-primary"><b>Lembaga Mitra</b></span>
+                      <span class="input-group-text bg-primary"><b>Homebase</b></span>
                     </div>
-                    <input type="text" class="form-control" id="EditMitra">
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="input-group input-group-sm mb-2">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text bg-primary text-primary"><b>Tingkat</b></span>
-                    </div>
-                    <select class="custom-select" id="EditTingkat">
-                      <option value="Internasional">Internasional</option>
-                      <option value="Nasional">Nasional</option>
-                      <option value="Lokal">Lokal</option>
+                    <input type="hidden" class="form-control" id="homebaseLama"> 
+                    <select class="custom-select" id="Edithomebase">
+                      <option value="S1">S1</option>
+                      <option value="S2">S2</option>
                     </select>
                   </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                   <div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
-                      <span class="input-group-text bg-primary text-primary"><b>Bidang</b></span>
+                      <span class="input-group-text bg-primary"><b>Tahun</b></span>
                     </div>
-                    <select class="custom-select" id="EditBidang">
-                      <option value="Pendidikan">Pendidikan</option>
-                      <option value="Penelitian">Penelitian</option>
-                      <option value="Pengabdian">Pengabdian</option>
-                    </select>
+                    <input type="hidden" class="form-control" id="tahunLama"> 
+                    <input type="text" class="form-control" id="Edittahun" data-inputmask='"mask": "9999"' data-mask value="20"> 
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-primary"><b>Daya Tampung</b></span>
+                    </div>
+                    <input type="text" class="form-control" id="EditDayaTampung" placeholder="0"> 
                   </div>
                 </div>
                 <div class="col-sm-12">
                   <div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
-                      <span class="input-group-text bg-primary text-primary"><b>Judul Kegiatan Kerja Sama</b></span>
+                      <span class="input-group-text bg-primary"><b>Jumlah Calon Mahasiswa</b></span>
                     </div>
-                    <input type="text" class="form-control" id="EditJudul"> 
-                  </div>
-                  <div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
-                      <span class="input-group-text bg-primary text-primary"><b>Manfaat Bagi Program Studi</b></span>
+                      <span class="input-group-text bg-success"><b>Pendaftar</b></span>
                     </div>
-                    <input type="text" class="form-control" id="EditManfaat"> 
-                  </div>
-                </div>
-                <div class="col-sm-7">
-                  <div class="input-group input-group-sm mb-2">
+                    <input type="text" class="form-control" id="EditPendaftar" placeholder="0"> 
                     <div class="input-group-prepend">
-                      <span class="input-group-text bg-primary text-primary"><b>Waktu & Durasi</b></span>
+                      <span class="input-group-text bg-success"><b>Lulus Seleksi</b></span>
                     </div>
-                    <input type="text" class="form-control" id="EditWaktu"> 
-                  </div>
-                </div>
-                <div class="col-sm-5">
-                  <div class="input-group input-group-sm mb-2">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text bg-primary text-primary"><b>Tahun Berakhirnya Kerja Sama</b></span>
-                    </div>
-                    <input type="text" class="form-control" id="EditExpired" data-inputmask='"mask": "9999"' data-mask value="20"> 
+                    <input type="text" class="form-control" id="EditLulus" placeholder="0"> 
                   </div>
                 </div>
                 <div class="col-sm-12">
                   <div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
-                      <span class="input-group-text bg-primary text-primary"><b>Bukti Kerja Sama</b></span>
+                      <span class="input-group-text bg-primary"><b>Jumlah Mahasiswa Baru</b></span>
                     </div>
-                    <input type="text" class="form-control" id="EditMahasiswaBaru" placeholder="Surat Perjanjian Kerja Sama">
-                  </div>
-                  <div class="input-group input-group-sm mb-2">
-										<div class="input-group-prepend">
-											<span class="input-group-text bg-primary"><b>Upload Bukti</b></span>
-										</div>
-                    <input class="form-control" type="hidden" id="BuktiMahasiswaBaruLama">
-                    <input class="form-control" type="file" id="EditBuktiMahasiswaBaru">
                     <div class="input-group-prepend">
-											<button class="input-group-text bg-primary" id="CancelEditBuktiMahasiswaBaru"><b>X</b></button>
-										</div>
+                      <span class="input-group-text bg-success"><b>Reguler</b></span>
+                    </div>
+                    <input type="text" class="form-control" id="EditMhsBaruReguler" placeholder="0"> 
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-success"><b>Transfer</b></span>
+                    </div>
+                    <input type="text" class="form-control" id="EditMhsBaruTransfer" placeholder="0"> 
                   </div>
                 </div>
                 <div class="col-sm-12">
-                  <pre class="text-danger"><b>Bukti Yang Diupload Dalam Format Pdf</b></pre>
+                  <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-primary"><b>Jumlah Mahasiswa Aktif</b></span>
+                    </div>
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-success"><b>Reguler</b></span>
+                    </div>
+                    <input type="text" class="form-control" id="EditMhsAktifReguler" placeholder="0"> 
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-success"><b>Transfer</b></span>
+                    </div>
+                    <input type="text" class="form-control" id="EditMhsAktifTransfer" placeholder="0"> 
+                  </div>
                 </div>
               </div>
             </div>
@@ -247,7 +238,7 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
     <script src="<?=base_url('bootstrap/js/jquery.min.js')?>"></script>
     <script src="<?=base_url('bootstrap/js/popper.min.js')?>" ></script>
     <script src="<?=base_url('bootstrap/js/bootstrap.min.js')?>"></script>
@@ -264,126 +255,131 @@
 				var BaseURL = '<?=base_url()?>';
 
         $("#InputMahasiswaBaru").click(function() {
-          // if ($("#Mitra").val() == '') {
-          //   alert('Mohon Isi Lembaga Mitra!')
-          // } else if ($("#Judul").val() == '') {
-          //   alert('Mohon Isi Judul Kerja Sama!')
-          // } else if ($("#Manfaat").val() == '') {
-          //   alert('Mohon Isi Manfaat Bagi Program Studi!')
-          // } else if ($("#Waktu").val() == '') {
-          //   alert('Mohon Isi Waktu & Durasi!')
-          // } else if (isNaN($("#Expired").val())) {
-          //   alert('Input Tahun Berakhirnya Kerja Sama Belum Benar!')
-          // } else if ($("#MahasiswaBaru").val() == '') {
-          //   alert('Mohon Isi Bukti Kerja Sama!')
-          // } else {
-          //   var fd = new FormData()
-					// 	fd.append('Mitra',$("#Mitra").val())
-					// 	fd.append('Tingkat',$("#Tingkat").val())
-					// 	fd.append('Bidang',$("#Bidang").val())
-					// 	fd.append('Judul',$("#Judul").val())
-					// 	fd.append('Manfaat',$("#Manfaat").val())
-					// 	fd.append('Waktu',$("#Waktu").val())
-          //   fd.append('Expired',$("#Expired").val())
-          //   fd.append('MahasiswaBaru',$("#MahasiswaBaru").val())
-          //   fd.append("BuktiMahasiswaBaru", $('#BuktiMahasiswaBaru')[0].files[0])
-          //   $.ajax({
-					// 		url: BaseURL+'Admin/InputMahasiswaBaru',
-					// 		type: 'post',
-					// 		data: fd,
-					// 		contentType: false,
-					// 		processData: false,
-					// 		success: function(Respon){
-					// 			if (Respon == '1') {
-					// 				window.location = BaseURL + "Admin/MahasiswaBaru"
-					// 			}
-					// 			else {
-					// 				alert(Respon)
-					// 			}
-					// 		}
-					// 	})
-          // }
+          if (isNaN($("#tahun").val())) {
+            alert('Input Tahun Belum Benar!')
+          } else if (isNaN(parseInt($("#DayaTampung").val()))) {
+            alert('Input Daya Tampung Belum Benar!')
+          } else if (isNaN(parseInt($("#Pendaftar").val()))) {
+            alert('Input Pendaftar Belum Benar!')
+          } else if (isNaN(parseInt($("#Lulus").val()))) {
+            alert('Input Lulus Belum Benar!')
+          } else if (isNaN(parseInt($("#MhsBaruReguler").val()))) {
+            alert('Input Jumlah Mahasiswa Baru Reguler Belum Benar!')
+          } else if (isNaN(parseInt($("#MhsBaruTransfer").val()))) {
+            alert('Input Jumlah Mahasiswa Baru Transfer Belum Benar!')
+          } else if (isNaN(parseInt($("#MhsAktifReguler").val()))) {
+            alert('Input Jumlah Mahasiswa Aktif Reguler Belum Benar!')
+          } else if (isNaN(parseInt($("#MhsAktifTransfer").val()))) {
+            alert('Input Jumlah Mahasiswa Aktif Transfer Belum Benar!')
+          } else {
+            var fd = new FormData()
+						fd.append('Homebase',$("#homebase").val())
+						fd.append('Tahun',$("#tahun").val())
+						fd.append('DayaTampung',parseInt($("#DayaTampung").val()))
+            fd.append('MhsPendaftar',parseInt($("#Pendaftar").val()))
+						fd.append('MhsLulus',parseInt($("#Lulus").val()))
+						fd.append('MhsBaruReguler',parseInt($("#MhsBaruReguler").val()))
+						fd.append('MhsBaruTransfer',parseInt($("#MhsBaruTransfer").val()))
+            fd.append('MhsAktifReguler',parseInt($("#MhsAktifReguler").val()))
+            fd.append('MhsAktifTransfer',parseInt($("#MhsAktifTransfer").val()))
+            $.ajax({
+							url: BaseURL+'Admin/InputMahasiswaBaru',
+							type: 'post',
+							data: fd,
+							contentType: false,
+							processData: false,
+							success: function(Respon){
+								if (Respon == '1') {
+									window.location = BaseURL + "Admin/MahasiswaBaru"
+								}
+								else {
+									alert(Respon)
+								}
+							}
+						})
+          }
         })
 
-        // $("#CancelEditBuktiMahasiswaBaru").click(function() {
-				// 	$("#EditBuktiMahasiswaBaru").val("")
-				// })
+        $(document).on("click",".Edit",function(){
+					var Data = $(this).attr('Edit')
+					var Pisah = Data.split("|");
+					$('#homebaseLama').val(Pisah[0])
+          $('#Edithomebase').val(Pisah[0])
+          $('#tahunLama').val(Pisah[1])
+					$('#Edittahun').val(Pisah[1])
+          $('#EditDayaTampung').val(Pisah[2])
+					$("#EditPendaftar").val(Pisah[3])
+					$('#EditLulus').val(Pisah[4])
+					$("#EditMhsBaruReguler").val(Pisah[5])
+					$('#EditMhsBaruTransfer').val(Pisah[6])
+					$('#EditMhsAktifReguler').val(Pisah[7])
+          $('#EditMhsAktifTransfer').val(Pisah[8])
+          $('#ModalEditMahasiswaBaru').modal("show")
+				}) 
 
-        // $(document).on("click",".Edit",function(){
-				// 	var Data = $(this).attr('Edit')
-				// 	var Pisah = Data.split("|");
-				// 	$('#IdMahasiswaBaru').val(Pisah[0])
-        //   $('#EditMitra').val(Pisah[1])
-				// 	$('#EditTingkat').val(Pisah[2])
-				// 	$("#EditBidang").val(Pisah[3])
-				// 	$('#EditJudul').val(Pisah[4])
-				// 	$("#EditManfaat").val(Pisah[5])
-				// 	$('#EditWaktu').val(Pisah[6])
-				// 	$('#EditExpired').val(Pisah[7])
-        //   $('#EditMahasiswaBaru').val(Pisah[8])
-        //   $('#BuktiMahasiswaBaruLama').val(Pisah[9])
-        //   $('#ModalEditMahasiswaBaru').modal("show")
-				// }) 
+				$("#UpdateMahasiswaBaru").click(function() {
+					if (isNaN($("#Edittahun").val())) {
+            alert('Input Tahun Belum Benar!')
+          } else if (isNaN(parseInt($("#EditDayaTampung").val()))) {
+            alert('Input Daya Tampung Belum Benar!')
+          } else if (isNaN(parseInt($("#EditPendaftar").val()))) {
+            alert('Input Pendaftar Belum Benar!')
+          } else if (isNaN(parseInt($("#EditLulus").val()))) {
+            alert('Input Lulus Belum Benar!')
+          } else if (isNaN(parseInt($("#EditMhsBaruReguler").val()))) {
+            alert('Input Jumlah Mahasiswa Baru Reguler Belum Benar!')
+          } else if (isNaN(parseInt($("#EditMhsBaruTransfer").val()))) {
+            alert('Input Jumlah Mahasiswa Baru Transfer Belum Benar!')
+          } else if (isNaN(parseInt($("#EditMhsAktifReguler").val()))) {
+            alert('Input Jumlah Mahasiswa Aktif Reguler Belum Benar!')
+          } else if (isNaN(parseInt($("#EditMhsAktifTransfer").val()))) {
+            alert('Input Jumlah Mahasiswa Aktif Transfer Belum Benar!')
+          } else {
+            var fd = new FormData()
+						fd.append('HomebaseLama',$("#homebaseLama").val())
+            fd.append('Homebase',$("#Edithomebase").val())
+						fd.append('Tahun',$("#Edittahun").val())
+						fd.append('TahunLama',$("#tahunLama").val())
+            fd.append('DayaTampung',parseInt($("#EditDayaTampung").val()))
+            fd.append('MhsPendaftar',parseInt($("#EditPendaftar").val()))
+						fd.append('MhsLulus',parseInt($("#EditLulus").val()))
+						fd.append('MhsBaruReguler',parseInt($("#EditMhsBaruReguler").val()))
+						fd.append('MhsBaruTransfer',parseInt($("#EditMhsBaruTransfer").val()))
+            fd.append('MhsAktifReguler',parseInt($("#EditMhsAktifReguler").val()))
+            fd.append('MhsAktifTransfer',parseInt($("#EditMhsAktifTransfer").val()))
+            $.ajax({
+							url: BaseURL+'Admin/UpdateMahasiswaBaru',
+							type: 'post',
+							data: fd,
+							contentType: false,
+							processData: false,
+							success: function(Respon){
+								if (Respon == '1') {
+									window.location = BaseURL + "Admin/MahasiswaBaru"
+								}
+								else {
+									alert(Respon)
+								}
+							}
+						})
+          }
+				})
 
-				// $("#UpdateMahasiswaBaru").click(function() {
-				// 	if ($("#EditMitra").val() == '') {
-        //     alert('Mohon Isi Lembaga Mitra!')
-        //   } else if ($("#EditJudul").val() == '') {
-        //     alert('Mohon Isi Judul Kerja Sama!')
-        //   } else if ($("#EditManfaat").val() == '') {
-        //     alert('Mohon Isi Manfaat Bagi Program Studi!')
-        //   } else if ($("#EditWaktu").val() == '') {
-        //     alert('Mohon Isi Waktu & Durasi!')
-        //   } else if (isNaN($("#EditExpired").val())) {
-        //     alert('Input Tahun Berakhirnya Kerja Sama Belum Benar!')
-        //   } else if ($("#EditMahasiswaBaru").val() == '') {
-        //     alert('Mohon Isi Bukti Kerja Sama!')
-        //   } else {
-        //     var fd = new FormData()
-				// 		fd.append('Id',$("#IdMahasiswaBaru").val())
-        //     fd.append('Mitra',$("#EditMitra").val())
-				// 		fd.append('Tingkat',$("#EditTingkat").val())
-				// 		fd.append('Bidang',$("#EditBidang").val())
-				// 		fd.append('Judul',$("#EditJudul").val())
-				// 		fd.append('Manfaat',$("#EditManfaat").val())
-				// 		fd.append('Waktu',$("#EditWaktu").val())
-        //     fd.append('Expired',$("#EditExpired").val())
-        //     fd.append('MahasiswaBaru',$("#EditMahasiswaBaru").val())
-        //     fd.append('BuktiMahasiswaBaruLama',$("#BuktiMahasiswaBaruLama").val())
-        //     fd.append("BuktiMahasiswaBaru", $('#EditBuktiMahasiswaBaru')[0].files[0])
-        //     $.ajax({
-				// 			url: BaseURL+'Admin/UpdateMahasiswaBaru',
-				// 			type: 'post',
-				// 			data: fd,
-				// 			contentType: false,
-				// 			processData: false,
-				// 			success: function(Respon){
-				// 				if (Respon == '1') {
-				// 					window.location = BaseURL + "Admin/MahasiswaBaru"
-				// 				}
-				// 				else {
-				// 					alert(Respon)
-				// 				}
-				// 			}
-				// 		})
-        //   }
-				// })
-
-        // $(document).on("click",".Hapus",function(){
-				// 	var Data = $(this).attr('Hapus')
-				// 	var Pisah = Data.split("|");
-				// 	var Hapus = {Id: Pisah[0],Bukti: Pisah[1]}
-				// 	var Konfirmasi = confirm("Yakin Ingin Menghapus?");
-      	// 	if (Konfirmasi == true) {
-				// 		$.post(BaseURL+"Admin/HapusMahasiswaBaru", Hapus).done(function(Respon) {
-				// 			if (Respon == '1') {
-				// 				window.location = BaseURL + "Admin/MahasiswaBaru"
-				// 			} else {
-				// 				alert(Respon)
-				// 			}
-				// 		})
-				// 	}
-				// })
+        $(document).on("click",".Hapus",function(){
+					var Data = $(this).attr('Hapus')
+					var Pisah = Data.split("|");
+					var Hapus = {Homebase: Pisah[0],Tahun: Pisah[1]}
+					var Konfirmasi = confirm("Yakin Ingin Menghapus?"); 
+      		if (Konfirmasi == true) {
+						$.post(BaseURL+"Admin/HapusMahasiswaBaru", Hapus).done(function(Respon) {
+							if (Respon == '1') {
+								window.location = BaseURL + "Admin/MahasiswaBaru"
+							} else {
+								alert(Respon)
+							}
+						})
+					}
+				})
 
         $('#TabelMahasiswaBaru').DataTable( {
 					// dom:'lfrtip',
@@ -404,7 +400,7 @@
           })
         })
 
-        $("#DownloadBorang").click(function() {
+        $("#DownloadBorang").click(function() { 
 					var Pisah = $('#TS').val().split('-')
           if (Pisah[1]-Pisah[0] >= 0) {
             window.location = BaseURL + 'Admin/Borang/'+$('#TS').val()
