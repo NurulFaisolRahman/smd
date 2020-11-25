@@ -69,6 +69,24 @@
               </a>
             </li>
             <li class="nav-item">
+              <a href="<?=base_url("Admin/IPKLulusan")?>" class="nav-link <?php if ($Halaman == "IPK Lulusan") { echo "active";} ?>">
+              <i class="nav-icon fas fa-chart-bar"></i>
+              <p><b>IPK Lulusan</b></p> 
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?=base_url("Admin/DosenKontrak")?>" class="nav-link <?php if ($Halaman == "Dosen Kontrak") { echo "active";} ?>">
+              <i class="nav-icon fas fa-tasks"></i>
+              <p><b>Dosen Kontrak</b></p> 
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?=base_url("Admin/PenggunaanDana")?>" class="nav-link <?php if ($Halaman == "Penggunaan Dana") { echo "active";} ?>">
+              <i class="nav-icon fas fa-wallet"></i>
+              <p><b>Penggunaan Dana</b></p> 
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="" class="nav-link" data-toggle="modal" data-target="#ModalKajur">
               <i class="nav-icon fas fa-user"></i>
               <p><b>Ketua Jurusan</b></p>

@@ -4073,69 +4073,43 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl98" x:num>8</td>
     <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-4</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88" x:num>100</td>
-    <td class=3D"xl88" x:num>64</td>
-    <td class=3D"xl88" x:num>60</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl163" x:num>165</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-3</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88" x:num>90</td>
-    <td class=3D"xl88" x:num>64</td>
-    <td class=3D"xl88" x:num>60</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl163" x:num>171</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-2</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88" x:num>110</td>
-    <td class=3D"xl88" x:num>62</td>
-    <td class=3D"xl88" x:num>60</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl163" x:num>169</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-1</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88" x:num>121</td>
-    <td class=3D"xl88" x:num>66</td>
-    <td class=3D"xl88" x:num>60</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl163" x:num>172</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88" x:num>130</td>
-    <td class=3D"xl88" x:num>67</td>
-    <td class=3D"xl88" x:num>60</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl163" x:num>180</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
+   <?php 
+    $Jumlah = array(0,0,0,0,0,0); 
+    for ($i = $TS; $i > 0; $i--) { 
+    $Jumlah[0]+=$MahasiswaBaru[$i-1][1];
+    $Jumlah[1]+=$MahasiswaBaru[$i-1][2];
+    $Jumlah[2]+=$MahasiswaBaru[$i-1][3];
+    $Jumlah[3]+=$MahasiswaBaru[$i-1][4];
+    if ($i == 1) {
+      $Jumlah[4] = $MahasiswaBaru[$i-1][5] + $MahasiswaBaru[$i-1][6];
+    }
+   ?>
+    <tr height=3D"19" style=3D'height:14.25pt;'>
+      <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str><?= $i > 1 ? 'TS-'.($i-1) : 'TS' ; ?></td>
+      <td class=3D"xl88" x:num><?=$MahasiswaBaru[$i-1][0]?></td>
+      <td class=3D"xl88" x:num><?=$MahasiswaBaru[$i-1][1]?></td>
+      <td class=3D"xl88" x:num><?=$MahasiswaBaru[$i-1][2]?></td>
+      <td class=3D"xl88" x:num><?=$MahasiswaBaru[$i-1][3]?></td>
+      <td class=3D"xl88" x:num><?=$MahasiswaBaru[$i-1][4]?></td>
+      <td class=3D"xl88" x:num><?=$MahasiswaBaru[$i-1][5]?></td>
+      <td class=3D"xl88" x:num><?=$MahasiswaBaru[$i-1][6]?></td>
+      <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
+    </tr>
+   <?php } ?>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl161" height=3D"19" colspan=3D"2" style=3D'height:14.25pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
-    <td class=3D"xl94" x:fmla=3D"=3DSUM(C6:C10)" x:num>551</td>
-    <td class=3D"xl94" x:fmla=3D"=3DSUM(D6:D10)" x:num>323</td>
-    <td class=3D"xl94" x:fmla=3D"=3DSUM(E6:E10)" x:num>300</td>
-    <td class=3D"xl94" x:fmla=3D"=3DSUM(F6:F10)" x:num>0</td>
-    <td class=3D"xl161" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:fmla=3D"=3DSUM(G10:H10)" x:num>180<![if !supportAnnotations]>
-<span class=3D"msocomspan1"><span class=3D"msocomspan2" id=3D"_anchor_1" onmouseover=3D"msoCommentShow('_com_1','_anchor_1')" onmouseout=3D"msoCommentHide('_com_1')" language=3D"JavaScript"><a class=3D"msocomanch" href=3D"#_msocom_1" name=3D"_msoanchor_1">[1]</a></span></span><![endif]></td>
+    <td class=3D"xl94" x:num><?=$Jumlah[0]?></td>
+    <td class=3D"xl94" x:num><?=$Jumlah[1]?></td>
+    <td class=3D"xl94" x:num><?=$Jumlah[2]?></td>
+    <td class=3D"xl94" x:num><?=$Jumlah[3]?></td>
+    <td class=3D"xl161" colspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:num>
+      <?=$Jumlah[4]?>
+      <![if !supportAnnotations]>
+        <span class=3D"msocomspan1">
+          <span class=3D"msocomspan2" id=3D"_anchor_1" onmouseover=3D"msoCommentShow('_com_1','_anchor_1')" onmouseout=3D"msoCommentHide('_com_1')" language=3D"JavaScript"><a class=3D"msocomanch" href=3D"#_msocom_1" name=3D"_msoanchor_1">[1]</a></span>
+        </span>
+      <![endif]>
+    </td>
     <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <![if supportMisalignedColumns]>
@@ -4165,7 +4139,7 @@ Content-Type: text/html; charset="us-ascii"
   <v:path gradientshapeok=3D"t" o:connecttype=3D"rect"/>
 </v:shapetype>
 
-<v:shape id=3D"_x0000_s13313" type=3D"#_x0000_t202" style=3D'position:absolute;margin-left:530.40pt;margin-top:-6.00pt;width:109.10pt;height:60.00pt;visibility:hidden;' filled=3D"True" fillcolor=3D"#FFFFE1" strokecolor=3D"#000000" strokeweight=3D"0.75pt" o:insetmode=3D"auto" o:spt=3D"202"><v:stroke color=3D"#000000" joinstyle=3D"miter"/><v:fill type=3D"solid" color2=3D"#FFFFE1"/><v:imagedata embosscolor=3D"#000000"/><v:textbox style=3D'direction:ltr;mso-direction-alt:auto;layout-flow:horizontal;' inset=3D"7.20pt,3.60pt,7.20pt,3.60pt"/><x:ClientData ObjectType=3D"Note"><x:MoveWithCells/><x:SizeWithCells/><x:TextHAlign>Left</x:TextHAlign><x:Row>10</x:Row><x:Column>6</x:Column><x:Author>User</x:Author></x:ClientData></v:shape></xml>
+<v:shape id=3D"_x0000_s13313" type=3D"#_x0000_t202" style=3D'position:absolute;margin-left:530.40pt;margin-top:-6.00pt;width:109.10pt;height:60.00pt;visibility:hidden;' filled=3D"True" fillcolor=3D"#FFFFE1" strokecolor=3D"#000000" strokeweight=3D"0.75pt" o:insetmode=3D"auto" o:spt=3D"202"><v:stroke color=3D"#000000" joinstyle=3D"miter"/><v:fill type=3D"solid" color2=3D"#FFFFE1"/><v:imagedata embosscolor=3D"#000000"/><v:textbox style=3D'direction:ltr;mso-direction-alt:auto;layout-flow:horizontal;' inset=3D"7.20pt,3.60pt,7.20pt,3.60pt"/><x:ClientData ObjectType=3D"Note"><x:MoveWithCells/><x:SizeWithCells/><x:TextHAlign>Left</x:TextHAlign><x:Row><?=$TS+5?></x:Row><x:Column>6</x:Column><x:Author>User</x:Author></x:ClientData></v:shape></xml>
       <![endif]-->
       <![if !vml]>
        <span style=3D'mso-ignore:vglayout;'>       <![endif]>
@@ -4261,189 +4235,38 @@ Content-Type: text/html; charset="us-ascii"
    <tr height=3D"35.20" style=3D'height:26.40pt;mso-height-source:userset;mso-height-alt:528;'>
     <td class=3D"xl118" height=3D"54.40" rowspan=3D"2" style=3D'height:40.80pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>No.</td>
     <td class=3D"xl153" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Program Studi</td>
-    <td class=3D"xl154" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah Mahasiswa Aktif</td>
-    <td class=3D"xl154" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str><font class=3D"font10">Jumlah Mahasiswa Asing Penuh Waktu (</font><font class=3D"font50">Full-time</font><font class=3D"font10">)</font></td>
-    <td class=3D"xl154" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str><font class=3D"font10">Jumlah Mahasiswa Asing Paruh Waktu (</font><font class=3D"font50">Part-time</font><font class=3D"font10">)</font></td>
-    <td class=3D"xl152" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19.20" style=3D'height:14.40pt;mso-height-source:userset;mso-height-alt:288;'>
-    <td class=3D"xl157" x:str>TS-2</td>
-    <td class=3D"xl157" x:str>TS-1</td>
-    <td class=3D"xl157" x:str>TS</td>
-    <td class=3D"xl157" x:str>TS-2</td>
-    <td class=3D"xl157" x:str>TS-1</td>
-    <td class=3D"xl157" x:str>TS</td>
-    <td class=3D"xl157" x:str>TS-2</td>
-    <td class=3D"xl157" x:str>TS-1</td>
-    <td class=3D"xl157" x:str>TS</td>
+    <td class=3D"xl154" colspan=3D"<?=$TS?>" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah Mahasiswa Aktif</td>
+    <td class=3D"xl154" colspan=3D"<?=$TS?>" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str><font class=3D"font10">Jumlah Mahasiswa Asing Penuh Waktu (</font><font class=3D"font50">Full-time</font><font class=3D"font10">)</font></td>
+    <td class=3D"xl154" colspan=3D"<?=$TS?>" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str><font class=3D"font10">Jumlah Mahasiswa Asing Paruh Waktu (</font><font class=3D"font50">Part-time</font><font class=3D"font10">)</font></td>
     <td class=3D"xl152" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl158" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl158" x:num>2</td>
-    <td class=3D"xl158" x:num>3</td>
-    <td class=3D"xl158" x:num>4</td>
-    <td class=3D"xl158" x:num>5</td>
-    <td class=3D"xl158" x:num>6</td>
-    <td class=3D"xl158" x:num>7</td>
-    <td class=3D"xl158" x:num>8</td>
-    <td class=3D"xl158" x:num>9</td>
-    <td class=3D"xl158" x:num>10</td>
-    <td class=3D"xl158" x:num>11</td>
-    <td class=3D"xl152" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
+		<?php for ($i = $TS; $i > 1; $i--) { ?>
+			<td class=3D"xl157" x:str>TS-<?=($i-1)?></td>
+		<?php } ?>
+			<td class=3D"xl157" x:str>TS</td>
+    <?php for ($i = $TS; $i > 1; $i--) { ?>
+			<td class=3D"xl157" x:str>TS-<?=($i-1)?></td>
+		<?php } ?>
+			<td class=3D"xl157" x:str>TS</td>
+    <?php for ($i = $TS; $i > 1; $i--) { ?>
+			<td class=3D"xl157" x:str>TS-<?=($i-1)?></td>
+		<?php } ?>
+			<td class=3D"xl157" x:str>TS</td>
+	 </tr>
+   <tr height=3D"19" style=3D'height:14.25pt;'>
+		<?php for ($i = 1; $i <= (2+($TS*3)); $i++) { ?>
+			<td class=3D"xl158" x:num><?=$i?></td>
+		<?php } ?>
+	 </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl102" x:str>PS A</td>
-    <td class=3D"xl88" x:num>169</td>
-    <td class=3D"xl88" x:num>172</td>
-    <td class=3D"xl88" x:num>180</td>
-    <td class=3D"xl88" x:num>1</td>
-    <td class=3D"xl88" x:num>1</td>
-    <td class=3D"xl88" x:num>1</td>
-    <td class=3D"xl88" x:num>3</td>
-    <td class=3D"xl88" x:num>1</td>
-    <td class=3D"xl88" x:num>2</td>
-    <td class=3D"xl152" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>2</td>
-    <td class=3D"xl102" x:str>PS B</td>
-    <td class=3D"xl88" x:num>210</td>
-    <td class=3D"xl88" x:num>219</td>
-    <td class=3D"xl88" x:num>201</td>
-    <td class=3D"xl88" x:num>1</td>
-    <td class=3D"xl88" x:num>0</td>
-    <td class=3D"xl88" x:num>1</td>
-    <td class=3D"xl88" x:num>0</td>
-    <td class=3D"xl88" x:num>0</td>
-    <td class=3D"xl88" x:num>3</td>
-    <td class=3D"xl152" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
-    <td class=3D"xl102" x:str>PS C</td>
-    <td class=3D"xl88" x:num>114</td>
-    <td class=3D"xl88" x:num>121</td>
-    <td class=3D"xl88" x:num>98</td>
-    <td class=3D"xl88" x:num>0</td>
-    <td class=3D"xl88" x:num>0</td>
-    <td class=3D"xl88" x:num>0</td>
-    <td class=3D"xl88" x:num>0</td>
-    <td class=3D"xl88" x:num>0</td>
-    <td class=3D"xl88" x:num>1</td>
-    <td class=3D"xl152" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>4</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl152" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>5</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl152" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>6</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl152" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>7</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl152" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>8</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl152" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>9</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl152" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>10</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl152" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>...</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
+    <td class=3D"xl102" x:str><?=$HomebaseMahasiswaAsing?></td>
+    <?php for ($i = 0; $i < 3; $i++) { ?>
+      <?php for ($j = 0; $j < $TS; $j++) { ?>
+        <td class=3D"xl88" x:num><?=$MahasiswaAsing[$j][$i]?></td>
+      <?php } ?>
+		<?php } ?>
     <td class=3D"xl152" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <![if supportMisalignedColumns]>
@@ -5232,7 +5055,7 @@ Content-Type: text/html; charset="us-ascii"
   <table width=3D"1279.00" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D'width:959.25pt;border-collapse:collapse;table-layout:fixed;'>
    <col width=3D"44.47" class=3D"xl89" style=3D'mso-width-source:userset;mso-width-alt:1422;'/>
    <col width=3D"155.53" class=3D"xl89" style=3D'mso-width-source:userset;mso-width-alt:4977;'/>
-   <col width=3D"80" class=3D"xl89" style=3D'mso-width-source:userset;mso-width-alt:2560;'/>
+   <col width=3D"100" class=3D"xl89" style=3D'mso-width-source:userset;mso-width-alt:3200;'/>
    <col width=3D"107.53" class=3D"xl89" style=3D'mso-width-source:userset;mso-width-alt:3441;'/>
    <col width=3D"100.47" class=3D"xl89" style=3D'mso-width-source:userset;mso-width-alt:3214;'/>
    <col width=3D"109.33" class=3D"xl89" style=3D'mso-width-source:userset;mso-width-alt:3498;'/>
@@ -5318,84 +5141,21 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl98" x:num>10</td>
     <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl144" x:str>DTT A</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>2</td>
-    <td class=3D"xl144" x:str>DTT B</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
-    <td class=3D"xl144" x:str>DTT C</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>4</td>
-    <td class=3D"xl144"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>5</td>
-    <td class=3D"xl144"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>&#8230;</td>
-    <td class=3D"xl145"><sup></sup></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
-   </tr>
+   <?php $No = 1; foreach ($DosenKontrak as $key) { ?>
+    <tr height=3D"19" style=3D'height:14.25pt;'>
+      <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num><?=$No++?></td>
+      <td class=3D"xl144" x:str><?=$key['Nama']?></td>
+      <td class=3D"xl88"><?=$key['NIDN']?></td>
+      <td class=3D"xl88"><?=$key['S2']?></td>
+      <td class=3D"xl88"><?=$key['BidangKeahlian']?></td>
+      <td class=3D"xl88"><?=$key['JabatanAkademik']?></td>
+      <td class=3D"xl88"><?=$key['SertifikatPendidik']?></td>
+      <td class=3D"xl88"><?=$key['SertifikatKompetensi']?></td>
+      <td class=3D"xl88"><?=str_replace("|",", ",$key['MengajarPS'])?></td>
+      <td class=3D"xl88"><?=$key['KesesuaianBidang']?></td>      
+      <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
+    </tr>
+   <?php } ?>
    <![if supportMisalignedColumns]>
     <tr width=3D"0" style=3D'display:none;'>
      <td width=3D"44" style=3D'width:33;'></td>

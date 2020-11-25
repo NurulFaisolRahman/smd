@@ -15,8 +15,8 @@
                               <th class="text-center align-middle" rowspan="2">No</th>
                               <th class="text-center align-middle" rowspan="2">Home<br>base</th>
                               <th class="text-center align-middle" rowspan="2">Tahun</th>
-                              <th class="text-center align-middle" rowspan="2">Daya<br>Tampung</th>
                               <th class="text-center align-middle" rowspan="2">Aksi</th>
+                              <th class="text-center align-middle" rowspan="2">Daya<br>Tampung</th>
                               <th class="text-center align-middle" colspan="2">Jumlah<br>Calon Mahasiswa</th>
                               <th class="text-center align-middle" colspan="2">Jumlah<br>Mahasiswa Baru</th>
                               <th class="text-center align-middle" colspan="2">Jumlah<br>Mahasiswa Aktif</th> 
@@ -36,11 +36,11 @@
                                 <td class="text-center align-middle"><?=$No++?></td>
                                 <td class="text-center align-middle"><?=$key['Homebase']?></td>
                                 <td class="text-center align-middle"><?=$key['Tahun']?></td>
-                                <td class="text-center align-middle"><?=$key['DayaTampung']?></td>
                                 <td class="text-center align-middle">
                                   <button Edit="<?=$key['Homebase']."|".$key['Tahun']."|".$key['DayaTampung']."|".$key['MhsPendaftar']."|".$key['MhsLulus']."|".$key['MhsBaruReguler']."|".$key['MhsBaruTransfer']."|".$key['MhsAktifReguler']."|".$key['MhsAktifTransfer']?>" class="btn btn-sm btn-warning Edit"><i class="fas fa-edit"></i></button>
                                   <button Hapus="<?=$key['Homebase']."|".$key['Tahun']?>" class="btn btn-sm btn-danger Hapus"><i class="fas fa-trash"></i></button>  
                                 </td> 
+                                <td class="text-center align-middle"><?=$key['DayaTampung']?></td>
                                 <td class="text-center align-middle"><?=$key['MhsPendaftar']?></td>
                                 <td class="text-center align-middle"><?=$key['MhsLulus']?></td>
                                 <td class="text-center align-middle"><?=$key['MhsBaruReguler']?></td>
@@ -275,7 +275,7 @@
             var fd = new FormData()
 						fd.append('Homebase',$("#homebase").val())
 						fd.append('Tahun',$("#tahun").val())
-						fd.append('DayaTampung',parseInt($("#DayaTampung").val()))
+            fd.append('DayaTampung',$("#DayaTampung").val())
             fd.append('MhsPendaftar',parseInt($("#Pendaftar").val()))
 						fd.append('MhsLulus',parseInt($("#Lulus").val()))
 						fd.append('MhsBaruReguler',parseInt($("#MhsBaruReguler").val()))
@@ -307,8 +307,8 @@
           $('#Edithomebase').val(Pisah[0])
           $('#tahunLama').val(Pisah[1])
 					$('#Edittahun').val(Pisah[1])
-          $('#EditDayaTampung').val(Pisah[2])
-					$("#EditPendaftar").val(Pisah[3])
+					$("#EditDayaTampung").val(Pisah[2])
+          $("#EditPendaftar").val(Pisah[3])
 					$('#EditLulus').val(Pisah[4])
 					$("#EditMhsBaruReguler").val(Pisah[5])
 					$('#EditMhsBaruTransfer').val(Pisah[6])
@@ -340,7 +340,7 @@
             fd.append('Homebase',$("#Edithomebase").val())
 						fd.append('Tahun',$("#Edittahun").val())
 						fd.append('TahunLama',$("#tahunLama").val())
-            fd.append('DayaTampung',parseInt($("#EditDayaTampung").val()))
+            fd.append('DayaTampung',$("#EditDayaTampung").val())
             fd.append('MhsPendaftar',parseInt($("#EditPendaftar").val()))
 						fd.append('MhsLulus',parseInt($("#EditLulus").val()))
 						fd.append('MhsBaruReguler',parseInt($("#EditMhsBaruReguler").val()))
@@ -408,7 +408,7 @@
               var array = JSON.parse(Respon) 
               array.forEach(function(object) {
                 if (object.BuktiPendidik != null) {
-                  $('#LampiranDTPS').attr('href',BaseURL+'DTPS/'+object.BuktiPendidik)		
+                  $('#LampiranDTPS').attr('href',BaseURL+'DTPS/'+object.BuktiPendidik)	 	
                   $('#LampiranDTPS').attr('Download',object.BuktiPendidik) 
                   $('#LampiranDTPS')[0].click()
                 }
@@ -419,15 +419,15 @@
                 }
               })
             }) 	
-            var MahasiswaBaru = ['Pendidikan','Penelitian','Pengabdian']
+            var KerjaSama = ['Pendidikan','Penelitian','Pengabdian']
 					  for (let i = 0; i < 3; i++) {
-              $.post(BaseURL+"Admin"+"/LampiranMahasiswaBaru/"+MahasiswaBaru[i]).done(function(Respon) {
+              $.post(BaseURL+"Admin"+"/LampiranKerjaSama/"+KerjaSama[i]).done(function(Respon) {
                 var array = JSON.parse(Respon) 
                 var No = 1;
                 array.forEach(function(object) {
-                  $('#LampiranMahasiswaBaru').attr('href',BaseURL+'MahasiswaBaru/'+object.Bukti)		
-                  $('#LampiranMahasiswaBaru').attr('Download','Kerja Sama '+MahasiswaBaru[i]+' '+No+'.pdf') 
-                  $('#LampiranMahasiswaBaru')[0].click()
+                  $('#LampiranKerjaSama').attr('href',BaseURL+'KerjaSama/'+object.Bukti)		
+                  $('#LampiranKerjaSama').attr('Download','Kerja Sama '+KerjaSama[i]+' '+No+'.pdf') 
+                  $('#LampiranKerjaSama')[0].click()
                   No+=1;
                 })
               }) 	

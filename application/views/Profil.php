@@ -134,7 +134,7 @@
 											<div class="input-group-prepend">
 												<span class="input-group-text bg-primary text-primary"><b>Mata Kuliah Yang Diampu Pada<br>Program Studi Yang Diakreditasi</b></span>
 											</div>
-											<textarea class="form-control" rows="2" disabled><?=$Profil['MengajarPS']?></textarea>
+											<textarea class="form-control" rows="2" disabled><?=str_replace('|',', ',$Profil['MengajarPS'])?></textarea>
 										</div>
 										<div class="input-group input-group-sm mb-2">
 											<div class="input-group-prepend">
@@ -312,10 +312,32 @@
                   </div>
                   <div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
-                      <span class="input-group-text bg-primary text-primary"><b>Mata Kuliah Yang Diampu Pada<br>Program Studi Yang Diakreditasi</b></span>
+                      <span class="input-group-text bg-primary text-primary"><b>Mata Kuliah Yang Diampu Pada Program Studi Yang Diakreditasi</b></span>
                     </div>
-                    <textarea class="form-control" id="MengajarPS" rows="2"><?=$Profil['MengajarPS']?></textarea>
 									</div>
+									<?php 
+										$MK1 = array('Pendidikan Agama','Bahasa Inggris','PTE Makro','Pengantar Akuntansi','Mentalitas & Kreatifitas','Matematika Ekonomi 1','PPKN','PTE Mikro');
+										$MK2 = array('Bahasa Indonesia','Sosiologi Kritis','TE Makro I','Pengantar Bisnis & Manajemen','SPE','Matematika Ekonomi II','Statistik I','TE Mikro I');
+										$MK3 = array('TE Makro II','Islam & Ekonomi','Pengantar Ekonomi Pembangunan','Koperasi & Kewirausahaan','ESDA & Lingkungan','Ekonomi Kependudukan','Statistik II','TE Mikro II');
+										$MK4 = array('Masalah Kebijakan Pembangunan','Ekonomi Pembangunan','Ekonomi Publik','Ekonomi Moneter','SDM & Ketenagakerjaan','Aplikasi Komputasi Ekonomi','Ekonomi Industri');
+										$MK5 = array('Perekonomian Indonesia','Perencanaan Pembangunan','Ekonomi Kelembagaan','Bank Lembaga Keuangan','Metodologi Penelitian','Ekonomi Moneter Lanjutan','Studi Kebanksentralan','Ekonomi Regional','Keuangan Daerah','Ekonomi Publik Lanjutan');
+										$MK6 = array('Ekonomi Internasional','Ekonomi Perkotaan & Transportasi','Ekonometrika','Evaluasi Proyek','Analisis Pasar Keuangan','Ekonomi Perbankan','Manajemen Keuangan Daerah','Perencanaan Strategis','Analisa Kebijakan Publik','Penganggaran Sektor Publik');
+										$MK7 = array('Seminar Ekonomi Moneter & Perbankan','Ekonomi Politik','Ekonomi Pedesaan & Pertanian','Ekonomi Moneter Internasional','Islam & Ekonomi','BLK Syariah');
+									?>
+									<?php for ($j=1; $j <= 7; $j++) { ?>
+									<div class="input-group input-group-sm mt-1">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-success"><b>Semester <?=$j?></b></span>
+                    </div>
+									</div>
+									<div class="row">
+                    <?php for ($i=0; $i < count(${'MK'.$j}); $i++) { ?>
+                    <div class="col-sm-6">
+                      <label class="checkbox-inline"><input type="checkbox" name="MKS1" value="<?=${'MK'.$j}[$i]?>">&nbsp;<?=${'MK'.$j}[$i]?></label>
+                    </div>
+									<?php } ?>
+									</div>
+									<?php } ?>
 									<div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
                       <span class="input-group-text bg-primary text-primary"><b>Mata Kuliah Yang Diampu Pada<br>Program Studi Lain</b></span>
@@ -350,21 +372,21 @@
 					var Tahun = $('#Tahun').val()
 					var Pisah = Tahun.split('-')
 					window.location = BaseURL + 'Dashboard/PAK/'+$('#Homebase').val()+'/'+$('#Semester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))
-					var PAK = ['Pendidikan','Penelitian','Pengabdian','Penunjang']
-					for (let i = 1; i < 5; i++) {
-						$.post(BaseURL+"Dashboard"+"/Lampiran/"+$('#Homebase').val()+'/'+$('#Semester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))+'/'+PAK[i-1]).done(function(Respon) {
-							var array = JSON.parse(Respon)
-							var NomorLampiran = 1
-							array.forEach(function(object) {
-								if (object.Bukti != null) {
-									$('#LampiranPAK').attr('href',BaseURL+PAK[i-1]+'/'+object.Bukti)		
-									$('#LampiranPAK').attr('Download','Lampiran '+i+'.'+NomorLampiran+'.pdf') 
-									$('#LampiranPAK')[0].click()
-								}
-								NomorLampiran++;
-							})
-						}) 	
-					}
+					// var PAK = ['Pendidikan','Penelitian','Pengabdian','Penunjang']
+					// for (let i = 1; i < 5; i++) {
+					// 	$.post(BaseURL+"Dashboard"+"/Lampiran/"+$('#Homebase').val()+'/'+$('#Semester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))+'/'+PAK[i-1]).done(function(Respon) {
+					// 		var array = JSON.parse(Respon)
+					// 		var NomorLampiran = 1
+					// 		array.forEach(function(object) {
+					// 			if (object.Bukti != null) {
+					// 				$('#LampiranPAK').attr('href',BaseURL+PAK[i-1]+'/'+object.Bukti)		
+					// 				$('#LampiranPAK').attr('Download','Lampiran '+i+'.'+NomorLampiran+'.pdf') 
+					// 				$('#LampiranPAK')[0].click()
+					// 			}
+					// 			NomorLampiran++;
+					// 		})
+					// 	}) 	
+					// }
 				}) 
 
 				$("#CancelBuktiSertifikatKompetensi").click(function() {
@@ -412,6 +434,12 @@
 						})
 					}
 				})
+				
+				var MK = "<?=$Profil['MengajarPS']?>"
+				var PisahMK = MK.split("|")
+				for (let i = 0; i < PisahMK.length; i++) {
+					$("input[value='"+PisahMK[i]+"']").prop('checked',true)
+				}
 
 				$("#EditProfil").click(function() {
 					if ($("#NIP").val().length != 18 || isNaN($("#NIP").val())) {
@@ -441,7 +469,15 @@
 						fd.append('KesesuaianBidang',$("#KesesuaianBidang").val())
 						fd.append('SertifikatPendidik',$("#SertifikatPendidik").val())
 						fd.append('SertifikatKompetensi',$("#SertifikatKompetensi").val())
-						fd.append('MengajarPS',$("#MengajarPS").val())
+						var MengajarPS = ""
+            $.each($("input[name='MKS1']:checked"), function(){
+							if (MengajarPS == "") {
+								MengajarPS = MengajarPS + $(this).val()
+							} else {
+								MengajarPS = MengajarPS + "|" + $(this).val()
+							}
+            })
+						fd.append('MengajarPS',MengajarPS)
 						fd.append('MengajarPSLain',$("#MengajarPSLain").val())
 						fd.append("BuktiSertifikatPendidikLama", $('#BuktiSertifikatPendidikLama').val())
 						fd.append("BuktiSertifikatKompetensiLama", $('#BuktiSertifikatKompetensiLama').val())

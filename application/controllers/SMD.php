@@ -15,6 +15,33 @@ class SMD extends CI_Controller {
 		}
 	}
 
+	public function Kuisioner($Jenis){
+		if ($Jenis == 'KepuasanMahasiswa') {
+			$this->load->view('KepuasanMahasiswa');
+		} else if ($Jenis == 'PrestasiMahasiswa') {
+			$this->load->view('PrestasiMahasiswa');
+		}
+	}
+
+	public function InsertKuisioner($Tabel,$Data){
+		$this->db->insert($Tabel,$Data);
+		if ($this->db->affected_rows()){
+			echo '1';
+		} else {
+			echo 'Gagal Mengirim Survei!';
+		}
+	}
+
+	public function InputKuisioner($Jenis){
+		if ($Jenis == 'KepuasanMahasiswa') {
+			$this->InsertKuisioner('kepuasanmahasiswa',$_POST);
+		} else if ($Jenis == 'PrestasiMahasiswa') {
+			$_POST['NamaPrestasi'] = htmlentities($_POST['NamaPrestasi']);
+			$_POST['CapaianPrestasi'] = htmlentities($_POST['CapaianPrestasi']);
+			$this->InsertKuisioner('prestasimahasiswa',$_POST);
+		}
+	}
+
 	public function Masuk(){
 		$CekLogin = $this->db->get_where('Akun', array('NIP' => htmlentities($_POST['NIP'])));
 		if($CekLogin->num_rows() == 0){

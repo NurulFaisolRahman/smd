@@ -399,7 +399,7 @@
           })
         })
 
-        $("#DownloadBorang").click(function() {
+        $("#DownloadBorang").click(function() { 
 					var Pisah = $('#TS').val().split('-')
           if (Pisah[1]-Pisah[0] >= 0) {
             window.location = BaseURL + 'Admin/Borang/'+$('#TS').val()
@@ -407,7 +407,7 @@
               var array = JSON.parse(Respon) 
               array.forEach(function(object) {
                 if (object.BuktiPendidik != null) {
-                  $('#LampiranDTPS').attr('href',BaseURL+'DTPS/'+object.BuktiPendidik)		
+                  $('#LampiranDTPS').attr('href',BaseURL+'DTPS/'+object.BuktiPendidik)		 
                   $('#LampiranDTPS').attr('Download',object.BuktiPendidik) 
                   $('#LampiranDTPS')[0].click()
                 }

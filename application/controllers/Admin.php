@@ -181,6 +181,116 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function PenggunaanDana(){
+		$Data['Halaman'] = 'Penggunaan Dana';
+		$Data['PenggunaanDana'] = $this->db->query("SELECT * FROM PenggunaanDana")->result_array();
+    $this->load->view('HeaderAdmin',$Data);
+    $this->load->view('PenggunaanDana',$Data); 
+	}
+
+	public function InputPenggunaanDana(){
+		if($this->db->get_where('PenggunaanDana', array('Homebase' => $_POST['Homebase'],'Tahun' => $_POST['Tahun']))->num_rows() === 0){
+			$this->db->insert('PenggunaanDana',$_POST);
+			echo '1';
+		} else {
+			echo "Data Penggunaan Dana Dengan Homebase ".$_POST['Homebase']." Dan Tahun ".$_POST['Tahun']." Sudah Ada!";
+		}
+	}
+	
+	public function UpdatePenggunaanDana(){
+		if($this->db->get_where('PenggunaanDana', array('Homebase' => $_POST['Homebase'],'Tahun' => $_POST['Tahun']))->num_rows() === 0 || ($_POST['Homebase'] == $_POST['HomebaseLama'] && $_POST['Tahun'] == $_POST['TahunLama'])){
+			$this->db->where('Homebase',$_POST['HomebaseLama']);
+			$this->db->where('Tahun',$_POST['TahunLama']);
+			unset($_POST['HomebaseLama']); unset($_POST['TahunLama']); 
+			$this->db->update('PenggunaanDana', $_POST);
+			echo '1';
+		} else {
+			echo "Data Penggunaan Dana Dengan Homebase ".$_POST['Homebase']." Dan Tahun ".$_POST['Tahun']." Sudah Ada!";
+		}
+	}
+	
+	public function HapusPenggunaanDana(){
+		$this->db->delete('PenggunaanDana', array('Homebase' => $_POST['Homebase'],'Tahun' => $_POST['Tahun']));
+		if ($this->db->affected_rows()){
+			echo '1';
+		} else {
+			echo 'Gagal Menghapus';
+		}
+	}
+
+	public function IPKLulusan(){
+		$Data['Halaman'] = 'IPK Lulusan';
+		$Data['IPKLulusan'] = $this->db->query("SELECT * FROM IPKLulusan")->result_array();
+    $this->load->view('HeaderAdmin',$Data);
+    $this->load->view('IPKLulusan',$Data); 
+	}
+
+	public function InputIPKLulusan(){
+		if($this->db->get_where('IPKLulusan', array('Homebase' => $_POST['Homebase'],'Tahun' => $_POST['Tahun']))->num_rows() === 0){
+			$this->db->insert('IPKLulusan',$_POST);
+			echo '1';
+		} else {
+			echo "Data IPK Lulusan Dengan Homebase ".$_POST['Homebase']." Dan Tahun ".$_POST['Tahun']." Sudah Ada!";
+		}
+	}
+	
+	public function UpdateIPKLulusan(){
+		if($this->db->get_where('IPKLulusan', array('Homebase' => $_POST['Homebase'],'Tahun' => $_POST['Tahun']))->num_rows() === 0 || ($_POST['Homebase'] == $_POST['HomebaseLama'] && $_POST['Tahun'] == $_POST['TahunLama'])){
+			$this->db->where('Homebase',$_POST['HomebaseLama']);
+			$this->db->where('Tahun',$_POST['TahunLama']);
+			unset($_POST['HomebaseLama']); unset($_POST['TahunLama']); 
+			$this->db->update('IPKLulusan', $_POST);
+			echo '1';
+		} else {
+			echo "Data IPK Lulusan Dengan Homebase ".$_POST['Homebase']." Dan Tahun ".$_POST['Tahun']." Sudah Ada!";
+		}
+	}
+	
+	public function HapusIPKLulusan(){
+		$this->db->delete('IPKLulusan', array('Homebase' => $_POST['Homebase'],'Tahun' => $_POST['Tahun']));
+		if ($this->db->affected_rows()){
+			echo '1';
+		} else {
+			echo 'Gagal Menghapus';
+		}
+	}
+	
+	public function DosenKontrak(){
+		$Data['Halaman'] = 'Dosen Kontrak';
+		$Data['DosenKontrak'] = $this->db->query("SELECT * FROM DosenKontrak")->result_array();
+    $this->load->view('HeaderAdmin',$Data);
+    $this->load->view('DosenKontrak',$Data); 
+	}
+
+	public function InputDosenKontrak(){
+		if($this->db->get_where('DosenKontrak', array('NIDN' => $_POST['NIDN']))->num_rows() === 0){
+			$this->db->insert('DosenKontrak',$_POST);
+			echo '1';
+		} else {
+			echo "Data Dosen Kontrak Dengan NIDN ".$_POST['NIDN']." Sudah Ada!";
+		}
+	}
+
+	public function UpdateDosenKontrak(){
+		if($this->db->get_where('DosenKontrak', array('NIDN' => $_POST['NIDN']))->num_rows() === 0 || ($_POST['NIDN'] == $_POST['NIDNLama'])){
+			$this->db->where('NIDN',$_POST['NIDNLama']);
+			unset($_POST['NIDNLama']); 
+			$this->db->update('DosenKontrak', $_POST);
+			echo '1';
+		} else {
+			echo "Data Dosen Kontrak Dengan NIDN ".$_POST['NIDN']." Sudah Ada!";
+		}
+	}
+
+	public function HapusDosenKontrak(){
+		$this->db->delete('DosenKontrak', array('NIDN' => $_POST['NIDN']));
+		if ($this->db->affected_rows()){
+			echo '1';
+		} else {
+			echo 'Gagal Menghapus';
+		}
+	}
+
 	public function Daftar(){
 		if($this->db->get_where('Dosen', array('NIP' => $_POST['NIP']))->num_rows() === 0){
 			$this->db->insert('Dosen',
@@ -217,7 +327,29 @@ class Admin extends CI_Controller {
 		$Data['KerjaSamaPendidikan'] = $this->db->get_where('KerjaSama', array('Bidang' => 'Pendidikan'))->result_array(); 
 		$Data['KerjaSamaPenelitian'] = $this->db->get_where('KerjaSama', array('Bidang' => 'Penelitian'))->result_array(); 
 		$Data['KerjaSamaPengabdian'] = $this->db->get_where('KerjaSama', array('Bidang' => 'Pengabdian'))->result_array(); 
+		$Data['MahasiswaBaru'] = array(); 
+		for ($j = 0; $j < 1; $j++) { 
+			$Record = array();
+			for ($i = $TS[1]; $i >= $TS[0]; $i--) { 
+				$Tampung = $this->db->query("SELECT * FROM MahasiswaBaru WHERE Homebase = 'S1' AND Tahun = ".$i)->row_array();		
+				$Tampung == '' ? array_push($Record,0,0,0,0,0,0,0) : array_push($Record,$Tampung['DayaTampung'],$Tampung['MhsPendaftar'],$Tampung['MhsLulus'],$Tampung['MhsBaruReguler'],$Tampung['MhsBaruTransfer'],$Tampung['MhsAktifReguler'],$Tampung['MhsAktifTransfer']);
+				array_push($Data['MahasiswaBaru'],$Record);
+				$Record = array();
+			}
+		}	
+		$Data['HomebaseMahasiswaAsing'] = 'S1 Ekonomi Pembangunan'; 
+		$Data['MahasiswaAsing'] = array(); 
+		for ($j = 0; $j < 1; $j++) { 
+			$Record = array();
+			for ($i = $TS[0]; $i <= $TS[1]; $i++) { 
+				$Tampung = $this->db->query("SELECT * FROM MahasiswaAsing WHERE Homebase = 'S1 Ekonomi Pembangunan' AND Tahun = ".$i)->row_array();		
+				$Tampung == '' ? array_push($Record,0,0,0) : array_push($Record,$Tampung['MhsAktif'],$Tampung['MhsFull'],$Tampung['MhsPart']);
+				array_push($Data['MahasiswaAsing'],$Record);
+				$Record = array();
+			}
+		}	
 		$Data['Dosen'] = $this->db->get('Dosen')->result_array();
+		$Data['DosenKontrak'] = $this->db->get('DosenKontrak')->result_array();
 		$Data['TS'] = $TS[1]-$TS[0]+1;
 		$Data['DPU'] = array();
 		$DPUDistinct = $this->db->query("SELECT DISTINCT(NIP) FROM RealisasiPendidikan WHERE IdKegiatan='PND6' AND Tahun >= ".$TS[0]." AND Tahun <= ".$TS[1])->result_array();
