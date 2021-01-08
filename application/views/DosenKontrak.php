@@ -27,8 +27,9 @@
                                 <td class="text-center align-middle"><?=$key['NIDN']?></td>
                                 <td class="align-middle"><?=$key['Nama']?></td>
                                 <td class="text-center align-middle">
-                                  <button Edit="<?=$key['Homebase']."$".$key['NIDN']."$".$key['Nama']."$".$key['S2']."$".$key['BidangKeahlian']."$".$key['JabatanAkademik']."$".$key['SertifikatPendidik']."$".$key['SertifikatKompetensi']."$".$key['MengajarPS']."$".$key['KesesuaianBidang']?>" class="btn btn-sm btn-warning Edit"><i class="fas fa-edit"></i></button>
-                                  <button Hapus="<?=$key['NIDN']?>" class="btn btn-sm btn-danger Hapus"><i class="fas fa-trash"></i></button>  
+                                  <button Edit="<?=$key['Homebase']."$".$key['NIDN']."$".$key['Nama']."$".$key['S2']."$".$key['BidangKeahlian']."$".$key['JabatanAkademik']."$".$key['SertifikatPendidik']."$".$key['SertifikatKompetensi']."$".$key['MengajarPS']."$".$key['KesesuaianBidang']."$".$key['Bukti']?>" class="btn btn-sm btn-warning Edit"><i class="fas fa-edit"></i></button>
+                                  <button Hapus="<?=$key['NIDN']."|".$key['Bukti']?>" class="btn btn-sm btn-danger Hapus"><i class="fas fa-trash"></i></button>  
+                                  <a class="btn btn-sm btn-primary" href="<?=base_url('DosenKontrak/'.$key['Bukti'])?>"><i class="fas fa-download"></i></a>
                                 </td> 
                               </tr>
                             <?php } ?>
@@ -98,7 +99,13 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text bg-primary"><b>Jabatan Akademik</b></span>
                     </div>
-                    <input type="text" class="form-control" id="jabatanakademik"> 
+                    <select class="custom-select" id="jabatanakademik">
+                      <option value="Tenaga Pengajar">Tenaga Pengajar</option>
+                      <option value="Asisten Ahli">Asisten Ahli</option>
+                      <option value="Lektor">Lektor</option>
+                      <option value="Lektor Kepala">Lektor Kepala</option>
+                      <option value="Guru Besar">Guru Besar</option>
+                    </select>
                   </div>
                 </div>
                 <div class="col-sm-12">
@@ -117,7 +124,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text bg-primary"><b>Sertifikat Pendidik Profesional</b></span>
                     </div>
-                    <input type="text" class="form-control" id="sertifikatpendidik"> 
+                    <input type="text" class="form-control" id="sertifikatpendidik" placeholder="Input Nomor Sertifikat"> 
                   </div>
                 </div>
                 <div class="col-sm-12">
@@ -125,13 +132,22 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text bg-primary"><b>Sertifikat Kompetensi/Profesi</b></span>
                     </div>
-                    <input type="text" class="form-control" id="sertifikatkompetensi"> 
+                    <input type="text" class="form-control" id="sertifikatkompetensi" placeholder="Input Nomor Sertifikat"> 
                   </div>
                 </div>
                 <div class="col-sm-12">
                   <div class="input-group input-group-sm mb-2">
+										<div class="input-group-prepend">
+											<span class="input-group-text bg-primary"><b>Upload Bukti Sertifikat</b></span>
+										</div>
+										<input class="form-control" type="file" id="BuktiSertifikat">
+                  </div>
+                  <pre class="text-danger mb-1"><b>Bukti Yang Diupload Dalam Format Pdf</b></pre>
+                </div>
+                <div class="col-sm-12">
+                  <div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
-                      <span class="input-group-text bg-primary"><b>Mata Kuliah Yang Diampu Pada Program Studi Yang Diakreditasi</b></span>
+                      <span class="input-group-text bg-primary"><b>Mata Kuliah Yang Diampu Pada Program Studi S1</b></span>
                     </div>
                     <?php 
 										$MK1 = array('Pendidikan Agama','Bahasa Inggris','PTE Makro','Pengantar Akuntansi','Mentalitas & Kreatifitas','Matematika Ekonomi 1','PPKN','PTE Mikro');
@@ -151,6 +167,29 @@
                     <?php for ($i=0; $i < count(${'MK'.$j}); $i++) { ?>
                     <div class="col-sm-6">
                       <label class="checkbox-inline"><input type="checkbox" name="MKS1" value="<?=${'MK'.$j}[$i]?>">&nbsp;<?=${'MK'.$j}[$i]?></label>
+                    </div>
+									<?php }} ?>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-primary"><b>Mata Kuliah Yang Diampu Pada Program Studi S2</b></span>
+                    </div>
+                    <?php 
+										$MK1 = array('Teori Ekonomi Makro Intermediate','Teori Ekonomi Mikro Intermediate','Ekonomi Syariah','Sejarah Pemikiran Ekonomi','Ekonometrika Terapan');
+										$MK2 = array('Metode penelitian kuantitatif','Metode penelitian kualitatif','Perencanaan Pembangunan dan Penganggaran Daerah','Ekonomi Kelautan dan Maritim (Blue Economy)','Teknik dan analisis dalam perencanaan pembangunan daerah','Pemikiran Ekonomi Islam','Kelembagaan Keuangan Syariah');
+										$MK3 = array('Analisis Daya Dukung Wilayah Pesisir dan Pulau-Pulau Kecil','Evaluasi Dampak Lingkungan','Pemetaan Potensi Pesisir dan Pulau-Pulau kecil','Manajemen Keuangan Daerah','Evaluasi Dampak Kebijakan Publik','Ekonomi Politik dan Kelembagaan','Etika Ekonomi Islam','Hukum Ekonomi Islam','Metode Riset Ekonomi Syariah');
+									?>
+									<?php for ($j=1; $j <= 3; $j++) { ?>
+									<div class="input-group input-group-sm mt-1">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-success"><b>Semester <?=$j?></b></span>
+                    </div>
+									</div>
+                    <?php for ($i=0; $i < count(${'MK'.$j}); $i++) { ?>
+                    <div class="col-sm-6">
+                      <label class="checkbox-inline"><input type="checkbox" name="MKS2" value="<?=${'MK'.$j}[$i]?>">&nbsp;<?=${'MK'.$j}[$i]?></label>
                     </div>
 									<?php }} ?>
                   </div>
@@ -220,7 +259,13 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text bg-primary"><b>Jabatan Akademik</b></span>
                     </div>
-                    <input type="text" class="form-control" id="Editjabatanakademik"> 
+                    <select class="custom-select" id="Editjabatanakademik">
+                      <option value="Tenaga Pengajar">Tenaga Pengajar</option>
+                      <option value="Asisten Ahli">Asisten Ahli</option>
+                      <option value="Lektor">Lektor</option>
+                      <option value="Lektor Kepala">Lektor Kepala</option>
+                      <option value="Guru Besar">Guru Besar</option>
+                    </select>
                   </div>
                 </div>
                 <div class="col-sm-12">
@@ -239,7 +284,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text bg-primary"><b>Sertifikat Pendidik Profesional</b></span>
                     </div>
-                    <input type="text" class="form-control" id="Editsertifikatpendidik"> 
+                    <input type="text" class="form-control" id="Editsertifikatpendidik" placeholder="Input Nomor Sertifikat"> 
                   </div>
                 </div>
                 <div class="col-sm-12">
@@ -247,7 +292,19 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text bg-primary"><b>Sertifikat Kompetensi/Profesi</b></span>
                     </div>
-                    <input type="text" class="form-control" id="Editsertifikatkompetensi"> 
+                    <input type="text" class="form-control" id="Editsertifikatkompetensi" placeholder="Input Nomor Sertifikat"> 
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="input-group input-group-sm mb-2">
+										<div class="input-group-prepend">
+											<span class="input-group-text bg-primary"><b>Upload Bukti Sertifikat</b></span>
+										</div>
+                    <input class="form-control" type="hidden" id="BuktiSertifikatLama">
+                    <input class="form-control" type="file" id="EditBuktiSertifikat">
+                    <div class="input-group-prepend">
+											<button class="input-group-text bg-primary" id="CancelEditBuktiSertifikat"><b>X</b></button>
+										</div>
                   </div>
                 </div>
                 <div class="col-sm-12">
@@ -277,6 +334,29 @@
 									<?php }} ?>
                   </div>
                 </div>
+                <div class="col-sm-12">
+                  <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-primary"><b>Mata Kuliah Yang Diampu Pada Program Studi S2</b></span>
+                    </div>
+                    <?php 
+										$MK1 = array('Teori Ekonomi Makro Intermediate','Teori Ekonomi Mikro Intermediate','Ekonomi Syariah','Sejarah Pemikiran Ekonomi','Ekonometrika Terapan');
+										$MK2 = array('Metode penelitian kuantitatif','Metode penelitian kualitatif','Perencanaan Pembangunan dan Penganggaran Daerah','Ekonomi Kelautan dan Maritim (Blue Economy)','Teknik dan analisis dalam perencanaan pembangunan daerah','Pemikiran Ekonomi Islam','Kelembagaan Keuangan Syariah');
+										$MK3 = array('Analisis Daya Dukung Wilayah Pesisir dan Pulau-Pulau Kecil','Evaluasi Dampak Lingkungan','Pemetaan Potensi Pesisir dan Pulau-Pulau kecil','Manajemen Keuangan Daerah','Evaluasi Dampak Kebijakan Publik','Ekonomi Politik dan Kelembagaan','Etika Ekonomi Islam','Hukum Ekonomi Islam','Metode Riset Ekonomi Syariah');
+									?>
+									<?php for ($j=1; $j <= 3; $j++) { ?>
+									<div class="input-group input-group-sm mt-1">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-success"><b>Semester <?=$j?></b></span>
+                    </div>
+									</div>
+                    <?php for ($i=0; $i < count(${'MK'.$j}); $i++) { ?>
+                    <div class="col-sm-6">
+                      <label class="checkbox-inline"><input type="checkbox" id="Edit<?=${'MK'.$j}[$i]?>" name="EditMKS2" value="<?=${'MK'.$j}[$i]?>">&nbsp;<?=${'MK'.$j}[$i]?></label>
+                    </div>
+									<?php }} ?>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -293,7 +373,8 @@
     <script src="<?=base_url('bootstrap/js/adminlte.min.js')?>"></script>
     <script src="<?=base_url('bootstrap/datatables/jquery.dataTables.js')?>"></script>
 		<script src="<?=base_url('bootstrap/datatables-bs4/js/dataTables.bootstrap4.js')?>"></script>
-		<script src="<?=base_url('bootstrap/inputmask/min/jquery.inputmask.bundle.min.js')?>"></script>
+    <script src="<?=base_url('bootstrap/inputmask/min/jquery.inputmask.bundle.min.js')?>"></script>
+    <script src="<?=base_url('bootstrap/js/Borang.js')?>"></script>
 		<script>
 			jQuery(document).ready(function($) {
 				"use strict";
@@ -314,19 +395,31 @@
 						fd.append('Nama',$("#nama").val())
 						fd.append('S2',$("#pascasarjana").val())
             fd.append('BidangKeahlian',$("#bidangkeahlian").val())
-						fd.append('JabatanAkademik',$("#jabatanakademik").val())
+            fd.append('JabatanAkademik',$("#jabatanakademik").val())
+            fd.append('KesesuaianBidang',$("#kesesuaian").val())
             fd.append('SertifikatPendidik',$("#sertifikatpendidik").val())
-						fd.append('SertifikatKompetensi',$("#sertifikatkompetensi").val())
+            fd.append('SertifikatKompetensi',$("#sertifikatkompetensi").val())
+            fd.append("BuktiSertifikat", $('#BuktiSertifikat')[0].files[0])
             var MengajarPS = ""
-            $.each($("input[name='MKS1']:checked"), function(){
-							if (MengajarPS == "") {
-								MengajarPS = MengajarPS + $(this).val()
-							} else {
-								MengajarPS = MengajarPS + "|" + $(this).val()
-							}
-            })
-						fd.append('MengajarPS',MengajarPS)
-						fd.append('KesesuaianBidang',$("#kesesuaian").val())
+            if ($("#homebase").val() == "S1") {
+              $.each($("input[name='MKS1']:checked"), function(){
+                if (MengajarPS == "") {
+                  MengajarPS = MengajarPS + $(this).val()
+                } else {
+                  MengajarPS = MengajarPS + "|" + $(this).val()
+                }
+              })
+              fd.append('MengajarPS',MengajarPS)
+            } else {
+              $.each($("input[name='MKS2']:checked"), function(){
+                if (MengajarPS == "") {
+                  MengajarPS = MengajarPS + $(this).val()
+                } else {
+                  MengajarPS = MengajarPS + "|" + $(this).val()
+                }
+              })
+              fd.append('MengajarPS',MengajarPS)
+            }
             $.ajax({
 							url: BaseURL+'Admin/InputDosenKontrak',
 							type: 'post',
@@ -345,6 +438,10 @@
           }
         })
 
+        $("#CancelEditBuktiSertifikat").click(function() {
+					$("#EditBuktiSertifikat").val("")
+				})
+
         $(document).on("click",".Edit",function(){
 					var Data = $(this).attr('Edit')
 					var Pisah = Data.split("$");
@@ -361,10 +458,14 @@
           $.each($("input[name='EditMKS1']:checked"), function(){
             $(this).prop('checked',false)
           })
+          $.each($("input[name='EditMKS2']:checked"), function(){
+            $(this).prop('checked',false)
+          })
           var PisahMK = Pisah[8].split("|")
           for (let i = 0; i < PisahMK.length; i++) {
             $("input[id='Edit"+PisahMK[i]+"']").prop('checked',true)
           }
+          $('#BuktiSertifikatLama').val(Pisah[10])
           $('#ModalEditDosenKontrak').modal("show")
 				}) 
 
@@ -383,15 +484,28 @@
             fd.append('BidangKeahlian',$("#Editbidangkeahlian").val())
 						fd.append('JabatanAkademik',$("#Editjabatanakademik").val())
             fd.append('SertifikatPendidik',$("#Editsertifikatpendidik").val())
-						fd.append('SertifikatKompetensi',$("#Editsertifikatkompetensi").val())
+            fd.append('SertifikatKompetensi',$("#Editsertifikatkompetensi").val())
+            fd.append('BuktiSertifikatLama',$("#BuktiSertifikatLama").val())
+            fd.append("BuktiSertifikat", $('#EditBuktiSertifikat')[0].files[0])
             var MengajarPS = ""
-            $.each($("input[name='EditMKS1']:checked"), function(){
-							if (MengajarPS == "") {
-								MengajarPS = MengajarPS + $(this).val()
-							} else {
-								MengajarPS = MengajarPS + "|" + $(this).val()
-							}
-            })
+            if ($("#Edithomebase").val() == "S1") {
+              $.each($("input[name='EditMKS1']:checked"), function(){
+                if (MengajarPS == "") {
+                  MengajarPS = MengajarPS + $(this).val()
+                } else {
+                  MengajarPS = MengajarPS + "|" + $(this).val()
+                }
+              })
+            }
+            else {
+              $.each($("input[name='EditMKS2']:checked"), function(){
+                if (MengajarPS == "") {
+                  MengajarPS = MengajarPS + $(this).val()
+                } else {
+                  MengajarPS = MengajarPS + "|" + $(this).val()
+                }
+              })
+            }
 						fd.append('MengajarPS',MengajarPS)
 						fd.append('KesesuaianBidang',$("#Editkesesuaian").val())
             $.ajax({
@@ -410,11 +524,13 @@
 							}
 						})
           }
-				})
-
+        })
+        
         $(document).on("click",".Hapus",function(){
-					var Hapus = {NIDN: $(this).attr('Hapus')}
-					var Konfirmasi = confirm("Yakin Ingin Menghapus?"); 
+					var Data = $(this).attr('Hapus')
+					var Pisah = Data.split("|");
+					var Hapus = {NIDN: Pisah[0],Bukti: Pisah[1]}
+					var Konfirmasi = confirm("Yakin Ingin Menghapus?");
       		if (Konfirmasi == true) {
 						$.post(BaseURL+"Admin/HapusDosenKontrak", Hapus).done(function(Respon) {
 							if (Respon == '1') {
@@ -436,52 +552,7 @@
 							'next': '<b class="text-primary">></b>'
 						}
 					}
-				});
-				
-        $("#Simpan").click(function() {
-          var Kajur = { NIP: $("#Kajur").val() }
-          $.post(BaseURL+"Admin/Kajur", Kajur).done(function(Respon) {
-            window.location = BaseURL + "Admin/AkunDosen"
-          })
-        })
-
-        $("#DownloadBorang").click(function() { 
-					var Pisah = $('#TS').val().split('-')
-          if (Pisah[1]-Pisah[0] >= 0) {
-            window.location = BaseURL + 'Admin/Borang/'+$('#TS').val()
-            $.post(BaseURL+"Admin"+"/DTPS").done(function(Respon) {
-              var array = JSON.parse(Respon) 
-              array.forEach(function(object) {
-                if (object.BuktiPendidik != null) {
-                  $('#LampiranDTPS').attr('href',BaseURL+'DTPS/'+object.BuktiPendidik)		
-                  $('#LampiranDTPS').attr('Download',object.BuktiPendidik) 
-                  $('#LampiranDTPS')[0].click()
-                }
-                if (object.BuktiKompetensi != null) {
-                  $('#LampiranDTPS').attr('href',BaseURL+'DTPS/'+object.BuktiKompetensi)		
-                  $('#LampiranDTPS').attr('Download',object.BuktiKompetensi) 
-                  $('#LampiranDTPS')[0].click()
-                }
-              })
-            }) 	
-            var KerjaSama = ['Pendidikan','Penelitian','Pengabdian']
-					  for (let i = 0; i < 3; i++) {
-              $.post(BaseURL+"Admin"+"/LampiranKerjaSama/"+KerjaSama[i]).done(function(Respon) {
-                var array = JSON.parse(Respon) 
-                var No = 1;
-                array.forEach(function(object) {
-                  $('#LampiranKerjaSama').attr('href',BaseURL+'KerjaSama/'+object.Bukti)		
-                  $('#LampiranKerjaSama').attr('Download','Kerja Sama '+KerjaSama[i]+' '+No+'.pdf') 
-                  $('#LampiranKerjaSama')[0].click()
-                  No+=1;
-                })
-              }) 	
-            }
-          }
-          else {
-            alert('Input Tahun Belum Benar!')
-          }
-        })
+				})
 			})
 		</script>
   </body>

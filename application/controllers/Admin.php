@@ -33,18 +33,20 @@ class Admin extends CI_Controller {
 		if (count($_FILES) > 0) {
 			if ($this->CekBukti($_FILES)){
 				$NamaPdf = date('Ymd',time()).substr(password_hash('KerjaSama', PASSWORD_DEFAULT),7,7);
-				$NamaPdf = str_replace("/","F",$NamaPdf);
+				$NamaPdf = str_replace("/","E",$NamaPdf);
 				$NamaPdf = str_replace(".","F",$NamaPdf);
 				move_uploaded_file($_FILES['BuktiKerjaSama']['tmp_name'], "KerjaSama/".$NamaPdf.".pdf");
 				$BuktiKerjaSama = $NamaPdf.".pdf";
 				$this->db->insert('KerjaSama',
-									array('Mitra' => $_POST['Mitra'], 
+									array('Mitra' => htmlentities($_POST['Mitra']), 
+												'Homebase' => $_POST['Homebase'], 
 												'Tingkat' => $_POST['Tingkat'], 
 												'Bidang' => $_POST['Bidang'], 
 												'Judul' => htmlentities($_POST['Judul']), 
 												'Manfaat' => htmlentities($_POST['Manfaat']), 
 												'Waktu' => htmlentities($_POST['Waktu']), 
-												'Tahun' => $_POST['Expired'], 
+												'Tahun' => $_POST['Tahun'], 
+												'Expired' => $_POST['Expired'], 
 												'KerjaSama' => htmlentities($_POST['KerjaSama']),
 												'Bukti' => $BuktiKerjaSama));
 				echo '1';
@@ -64,20 +66,22 @@ class Admin extends CI_Controller {
 					unlink('KerjaSama/'.$BuktiKerjaSama);
 				} 
 				$NamaPdf = date('Ymd',time()).substr(password_hash('KerjaSama', PASSWORD_DEFAULT),7,7);
-				$NamaPdf = str_replace("/","F",$NamaPdf);
+				$NamaPdf = str_replace("/","E",$NamaPdf);
 				$NamaPdf = str_replace(".","F",$NamaPdf);
 				move_uploaded_file($_FILES['BuktiKerjaSama']['tmp_name'], "KerjaSama/".$NamaPdf.".pdf");
 				$BuktiKerjaSama = $NamaPdf.".pdf";
 			}
 			$this->db->where('Id', $_POST['Id']);
 			$this->db->update('KerjaSama',
-								array('Mitra' => $_POST['Mitra'], 
+								array('Mitra' => htmlentities($_POST['Mitra']), 
+											'Homebase' => $_POST['Homebase'],
 											'Tingkat' => $_POST['Tingkat'], 
 											'Bidang' => $_POST['Bidang'], 
 											'Judul' => htmlentities($_POST['Judul']), 
 											'Manfaat' => htmlentities($_POST['Manfaat']), 
 											'Waktu' => htmlentities($_POST['Waktu']), 
-											'Tahun' => $_POST['Expired'], 
+											'Tahun' => $_POST['Tahun'], 
+											'Expired' => $_POST['Expired'], 
 											'KerjaSama' => htmlentities($_POST['KerjaSama']),
 											'Bukti' => $BuktiKerjaSama));
 			echo '1';
@@ -264,8 +268,22 @@ class Admin extends CI_Controller {
 
 	public function InputDosenKontrak(){
 		if($this->db->get_where('DosenKontrak', array('NIDN' => $_POST['NIDN']))->num_rows() === 0){
-			$this->db->insert('DosenKontrak',$_POST);
-			echo '1';
+			if (count($_FILES) > 0) {
+				if ($this->CekBukti($_FILES)){
+					$NamaPdf = date('Ymd',time()).substr(password_hash('DosenKontrak', PASSWORD_DEFAULT),7,7);
+					$NamaPdf = str_replace("/","E",$NamaPdf);
+					$NamaPdf = str_replace(".","F",$NamaPdf);
+					move_uploaded_file($_FILES['BuktiSertifikat']['tmp_name'], "DosenKontrak/".$NamaPdf.".pdf");
+					$BuktiSertifikat = $NamaPdf.".pdf";
+					$_POST['Bukti'] = $BuktiSertifikat;
+					$this->db->insert('DosenKontrak',$_POST);
+					echo '1';
+				} else {
+					echo 'Upload Bukti Sertifikat Hanya Boleh PDF!';
+				}
+			} else {
+				echo 'Mohon Upload Bukti Sertifikat Berupa PDF!';
+			}
 		} else {
 			echo "Data Dosen Kontrak Dengan NIDN ".$_POST['NIDN']." Sudah Ada!";
 		}
@@ -273,10 +291,28 @@ class Admin extends CI_Controller {
 
 	public function UpdateDosenKontrak(){
 		if($this->db->get_where('DosenKontrak', array('NIDN' => $_POST['NIDN']))->num_rows() === 0 || ($_POST['NIDN'] == $_POST['NIDNLama'])){
-			$this->db->where('NIDN',$_POST['NIDNLama']);
-			unset($_POST['NIDNLama']); 
-			$this->db->update('DosenKontrak', $_POST);
-			echo '1';
+			if ($this->CekBukti($_FILES)){
+				$BuktiSertifikat = $_POST['BuktiSertifikatLama'];
+				if (isset($_FILES['BuktiSertifikat'])) {
+					if($BuktiSertifikat != ''){
+						unlink('DosenKontrak/'.$BuktiSertifikat);
+					} 
+					$NamaPdf = date('Ymd',time()).substr(password_hash('DosenKontrak', PASSWORD_DEFAULT),7,7);
+					$NamaPdf = str_replace("/","E",$NamaPdf);
+					$NamaPdf = str_replace(".","F",$NamaPdf);
+					move_uploaded_file($_FILES['BuktiSertifikat']['tmp_name'], "DosenKontrak/".$NamaPdf.".pdf");
+					$BuktiSertifikat = $NamaPdf.".pdf";
+				}
+				$this->db->where('NIDN',$_POST['NIDNLama']);
+				unset($_POST['NIDNLama']); 
+				unset($_POST['BuktiSertifikat']); 
+				unset($_POST['BuktiSertifikatLama']); 
+				$_POST['Bukti'] = $BuktiSertifikat;
+				$this->db->update('DosenKontrak', $_POST);
+				echo '1';
+			} else {
+				echo 'Upload Bukti Sertifikat Hanya Boleh PDF!';
+			}
 		} else {
 			echo "Data Dosen Kontrak Dengan NIDN ".$_POST['NIDN']." Sudah Ada!";
 		}
@@ -285,6 +321,7 @@ class Admin extends CI_Controller {
 	public function HapusDosenKontrak(){
 		$this->db->delete('DosenKontrak', array('NIDN' => $_POST['NIDN']));
 		if ($this->db->affected_rows()){
+			unlink('DosenKontrak/'.$_POST['Bukti']);
 			echo '1';
 		} else {
 			echo 'Gagal Menghapus';
@@ -322,34 +359,74 @@ class Admin extends CI_Controller {
 	}
 	
 	public function Borang(){
-		$TS = explode('-',$this->uri->segment('3'));
-		$Data['Tahun'] = $this->uri->segment('3');
-		$Data['KerjaSamaPendidikan'] = $this->db->get_where('KerjaSama', array('Bidang' => 'Pendidikan'))->result_array(); 
-		$Data['KerjaSamaPenelitian'] = $this->db->get_where('KerjaSama', array('Bidang' => 'Penelitian'))->result_array(); 
-		$Data['KerjaSamaPengabdian'] = $this->db->get_where('KerjaSama', array('Bidang' => 'Pengabdian'))->result_array(); 
+		$TS = $this->uri->segment('3');
+		$Homebase = $this->uri->segment('4'); 
+		$Data['Homebase'] = $Homebase;
+		$Data['Tahun'] = $TS;
+		$Data['IPKLulusan'] = array();
+		for ($i=($TS-2); $i <= $TS; $i++) { 
+			$IPKLulusan = $this->db->query("SELECT * FROM ipklulusan WHERE Homebase = '".$Homebase."' AND Tahun = ".$i)->row_array();	
+			$IPKLulusan == '' ? array_push($Data['IPKLulusan'],array(0,0,0,0)) : array_push($Data['IPKLulusan'],array($IPKLulusan['JumlahLulusan'],$IPKLulusan['Min'],$IPKLulusan['Average'],$IPKLulusan['Max']));
+		}
+		$Data['PenggunaanDana'] = array(array(0,0,0,0,0,0,0,0),array(0,0,0,0,0,0,0,0),array(0,0,0,0,0,0,0,0),
+																		array(0,0,0,0,0,0,0,0),array(0,0,0,0,0,0,0,0),array(0,0,0,0,0,0,0,0),
+																		array(0,0,0,0,0,0,0,0),array(0,0,0,0,0,0,0,0),array(0,0,0,0,0,0,0,0),
+																		array(0,0,0,0,0,0,0,0),array(0,0,0,0,0,0,0,0),array(0,0,0,0,0,0,0,0),
+																		array(0,0,0,0,0,0,0,0)); 
+		$x = 0; $y = 4;
+		for ($i=($TS-2); $i <= $TS; $i++) { 
+			$Dana = $this->db->query("SELECT * FROM penggunaandana WHERE Homebase = '".$Homebase."' AND Tahun = ".$i)->result_array();	
+			if (count($Dana) == 1) {
+				$Pisah = explode("/",$Dana[0]['Dosen']);
+				$Data['PenggunaanDana'][0][$x] = $Pisah[0];
+				$Data['PenggunaanDana'][0][$y] = $Pisah[1];
+				$Pisah = explode("/",$Dana[0]['TenagaKependidikan']);
+				$Data['PenggunaanDana'][1][$x] = $Pisah[0];
+				$Data['PenggunaanDana'][1][$y] = $Pisah[1];
+				$Pisah = explode("/",$Dana[0]['OperasionalPembelajaran']);
+				$Data['PenggunaanDana'][2][$x] = $Pisah[0];
+				$Data['PenggunaanDana'][2][$y] = $Pisah[1];
+				$Pisah = explode("/",$Dana[0]['OperasionalTidakLangsung']);
+				$Data['PenggunaanDana'][3][$x] = $Pisah[0];
+				$Data['PenggunaanDana'][3][$y] = $Pisah[1];
+				$Pisah = explode("/",$Dana[0]['OperasionalKemahasiswaan']);
+				$Data['PenggunaanDana'][4][$x] = $Pisah[0];
+				$Data['PenggunaanDana'][4][$y] = $Pisah[1];
+				$Pisah = explode("/",$Dana[0]['Penelitian']);
+				$Data['PenggunaanDana'][6][$x] = $Pisah[0];
+				$Data['PenggunaanDana'][6][$y] = $Pisah[1];
+				$Pisah = explode("/",$Dana[0]['PkM']);
+				$Data['PenggunaanDana'][7][$x] = $Pisah[0];
+				$Data['PenggunaanDana'][7][$y] = $Pisah[1];
+				$Pisah = explode("/",$Dana[0]['SDM']);
+				$Data['PenggunaanDana'][9][$x] = $Pisah[0];
+				$Data['PenggunaanDana'][9][$y] = $Pisah[1];
+				$Pisah = explode("/",$Dana[0]['Sarana']);
+				$Data['PenggunaanDana'][10][$x] = $Pisah[0];
+				$Data['PenggunaanDana'][10][$y] = $Pisah[1];
+				$Pisah = explode("/",$Dana[0]['Prasarana']);
+				$Data['PenggunaanDana'][11][$x] = $Pisah[0];
+				$Data['PenggunaanDana'][11][$y] = $Pisah[1];
+			}
+			$x+=1;$y+=1;
+		}
+		$Data['KerjaSamaPendidikan'] = $this->db->query("SELECT * FROM `kerjasama` WHERE Bidang='Pendidikan' AND Homebase="."'".$Homebase."'"." AND Tahun <= ".$TS." AND Tahun > ".($TS-3))->result_array(); 
+		$Data['KerjaSamaPenelitian'] = $this->db->query("SELECT * FROM `kerjasama` WHERE Bidang='Penelitian' AND Homebase="."'".$Homebase."'"." AND Tahun <= ".$TS." AND Tahun > ".($TS-3))->result_array(); 
+		$Data['KerjaSamaPengabdian'] = $this->db->query("SELECT * FROM `kerjasama` WHERE Bidang='Pengabdian' AND Homebase="."'".$Homebase."'"." AND Tahun <= ".$TS." AND Tahun > ".($TS-3))->result_array(); 
 		$Data['MahasiswaBaru'] = array(); 
-		for ($j = 0; $j < 1; $j++) { 
-			$Record = array();
-			for ($i = $TS[1]; $i >= $TS[0]; $i--) { 
-				$Tampung = $this->db->query("SELECT * FROM MahasiswaBaru WHERE Homebase = 'S1' AND Tahun = ".$i)->row_array();		
-				$Tampung == '' ? array_push($Record,0,0,0,0,0,0,0) : array_push($Record,$Tampung['DayaTampung'],$Tampung['MhsPendaftar'],$Tampung['MhsLulus'],$Tampung['MhsBaruReguler'],$Tampung['MhsBaruTransfer'],$Tampung['MhsAktifReguler'],$Tampung['MhsAktifTransfer']);
-				array_push($Data['MahasiswaBaru'],$Record);
-				$Record = array();
-			}
-		}	
-		$Data['HomebaseMahasiswaAsing'] = 'S1 Ekonomi Pembangunan'; 
+		for ($i = $TS; $i > ($TS-5); $i--) { 
+			$Tampung = $this->db->query("SELECT * FROM MahasiswaBaru WHERE Homebase = '".$Homebase."' AND Tahun = ".$i)->row_array();		
+			$Tampung == '' ? array_push($Data['MahasiswaBaru'],array(0,0,0,0,0,0,0)) : array_push($Data['MahasiswaBaru'],array($Tampung['DayaTampung'],$Tampung['MhsPendaftar'],$Tampung['MhsLulus'],$Tampung['MhsBaruReguler'],$Tampung['MhsBaruTransfer'],$Tampung['MhsAktifReguler'],$Tampung['MhsAktifTransfer']));
+		}
+		$Data['HomebaseMahasiswaAsing'] = $Homebase == 'S1' ? 'S1 Ekonomi Pembangunan' : 'S2 Ilmu Ekonomi'; 
 		$Data['MahasiswaAsing'] = array(); 
-		for ($j = 0; $j < 1; $j++) { 
-			$Record = array();
-			for ($i = $TS[0]; $i <= $TS[1]; $i++) { 
-				$Tampung = $this->db->query("SELECT * FROM MahasiswaAsing WHERE Homebase = 'S1 Ekonomi Pembangunan' AND Tahun = ".$i)->row_array();		
-				$Tampung == '' ? array_push($Record,0,0,0) : array_push($Record,$Tampung['MhsAktif'],$Tampung['MhsFull'],$Tampung['MhsPart']);
-				array_push($Data['MahasiswaAsing'],$Record);
-				$Record = array();
-			}
-		}	
+		for ($i = ($TS-2); $i <= $TS; $i++) { 
+			$Tampung = $this->db->query("SELECT * FROM MahasiswaAsing WHERE Homebase = '".$Data['HomebaseMahasiswaAsing']."' AND Tahun = ".$i)->row_array();		
+			$Tampung == '' ? array_push($Data['MahasiswaAsing'],array(0,0,0)) : array_push($Data['MahasiswaAsing'],array($Tampung['MhsAktif'],$Tampung['MhsFull'],$Tampung['MhsPart']));
+		}
+		$TS = array(2021,2022);
 		$Data['Dosen'] = $this->db->get('Dosen')->result_array();
-		$Data['DosenKontrak'] = $this->db->get('DosenKontrak')->result_array();
+		$Data['DosenKontrak'] = $this->db->get_where('DosenKontrak',array('Homebase' => $Homebase))->result_array();
 		$Data['TS'] = $TS[1]-$TS[0]+1;
 		$Data['DPU'] = array();
 		$DPUDistinct = $this->db->query("SELECT DISTINCT(NIP) FROM RealisasiPendidikan WHERE IdKegiatan='PND6' AND Tahun >= ".$TS[0]." AND Tahun <= ".$TS[1])->result_array();

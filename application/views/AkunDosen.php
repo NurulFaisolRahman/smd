@@ -73,7 +73,8 @@
     <script src="<?=base_url('bootstrap/js/adminlte.min.js')?>"></script>
     <script src="<?=base_url('bootstrap/datatables/jquery.dataTables.js')?>"></script>
 		<script src="<?=base_url('bootstrap/datatables-bs4/js/dataTables.bootstrap4.js')?>"></script>
-		<script src="<?=base_url('bootstrap/inputmask/min/jquery.inputmask.bundle.min.js')?>"></script>
+    <script src="<?=base_url('bootstrap/inputmask/min/jquery.inputmask.bundle.min.js')?>"></script>
+    <script src="<?=base_url('bootstrap/js/Borang.js')?>"></script>
 		<script>
 			jQuery(document).ready(function($) {
 				"use strict";
@@ -93,51 +94,6 @@
 						}
 					}
 				});
-				
-        $("#Simpan").click(function() {
-          var Kajur = { NIP: $("#Kajur").val() }
-          $.post(BaseURL+"Admin/Kajur", Kajur).done(function(Respon) {
-            window.location = BaseURL + "Admin/AkunDosen"
-          })
-        })
-
-        $("#DownloadBorang").click(function() {
-					var Pisah = $('#TS').val().split('-')
-          if (Pisah[1]-Pisah[0] >= 0) {
-            window.location = BaseURL + 'Admin/Borang/'+$('#TS').val()
-            // $.post(BaseURL+"Admin"+"/DTPS").done(function(Respon) {
-            //   var array = JSON.parse(Respon) 
-            //   array.forEach(function(object) {
-            //     if (object.BuktiPendidik != null) {
-            //       $('#LampiranDTPS').attr('href',BaseURL+'DTPS/'+object.BuktiPendidik)		
-            //       $('#LampiranDTPS').attr('Download',object.BuktiPendidik) 
-            //       $('#LampiranDTPS')[0].click()
-            //     }
-            //     if (object.BuktiKompetensi != null) {
-            //       $('#LampiranDTPS').attr('href',BaseURL+'DTPS/'+object.BuktiKompetensi)		
-            //       $('#LampiranDTPS').attr('Download',object.BuktiKompetensi) 
-            //       $('#LampiranDTPS')[0].click()
-            //     }
-            //   })
-            // }) 	
-            // var KerjaSama = ['Pendidikan','Penelitian','Pengabdian']
-					  // for (let i = 0; i < 3; i++) {
-            //   $.post(BaseURL+"Admin"+"/LampiranKerjaSama/"+KerjaSama[i]).done(function(Respon) {
-            //     var array = JSON.parse(Respon) 
-            //     var No = 1;
-            //     array.forEach(function(object) {
-            //       $('#LampiranKerjaSama').attr('href',BaseURL+'KerjaSama/'+object.Bukti)		
-            //       $('#LampiranKerjaSama').attr('Download','Kerja Sama '+KerjaSama[i]+' '+No+'.pdf') 
-            //       $('#LampiranKerjaSama')[0].click()
-            //       No+=1;
-            //     })
-            //   }) 	
-            // }
-          }
-          else {
-            alert('Input Tahun Belum Benar!')
-          }
-        })
 
 				$("#Daftar").click(function() {
           if ($("#NIP").val().length != 18 || isNaN($("#NIP").val())) {
@@ -161,6 +117,6 @@
           }
         })
 			})
-		</script>
+    </script>
   </body>
 </html>

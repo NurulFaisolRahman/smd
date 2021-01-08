@@ -58,25 +58,19 @@
             </li>
             <li class="nav-item">
               <a href="<?=base_url("Admin/MahasiswaBaru")?>" class="nav-link <?php if ($Halaman == "Mahasiswa Baru") { echo "active";} ?>">
-              <i class="nav-icon fas fa-tasks"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p><b>Mahasiswa Baru</b></p> 
               </a>
             </li>
             <li class="nav-item">
               <a href="<?=base_url("Admin/MahasiswaAsing")?>" class="nav-link <?php if ($Halaman == "Mahasiswa Asing") { echo "active";} ?>">
-              <i class="nav-icon fas fa-tasks"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p><b>Mahasiswa Asing</b></p> 
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?=base_url("Admin/IPKLulusan")?>" class="nav-link <?php if ($Halaman == "IPK Lulusan") { echo "active";} ?>">
-              <i class="nav-icon fas fa-chart-bar"></i>
-              <p><b>IPK Lulusan</b></p> 
-              </a>
-            </li>
-            <li class="nav-item">
               <a href="<?=base_url("Admin/DosenKontrak")?>" class="nav-link <?php if ($Halaman == "Dosen Kontrak") { echo "active";} ?>">
-              <i class="nav-icon fas fa-tasks"></i>
+              <i class="nav-icon fas fa-graduation-cap"></i>
               <p><b>Dosen Kontrak</b></p> 
               </a>
             </li>
@@ -84,6 +78,12 @@
               <a href="<?=base_url("Admin/PenggunaanDana")?>" class="nav-link <?php if ($Halaman == "Penggunaan Dana") { echo "active";} ?>">
               <i class="nav-icon fas fa-wallet"></i>
               <p><b>Penggunaan Dana</b></p> 
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?=base_url("Admin/IPKLulusan")?>" class="nav-link <?php if ($Halaman == "IPK Lulusan") { echo "active";} ?>">
+              <i class="nav-icon fas fa-chart-bar"></i>
+              <p><b>IPK Lulusan</b></p> 
               </a>
             </li>
             <li class="nav-item">
@@ -130,11 +130,19 @@
             <div class="modal-body">
               <div class="input-group mb-1">
                 <div class="input-group-prepend">
-                  <label class="input-group-text bg-primary"><b>Tahun</b></label>
+                  <label class="input-group-text bg-primary"><b>Homebase</b></label>
+                </div>
+                <select class="custom-select" id="Homebase">										
+                  <option value="S1">S1</option>
+                  <option value="S2">S2</option>
+                </select>
+              </div> 
+              <div class="input-group mb-1">
+                <div class="input-group-prepend">
+                  <label class="input-group-text bg-primary"><b>Tahun / TS</b></label>
                 </div>
                 <a id="LampiranDTPS" href="LampiranDTPS" download="LampiranDTPS"></a>
-                <a id="LampiranKerjaSama" href="LampiranKerjaSama" download="LampiranKerjaSama"></a>
-                <input class="form-control" type="text" id="TS"  data-inputmask='"mask": "9999-9999"' data-mask>
+                <input class="form-control" type="text" id="TS"  data-inputmask='"mask": "9999"' data-mask value="20">
               </div>
             </div>
             <div class="modal-footer justify-content-between">

@@ -55,32 +55,23 @@
               <div class="d-flex align-items-center h-100">
                   <div class="container-fluid">
                     <div class="row">
-                      <div class="col-sm-9">
+                      <div class="col-sm-8">
                         <div class="card">
                           <div class="card-header bg-warning"><b class="text-primary">AUTENTIKASI</b></div>
-                          <div class="card-body">
-                            <ul class="nav nav-pills mb-2 nav-fill" id="pills-tab" role="tablist">
-                              <li class="nav-item">
-                                <a class="nav-link active btn btn-outline-success" id="pills-Masuk-tab" data-toggle="pill" href="#pills-Masuk" role="tab" aria-controls="pills-Masuk" aria-selected="true"><b>Masuk</b></a>
-                              </li>
-                            </ul>
-                            <div class="tab-content" id="pills-tabContent">
-                              <div class="tab-pane fade show active" id="pills-Masuk" role="tabpanel" aria-labelledby="pills-Masuk-tab">
-                                <div class="input-group input-group-sm mb-2">
-                                  <div class="input-group-prepend">
-                                    <span class="input-group-text bg-warning text-primary"><b>Username</b></span>
-                                  </div>
-                                  <input type="text" class="form-control" id="nip">
-                                </div>
-                                <div class="input-group input-group-sm mb-2">
-                                  <div class="input-group-prepend">
-                                    <span class="input-group-text bg-warning text-primary"><b>Password</b></span>
-                                  </div>
-                                  <input type="password" class="form-control" id="sandi">
-                                </div>
-                                <div class="btn btn-primary" id="Masuk"><b>Masuk</b></div>
+                          <div class="card-body bg-primary">
+                            <div class="input-group input-group-sm mb-2">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text bg-warning text-primary"><b>Username</b></span>
                               </div>
+                              <input type="text" class="form-control" id="nip">
                             </div>
+                            <div class="input-group input-group-sm mb-2">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text bg-warning text-primary"><b>Password</b></span>
+                              </div>
+                              <input type="password" class="form-control" id="sandi">
+                            </div>
+                            <div class="btn btn-danger d-flex justify-content-center" id="Masuk"><b>Masuk</b></div>
                           </div>
                         </div>
                       </div>

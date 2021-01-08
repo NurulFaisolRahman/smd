@@ -1,6 +1,6 @@
 <?php
   header('Content-Type: application/xls');
-  header('Content-Disposition: attachment; filename=Borang-'.$Tahun.'.xls');
+  header('Content-Disposition: attachment; filename=Borang-'.$Homebase.'-'.$Tahun.'.xls');
 ?>
 MIME-Version: 1.0
 X-Document-Type: Workbook
@@ -2761,8 +2761,8 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
+    <td class=3D"xl88">Magister</td>
+    <td class=3D"xl88">Ilmu Ekonomi</td>
     <td class=3D"xl144"></td>
     <td class=3D"xl88"></td>
     <td class=3D"xl88"></td>
@@ -2771,42 +2771,14 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>2</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
+    <td class=3D"xl88">Sarjana</td>
+    <td class=3D"xl88">Ekonomi Pembangunan</td>
     <td class=3D"xl144"></td>
     <td class=3D"xl88"></td>
     <td class=3D"xl88"></td>
     <td class=3D"xl88"></td>
     <td colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl144"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>4</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl144"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>5</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl144"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"><![if !supportAnnotations]>
+   </tr><![if !supportAnnotations]>
 <span class=3D"msocomspan1"><span class=3D"msocomspan2" id=3D"_anchor_1" onmouseover=3D"msoCommentShow('_com_1','_anchor_1')" onmouseout=3D"msoCommentHide('_com_1')" language=3D"JavaScript"><a class=3D"msocomanch" href=3D"#_msocom_1" name=3D"_msoanchor_1">[1]</a></span></span><![endif]></td>
     <td colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
@@ -3103,7 +3075,7 @@ Content-Type: text/html; charset="us-ascii"
       <td class=3D"xl166" x:str><?=$key['Manfaat']?></td>
       <td class=3D"xl166" x:str><?=$key['Waktu']?></td>
       <td class=3D"xl166" x:str><?=$key['KerjaSama']?></td>
-      <td class=3D"xl166" x:str><?=$key['Tahun']?></td>
+      <td class=3D"xl166" x:str><?=$key['Expired']?></td>
       <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
     </tr>
    <?php } ?>
@@ -3443,7 +3415,7 @@ Content-Type: text/html; charset="us-ascii"
       <td class=3D"xl166" x:str><?=$key['Manfaat']?></td>
       <td class=3D"xl166" x:str><?=$key['Waktu']?></td>
       <td class=3D"xl166" x:str><?=$key['KerjaSama']?></td>
-      <td class=3D"xl166" x:str><?=$key['Tahun']?></td>
+      <td class=3D"xl166" x:str><?=$key['Expired']?></td>
       <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
     </tr>
    <?php } ?>
@@ -3783,7 +3755,7 @@ Content-Type: text/html; charset="us-ascii"
       <td class=3D"xl166" x:str><?=$key['Manfaat']?></td>
       <td class=3D"xl166" x:str><?=$key['Waktu']?></td>
       <td class=3D"xl166" x:str><?=$key['KerjaSama']?></td>
-      <td class=3D"xl166" x:str><?=$key['Tahun']?></td>
+      <td class=3D"xl166" x:str><?=$key['Expired']?></td>
       <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
     </tr>
    <?php } ?>
@@ -4075,7 +4047,7 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <?php 
     $Jumlah = array(0,0,0,0,0,0); 
-    for ($i = $TS; $i > 0; $i--) { 
+    for ($i = count($MahasiswaBaru); $i > 0; $i--) { 
     $Jumlah[0]+=$MahasiswaBaru[$i-1][1];
     $Jumlah[1]+=$MahasiswaBaru[$i-1][2];
     $Jumlah[2]+=$MahasiswaBaru[$i-1][3];
@@ -4139,7 +4111,7 @@ Content-Type: text/html; charset="us-ascii"
   <v:path gradientshapeok=3D"t" o:connecttype=3D"rect"/>
 </v:shapetype>
 
-<v:shape id=3D"_x0000_s13313" type=3D"#_x0000_t202" style=3D'position:absolute;margin-left:530.40pt;margin-top:-6.00pt;width:109.10pt;height:60.00pt;visibility:hidden;' filled=3D"True" fillcolor=3D"#FFFFE1" strokecolor=3D"#000000" strokeweight=3D"0.75pt" o:insetmode=3D"auto" o:spt=3D"202"><v:stroke color=3D"#000000" joinstyle=3D"miter"/><v:fill type=3D"solid" color2=3D"#FFFFE1"/><v:imagedata embosscolor=3D"#000000"/><v:textbox style=3D'direction:ltr;mso-direction-alt:auto;layout-flow:horizontal;' inset=3D"7.20pt,3.60pt,7.20pt,3.60pt"/><x:ClientData ObjectType=3D"Note"><x:MoveWithCells/><x:SizeWithCells/><x:TextHAlign>Left</x:TextHAlign><x:Row><?=$TS+5?></x:Row><x:Column>6</x:Column><x:Author>User</x:Author></x:ClientData></v:shape></xml>
+<v:shape id=3D"_x0000_s13313" type=3D"#_x0000_t202" style=3D'position:absolute;margin-left:530.40pt;margin-top:-6.00pt;width:109.10pt;height:60.00pt;visibility:hidden;' filled=3D"True" fillcolor=3D"#FFFFE1" strokecolor=3D"#000000" strokeweight=3D"0.75pt" o:insetmode=3D"auto" o:spt=3D"202"><v:stroke color=3D"#000000" joinstyle=3D"miter"/><v:fill type=3D"solid" color2=3D"#FFFFE1"/><v:imagedata embosscolor=3D"#000000"/><v:textbox style=3D'direction:ltr;mso-direction-alt:auto;layout-flow:horizontal;' inset=3D"7.20pt,3.60pt,7.20pt,3.60pt"/><x:ClientData ObjectType=3D"Note"><x:MoveWithCells/><x:SizeWithCells/><x:TextHAlign>Left</x:TextHAlign><x:Row>10</x:Row><x:Column>6</x:Column><x:Author>User</x:Author></x:ClientData></v:shape></xml>
       <![endif]-->
       <![if !vml]>
        <span style=3D'mso-ignore:vglayout;'>       <![endif]>
@@ -4235,27 +4207,27 @@ Content-Type: text/html; charset="us-ascii"
    <tr height=3D"35.20" style=3D'height:26.40pt;mso-height-source:userset;mso-height-alt:528;'>
     <td class=3D"xl118" height=3D"54.40" rowspan=3D"2" style=3D'height:40.80pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>No.</td>
     <td class=3D"xl153" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Program Studi</td>
-    <td class=3D"xl154" colspan=3D"<?=$TS?>" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah Mahasiswa Aktif</td>
-    <td class=3D"xl154" colspan=3D"<?=$TS?>" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str><font class=3D"font10">Jumlah Mahasiswa Asing Penuh Waktu (</font><font class=3D"font50">Full-time</font><font class=3D"font10">)</font></td>
-    <td class=3D"xl154" colspan=3D"<?=$TS?>" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str><font class=3D"font10">Jumlah Mahasiswa Asing Paruh Waktu (</font><font class=3D"font50">Part-time</font><font class=3D"font10">)</font></td>
+    <td class=3D"xl154" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah Mahasiswa Aktif</td>
+    <td class=3D"xl154" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str><font class=3D"font10">Jumlah Mahasiswa Asing Penuh Waktu (</font><font class=3D"font50">Full-time</font><font class=3D"font10">)</font></td>
+    <td class=3D"xl154" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str><font class=3D"font10">Jumlah Mahasiswa Asing Paruh Waktu (</font><font class=3D"font50">Part-time</font><font class=3D"font10">)</font></td>
     <td class=3D"xl152" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
-		<?php for ($i = $TS; $i > 1; $i--) { ?>
+		<?php for ($i = 3; $i > 1; $i--) { ?>
 			<td class=3D"xl157" x:str>TS-<?=($i-1)?></td>
 		<?php } ?>
 			<td class=3D"xl157" x:str>TS</td>
-    <?php for ($i = $TS; $i > 1; $i--) { ?>
+    <?php for ($i = 3; $i > 1; $i--) { ?>
 			<td class=3D"xl157" x:str>TS-<?=($i-1)?></td>
 		<?php } ?>
 			<td class=3D"xl157" x:str>TS</td>
-    <?php for ($i = $TS; $i > 1; $i--) { ?>
+    <?php for ($i = 3; $i > 1; $i--) { ?>
 			<td class=3D"xl157" x:str>TS-<?=($i-1)?></td>
 		<?php } ?>
 			<td class=3D"xl157" x:str>TS</td>
 	 </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
-		<?php for ($i = 1; $i <= (2+($TS*3)); $i++) { ?>
+		<?php for ($i = 1; $i <= (2+(3*3)); $i++) { ?>
 			<td class=3D"xl158" x:num><?=$i?></td>
 		<?php } ?>
 	 </tr>
@@ -4263,7 +4235,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
     <td class=3D"xl102" x:str><?=$HomebaseMahasiswaAsing?></td>
     <?php for ($i = 0; $i < 3; $i++) { ?>
-      <?php for ($j = 0; $j < $TS; $j++) { ?>
+      <?php for ($j = 0; $j < 3; $j++) { ?>
         <td class=3D"xl88" x:num><?=$MahasiswaAsing[$j][$i]?></td>
       <?php } ?>
 		<?php } ?>
@@ -5152,7 +5124,7 @@ Content-Type: text/html; charset="us-ascii"
       <td class=3D"xl88"><?=$key['SertifikatPendidik']?></td>
       <td class=3D"xl88"><?=$key['SertifikatKompetensi']?></td>
       <td class=3D"xl88"><?=str_replace("|",", ",$key['MengajarPS'])?></td>
-      <td class=3D"xl88"><?=$key['KesesuaianBidang']?></td>      
+      <td class=3D"xl88"><?=$key['KesesuaianBidang']=='Sesuai'?'V':'';?></td>      
       <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
     </tr>
    <?php } ?>
@@ -7213,167 +7185,167 @@ Content-Type: text/html; charset="us-ascii"
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;'></td>
     <td class=3D"xl90" x:str>a. Biaya Dosen (Gaji, Honor)</td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"30000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>30.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"30000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>30.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"30000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>30.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(C7:E7)" x:num=3D"30000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>30.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"6000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>6.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"6000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>6.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"6000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>6.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(G7:I7)" x:num=3D"6000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>6.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[0][0]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[0][1]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[0][2]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(C7:E7)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[0][4]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[0][5]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[0][6]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(G7:I7)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;'></td>
     <td class=3D"xl90" x:str>b. Biaya Tenaga Kependidikan (Gaji, Honor)</td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"5000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>5.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"5000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>5.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"5000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>5.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(C8:E8)" x:num=3D"5000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>5.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"1000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>1.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"1000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>1.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"1000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>1.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(G8:I8)" x:num=3D"1000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>1.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[1][0]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[1][1]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[1][2]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(C8:E8)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[1][4]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[1][5]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[1][6]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(G8:I8)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"34" style=3D'height:25.50pt;'>
     <td class=3D"xl87" height=3D"34" style=3D'height:25.50pt;'></td>
     <td class=3D"xl90" x:str>c. Biaya Operasional Pembelajaran (Bahan dan Peralatan Habis Pakai)</td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"15000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>15.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"15000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>15.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"15000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>15.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(C9:E9)" x:num=3D"15000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>15.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"3000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>3.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"3000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>3.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"3000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>3.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(G9:I9)" x:num=3D"3000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>3.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[2][0]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[2][1]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[2][2]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(C9:E9)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[2][4]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[2][5]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[2][6]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(G9:I9)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"85" style=3D'height:63.75pt;'>
     <td class=3D"xl87" height=3D"85" style=3D'height:63.75pt;'></td>
     <td class=3D"xl90" x:str>d. Biaya Operasional Tidak Langsung (Listrik, Gas, Air, Pemeliharaan Gedung, Pemeliharaan Sarana, Uang Lembur, Telekomunikasi, Konsumsi, Transport Lokal, Pajak, Asuransi, dll.)</td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"8000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>8.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"8000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>8.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"8000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>8.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(C10:E10)" x:num=3D"8000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>8.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"3000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>3.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"3000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>3.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"3000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>3.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(G10:I10)" x:num=3D"3000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>3.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[3][0]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[3][1]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[3][2]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(C10:E10)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[3][4]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[3][5]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[3][6]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(G10:I10)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"34" style=3D'height:25.50pt;'>
     <td class=3D"xl87" height=3D"34" style=3D'height:25.50pt;' x:num>2</td>
-    <td class=3D"xl90" x:str>Biaya operasional kemahasiswaan (penalaran, minat, bakat, dan kesejahteraan).</td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"2000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>2.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"1000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>1.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"1000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>1.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(C11:E11)" x:num=3D"1333333333,3333333"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>1.333.333.333,33333<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"800000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>800.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"800000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>800.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"800000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>800.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(G11:I11)" x:num=3D"800000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>800.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl90" x:str>Biaya operasional kemahasiswaan (penalaran, minat, bakat, dan kesejahteraan)</td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[4][0]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[4][1]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[4][2]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(C11:E11)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[4][4]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[4][5]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[4][6]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(G11:I11)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl131" height=3D"19" colspan=3D"2" style=3D'height:14.25pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(C6:C11)" x:num=3D"60000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>60.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(D6:D11)" x:num=3D"59000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>59.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(E6:E11)" x:num=3D"59000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>59.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DAVERAGE(C12:E12)" x:num=3D"59333333333,333336"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>59.333.333.333,33330<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(G6:G11)" x:num=3D"13800000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>13.800.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(H6:H11)" x:num=3D"13800000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>13.800.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(I6:I11)" x:num=3D"13800000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>13.800.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DAVERAGE(G12:I12)" x:num=3D"13800000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>13.800.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(C6:C11)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(D6:D11)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(E6:E11)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DAVERAGE(C12:E12)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(G6:G11)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(H6:H11)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(I6:I11)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DAVERAGE(G12:I12)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
     <td class=3D"xl90" x:str>Biaya Penelitian</td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"500000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>500.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"500000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>500.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"500000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>500.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(C13:E13)" x:num=3D"500000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>500.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"300000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>300.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"300000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>300.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"300000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>300.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(G13:I13)" x:num=3D"300000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>300.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[6][0]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[6][1]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[6][2]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(C13:E13)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[6][4]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[6][5]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[6][6]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(G13:I13)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>4</td>
     <td class=3D"xl90" x:str>Biaya PkM</td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"200000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>200.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"200000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>200.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"200000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>200.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(C14:E14)" x:num=3D"200000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>200.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"50000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>50.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"50000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>50.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"50000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>50.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(G14:I14)" x:num=3D"50000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>50.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[7][0]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[7][1]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[7][2]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(C14:E14)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[7][4]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[7][5]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[7][6]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(G14:I14)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl131" height=3D"19" colspan=3D"2" style=3D'height:14.25pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(C13:C14)" x:num=3D"700000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>700.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(D13:D14)" x:num=3D"700000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>700.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(E13:E14)" x:num=3D"700000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>700.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DAVERAGE(C15:E15)" x:num=3D"700000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>700.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(G13:G14)" x:num=3D"350000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>350.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(H13:H14)" x:num=3D"350000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>350.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(I13:I14)" x:num=3D"350000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>350.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DAVERAGE(G15:I15)" x:num=3D"350000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>350.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(C13:C14)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(D13:D14)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(E13:E14)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DAVERAGE(C15:E15)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(G13:G14)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(H13:H14)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(I13:I14)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DAVERAGE(G15:I15)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>5</td>
     <td class=3D"xl90" x:str>Biaya Investasi SDM</td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"250000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>250.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"200000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>200.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"100000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>100.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(C16:E16)" x:num=3D"183333333,33333334"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>183.333.333,33333<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"100000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>100.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"100000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>100.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"100000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>100.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(G16:I16)" x:num=3D"100000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>100.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[9][0]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[9][1]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[9][2]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(C16:E16)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[9][4]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[9][5]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[9][6]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(G16:I16)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>6</td>
     <td class=3D"xl90" x:str>Biaya Investasi Sarana</td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"1000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>1.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"0"><span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>-<span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"800000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>800.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(C17:E17)" x:num=3D"600000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>600.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"200000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>200.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"0"><span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>-<span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"200000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>200.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(G17:I17)" x:num=3D"133333333,33333333"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>133.333.333,33333<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[10][0]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[10][1]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[10][2]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(C17:E17)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[10][4]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[10][5]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[10][6]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(G17:I17)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>6</td>
     <td class=3D"xl90" x:str>Biaya Investasi Prasarana</td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"5000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>5.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"4000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>4.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"0"><span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>-<span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;</span></td>
-    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(C18:E18)" x:num=3D"3000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>3.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"1000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>1.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"1000000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>1.000.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl130" align=3D"right" x:num=3D"0"><span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>-<span style=3D'mso-spacerun:yes;'>&nbsp;&nbsp;&nbsp;</span></td>
-    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(G18:I18)" x:num=3D"666666666,66666663"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>666.666.666,66667<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[11][0]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[11][1]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[11][2]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(C18:E18)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[11][4]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[11][5]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl130" align=3D"right"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><?=$PenggunaanDana[11][6]?><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl135" align=3D"right" x:fmla=3D"=3DAVERAGE(G18:I18)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl131" height=3D"19" colspan=3D"2" style=3D'height:14.25pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(C16:C18)" x:num=3D"6250000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>6.250.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(D16:D18)" x:num=3D"4200000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>4.200.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(E16:E18)" x:num=3D"900000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>900.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DAVERAGE(C19:E19)" x:num=3D"3783333333,3333335"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>3.783.333.333,33333<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(G16:G18)" x:num=3D"1300000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>1.300.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(H16:H18)" x:num=3D"1100000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>1.100.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(I16:I18)" x:num=3D"300000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>300.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
-    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DAVERAGE(G19:I19)" x:num=3D"900000000"><span style=3D'mso-spacerun:yes;'>&nbsp;</span>900.000.000,000<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(C16:C18)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(D16:D18)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(E16:E18)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DAVERAGE(C19:E19)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(G16:G18)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(H16:H18)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DSUM(I16:I18)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl132" align=3D"right" x:fmla=3D"=3DAVERAGE(G19:I19)"><span style=3D'mso-spacerun:yes;'>&nbsp;</span><span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <![if supportMisalignedColumns]>
@@ -9119,28 +9091,28 @@ Content-Type: text/html; charset="us-ascii"
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
     <td class=3D"xl87" x:str>TS-2</td>
-    <td class=3D"xl88" x:num>101</td>
-    <td class=3D"xl111" x:num=3D"3,1000000000000001">003</td>
-    <td class=3D"xl111" x:num=3D"3,2000000000000002">003</td>
-    <td class=3D"xl111" x:num=3D"3,2999999999999998">003</td>
+    <td class=3D"xl88" x:num><?=$IPKLulusan[0][0]?></td>
+    <td class=3D"xl111" x:num><?=$IPKLulusan[0][1]?></td>
+    <td class=3D"xl111" x:num><?=$IPKLulusan[0][2]?></td>
+    <td class=3D"xl111" x:num><?=$IPKLulusan[0][3]?></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>2</td>
     <td class=3D"xl87" x:str>TS-1</td>
-    <td class=3D"xl88" x:num>87</td>
-    <td class=3D"xl111" x:num=3D"3,0299999999999998">003</td>
-    <td class=3D"xl111" x:num=3D"3,5499999999999998">004</td>
-    <td class=3D"xl111" x:num=3D"3,6699999999999999">004</td>
+    <td class=3D"xl88" x:num><?=$IPKLulusan[1][0]?></td>
+    <td class=3D"xl111" x:num><?=$IPKLulusan[1][1]?></td>
+    <td class=3D"xl111" x:num><?=$IPKLulusan[1][2]?></td>
+    <td class=3D"xl111" x:num><?=$IPKLulusan[1][3]?></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
     <td class=3D"xl87" x:str>TS</td>
-    <td class=3D"xl88" x:num>95</td>
-    <td class=3D"xl111" x:num=3D"2,8100000000000001">003</td>
-    <td class=3D"xl111" x:num=3D"3,3100000000000001">003</td>
-    <td class=3D"xl111" x:num=3D"3,6099999999999999">004</td>
+    <td class=3D"xl88" x:num><?=$IPKLulusan[2][0]?></td>
+    <td class=3D"xl111" x:num><?=$IPKLulusan[2][1]?></td>
+    <td class=3D"xl111" x:num><?=$IPKLulusan[2][2]?></td>
+    <td class=3D"xl111" x:num><?=$IPKLulusan[2][3]?></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <![if supportMisalignedColumns]>

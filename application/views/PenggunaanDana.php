@@ -74,7 +74,8 @@
                         <tr style="font-size: 10pt;" class="text-light text-center">
                           <th style="width: 4%;" class="align-middle">No</th>
                           <th style="width: 40%;"class="align-middle">Jenis Penggunaan</th>
-                          <th style="width: 56%;"class="align-middle">Input</th>
+                          <th style="width: 28%;"class="align-middle">Unit Pengelola<br>Program Studi</th>
+                          <th style="width: 28%;"class="align-middle">Program Studi</th>
                         </tr>
                       </thead>
                       <tbody class="bg-primary">
@@ -95,7 +96,12 @@
                           <td class="text-justify font-weight-bold"><?=$Tanya[$i]?></td>
                           <td class="text-left">
                             <div class="input-group input-group-sm my-1">
-                              <input class="form-control form-control-sm" type="text" id="I<?=$i?>" placeholder="Input Hanya Angka Saja">
+                              <input class="form-control form-control-sm" type="text" id="UP<?=$i?>" placeholder="Input Hanya Angka Saja">
+                            </div>
+                          </td>
+                          <td class="text-left">
+                            <div class="input-group input-group-sm my-1">
+                              <input class="form-control form-control-sm" type="text" id="PS<?=$i?>" placeholder="Input Hanya Angka Saja">
                             </div>
                           </td>
                         </tr>
@@ -148,7 +154,8 @@
                         <tr style="font-size: 10pt;" class="text-light text-center">
                           <th style="width: 4%;" class="align-middle">No</th>
                           <th style="width: 40%;"class="align-middle">Jenis Penggunaan</th>
-                          <th style="width: 56%;"class="align-middle">Input</th>
+                          <th style="width: 28%;"class="align-middle">Unit Pengelola<br>Program Studi</th>
+                          <th style="width: 28%;"class="align-middle">Program Studi</th>
                         </tr>
                       </thead>
                       <tbody class="bg-primary">
@@ -169,7 +176,12 @@
                           <td class="text-justify font-weight-bold"><?=$Tanya[$i]?></td>
                           <td class="text-left">
                             <div class="input-group input-group-sm my-1">
-                              <input class="form-control form-control-sm" type="text" id="EditI<?=$i?>" placeholder="Input Hanya Angka Saja">
+                              <input class="form-control form-control-sm" type="text" id="EditUP<?=$i?>" placeholder="Input Hanya Angka Saja">
+                            </div>
+                          </td>
+                          <td class="text-left">
+                            <div class="input-group input-group-sm my-1">
+                              <input class="form-control form-control-sm" type="text" id="EditPS<?=$i?>" placeholder="Input Hanya Angka Saja">
                             </div>
                           </td>
                         </tr>
@@ -194,7 +206,8 @@
     <script src="<?=base_url('bootstrap/js/adminlte.min.js')?>"></script>
     <script src="<?=base_url('bootstrap/datatables/jquery.dataTables.js')?>"></script>
 		<script src="<?=base_url('bootstrap/datatables-bs4/js/dataTables.bootstrap4.js')?>"></script>
-		<script src="<?=base_url('bootstrap/inputmask/min/jquery.inputmask.bundle.min.js')?>"></script>
+    <script src="<?=base_url('bootstrap/inputmask/min/jquery.inputmask.bundle.min.js')?>"></script>
+    <script src="<?=base_url('bootstrap/js/Borang.js')?>"></script>
 		<script>
 			jQuery(document).ready(function($) {
 				"use strict";
@@ -208,8 +221,13 @@
             alert('Input Tahun Belum Benar!')
           } else {
             for (let i = 0; i < 10; i++) {
-              if (isNaN(parseInt($("#I"+i).val()))) {
-                alert('Input Penggunaan Dana Nomer '+(i+1)+' Belum Benar!')
+              if (isNaN(parseInt($("#UP"+i).val()))) {
+                alert('Input Penggunaan Dana Nomer '+(i+1)+' Unit Pengelola Program Studi Belum Benar!')
+                return true
+                break
+              }
+              if (isNaN(parseInt($("#PS"+i).val()))) {
+                alert('Input Penggunaan Dana Nomer '+(i+1)+' Program Studi Belum Benar!')
                 return true
                 break
               } 
@@ -217,16 +235,16 @@
             var fd = new FormData()
 						fd.append('Homebase',$("#homebase").val())
 						fd.append('Tahun',$("#tahun").val())
-						fd.append('Dosen',parseInt($("#I0").val()))
-            fd.append('TenagaKependidikan',parseInt($("#I1").val()))
-						fd.append('OperasionalPembelajaran',parseInt($("#I2").val()))
-            fd.append('OperasionalTidakLangsung',parseInt($("#I3").val()))
-            fd.append('OperasionalKemahasiswaan',parseInt($("#I4").val()))
-						fd.append('Penelitian',parseInt($("#I5").val()))
-            fd.append('PkM',parseInt($("#I6").val()))
-            fd.append('SDM',parseInt($("#I7").val()))
-						fd.append('Sarana',parseInt($("#I8").val()))
-            fd.append('Prasarana',parseInt($("#I9").val()))
+						fd.append('Dosen',parseInt($("#UP0").val())+"/"+parseInt($("#PS0").val()))
+            fd.append('TenagaKependidikan',parseInt($("#UP1").val())+"/"+parseInt($("#PS1").val()))
+						fd.append('OperasionalPembelajaran',parseInt($("#UP2").val())+"/"+parseInt($("#PS2").val()))
+            fd.append('OperasionalTidakLangsung',parseInt($("#UP3").val())+"/"+parseInt($("#PS3").val()))
+            fd.append('OperasionalKemahasiswaan',parseInt($("#UP4").val())+"/"+parseInt($("#PS4").val()))
+						fd.append('Penelitian',parseInt($("#UP5").val())+"/"+parseInt($("#PS5").val()))
+            fd.append('PkM',parseInt($("#UP6").val())+"/"+parseInt($("#PS6").val()))
+            fd.append('SDM',parseInt($("#UP7").val())+"/"+parseInt($("#PS7").val()))
+						fd.append('Sarana',parseInt($("#UP8").val())+"/"+parseInt($("#PS8").val()))
+            fd.append('Prasarana',parseInt($("#UP9").val())+"/"+parseInt($("#PS9").val()))
             $.ajax({
 							url: BaseURL+'Admin/InputPenggunaanDana',
 							type: 'post',
@@ -252,16 +270,26 @@
           $('#Edithomebase').val(Pisah[0])
           $('#tahunlama').val(Pisah[1])
 					$('#Edittahun').val(Pisah[1])
-          $('#EditI0').val(Pisah[2])
-					$("#EditI1").val(Pisah[3])
-          $('#EditI2').val(Pisah[2])
-					$("#EditI3").val(Pisah[3])
-          $('#EditI4').val(Pisah[2])
-					$("#EditI5").val(Pisah[3])
-          $('#EditI6').val(Pisah[2])
-					$("#EditI7").val(Pisah[3])
-          $('#EditI8').val(Pisah[2])
-					$("#EditI9").val(Pisah[3])
+          $('#EditUP0').val(Pisah[2].split("/")[0])
+					$("#EditUP1").val(Pisah[3].split("/")[0])
+          $('#EditUP2').val(Pisah[4].split("/")[0])
+					$("#EditUP3").val(Pisah[5].split("/")[0])
+          $('#EditUP4').val(Pisah[6].split("/")[0])
+					$("#EditUP5").val(Pisah[7].split("/")[0])
+          $('#EditUP6').val(Pisah[8].split("/")[0])
+					$("#EditUP7").val(Pisah[9].split("/")[0])
+          $('#EditUP8').val(Pisah[10].split("/")[0])
+					$("#EditUP9").val(Pisah[11].split("/")[0])
+          $('#EditPS0').val(Pisah[2].split("/")[1])
+					$("#EditPS1").val(Pisah[3].split("/")[1])
+          $('#EditPS2').val(Pisah[4].split("/")[1])
+					$("#EditPS3").val(Pisah[5].split("/")[1])
+          $('#EditPS4').val(Pisah[6].split("/")[1])
+					$("#EditPS5").val(Pisah[7].split("/")[1])
+          $('#EditPS6').val(Pisah[8].split("/")[1])
+					$("#EditPS7").val(Pisah[9].split("/")[1])
+          $('#EditPS8').val(Pisah[10].split("/")[1])
+					$("#EditPS9").val(Pisah[11].split("/")[1])
           $('#ModalEditPenggunaanDana').modal("show")
 				}) 
 
@@ -270,8 +298,13 @@
             alert('Input Tahun Belum Benar!')
           } else {
             for (let i = 0; i < 10; i++) {
-              if (isNaN(parseInt($("#EditI"+i).val()))) {
-                alert('Input Penggunaan Dana Nomer '+(i+1)+' Belum Benar!')
+              if (isNaN(parseInt($("#EditUP"+i).val()))) {
+                alert('Input Penggunaan Dana Nomer '+(i+1)+' Unit Pengelola Program Studi Belum Benar!')
+                return true
+                break
+              } 
+              if (isNaN(parseInt($("#EditPS"+i).val()))) {
+                alert('Input Penggunaan Dana Nomer '+(i+1)+' Program Studi Belum Benar!')
                 return true
                 break
               } 
@@ -281,16 +314,16 @@
             fd.append('HomebaseLama',$("#homebaselama").val())
 						fd.append('Tahun',$("#Edittahun").val())
             fd.append('TahunLama',$("#tahunlama").val())
-						fd.append('Dosen',parseInt($("#EditI0").val()))
-            fd.append('TenagaKependidikan',parseInt($("#EditI1").val()))
-						fd.append('OperasionalPembelajaran',parseInt($("#EditI2").val()))
-            fd.append('OperasionalTidakLangsung',parseInt($("#EditI3").val()))
-            fd.append('OperasionalKemahasiswaan',parseInt($("#EditI4").val()))
-						fd.append('Penelitian',parseInt($("#EditI5").val()))
-            fd.append('PkM',parseInt($("#EditI6").val()))
-            fd.append('SDM',parseInt($("#EditI7").val()))
-						fd.append('Sarana',parseInt($("#EditI8").val()))
-            fd.append('Prasarana',parseInt($("#EditI9").val()))
+						fd.append('Dosen',parseInt($("#EditUP0").val())+"/"+parseInt($("#EditPS0").val()))
+            fd.append('TenagaKependidikan',parseInt($("#EditUP1").val())+"/"+parseInt($("#EditPS1").val()))
+						fd.append('OperasionalPembelajaran',parseInt($("#EditUP2").val())+"/"+parseInt($("#EditPS2").val()))
+            fd.append('OperasionalTidakLangsung',parseInt($("#EditUP3").val())+"/"+parseInt($("#EditPS3").val()))
+            fd.append('OperasionalKemahasiswaan',parseInt($("#EditUP4").val())+"/"+parseInt($("#EditPS4").val()))
+						fd.append('Penelitian',parseInt($("#EditUP5").val())+"/"+parseInt($("#EditPS5").val()))
+            fd.append('PkM',parseInt($("#EditUP6").val())+"/"+parseInt($("#EditPS6").val()))
+            fd.append('SDM',parseInt($("#EditUP7").val())+"/"+parseInt($("#EditPS7").val()))
+						fd.append('Sarana',parseInt($("#EditUP8").val())+"/"+parseInt($("#EditPS8").val()))
+            fd.append('Prasarana',parseInt($("#EditUP9").val())+"/"+parseInt($("#EditPS9").val()))
             $.ajax({
 							url: BaseURL+'Admin/UpdatePenggunaanDana',
 							type: 'post',
@@ -335,52 +368,7 @@
 							'next': '<b class="text-primary">></b>'
 						}
 					}
-				});
-				
-        $("#Simpan").click(function() {
-          var Kajur = { NIP: $("#Kajur").val() }
-          $.post(BaseURL+"Admin/Kajur", Kajur).done(function(Respon) {
-            window.location = BaseURL + "Admin/AkunDosen"
-          })
-        })
-
-        $("#DownloadBorang").click(function() { 
-					var Pisah = $('#TS').val().split('-')
-          if (Pisah[1]-Pisah[0] >= 0) {
-            window.location = BaseURL + 'Admin/Borang/'+$('#TS').val()
-            $.post(BaseURL+"Admin"+"/DTPS").done(function(Respon) {
-              var array = JSON.parse(Respon) 
-              array.forEach(function(object) {
-                if (object.BuktiPendidik != null) {
-                  $('#LampiranDTPS').attr('href',BaseURL+'DTPS/'+object.BuktiPendidik)		
-                  $('#LampiranDTPS').attr('Download',object.BuktiPendidik) 
-                  $('#LampiranDTPS')[0].click()
-                }
-                if (object.BuktiKompetensi != null) {
-                  $('#LampiranDTPS').attr('href',BaseURL+'DTPS/'+object.BuktiKompetensi)		
-                  $('#LampiranDTPS').attr('Download',object.BuktiKompetensi) 
-                  $('#LampiranDTPS')[0].click()
-                }
-              })
-            }) 	
-            var KerjaSama = ['Pendidikan','Penelitian','Pengabdian']
-					  for (let i = 0; i < 3; i++) { 
-              $.post(BaseURL+"Admin"+"/LampiranKerjaSama/"+KerjaSama[i]).done(function(Respon) {
-                var array = JSON.parse(Respon) 
-                var No = 1;
-                array.forEach(function(object) {
-                  $('#LampiranKerjaSama').attr('href',BaseURL+'KerjaSama/'+object.Bukti)		
-                  $('#LampiranKerjaSama').attr('Download','Kerja Sama '+KerjaSama[i]+' '+No+'.pdf') 
-                  $('#LampiranKerjaSama')[0].click()
-                  No+=1;
-                })
-              }) 	
-            }
-          }
-          else {
-            alert('Input Tahun Belum Benar!')
-          }
-        })
+				})
 			})
 		</script>
   </body>
