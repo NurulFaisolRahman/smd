@@ -73,7 +73,7 @@
             <td class="text-center align-middle"><?=$key['Jenjang']?></td>
             <td class="text-center align-middle"><?=$key['Semester']?></td>
             <td class="text-center align-middle"><?=$key['Tahun']?></td>
-            <td class="align-middle"><?='Berdasarkan '.$key['SK'].' '.$key['Kegiatan']?></td>
+            <td class="align-middle"><?=$key['Kegiatan']?></td>
             <td class="text-center align-middle"><?=$key['TanggalKegiatan']?></td>
             <td class="text-center align-middle text-success h3"><?php if ($key['Bukti'] != '') { ?>
                 <a href="<?=base_url('Pendidikan/'.$key['Bukti'])?>" class="btn btn-sm btn-primary" download><i class="fas fa-download"></i></a>
@@ -161,11 +161,13 @@
               <div id="OpsiPND3" style="display: none;">
                 <div class="input-group input-group-sm mb-1">
                   <div class="input-group-prepend">
-                    <label class="input-group-text bg-primary"><b>Jenjang</b></label>
+                    <label class="input-group-text bg-primary"><b>Mengajar Program Studi</b></label>
                   </div>
                   <select class="custom-select" id="JenjangMengajar">										
-                      <option value="S1">S1</option>
-                      <option value="S2">S2</option>
+                      <option value="S1">S1 Ekonomi Pembangunan</option>
+                      <option value="S2">S2 Ilmu Ekonomi</option>
+                      <option value="S3">S1 Program Studi Lain</option>
+                      <option value="S4">S2 Program Studi Lain</option>
                   </select>
                 </div>
                 <div class="input-group input-group-sm mb-1">
@@ -247,11 +249,11 @@
                 </div>
                 <div class="input-group input-group-sm mb-1">
                   <div class="input-group-prepend">
-                    <span class="input-group-text bg-primary"><b>Lingkup</b></span>
+                    <span class="input-group-text bg-primary"><b>Program Studi</b></span>
                   </div>
                   <select class="custom-select" id="LingkupPND6">
-                    <option value="1">Program Studi EP</option>
-                    <option value="2">Program Studi Lain</option>
+                    <option value="1">S1 Ekonomi Pembangunan</option>
+                    <option value="2">S2 Ilmu Ekonomi</option>
                   </select>
                 </div>
               </div>

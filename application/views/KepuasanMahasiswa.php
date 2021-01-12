@@ -42,7 +42,18 @@
                       <input class="form-control" type="text" id="NIM" data-inputmask='"mask": "999999999999"' data-mask>
                     </div>
                   </div> 
-                  <div class="col-sm-8"></div>
+                  <div class="col-sm-4 my-1"> 
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text bg-primary text-light"><b>Program Studi</b></label>
+                      </div>
+                      <select class="custom-select" id="Homebase">										
+                        <option value="S1">S1 Ekonomi Pembangunan</option>
+                        <option value="S2">S2 Ilmu Ekonomi</option>
+                      </select>
+                    </div>
+                  </div> 
+                  <div class="col-sm-4"></div>
                   <?php 
                     $Tanya = array('Keandalan (reliability) : kemampuan dosen, tenaga kependidikan, dan pengelola dalam memberikan pelayanan.',
                                       'Daya tanggap (responsiveness) : kemauan dari dosen, tenaga kependidikan, dan pengelola dalam membantu mahasiswa dan memberikan jasa dengan cepat.',
@@ -110,10 +121,12 @@
               } 
             }
             var Data = { NIM: $("#NIM").val(),
-                         Poin: Poin}
+                         Homebase: $("#Homebase").val(),
+                         Poin: Poin,
+                         Tahun: new Date().getFullYear()}
             $.post(BaseURL+"SMD/InputKuisioner/KepuasanMahasiswa", Data).done(function(Respon) {
               if (Respon == '1') {
-                alert('Terima Kasih')
+                alert('Terima Kasih Telah Mengisi Kuisioner :)')
                 window.location = BaseURL + "SMD/Kuisioner/KepuasanMahasiswa"
               } else {
                 alert(Respon)

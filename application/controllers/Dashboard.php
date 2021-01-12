@@ -74,21 +74,16 @@ class Dashboard extends CI_Controller {
 
 	public function EditProfil(){ 
 		if ($this->CekBukti($_FILES)){
-			$BuktiSertifikatPendidik = $_POST['BuktiSertifikatPendidikLama'];
-			$BuktiSertifikatKompetensi = $_POST['BuktiSertifikatKompetensiLama'];
-			if (isset($_FILES['BuktiSertifikatPendidik'])) {
-				if($BuktiSertifikatPendidik != ''){
-					unlink('DTPS/'.$BuktiSertifikatPendidik);
+			$Sertifikat = $_POST['SertifikatLama'];
+			if (isset($_FILES['Sertifikat'])) {
+				if($Sertifikat != ''){
+					unlink('DTPS/'.$Sertifikat);
 				}
-				move_uploaded_file($_FILES['BuktiSertifikatPendidik']['tmp_name'], "DTPS/Sertifikat Pendidik ".$_POST['Nama'].".pdf");
-				$BuktiSertifikatPendidik = "Sertifikat Pendidik ".$_POST['Nama'].".pdf"; 
-			}
-			if (isset($_FILES['BuktiSertifikatKompetensi'])) {
-				if($BuktiSertifikatKompetensi != ''){
-					unlink('DTPS/'.$BuktiSertifikatKompetensi);
-				}
-				move_uploaded_file($_FILES['BuktiSertifikatKompetensi']['tmp_name'], "DTPS/Sertifikat Kompetensi ".$_POST['Nama'].".pdf");
-				$BuktiSertifikatKompetensi = "Sertifikat Kompetensi ".$_POST['Nama'].".pdf";
+				$NamaPdf = date('Ymd',time()).substr(password_hash('Sertifikat', PASSWORD_DEFAULT),7,7);
+				$NamaPdf = str_replace("/","E",$NamaPdf);
+				$NamaPdf = str_replace(".","F",$NamaPdf);
+				move_uploaded_file($_FILES['Sertifikat']['tmp_name'], "DTPS/".$NamaPdf.".pdf");
+				$Sertifikat = $NamaPdf.".pdf";
 			}
 			if($this->db->get_where('Dosen', array('NIP' => $_POST['NIP']))->num_rows() === 0 || $this->session->userdata('NIP') == $_POST['NIP']){
 				$this->db->where('NIP', $this->session->userdata('NIP'));
@@ -109,10 +104,7 @@ class Dashboard extends CI_Controller {
 															'KesesuaianBidang' => $_POST['KesesuaianBidang'],
 															'SertifikatPendidik' => $_POST['SertifikatPendidik'],
 															'SertifikatKompetensi' => $_POST['SertifikatKompetensi'],
-															'BuktiPendidik' => $BuktiSertifikatPendidik,
-															'BuktiKompetensi' => $BuktiSertifikatKompetensi,
-															'MengajarPS' => $_POST['MengajarPS'],
-															'MengajarPSLain' => $_POST['MengajarPSLain']));											
+															'Sertifikat' => $Sertifikat));											
 				$this->session->set_userdata('NIP', $_POST['NIP']);
 				$this->session->set_userdata('Jabatan', $_POST['Jabatan']);
 				echo '1';

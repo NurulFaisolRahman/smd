@@ -1272,7 +1272,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Pendidikan[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Pendidikan[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Pendidikan[$i]['Volume']?></td>
@@ -1303,7 +1303,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Pendidikan[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Pendidikan[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Pendidikan[$i]['Volume']?></td>
@@ -1334,7 +1334,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Pendidikan[$i]['SK'].'; Membina/mengajar mata kuliah : '.$Pendidikan[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Pendidikan[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Pendidikan[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Pendidikan[$i]['Volume']?></td>
@@ -1365,7 +1365,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Pendidikan[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Pendidikan[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Pendidikan[$i]['Volume']?></td>
@@ -1396,7 +1396,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Pendidikan[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Pendidikan[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Pendidikan[$i]['Volume']?></td>
@@ -1462,7 +1462,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Pendidikan[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Pendidikan[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Pendidikan[$i]['Volume']?></td>
@@ -1563,7 +1563,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Pendidikan[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Pendidikan[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Pendidikan[$i]['Volume']?></td>
@@ -1602,7 +1602,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Pendidikan[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Pendidikan[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Pendidikan[$i]['Volume']?></td>
@@ -1633,7 +1633,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Pendidikan[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Pendidikan[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Pendidikan[$i]['Volume']?></td>
@@ -1675,7 +1675,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Pendidikan[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Pendidikan[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Pendidikan[$i]['Volume']?></td>
@@ -1714,7 +1714,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Pendidikan[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Pendidikan[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Pendidikan[$i]['Volume']?></td>
@@ -1745,7 +1745,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Pendidikan[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Pendidikan[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Pendidikan[$i]['Volume']?></td>
@@ -1821,7 +1821,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Pendidikan[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Pendidikan[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Pendidikan[$i]['Volume']?></td>
@@ -1871,7 +1871,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Pendidikan[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Pendidikan[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Pendidikan[$i]['Volume']?></td>
@@ -1910,7 +1910,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Pendidikan[$i]['SK'].' '.$Pendidikan[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Pendidikan[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Pendidikan[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Pendidikan[$i]['Volume']?></td>
@@ -3057,7 +3057,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Penelitian[$i]['SK'].' '.$Penelitian[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Penelitian[$i]['SK'].' '.$Penelitian[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Penelitian[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Penelitian[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Penelitian[$i]['Volume']?></td>
@@ -3252,7 +3252,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Penelitian[$i]['SK'].' '.$Penelitian[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Penelitian[$i]['SK'].' '.$Penelitian[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Penelitian[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Penelitian[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Penelitian[$i]['Volume']?></td>
@@ -3364,7 +3364,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Penelitian[$i]['SK'].' '.$Penelitian[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Penelitian[$i]['SK'].' '.$Penelitian[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Penelitian[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Penelitian[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Penelitian[$i]['Volume']?></td>
@@ -3396,7 +3396,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Penelitian[$i]['SK'].' '.$Penelitian[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Penelitian[$i]['SK'].' '.$Penelitian[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Penelitian[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Penelitian[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Penelitian[$i]['Volume']?></td>
@@ -3428,7 +3428,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Penelitian[$i]['SK'].' '.$Penelitian[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Penelitian[$i]['SK'].' '.$Penelitian[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Penelitian[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Penelitian[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Penelitian[$i]['Volume']?></td>
@@ -3491,7 +3491,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Penelitian[$i]['SK'].' '.$Penelitian[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Penelitian[$i]['SK'].' '.$Penelitian[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Penelitian[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Penelitian[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Penelitian[$i]['Volume']?></td>
@@ -3589,7 +3589,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Penelitian[$i]['SK'].' '.$Penelitian[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Penelitian[$i]['SK'].' '.$Penelitian[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Penelitian[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Penelitian[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Penelitian[$i]['Volume']?></td>
@@ -3653,7 +3653,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Penelitian[$i]['SK'].' '.$Penelitian[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Penelitian[$i]['SK'].' '.$Penelitian[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Penelitian[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Penelitian[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Penelitian[$i]['Volume']?></td>
@@ -4722,7 +4722,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Pengabdian[$i]['SK'].' '.$Pengabdian[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Pengabdian[$i]['SK'].' '.$Pengabdian[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Pengabdian[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Pengabdian[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Pengabdian[$i]['Volume']?></td>
@@ -4753,7 +4753,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Pengabdian[$i]['SK'].' '.$Pengabdian[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Pengabdian[$i]['SK'].' '.$Pengabdian[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Pengabdian[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Pengabdian[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Pengabdian[$i]['Volume']?></td>
@@ -4831,7 +4831,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Pengabdian[$i]['SK'].' '.$Pengabdian[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Pengabdian[$i]['SK'].' '.$Pengabdian[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Pengabdian[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Pengabdian[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Pengabdian[$i]['Volume']?></td>
@@ -4934,7 +4934,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Pengabdian[$i]['SK'].' '.$Pengabdian[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Pengabdian[$i]['SK'].' '.$Pengabdian[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Pengabdian[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Pengabdian[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Pengabdian[$i]['Volume']?></td>
@@ -4997,7 +4997,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Pengabdian[$i]['SK'].' '.$Pengabdian[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Pengabdian[$i]['SK'].' '.$Pengabdian[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Pengabdian[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Pengabdian[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Pengabdian[$i]['Volume']?></td>
@@ -5028,7 +5028,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Pengabdian[$i]['SK'].' '.$Pengabdian[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Pengabdian[$i]['SK'].' '.$Pengabdian[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Pengabdian[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Pengabdian[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Pengabdian[$i]['Volume']?></td>
@@ -5070,7 +5070,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Pengabdian[$i]['SK'].' '.$Pengabdian[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Pengabdian[$i]['SK'].' '.$Pengabdian[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Pengabdian[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Pengabdian[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Pengabdian[$i]['Volume']?></td>
@@ -6123,7 +6123,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Penunjang[$i]['SK'].' '.$Penunjang[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Penunjang[$i]['SK'].' '.$Penunjang[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Penunjang[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Penunjang[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Penunjang[$i]['Volume']?></td>
@@ -6195,7 +6195,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Penunjang[$i]['SK'].' '.$Penunjang[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Penunjang[$i]['SK'].' '.$Penunjang[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Penunjang[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Penunjang[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Penunjang[$i]['Volume']?></td>
@@ -6307,7 +6307,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Penunjang[$i]['SK'].' '.$Penunjang[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Penunjang[$i]['SK'].' '.$Penunjang[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Penunjang[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Penunjang[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Penunjang[$i]['Volume']?></td>
@@ -6389,7 +6389,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Penunjang[$i]['SK'].' '.$Penunjang[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Penunjang[$i]['SK'].' '.$Penunjang[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Penunjang[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Penunjang[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Penunjang[$i]['Volume']?></td>
@@ -6432,7 +6432,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Penunjang[$i]['SK'].' '.$Penunjang[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Penunjang[$i]['SK'].' '.$Penunjang[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Penunjang[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Penunjang[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Penunjang[$i]['Volume']?></td>
@@ -6504,7 +6504,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Penunjang[$i]['SK'].' '.$Penunjang[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Penunjang[$i]['SK'].' '.$Penunjang[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Penunjang[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Penunjang[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Penunjang[$i]['Volume']?></td>
@@ -6605,7 +6605,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Penunjang[$i]['SK'].' '.$Penunjang[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Penunjang[$i]['SK'].' '.$Penunjang[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Penunjang[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Penunjang[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Penunjang[$i]['Volume']?></td>
@@ -6703,7 +6703,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Penunjang[$i]['SK'].' '.$Penunjang[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Penunjang[$i]['SK'].' '.$Penunjang[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Penunjang[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Penunjang[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Penunjang[$i]['Volume']?></td>
@@ -6759,7 +6759,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Penunjang[$i]['SK'].' '.$Penunjang[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Penunjang[$i]['SK'].' '.$Penunjang[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Penunjang[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Penunjang[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Penunjang[$i]['Volume']?></td>
@@ -6799,7 +6799,7 @@ Content-Type: text/html; charset="us-ascii"
       <?php } ?>
         <tr style=3D'mso-height-source:userset;'>
           <td class=3D"xl88pak" x:str><?=$No++?></td>
-          <td class=3D"xl89pak" x:str><?='Berdasarkan '.$Penunjang[$i]['SK'].' '.$Penunjang[$i]['Kegiatan']?></td>
+          <td class=3D"xl89pak" x:str><?='Surat Tugas '.$Penunjang[$i]['SK'].' '.$Penunjang[$i]['Kegiatan']?></td>
           <td class=3D"xl90pak" x:str><?=$Penunjang[$i]['TanggalKegiatan']?></td>
           <td class=3D"xl91pak" x:str><?=$Penunjang[$i]['Satuan']?></td>
           <td class=3D"xl101pak" x:str><?=$Penunjang[$i]['Volume']?></td>
@@ -9295,7 +9295,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
     <td class=3D"xl138"></td>
     <td class=3D"xl206" x:str>1</td>
-    <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Berdasarkan bidang keahlian</td>
+    <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Surat Tugas bidang keahlian</td>
     <td class=3D"xl247"></td>
     <td class=3D"xl167"><?=$DupakPengabdian[9]?></td>
     <td class=3D"xl167" x:fmla=3D"=3DH167+I167"></td>
@@ -9309,7 +9309,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl230" height=3D"19" style=3D'height:14.25pt;'></td>
     <td class=3D"xl138"></td>
     <td class=3D"xl206" x:str>2</td>
-    <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Berdasarkan penugasan lembaga perguruan tinggi</td>
+    <td class=3D"xl136" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Surat Tugas penugasan lembaga perguruan tinggi</td>
     <td class=3D"xl247"></td>
     <td class=3D"xl167"><?=$DupakPengabdian[10]?></td>
     <td class=3D"xl167" x:fmla=3D"=3DH168+I168"></td>
@@ -9323,7 +9323,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl257" height=3D"19" style=3D'height:14.25pt;'></td>
     <td class=3D"xl135"></td>
     <td class=3D"xl206" x:str>3</td>
-    <td class=3D"xl277" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Berdasarkan fungsi/jabatan</td>
+    <td class=3D"xl277" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Surat Tugas fungsi/jabatan</td>
     <td class=3D"xl247"></td>
     <td class=3D"xl167"><?=$DupakPengabdian[11]?></td>
     <td class=3D"xl167" x:fmla=3D"=3DH169+I169"></td>

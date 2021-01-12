@@ -29,7 +29,7 @@
                                 <td class="text-center align-middle">
                                   <button Edit="<?=$key['Homebase']."$".$key['NIDN']."$".$key['Nama']."$".$key['S2']."$".$key['BidangKeahlian']."$".$key['JabatanAkademik']."$".$key['SertifikatPendidik']."$".$key['SertifikatKompetensi']."$".$key['MengajarPS']."$".$key['KesesuaianBidang']."$".$key['Bukti']?>" class="btn btn-sm btn-warning Edit"><i class="fas fa-edit"></i></button>
                                   <button Hapus="<?=$key['NIDN']."|".$key['Bukti']?>" class="btn btn-sm btn-danger Hapus"><i class="fas fa-trash"></i></button>  
-                                  <a class="btn btn-sm btn-primary" href="<?=base_url('DosenKontrak/'.$key['Bukti'])?>"><i class="fas fa-download"></i></a>
+                                  <button LihatSertifikat="<?=base_url('DosenKontrak/'.$key['Bukti'])?>" class="btn btn-sm btn-primary LihatSertifikat"><i class="fas fa-download"></i></button>  
                                 </td> 
                               </tr>
                             <?php } ?>
@@ -132,7 +132,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text bg-primary"><b>Sertifikat Kompetensi/Profesi</b></span>
                     </div>
-                    <input type="text" class="form-control" id="sertifikatkompetensi" placeholder="Input Nomor Sertifikat"> 
+                    <input type="text" class="form-control" id="sertifikatkompetensi" placeholder="Input Bidang Sertifikasi & Lembaga Penerbit"> 
                   </div>
                 </div>
                 <div class="col-sm-12">
@@ -292,7 +292,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text bg-primary"><b>Sertifikat Kompetensi/Profesi</b></span>
                     </div>
-                    <input type="text" class="form-control" id="Editsertifikatkompetensi" placeholder="Input Nomor Sertifikat"> 
+                    <input type="text" class="form-control" id="Editsertifikatkompetensi" placeholder="Input Bidang Sertifikasi & Lembaga Penerbit"> 
                   </div>
                 </div>
                 <div class="col-sm-12">
@@ -339,7 +339,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text bg-primary"><b>Mata Kuliah Yang Diampu Pada Program Studi S2</b></span>
                     </div>
-                    <?php 
+                  <?php 
 										$MK1 = array('Teori Ekonomi Makro Intermediate','Teori Ekonomi Mikro Intermediate','Ekonomi Syariah','Sejarah Pemikiran Ekonomi','Ekonometrika Terapan');
 										$MK2 = array('Metode penelitian kuantitatif','Metode penelitian kualitatif','Perencanaan Pembangunan dan Penganggaran Daerah','Ekonomi Kelautan dan Maritim (Blue Economy)','Teknik dan analisis dalam perencanaan pembangunan daerah','Pemikiran Ekonomi Islam','Kelembagaan Keuangan Syariah');
 										$MK3 = array('Analisis Daya Dukung Wilayah Pesisir dan Pulau-Pulau Kecil','Evaluasi Dampak Lingkungan','Pemetaan Potensi Pesisir dan Pulau-Pulau kecil','Manajemen Keuangan Daerah','Evaluasi Dampak Kebijakan Publik','Ekonomi Politik dan Kelembagaan','Etika Ekonomi Islam','Hukum Ekonomi Islam','Metode Riset Ekonomi Syariah');
@@ -367,6 +367,24 @@
         </div>
       </div>
     </div>
+    <div class="modal fade" id="ModalSertifikat">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header bg-primary">
+            <h5 class="modal-title font-weight-bold">Sertifikat Dosen</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <embed id="PathSertifikat" src="" type="application/pdf" width="100%" height="400"/>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="<?=base_url('bootstrap/js/jquery.min.js')?>"></script>
     <script src="<?=base_url('bootstrap/js/popper.min.js')?>" ></script>
     <script src="<?=base_url('bootstrap/js/bootstrap.min.js')?>"></script>
@@ -381,7 +399,13 @@
 
 				$('[data-mask]').inputmask()
 
-				var BaseURL = '<?=base_url()?>';
+        var BaseURL = '<?=base_url()?>';
+        
+        $(document).on("click",".LihatSertifikat",function(){
+					var Path = $(this).attr('LihatSertifikat')
+          $('#PathSertifikat').attr('src',Path)		
+          $('#ModalSertifikat').modal("show")
+				}) 
 
         $("#InputDosenKontrak").click(function() {
           if ($("#nidn").val().length != 10 || isNaN($("#nidn").val())) {

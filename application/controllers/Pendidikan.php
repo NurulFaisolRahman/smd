@@ -234,7 +234,7 @@ class Pendidikan extends CI_Controller {
 			if ($this->CekBukti($Pdf)){
 				$Tipe = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
 				$NamaPdf = date('Ymd',time()).substr(password_hash('Pendidikan', PASSWORD_DEFAULT),7,7);
-				$NamaPdf = str_replace("/","F",$NamaPdf);
+				$NamaPdf = str_replace("/","E",$NamaPdf);
 				$NamaPdf = str_replace(".","F",$NamaPdf);
 				move_uploaded_file($_FILES['file']['tmp_name'], "Pendidikan/".$NamaPdf.'.'.$Tipe);
 				$this->db->insert('RealisasiPendidikan',

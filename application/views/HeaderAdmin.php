@@ -46,8 +46,8 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
               <a href="<?=base_url("Admin/AkunDosen")?>" class="nav-link <?php if ($Halaman == "Akun Dosen") { echo "active";} ?>">
-              <i class="nav-icon fas fa-plus"></i>
-              <p><b>Akun Dosen</b></p> 
+              <i class="nav-icon fas fa-graduation-cap"></i>
+              <p><b>Dosen Tetap</b></p> 
               </a>
             </li>
             <li class="nav-item">
@@ -87,9 +87,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link" data-toggle="modal" data-target="#ModalKajur">
-              <i class="nav-icon fas fa-user"></i>
-              <p><b>Ketua Jurusan</b></p>
+              <a href="<?=base_url("Admin/PrestasiMhs")?>" class="nav-link <?php if ($Halaman == "Prestasi Mahasiswa") { echo "active";} ?>">
+              <i class="nav-icon fa fa-trophy"></i>
+              <p><b>Prestasi Mahasiswa</b></p> 
               </a>
             </li>
             <li class="nav-item">
@@ -102,28 +102,6 @@
         </nav>
         </div>
       </aside> 
-      <div class="modal fade" id="ModalKajur">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content bg-warning">
-            <div class="modal-body">
-              <div class="input-group mb-1">
-                <div class="input-group-prepend">
-                  <label class="input-group-text bg-primary"><b>Kajur</b></label>
-                </div>
-                <select class="custom-select" id="Kajur">										
-                  <?php foreach ($Dosen as $key) { ?>
-                    <option value="<?=$key['NIP']?>" <?php if ($key['JenisAkun'] == 2) { echo 'selected'; } ?> ><?=$key['Nama']?></option>
-                  <?php } ?>
-                </select>
-              </div>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
-              <button type="submit" class="btn btn-success" id="Simpan"><b>Simpan</b></button>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="modal fade" id="ModalBorang">
         <div class="modal-dialog modal-sm modal-dialog-centered">
           <div class="modal-content bg-warning">

@@ -49,44 +49,6 @@
         </section>
       </div>
     </div>
-    <div class="modal fade" id="ModalBuktiKerjaSama">
-      <div class="modal-dialog modal-sm modal-dialog-centered">
-        <div class="modal-content bg-warning">
-          <div class="modal-body">
-            <div class="input-group mb-1">
-              <div class="input-group-prepend">
-                <label class="input-group-text bg-primary"><b>Homebase</b></label>
-              </div>
-              <select class="custom-select" id="HomebaseBukti">										
-                <option value="S1">S1</option>
-                <option value="S2">S2</option>
-              </select>
-            </div> 
-            <div class="input-group mb-1">
-              <div class="input-group-prepend">
-                <label class="input-group-text bg-primary"><b>Bidang</b></label>
-              </div>
-              <select class="custom-select" id="BidangBukti">										
-                <option value="Pendidikan">Pendidikan</option>
-                <option value="Penelitian">Penelitian</option>
-                <option value="Pengabdian">Pengabdian</option>
-              </select>
-            </div> 
-            <div class="input-group mb-1">
-              <div class="input-group-prepend">
-                <label class="input-group-text bg-primary"><b>Tahun TS</b></label>
-              </div>
-              <a id="LampiranKerjaSama" href="LampiranKerjaSama" download="LampiranKerjaSama"></a>
-              <input class="form-control" type="text" id="TSBukti"  data-inputmask='"mask": "9999"' data-mask value="20">
-            </div>
-          </div>
-          <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Tutup</b></button>
-            <button type="submit" class="btn btn-success" id="DownloadBuktiKerjasama"><b>Download</b></button>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="modal fade" id="ModalInputKerjaSama">
       <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content bg-warning">

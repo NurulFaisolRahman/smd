@@ -34,12 +34,42 @@ class SMD extends CI_Controller {
 
 	public function InputKuisioner($Jenis){
 		if ($Jenis == 'KepuasanMahasiswa') {
-			$this->InsertKuisioner('kepuasanmahasiswa',$_POST);
+			if ($this->db->get_where('kepuasanmahasiswa', array('NIM' => $_POST['NIM']))->num_rows() === 0) {
+				$this->InsertKuisioner('kepuasanmahasiswa',$_POST);
+			} else {
+				echo 'Data Kuisioner Kepuasan Mahasiswa Dengan NIM '.$_POST['NIM'].' Sudah Ada!';
+			}
 		} else if ($Jenis == 'PrestasiMahasiswa') {
 			$_POST['NamaPrestasi'] = htmlentities($_POST['NamaPrestasi']);
 			$_POST['CapaianPrestasi'] = htmlentities($_POST['CapaianPrestasi']);
-			$this->InsertKuisioner('prestasimahasiswa',$_POST);
+			if (count($_FILES) > 0) {
+				if ($this->CekBukti($_FILES)){
+					$NamaPdf = date('Ymd',time()).substr(password_hash('Prestasi', PASSWORD_DEFAULT),7,7);
+					$NamaPdf = str_replace("/","E",$NamaPdf);
+					$NamaPdf = str_replace(".","F",$NamaPdf);
+					move_uploaded_file($_FILES['Bukti']['tmp_name'], "PrestasiMahasiswa/".$NamaPdf.".pdf");
+					$BuktiSertifikat = $NamaPdf.".pdf";
+					$_POST['Bukti'] = $BuktiSertifikat;
+					$this->db->insert('prestasimahasiswa',$_POST);
+					echo '1';
+				} else {
+					echo 'Upload Sertifikat Prestasi Hanya Boleh PDF!';
+				}
+			} else {
+				echo 'Mohon Upload Sertifikat Prestasi Berupa PDF!';
+			}
 		}
+	}
+
+	public function CekBukti($file){
+		$valid_extensions = array("pdf");
+		foreach ($file as $key) {
+			$Tipe = pathinfo($key['name'],PATHINFO_EXTENSION);
+			if(!in_array(strtolower($Tipe),$valid_extensions)) {
+				return false;
+			} 
+		}
+		return true;
 	}
 
 	public function Masuk(){

@@ -428,8 +428,8 @@
 													 [0.33, 0.5],
 													 [0.25, 0.37]];
 					var KKN = [[1, 1.5, 2],
-													 [0.5, 0.75, 1],
-													 [0.25, 0.5, 0.75]];
+										[0.5, 0.75, 1],
+										[0.25, 0.5, 0.75]];
 					if (isNaN(parseFloat($("#Volume").val().replace(',','.')))) {
 						alert('Volume Kegiatan Belum Benar!')
 					} 
@@ -454,11 +454,23 @@
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND3') {
 							if ($("#JenjangMengajar").val() == 'S1') {
 								fd.append('KreditBKD',(MengajarS1[$("#JumlahDosen").val()][$("#JumlahMhs").val()])*$("#JumlahKelas").val())	
-							} else {
+								fd.append('KreditPAK',(MengajarS1[$("#JumlahDosen").val()][$("#JumlahMhs").val()])*$("#JumlahKelas").val())
+								fd.append('Kode','0')
+							} else if ($("#JenjangMengajar").val() == 'S2') {
 								fd.append('KreditBKD',(MengajarS2[$("#JumlahDosen").val()][$("#JumlahMhs").val()])*$("#JumlahKelas").val())
+								fd.append('KreditPAK',(MengajarS2[$("#JumlahDosen").val()][$("#JumlahMhs").val()])*$("#JumlahKelas").val())
+								fd.append('Kode','1')
+							}  else if ($("#JenjangMengajar").val() == 'S3') {
+								fd.append('KreditBKD',(MengajarS2[$("#JumlahDosen").val()][$("#JumlahMhs").val()])*$("#JumlahKelas").val())
+								fd.append('KreditPAK',(MengajarS2[$("#JumlahDosen").val()][$("#JumlahMhs").val()])*$("#JumlahKelas").val())
+								fd.append('Kode','2')
+							} else if ($("#JenjangMengajar").val() == 'S4') {
+								fd.append('KreditBKD',(MengajarS2[$("#JumlahDosen").val()][$("#JumlahMhs").val()])*$("#JumlahKelas").val())
+								fd.append('KreditPAK',(MengajarS2[$("#JumlahDosen").val()][$("#JumlahMhs").val()])*$("#JumlahKelas").val())
+								fd.append('Kode','2')
 							}
-							fd.append('KreditPAK',parseFloat($("#Volume").val().replace(',','.'))*$("#JumlahKelas").val()/(parseInt($("#JumlahDosen").val())+1))
-							fd.append('Kode','0')
+							// fd.append('KreditPAK',parseFloat($("#Volume").val().replace(',','.'))*$("#JumlahKelas").val()/(parseInt($("#JumlahDosen").val())+1))
+							// fd.append('Kode','0')
 						}
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND5') {
 							fd.append('KreditBKD',(KKN[$("#JumlahDosenKKN").val()][$("#JumlahMhsKKN").val()]))

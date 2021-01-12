@@ -4450,9 +4450,9 @@ Content-Type: text/html; charset="us-ascii"
       <td class=3D"xl88" x:str><?=$key['Jabatan']?></td>
       <td class=3D"xl88"><?=$key['SertifikatPendidik']?></td>
       <td class=3D"xl88" x:str><?=$key['SertifikatKompetensi']?></td>
-      <td class=3D"xl144"><?=$key['MengajarPS']?></td>
+      <td class=3D"xl144"><?=$key['PS']?></td>
       <td class=3D"xl88" x:str><?=$key['KesesuaianBidang']==1?'V':''?></td>
-      <td class=3D"xl144"><?=$key['MengajarPSLain']?></td>
+      <td class=3D"xl144"><?=$key['PSLain']?></td>
       <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
     </tr>
   <?php } ?>
@@ -4652,29 +4652,29 @@ Content-Type: text/html; charset="us-ascii"
    <tr height=3D"29.20" style=3D'height:21.90pt;mso-height-source:userset;mso-height-alt:438;'>
     <td class=3D"xl143" height=3D"88.20" rowspan=3D"3" style=3D'height:66.15pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>No.</td>
     <td class=3D"xl143" rowspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Nama Dosen</td>
-    <td class=3D"xl143" colspan=3D"<?=(($TS*2)+2)?>" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah Mahasiswa yang Dibimbing</td>
+    <td class=3D"xl143" colspan=3D"8" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah Mahasiswa yang Dibimbing</td>
     <td class=3D"xl143" rowspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Rata-rata Jumlah Bimbingan di semua Program/ Semester</td>
     <td class=3D"xl89" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"40" style=3D'height:30.00pt;mso-height-source:userset;mso-height-alt:600;'>
-    <td class=3D"xl143" colspan=3D"<?=($TS+1)?>" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>pada PS yang Diakreditasi</td>
-    <td class=3D"xl143" colspan=3D"<?=($TS+1)?>" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>pada PS Lain pada Program yang sama di PT</td>
+    <td class=3D"xl143" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>pada PS yang Diakreditasi</td>
+    <td class=3D"xl143" colspan=3D"4" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>pada PS Lain pada Program yang sama di PT</td>
     <td class=3D"xl89" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
   <tr height=3D"19" style=3D'height:14.25pt;'>
-		<?php for ($i = $TS; $i > 1; $i--) { ?>
+		<?php for ($i = 3; $i > 1; $i--) { ?>
 			<td class=3D"xl143" x:str>TS-<?=($i-1)?></td>
 		<?php } ?>
 			<td class=3D"xl143" x:str>TS</td>
 			<td class=3D"xl143" x:str>Rata-rata</td>
-		<?php for ($i = $TS; $i > 1; $i--) { ?>
+		<?php for ($i = 3; $i > 1; $i--) { ?>
 			<td class=3D"xl143" x:str>TS-<?=($i-1)?></td>
 		<?php } ?>
 			<td class=3D"xl143" x:str>TS</td>
 			<td class=3D"xl143" x:str>Rata-rata</td>
 	</tr>
   <tr height=3D"19" style=3D'height:14.25pt;'>
-		<?php for ($i = 1; $i <= (5+($TS*2)); $i++) { ?>
+		<?php for ($i = 1; $i <= (5+(3*2)); $i++) { ?>
 			<td class=3D"xl98" x:num><?=$i?></td>
 		<?php } ?>
 	</tr>
@@ -4682,15 +4682,15 @@ Content-Type: text/html; charset="us-ascii"
 		<tr height=3D"19" style=3D'height:14.25pt;'>
 			<td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num><?=$No++?></td>
 			<td class=3D"xl144" x:str><?=$key[0]?></td>
-			<?php for ($i = 1; $i <= $TS; $i++) { ?>
+			<?php for ($i = 1; $i <= 3; $i++) { ?>
 				<td class=3D"xl88" x:num><?=$key[$i]?></td>
 			<?php $A += $key[$i]; } ?>
-			<td class=3D"xl147"><?=round(($A/$TS),2)?></td>
-			<?php for ($i = 1; $i <= $TS; $i++) { ?>
-				<td class=3D"xl88" x:num><?=$key[$i+$TS]?></td>
-			<?php $B += $key[$i+$TS]; } ?>
-			<td class=3D"xl147"><?=round(($B/$TS),1)?></td>
-			<td class=3D"xl147"><?=round(((round(($A/$TS),1)+round(($B/$TS),1))/2),1)?></td>
+			<td class=3D"xl147"><?=round(($A/3),2)?></td>
+			<?php for ($i = 1; $i <= 3; $i++) { ?>
+				<td class=3D"xl88" x:num><?=$key[$i+3]?></td>
+			<?php $B += $key[$i+3]; } ?>
+			<td class=3D"xl147"><?=round(($B/3),1)?></td>
+			<td class=3D"xl147"><?=round(((round(($A/3),1)+round(($B/3),1))/2),1)?></td>
 		</tr>
 	<?php } ?>
    <tr height=3D"19" style=3D'height:14.25pt;'>
@@ -8183,59 +8183,59 @@ Content-Type: text/html; charset="us-ascii"
    <tr height=3D"85" style=3D'height:63.75pt;'>
     <td class=3D"xl87" height=3D"85" style=3D'height:63.75pt;' x:num>1</td>
     <td class=3D"xl90" x:str><font class=3D"font4">Keandalan (</font><font class=3D"font49">reliability</font><font class=3D"font4">): kemampuan dosen, tenaga kependidikan, dan pengelola dalam memberikan pelayanan.</font></td>
-    <td class=3D"xl88" x:num>60</td>
-    <td class=3D"xl88" x:num>20</td>
-    <td class=3D"xl88" x:num>10</td>
-    <td class=3D"xl88" x:num>10</td>
+    <td class=3D"xl88" x:num><?=number_format(($KepuasanMhs[0][0]/$KepuasanMhs[5][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($KepuasanMhs[0][1]/$KepuasanMhs[5][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($KepuasanMhs[0][2]/$KepuasanMhs[5][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($KepuasanMhs[0][3]/$KepuasanMhs[5][0]*100),2)?></td>
     <td class=3D"xl88"></td>
     <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"136" style=3D'height:102.00pt;'>
     <td class=3D"xl87" height=3D"136" style=3D'height:102.00pt;' x:num>2</td>
     <td class=3D"xl90" x:str><font class=3D"font4">Daya tanggap (</font><font class=3D"font49">responsiveness</font><font class=3D"font4">): kemauan dari dosen, tenaga kependidikan, dan pengelola dalam membantu mahasiswa dan memberikan jasa dengan cepat.</font></td>
-    <td class=3D"xl88" x:num>70</td>
-    <td class=3D"xl88" x:num>20</td>
-    <td class=3D"xl88" x:num>10</td>
-    <td class=3D"xl88" x:num>0</td>
+    <td class=3D"xl88" x:num><?=number_format(($KepuasanMhs[1][0]/$KepuasanMhs[5][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($KepuasanMhs[1][1]/$KepuasanMhs[5][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($KepuasanMhs[1][2]/$KepuasanMhs[5][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($KepuasanMhs[1][3]/$KepuasanMhs[5][0]*100),2)?></td>
     <td class=3D"xl88"></td>
     <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"153" style=3D'height:114.75pt;'>
     <td class=3D"xl87" height=3D"153" style=3D'height:114.75pt;' x:num>3</td>
     <td class=3D"xl90" x:str><font class=3D"font4">Kepastian (</font><font class=3D"font49">assurance</font><font class=3D"font4">): kemampuan dosen, tenaga kependidikan, dan pengelola untuk memberi keyakinan kepada mahasiswa bahwa pelayanan yang diberikan telah sesuai dengan ketentuan.</font></td>
-    <td class=3D"xl88" x:num>60</td>
-    <td class=3D"xl88" x:num>20</td>
-    <td class=3D"xl88" x:num>10</td>
-    <td class=3D"xl88" x:num>10</td>
+    <td class=3D"xl88" x:num><?=number_format(($KepuasanMhs[2][0]/$KepuasanMhs[5][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($KepuasanMhs[2][1]/$KepuasanMhs[5][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($KepuasanMhs[2][2]/$KepuasanMhs[5][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($KepuasanMhs[2][3]/$KepuasanMhs[5][0]*100),2)?></td>
     <td class=3D"xl88"></td>
     <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"119" style=3D'height:89.25pt;'>
     <td class=3D"xl87" height=3D"119" style=3D'height:89.25pt;' x:num>4</td>
     <td class=3D"xl90" x:str><font class=3D"font4">Empati (</font><font class=3D"font49">empathy</font><font class=3D"font4">): kesediaan/kepedulian dosen, tenaga kependidikan, dan pengelola untuk memberi perhatian kepada mahasiswa.</font></td>
-    <td class=3D"xl88" x:num>70</td>
-    <td class=3D"xl88" x:num>20</td>
-    <td class=3D"xl88" x:num>10</td>
-    <td class=3D"xl88" x:num>0</td>
+    <td class=3D"xl88" x:num><?=number_format(($KepuasanMhs[3][0]/$KepuasanMhs[5][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($KepuasanMhs[3][1]/$KepuasanMhs[5][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($KepuasanMhs[3][2]/$KepuasanMhs[5][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($KepuasanMhs[3][3]/$KepuasanMhs[5][0]*100),2)?></td>
     <td class=3D"xl88"></td>
     <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"85" style=3D'height:63.75pt;'>
     <td class=3D"xl87" height=3D"85" style=3D'height:63.75pt;' x:num>5</td>
-    <td class=3D"xl90" x:str><font class=3D"font49">Tangible</font><font class=3D"font4">: penilaian mahasiswa terhadap kecukupan, aksesibitas, kualitas sarana dan prasarana.</font></td>
-    <td class=3D"xl88" x:num>30</td>
-    <td class=3D"xl88" x:num>10</td>
-    <td class=3D"xl88" x:num>50</td>
-    <td class=3D"xl88" x:num>10</td>
+    <td class=3D"xl90" x:str><font class=3D"font49">Tangible</font><font class=3D"font4">: penilaian mahasiswa terhadap kecukupan, aksesibilitas, kualitas sarana dan prasarana.</font></td>
+    <td class=3D"xl88" x:num><?=number_format(($KepuasanMhs[4][0]/$KepuasanMhs[5][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($KepuasanMhs[4][1]/$KepuasanMhs[5][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($KepuasanMhs[4][2]/$KepuasanMhs[5][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($KepuasanMhs[4][3]/$KepuasanMhs[5][0]*100),2)?></td>
     <td class=3D"xl88"></td>
     <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl114" height=3D"19" colspan=3D"2" style=3D'height:14.25pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
-    <td class=3D"xl116" x:fmla=3D"=3DSUM(C6:C10)" x:num>290</td>
-    <td class=3D"xl116" x:fmla=3D"=3DSUM(D6:D10)" x:num>90</td>
-    <td class=3D"xl116" x:fmla=3D"=3DSUM(E6:E10)" x:num>90</td>
-    <td class=3D"xl116" x:fmla=3D"=3DSUM(F6:F10)" x:num>30</td>
+    <td class=3D"xl116" x:fmla=3D"=3DSUM(C6:C10)" x:num></td>
+    <td class=3D"xl116" x:fmla=3D"=3DSUM(D6:D10)" x:num></td>
+    <td class=3D"xl116" x:fmla=3D"=3DSUM(E6:E10)" x:num></td>
+    <td class=3D"xl116" x:fmla=3D"=3DSUM(F6:F10)" x:num></td>
     <td class=3D"xl103"></td>
     <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
    </tr>
@@ -9302,78 +9302,20 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl110"></td>
     <td class=3D"xl89"></td>
    </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88" x:str>V</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89"></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>2</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88" x:str>V</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89"></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88" x:str>V</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89"></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>4</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88" x:str>V</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89"></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>5</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88" x:str>V</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89"></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>&#8230;</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89"></td>
-   </tr>
+   <?php $No = 1; foreach ($PrestasiAkademik as $key) { ?>
+    <tr height=3D"19" style=3D'height:14.25pt;'>
+      <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num><?=$No++?></td>
+      <td class=3D"xl102"><?=$key['NamaPrestasi']?></td>
+      <td class=3D"xl88"><?=$key['TahunPrestasi']?></td>
+      <td class=3D"xl88"><?=$key['TingkatPrestasi']==1?'V':'';?></td>
+      <td class=3D"xl88"><?=$key['TingkatPrestasi']==2?'V':'';?></td>
+      <td class=3D"xl88"><?=$key['TingkatPrestasi']==3?'V':'';?></td>
+      <td class=3D"xl102"><?=$key['CapaianPrestasi']?></td>
+      <td class=3D"xl89"></td>
+      <td class=3D"xl89"></td>
+      <td class=3D"xl89"></td>
+    </tr>
+   <?php } ?>
    <![if supportMisalignedColumns]>
     <tr width=3D"0" style=3D'display:none;'>
      <td width=3D"44" style=3D'width:33;'></td>
@@ -9575,78 +9517,20 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl110"></td>
     <td class=3D"xl89" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88" x:str>V</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>2</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88" x:str>V</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88" x:str>V</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>4</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88" x:str>V</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>5</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88" x:str>V</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>&#8230;</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89"></td>
-    <td class=3D"xl89" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
-   </tr>
+   <?php $No = 1; foreach ($PrestasiNonAkademik as $key) { ?>
+    <tr height=3D"19" style=3D'height:14.25pt;'>
+      <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num><?=$No++?></td>
+      <td class=3D"xl102"><?=$key['NamaPrestasi']?></td>
+      <td class=3D"xl88"><?=$key['TahunPrestasi']?></td>
+      <td class=3D"xl88"><?=$key['TingkatPrestasi']==1?'V':'';?></td>
+      <td class=3D"xl88"><?=$key['TingkatPrestasi']==2?'V':'';?></td>
+      <td class=3D"xl88"><?=$key['TingkatPrestasi']==3?'V':'';?></td>
+      <td class=3D"xl102"><?=$key['CapaianPrestasi']?></td>
+      <td class=3D"xl89"></td>
+      <td class=3D"xl89"></td>
+      <td class=3D"xl89"></td>
+    </tr>
+   <?php } ?>
    <![if supportMisalignedColumns]>
     <tr width=3D"0" style=3D'display:none;'>
      <td width=3D"44" style=3D'width:33;'></td>

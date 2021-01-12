@@ -13,7 +13,7 @@
   <body>
     <div class="container-fluid p-3">
       <div class="row d-flex justify-content-center">
-        <div class="col-sm-4">
+        <div class="col-sm-6">
           <div style="background-color: yellow;" class="card">
             <div class="card-header bg-danger text-light">
               <b>Kuisioner Prestasi Mahasiswa</b>
@@ -21,18 +21,21 @@
             <div class="card-body border border-primary">
               <div class="container-fluid">
                 <div class="row my-3">
-                  <div class="col-sm-5 my-1">
+                  <div class="col-sm-6 my-1"> 
                     <div class="input-group input-group-sm">
                       <div class="input-group-prepend">
-                        <label class="input-group-text bg-primary text-light"><b>NIM</b></label>
+                        <label class="input-group-text bg-primary text-light"><b>Program Studi</b></label>
                       </div>
-                      <input class="form-control form-control-sm" type="text" id="NIM" data-inputmask='"mask": "999999999999"' data-mask>
+                      <select class="custom-select custom-select-sm" id="Homebase">										
+                        <option value="S1">S1 Ekonomi Pembangunan</option>
+                        <option value="S2">S2 Ilmu Ekonomi</option>
+                      </select>
                     </div>
-                  </div> 
-                  <div class="col-sm-7 my-1">
+                  </div>
+                  <div class="col-sm-6 my-1">
                     <div class="input-group input-group-sm">
                       <div class="input-group-prepend">
-                        <label class="input-group-text bg-primary text-light"><b>Jenis</b></label>
+                        <label class="input-group-text bg-primary text-light"><b>Jenis Prestasi</b></label>
                       </div>
                       <select class="custom-select" id="JenisPrestasi">                    
                         <option value="1">Prestasi Akademik</option>
@@ -40,10 +43,18 @@
                       </select>
                     </div>
                   </div>
-                  <div class="col-sm-6 my-1">
+                  <div class="col-sm-3 my-1">
                     <div class="input-group input-group-sm">
                       <div class="input-group-prepend">
-                        <label class="input-group-text bg-primary text-light"><b>Tingkat</b></label>
+                        <label class="input-group-text bg-primary text-light"><b>NIM</b></label>
+                      </div>
+                      <input class="form-control form-control-sm" type="text" id="NIM" data-inputmask='"mask": "999999999999"' data-mask>
+                    </div>
+                  </div> 
+                  <div class="col-sm-5 my-1">
+                    <div class="input-group input-group-sm">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text bg-primary text-light"><b>Prestasi Tingkat</b></label>
                       </div>
                       <select class="custom-select" id="TingkatPrestasi">                    
                         <option value="1">Lokal/Wilayah</option>
@@ -52,10 +63,10 @@
                       </select>
                     </div>
                   </div>
-                  <div class="col-sm-6 my-1">
+                  <div class="col-sm-4 my-1">
                     <div class="input-group input-group-sm">
                       <div class="input-group-prepend">
-                        <label class="input-group-text bg-primary text-light"><b>Tahun Prestasi</b></label>
+                        <label class="input-group-text bg-primary text-light"><b>Prestasi Tahun</b></label>
                       </div>
                       <input class="form-control form-control-sm" type="text" id="TahunPrestasi" data-inputmask='"mask": "9999"' data-mask value="20">
                     </div>
@@ -75,6 +86,15 @@
                       </div>
                       <input class="form-control form-control-sm" type="text" id="CapaianPrestasi">
                     </div>
+                  </div>
+                  <div class="col-sm-12 my-1">
+                    <div class="input-group input-group-sm mb-2">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-primary"><b>Upload Sertifikat Prestasi</b></span>
+                      </div>
+                      <input class="form-control" type="file" id="Bukti">
+                    </div>
+                    <pre class="text-danger mb-1"><b>File Yang Diupload Dalam Format Pdf</b></pre>
                   </div>  
                   <div class="col-sm-auto">
                     <button type="button" class="btn btn-danger" id="Kirim"><b>Kirim</b></button>
@@ -97,27 +117,38 @@
         $("#Kirim").click(function() {
           if (isNaN($("#NIM").val()) || $("#NIM").val() === "") {
             alert('Input NIM Hanya Boleh 12 Digit Angka!')
+          } else if (isNaN($("#TahunPrestasi").val()) || $("#TahunPrestasi").val() === "") {
+            alert('Input Tahun Prestasi Hanya Boleh 4 Digit Angka!')
           } else if ($("#NamaPrestasi").val() === "") {
             alert('Input Nama Prestasi Tidak Boleh Kosong!')
           } else if ($("#CapaianPrestasi").val() === "") {
             alert('Input Capaian Prestasi Tidak Boleh Kosong!')
-          } else if (isNaN($("#TahunPrestasi").val()) || $("#TahunPrestasi").val() === "") {
-            alert('Input Tahun Prestasi Hanya Boleh 4 Digit Angka!')
           } else {
-            var Data = { NIM: $("#NIM").val(),
-                         JenisPrestasi: $("#JenisPrestasi").val(),
-                         NamaPrestasi: $("#NamaPrestasi").val(),
-                         TingkatPrestasi: $("#TingkatPrestasi").val(),
-                         CapaianPrestasi: $("#CapaianPrestasi").val(),
-                         TahunPrestasi: $("#TahunPrestasi").val() }
-            $.post(BaseURL+"SMD/InputKuisioner/PrestasiMahasiswa", Data).done(function(Respon) {
-              if (Respon == '1') {
-                alert('Terima Kasih')
-                window.location = BaseURL + "SMD/Kuisioner/PrestasiMahasiswa"
-              } else {
-                alert(Respon)
-              }
-            })
+            var fd = new FormData()
+						fd.append('Homebase',$("#Homebase").val())
+            fd.append('NIM',$("#NIM").val())
+            fd.append('JenisPrestasi',$("#JenisPrestasi").val())
+            fd.append('NamaPrestasi',$("#NamaPrestasi").val())
+            fd.append('TingkatPrestasi',$("#TingkatPrestasi").val())
+            fd.append('CapaianPrestasi',$("#CapaianPrestasi").val())
+            fd.append('TahunPrestasi',$("#TahunPrestasi").val())
+            fd.append("Bukti", $('#Bukti')[0].files[0])
+            $.ajax({
+							url: BaseURL+'SMD/InputKuisioner/PrestasiMahasiswa',
+							type: 'post',
+							data: fd,
+							contentType: false,
+							processData: false,
+							success: function(Respon){
+								if (Respon == '1') {
+                  alert('Terima Kasih Telah Mengisi Kuisioner :)')
+									window.location = BaseURL + "SMD/Kuisioner/PrestasiMahasiswa"
+								}
+								else {
+									alert(Respon)
+								}
+							}
+						})
           }
         })
       })

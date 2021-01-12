@@ -1,10 +1,3 @@
-$("#Simpan").click(function() {
-  var Kajur = { NIP: $("#Kajur").val() }
-  $.post("Kajur", Kajur).done(function(Respon) {
-    window.location = "AkunDosen"
-  })
-})
-
 $("#DownloadBorang").click(function() {
   if (!isNaN($('#TS').val()) && $('#TS').val() != "") {
     window.location = 'Borang/'+$('#TS').val()+'/'+$('#Homebase').val() 

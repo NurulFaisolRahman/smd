@@ -108,7 +108,7 @@
 										</div>
 										<div class="input-group input-group-sm mb-2">
 											<div class="input-group-prepend">
-												<label class="input-group-text bg-primary text-primary"><b>Kesesuaian dengan Kompetensi Inti Program Studi</b></label>
+												<label class="input-group-text bg-primary text-primary"><b>Kesesuaian Bidang Keahlian dengan Kompetensi Inti Program Studi</b></label>
 											</div>
 											<input type="text" class="form-control" value="<?= $Profil['KesesuaianKompetensi'] == null ? '' : ($Profil['KesesuaianKompetensi'] == 1 ? 'Sesuai' : 'Tidak Sesuai');?>" disabled>
 										</div>
@@ -129,18 +129,6 @@
 												<span class="input-group-text bg-primary text-primary"><b>Sertifikat Kompetensi/Profesi/Industri</b></span>
 											</div>
 											<input type="text" class="form-control" value="<?=$Profil['SertifikatKompetensi']?>" disabled>
-										</div>
-										<div class="input-group input-group-sm mb-2">
-											<div class="input-group-prepend">
-												<span class="input-group-text bg-primary text-primary"><b>Mata Kuliah Yang Diampu Pada<br>Program Studi Yang Diakreditasi</b></span>
-											</div>
-											<textarea class="form-control" rows="2" disabled><?=str_replace('|',', ',$Profil['MengajarPS'])?></textarea>
-										</div>
-										<div class="input-group input-group-sm mb-2">
-											<div class="input-group-prepend">
-												<span class="input-group-text bg-primary text-primary"><b>Mata Kuliah Yang Diampu Pada<br>Program Studi Lain</b></span>
-											</div>
-											<textarea class="form-control" rows="2" disabled><?=$Profil['MengajarPSLain']?></textarea>
 										</div>
 									</div>
 								</div>
@@ -210,8 +198,8 @@
                       <option value="Pembina Utama Madya/IVd" <?=$Profil['Golongan']=='IVd'?'selected':''?>>IVd</option>
                       <option value="Pembina Utama/IVe" <?=$Profil['Golongan']=='IVe'?'selected':''?>>IVe</option>
                     </select>
-                  </div>
-                  <div class="input-group input-group-sm mb-2">
+									</div>
+									<div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
                       <label class="input-group-text bg-primary text-primary"><b>Jabatan</b></label>
                     </div>
@@ -221,12 +209,6 @@
                       <option value="Lektor Kepala" <?=$Profil['Jabatan']=='Lektor Kepala'?'selected':''?>>Lektor Kepala</option>
                       <option value="Profesor" <?=$Profil['Jabatan']=='Profesor'?'selected':''?>>Profesor</option>
                     </select>
-                  </div>
-                  <div class="input-group input-group-sm mb-2">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text bg-primary text-primary"><b>Nomor Whatsapp</b></span>
-                    </div>
-                    <input type="text" class="form-control" id="WA" value="<?=$Profil['WA']?>">
                   </div>
                 </div>
                 <div class="col-sm-7">
@@ -250,22 +232,10 @@
                   </div>
                   <div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
-                      <label class="input-group-text bg-primary text-primary"><b>Kesesuaian Dengan Kompetensi Program Studi</b></label>
+                      <span class="input-group-text bg-primary text-primary"><b>Nomor Whatsapp</b></span>
                     </div>
-                    <select class="custom-select" id="KesesuaianKompetensi">
-                      <option value="1" <?=$Profil['KesesuaianKompetensi']==1?'selected':''?>>Sesuai</option>
-                      <option value="2" <?=$Profil['KesesuaianKompetensi']==2?'selected':''?>>Tidak Sesuai</option>
-                    </select>
+                    <input type="text" class="form-control" id="WA" value="<?=$Profil['WA']?>">
                   </div>
-                  <div class="input-group input-group-sm mb-2">
-                    <div class="input-group-prepend">
-                      <label class="input-group-text bg-primary text-primary"><b>Kesesuaian Dengan Mata Kuliah Yang Diampu</b></label>
-                    </div>
-                    <select class="custom-select" id="KesesuaianBidang">
-											<option value="1" <?=$Profil['KesesuaianBidang']==1?'selected':''?>>Sesuai</option>
-                      <option value="2" <?=$Profil['KesesuaianBidang']==2?'selected':''?>>Tidak Sesuai</option>
-                    </select>
-									</div>
 									<div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
                       <span class="input-group-text bg-primary text-primary"><b>Kredit Yang Divalidasi Asesor</b></span>
@@ -280,69 +250,43 @@
                 <div class="col-sm-12">
 									<div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
+                      <label class="input-group-text bg-primary text-primary"><b>Kesesuaian Bidang Keahlian Dengan Kompetensi Inti Program Studi</b></label>
+                    </div>
+                    <select class="custom-select" id="KesesuaianKompetensi">
+                      <option value="1" <?=$Profil['KesesuaianKompetensi']==1?'selected':''?>>Sesuai</option>
+                      <option value="2" <?=$Profil['KesesuaianKompetensi']==2?'selected':''?>>Tidak Sesuai</option>
+                    </select>
+                  </div>
+                  <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text bg-primary text-primary"><b>Kesesuaian Bidang Keahlian Dengan Mata Kuliah Yang Diampu</b></label>
+                    </div>
+                    <select class="custom-select" id="KesesuaianBidang">
+											<option value="1" <?=$Profil['KesesuaianBidang']==1?'selected':''?>>Sesuai</option>
+                      <option value="2" <?=$Profil['KesesuaianBidang']==2?'selected':''?>>Tidak Sesuai</option>
+                    </select>
+									</div>
+									<div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
                       <span class="input-group-text bg-primary text-primary"><b>Sertifikat Pendidik Profesional</b></span> 
                     </div>
-                    <input type="text" class="form-control" id="SertifikatPendidik" value="<?=$Profil['SertifikatPendidik']?>" placeholder="Nomor Sertifikat">
-                  </div>
-									<div class="input-group input-group-sm mb-2">
-										<div class="input-group-prepend">
-											<span class="input-group-text bg-primary"><b>Bukti Sertifikat Pendidik Profesional</b></span>
-										</div>
-										<input class="form-control" type="hidden" id="BuktiSertifikatPendidikLama" value="<?=$Profil['BuktiPendidik']?>">
-										<input class="form-control" type="file" id="BuktiSertifikatPendidik">
-										<div class="input-group-prepend">
-											<button class="input-group-text bg-primary" id="CancelBuktiSertifikatPendidik"><b>X</b></button>
-										</div>
+                    <input type="text" class="form-control" id="SertifikatPendidik" value="<?=$Profil['SertifikatPendidik']?>" placeholder="Input Nomor Sertifikat">
                   </div>
                   <div class="input-group input-group-sm mb-2">
                     <div class="input-group-prepend">
                       <span class="input-group-text bg-primary text-primary"><b>Sertifikat Kompetensi/Profesi/Industri</b></span>
                     </div>
-                    <input type="text" class="form-control" id="SertifikatKompetensi" value="<?=$Profil['SertifikatKompetensi']?>">
+                    <input type="text" class="form-control" id="SertifikatKompetensi" value="<?=$Profil['SertifikatKompetensi']?>" placeholder="Input Bidang Sertifikasi & Lembaga Penerbit">
 									</div>
 									<div class="input-group input-group-sm mb-2">
 										<div class="input-group-prepend">
-											<span class="input-group-text bg-primary"><b>Bukti Sertifikat Kompetensi/Profesi/Industri</b></span>
+											<span class="input-group-text bg-primary"><b>Upload Bukti Sertifikat</b></span>
 										</div>
-										<input class="form-control" type="hidden" id="BuktiSertifikatKompetensiLama" value="<?=$Profil['BuktiKompetensi']?>">
-										<input class="form-control" type="file" id="BuktiSertifikatKompetensi">
+										<input class="form-control" type="hidden" id="SertifikatLama" value="<?=$Profil['Sertifikat']?>">
+										<input class="form-control" type="file" id="Sertifikat">
 										<div class="input-group-prepend">
-											<button class="input-group-text bg-primary" id="CancelBuktiSertifikatKompetensi"><b>X</b></button>
+											<button class="input-group-text bg-primary" id="CancelSertifikat"><b>X</b></button>
 										</div>
-                  </div>
-                  <div class="input-group input-group-sm mb-2">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text bg-primary text-primary"><b>Mata Kuliah Yang Diampu Pada Program Studi Yang Diakreditasi</b></span>
-                    </div>
-									</div>
-									<?php 
-										$MK1 = array('Pendidikan Agama','Bahasa Inggris','PTE Makro','Pengantar Akuntansi','Mentalitas & Kreatifitas','Matematika Ekonomi 1','PPKN','PTE Mikro');
-										$MK2 = array('Bahasa Indonesia','Sosiologi Kritis','TE Makro I','Pengantar Bisnis & Manajemen','SPE','Matematika Ekonomi II','Statistik I','TE Mikro I');
-										$MK3 = array('TE Makro II','Islam & Ekonomi','Pengantar Ekonomi Pembangunan','Koperasi & Kewirausahaan','ESDA & Lingkungan','Ekonomi Kependudukan','Statistik II','TE Mikro II');
-										$MK4 = array('Masalah Kebijakan Pembangunan','Ekonomi Pembangunan','Ekonomi Publik','Ekonomi Moneter','SDM & Ketenagakerjaan','Aplikasi Komputasi Ekonomi','Ekonomi Industri');
-										$MK5 = array('Perekonomian Indonesia','Perencanaan Pembangunan','Ekonomi Kelembagaan','Bank Lembaga Keuangan','Metodologi Penelitian','Ekonomi Moneter Lanjutan','Studi Kebanksentralan','Ekonomi Regional','Keuangan Daerah','Ekonomi Publik Lanjutan');
-										$MK6 = array('Ekonomi Internasional','Ekonomi Perkotaan & Transportasi','Ekonometrika','Evaluasi Proyek','Analisis Pasar Keuangan','Ekonomi Perbankan','Manajemen Keuangan Daerah','Perencanaan Strategis','Analisa Kebijakan Publik','Penganggaran Sektor Publik');
-										$MK7 = array('Seminar Ekonomi Moneter & Perbankan','Ekonomi Politik','Ekonomi Pedesaan & Pertanian','Ekonomi Moneter Internasional','Islam & Ekonomi','BLK Syariah');
-									?>
-									<?php for ($j=1; $j <= 7; $j++) { ?>
-									<div class="input-group input-group-sm mt-1">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text bg-success"><b>Semester <?=$j?></b></span>
-                    </div>
-									</div>
-									<div class="row">
-                    <?php for ($i=0; $i < count(${'MK'.$j}); $i++) { ?>
-                    <div class="col-sm-6">
-                      <label class="checkbox-inline"><input type="checkbox" name="MKS1" value="<?=${'MK'.$j}[$i]?>">&nbsp;<?=${'MK'.$j}[$i]?></label>
-                    </div>
-									<?php } ?>
-									</div>
-									<?php } ?>
-									<div class="input-group input-group-sm mb-2">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text bg-primary text-primary"><b>Mata Kuliah Yang Diampu Pada<br>Program Studi Lain</b></span>
-                    </div>
-                    <textarea class="form-control" id="MengajarPSLain" rows="2"><?=$Profil['MengajarPSLain']?></textarea>
                   </div>
                 </div>
               </div>
@@ -389,12 +333,8 @@
 					// }
 				}) 
 
-				$("#CancelBuktiSertifikatKompetensi").click(function() {
-					$("#BuktiSertifikatKompetensi").val("")
-				})
-
-				$("#CancelBuktiSertifikatPendidik").click(function() {
-					$("#BuktiSertifikatPendidik").val("")
+				$("#CancelSertifikat").click(function() {
+					$("#Sertifikat").val("")
 				})
 
 				$("#bkd").click(function() {
@@ -434,12 +374,6 @@
 						})
 					}
 				})
-				
-				var MK = "<?=$Profil['MengajarPS']?>"
-				var PisahMK = MK.split("|")
-				for (let i = 0; i < PisahMK.length; i++) {
-					$("input[value='"+PisahMK[i]+"']").prop('checked',true)
-				}
 
 				$("#EditProfil").click(function() {
 					if ($("#NIP").val().length != 18 || isNaN($("#NIP").val())) {
@@ -469,20 +403,8 @@
 						fd.append('KesesuaianBidang',$("#KesesuaianBidang").val())
 						fd.append('SertifikatPendidik',$("#SertifikatPendidik").val())
 						fd.append('SertifikatKompetensi',$("#SertifikatKompetensi").val())
-						var MengajarPS = ""
-            $.each($("input[name='MKS1']:checked"), function(){
-							if (MengajarPS == "") {
-								MengajarPS = MengajarPS + $(this).val()
-							} else {
-								MengajarPS = MengajarPS + "|" + $(this).val()
-							}
-            })
-						fd.append('MengajarPS',MengajarPS)
-						fd.append('MengajarPSLain',$("#MengajarPSLain").val())
-						fd.append("BuktiSertifikatPendidikLama", $('#BuktiSertifikatPendidikLama').val())
-						fd.append("BuktiSertifikatKompetensiLama", $('#BuktiSertifikatKompetensiLama').val())
-						fd.append("BuktiSertifikatPendidik", $('#BuktiSertifikatPendidik')[0].files[0])
-						fd.append("BuktiSertifikatKompetensi", $('#BuktiSertifikatKompetensi')[0].files[0])
+						fd.append("SertifikatLama", $('#SertifikatLama').val())
+						fd.append("Sertifikat", $('#Sertifikat')[0].files[0])
 						$.ajax({
 							url: BaseURL+'Dashboard/EditProfil',
 							type: 'post',
