@@ -5512,7 +5512,7 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl88" height=3D"19" style=3D'height:14.25pt;' x:num><?=$No++?></td>
     <td class=3D"xl144" x:str><?=$key['Nama']?></td>
     <td class=3D"xl144"><?=$key['BidangKeahlian']?></td>
-    <td class=3D"xl139"></td>
+    <td class=3D"xl144"><?=$key['Bukti']?></td>
     <td class=3D"xl88"><?=$key['Kode'] == 1 ? 'V' : '';?></td>
     <td class=3D"xl88"><?=$key['Kode'] == 2 ? 'V' : '';?></td>
     <td class=3D"xl88"><?=$key['Kode'] == 3 ? 'V' : '';?></td>
@@ -5623,51 +5623,51 @@ Content-Type: text/html; charset="us-ascii"
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl71" height=3D"38" rowspan=3D"2" style=3D'height:28.50pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>No.</td>
     <td class=3D"xl108" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Sumber Pembiayaan</td>
-    <td class=3D"xl71" colspan=3D"<?=$TS?>" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah Judul Penelitian</td>
+    <td class=3D"xl71" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah Judul Penelitian</td>
     <td class=3D"xl71" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
-		<?php for ($i = $TS; $i > 1; $i--) { ?>
+		<?php for ($i = 3; $i > 1; $i--) { ?>
 			<td class=3D"xl71" x:str>TS-<?=($i-1)?></td>
 		<?php } ?>
 			<td class=3D"xl71" x:str>TS</td>
 	 </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
-		<?php for ($i = 1; $i <= (3+($TS)); $i++) { ?>
+		<?php for ($i = 1; $i <= (3+(3)); $i++) { ?>
 			<td class=3D"xl86" x:num><?=$i?></td>
 		<?php } ?>
 	 </tr>
    <tr height=3D"34" style=3D'height:25.50pt;'>
     <td class=3D"xl87" height=3D"34" style=3D'height:25.50pt;' x:num>1</td>
 		<td class=3D"xl90" x:str>a) Perguruan tinggi<br/>b) Mandiri</td>
-		<?php for ($i = 0; $i < $TS; $i++) { ?>
+		<?php for ($i = 0; $i < 3; $i++) { ?>
 			<td class=3D"xl88" x:num><?=$PenelitianDTPS[0][$i]?></td>
 		<?php } ?>
-    <td class=3D"xl87" x:num><?=$PenelitianDTPS[0][$TS]?></td>
+    <td class=3D"xl87" x:num><?=$PenelitianDTPS[0][3]?></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>2</td>
     <td class=3D"xl90" x:str>Lembaga dalam negeri (diluar PT)</td>
-    <?php for ($i = 0; $i < $TS; $i++) { ?>
+    <?php for ($i = 0; $i < 3; $i++) { ?>
 			<td class=3D"xl88" x:num><?=$PenelitianDTPS[1][$i]?></td>
 		<?php } ?>
-    <td class=3D"xl87" x:num><?=$PenelitianDTPS[1][$TS]?></td>
+    <td class=3D"xl87" x:num><?=$PenelitianDTPS[1][3]?></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
     <td class=3D"xl90" x:str>Lembaga luar negeri</td>
-    <?php for ($i = 0; $i < $TS; $i++) { ?>
+    <?php for ($i = 0; $i < 3; $i++) { ?>
 			<td class=3D"xl88" x:num><?=$PenelitianDTPS[2][$i]?></td>
 		<?php } ?>
-    <td class=3D"xl87" x:num><?=$PenelitianDTPS[2][$TS]?></td>
+    <td class=3D"xl87" x:num><?=$PenelitianDTPS[2][3]?></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl94" height=3D"19" colspan=3D"2" style=3D'height:14.25pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
-		<?php for ($i = 0; $i <= $TS; $i++) { $Total = 0; ?>
+		<?php for ($i = 0; $i <= 3; $i++) { $Total = 0; ?>
 			<?php for ($j = 0; $j < 3; $j++) { $Total += $PenelitianDTPS[$j][$i]; }?>
 			<td class=3D"xl94" x:num><?=$Total?></td>
 		<?php } ?>
@@ -5774,51 +5774,51 @@ Content-Type: text/html; charset="us-ascii"
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl71" height=3D"38" rowspan=3D"2" style=3D'height:28.50pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>No.</td>
     <td class=3D"xl108" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Sumber Pembiayaan</td>
-    <td class=3D"xl71" colspan=3D"<?=$TS?>" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah Judul PkM</td>
+    <td class=3D"xl71" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah Judul PkM</td>
     <td class=3D"xl71" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
-		<?php for ($i = $TS; $i > 1; $i--) { ?>
+		<?php for ($i = 3; $i > 1; $i--) { ?>
 			<td class=3D"xl71" x:str>TS-<?=($i-1)?></td>
 		<?php } ?>
 			<td class=3D"xl71" x:str>TS</td>
 	 </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
-		<?php for ($i = 1; $i <= (3+($TS)); $i++) { ?>
+		<?php for ($i = 1; $i <= (3+(3)); $i++) { ?>
 			<td class=3D"xl86" x:num><?=$i?></td>
 		<?php } ?>
 	 </tr>
    <tr height=3D"34" style=3D'height:25.50pt;'>
     <td class=3D"xl87" height=3D"34" style=3D'height:25.50pt;' x:num>1</td>
 		<td class=3D"xl90" x:str>a) Perguruan tinggi<br/>b) Mandiri</td>
-		<?php for ($i = 0; $i < $TS; $i++) { ?>
+		<?php for ($i = 0; $i < 3; $i++) { ?>
 			<td class=3D"xl88" x:num><?=$PengabdianDTPS[0][$i]?></td>
 		<?php } ?>
-    <td class=3D"xl87" x:num><?=$PengabdianDTPS[0][$TS]?></td>
+    <td class=3D"xl87" x:num><?=$PengabdianDTPS[0][3]?></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>2</td>
     <td class=3D"xl90" x:str>Lembaga dalam negeri (diluar PT)</td>
-    <?php for ($i = 0; $i < $TS; $i++) { ?>
+    <?php for ($i = 0; $i < 3; $i++) { ?>
 			<td class=3D"xl88" x:num><?=$PengabdianDTPS[1][$i]?></td>
 		<?php } ?>
-    <td class=3D"xl87" x:num><?=$PengabdianDTPS[1][$TS]?></td>
+    <td class=3D"xl87" x:num><?=$PengabdianDTPS[1][3]?></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
     <td class=3D"xl90" x:str>Lembaga luar negeri</td>
-    <?php for ($i = 0; $i < $TS; $i++) { ?>
+    <?php for ($i = 0; $i < 3; $i++) { ?>
 			<td class=3D"xl88" x:num><?=$PengabdianDTPS[2][$i]?></td>
 		<?php } ?>
-    <td class=3D"xl87" x:num><?=$PengabdianDTPS[2][$TS]?></td>
+    <td class=3D"xl87" x:num><?=$PengabdianDTPS[2][3]?></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl94" height=3D"19" colspan=3D"2" style=3D'height:14.25pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
-		<?php for ($i = 0; $i <= $TS; $i++) { $Total = 0; ?>
+		<?php for ($i = 0; $i <= 3; $i++) { $Total = 0; ?>
 			<?php for ($j = 0; $j < 3; $j++) { $Total += $PengabdianDTPS[$j][$i]; }?>
 			<td class=3D"xl94" x:num><?=$Total?></td>
 		<?php } ?>
@@ -5921,19 +5921,19 @@ Content-Type: text/html; charset="us-ascii"
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl71" height=3D"38" rowspan=3D"2" style=3D'height:28.50pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>No.</td>
     <td class=3D"xl71" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jenis Publikasi</td>
-    <td class=3D"xl71" colspan=3D"<?=$TS?>" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah Judul<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
+    <td class=3D"xl71" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah Judul<span style=3D'mso-spacerun:yes;'>&nbsp;</span></td>
     <td class=3D"xl71" rowspan=3D"2" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
 
    <tr height=3D"19" style=3D'height:14.25pt;'>
-   <?php for ($i = $TS; $i > 1; $i--) { ?>
+   <?php for ($i = 3; $i > 1; $i--) { ?>
     <td class=3D"xl71" x:str>TS-<?=($i-1)?></td>
    <?php } ?>
     <td class=3D"xl71" x:str>TS</td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
-    <?php for ($i = 1; $i <= (3+$TS); $i++) { ?>
+    <?php for ($i = 1; $i <= (3+3); $i++) { ?>
       <td class=3D"xl86" x:num><?=$i?></td>
     <?php } ?>
    </tr>
@@ -5949,17 +5949,17 @@ Content-Type: text/html; charset="us-ascii"
     <tr height=3D"19" style=3D'height:14.25pt;'>
       <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num><?=$No++?></td>
       <td class=3D"xl90" x:str><?=$JenisPublikasi[$i]?></td>
-      <?php for ($j = 0; $j < $TS; $j++) { ?>
+      <?php for ($j = 0; $j < 3; $j++) { ?>
       <td class=3D"xl88" x:num><?=$Publikasi[$i][$j]?></td>
       <?php } ?>
-      <td class=3D"xl87" x:num><?=$Publikasi[$i][$TS]?></td>
+      <td class=3D"xl87" x:num><?=$Publikasi[$i][3]?></td>
       <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
     </tr>
    <?php } ?>
 
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl94" height=3D"19" colspan=3D"2" style=3D'height:14.25pt;border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Jumlah</td>
-    <?php for ($i = 0; $i <= $TS; $i++) { $Total = 0; ?>
+    <?php for ($i = 0; $i <= 3; $i++) { $Total = 0; ?>
 			<?php for ($j = 0; $j < 10; $j++) { $Total += $Publikasi[$j][$i]; }?>
 			<td class=3D"xl94" x:num><?=$Total?></td>
 		<?php } ?>
@@ -6822,48 +6822,15 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl86" x:num>4</td>
     <td class=3D"xl84" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl78" x:str>A</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl84" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>2</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl84" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl84" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>4</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl84" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>5</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl84" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>&#8230;</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl84" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
+   <?php for ($i=0; $i < count($SitasiDTPS); $i++) { ?>
+     <tr height=3D"19" style=3D'height:14.25pt;'>
+      <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num><?=($i+1)?></td>
+      <td class=3D"xl78" x:str><?=$SitasiDTPS[$i]['Nama']?></td>
+      <td class=3D"xl78"><?=$SitasiDTPS[$i]['Judul']?></td>
+      <td class=3D"xl88"><?=$SitasiDTPS[$i]['Jumlah']?></td>
+      <td class=3D"xl84" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
+    </tr>
+   <?php } ?>
    <![if supportMisalignedColumns]>
     <tr width=3D"0" style=3D'display:none;'>
      <td width=3D"44" style=3D'width:33;'></td>
@@ -11875,48 +11842,15 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl74" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>HKI: a) Paten, b) Paten Sederhana</td>
     <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>2</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>4</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>5</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:str>&#8230;</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
+   <?php for ($i=0; $i < count($PatenMahasiswa); $i++) { ?>
+    <tr height=3D"19" style=3D'height:14.25pt;'>
+      <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num><?=($i+1)?></td>
+      <td class=3D"xl78"><?=$PatenMahasiswa[$i]['Judul']?></td>
+      <td class=3D"xl79"><?=$PatenMahasiswa[$i]['Tahun']?></td>
+      <td class=3D"xl80"></td>
+      <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
+    </tr>
+   <?php } ?>
    <![if supportMisalignedColumns]>
     <tr width=3D"0" style=3D'display:none;'>
      <td width=3D"44" style=3D'width:33;'></td>
@@ -12049,71 +11983,15 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl74" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>HKI: a) Hak Cipta, b) Desain Produk Industri,<span style=3D'mso-spacerun:yes;'>&nbsp; </span>c) Perlindungan Varietas Tanaman (Sertifikat Perlindungan Varietas Tanaman, Sertifikat Pelepasan Varietas, Sertifikat Pendaftaran Varietas), d) Desain Tata Letak Sirkuit Terpadu, e) dll.)</td>
     <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>2</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>4</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>5</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:str>&#8230;</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td height=3D"19" colspan=3D"2" style=3D'height:14.25pt;mso-ignore:colspan;'></td>
-    <td class=3D"xl67"></td>
-    <td colspan=3D"9" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl68" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td></td>
-    <td class=3D"xl67"></td>
-    <td colspan=3D"9" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl68" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td></td>
-    <td class=3D"xl67"></td>
-    <td colspan=3D"9" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl68" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td></td>
-    <td class=3D"xl67"></td>
-    <td colspan=3D"9" style=3D'mso-ignore:colspan;'></td>
-   </tr>
+   <?php for ($i=0; $i < count($HKIMahasiswa); $i++) { ?>
+    <tr height=3D"19" style=3D'height:14.25pt;'>
+      <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num><?=($i+1)?></td>
+      <td class=3D"xl78"><?=$HKIMahasiswa[$i]['Judul']?></td>
+      <td class=3D"xl79"><?=$HKIMahasiswa[$i]['Tahun']?></td>
+      <td class=3D"xl80"></td>
+      <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
+    </tr>
+   <?php } ?>
    <![if supportMisalignedColumns]>
     <tr width=3D"0" style=3D'display:none;'>
      <td width=3D"44" style=3D'width:33;'></td>
@@ -12244,71 +12122,15 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl74" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str>Teknologi Tepat Guna, Produk (Produk Terstandarisasi, Produk Tersertifikasi), Karya Seni, Rekayasa Sosial</td>
     <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>2</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>4</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>5</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:str>&#8230;</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td height=3D"19" colspan=3D"2" style=3D'height:14.25pt;mso-ignore:colspan;'></td>
-    <td class=3D"xl67"></td>
-    <td colspan=3D"9" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl68" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td></td>
-    <td class=3D"xl67"></td>
-    <td colspan=3D"9" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl68" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td></td>
-    <td class=3D"xl67"></td>
-    <td colspan=3D"9" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl68" height=3D"19" style=3D'height:14.25pt;'></td>
-    <td></td>
-    <td class=3D"xl67"></td>
-    <td colspan=3D"9" style=3D'mso-ignore:colspan;'></td>
-   </tr>
+   <?php for ($i=0; $i < count($KaryaMahasiswa); $i++) { ?>
+    <tr height=3D"19" style=3D'height:14.25pt;'>
+      <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num><?=($i+1)?></td>
+      <td class=3D"xl78"><?=$KaryaMahasiswa[$i]['Judul']?></td>
+      <td class=3D"xl79"><?=$KaryaMahasiswa[$i]['Tahun']?></td>
+      <td class=3D"xl80"></td>
+      <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
+    </tr>
+   <?php } ?>
    <![if supportMisalignedColumns]>
     <tr width=3D"0" style=3D'display:none;'>
      <td width=3D"44" style=3D'width:33;'></td>
@@ -12440,48 +12262,15 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl74" colspan=3D"3" style=3D'border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;' x:str><font class=3D"font2">Buku ber-ISBN, </font><font class=3D"font47">Book Chapter</font></td>
     <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>2</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>4</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num>5</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:str>&#8230;</td>
-    <td class=3D"xl78"></td>
-    <td class=3D"xl79"></td>
-    <td class=3D"xl80"></td>
-    <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
-   </tr>
+   <?php for ($i=0; $i < count($BukuMahasiswa); $i++) { ?>
+    <tr height=3D"19" style=3D'height:14.25pt;'>
+      <td class=3D"xl77" height=3D"19" style=3D'height:14.25pt;' x:num><?=($i+1)?></td>
+      <td class=3D"xl78"><?=$BukuMahasiswa[$i]['Judul']?></td>
+      <td class=3D"xl79"><?=$BukuMahasiswa[$i]['Tahun']?></td>
+      <td class=3D"xl80"></td>
+      <td colspan=3D"8" style=3D'mso-ignore:colspan;'></td>
+    </tr>
+   <?php } ?>
    <![if supportMisalignedColumns]>
     <tr width=3D"0" style=3D'display:none;'>
      <td width=3D"44" style=3D'width:33;'></td>

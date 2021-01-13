@@ -20,7 +20,15 @@ class SMD extends CI_Controller {
 			$this->load->view('KepuasanMahasiswa');
 		} else if ($Jenis == 'PrestasiMahasiswa') {
 			$this->load->view('PrestasiMahasiswa');
-		}
+		} else if ($Jenis == 'PatenMahasiswa') {
+			$this->load->view('PatenMahasiswa');
+		} else if ($Jenis == 'HKIMahasiswa') {
+			$this->load->view('HKIMahasiswa');
+		} else if ($Jenis == 'KaryaMahasiswa') {
+			$this->load->view('KaryaMahasiswa');
+		} else if ($Jenis == 'BukuMahasiswa') {
+			$this->load->view('BukuMahasiswa');
+		} 
 	}
 
 	public function InsertKuisioner($Tabel,$Data){
@@ -48,8 +56,7 @@ class SMD extends CI_Controller {
 					$NamaPdf = str_replace("/","E",$NamaPdf);
 					$NamaPdf = str_replace(".","F",$NamaPdf);
 					move_uploaded_file($_FILES['Bukti']['tmp_name'], "PrestasiMahasiswa/".$NamaPdf.".pdf");
-					$BuktiSertifikat = $NamaPdf.".pdf";
-					$_POST['Bukti'] = $BuktiSertifikat;
+					$_POST['Bukti'] = $NamaPdf.".pdf";
 					$this->db->insert('prestasimahasiswa',$_POST);
 					echo '1';
 				} else {
@@ -58,9 +65,77 @@ class SMD extends CI_Controller {
 			} else {
 				echo 'Mohon Upload Sertifikat Prestasi Berupa PDF!';
 			}
-		}
+		} else if ($Jenis == 'PatenMahasiswa') {
+			$_POST['Judul'] = htmlentities($_POST['Judul']);
+			if (count($_FILES) > 0) {
+				if ($this->CekBukti($_FILES)){
+					$NamaPdf = date('Ymd',time()).substr(password_hash('Paten', PASSWORD_DEFAULT),7,7);
+					$NamaPdf = str_replace("/","E",$NamaPdf);
+					$NamaPdf = str_replace(".","F",$NamaPdf);
+					move_uploaded_file($_FILES['Bukti']['tmp_name'], "PatenMahasiswa/".$NamaPdf.".pdf");
+					$_POST['Bukti'] = $NamaPdf.".pdf";
+					$this->db->insert('PatenMahasiswa',$_POST);
+					echo '1';
+				} else {
+					echo 'Upload File Bukti Hanya Boleh PDF!';
+				}
+			} else {
+				echo 'Mohon Upload Bukti Berupa PDF!';
+			}
+		} else if ($Jenis == 'HKIMahasiswa') {
+			$_POST['Judul'] = htmlentities($_POST['Judul']);
+			if (count($_FILES) > 0) {
+				if ($this->CekBukti($_FILES)){
+					$NamaPdf = date('Ymd',time()).substr(password_hash('HKI', PASSWORD_DEFAULT),7,7);
+					$NamaPdf = str_replace("/","E",$NamaPdf);
+					$NamaPdf = str_replace(".","F",$NamaPdf);
+					move_uploaded_file($_FILES['Bukti']['tmp_name'], "HKIMahasiswa/".$NamaPdf.".pdf");
+					$_POST['Bukti'] = $NamaPdf.".pdf";
+					$this->db->insert('HKIMahasiswa',$_POST);
+					echo '1';
+				} else {
+					echo 'Upload File Bukti Hanya Boleh PDF!';
+				}
+			} else {
+				echo 'Mohon Upload Bukti Berupa PDF!';
+			}
+		} else if ($Jenis == 'KaryaMahasiswa') {
+			$_POST['Judul'] = htmlentities($_POST['Judul']);
+			if (count($_FILES) > 0) {
+				if ($this->CekBukti($_FILES)){
+					$NamaPdf = date('Ymd',time()).substr(password_hash('Karya', PASSWORD_DEFAULT),7,7);
+					$NamaPdf = str_replace("/","E",$NamaPdf);
+					$NamaPdf = str_replace(".","F",$NamaPdf);
+					move_uploaded_file($_FILES['Bukti']['tmp_name'], "KaryaMahasiswa/".$NamaPdf.".pdf");
+					$_POST['Bukti'] = $NamaPdf.".pdf";
+					$this->db->insert('KaryaMahasiswa',$_POST);
+					echo '1';
+				} else {
+					echo 'Upload File Bukti Hanya Boleh PDF!';
+				}
+			} else {
+				echo 'Mohon Upload Bukti Berupa PDF!';
+			}
+		} else if ($Jenis == 'BukuMahasiswa') {
+			$_POST['Judul'] = htmlentities($_POST['Judul']);
+			if (count($_FILES) > 0) {
+				if ($this->CekBukti($_FILES)){
+					$NamaPdf = date('Ymd',time()).substr(password_hash('Buku', PASSWORD_DEFAULT),7,7);
+					$NamaPdf = str_replace("/","E",$NamaPdf);
+					$NamaPdf = str_replace(".","F",$NamaPdf);
+					move_uploaded_file($_FILES['Bukti']['tmp_name'], "BukuMahasiswa/".$NamaPdf.".pdf");
+					$_POST['Bukti'] = $NamaPdf.".pdf";
+					$this->db->insert('BukuMahasiswa',$_POST);
+					echo '1';
+				} else {
+					echo 'Upload File Bukti Hanya Boleh PDF!';
+				}
+			} else {
+				echo 'Mohon Upload Bukti Berupa PDF!';
+			}
+		} 
 	}
-
+	
 	public function CekBukti($file){
 		$valid_extensions = array("pdf");
 		foreach ($file as $key) {

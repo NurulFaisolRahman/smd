@@ -223,6 +223,41 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function SitasiDTPS(){
+		$Data['Halaman'] = 'Sitasi DTPS';
+		$Data['SitasiDTPS'] = $this->db->get("SitasiDTPS")->result_array();
+    $this->load->view('HeaderAdmin',$Data);
+    $this->load->view('SitasiDTPS',$Data); 
+	}
+
+	public function InputSitasiDTPS(){
+		$this->db->insert('SitasiDTPS',$_POST);
+		if ($this->db->affected_rows()){
+			echo '1';
+		} else {
+			echo 'Gagal Input Data!';
+		}
+	}
+
+	public function UpdateSitasiDTPS(){
+		$this->db->where('Id',$_POST['Id']);
+		$this->db->update('SitasiDTPS', $_POST);
+		if ($this->db->affected_rows()){
+			echo '1';
+		} else {
+			echo 'Gagal Update Data!';
+		}
+	}
+
+	public function HapusSitasiDTPS(){
+		$this->db->delete('SitasiDTPS', array('Id' => $_POST['Id']));
+		if ($this->db->affected_rows()){
+			echo '1';
+		} else {
+			echo 'Gagal Menghapus';
+		}
+	}
+	
 	public function IPKLulusan(){
 		$Data['Halaman'] = 'IPK Lulusan';
 		$Data['IPKLulusan'] = $this->db->query("SELECT * FROM IPKLulusan")->result_array();
@@ -482,6 +517,11 @@ class Admin extends CI_Controller {
 				$Data['Dosen'][$i]['PSLain'] = $PSLain;
 			}
 		} 
+		$Data['SitasiDTPS'] = $this->db->query("SELECT * FROM `SitasiDTPS` WHERE Homebase="."'".$Homebase."'"." AND Tahun <= ".$TS." AND Tahun > ".($TS-3))->result_array(); 
+		$Data['PatenMahasiswa'] = $this->db->query("SELECT * FROM `PatenMahasiswa` WHERE Homebase="."'".$Homebase."'"." AND Tahun <= ".$TS." AND Tahun > ".($TS-3))->result_array(); 
+		$Data['HKIMahasiswa'] = $this->db->query("SELECT * FROM `HKIMahasiswa` WHERE Homebase="."'".$Homebase."'"." AND Tahun <= ".$TS." AND Tahun > ".($TS-3))->result_array(); 
+		$Data['KaryaMahasiswa'] = $this->db->query("SELECT * FROM `KaryaMahasiswa` WHERE Homebase="."'".$Homebase."'"." AND Tahun <= ".$TS." AND Tahun > ".($TS-3))->result_array(); 
+		$Data['BukuMahasiswa'] = $this->db->query("SELECT * FROM `BukuMahasiswa` WHERE Homebase="."'".$Homebase."'"." AND Tahun <= ".$TS." AND Tahun > ".($TS-3))->result_array(); 
 		$Data['DosenKontrak'] = $this->db->get_where('DosenKontrak',array('Homebase' => $Homebase))->result_array();
 		$Data['DPU'] = array();
 		$DPUDistinct = $this->db->query("SELECT DISTINCT(NIP) FROM RealisasiPendidikan WHERE IdKegiatan='PND6' AND Tahun <= ".$TS." AND Tahun > ".($TS-3))->result_array();
@@ -509,13 +549,11 @@ class Admin extends CI_Controller {
 			}
 			array_push($Data['DPU'],$Dosen);
 		}
-		$TS = array(2021,2022);
-		$Data['TS'] = $TS[1]-$TS[0]+1;
 		$Data['PenelitianDTPS'] = array();
 		for ($j = 1; $j <= 3; $j++) { 
 			$Jumlah = array(); $Total = 0;
-			for ($i = $TS[0]; $i <= $TS[1]; $i++) { 
-				$Tampung = $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE Kode LIKE '%".$j."' AND Tahun = ".$i)->row_array()['Volume'];		
+			for ($i = ($TS-2); $i <= $TS; $i++) { 
+				$Tampung = $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE Jenjang="."'".$Homebase."' AND Kode LIKE '%".$j."' AND Tahun = ".$i)->row_array()['Volume'];		
 				$Tampung == '' ? array_push($Jumlah,0) : array_push($Jumlah,$Tampung);
 				$Tampung == '' ? $Total += 0 : $Total += $Tampung;
 			}
@@ -525,27 +563,40 @@ class Admin extends CI_Controller {
 		$Data['PengabdianDTPS'] = array();
 		for ($j = 1; $j <= 3; $j++) { 
 			$Jumlah = array(); $Total = 0;
-			for ($i = $TS[0]; $i <= $TS[1]; $i++) { 
-				$Tampung = $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPengabdian WHERE Kode LIKE '%".$j."' AND Tahun = ".$i)->row_array()['Volume'];		
+			for ($i = ($TS-2); $i <= $TS; $i++) { 
+				$Tampung = $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPengabdian WHERE Jenjang="."'".$Homebase."' AND Kode LIKE '%".$j."' AND Tahun = ".$i)->row_array()['Volume'];		
 				$Tampung == '' ? array_push($Jumlah,0) : array_push($Jumlah,$Tampung);
 				$Tampung == '' ? $Total += 0 : $Total += $Tampung;
 			}
 			array_push($Jumlah,$Total);
 			array_push($Data['PengabdianDTPS'],$Jumlah);
 		}	
-		$Data['BukuISBN'] = $this->db->query("SELECT Kegiatan,Tahun FROM `RealisasiPenelitian` WHERE IdKegiatan = 'PNL4' OR IdKegiatan = 'PNL5' OR IdKegiatan = 'PNL11' OR IdKegiatan = 'PNL12' AND Tahun >= ".$TS[0]." AND Tahun <= ".$TS[1])->result_array();		
-		foreach ($this->db->query("SELECT Kegiatan,Tahun FROM `RealisasiPenelitian` WHERE IdKegiatan = 'PNL1' AND Kode LIKE '1%' OR IdKegiatan = 'PNL1' AND Kode LIKE '2%' AND Tahun >= ".$TS[0]." AND Tahun <= ".$TS[1])->result_array() as $key => $value) {
+		$Data['BukuISBN'] = $this->db->query("SELECT Kegiatan,Tahun FROM `RealisasiPenelitian` WHERE Jenjang="."'".$Homebase."' AND IdKegiatan = 'PNL4' OR IdKegiatan = 'PNL5' OR IdKegiatan = 'PNL11' OR IdKegiatan = 'PNL12' AND Tahun <= ".$TS." AND Tahun > ".($TS-3))->result_array();		
+		foreach ($this->db->query("SELECT Kegiatan,Tahun FROM `RealisasiPenelitian` WHERE Jenjang="."'".$Homebase."' AND IdKegiatan = 'PNL1' AND Kode LIKE '1%' OR IdKegiatan = 'PNL1' AND Kode LIKE '2%' AND Tahun <= ".$TS." AND Tahun > ".($TS-3))->result_array() as $key => $value) {
 			array_push($Data['BukuISBN'],$value);
 		}
-		$Data['Paten'] = $this->db->query("SELECT Kegiatan,Tahun FROM `RealisasiPenelitian` WHERE IdKegiatan = 'PNL6' OR IdKegiatan = 'PNL17' AND Tahun >= ".$TS[0]." AND Tahun <= ".$TS[1])->result_array();		
-		$Data['TepatGuna'] = $this->db->query("SELECT Kegiatan,Tahun FROM `RealisasiPengabdian` WHERE IdKegiatan = 'PNB6' AND Tahun >= ".$TS[0]." AND Tahun <= ".$TS[1])->result_array();		
-		$Data['HakCipta'] = $this->db->query("SELECT Kegiatan,Tahun FROM `RealisasiPenelitian` WHERE IdKegiatan = 'PNL6' AND Tahun >= ".$TS[0]." AND Tahun <= ".$TS[1])->result_array();		
+		$Data['Paten'] = $this->db->query("SELECT Kegiatan,Tahun FROM `RealisasiPenelitian` WHERE Jenjang="."'".$Homebase."' AND IdKegiatan = 'PNL6' OR IdKegiatan = 'PNL17' AND Tahun <= ".$TS." AND Tahun > ".($TS-3))->result_array();		
+		$Data['TepatGuna'] = $this->db->query("SELECT Kegiatan,Tahun FROM `RealisasiPengabdian` WHERE Jenjang="."'".$Homebase."' AND IdKegiatan = 'PNB6' AND Tahun <= ".$TS." AND Tahun > ".($TS-3))->result_array();		
+		$Data['HakCipta'] = $this->db->query("SELECT Kegiatan,Tahun FROM `RealisasiPenelitian` WHERE Jenjang="."'".$Homebase."' AND IdKegiatan = 'PNL6' AND Tahun <= ".$TS." AND Tahun > ".($TS-3))->result_array();		
 		$Data['Rekognisi'] = array();
-		foreach ($this->db->query("SELECT Dosen.Nama,Dosen.BidangKeahlian,RealisasiPengabdian.Kode,RealisasiPengabdian.Tahun FROM Dosen,RealisasiPengabdian WHERE RealisasiPengabdian.IdKegiatan = 'PNB7' AND RealisasiPengabdian.Tahun >= ".$TS[0]." AND RealisasiPengabdian.Tahun <= ".$TS[1])->result_array() as $key => $value) {
+
+		foreach ($this->db->query("SELECT Dosen.Nama,Dosen.BidangKeahlian,RealisasiPenunjang.Kode,RealisasiPenunjang.Tahun FROM Dosen,RealisasiPenunjang WHERE RealisasiPenunjang.NIP=dosen.NIP AND Jenjang="."'".$Homebase."' AND RealisasiPenunjang.IdKegiatan = 'PNJ6' AND RealisasiPenunjang.Tahun <= ".$TS." AND RealisasiPenunjang.Tahun > ".($TS-3))->result_array() as $key => $value) {
+			if ($value['Kode'][0] == 1 || $value['Kode'][0] == 4) {
+				$value['Kode'] = 3;
+			} else if ($value['Kode'][0] == 2 || $value['Kode'][0] == 5) {
+				$value['Kode'] = 2;
+			} else {
+				$value['Kode'] = 1;
+			}
+			$value['Bukti'] = 'Pertemuan Ilmiah';
+			array_push($Data['Rekognisi'],$value);
+		}
+		foreach ($this->db->query("SELECT Dosen.Nama,Dosen.BidangKeahlian,RealisasiPengabdian.Kode,RealisasiPengabdian.Tahun FROM Dosen,RealisasiPengabdian WHERE RealisasiPengabdian.NIP=dosen.NIP AND Jenjang="."'".$Homebase."' AND RealisasiPengabdian.IdKegiatan = 'PNB7' AND RealisasiPengabdian.Tahun <= ".$TS." AND RealisasiPengabdian.Tahun > ".($TS-3))->result_array() as $key => $value) {
 			$value['Kode'][0] == 1 ? $value['Kode'] = 3 : $value['Kode'] = 2 ;
+			$value['Bukti'] = 'Editor / Mitra Bestari';
 			array_push($Data['Rekognisi'],$value);
 		}
-		foreach ($this->db->query("SELECT Dosen.Nama,Dosen.BidangKeahlian,RealisasiPenunjang.Kode,RealisasiPenunjang.Tahun FROM Dosen,RealisasiPenunjang WHERE RealisasiPenunjang.IdKegiatan = 'PNJ6' AND RealisasiPenunjang.Tahun >= ".$TS[0]." AND RealisasiPenunjang.Tahun <= ".$TS[1])->result_array() as $key => $value) {
+		foreach ($this->db->query("SELECT Dosen.Nama,Dosen.BidangKeahlian,RealisasiPengabdian.Kode,RealisasiPengabdian.Tahun FROM Dosen,RealisasiPengabdian WHERE RealisasiPengabdian.NIP=dosen.NIP AND Jenjang="."'".$Homebase."' AND RealisasiPengabdian.IdKegiatan = 'PNB3' AND RealisasiPengabdian.Tahun <= ".$TS." AND RealisasiPengabdian.Tahun > ".($TS-3))->result_array() as $key => $value) {
 			if ($value['Kode'][0] == 1 || $value['Kode'][0] == 4) {
 				$value['Kode'] = 3;
 			} else if ($value['Kode'][0] == 2 || $value['Kode'][0] == 5) {
@@ -553,19 +604,10 @@ class Admin extends CI_Controller {
 			} else {
 				$value['Kode'] = 1;
 			}
+			$value['Bukti'] = 'Staf Ahli / Narasumber';
 			array_push($Data['Rekognisi'],$value);
 		}
-		foreach ($this->db->query("SELECT Dosen.Nama,Dosen.BidangKeahlian,RealisasiPengabdian.Kode,RealisasiPengabdian.Tahun FROM Dosen,RealisasiPengabdian WHERE RealisasiPengabdian.IdKegiatan = 'PNB3' AND RealisasiPengabdian.Tahun >= ".$TS[0]." AND RealisasiPengabdian.Tahun <= ".$TS[1])->result_array() as $key => $value) {
-			if ($value['Kode'][0] == 1 || $value['Kode'][0] == 4) {
-				$value['Kode'] = 3;
-			} else if ($value['Kode'][0] == 2 || $value['Kode'][0] == 5) {
-				$value['Kode'] = 2;
-			} else {
-				$value['Kode'] = 1;
-			}
-			array_push($Data['Rekognisi'],$value);
-		}
-		foreach ($this->db->query("SELECT Dosen.Nama,Dosen.BidangKeahlian,RealisasiPenunjang.Kode,RealisasiPenunjang.Tahun FROM Dosen,RealisasiPenunjang WHERE RealisasiPenunjang.IdKegiatan = 'PNJ7' AND RealisasiPenunjang.Tahun >= ".$TS[0]." AND RealisasiPenunjang.Tahun <= ".$TS[1])->result_array() as $key => $value) {
+		foreach ($this->db->query("SELECT Dosen.Nama,Dosen.BidangKeahlian,RealisasiPenunjang.Kode,RealisasiPenunjang.Tahun FROM Dosen,RealisasiPenunjang WHERE RealisasiPenunjang.NIP=dosen.NIP AND Jenjang="."'".$Homebase."' AND RealisasiPenunjang.IdKegiatan = 'PNJ7' AND RealisasiPenunjang.Tahun <= ".$TS." AND RealisasiPenunjang.Tahun > ".($TS-3))->result_array() as $key => $value) {
 			if ($value['Kode'][0] == 4) {
 				$value['Kode'] = 3;
 			} else if ($value['Kode'][0] == 5) {
@@ -573,16 +615,17 @@ class Admin extends CI_Controller {
 			} else if ($value['Kode'][0] == 6) {
 				$value['Kode'] = 1;
 			}
+			$value['Bukti'] = 'Penghargaan Atas Prestasi';
 			array_push($Data['Rekognisi'],$value);
 		}
 		$Data['Publikasi'] = array();
 		$KodePublikasi = array(3,5,8);
 		for ($j = 0; $j < 3; $j++) { 
 			$Jumlah = array(); $Total = 0;
-			for ($i = $TS[0]; $i <= $TS[1]; $i++) { 
-				$Tampung = $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE IdKegiatan = 'PNL14' AND Kode LIKE '".$KodePublikasi[$j]."%' AND Tahun = ".$i)->row_array()['Volume'];		
+			for ($i = ($TS-2); $i <= $TS; $i++) { 
+				$Tampung = $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE Jenjang="."'".$Homebase."' AND IdKegiatan = 'PNL14' AND Kode LIKE '".$KodePublikasi[$j]."%' AND Tahun = ".$i)->row_array()['Volume'];		
 				if ($j == 1) {
-					$Tampung += $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE IdKegiatan = 'PNL1' AND Tahun = ".$i." AND (Kode LIKE '8%' OR Kode LIKE '9%' OR Kode LIKE '10%' OR Kode LIKE '11%')")->row_array()['Volume'];		
+					$Tampung += $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE Jenjang="."'".$Homebase."' AND IdKegiatan = 'PNL1' AND Tahun = ".$i." AND (Kode LIKE '8%' OR Kode LIKE '9%' OR Kode LIKE '10%' OR Kode LIKE '11%')")->row_array()['Volume'];		
 				}
 				$Tampung == '' ? array_push($Jumlah,0) : array_push($Jumlah,$Tampung);
 				$Tampung == '' ? $Total += 0 : $Total += $Tampung;
@@ -592,8 +635,8 @@ class Admin extends CI_Controller {
 		}	
 		for ($j = 0; $j < 1; $j++) { 
 			$Jumlah = array(); $Total = 0;
-			for ($i = $TS[0]; $i <= $TS[1]; $i++) { 
-				$Tampung = $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE IdKegiatan = 'PNL1' AND Tahun = ".$i." AND (Kode LIKE '5%' OR Kode LIKE '6%')")->row_array()['Volume'];		
+			for ($i = ($TS-2); $i <= $TS; $i++) { 
+				$Tampung = $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE Jenjang="."'".$Homebase."' AND IdKegiatan = 'PNL1' AND Tahun = ".$i." AND (Kode LIKE '5%' OR Kode LIKE '6%')")->row_array()['Volume'];		
 				$Tampung == '' ? array_push($Jumlah,0) : array_push($Jumlah,$Tampung);
 				$Tampung == '' ? $Total += 0 : $Total += $Tampung;
 			}
@@ -602,8 +645,8 @@ class Admin extends CI_Controller {
 		}	
 		for ($j = 1; $j <= 3; $j++) { 
 			$Jumlah = array(); $Total = 0;
-			for ($i = $TS[0]; $i <= $TS[1]; $i++) { 
-				$Tampung = $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE IdKegiatan = 'PNL15' AND Tahun = ".$i." AND Kode LIKE '".$j."%'")->row_array()['Volume'];		
+			for ($i = ($TS-2); $i <= $TS; $i++) { 
+				$Tampung = $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE Jenjang="."'".$Homebase."' AND IdKegiatan = 'PNL15' AND Tahun = ".$i." AND Kode LIKE '".$j."%'")->row_array()['Volume'];		
 				$Tampung == '' ? array_push($Jumlah,0) : array_push($Jumlah,$Tampung);
 				$Tampung == '' ? $Total += 0 : $Total += $Tampung;
 			}
@@ -612,8 +655,8 @@ class Admin extends CI_Controller {
 		}	
 		for ($j = 11; $j <= 13; $j++) { 
 			$Jumlah = array(); $Total = 0;
-			for ($i = $TS[0]; $i <= $TS[1]; $i++) { 
-				$Tampung = $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE IdKegiatan = 'PNL2' AND Tahun = ".$i." AND Kode LIKE '".$j."%'")->row_array()['Volume'];		
+			for ($i = ($TS-2); $i <= $TS; $i++) { 
+				$Tampung = $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE Jenjang="."'".$Homebase."' AND IdKegiatan = 'PNL2' AND Tahun = ".$i." AND Kode LIKE '".$j."%'")->row_array()['Volume'];		
 				$Tampung == '' ? array_push($Jumlah,0) : array_push($Jumlah,$Tampung);
 				$Tampung == '' ? $Total += 0 : $Total += $Tampung;
 			}

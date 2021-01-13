@@ -51,6 +51,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a href="<?=base_url("Admin/SitasiDTPS")?>" class="nav-link <?php if ($Halaman == "Sitasi DTPS") { echo "active";} ?>">
+              <i class="nav-icon fas fa-quote-left"></i>
+              <p><b>Sitasi DTPS</b></p> 
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="<?=base_url("Admin/KerjaSama")?>" class="nav-link <?php if ($Halaman == "Kerja Sama") { echo "active";} ?>">
               <i class="nav-icon fas fa-handshake"></i>
               <p><b>Kerja Sama</b></p> 
