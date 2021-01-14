@@ -258,9 +258,72 @@ class Admin extends CI_Controller {
 		}
 	}
 	
+	public function Kurikulum(){
+		$Data['Halaman'] = 'Kurikulum';
+		$Data['Kurikulum'] = $this->db->get("Kurikulum")->result_array();
+    $this->load->view('HeaderAdmin',$Data);
+    $this->load->view('Kurikulum',$Data); 
+	}
+
+	public function InputKurikulum(){
+		if (count($_FILES) > 0) {
+			if ($this->CekBukti($_FILES)){
+				$NamaPdf = date('Ymd',time()).substr(password_hash('Kurikulum', PASSWORD_DEFAULT),7,7);
+				$NamaPdf = str_replace("/","E",$NamaPdf);
+				$NamaPdf = str_replace(".","F",$NamaPdf);
+				move_uploaded_file($_FILES['Bukti']['tmp_name'], "Kurikulum/".$NamaPdf.".pdf");
+				$_POST['Bukti'] = $NamaPdf.".pdf";
+				$this->db->insert('Kurikulum',$_POST);
+				if ($this->db->affected_rows()){
+					echo '1';
+				} else {
+					echo 'Gagal Input Data!';
+				}
+			} else {
+				echo 'Upload Bukti Hanya Boleh PDF!';
+			}
+		} else {
+			echo 'Mohon Upload Bukti Berupa PDF!';
+		}
+	}
+
+	public function UpdateKurikulum(){
+		if ($this->CekBukti($_FILES)){
+			$Bukti = $_POST['BuktiLama'];
+			if (isset($_FILES['Bukti'])) {
+				if($Bukti != ''){
+					unlink('Kurikulum/'.$Bukti);
+				} 
+				$NamaPdf = date('Ymd',time()).substr(password_hash('Kurikulum', PASSWORD_DEFAULT),7,7);
+				$NamaPdf = str_replace("/","E",$NamaPdf);
+				$NamaPdf = str_replace(".","F",$NamaPdf);
+				move_uploaded_file($_FILES['Bukti']['tmp_name'], "Kurikulum/".$NamaPdf.".pdf");
+				$Bukti = $NamaPdf.".pdf";
+			}
+			$this->db->where('Id',$_POST['Id']);
+			unset($_POST['Id']); 
+			unset($_POST['BuktiLama']); 
+			$_POST['Bukti'] = $Bukti;
+			$this->db->update('Kurikulum', $_POST);
+			echo '1';
+		} else {
+			echo 'Upload Bukti Hanya Boleh PDF!';
+		}
+	}
+
+	public function HapusKurikulum(){
+		$this->db->delete('Kurikulum', array('Id' => $_POST['Id']));
+		if ($this->db->affected_rows()){
+			unlink('Kurikulum/'.$_POST['Bukti']);
+			echo '1';
+		} else {
+			echo 'Gagal Menghapus';
+		}
+	}
+	
 	public function IPKLulusan(){
 		$Data['Halaman'] = 'IPK Lulusan';
-		$Data['IPKLulusan'] = $this->db->query("SELECT * FROM IPKLulusan")->result_array();
+		$Data['IPKLulusan'] = $this->db->get("IPKLulusan")->result_array();
     $this->load->view('HeaderAdmin',$Data);
     $this->load->view('IPKLulusan',$Data); 
 	}
@@ -310,8 +373,7 @@ class Admin extends CI_Controller {
 					$NamaPdf = str_replace("/","E",$NamaPdf);
 					$NamaPdf = str_replace(".","F",$NamaPdf);
 					move_uploaded_file($_FILES['BuktiSertifikat']['tmp_name'], "DosenKontrak/".$NamaPdf.".pdf");
-					$BuktiSertifikat = $NamaPdf.".pdf";
-					$_POST['Bukti'] = $BuktiSertifikat;
+					$_POST['Bukti'] = $NamaPdf.".pdf";
 					$this->db->insert('DosenKontrak',$_POST);
 					echo '1';
 				} else {
@@ -518,6 +580,7 @@ class Admin extends CI_Controller {
 			}
 		} 
 		$Data['SitasiDTPS'] = $this->db->query("SELECT * FROM `SitasiDTPS` WHERE Homebase="."'".$Homebase."'"." AND Tahun <= ".$TS." AND Tahun > ".($TS-3))->result_array(); 
+		$Data['Kurikulum'] = $this->db->query("SELECT * FROM `Kurikulum` WHERE Homebase="."'".$Homebase."'")->result_array(); 
 		$Data['PublikasiMahasiswa'] = array();
 		for ($j = 1; $j < 11; $j++) { 
 			$Jumlah = array(); $Total = 0;

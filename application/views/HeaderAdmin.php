@@ -87,6 +87,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a href="<?=base_url("Admin/Kurikulum")?>" class="nav-link <?php if ($Halaman == "Kurikulum") { echo "active";} ?>">
+              <i class="nav-icon fas fa-book"></i>
+              <p><b>Kurikulum</b></p> 
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="<?=base_url("Admin/IPKLulusan")?>" class="nav-link <?php if ($Halaman == "IPK Lulusan") { echo "active";} ?>">
               <i class="nav-icon fas fa-chart-bar"></i>
               <p><b>IPK Lulusan</b></p> 
