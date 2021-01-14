@@ -92,7 +92,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text bg-primary"><b>Judul</b></span>
                     </div>
-                    <input type="text" class="form-control" id="judul" placeholder="Input Jurnal, Volume, Tahun, Nomor, Halaman"> 
+                    <input type="text" class="form-control" id="judul" placeholder="Input Jurnal, Volume, Tahun, Nomor, Halaman">  
                   </div>
                 </div>
                 <div class="col-sm-12">

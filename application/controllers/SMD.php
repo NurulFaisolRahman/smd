@@ -20,6 +20,10 @@ class SMD extends CI_Controller {
 			$this->load->view('KepuasanMahasiswa');
 		} else if ($Jenis == 'PrestasiMahasiswa') {
 			$this->load->view('PrestasiMahasiswa');
+		} else if ($Jenis == 'PublikasiMahasiswa') {
+			$this->load->view('PublikasiMahasiswa');
+		} else if ($Jenis == 'SitasiMahasiswa') {
+			$this->load->view('SitasiMahasiswa');
 		} else if ($Jenis == 'PatenMahasiswa') {
 			$this->load->view('PatenMahasiswa');
 		} else if ($Jenis == 'HKIMahasiswa') {
@@ -64,6 +68,40 @@ class SMD extends CI_Controller {
 				}
 			} else {
 				echo 'Mohon Upload Sertifikat Prestasi Berupa PDF!';
+			}
+		} else if ($Jenis == 'PublikasiMahasiswa') {
+			$_POST['Judul'] = htmlentities($_POST['Judul']);
+			if (count($_FILES) > 0) {
+				if ($this->CekBukti($_FILES)){
+					$NamaPdf = date('Ymd',time()).substr(password_hash('PublikasiMahasiswa', PASSWORD_DEFAULT),7,7);
+					$NamaPdf = str_replace("/","E",$NamaPdf);
+					$NamaPdf = str_replace(".","F",$NamaPdf);
+					move_uploaded_file($_FILES['Bukti']['tmp_name'], "PublikasiMahasiswa/".$NamaPdf.".pdf");
+					$_POST['Bukti'] = $NamaPdf.".pdf";
+					$this->db->insert('PublikasiMahasiswa',$_POST);
+					echo '1';
+				} else {
+					echo 'Upload File Bukti Hanya Boleh PDF!';
+				}
+			} else {
+				echo 'Mohon Upload Bukti Berupa PDF!';
+			}
+		} else if ($Jenis == 'SitasiMahasiswa') {
+			$_POST['Judul'] = htmlentities($_POST['Judul']);
+			if (count($_FILES) > 0) {
+				if ($this->CekBukti($_FILES)){
+					$NamaPdf = date('Ymd',time()).substr(password_hash('SitasiMahasiswa', PASSWORD_DEFAULT),7,7);
+					$NamaPdf = str_replace("/","E",$NamaPdf);
+					$NamaPdf = str_replace(".","F",$NamaPdf);
+					move_uploaded_file($_FILES['Bukti']['tmp_name'], "SitasiMahasiswa/".$NamaPdf.".pdf");
+					$_POST['Bukti'] = $NamaPdf.".pdf";
+					$this->db->insert('SitasiMahasiswa',$_POST);
+					echo '1';
+				} else {
+					echo 'Upload File Bukti Hanya Boleh PDF!';
+				}
+			} else {
+				echo 'Mohon Upload Bukti Berupa PDF!';
 			}
 		} else if ($Jenis == 'PatenMahasiswa') {
 			$_POST['Judul'] = htmlentities($_POST['Judul']);

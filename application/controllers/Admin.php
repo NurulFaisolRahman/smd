@@ -518,6 +518,18 @@ class Admin extends CI_Controller {
 			}
 		} 
 		$Data['SitasiDTPS'] = $this->db->query("SELECT * FROM `SitasiDTPS` WHERE Homebase="."'".$Homebase."'"." AND Tahun <= ".$TS." AND Tahun > ".($TS-3))->result_array(); 
+		$Data['PublikasiMahasiswa'] = array();
+		for ($j = 1; $j < 11; $j++) { 
+			$Jumlah = array(); $Total = 0;
+			for ($i = ($TS-2); $i <= $TS; $i++) { 
+				$Tampung = $this->db->query("SELECT COUNT(*) as Jumlah FROM PublikasiMahasiswa WHERE Homebase="."'".$Homebase."' AND Jenis=".$j." AND Tahun = ".$i)->row_array()['Jumlah'];		
+				$Tampung == '' ? array_push($Jumlah,0) : array_push($Jumlah,$Tampung);
+				$Tampung == '' ? $Total += 0 : $Total += $Tampung;
+			}
+			array_push($Jumlah,$Total);
+			array_push($Data['PublikasiMahasiswa'],$Jumlah);
+		}	
+		$Data['SitasiMahasiswa'] = $this->db->query("SELECT * FROM `SitasiMahasiswa` WHERE Homebase="."'".$Homebase."'"." AND Tahun <= ".$TS." AND Tahun > ".($TS-3))->result_array(); 
 		$Data['PatenMahasiswa'] = $this->db->query("SELECT * FROM `PatenMahasiswa` WHERE Homebase="."'".$Homebase."'"." AND Tahun <= ".$TS." AND Tahun > ".($TS-3))->result_array(); 
 		$Data['HKIMahasiswa'] = $this->db->query("SELECT * FROM `HKIMahasiswa` WHERE Homebase="."'".$Homebase."'"." AND Tahun <= ".$TS." AND Tahun > ".($TS-3))->result_array(); 
 		$Data['KaryaMahasiswa'] = $this->db->query("SELECT * FROM `KaryaMahasiswa` WHERE Homebase="."'".$Homebase."'"." AND Tahun <= ".$TS." AND Tahun > ".($TS-3))->result_array(); 
@@ -623,9 +635,9 @@ class Admin extends CI_Controller {
 		for ($j = 0; $j < 3; $j++) { 
 			$Jumlah = array(); $Total = 0;
 			for ($i = ($TS-2); $i <= $TS; $i++) { 
-				$Tampung = $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE Jenjang="."'".$Homebase."' AND IdKegiatan = 'PNL14' AND Kode LIKE '".$KodePublikasi[$j]."%' AND Tahun = ".$i)->row_array()['Volume'];		
+				$Tampung = $this->db->query("SELECT COUNT(*) as Volume FROM RealisasiPenelitian WHERE Jenjang="."'".$Homebase."' AND IdKegiatan = 'PNL14' AND Kode LIKE '".$KodePublikasi[$j]."%' AND Tahun = ".$i)->row_array()['Volume'];		
 				if ($j == 1) {
-					$Tampung += $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE Jenjang="."'".$Homebase."' AND IdKegiatan = 'PNL1' AND Tahun = ".$i." AND (Kode LIKE '8%' OR Kode LIKE '9%' OR Kode LIKE '10%' OR Kode LIKE '11%')")->row_array()['Volume'];		
+					$Tampung += $this->db->query("SELECT COUNT(*) as Volume FROM RealisasiPenelitian WHERE Jenjang="."'".$Homebase."' AND IdKegiatan = 'PNL1' AND Tahun = ".$i." AND (Kode LIKE '8%' OR Kode LIKE '9%' OR Kode LIKE '10%' OR Kode LIKE '11%')")->row_array()['Volume'];		
 				}
 				$Tampung == '' ? array_push($Jumlah,0) : array_push($Jumlah,$Tampung);
 				$Tampung == '' ? $Total += 0 : $Total += $Tampung;
@@ -636,7 +648,7 @@ class Admin extends CI_Controller {
 		for ($j = 0; $j < 1; $j++) { 
 			$Jumlah = array(); $Total = 0;
 			for ($i = ($TS-2); $i <= $TS; $i++) { 
-				$Tampung = $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE Jenjang="."'".$Homebase."' AND IdKegiatan = 'PNL1' AND Tahun = ".$i." AND (Kode LIKE '5%' OR Kode LIKE '6%')")->row_array()['Volume'];		
+				$Tampung = $this->db->query("SELECT COUNT(*) as Volume FROM RealisasiPenelitian WHERE Jenjang="."'".$Homebase."' AND IdKegiatan = 'PNL1' AND Tahun = ".$i." AND (Kode LIKE '5%' OR Kode LIKE '6%')")->row_array()['Volume'];		
 				$Tampung == '' ? array_push($Jumlah,0) : array_push($Jumlah,$Tampung);
 				$Tampung == '' ? $Total += 0 : $Total += $Tampung;
 			}
@@ -646,7 +658,7 @@ class Admin extends CI_Controller {
 		for ($j = 1; $j <= 3; $j++) { 
 			$Jumlah = array(); $Total = 0;
 			for ($i = ($TS-2); $i <= $TS; $i++) { 
-				$Tampung = $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE Jenjang="."'".$Homebase."' AND IdKegiatan = 'PNL15' AND Tahun = ".$i." AND Kode LIKE '".$j."%'")->row_array()['Volume'];		
+				$Tampung = $this->db->query("SELECT COUNT(*) as Volume FROM RealisasiPenelitian WHERE Jenjang="."'".$Homebase."' AND IdKegiatan = 'PNL15' AND Tahun = ".$i." AND Kode LIKE '".$j."%'")->row_array()['Volume'];		
 				$Tampung == '' ? array_push($Jumlah,0) : array_push($Jumlah,$Tampung);
 				$Tampung == '' ? $Total += 0 : $Total += $Tampung;
 			}
@@ -656,7 +668,7 @@ class Admin extends CI_Controller {
 		for ($j = 11; $j <= 13; $j++) { 
 			$Jumlah = array(); $Total = 0;
 			for ($i = ($TS-2); $i <= $TS; $i++) { 
-				$Tampung = $this->db->query("SELECT SUM(Volume) as Volume FROM RealisasiPenelitian WHERE Jenjang="."'".$Homebase."' AND IdKegiatan = 'PNL2' AND Tahun = ".$i." AND Kode LIKE '".$j."%'")->row_array()['Volume'];		
+				$Tampung = $this->db->query("SELECT COUNT(*) as Volume FROM RealisasiPenelitian WHERE Jenjang="."'".$Homebase."' AND IdKegiatan = 'PNL2' AND Tahun = ".$i." AND Kode LIKE '".$j."%'")->row_array()['Volume'];		
 				$Tampung == '' ? array_push($Jumlah,0) : array_push($Jumlah,$Tampung);
 				$Tampung == '' ? $Total += 0 : $Total += $Tampung;
 			}
