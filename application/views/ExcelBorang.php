@@ -7662,60 +7662,17 @@ Content-Type: text/html; charset="us-ascii"
     <td class=3D"xl86" x:num>6</td>
     <td class=3D"xl89" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
+   <?php for ($i=0; $i < count($Integrasi); $i++) { ?>
    <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
-    <td class=3D"xl102" x:str>P1</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88" x:str>MK A</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
+    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num><?=($i)?></td>
+    <td class=3D"xl102"><?=$Integrasi[$i]['Judul']?></td>
+    <td class=3D"xl88"><?=$Integrasi[$i]['Dosen']?></td>
+    <td class=3D"xl88"><?=$Integrasi[$i]['MK']?></td>
+    <td class=3D"xl88"><?=$Integrasi[$i]['Integrasi']?></td>
+    <td class=3D"xl88"><?=$Integrasi[$i]['Tahun']?></td>
     <td class=3D"xl89" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>2</td>
-    <td class=3D"xl102" x:str>PKM1</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88" x:str>MK S</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl89" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
-    <td class=3D"xl102" x:str>PKM2</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88" x:str>MK W</td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl89" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>4</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl89" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>5</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl89" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
-   <tr height=3D"19" style=3D'height:14.25pt;'>
-    <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>6</td>
-    <td class=3D"xl102"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl89" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
-   </tr>
+  <?php } ?>
    <![if supportMisalignedColumns]>
     <tr width=3D"0" style=3D'display:none;'>
      <td width=3D"44" style=3D'width:33;'></td>

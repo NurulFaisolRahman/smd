@@ -50,12 +50,8 @@
                     <p><b>Profil</b></p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview <?php if ($Halaman == "Kegiatan") {
-                      echo "menu-open";
-                    } ?>">
-                    <a href="#" class="nav-link <?php if ($Halaman == "Kegiatan") {
-                      echo "active"; 
-                    } ?>">
+                <li class="nav-item has-treeview <?php if ($Halaman == "Kegiatan") { echo "menu-open"; } ?>">
+                    <a href="#" class="nav-link <?php if ($Halaman == "Kegiatan") { echo "active"; } ?>">
                     <i class="nav-icon fas fa-tasks"></i>
                     <p>
                       <b>Kegiatan</b>
@@ -70,8 +66,8 @@
                     <ul class="nav nav-treeview <ml-1></ml-3>">
                         <li class="nav-item">
                         <a href="<?=base_url("Dashboard/").$JenisKegiatan[$i]?>" class="nav-link <?php if ($SubMenu == $JenisKegiatan[$i]) { echo "active"; } ?>">
-                            <i class="fas fa-<?=$Icon[$i]?> nav-icon"></i>
-                            <p class="font-weight-bold"><?=$JenisKegiatan[$i]?></p>
+                            <i class="fas fa-<?=$Icon[$i]?> nav-icon text-primary"></i>
+                            <p class="font-weight-bold text-primary"><?=$JenisKegiatan[$i]?></p>
                         </a>
                         </li>
                     </ul>
@@ -83,7 +79,7 @@
                     <p><b>Excel</b></p>
                     </a>
                 </li>
-                <?php if ($this->session->userdata('Kajur')) { ?>
+                <?php if ($this->session->userdata('Kajur')) { ?> 
                   <li class="nav-item has-treeview <?php if ($Halaman == "Monitoring") { echo "menu-open"; } ?>">
                     <a href="#" class="nav-link <?php if ($Halaman == "Monitoring") { echo "active"; } ?>">
                     <i class="nav-icon fas fa-tasks"></i>
@@ -96,8 +92,8 @@
                     <ul class="nav nav-treeview <ml-1></ml-3>">
                         <li class="nav-item">
                         <a href="<?=base_url("Kajur/Monitoring/".$JenisKegiatan[$i])?>" class="nav-link <?php if ($SubMenu == 'Monitoring '.$JenisKegiatan[$i]) { echo "active";} ?>">
-                            <i class="fas fa-<?=$Icon[$i]?> nav-icon"></i>
-                            <p class="font-weight-bold"><?=$JenisKegiatan[$i]?></p>
+                            <i class="fas fa-<?=$Icon[$i]?> nav-icon text-primary"></i>
+                            <p class="font-weight-bold text-primary"><?=$JenisKegiatan[$i]?></p>
                         </a>
                         </li>
                     </ul>

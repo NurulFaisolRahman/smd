@@ -16,7 +16,8 @@ class Admin extends CI_Controller {
 	}  
  
   public function AkunDosen(){
-		$Data['Halaman'] = 'Akun Dosen';
+		$Data['Halaman'] = 'Dosen';
+		$Data['SubMenu'] = 'Dosen PNS';
 		$Data['Kajur'] = $this->db->query('SELECT Dosen.NIP,Dosen.Nama,Akun.JenisAkun FROM Akun,Dosen WHERE Akun.NIP=Dosen.NIP')->result_array();
 		$Data['Dosen'] = $this->db->get('dosen')->result_array();
     $this->load->view('HeaderAdmin',$Data);
@@ -24,7 +25,8 @@ class Admin extends CI_Controller {
 	}
 	
 	public function KerjaSama(){
-		$Data['Halaman'] = 'Kerja Sama';
+		$Data['Halaman'] = 'Prodi';
+		$Data['SubMenu'] = 'Kerja Sama';
 		$Data['KerjaSama'] = $this->db->query("SELECT * FROM KerjaSama")->result_array();
     $this->load->view('HeaderAdmin',$Data);
     $this->load->view('KerjaSama',$Data); 
@@ -113,7 +115,8 @@ class Admin extends CI_Controller {
 	}
 
 	public function MahasiswaBaru(){
-		$Data['Halaman'] = 'Mahasiswa Baru';
+		$Data['Halaman'] = 'Mahasiswa';
+		$Data['SubMenu'] = 'Mahasiswa Baru';
 		$Data['MahasiswaBaru'] = $this->db->query("SELECT * FROM MahasiswaBaru")->result_array();
     $this->load->view('HeaderAdmin',$Data);
     $this->load->view('MahasiswaBaru',$Data); 
@@ -150,7 +153,8 @@ class Admin extends CI_Controller {
 	}
 
 	public function MahasiswaAsing(){
-		$Data['Halaman'] = 'Mahasiswa Asing';
+		$Data['Halaman'] = 'Mahasiswa';
+		$Data['SubMenu'] = 'Mahasiswa Asing';
 		$Data['MahasiswaAsing'] = $this->db->query("SELECT * FROM MahasiswaAsing")->result_array();
     $this->load->view('HeaderAdmin',$Data);
     $this->load->view('MahasiswaAsing',$Data); 
@@ -187,7 +191,8 @@ class Admin extends CI_Controller {
 	}
 
 	public function PenggunaanDana(){
-		$Data['Halaman'] = 'Penggunaan Dana';
+		$Data['Halaman'] = 'Prodi';
+		$Data['SubMenu'] = 'Penggunaan Dana';
 		$Data['PenggunaanDana'] = $this->db->query("SELECT * FROM PenggunaanDana")->result_array();
     $this->load->view('HeaderAdmin',$Data);
     $this->load->view('PenggunaanDana',$Data); 
@@ -223,8 +228,73 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function Integrasi(){
+		$Data['Halaman'] = 'Dosen';
+		$Data['SubMenu'] = 'Integrasi';
+		$Data['Integrasi'] = $this->db->get("Integrasi")->result_array();
+    $this->load->view('HeaderAdmin',$Data);
+    $this->load->view('Integrasi',$Data); 
+	}
+
+	public function InputIntegrasi(){
+		if (count($_FILES) > 0) {
+			if ($this->CekBukti($_FILES)){
+				$NamaPdf = date('Ymd',time()).substr(password_hash('Integrasi', PASSWORD_DEFAULT),7,7);
+				$NamaPdf = str_replace("/","E",$NamaPdf);
+				$NamaPdf = str_replace(".","F",$NamaPdf);
+				move_uploaded_file($_FILES['Bukti']['tmp_name'], "Integrasi/".$NamaPdf.".pdf");
+				$_POST['Bukti'] = $NamaPdf.".pdf";
+				$this->db->insert('Integrasi',$_POST);
+				if ($this->db->affected_rows()){
+					echo '1';
+				} else {
+					echo 'Gagal Input Data!';
+				}
+			} else {
+				echo 'Upload Bukti Hanya Boleh PDF!';
+			}
+		} else {
+			echo 'Mohon Upload Bukti Berupa PDF!';
+		}
+	}
+
+	public function UpdateIntegrasi(){
+		if ($this->CekBukti($_FILES)){
+			$Bukti = $_POST['BuktiLama'];
+			if (isset($_FILES['Bukti'])) {
+				if($Bukti != ''){
+					unlink('Integrasi/'.$Bukti);
+				} 
+				$NamaPdf = date('Ymd',time()).substr(password_hash('Integrasi', PASSWORD_DEFAULT),7,7);
+				$NamaPdf = str_replace("/","E",$NamaPdf);
+				$NamaPdf = str_replace(".","F",$NamaPdf);
+				move_uploaded_file($_FILES['Bukti']['tmp_name'], "Integrasi/".$NamaPdf.".pdf");
+				$Bukti = $NamaPdf.".pdf";
+			}
+			$this->db->where('Id',$_POST['Id']);
+			unset($_POST['Id']); 
+			unset($_POST['BuktiLama']); 
+			$_POST['Bukti'] = $Bukti;
+			$this->db->update('Integrasi', $_POST);
+			echo '1';
+		} else {
+			echo 'Upload Bukti Hanya Boleh PDF!';
+		}
+	}
+
+	public function HapusIntegrasi(){
+		$this->db->delete('Integrasi', array('Id' => $_POST['Id']));
+		if ($this->db->affected_rows()){
+			unlink('Integrasi/'.$_POST['Bukti']);
+			echo '1';
+		} else {
+			echo 'Gagal Menghapus';
+		}
+	}
+
 	public function SitasiDTPS(){
-		$Data['Halaman'] = 'Sitasi DTPS';
+		$Data['Halaman'] = 'Dosen';
+		$Data['SubMenu'] = 'Sitasi Dosen';
 		$Data['SitasiDTPS'] = $this->db->get("SitasiDTPS")->result_array();
     $this->load->view('HeaderAdmin',$Data);
     $this->load->view('SitasiDTPS',$Data); 
@@ -259,7 +329,8 @@ class Admin extends CI_Controller {
 	}
 	
 	public function Kurikulum(){
-		$Data['Halaman'] = 'Kurikulum';
+		$Data['Halaman'] = 'Prodi';
+		$Data['SubMenu'] = 'Kurikulum';
 		$Data['Kurikulum'] = $this->db->get("Kurikulum")->result_array();
     $this->load->view('HeaderAdmin',$Data);
     $this->load->view('Kurikulum',$Data); 
@@ -322,7 +393,8 @@ class Admin extends CI_Controller {
 	}
 	
 	public function IPKLulusan(){
-		$Data['Halaman'] = 'IPK Lulusan';
+		$Data['Halaman'] = 'Mahasiswa';
+		$Data['SubMenu'] = 'IPK Lulusan';
 		$Data['IPKLulusan'] = $this->db->get("IPKLulusan")->result_array();
     $this->load->view('HeaderAdmin',$Data);
     $this->load->view('IPKLulusan',$Data); 
@@ -359,7 +431,8 @@ class Admin extends CI_Controller {
 	}
 	
 	public function DosenKontrak(){
-		$Data['Halaman'] = 'Dosen Kontrak';
+		$Data['Halaman'] = 'Dosen';
+		$Data['SubMenu'] = 'Dosen Kontrak';
 		$Data['DosenKontrak'] = $this->db->query("SELECT * FROM DosenKontrak")->result_array();
     $this->load->view('HeaderAdmin',$Data);
     $this->load->view('DosenKontrak',$Data); 
@@ -427,7 +500,8 @@ class Admin extends CI_Controller {
 	}
 
 	public function PrestasiMhs(){
-		$Data['Halaman'] = 'Prestasi Mahasiswa';
+		$Data['Halaman'] = 'Mahasiswa';
+		$Data['SubMenu'] = 'Prestasi Mahasiswa';
 		$Data['PrestasiMhs'] = $this->db->query("SELECT * FROM prestasimahasiswa")->result_array();
     $this->load->view('HeaderAdmin',$Data);
     $this->load->view('PrestasiMhs',$Data); 
@@ -581,6 +655,7 @@ class Admin extends CI_Controller {
 		} 
 		$Data['SitasiDTPS'] = $this->db->query("SELECT * FROM `SitasiDTPS` WHERE Homebase="."'".$Homebase."'"." AND Tahun <= ".$TS." AND Tahun > ".($TS-3))->result_array(); 
 		$Data['Kurikulum'] = $this->db->query("SELECT * FROM `Kurikulum` WHERE Homebase="."'".$Homebase."'")->result_array(); 
+		$Data['Integrasi'] = $this->db->query("SELECT * FROM `Integrasi` WHERE Homebase="."'".$Homebase."'"." AND Tahun <= ".$TS." AND Tahun > ".($TS-3))->result_array(); 
 		$Data['PublikasiMahasiswa'] = array();
 		for ($j = 1; $j < 11; $j++) { 
 			$Jumlah = array(); $Total = 0;
