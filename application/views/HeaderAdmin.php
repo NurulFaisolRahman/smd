@@ -53,9 +53,9 @@
               </p>
               </a>
               <?php
-                $Menu = array("Dosen PNS","Dosen Kontrak","Sitasi Dosen","Integrasi");
-                $URL = array("AkunDosen","DosenKontrak","SitasiDTPS","Integrasi");
-                $Icon = array("graduation-cap","graduation-cap","quote-left","sync");
+                $Menu = array("Dosen PNS","Dosen Kontrak","Sitasi Dosen","Integrasi","Penelitian","Pengabdian","Rujukan Tesis");
+                $URL = array("AkunDosen","DosenKontrak","SitasiDTPS","Integrasi","PenelitianDosenMhs","PkMDosenMhs","RujukanTesis");
+                $Icon = array("graduation-cap","graduation-cap","quote-left","sync","file-contract","file-contract","file-contract");
               ?>
               <?php for ($i=0; $i < count($Menu); $i++) {?>
               <ul class="nav nav-treeview <ml-1></ml-3>">
@@ -143,7 +143,6 @@
                 <div class="input-group-prepend">
                   <label class="input-group-text bg-primary"><b>Tahun / TS</b></label>
                 </div>
-                <a id="LampiranDTPS" href="LampiranDTPS" download="LampiranDTPS"></a>
                 <input class="form-control" type="text" id="TS"  data-inputmask='"mask": "9999"' data-mask value="20">
               </div>
             </div>
