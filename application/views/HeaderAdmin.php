@@ -101,9 +101,9 @@
               </p>
               </a>
               <?php
-                $Menu = array("Kerja Sama","Penggunaan Dana","Kurikulum");
-                $URL = array("KerjaSama","PenggunaanDana","Kurikulum");
-                $Icon = array("handshake","wallet","book");
+                $Menu = array("Info Akademik","Kerja Sama","Penggunaan Dana","Kurikulum");
+                $URL = array("InfoAkademik","KerjaSama","PenggunaanDana","Kurikulum");
+                $Icon = array("clipboard-list","handshake","wallet","book");
               ?>
               <?php for ($i=0; $i < count($Menu); $i++) {?>
               <ul class="nav nav-treeview <ml-1></ml-3>">

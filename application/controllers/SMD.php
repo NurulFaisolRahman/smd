@@ -32,6 +32,8 @@ class SMD extends CI_Controller {
 			$this->load->view('KaryaMahasiswa');
 		} else if ($Jenis == 'BukuMahasiswa') {
 			$this->load->view('BukuMahasiswa');
+		} else if ($Jenis == 'PenggunaLulusan') {
+			$this->load->view('PenggunaLulusan');
 		} 
 	}
 
@@ -51,6 +53,8 @@ class SMD extends CI_Controller {
 			} else {
 				echo 'Data Kuisioner Kepuasan Mahasiswa Dengan NIM '.$_POST['NIM'].' Sudah Ada!';
 			}
+		} else if ($Jenis == 'PenggunaLulusan') {
+			$this->InsertKuisioner('PenggunaLulusan',$_POST);
 		} else if ($Jenis == 'PrestasiMahasiswa') {
 			$_POST['NamaPrestasi'] = htmlentities($_POST['NamaPrestasi']);
 			$_POST['CapaianPrestasi'] = htmlentities($_POST['CapaianPrestasi']);

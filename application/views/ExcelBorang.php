@@ -9056,7 +9056,7 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-6</td>
-    <td class=3D"xl87"></td>
+    <td class=3D"xl87"><?=$Homebase=='S1'?$MhsDiterima[0]:'0';?></td>
     <td class=3D"xl106"></td>
     <td class=3D"xl106"></td>
     <td class=3D"xl106"></td>
@@ -9071,7 +9071,7 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-5</td>
-    <td class=3D"xl87"></td>
+    <td class=3D"xl87"><?=$Homebase=='S1'?$MhsDiterima[1]:'0';?></td>
     <td class=3D"xl106"></td>
     <td class=3D"xl106"></td>
     <td class=3D"xl106"></td>
@@ -9086,7 +9086,7 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-4</td>
-    <td class=3D"xl87"></td>
+    <td class=3D"xl87"><?=$Homebase=='S1'?$MhsDiterima[2]:'0';?></td>
     <td class=3D"xl106"></td>
     <td class=3D"xl106"></td>
     <td class=3D"xl106"></td>
@@ -9101,7 +9101,7 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-3</td>
-    <td class=3D"xl87"></td>
+    <td class=3D"xl87"><?=$Homebase=='S1'?$MhsDiterima[3]:'0';?></td>
     <td class=3D"xl106"></td>
     <td class=3D"xl106"></td>
     <td class=3D"xl106"></td>
@@ -9159,7 +9159,7 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-3</td>
-    <td class=3D"xl87"></td>
+    <td class=3D"xl87"><?=$Homebase=='S2'?$MhsDiterima[0]:'0';?></td>
     <td class=3D"xl106"></td>
     <td class=3D"xl88"></td>
     <td class=3D"xl88"></td>
@@ -9171,7 +9171,7 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-2</td>
-    <td class=3D"xl87"></td>
+    <td class=3D"xl87"><?=$Homebase=='S2'?$MhsDiterima[1]:'0';?></td>
     <td class=3D"xl106"></td>
     <td class=3D"xl106"></td>
     <td class=3D"xl88"></td>
@@ -9183,7 +9183,7 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-1</td>
-    <td class=3D"xl87"></td>
+    <td class=3D"xl87"><?=$Homebase=='S2'?$MhsDiterima[2]:'0';?></td>
     <td class=3D"xl106"></td>
     <td class=3D"xl106"></td>
     <td class=3D"xl106"></td>
@@ -9497,7 +9497,7 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-4</td>
-    <td class=3D"xl88"></td>
+    <td class=3D"xl88"><?=$Homebase=='S1'?$MhsLulus[0]:'0';?></td>
     <td class=3D"xl88"></td>
     <td class=3D"xl88"></td>
     <td class=3D"xl88"></td>
@@ -9506,7 +9506,7 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-3</td>
-    <td class=3D"xl88"></td>
+    <td class=3D"xl88"><?=$Homebase=='S1'?$MhsLulus[1]:'0';?></td>
     <td class=3D"xl88"></td>
     <td class=3D"xl88"></td>
     <td class=3D"xl88"></td>
@@ -9515,7 +9515,7 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-2</td>
-    <td class=3D"xl88"></td>
+    <td class=3D"xl88"><?=$Homebase=='S1'?$MhsLulus[2]:'0';?></td>
     <td class=3D"xl88"></td>
     <td class=3D"xl88"></td>
     <td class=3D"xl88"></td>
@@ -9524,11 +9524,11 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl94" height=3D"19" style=3D'height:14.25pt;' x:str>Jumlah</td>
-    <td class=3D"xl87"></td>
-    <td class=3D"xl87"></td>
-    <td class=3D"xl87"></td>
-    <td class=3D"xl87"></td>
-    <td class=3D"xl87"></td>
+    <td class=3D"xl94" x:fmla=3D"=3DSUM(B16:B18)" x:num></td>
+    <td class=3D"xl94" x:fmla=3D"=3DSUM(C16:C18)" x:num></td>
+    <td class=3D"xl94" x:fmla=3D"=3DSUM(D16:D18)" x:num></td>
+    <td class=3D"xl94" x:fmla=3D"=3DSUM(E16:E18)" x:num></td>
+    <td class=3D"xl94" x:fmla=3D"=3DSUM(F16:F18)" x:num></td>
     <td class=3D"xl89" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
@@ -9716,7 +9716,7 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-4</td>
-    <td class=3D"xl88" x:num>101</td>
+    <td class=3D"xl88" x:num><?=$MhsLulus[0]?></td>
     <td class=3D"xl88" x:num>12</td>
     <td class=3D"xl88" x:num>1</td>
     <td class=3D"xl88" x:num>1</td>
@@ -9725,7 +9725,7 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-3</td>
-    <td class=3D"xl88" x:num>97</td>
+    <td class=3D"xl88" x:num><?=$MhsLulus[1]?></td>
     <td class=3D"xl88" x:num>25</td>
     <td class=3D"xl88" x:num>5</td>
     <td class=3D"xl88" x:num>10</td>
@@ -9734,7 +9734,7 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-2</td>
-    <td class=3D"xl88" x:num>89</td>
+    <td class=3D"xl88" x:num><?=$MhsLulus[2]?></td>
     <td class=3D"xl88" x:num>41</td>
     <td class=3D"xl88" x:num>6</td>
     <td class=3D"xl88" x:num>15</td>
@@ -9743,11 +9743,11 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl94" height=3D"19" style=3D'height:14.25pt;' x:str>Jumlah</td>
-    <td class=3D"xl87"></td>
-    <td class=3D"xl87"></td>
-    <td class=3D"xl87"></td>
-    <td class=3D"xl87"></td>
-    <td class=3D"xl87"></td>
+    <td class=3D"xl94" x:fmla=3D"=3DSUM(B7:B9)" x:num></td>
+    <td class=3D"xl94" x:fmla=3D"=3DSUM(C7:C9)" x:num></td>
+    <td class=3D"xl94" x:fmla=3D"=3DSUM(D7:D9)" x:num></td>
+    <td class=3D"xl94" x:fmla=3D"=3DSUM(E7:E9)" x:num></td>
+    <td class=3D"xl94" x:fmla=3D"=3DSUM(F7:F9)" x:num></td>
     <td class=3D"xl105"></td>
     <td class=3D"xl89" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
    </tr>
@@ -9876,7 +9876,7 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-4</td>
-    <td class=3D"xl88" x:num>101</td>
+    <td class=3D"xl88"><?=$Homebase=='S1'?$MhsLulus[0]:'0';?></td>
     <td class=3D"xl88" x:num>12</td>
     <td class=3D"xl88" x:num>1</td>
     <td class=3D"xl88" x:num>8</td>
@@ -9885,7 +9885,7 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-3</td>
-    <td class=3D"xl88" x:num>98</td>
+    <td class=3D"xl88"><?=$Homebase=='S1'?$MhsLulus[1]:'0';?></td>
     <td class=3D"xl88" x:num>17</td>
     <td class=3D"xl88" x:num>3</td>
     <td class=3D"xl88" x:num>9</td>
@@ -9894,7 +9894,7 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-2</td>
-    <td class=3D"xl88" x:num>87</td>
+    <td class=3D"xl88"><?=$Homebase=='S1'?$MhsLulus[2]:'0';?></td>
     <td class=3D"xl88" x:num>22</td>
     <td class=3D"xl88" x:num>10</td>
     <td class=3D"xl88" x:num>11</td>
@@ -9903,11 +9903,11 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl94" height=3D"19" style=3D'height:14.25pt;' x:str>Jumlah</td>
-    <td class=3D"xl90"></td>
-    <td class=3D"xl87"></td>
-    <td class=3D"xl87"></td>
-    <td class=3D"xl87"></td>
-    <td class=3D"xl87"></td>
+    <td class=3D"xl94" x:fmla=3D"=3DSUM(B7:B9)" x:num></td>
+    <td class=3D"xl94" x:fmla=3D"=3DSUM(C7:C9)" x:num></td>
+    <td class=3D"xl94" x:fmla=3D"=3DSUM(D7:D9)" x:num></td>
+    <td class=3D"xl94" x:fmla=3D"=3DSUM(E7:E9)" x:num></td>
+    <td class=3D"xl94" x:fmla=3D"=3DSUM(F7:F9)" x:num></td>
     <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
@@ -10056,26 +10056,26 @@ Content-Type: text/html; charset="us-ascii"
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-4</td>
-    <td class=3D"xl88" x:num>101</td>
-    <td class=3D"xl88" x:num>20</td>
+    <td class=3D"xl88" x:num><?=$MhsLulus[0]?></td>
+    <td class=3D"xl88" x:num><?=$JumlahTanggapan[0]?></td>
     <td class=3D"xl89" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-3</td>
-    <td class=3D"xl88" x:num>98</td>
-    <td class=3D"xl88" x:num>24</td>
+    <td class=3D"xl88" x:num><?=$MhsLulus[1]?></td>
+    <td class=3D"xl88" x:num><?=$JumlahTanggapan[1]?></td>
     <td class=3D"xl89" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-2</td>
-    <td class=3D"xl88" x:num>87</td>
-    <td class=3D"xl88" x:num>28</td>
+    <td class=3D"xl88" x:num><?=$MhsLulus[2]?></td>
+    <td class=3D"xl88" x:num><?=$JumlahTanggapan[2]?></td>
     <td class=3D"xl89" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl94" height=3D"19" style=3D'height:14.25pt;' x:str>Jumlah</td>
-    <td class=3D"xl94" x:fmla=3D"=3DSUM(B7:B9)" x:num>286</td>
-    <td class=3D"xl94" x:fmla=3D"=3DSUM(C7:C9)" x:num>72</td>
+    <td class=3D"xl94" x:fmla=3D"=3DSUM(B7:B9)" x:num></td>
+    <td class=3D"xl94" x:fmla=3D"=3DSUM(C7:C9)" x:num></td>
     <td class=3D"xl89" colspan=3D"5" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <![if supportMisalignedColumns]>
@@ -10207,70 +10207,70 @@ Content-Type: text/html; charset="us-ascii"
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>1</td>
     <td class=3D"xl90" x:str>Etika</td>
-    <td class=3D"xl99" x:num=3D"70">7000%</td>
-    <td class=3D"xl99" x:num=3D"10">1000%</td>
-    <td class=3D"xl99" x:num=3D"10">1000%</td>
-    <td class=3D"xl99" x:num=3D"10">1000%</td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[0][0]/$PenggunaLulusan[7][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[0][1]/$PenggunaLulusan[7][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[0][2]/$PenggunaLulusan[7][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[0][3]/$PenggunaLulusan[7][0]*100),2)?></td>
     <td class=3D"xl102"></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"34" style=3D'height:25.50pt;'>
     <td class=3D"xl87" height=3D"34" style=3D'height:25.50pt;' x:num>2</td>
     <td class=3D"xl90" x:str>Keahlian pada bidang ilmu (kompetensi utama)</td>
-    <td class=3D"xl99" x:num=3D"60">6000%</td>
-    <td class=3D"xl99" x:num=3D"20">2000%</td>
-    <td class=3D"xl99" x:num=3D"10">1000%</td>
-    <td class=3D"xl99" x:num=3D"10">1000%</td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[1][0]/$PenggunaLulusan[7][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[1][1]/$PenggunaLulusan[7][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[1][2]/$PenggunaLulusan[7][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[1][3]/$PenggunaLulusan[7][0]*100),2)?></td>
     <td class=3D"xl102"></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>3</td>
     <td class=3D"xl90" x:str>Kemampuan berbahasa asing</td>
-    <td class=3D"xl99" x:num=3D"60">6000%</td>
-    <td class=3D"xl99" x:num=3D"10">1000%</td>
-    <td class=3D"xl99" x:num=3D"20">2000%</td>
-    <td class=3D"xl99" x:num=3D"10">1000%</td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[2][0]/$PenggunaLulusan[7][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[2][1]/$PenggunaLulusan[7][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[2][2]/$PenggunaLulusan[7][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[2][3]/$PenggunaLulusan[7][0]*100),2)?></td>
     <td class=3D"xl102"></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>4</td>
     <td class=3D"xl90" x:str>Penggunaan teknologi informasi</td>
-    <td class=3D"xl99" x:num=3D"70">7000%</td>
-    <td class=3D"xl99" x:num=3D"10">1000%</td>
-    <td class=3D"xl99" x:num=3D"10">1000%</td>
-    <td class=3D"xl99" x:num=3D"10">1000%</td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[3][0]/$PenggunaLulusan[7][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[3][1]/$PenggunaLulusan[7][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[3][2]/$PenggunaLulusan[7][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[3][3]/$PenggunaLulusan[7][0]*100),2)?></td>
     <td class=3D"xl102"></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>5</td>
     <td class=3D"xl90" x:str>Kemampuan berkomunikasi</td>
-    <td class=3D"xl99" x:num=3D"60">6000%</td>
-    <td class=3D"xl99" x:num=3D"20">2000%</td>
-    <td class=3D"xl99" x:num=3D"10">1000%</td>
-    <td class=3D"xl99" x:num=3D"10">1000%</td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[4][0]/$PenggunaLulusan[7][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[4][1]/$PenggunaLulusan[7][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[4][2]/$PenggunaLulusan[7][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[4][3]/$PenggunaLulusan[7][0]*100),2)?></td>
     <td class=3D"xl102"></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>6</td>
     <td class=3D"xl90" x:str>Kerjasama</td>
-    <td class=3D"xl99" x:num=3D"60">6000%</td>
-    <td class=3D"xl99" x:num=3D"10">1000%</td>
-    <td class=3D"xl99" x:num=3D"20">2000%</td>
-    <td class=3D"xl99" x:num=3D"10">1000%</td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[5][0]/$PenggunaLulusan[7][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[5][1]/$PenggunaLulusan[7][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[5][2]/$PenggunaLulusan[7][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[5][3]/$PenggunaLulusan[7][0]*100),2)?></td>
     <td class=3D"xl102"></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:num>7</td>
     <td class=3D"xl90" x:str>Pengembangan diri</td>
-    <td class=3D"xl99" x:num=3D"40">4000%</td>
-    <td class=3D"xl99" x:num=3D"30">3000%</td>
-    <td class=3D"xl99" x:num=3D"10">1000%</td>
-    <td class=3D"xl99" x:num=3D"20">2000%</td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[6][0]/$PenggunaLulusan[7][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[6][1]/$PenggunaLulusan[7][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[6][2]/$PenggunaLulusan[7][0]*100),2)?></td>
+    <td class=3D"xl88" x:num><?=number_format(($PenggunaLulusan[6][3]/$PenggunaLulusan[7][0]*100),2)?></td>
     <td class=3D"xl102"></td>
     <td class=3D"xl89" colspan=3D"2" style=3D'mso-ignore:colspan;'></td>
    </tr>

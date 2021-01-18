@@ -127,7 +127,7 @@ class Admin extends CI_Controller {
 			$this->db->insert('MahasiswaBaru',$_POST);
 			echo '1';
 		} else {
-			echo "Data Homebase ".$_POST['Homebase']." & Tahun ".$_POST['Tahun']." Sudah Ada!";
+			echo "Data Mahasiswa Baru Homebase ".$_POST['Homebase']." & Tahun ".$_POST['Tahun']." Sudah Ada!";
 		}
 	}
 
@@ -139,7 +139,7 @@ class Admin extends CI_Controller {
 			$this->db->update('MahasiswaBaru', $_POST);
 			echo '1';
 		} else {
-			echo "Data Homebase ".$_POST['Homebase']." & Tahun ".$_POST['Tahun']." Sudah Ada!";
+			echo "Data Mahasiswa Baru Homebase ".$_POST['Homebase']." & Tahun ".$_POST['Tahun']." Sudah Ada!";
 		}
 	}
 	
@@ -165,7 +165,7 @@ class Admin extends CI_Controller {
 			$this->db->insert('MahasiswaAsing',$_POST);
 			echo '1';
 		} else {
-			echo "Data Homebase ".$_POST['Homebase']." & Tahun ".$_POST['Tahun']." Sudah Ada!";
+			echo "Data Mahasiswa Asing Homebase ".$_POST['Homebase']." & Tahun ".$_POST['Tahun']." Sudah Ada!";
 		}
 	}
 
@@ -177,7 +177,7 @@ class Admin extends CI_Controller {
 			$this->db->update('MahasiswaAsing', $_POST);
 			echo '1';
 		} else {
-			echo "Data Homebase ".$_POST['Homebase']." & Tahun ".$_POST['Tahun']." Sudah Ada!";
+			echo "Data Mahasiswa Asing Homebase ".$_POST['Homebase']." & Tahun ".$_POST['Tahun']." Sudah Ada!";
 		}
 	}
 	
@@ -519,6 +519,44 @@ class Admin extends CI_Controller {
 			echo 'Gagal Menghapus';
 		}
 	}
+
+	public function InfoAkademik(){
+		$Data['Halaman'] = 'Prodi';
+		$Data['SubMenu'] = 'Info Akademik';
+		$Data['InfoAkademik'] = $this->db->get("InfoAkademik")->result_array();
+    $this->load->view('HeaderAdmin',$Data);
+    $this->load->view('InfoAkademik',$Data); 
+	}
+
+	public function InputInfoAkademik(){
+		if($this->db->get_where('InfoAkademik', array('Homebase' => $_POST['Homebase'],'Tahun' => $_POST['Tahun']))->num_rows() === 0){
+			$this->db->insert('InfoAkademik',$_POST);
+			echo '1';
+		} else {
+			echo "Data Info Akademik Homebase ".$_POST['Homebase']." & Tahun ".$_POST['Tahun']." Sudah Ada!";
+		}
+	}
+
+	public function UpdateInfoAkademik(){
+		if($this->db->get_where('InfoAkademik', array('Homebase' => $_POST['Homebase'],'Tahun' => $_POST['Tahun']))->num_rows() === 0 || ($_POST['Homebase'] == $_POST['HomebaseLama'] && $_POST['Tahun'] == $_POST['TahunLama'])){
+			$this->db->where('Homebase',$_POST['HomebaseLama']);
+			$this->db->where('Tahun',$_POST['TahunLama']);
+			unset($_POST['HomebaseLama']); unset($_POST['TahunLama']); 
+			$this->db->update('InfoAkademik', $_POST);
+			echo '1';
+		} else {
+			echo "Data Info Akademik Homebase ".$_POST['Homebase']." & Tahun ".$_POST['Tahun']." Sudah Ada!";
+		}
+	}
+
+	public function HapusInfoAkademik(){
+		$this->db->delete('InfoAkademik', array('Homebase' => $_POST['Homebase'],'Tahun' => $_POST['Tahun']));
+		if ($this->db->affected_rows()){
+			echo '1';
+		} else {
+			echo 'Gagal Menghapus';
+		}
+	}
 	
 	public function Kurikulum(){
 		$Data['Halaman'] = 'Prodi';
@@ -796,6 +834,18 @@ class Admin extends CI_Controller {
 			$Tampung = $this->db->query("SELECT * FROM MahasiswaAsing WHERE Homebase = '".$Data['HomebaseMahasiswaAsing']."' AND Tahun = ".$i)->row_array();		
 			$Tampung == '' ? array_push($Data['MahasiswaAsing'],array(0,0,0)) : array_push($Data['MahasiswaAsing'],array($Tampung['MhsAktif'],$Tampung['MhsFull'],$Tampung['MhsPart']));
 		}
+		$Data['MhsLulus'] = array(); 
+		for ($i = ($TS-4); $i < ($TS-1); $i++) { 
+			$Tampung = $this->db->query("SELECT * FROM InfoAkademik WHERE Homebase = '".$Homebase."' AND Tahun = ".$i)->row_array();		
+			$Tampung == '' ? array_push($Data['MhsLulus'],0) : array_push($Data['MhsLulus'],$Tampung['MhsLulus']);
+		}
+		$Data['MhsDiterima'] = array(); 
+		$Homebase == 'S1' ? $Ts = $TS-6 : $Ts = $TS-3;
+		$Homebase == 'S1' ? $tS = $TS-2 : $tS = $TS;
+		for ($i = $Ts; $i < $tS; $i++) { 
+			$Tampung = $this->db->query("SELECT * FROM InfoAkademik WHERE Homebase = '".$Homebase."' AND Tahun = ".$i)->row_array();		
+			$Tampung == '' ? array_push($Data['MhsDiterima'],0) : array_push($Data['MhsDiterima'],$Tampung['MhsMasuk']);
+		}
 		$KepuasanMhs = $this->db->query("SELECT * FROM kepuasanmahasiswa WHERE Homebase = '".$Homebase."' AND Tahun = ".$TS)->result_array();
 		$Data['KepuasanMhs'] = array(array(0,0,0,0),array(0,0,0,0),array(0,0,0,0),array(0,0,0,0),array(0,0,0,0),array(0,0,0,0)); 
 		count($KepuasanMhs) > 0 ? $Data['KepuasanMhs'][5][0] = count($KepuasanMhs) : $Data['KepuasanMhs'][5][0] = 1;
@@ -806,6 +856,24 @@ class Admin extends CI_Controller {
 			$Data['KepuasanMhs'][2][$Pisah[2]-1] += 1;
 			$Data['KepuasanMhs'][3][$Pisah[3]-1] += 1;
 			$Data['KepuasanMhs'][4][$Pisah[4]-1] += 1;
+		}
+		$Data['JumlahTanggapan'] = array(); 
+		for ($i = ($TS-4); $i < ($TS-1); $i++) { 
+			$Tampung = $this->db->query("SELECT * FROM PenggunaLulusan WHERE Homebase = '".$Homebase."' AND Tahun = ".$i)->result_array();		
+			$Tampung == '' ? array_push($Data['JumlahTanggapan'],0) : array_push($Data['JumlahTanggapan'],count($Tampung));
+		}
+		$PenggunaLulusan = $this->db->query("SELECT * FROM PenggunaLulusan WHERE Homebase = '".$Homebase."' AND Tahun = ".$TS)->result_array();
+		$Data['PenggunaLulusan'] = array(array(0,0,0,0),array(0,0,0,0),array(0,0,0,0),array(0,0,0,0),array(0,0,0,0),array(0,0,0,0),array(0,0,0,0),array(0,0,0,0)); 
+		count($PenggunaLulusan) > 0 ? $Data['PenggunaLulusan'][7][0] = count($PenggunaLulusan) : $Data['PenggunaLulusan'][7][0] = 1;
+		for ($i=0; $i < count($PenggunaLulusan); $i++) { 
+			$Pisah = explode("|",$PenggunaLulusan[$i]['Poin']);
+			$Data['PenggunaLulusan'][0][$Pisah[0]-1] += 1;
+			$Data['PenggunaLulusan'][1][$Pisah[1]-1] += 1;
+			$Data['PenggunaLulusan'][2][$Pisah[2]-1] += 1;
+			$Data['PenggunaLulusan'][3][$Pisah[3]-1] += 1;
+			$Data['PenggunaLulusan'][4][$Pisah[4]-1] += 1;
+			$Data['PenggunaLulusan'][5][$Pisah[5]-1] += 1;
+			$Data['PenggunaLulusan'][6][$Pisah[6]-1] += 1;
 		}
 		$Data['PrestasiAkademik'] = $this->db->query("SELECT * FROM prestasimahasiswa WHERE JenisPrestasi=1 AND Homebase = '".$Homebase."' AND TahunPrestasi > ".($TS-5)." AND TahunPrestasi <= ".$TS)->result_array();
 		$Data['PrestasiNonAkademik'] = $this->db->query("SELECT * FROM prestasimahasiswa WHERE JenisPrestasi=2 AND Homebase = '".$Homebase."' AND TahunPrestasi > ".($TS-5)." AND TahunPrestasi <= ".$TS)->result_array();
