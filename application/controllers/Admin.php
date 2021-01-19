@@ -862,6 +862,29 @@ class Admin extends CI_Controller {
 			$Tampung = $this->db->query("SELECT * FROM PenggunaLulusan WHERE Homebase = '".$Homebase."' AND Tahun = ".$i)->result_array();		
 			$Tampung == '' ? array_push($Data['JumlahTanggapan'],0) : array_push($Data['JumlahTanggapan'],count($Tampung));
 		}
+		$Data['TungguKerja'] = array(); 
+		$Data['BidangKerja'] = array(); 
+		$Data['TingkatKerja'] = array(); 
+		for ($i = ($TS-4); $i < ($TS-1); $i++) { 
+			$Tampung = array();
+			for ($j=1; $j <= 3; $j++) { 
+				array_push($Tampung,count($this->db->query("SELECT * FROM Alumni WHERE Homebase = '".$Homebase."' AND Tahun = ".$i." AND TungguKerja = ".$j)->result_array()));		
+			}
+			array_push($Tampung,array_sum($Tampung));
+			array_push($Data['TungguKerja'],$Tampung);
+			$Tampung = array();
+			for ($j=1; $j <= 3; $j++) { 
+				array_push($Tampung,count($this->db->query("SELECT * FROM Alumni WHERE Homebase = '".$Homebase."' AND Tahun = ".$i." AND BidangKerja = ".$j)->result_array()));		
+			}
+			array_push($Tampung,array_sum($Tampung));
+			array_push($Data['BidangKerja'],$Tampung);
+			$Tampung = array();
+			for ($j=1; $j <= 3; $j++) { 
+				array_push($Tampung,count($this->db->query("SELECT * FROM Alumni WHERE Homebase = '".$Homebase."' AND Tahun = ".$i." AND TingkatKerja = ".$j)->result_array()));		
+			}
+			array_push($Tampung,array_sum($Tampung));
+			array_push($Data['TingkatKerja'],$Tampung);
+		}
 		$PenggunaLulusan = $this->db->query("SELECT * FROM PenggunaLulusan WHERE Homebase = '".$Homebase."' AND Tahun = ".$TS)->result_array();
 		$Data['PenggunaLulusan'] = array(array(0,0,0,0),array(0,0,0,0),array(0,0,0,0),array(0,0,0,0),array(0,0,0,0),array(0,0,0,0),array(0,0,0,0),array(0,0,0,0)); 
 		count($PenggunaLulusan) > 0 ? $Data['PenggunaLulusan'][7][0] = count($PenggunaLulusan) : $Data['PenggunaLulusan'][7][0] = 1;

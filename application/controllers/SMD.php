@@ -34,6 +34,8 @@ class SMD extends CI_Controller {
 			$this->load->view('BukuMahasiswa');
 		} else if ($Jenis == 'PenggunaLulusan') {
 			$this->load->view('PenggunaLulusan');
+		} else if ($Jenis == 'Alumni') {
+			$this->load->view('Alumni');
 		} 
 	}
 
@@ -42,7 +44,7 @@ class SMD extends CI_Controller {
 		if ($this->db->affected_rows()){
 			echo '1';
 		} else {
-			echo 'Gagal Mengirim Survei!';
+			echo 'Gagal Mengirim Survei!'; 
 		}
 	}
 
@@ -55,6 +57,12 @@ class SMD extends CI_Controller {
 			}
 		} else if ($Jenis == 'PenggunaLulusan') {
 			$this->InsertKuisioner('PenggunaLulusan',$_POST);
+		} else if ($Jenis == 'Alumni') {
+			if ($this->db->get_where('Alumni', array('NIM' => $_POST['NIM']))->num_rows() === 0) {
+				$this->InsertKuisioner('Alumni',$_POST);
+			} else {
+				echo 'Data Kuisioner Alumni Dengan NIM '.$_POST['NIM'].' Sudah Ada!';
+			}
 		} else if ($Jenis == 'PrestasiMahasiswa') {
 			$_POST['NamaPrestasi'] = htmlentities($_POST['NamaPrestasi']);
 			$_POST['CapaianPrestasi'] = htmlentities($_POST['CapaianPrestasi']);

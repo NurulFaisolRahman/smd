@@ -9498,28 +9498,28 @@ Content-Type: text/html; charset="us-ascii"
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-4</td>
     <td class=3D"xl88"><?=$Homebase=='S1'?$MhsLulus[0]:'0';?></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TungguKerja[0][3]:'0';?></td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TungguKerja[0][0]:'0';?></td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TungguKerja[0][1]:'0';?></td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TungguKerja[0][2]:'0';?></td>
     <td class=3D"xl89" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-3</td>
     <td class=3D"xl88"><?=$Homebase=='S1'?$MhsLulus[1]:'0';?></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TungguKerja[1][3]:'0';?></td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TungguKerja[1][0]:'0';?></td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TungguKerja[1][1]:'0';?></td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TungguKerja[1][2]:'0';?></td>
     <td class=3D"xl89" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-2</td>
     <td class=3D"xl88"><?=$Homebase=='S1'?$MhsLulus[2]:'0';?></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
-    <td class=3D"xl88"></td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TungguKerja[2][3]:'0';?></td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TungguKerja[2][0]:'0';?></td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TungguKerja[2][1]:'0';?></td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TungguKerja[2][2]:'0';?></td>
     <td class=3D"xl89" colspan=3D"4" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
@@ -9717,28 +9717,28 @@ Content-Type: text/html; charset="us-ascii"
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-4</td>
     <td class=3D"xl88" x:num><?=$MhsLulus[0]?></td>
-    <td class=3D"xl88" x:num>12</td>
-    <td class=3D"xl88" x:num>1</td>
-    <td class=3D"xl88" x:num>1</td>
-    <td class=3D"xl88" x:num>10</td>
+    <td class=3D"xl88" x:num><?=$BidangKerja[0][3]?></td>
+    <td class=3D"xl88" x:num><?=$BidangKerja[0][0]?></td>
+    <td class=3D"xl88" x:num><?=$BidangKerja[0][1]?></td>
+    <td class=3D"xl88" x:num><?=$BidangKerja[0][2]?></td>
     <td class=3D"xl89" colspan=3D"6" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-3</td>
     <td class=3D"xl88" x:num><?=$MhsLulus[1]?></td>
-    <td class=3D"xl88" x:num>25</td>
-    <td class=3D"xl88" x:num>5</td>
-    <td class=3D"xl88" x:num>10</td>
-    <td class=3D"xl88" x:num>10</td>
+    <td class=3D"xl88" x:num><?=$BidangKerja[1][3]?></td>
+    <td class=3D"xl88" x:num><?=$BidangKerja[1][0]?></td>
+    <td class=3D"xl88" x:num><?=$BidangKerja[1][1]?></td>
+    <td class=3D"xl88" x:num><?=$BidangKerja[1][2]?></td>
     <td class=3D"xl89" colspan=3D"6" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-2</td>
     <td class=3D"xl88" x:num><?=$MhsLulus[2]?></td>
-    <td class=3D"xl88" x:num>41</td>
-    <td class=3D"xl88" x:num>6</td>
-    <td class=3D"xl88" x:num>15</td>
-    <td class=3D"xl88" x:num>20</td>
+    <td class=3D"xl88" x:num><?=$BidangKerja[2][3]?></td>
+    <td class=3D"xl88" x:num><?=$BidangKerja[2][0]?></td>
+    <td class=3D"xl88" x:num><?=$BidangKerja[2][1]?></td>
+    <td class=3D"xl88" x:num><?=$BidangKerja[2][2]?></td>
     <td class=3D"xl89" colspan=3D"6" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
@@ -9877,28 +9877,28 @@ Content-Type: text/html; charset="us-ascii"
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-4</td>
     <td class=3D"xl88"><?=$Homebase=='S1'?$MhsLulus[0]:'0';?></td>
-    <td class=3D"xl88" x:num>12</td>
-    <td class=3D"xl88" x:num>1</td>
-    <td class=3D"xl88" x:num>8</td>
-    <td class=3D"xl88" x:num>3</td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TingkatKerja[0][3]:'0';?></td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TingkatKerja[0][0]:'0';?></td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TingkatKerja[0][1]:'0';?></td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TingkatKerja[0][2]:'0';?></td>
     <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-3</td>
     <td class=3D"xl88"><?=$Homebase=='S1'?$MhsLulus[1]:'0';?></td>
-    <td class=3D"xl88" x:num>17</td>
-    <td class=3D"xl88" x:num>3</td>
-    <td class=3D"xl88" x:num>9</td>
-    <td class=3D"xl88" x:num>5</td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TingkatKerja[1][3]:'0';?></td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TingkatKerja[1][0]:'0';?></td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TingkatKerja[1][1]:'0';?></td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TingkatKerja[1][2]:'0';?></td>
     <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
     <td class=3D"xl87" height=3D"19" style=3D'height:14.25pt;' x:str>TS-2</td>
     <td class=3D"xl88"><?=$Homebase=='S1'?$MhsLulus[2]:'0';?></td>
-    <td class=3D"xl88" x:num>22</td>
-    <td class=3D"xl88" x:num>10</td>
-    <td class=3D"xl88" x:num>11</td>
-    <td class=3D"xl88" x:num>1</td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TingkatKerja[2][3]:'0';?></td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TingkatKerja[2][0]:'0';?></td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TingkatKerja[2][1]:'0';?></td>
+    <td class=3D"xl88" x:num><?=$Homebase=='S1'?$TingkatKerja[2][2]:'0';?></td>
     <td class=3D"xl89" colspan=3D"3" style=3D'mso-ignore:colspan;'></td>
    </tr>
    <tr height=3D"19" style=3D'height:14.25pt;'>
