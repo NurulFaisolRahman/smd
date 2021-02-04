@@ -26,6 +26,15 @@
     </section>
     </div>
 		</div>
+		<div class="modal fade" id="ModalBukti">
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+          <div class="modal-body">
+            <embed id="PathBukti" src="" type="application/pdf" width="100%" height="520"/>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="<?=base_url('bootstrap/js/jquery.min.js')?>"></script>
     <script src="<?=base_url('bootstrap/js/popper.min.js')?>" ></script>
 		<script src="<?=base_url('bootstrap/js/bootstrap.min.js')?>"></script>
@@ -39,46 +48,64 @@
 				"use strict";
 				var BaseURL = '<?=base_url()?>';
 
+				$(document).on("click",".LihatBukti",function(){
+					var Path = $(this).attr('LihatBukti')
+          $('#PathBukti').attr('src',Path)		
+          $('#ModalBukti').modal("show")
+				}) 
+
+				$("#PanduanPAK").click(function() {
+          $('#JudulPanduan').html('Panduan PO-PAK')
+					$('#PathPanduan').attr('src',BaseURL+'Panduan/PAK.pdf')		
+          $('#ModalPanduan').modal("show")
+				}) 
+
+				$("#PanduanBKD").click(function() {
+          $('#JudulPanduan').html('Panduan BKD')
+					$('#PathPanduan').attr('src',BaseURL+'Panduan/BKD.pdf')		
+          $('#ModalPanduan').modal("show")
+				}) 
+
 				$("#pak").click(function() {
 					var Tahun = $('#Tahun').val()
 					var Pisah = Tahun.split('-')
 					window.location = BaseURL + 'Dashboard/PAK/'+$('#Homebase').val()+'/'+$('#Semester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))
-					var PAK = ['Pendidikan','Penelitian','Pengabdian','Penunjang']
-					for (let i = 1; i < 5; i++) {
-						$.post(BaseURL+"Dashboard"+"/Lampiran/"+$('#Homebase').val()+'/'+$('#Semester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))+'/'+PAK[i-1]).done(function(Respon) {
-							var array = JSON.parse(Respon)
-							var NomorLampiran = 1
-							array.forEach(function(object) {
-								if (object.Bukti != null) {
-									$('#LampiranPAK').attr('href',BaseURL+PAK[i-1]+'/'+object.Bukti)		
-									$('#LampiranPAK').attr('Download','Lampiran '+i+'.'+NomorLampiran+'.pdf') 
-									$('#LampiranPAK')[0].click()
-								}
-								NomorLampiran++;
-							})
-						}) 	
-					}
+					// var PAK = ['Pendidikan','Penelitian','Pengabdian','Penunjang']
+					// for (let i = 1; i < 5; i++) {
+					// 	$.post(BaseURL+"Dashboard"+"/Lampiran/"+$('#Homebase').val()+'/'+$('#Semester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))+'/'+PAK[i-1]).done(function(Respon) {
+					// 		var array = JSON.parse(Respon)
+					// 		var NomorLampiran = 1
+					// 		array.forEach(function(object) {
+					// 			if (object.Bukti != null) {
+					// 				$('#LampiranPAK').attr('href',BaseURL+PAK[i-1]+'/'+object.Bukti)		
+					// 				$('#LampiranPAK').attr('Download','Lampiran '+i+'.'+NomorLampiran+'.pdf') 
+					// 				$('#LampiranPAK')[0].click()
+					// 			}
+					// 			NomorLampiran++;
+					// 		})
+					// 	}) 	
+					// }
 				})
 
 				$("#bkd").click(function() {
 					var Tahun = $('#Tahun').val()
 					var Pisah = Tahun.split('-')
 					window.location = BaseURL + 'Dashboard/BKD/'+$('#Homebase').val()+'/'+$('#Semester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))
-					var PAK = ['Pendidikan','Penelitian','Pengabdian','Penunjang']
-					for (let i = 1; i < 5; i++) {
-						$.post(BaseURL+"Dashboard"+"/LampiranBKD/"+$('#Homebase').val()+'/'+$('#Semester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))+'/'+PAK[i-1]).done(function(Respon) {
-							var array = JSON.parse(Respon)
-							var NomorLampiran = 1
-							array.forEach(function(object) {
-								if (object.Bukti != null) {
-									$('#LampiranPAK').attr('href',BaseURL+PAK[i-1]+'/'+object.Bukti)		
-									$('#LampiranPAK').attr('Download','Lampiran '+i+'.'+NomorLampiran+'.pdf') 
-									$('#LampiranPAK')[0].click()
-								}
-								NomorLampiran++;
-							})
-						}) 	
-					}
+					// var PAK = ['Pendidikan','Penelitian','Pengabdian','Penunjang']
+					// for (let i = 1; i < 5; i++) {
+					// 	$.post(BaseURL+"Dashboard"+"/LampiranBKD/"+$('#Homebase').val()+'/'+$('#Semester').val()+'/'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[0]))+'-'+(isNaN(parseInt(Pisah[0]))? 0 : parseInt(Pisah[1]))+'/'+PAK[i-1]).done(function(Respon) {
+					// 		var array = JSON.parse(Respon)
+					// 		var NomorLampiran = 1
+					// 		array.forEach(function(object) {
+					// 			if (object.Bukti != null) {
+					// 				$('#LampiranPAK').attr('href',BaseURL+PAK[i-1]+'/'+object.Bukti)		
+					// 				$('#LampiranPAK').attr('Download','Lampiran '+i+'.'+NomorLampiran+'.pdf') 
+					// 				$('#LampiranPAK')[0].click()
+					// 			}
+					// 			NomorLampiran++;
+					// 		})
+					// 	}) 	
+					// }
 				})
 
 				$('#TabelRencana').DataTable( {
@@ -430,8 +457,10 @@
 					var KKN = [[1, 1.5, 2],
 										[0.5, 0.75, 1],
 										[0.25, 0.5, 0.75]];
-					if (isNaN(parseFloat($("#Volume").val().replace(',','.')))) {
-						alert('Volume Kegiatan Belum Benar!')
+					if (isNaN($("#TahunRealisasi").val()) || $("#TahunRealisasi").val() == "") {
+						alert('Input Tahun Belum Benar!')
+					} else if (isNaN(parseInt($("#Volume").val())) || $("#Volume").val() == "") {
+						alert('Input Volume kegiatan/sks/mhs Belum Benar!')
 					} 
 					else {
 						var fd = new FormData()
@@ -454,23 +483,15 @@
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND3') {
 							if ($("#JenjangMengajar").val() == 'S1') {
 								fd.append('KreditBKD',(MengajarS1[$("#JumlahDosen").val()][$("#JumlahMhs").val()])*$("#JumlahKelas").val())	
-								fd.append('KreditPAK',(MengajarS1[$("#JumlahDosen").val()][$("#JumlahMhs").val()])*$("#JumlahKelas").val())
-								fd.append('Kode','0')
 							} else if ($("#JenjangMengajar").val() == 'S2') {
 								fd.append('KreditBKD',(MengajarS2[$("#JumlahDosen").val()][$("#JumlahMhs").val()])*$("#JumlahKelas").val())
-								fd.append('KreditPAK',(MengajarS2[$("#JumlahDosen").val()][$("#JumlahMhs").val()])*$("#JumlahKelas").val())
-								fd.append('Kode','1')
 							}  else if ($("#JenjangMengajar").val() == 'S3') {
 								fd.append('KreditBKD',(MengajarS2[$("#JumlahDosen").val()][$("#JumlahMhs").val()])*$("#JumlahKelas").val())
-								fd.append('KreditPAK',(MengajarS2[$("#JumlahDosen").val()][$("#JumlahMhs").val()])*$("#JumlahKelas").val())
-								fd.append('Kode','2')
 							} else if ($("#JenjangMengajar").val() == 'S4') {
 								fd.append('KreditBKD',(MengajarS2[$("#JumlahDosen").val()][$("#JumlahMhs").val()])*$("#JumlahKelas").val())
-								fd.append('KreditPAK',(MengajarS2[$("#JumlahDosen").val()][$("#JumlahMhs").val()])*$("#JumlahKelas").val())
-								fd.append('Kode','2')
 							}
-							// fd.append('KreditPAK',parseFloat($("#Volume").val().replace(',','.'))*$("#JumlahKelas").val()/(parseInt($("#JumlahDosen").val())+1))
-							// fd.append('Kode','0')
+							fd.append('KreditPAK',parseFloat($("#Volume").val().replace(',','.'))*$("#JumlahKelas").val()/(parseInt($("#JumlahDosen").val())+1))
+							fd.append('Kode','0')
 						}
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND5') {
 							fd.append('KreditBKD',(KKN[$("#JumlahDosenKKN").val()][$("#JumlahMhsKKN").val()]))
@@ -545,7 +566,7 @@
 							} 
 						}
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND16') {
-							fd.append('KreditBKD',(MengajarS2[$("#JumlahDosenPraktikum").val()][$("#JumlahMhsPraktikum").val()]))
+							fd.append('KreditBKD',(MengajarS2[$("#JumlahDosenPraktikum").val()][$("#JumlahMhsPraktikum").val()]*$("#JumlahKelasPraktikum").val()))
 							fd.append('Kode',0)
 						}
 						else if ($("#InputIdKegiatanPendidikan").val() == 'PND17') {

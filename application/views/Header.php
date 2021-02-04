@@ -19,14 +19,24 @@
     <nav class="main-header navbar navbar-expand bg-success">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link text-light" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-            </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <button id="PanduanPAK" class="btn btn-danger"><i class="fas fa-book"> Panduan PO-PAK</i></button>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-1">
+          <li class="nav-item">
+					  <button id="PanduanBKD" class="btn btn-primary"><i class="fas fa-book"> Panduan BKD</i></button>
+          </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-            <a class="nav-link" href="<?=base_url('SMD/SignOut')?>">
-                <i class="fas fa-user-lock text-light"><span class="text-light"> Logout</span></i>
-            </a>
+          <a class="nav-link" href="<?=base_url('SMD/SignOut')?>">
+            <i class="fas fa-user-lock text-light"><span class="text-light"> Logout</span></i>
+          </a>
         </ul>
     </nav>
     <!-- /.navbar -->
@@ -112,6 +122,15 @@
         </nav>
         </div>
     </aside>
+    <div class="modal fade" id="ModalPanduan">
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+          <div class="modal-body">
+            <embed id="PathPanduan" src="" type="application/pdf" width="100%" height="520"/>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="modal fade" id="Excel">
       <div class="modal-dialog">
         <div class="modal-content bg-warning">
@@ -123,7 +142,7 @@
               <select class="custom-select" id="Homebase">										
                 <option value="S1">S1</option>
                 <option value="S2">S2</option>
-                <option value="S">Semua</option>
+                <option value="S">S1 & S2</option>
               </select>
             </div>
             <div class="input-group mb-1">
@@ -133,7 +152,7 @@
               <select class="custom-select" id="Semester">										
                 <option value="Ganjil">Ganjil</option>
                 <option value="Genap">Genap</option>
-                <option value="G">Semua</option>
+                <option value="G">Ganjil & Genap</option>
               </select>
             </div>
             <div class="input-group mb-1">

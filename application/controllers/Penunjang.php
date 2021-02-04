@@ -33,142 +33,142 @@ class Penunjang extends CI_Controller {
 		$KreditBkd = '';
 		if ($_POST['IdKegiatan'] == 'PNJ1') {
 			if ($_POST['Kode'] == '1') {
-				$JumlahKredit = $_POST['Volume']*3;
+				$JumlahKredit = 3;
 				$Kredit = 3;
 			}
 			else if ($_POST['Kode'] == '2') {
-				$JumlahKredit = $_POST['Volume']*2;
+				$JumlahKredit = 2;
 				$Kredit = 2;
 			}
 		}
 		else if ($_POST['IdKegiatan'] == 'PNJ2') {
 			if ($_POST['Kode'] == '1') {
-				$JumlahKredit = $_POST['Volume']*3;
+				$JumlahKredit = 3;
 				$Kredit = 3;
 			}
 			else if ($_POST['Kode'] == '2') {
-				$JumlahKredit = $_POST['Volume']*2;
+				$JumlahKredit = 2;
 				$Kredit = 2;
 			} 
 			else if ($_POST['Kode'] == '3') {
-				$JumlahKredit = $_POST['Volume']*2;
+				$JumlahKredit = 2;
 				$Kredit = 2;
 			}
 			else if ($_POST['Kode'] == '4') {
-				$JumlahKredit = $_POST['Volume'];
+				$JumlahKredit = 1;
 				$Kredit = 1;
 			}
 		}
 		else if ($_POST['IdKegiatan'] == 'PNJ3') {
 			if ($_POST['Kode'] == '1') {
-				$JumlahKredit = $_POST['Volume']*2;
+				$JumlahKredit = 2;
 				$Kredit = 2;
 			}
 			else if ($_POST['Kode'] == '2') {
-				$JumlahKredit = $_POST['Volume'];
+				$JumlahKredit = 1;
 				$Kredit = 1;
 			}
 			else if ($_POST['Kode'] == '3') {
-				$JumlahKredit = $_POST['Volume']*0.5;
+				$JumlahKredit = 0.5;
 				$Kredit = 0.5;
 			}
 			else if ($_POST['Kode'] == '4') {
-				$JumlahKredit = $_POST['Volume']*1.5;
+				$JumlahKredit = 1.5;
 				$Kredit = 1.5;
 			}
 			else if ($_POST['Kode'] == '5') {
-				$JumlahKredit = $_POST['Volume'];
+				$JumlahKredit = 1;
 				$Kredit = 1;
 			}
 			else {
-				$JumlahKredit = $_POST['Volume']*0.5;
+				$JumlahKredit = 0.5;
 				$Kredit = 0.5;
 			}
 		}
 		else if ($_POST['IdKegiatan'] == 'PNJ4') {
-			$JumlahKredit = $_POST['Volume'];
+			$JumlahKredit = 1;
 			$Kredit = 1;
 		}
 		else if ($_POST['IdKegiatan'] == 'PNJ5') {
 			if ($_POST['Kode'] == '1') {
-				$JumlahKredit = $_POST['Volume']*3;
+				$JumlahKredit = 3;
 				$Kredit = 3;
 			}
 			else if ($_POST['Kode'] == '2') {
-				$JumlahKredit = $_POST['Volume']*2;
+				$JumlahKredit = 2;
 				$Kredit = 2;
 			}
 		}
 		else if ($_POST['IdKegiatan'] == 'PNJ6') {
 			if ($_POST['Kode'] < 4) {
-				$JumlahKredit = $_POST['Volume']*3;
+				$JumlahKredit = 3;
 				$Kredit = 3;
 			}
 			else if ($_POST['Kode'] < 7) {
-				$JumlahKredit = $_POST['Volume']*2;
+				$JumlahKredit = 2;
 				$Kredit = 2;
 			}
 			else if ($_POST['Kode'] == 7) {
-				$JumlahKredit = $_POST['Volume']*2;
+				$JumlahKredit = 2;
 				$Kredit = 2;
 			}
 			else if ($_POST['Kode'] == 8) {
-				$JumlahKredit = $_POST['Volume'];
+				$JumlahKredit = 1;
 				$Kredit = 1;
 			}
 		}
 		else if ($_POST['IdKegiatan'] == 'PNJ7') {
 			if ($_POST['Kode'] == '1') {
-				$JumlahKredit = $_POST['Volume']*3;
+				$JumlahKredit = 3;
 				$Kredit = 3;
 			}
 			else if ($_POST['Kode'] == '2') {
-				$JumlahKredit = $_POST['Volume']*2;
+				$JumlahKredit = 2;
 				$Kredit = 2;
 			}
 			else if ($_POST['Kode'] == '3') {
-				$JumlahKredit = $_POST['Volume'];
+				$JumlahKredit = 1;
 				$Kredit = 1;
 			}
 			else if ($_POST['Kode'] == '4') {
-				$JumlahKredit = $_POST['Volume']*5;
+				$JumlahKredit = 5;
 				$Kredit = 5;
 			}
 			else if ($_POST['Kode'] == '5') {
-				$JumlahKredit = $_POST['Volume']*3;
+				$JumlahKredit = 3;
 				$Kredit = 3;
 			}
 			else {
-				$JumlahKredit = $_POST['Volume'];
+				$JumlahKredit = 1;
 				$Kredit = 1;
 			}
 		}
 		else if ($_POST['IdKegiatan'] == 'PNJ8') {
-			$JumlahKredit = $_POST['Volume']*5;
+			$JumlahKredit = 5;
 			$Kredit = 5;
 		}
 		else if ($_POST['IdKegiatan'] == 'PNJ9') {
 			if ($_POST['Kode'] == '1') {
-				$JumlahKredit = $_POST['Volume']*5;
+				$JumlahKredit = 5;
 				$Kredit = 5;
 			}
 			else if ($_POST['Kode'] == '2') {
-				$JumlahKredit = $_POST['Volume']*3;
+				$JumlahKredit = 3;
 				$Kredit = 3;
 			}
 			else {
-				$JumlahKredit = $_POST['Volume'];
+				$JumlahKredit = 1;
 				$Kredit = 1;
 			}
 		}
 		else if ($_POST['IdKegiatan'] == 'PNJ10') {
-			$JumlahKredit = $_POST['Volume']*0.5;
+			$JumlahKredit = 0.5;
 			$Kredit = 0.5;
 		}
 		else if ($_POST['IdKegiatan'] == 'PNJ11') {
 			$JumlahKredit = '';
 			$Kredit = '';
-			$KreditBkd = round(($Volume/12),2);
+			$KreditBkd = number_format(($Volume/12),2);
 		}
 		else if ($_POST['IdKegiatan'] == 'PNJ12') {
 			$Volume = 1;
@@ -197,8 +197,8 @@ class Penunjang extends CI_Controller {
 													'TanggalKegiatan' => htmlentities($_POST['TanggalKegiatan']),
 													'Volume' => $Volume,
 													'Kredit' => $Kredit,
-													'JumlahKredit' => $JumlahKredit,
-													'KreditBkd' => $KreditBkd,
+													'JumlahKredit' => number_format($JumlahKredit,2),
+													'KreditBkd' => number_format($KreditBkd,2),
 													'Bukti' => $NamaPdf.'.'.$Tipe));
 				if ($this->db->affected_rows()){
 					$this->session->set_userdata('IdKegiatanPenunjang', $_POST['IdKegiatan']);

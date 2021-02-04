@@ -892,8 +892,12 @@ td
       </tr>
      <?php } ?>
       <tr height="19" style='height:14.25pt;'>
-        <td class="xl69" height="19" style='height:14.25pt;' x:num><?=$No++?></td>
-        <td class="xl70" x:str><?=$Pendidikan[$i]['Kegiatan']?></td>
+				<td class="xl69" height="19" style='height:14.25pt;' x:num><?=$No++?></td>
+				<?php if ($Pendidikan[$i]['IdKegiatan'] == 'PND3') { ?>
+					<td class="xl70" x:str><?='Mengajar Mata Kuliah '.$Pendidikan[$i]['Kegiatan']?></td>
+				<?php } else { ?>
+					<td class="xl70" x:str><?=$Pendidikan[$i]['Kegiatan']?></td>
+				<?php } ?>
         <td class="xl70" x:str><?=$Pendidikan[$i]['SK']?></td>
         <td class="xl71" x:str><?=$Pendidikan[$i]['KreditBkd']?></td>
         <td class="xl70" x:str><?=$Pendidikan[$i]['TanggalKegiatan']?></td>

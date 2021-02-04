@@ -17,13 +17,13 @@
           'Membimbing KKN, PKL, Magang',
           'Membimbing disertasi/tesis/skripsi',
           'Menguji ujian akhir/Profesi (setiap mahasiswa)',
-          'Membina mahasiswa di bidang akademik/kemahasiswaan',
+          'Membina mahasiswa di bidang akademik/kemahasiswaan (Selain Perwalian)',
           'Mengembangkan program kuliah yang mempunyai nilai kebaharuan metode/substansi',
           'Mengembangkan bahan pengajaran yang mempunyai nilai kebaharuan',
           'Menyampaikan orasi ilmiah di tingkat perguruan tinggi',
           'Menduduki jabatan pimpinan perguruan tinggi',
-          'Membimbing dosen yang mempunyai jabatan akademik lebih rendah',
-          'Melaksanakan kegiatan detasering dan pencangkokan di luar institusi tempat bekerja',
+          'Membimbing dosen yang mempunyai jabatan akademik lebih rendah (Bagi Dosen Lektor Kepala ke atas)',
+          'Melaksanakan kegiatan detasering & pencangkokan di luar institusi (Bagi Dosen Lektor Kepala ke atas)',
           'Melaksanakan pengembangan diri untuk meningkatkan kompetensi');
         ?>
         <select class="custom-select" id="IdKegiatanPendidikan">
@@ -63,22 +63,27 @@
             <th class="align-middle">Uraian Kegiatan</th>
             <th class="align-middle text-center">Tanggal</th>
             <th class="align-middle text-center">Bukti</th>
-            <th class="align-middle text-center">Aksi</th>
+            <th class="align-middle text-center">Edit</th>
           </tr>
         </thead>
         <tbody>
         <?php $Total = 0; $No = 1; foreach ($Realisasi as $key) { ?>
           <tr>	
-            <td class="text-center align-middle"><?=$No++?></td>
-            <td class="text-center align-middle"><?=$key['Jenjang']?></td>
-            <td class="text-center align-middle"><?=$key['Semester']?></td>
-            <td class="text-center align-middle"><?=$key['Tahun']?></td>
-            <td class="align-middle"><?=$key['Kegiatan']?></td>
-            <td class="text-center align-middle"><?=$key['TanggalKegiatan']?></td>
-            <td class="text-center align-middle text-success h3"><?php if ($key['Bukti'] != '') { ?>
-                <a href="<?=base_url('Pendidikan/'.$key['Bukti'])?>" class="btn btn-sm btn-primary" download><i class="fas fa-download"></i></a>
-              <?php } ?></td>
-            <td class="text-center align-middle">                          
+            <td class="text-center align-middle" style="width: 4%;"><?=$No++?></td>
+            <td class="text-center align-middle" style="width: 6%;"><?=$key['Jenjang']?></td>
+            <td class="text-center align-middle" style="width: 6%;"><?=$key['Semester']?></td>
+            <td class="text-center align-middle" style="width: 6%;"><?=$key['Tahun']?></td>
+            <?php if ($key['IdKegiatan'] == 'PND3') { ?>
+              <td class="align-middle"  style="width: 51%;"><?='Berdasarkan '.$key['SK'].' Mengajar Mata Kuliah '.$key['Kegiatan']?></td>
+            <?php } else { ?>
+              <td class="align-middle"  style="width: 51%;"><?='Berdasarkan '.$key['SK'].' '.$key['Kegiatan']?></td>
+            <?php } ?>
+            <td class="text-center align-middle"  style="width: 15%;"><?=$key['TanggalKegiatan']?></td>
+            <td class="text-center align-middle text-success"  style="width: 4%;">
+            <?php if ($key['Bukti'] != '') { ?>
+              <button LihatBukti="<?=base_url('Pendidikan/'.$key['Bukti'])?>" class="btn btn-sm btn-primary LihatBukti"><i class="fas fa-download"></i></button>  
+            <?php } ?></td>
+            <td class="text-center align-middle"  style="width: 8%;">                          
               <button EditRealisasi="<?=$key['No']."|".$key['Jenjang']."|".$key['Semester']."|".$key['Tahun']."|".$key['SK']."|".$key['Kegiatan']."|".$key['TanggalKegiatan']."|".$key['Bukti']?>" class="btn btn-sm btn-warning EditRealisasi"><i class="fas fa-edit"></i></button>
               <button HapusRealisasi="<?=$key['No']."|".$key['Bukti']?>" class="btn btn-sm btn-danger HapusRealisasi"><i class="fas fa-trash"></i></button>
             </td>
@@ -175,11 +180,11 @@
                     <span class="input-group-text bg-primary"><b>Jumlah Dosen</b></span>
                   </div>
                   <select class="custom-select" id="JumlahDosen">										
-                    <option value="0">1 Dosen Mengajar S1/S2</option>
-                    <option value="1">2 Dosen Mengajar S1/S2</option>
-                    <option value="2">3 Dosen Mengajar S1/S2</option>
-                    <option value="3">4 Dosen Mengajar S1/S2</option>
-                    <option value="4">5 Dosen Mengajar S1</option>
+                    <option value="0">1 Dosen</option>
+                    <option value="1">2 Dosen</option>
+                    <option value="2">3 Dosen</option>
+                    <option value="3">4 Dosen</option>
+                    <option value="4">5 Dosen</option>
                   </select>
                 </div>
                 <div class="input-group input-group-sm mb-1">
@@ -319,7 +324,7 @@
                     <option value="3">Dekan/Direktur program pasca sarjana/Ketua lembaga</option>
                     <option value="4">Pembantu Dekan/Ketua sekolah tinggi/asisten direktur program pasca sarjana/kepala LLDikti</option>
                     <option value="5">Kepala UPT : Pusat Bahasa,Lab. Dasar,Perpustakaan,PTIK,Kebun Percobaan,Unit Pelayanan Kesehatan,LPPM</option>
-                    <option value="6">Ketua Jurusan/ketua prodi/sekretaris jurusan</option>
+                    <option value="6">Ketua Jurusan/ketua prodi/sekretaris jurusan/Bagian pada universitas/Kepala laboratorium universitas</option>
                   </select>
                 </div>
               </div>
@@ -390,6 +395,12 @@
                     <option value="1">26-50 Mahasiswa</option>
                   </select>
                 </div>
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-primary"><b>Jumlah Kelas</b></span>
+                  </div>
+                  <input class="form-control" type="text" id="JumlahKelasPraktikum" data-inputmask='"mask": "9"' data-mask>
+                </div>
               </div>
             </div>
             <div class="col-sm-12">
@@ -406,15 +417,15 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-4">
               <div class="input-group input-group-sm mb-1">
                 <div class="input-group-prepend">
-                  <span class="input-group-text bg-primary"><b>Volume Kegiatan</b></span>
+                  <span class="input-group-text bg-primary"><b>Volume kegiatan/sks/mhs</b></span>
                 </div>
                 <input class="form-control" type="text" id="Volume" data-inputmask='"mask": "99"' data-mask>
               </div>
             </div>
-            <div class="col-sm-9">
+            <div class="col-sm-8">
               <div class="input-group input-group-sm mb-1">
                 <div class="input-group-prepend">
                   <span class="input-group-text bg-primary"><b>Surat Tugas/SK</b></span>

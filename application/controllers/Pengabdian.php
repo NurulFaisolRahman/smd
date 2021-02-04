@@ -92,7 +92,7 @@ class Pengabdian extends CI_Controller {
 		}
 		else if ($_POST['IdKegiatan'] == 'PNB7') {
 			if ($_POST['Kode'] == '1') {
-				$JumlahKredit = $_POST['Volume'];
+				$JumlahKredit = 1;
 				$Kredit = 1;
 			}
 			else if ($_POST['Kode'] == '2') {
@@ -133,8 +133,8 @@ class Pengabdian extends CI_Controller {
 													'TanggalKegiatan' => htmlentities($_POST['TanggalKegiatan']),
 													'Volume' => $Volume,
 													'Kredit' => $Kredit,
-													'JumlahKredit' => $JumlahKredit,
-													'KreditBkd' => $KreditBkd,
+													'JumlahKredit' => number_format($JumlahKredit,2),
+													'KreditBkd' => number_format($KreditBkd,2),
 													'Bukti' => $NamaPdf.'.'.$Tipe));
 				if ($this->db->affected_rows()){
 					$this->session->set_userdata('IdKegiatanPengabdian', $_POST['IdKegiatan']);

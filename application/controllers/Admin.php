@@ -739,10 +739,12 @@ class Admin extends CI_Controller {
 
 	public function Daftar(){
 		if($this->db->get_where('Dosen', array('NIP' => $_POST['NIP']))->num_rows() === 0){
-			$this->db->insert('Dosen',
-						array('Homebase' => $_POST['Homebase'], 
-									'NIP' => $_POST['NIP'], 
-									'Nama' => htmlentities($_POST['Nama'])));
+			$this->db->insert('Dosen',array('Homebase' => $_POST['Homebase'], 
+																			'NIP' => $_POST['NIP'], 
+																			'KreditLama' => 0,
+																			'Semester' => 'Genap', 
+																			'Tahun' => 0, 
+																			'Nama' => htmlentities($_POST['Nama'])));
 			$this->db->insert('Akun',array('NIP' => $_POST['NIP'],'Password' => password_hash($_POST['NIP'], PASSWORD_DEFAULT),'JenisAkun' => '1'));
 			echo '1';
 		} else{
@@ -837,14 +839,24 @@ class Admin extends CI_Controller {
 		$Data['MhsLulus'] = array(); 
 		for ($i = ($TS-4); $i < ($TS-1); $i++) { 
 			$Tampung = $this->db->query("SELECT * FROM InfoAkademik WHERE Homebase = '".$Homebase."' AND Tahun = ".$i)->row_array();		
-			$Tampung == '' ? array_push($Data['MhsLulus'],0) : array_push($Data['MhsLulus'],$Tampung['MhsLulus']);
+			$Tampung == '' ? array_push($Data['MhsLulus'],0) : array_push($Data['MhsLulus'],array_sum(explode("$",$Tampung['MhsLulus'])));
 		}
 		$Data['MhsDiterima'] = array(); 
+		$Data['MhsLulusan'] = array(); 
+		$Data['RataStudi'] = array(); 
 		$Homebase == 'S1' ? $Ts = $TS-6 : $Ts = $TS-3;
 		$Homebase == 'S1' ? $tS = $TS-2 : $tS = $TS;
 		for ($i = $Ts; $i < $tS; $i++) { 
 			$Tampung = $this->db->query("SELECT * FROM InfoAkademik WHERE Homebase = '".$Homebase."' AND Tahun = ".$i)->row_array();		
 			$Tampung == '' ? array_push($Data['MhsDiterima'],0) : array_push($Data['MhsDiterima'],$Tampung['MhsMasuk']);
+		}
+		for ($i = $Ts; $i < $tS; $i++) { 
+			$Tampung = $this->db->query("SELECT * FROM InfoAkademik WHERE Homebase = '".$Homebase."' AND Tahun = ".$i)->row_array();		
+			$Tampung == '' ? array_push($Data['RataStudi'],0) : array_push($Data['RataStudi'],$Tampung['MasaStudi']);
+		}
+		for ($i = $Ts; $i < $tS; $i++) { 
+			$Tampung = $this->db->query("SELECT * FROM InfoAkademik WHERE Homebase = '".$Homebase."' AND Tahun = ".$i)->row_array();		
+			$Tampung == '' ? array_push($Data['MhsLulusan'],array(0,0,0,0)) : array_push($Data['MhsLulusan'],explode("$",$Tampung['MhsLulus']));
 		}
 		$KepuasanMhs = $this->db->query("SELECT * FROM kepuasanmahasiswa WHERE Homebase = '".$Homebase."' AND Tahun = ".$TS)->result_array();
 		$Data['KepuasanMhs'] = array(array(0,0,0,0),array(0,0,0,0),array(0,0,0,0),array(0,0,0,0),array(0,0,0,0),array(0,0,0,0)); 
@@ -900,6 +912,32 @@ class Admin extends CI_Controller {
 		}
 		$Data['PrestasiAkademik'] = $this->db->query("SELECT * FROM prestasimahasiswa WHERE JenisPrestasi=1 AND Homebase = '".$Homebase."' AND TahunPrestasi > ".($TS-5)." AND TahunPrestasi <= ".$TS)->result_array();
 		$Data['PrestasiNonAkademik'] = $this->db->query("SELECT * FROM prestasimahasiswa WHERE JenisPrestasi=2 AND Homebase = '".$Homebase."' AND TahunPrestasi > ".($TS-5)." AND TahunPrestasi <= ".$TS)->result_array();
+		$Data['EWMP'] = array();
+		if ($Homebase == 'S1') {
+			foreach ($this->db->get('Dosen')->result_array() as $key) {
+				$EWMP = array();
+				array_push($EWMP,$key['Nama']);array_push($EWMP,$key['KesesuaianKompetensi']);
+				array_push($EWMP,$this->db->query("SELECT SUM(JumlahKredit) AS sks FROM RealisasiPendidikan WHERE Jenjang = '".$Homebase."' AND NIP = ".$key['NIP']." AND Tahun = ".$TS." AND IdKegiatan = 'PND3' AND Kode = '0'")->row_array()['sks']);
+				array_push($EWMP,$this->db->query("SELECT SUM(JumlahKredit) AS sks FROM RealisasiPendidikan WHERE Jenjang = '".$Homebase."' AND NIP = ".$key['NIP']." AND Tahun = ".$TS." AND IdKegiatan = 'PND3' AND Kode = '1'")->row_array()['sks']);
+				array_push($EWMP,$this->db->query("SELECT SUM(JumlahKredit) AS sks FROM RealisasiPendidikan WHERE Jenjang = '".$Homebase."' AND NIP = ".$key['NIP']." AND Tahun = ".$TS." AND IdKegiatan = 'PND3' AND Kode = '2'")->row_array()['sks']);
+				array_push($EWMP,$this->db->query("SELECT SUM(JumlahKredit) AS sks FROM RealisasiPenelitian WHERE Jenjang = '".$Homebase."' AND NIP = ".$key['NIP']." AND Tahun = ".$TS)->row_array()['sks']);
+				array_push($EWMP,$this->db->query("SELECT SUM(JumlahKredit) AS sks FROM RealisasiPengabdian WHERE Jenjang = '".$Homebase."' AND NIP = ".$key['NIP']." AND Tahun = ".$TS)->row_array()['sks']);
+				array_push($EWMP,$this->db->query("SELECT SUM(JumlahKredit) AS sks FROM RealisasiPenunjang WHERE Jenjang = '".$Homebase."' AND NIP = ".$key['NIP']." AND Tahun = ".$TS)->row_array()['sks']);
+				array_push($Data['EWMP'],$EWMP);
+			}
+		} else {
+			foreach ($this->db->get_where('Dosen',array('Homebase' => 'S2'))->result_array() as $key) {
+				$EWMP = array();
+				array_push($EWMP,$key['Nama']);array_push($EWMP,$key['KesesuaianKompetensi']);
+				array_push($EWMP,$this->db->query("SELECT SUM(JumlahKredit) AS sks FROM RealisasiPendidikan WHERE Jenjang = '".$Homebase."' AND NIP = ".$key['NIP']." AND Tahun = ".$TS." AND IdKegiatan = 'PND3' AND Kode = '0'")->row_array()['sks']);
+				array_push($EWMP,$this->db->query("SELECT SUM(JumlahKredit) AS sks FROM RealisasiPendidikan WHERE Jenjang = '".$Homebase."' AND NIP = ".$key['NIP']." AND Tahun = ".$TS." AND IdKegiatan = 'PND3' AND Kode = '1'")->row_array()['sks']);
+				array_push($EWMP,$this->db->query("SELECT SUM(JumlahKredit) AS sks FROM RealisasiPendidikan WHERE Jenjang = '".$Homebase."' AND NIP = ".$key['NIP']." AND Tahun = ".$TS." AND IdKegiatan = 'PND3' AND Kode = '2'")->row_array()['sks']);
+				array_push($EWMP,$this->db->query("SELECT SUM(JumlahKredit) AS sks FROM RealisasiPenelitian WHERE Jenjang = '".$Homebase."' AND NIP = ".$key['NIP']." AND Tahun = ".$TS)->row_array()['sks']);
+				array_push($EWMP,$this->db->query("SELECT SUM(JumlahKredit) AS sks FROM RealisasiPengabdian WHERE Jenjang = '".$Homebase."' AND NIP = ".$key['NIP']." AND Tahun = ".$TS)->row_array()['sks']);
+				array_push($EWMP,$this->db->query("SELECT SUM(JumlahKredit) AS sks FROM RealisasiPenunjang WHERE Jenjang = '".$Homebase."' AND NIP = ".$key['NIP']." AND Tahun = ".$TS)->row_array()['sks']);
+				array_push($Data['EWMP'],$EWMP);
+			}
+		}
 		$Data['Dosen'] = array();
 		if ($Homebase == 'S1') {
 			$Data['Dosen'] = $this->db->get('Dosen')->result_array();

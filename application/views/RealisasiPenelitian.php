@@ -61,16 +61,16 @@
         <tbody>
           <?php $Total = 0; $No = 1; foreach ($Realisasi as $key) { ?>
             <tr>	
-            <td class="text-center align-middle"><?=$No++?></td>
-            <td class="text-center align-middle"><?=$key['Jenjang']?></td>
-            <td class="text-center align-middle"><?=$key['Semester']?></td>
-            <td class="text-center align-middle"><?=$key['Tahun']?></td>
-            <td class="align-middle"><?='Berdasarkan '.$key['SK'].' '.$key['Kegiatan']?></td>
-            <td class="text-center align-middle"><?=$key['TanggalKegiatan']?></td>
-            <td class="text-center align-middle text-success h3"><?php if ($key['Bukti'] != '') { ?>
-                <a href="<?=base_url('Penelitian/'.$key['Bukti'])?>" class="btn btn-sm btn-primary" download><i class="fas fa-download"></i></a>
+            <td class="text-center align-middle" style="width: 4%;"><?=$No++?></td>
+            <td class="text-center align-middle" style="width: 6%;"><?=$key['Jenjang']?></td>
+            <td class="text-center align-middle" style="width: 6%;"><?=$key['Semester']?></td>
+            <td class="text-center align-middle" style="width: 6%;"><?=$key['Tahun']?></td>
+            <td class="align-middle" style="width: 51%;"><?='Berdasarkan '.$key['SK'].' '.$key['Kegiatan']?></td>
+            <td class="text-center align-middle" style="width: 15%;"><?=$key['TanggalKegiatan']?></td>
+            <td class="text-center align-middle" style="width: 4%;"><?php if ($key['Bukti'] != '') { ?>
+              <button LihatBukti="<?=base_url('Penelitian/'.$key['Bukti'])?>" class="btn btn-sm btn-primary LihatBukti"><i class="fas fa-download"></i></button>
               <?php } ?></td>
-            <td class="text-center align-middle">                          
+            <td class="text-center align-middle" style="width: 8%;">                          
               <button EditRealisasi="<?=$key['No']."|".$key['Jenjang']."|".$key['Semester']."|".$key['Tahun']."|".$key['SK']."|".$key['Kegiatan']."|".$key['TanggalKegiatan']."|".$key['Bukti']?>" class="btn btn-sm btn-warning EditRealisasi"><i class="fas fa-edit"></i></button>
               <button HapusRealisasi="<?=$key['No']."|".$key['Bukti']?>" class="btn btn-sm btn-danger HapusRealisasi"><i class="fas fa-trash"></i></button>
             </td>
@@ -198,7 +198,7 @@
                     <option value="3">Nasional (yang sudah diimplementasikan di industri)</option>
                     <option value="4">Nasional</option>
                     <option value="5">Nasional, dalam bentuk paten sederhana yang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham</option>
-                    <option value="6">Karya buku, desain industri, indikasi geografisyang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham</option>
+                    <option value="6">Karya buku, desain industri, indikasi geografis yang telah memiliki sertifikat dari Direktorat Jenderal Kekayaan Intelektual, Kemenkumham</option>
                   </select>
                 </div>
               </div>
@@ -435,15 +435,15 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-4">
               <div class="input-group input-group-sm mb-1">
                 <div class="input-group-prepend">
-                  <span class="input-group-text bg-primary"><b>Volume Kegiatan</b></span>
+                  <span class="input-group-text bg-primary"><b>Volume kegiatan/sks/mhs</b></span>
                 </div>
                 <input class="form-control" type="text" id="Volume" data-inputmask='"mask": "99"' data-mask>
               </div>
             </div>
-            <div class="col-sm-9">
+            <div class="col-sm-8">
               <div class="input-group input-group-sm mb-1">
                 <div class="input-group-prepend">
                   <span class="input-group-text bg-primary"><b>Surat Tugas/SK</b></span>

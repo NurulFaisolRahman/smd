@@ -1,5 +1,4 @@
-<?php 
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kajur extends CI_Controller {
 
@@ -24,7 +23,7 @@ class Kajur extends CI_Controller {
 		$Data['SubMenu'] = 'Monitoring '.$Bidang;
 		$Data['DaftarDosen'] = $this->db->query('SELECT Dosen.NIP,Dosen.Nama,Dosen.Pangkat,Dosen.Golongan,Dosen.Jabatan,Akun.JenisAkun FROM Akun,Dosen WHERE Akun.NIP=Dosen.NIP')->result_array();
 		$Data['Rencana'] = $this->db->get('Rencana'.$Bidang)->result_array();
-		$Data['Dosen'] = $this->db->query("SELECT Dosen.Nama FROM Dosen WHERE Dosen.NIP in (SELECT Rencana".$Bidang.".NIP FROM Rencana".$Bidang.")")->result_array();
+		$Data['Dosen'] = $this->db->query("SELECT Dosen.Nama,Dosen.WA FROM Dosen WHERE Dosen.NIP in (SELECT Rencana".$Bidang.".NIP FROM Rencana".$Bidang.")")->result_array();
 		$Data['Realisasi'] = array();
 		foreach ($Data['Rencana'] as $key) {
 			$Tampung = $this->db->query("SELECT * FROM Realisasi".$Bidang." WHERE NIP=".$key['NIP']." AND JumlahKredit != '' AND Jenjang="."'".$key['Jenjang']."'"." AND Semester="."'".$key['Semester']."'"." AND Tahun="."'".$key['Tahun']."'")->result_array();

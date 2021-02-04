@@ -56,11 +56,11 @@
                                         <?php } else if ($Realisasi[$No-2] > $key['TargetKajur']) { ?>
                                           <h4 class="text-success mt-2"><b>></b></h4>
                                         <?php } else if ($Realisasi[$No-2] < $key['TargetKajur']) { ?>
-                                          <h4 class="text-danger mt-2"><b><</b></h4>
+                                          <button Notif="<?=$Dosen[$No-2]['WA']."/".$key['NIP']."/".$Dosen[$No-2]['Nama']?>" class="btn btn-sm btn-success"><i class="fab fa-whatsapp"></i></button>
                                         <?php } ?>
                                     </td>
                                     <td class="text-center align-middle">
-                                      <?php echo $key['TargetKajur'];?>&nbsp;<button EditRencana="<?=$key['No']."/".$key['Jabatan']."/".$key['Jenjang']."/".$key['Semester']."/".$key['Tahun']."/".$key['KodeRencana']."/".$key['TotalKredit']."/".$key['TargetKajur']."/".$key['NIP']?>" class="btn btn-sm btn-success EditRencana"><i class="fas fa-edit"></i></button>
+                                      <?php echo $key['TargetKajur'];?>&nbsp;<button EditRencana="<?=$key['No']."/".$key['Jabatan']."/".$key['Jenjang']."/".$key['Semester']."/".$key['Tahun']."/".$key['KodeRencana']."/".$key['TotalKredit']."/".$key['TargetKajur']."/".$key['NIP']?>" class="btn btn-sm btn-primary EditRencana"><i class="fas fa-edit"></i></button>
                                       <button HapusRencana="<?=$key['No']?>" class="btn btn-sm btn-danger HapusRencana"><i class="fas fa-trash"></i></button>
                                     </td>
                                   </tr>
@@ -404,11 +404,11 @@
                             <td colspan="2">
                               <div class="row">
                                 <div class="col-sm-auto">
-                                  <div class="input-group mb-1" style="margin-left: 300px;width: 170px;">
+                                  <div class="input-group mb-1" style="margin-left: 275px;width: 190px;">
                                     <div class="input-group-prepend">
                                       <label class="input-group-text bg-primary"><b>Input Target</b></label>
                                     </div>
-                                    <input class="form-control text-right" type="text" id="Target"  data-inputmask='"mask": "9999"' data-mask>
+                                    <input class="form-control" type="text" id="Target"  data-inputmask='"mask": "9999"' data-mask>
                                   </div>
                                 </div>
                               </div>

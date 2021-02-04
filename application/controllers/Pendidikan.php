@@ -30,6 +30,7 @@ class Pendidikan extends CI_Controller {
 		$NIP = $this->session->userdata('NIP');
 		$Jabatan = $this->session->userdata('Jabatan');
 		$KreditBkd = '';
+		$Cek = True;
 		if ($_POST['IdKegiatan'] == 'PND1') {
 			$Satuan = '1/periode penilaian'; $Volume = $_POST['Volume'];  $JumlahKredit = $_POST['Volume']*$_POST['KreditPND1']; $Kredit = $_POST['KreditPND1'];
 		}
@@ -37,26 +38,7 @@ class Pendidikan extends CI_Controller {
 			$Satuan = ''; $Volume = $_POST['Volume']; $JumlahKredit = $_POST['Volume']*3; $Kredit = '3';
 		}
 		else if ($_POST['IdKegiatan'] == 'PND3') {
-			$Volume = $_POST['KreditPAK'];$KreditBkd = $_POST['KreditBKD'];
-			if ($_POST['KreditPAK'] > 10) {
-				if ($Jabatan == 'Asisten Ahli') {
-					$JumlahKredit = 5+(($_POST['KreditPAK']-10)*0.25);
-					$Kredit = '0.5 & 0.25';
-				} else {
-					$JumlahKredit = 10+(($_POST['KreditPAK']-10)*0.5);
-					$Kredit = '1 & 0.5';
-				}
-				$Satuan = '10 sks Pertama & 2 sks Berikutnya';
-			} else {
-				if ($Jabatan == 'Asisten Ahli') {
-					$JumlahKredit = $_POST['KreditPAK']*0.5;
-					$Kredit = '0.5';
-				} else {
-					$JumlahKredit = $_POST['KreditPAK'];
-					$Kredit = '1';
-				}
-				$Satuan = '10 sks Pertama';
-			}
+			$Satuan = '10 sks Pertama';$Kredit = '1';$JumlahKredit = $_POST['KreditPAK'];$Volume = $_POST['Volume'];$KreditBkd = $_POST['KreditBKD'];
 		}
 		else if ($_POST['IdKegiatan'] == 'PND4') {
 			$Satuan = ''; $Volume = $KreditBkd = $JumlahKredit = $Kredit = '1';
@@ -68,20 +50,29 @@ class Pendidikan extends CI_Controller {
 			$Volume = $_POST['Volume'];
 			if ($_POST['JenisPembimbing'] == '1') {
 				if ($_POST['JenisBimbingan'] == '1') {
-					$Satuan = '4 lulusan / semester';
-					$JumlahKredit = $_POST['Volume']*2;
-					$Kredit = '8';
-					$KreditBkd = '';
+					if ($this->db->query("SELECT * FROM `realisasipendidikan` WHERE NIP=".$NIP." AND IdKegiatan='PND6' AND Semester="."'".$_POST['Semester']."'"." AND Tahun=".$_POST['Tahun']." AND Kode LIKE '1/1/%'")->row_array()['Volume'] > 4 || $_POST['Volume'] > 4) {
+						$Satuan = '4 lulusan / semester';
+						$JumlahKredit = $_POST['Volume']*2;
+						$Kredit = '8';
+						$KreditBkd = '';
+					} else {
+						$Cek = false;
+						echo 'Maksimal 4 lulusan / semester';
+					}
 				}
 				else if ($_POST['JenisBimbingan'] == '2') {
 					$Satuan = '6 lulusan / semester';
-					$JumlahKredit = $_POST['Volume']*0.5;
+					$_POST['Volume'] > 6 ? $JumlahKredit = 3 : $JumlahKredit = $_POST['Volume']*0.5;
 					$Kredit = '3';
-					$KreditBkd = round(($_POST['Volume']/3),2);
+					if ($_POST['Volume'] == 2) {
+						$KreditBkd = 0.5;
+					} else {
+						$KreditBkd = round(($_POST['Volume']/3),2);
+					}
 				}
 				else if ($_POST['JenisBimbingan'] == '3') {
 					$Satuan = '8 lulusan / semester';
-					$JumlahKredit = $_POST['Volume']*0.125;
+					$_POST['Volume'] > 8 ? $JumlahKredit = 1 : $JumlahKredit = $_POST['Volume']*0.125;
 					$Kredit = '1';
 					$KreditBkd = round(($_POST['Volume']/6),2);
 				}
@@ -89,19 +80,23 @@ class Pendidikan extends CI_Controller {
 			else {
 				if ($_POST['JenisBimbingan'] == '1') {
 					$Satuan = '4 lulusan / semester';
-					$JumlahKredit = $_POST['Volume']*1.5;
+					$_POST['Volume'] > 4 ? $JumlahKredit = 6 : $JumlahKredit = $_POST['Volume']*1.5;
 					$Kredit = '6';
 					$KreditBkd = '';
 				}
 				else if ($_POST['JenisBimbingan'] == '2') {
 					$Satuan = '6 lulusan / semester';
-					$JumlahKredit = round(($_POST['Volume']*2/6),2);
+					$_POST['Volume'] > 6 ? $JumlahKredit = 2 : $JumlahKredit = round($_POST['Volume']/3,2);
 					$Kredit = '2';
-					$KreditBkd = round(($_POST['Volume']/3),2);
+					if ($_POST['Volume'] == 2) {
+						$KreditBkd = 0.5;
+					} else {
+						$KreditBkd = round(($_POST['Volume']/3),2);
+					}
 				}
 				else if ($_POST['JenisBimbingan'] == '3') {
 					$Satuan = '8 lulusan / semester';
-					$JumlahKredit = $_POST['Volume']*0.0625;
+					$_POST['Volume'] > 8 ? $JumlahKredit = 0.5 : $JumlahKredit = $_POST['Volume']*0.0625;
 					$Kredit = '0.5';
 					$KreditBkd = round(($_POST['Volume']/6),2);
 				}
@@ -111,12 +106,12 @@ class Pendidikan extends CI_Controller {
 			$Volume = $_POST['Volume'];
 			if ($_POST['JenisPenguji'] == '1') {
 				$Satuan = '4 lulusan / semester';
-				$JumlahKredit = $_POST['Volume']/4;
+				$_POST['Volume'] > 4 ? $JumlahKredit = 1 : $JumlahKredit = $_POST['Volume']*0.25;
 				$Kredit = '1';
 			}
 			else {
 				$Satuan = '8 lulusan / semester';
-				$JumlahKredit = $_POST['Volume']*0.0625;
+				$_POST['Volume'] > 8 ? $JumlahKredit = 0.5 : $JumlahKredit = $_POST['Volume']*0.0625;
 				$Kredit = '0.5';
 			}
 			$_POST['JenisUjian'] == '1' ? $KreditBkd = round(($_POST['Volume']/4),2) : $KreditBkd = round(($_POST['Volume']/3),2);
@@ -124,14 +119,14 @@ class Pendidikan extends CI_Controller {
 		else if ($_POST['IdKegiatan'] == 'PND8') {
 			$Volume = $_POST['Volume'];
 			$Satuan = '2 kegiatan / semester';
-			$JumlahKredit = $_POST['Volume'];
+			$_POST['Volume'] > 2 ? $JumlahKredit = 2 : $JumlahKredit = $_POST['Volume'];
 			$Kredit = '2';
 			$KreditBkd = '';
 		}
 		else if ($_POST['IdKegiatan'] == 'PND9') {
 			$Volume = $_POST['Volume'];
 			$Satuan = '1 mata kuliah / semester';
-			$JumlahKredit = $_POST['Volume']*2;
+			$JumlahKredit = 2;
 			$Kredit = '2';
 			$KreditBkd = '2';
 		}
@@ -139,12 +134,12 @@ class Pendidikan extends CI_Controller {
 			$Volume = $_POST['Volume'];
 			if ($_POST['BahanPengajaran'] == '1') {
 				$Satuan = '1 buku/tahun';
-				$JumlahKredit = $_POST['Volume']*20;
+				$JumlahKredit = 20;
 				$Kredit = '20';
 			}
 			else {
 				$Satuan = '1 produk  / semester';
-				$JumlahKredit = $_POST['Volume']*5;
+				$JumlahKredit = 5;
 				$Kredit = '5';
 			}
 			$KreditBkd = '2';
@@ -152,7 +147,7 @@ class Pendidikan extends CI_Controller {
 		else if ($_POST['IdKegiatan'] == 'PND11') {
 			$Volume = $_POST['Volume'];
 			$Satuan = '2 orasi / semester';
-			$JumlahKredit = $_POST['Volume']*2.5;
+			$_POST['Volume'] > 2 ? $JumlahKredit = 5 : $JumlahKredit = $_POST['Volume']*2.5;
 			$Kredit = '5';
 			if ($Jabatan == 'Profesor') {
 				if ($_POST['TingkatOrasi'] == '1') {
@@ -171,18 +166,18 @@ class Pendidikan extends CI_Controller {
 			$Satuan = '1 jabatan / semester';
 			$JumlahKredit = $_POST['JenisPND12'];
 			$Kredit = $_POST['JenisPND12'];
-			$KreditBkd = $_POST['KreditBkd'];
+			$KreditBkd = $_POST['KreditBKD'];
 		}
 		else if ($_POST['IdKegiatan'] == 'PND13') {
 			$Volume = $_POST['Volume'];
 			if ($_POST['JenisPND13'] == '1') {
 				$Satuan = '1 Orang';
-				$JumlahKredit = $_POST['Volume']*2;
+				$JumlahKredit = 2;
 				$Kredit = '2';
 			}
 			else {
 				$Satuan = '1 Orang';
-				$JumlahKredit = $_POST['Volume'];
+				$JumlahKredit = 1;
 				$Kredit = '1';
 			}
 			$KreditBkd = $_POST['Volume']/4;
@@ -191,12 +186,12 @@ class Pendidikan extends CI_Controller {
 			$Volume = $_POST['Volume'];
 			if ($_POST['JenisPND14'] == '1') {
 				$Satuan = '1 Orang';
-				$JumlahKredit = $_POST['Volume']*5;
+				$JumlahKredit = 5;
 				$Kredit = '5';
 			}
 			else {
 				$Satuan = '1 Orang';
-				$JumlahKredit = $_POST['Volume']*4;
+				$JumlahKredit = 4;
 				$Kredit = '4';
 			}
 			$KreditBkd = '';
@@ -204,7 +199,7 @@ class Pendidikan extends CI_Controller {
 		else if ($_POST['IdKegiatan'] == 'PND15') {
 			$Volume = $_POST['Volume'];
 			$Satuan = '';
-			$JumlahKredit = $_POST['Volume']*$_POST['JenisPND15'];
+			$JumlahKredit = $_POST['JenisPND15'];
 			$Kredit = $_POST['JenisPND15'];
 			$KreditBkd = '1';
 		}
@@ -220,7 +215,7 @@ class Pendidikan extends CI_Controller {
 			$Satuan = '';
 			$JumlahKredit = '';
 			$Kredit = '';
-			$KreditBkd = $_POST['KreditBKD'];
+			$KreditBkd = $_POST['KreditBKD']*$Volume;
 		}
 		else if ($_POST['IdKegiatan'] == 'PND18' || $_POST['IdKegiatan'] == 'PND19') {
 			$Volume = $_POST['Volume'];
@@ -229,44 +224,46 @@ class Pendidikan extends CI_Controller {
 			$Kredit = '';
 			$KreditBkd = $_POST['Volume']*0.2;
 		}
-		$Pdf = count($_FILES);
-		if ($Pdf > 0) {
-			if ($this->CekBukti($Pdf)){
-				$Tipe = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
-				$NamaPdf = date('Ymd',time()).substr(password_hash('Pendidikan', PASSWORD_DEFAULT),7,7);
-				$NamaPdf = str_replace("/","E",$NamaPdf);
-				$NamaPdf = str_replace(".","F",$NamaPdf);
-				move_uploaded_file($_FILES['file']['tmp_name'], "Pendidikan/".$NamaPdf.'.'.$Tipe);
-				$this->db->insert('RealisasiPendidikan',
-										array('NIP' => $NIP, 
-													'Jabatan' => $Jabatan, 
-													'Jenjang' => $_POST['Homebase'], 
-													'Semester' => $_POST['Semester'], 
-													'Tahun' => $_POST['Tahun'], 
-													'IdKegiatan' => $_POST['IdKegiatan'],
-													'Kode' => $_POST['Kode'],
-													'SK' => htmlentities($_POST['SK']),
-													'Kegiatan' => htmlentities($_POST['Kegiatan']),
-													'TanggalKegiatan' => htmlentities($_POST['TanggalKegiatan']),
-													'Satuan' => $Satuan,
-													'Volume' => $Volume,
-													'Kredit' => $Kredit,
-													'JumlahKredit' => $JumlahKredit,
-													'KreditBkd' => $KreditBkd,
-													'Bukti' => $NamaPdf.'.'.$Tipe));
-				if ($this->db->affected_rows()){
-					$this->session->set_userdata('IdKegiatanPendidikan', $_POST['IdKegiatan']);
-					echo '1';
-				} else {
-					echo 'Gagal Menyimpan';
+		if ($Cek) {
+			$Pdf = count($_FILES);
+			if ($Pdf > 0) {
+				if ($this->CekBukti($Pdf)){
+					$Tipe = pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION);
+					$NamaPdf = date('Ymd',time()).substr(password_hash('Pendidikan', PASSWORD_DEFAULT),7,7);
+					$NamaPdf = str_replace("/","E",$NamaPdf);
+					$NamaPdf = str_replace(".","F",$NamaPdf);
+					move_uploaded_file($_FILES['file']['tmp_name'], "Pendidikan/".$NamaPdf.'.'.$Tipe);
+					$this->db->insert('RealisasiPendidikan',
+											array('NIP' => $NIP, 
+														'Jabatan' => $Jabatan, 
+														'Jenjang' => $_POST['Homebase'], 
+														'Semester' => $_POST['Semester'], 
+														'Tahun' => $_POST['Tahun'], 
+														'IdKegiatan' => $_POST['IdKegiatan'],
+														'Kode' => $_POST['Kode'],
+														'SK' => htmlentities($_POST['SK']),
+														'Kegiatan' => htmlentities($_POST['Kegiatan']),
+														'TanggalKegiatan' => htmlentities($_POST['TanggalKegiatan']),
+														'Satuan' => $Satuan,
+														'Volume' => $Volume,
+														'Kredit' => $Kredit,
+														'JumlahKredit' => number_format($JumlahKredit,2),
+														'KreditBkd' => number_format($KreditBkd,2),
+														'Bukti' => $NamaPdf.'.'.$Tipe));
+					if ($this->db->affected_rows()){
+						$this->session->set_userdata('IdKegiatanPendidikan', $_POST['IdKegiatan']);
+						echo '1';
+					} else {
+						echo 'Gagal Menyimpan';
+					}
 				}
-			}
+				else {
+					echo 'Bukti Hanya Boleh PDF!';
+				}
+			} 
 			else {
-				echo 'Bukti Hanya Boleh PDF!';
+				echo 'Wajib Upload Bukti!';
 			}
-		} 
-		else {
-			echo 'Wajib Upload Bukti!';
 		}
 	}
 

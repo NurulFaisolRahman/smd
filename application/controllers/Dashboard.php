@@ -24,15 +24,66 @@ class Dashboard extends CI_Controller {
 			$Data['Profil']['KreditLama'] = 0;
 		}
 		$Bidang = array('Penelitian','Pengabdian','Penunjang');
-		$TahunKreditLama = $this->db->query("SELECT Tahun FROM Dosen WHERE NIP=".$NIP)->row_array()['Tahun']; 
+		$TahunKreditLama = $this->db->query("SELECT Tahun FROM Dosen WHERE NIP=".$NIP)->row_array()['Tahun']+1; 
 		$Data['KreditBaru'] = 0;
+		$Data['KreditBidang'] = array(0,0,0,0);
 		if ($TahunKreditLama != null) {
 			for ($i=0; $i < 3; $i++) { 
-				$Data['KreditBaru'] += $this->db->query("SELECT SUM(JumlahKredit) AS JumlahKredit FROM Realisasi".$Bidang[$i]." WHERE NIP=".$NIP." AND JumlahKredit != '' AND Tahun > ".$TahunKreditLama)->row_array()['JumlahKredit'];
+				$Kredit = $this->db->query("SELECT SUM(JumlahKredit) AS JumlahKredit FROM Realisasi".$Bidang[$i]." WHERE NIP=".$NIP." AND JumlahKredit != '' AND Tahun >= ".$TahunKreditLama)->row_array()['JumlahKredit'];
+				$Data['KreditBaru'] += $Kredit;
+				$Data['KreditBidang'][$i] += $Kredit;
 			}
-			$Data['KreditBaru'] += $this->db->query("SELECT SUM(JumlahKredit) AS JumlahKredit FROM `RealisasiPendidikan` WHERE NIP = ".$NIP." AND JumlahKredit != '' AND IdKegiatan != 'PND3' AND Tahun > ".$TahunKreditLama)->row_array()['JumlahKredit'];
-			$Sortir = $this->db->query("SELECT DISTINCT Jenjang,Semester,Tahun FROM RealisasiPendidikan WHERE NIP = ".$NIP." AND IdKegiatan = 'PND3' AND Tahun > ".$TahunKreditLama)->result_array();
-			$data = $this->db->query("SELECT * FROM RealisasiPendidikan WHERE NIP = ".$NIP." AND IdKegiatan = 'PND3' AND Tahun > ".$TahunKreditLama)->result_array();
+			if ($Data['Profil']['Semester'] == 'Genap') {
+				for ($i=0; $i < 3; $i++) { 
+					$Kredit = $this->db->query("SELECT SUM(JumlahKredit) AS JumlahKredit FROM Realisasi".$Bidang[$i]." WHERE NIP=".$NIP." AND Semester = 'Ganjil' AND JumlahKredit != '' AND Tahun = ".($TahunKreditLama-1))->row_array()['JumlahKredit'];
+					$Data['KreditBaru'] += $Kredit;
+					$Data['KreditBidang'][$i] += $Kredit;
+				}
+				$Kredit = $this->db->query("SELECT SUM(JumlahKredit) AS JumlahKredit FROM `RealisasiPendidikan` WHERE NIP = ".$NIP." AND Semester = 'Ganjil' AND JumlahKredit != '' AND IdKegiatan != 'PND3' AND Tahun = ".($TahunKreditLama-1))->row_array()['JumlahKredit'];
+				$Data['KreditBaru'] += $Kredit;
+				$Data['KreditBidang'][3] += $Kredit;
+				$Sortir = $this->db->query("SELECT DISTINCT Jenjang,Semester,Tahun FROM RealisasiPendidikan WHERE NIP = ".$NIP." AND Semester = 'Ganjil' AND IdKegiatan = 'PND3' AND Tahun = ".($TahunKreditLama-1))->result_array();
+				$data = $this->db->query("SELECT * FROM RealisasiPendidikan WHERE NIP = ".$NIP." AND Semester = 'Ganjil' AND IdKegiatan = 'PND3' AND Tahun = ".($TahunKreditLama-1))->result_array();
+				$Mk = array();
+				for ($i=0; $i < count($Sortir); $i++) { 
+					$Cek = true;
+					for ($j=0; $j < count($data); $j++) {
+						if ($Sortir[$i]['Jenjang'] == $data[$j]['Jenjang'] && $Sortir[$i]['Semester'] == $data[$j]['Semester'] && $Sortir[$i]['Tahun'] == $data[$j]['Tahun']) {
+							if ($Cek) {
+								$Mk[$i] = $data[$j];
+								$Cek = false;
+							} 
+							else {
+								$Mk[$i]['JumlahKredit'] += $data[$j]['JumlahKredit'];
+							}
+						} 
+					}
+				}
+				for ($i=0; $i < count($Mk); $i++) {
+					if ($Mk[$i]['JumlahKredit'] > 10) {
+						if ($Mk[$i]['Jabatan'] == 'Asisten Ahli') {
+							$Mk[$i]['JumlahKredit'] = 5+(($Mk[$i]['JumlahKredit']-10)*0.25);
+						} else {
+							$Mk[$i]['JumlahKredit'] = 10+(($Mk[$i]['JumlahKredit']-10)*0.5);
+						}
+					} else {
+						if ($Mk[$i]['Jabatan'] == 'Asisten Ahli') {
+							$Mk[$i]['JumlahKredit'] = $Mk[$i]['JumlahKredit']*0.5;
+						} else {
+							$Mk[$i]['JumlahKredit'] = $Mk[$i]['JumlahKredit'];
+						}
+					}
+				}
+				for ($i=0; $i < count($Mk); $i++) {
+					$Data['KreditBaru'] += $Mk[$i]['JumlahKredit'];
+					$Data['KreditBidang'][3] += $Mk[$i]['JumlahKredit'];
+				} 
+			}
+			$Kredit = $this->db->query("SELECT SUM(JumlahKredit) AS JumlahKredit FROM `RealisasiPendidikan` WHERE NIP = ".$NIP." AND JumlahKredit != '' AND IdKegiatan != 'PND3' AND Tahun >= ".$TahunKreditLama)->row_array()['JumlahKredit'];
+			$Data['KreditBaru'] += $Kredit;
+			$Data['KreditBidang'][3] += $Kredit;
+			$Sortir = $this->db->query("SELECT DISTINCT Jenjang,Semester,Tahun FROM RealisasiPendidikan WHERE NIP = ".$NIP." AND IdKegiatan = 'PND3' AND Tahun >= ".$TahunKreditLama)->result_array();
+			$data = $this->db->query("SELECT * FROM RealisasiPendidikan WHERE NIP = ".$NIP." AND IdKegiatan = 'PND3' AND Tahun >= ".$TahunKreditLama)->result_array();
 			$Mk = array();
 			for ($i=0; $i < count($Sortir); $i++) { 
 				$Cek = true;
@@ -43,7 +94,6 @@ class Dashboard extends CI_Controller {
 							$Cek = false;
 						} 
 						else {
-							$Mk[$i]['Kegiatan'] .= ', '.$data[$j]['Kegiatan'];
 							$Mk[$i]['JumlahKredit'] += $data[$j]['JumlahKredit'];
 						}
 					} 
@@ -66,6 +116,7 @@ class Dashboard extends CI_Controller {
 			}
 			for ($i=0; $i < count($Mk); $i++) {
 				$Data['KreditBaru'] += $Mk[$i]['JumlahKredit'];
+				$Data['KreditBidang'][3] += $Mk[$i]['JumlahKredit'];
 			} 
 		}
 		$this->load->view('Header',$Data);
@@ -90,10 +141,14 @@ class Dashboard extends CI_Controller {
 				$this->db->update('Dosen',
 												array('NIP' => $_POST['NIP'], 
 															'NIDN' => $_POST['NIDN'],
+															'KarPeg' => htmlentities($_POST['KarPeg']),
 															'Nama' => htmlentities($_POST['Nama']),
+															'Gender' => $_POST['Gender'],
+															'Kelahiran' => htmlentities($_POST['Kelahiran']),
 															'Jabatan' => $_POST['Jabatan'],
 															'Pangkat' => $_POST['Pangkat'],
 															'Golongan' => $_POST['Golongan'],
+															'Semester' => $_POST['Semester'],
 															'Tahun' => $_POST['Tahun'],
 															'KreditLama' => $_POST['KreditLama'],
 															'WA' => $_POST['WA'],
@@ -126,6 +181,16 @@ class Dashboard extends CI_Controller {
 			} 
 		}
 		return true;
+	}
+
+	public function NamaPejabat(){
+		$this->db->where('NIP', $this->session->userdata('NIP'));
+		$this->db->update('Dosen',$_POST);
+		if ($this->db->affected_rows()){
+			echo '1';
+		} else {
+			echo 'Gagal Menyimpan Data!';
+		}
 	}
 
 	public function GantiPassword(){
