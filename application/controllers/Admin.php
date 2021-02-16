@@ -19,7 +19,7 @@ class Admin extends CI_Controller {
 		$Data['Halaman'] = 'Dosen';
 		$Data['SubMenu'] = 'Dosen PNS';
 		$Data['Kajur'] = $this->db->query('SELECT Dosen.NIP,Dosen.Nama,Akun.JenisAkun FROM Akun,Dosen WHERE Akun.NIP=Dosen.NIP')->result_array();
-		$Data['Dosen'] = $this->db->get('dosen')->result_array();
+		$Data['Dosen'] = $this->db->get('Dosen')->result_array();
     $this->load->view('HeaderAdmin',$Data);
     $this->load->view('AkunDosen',$Data); 
 	}

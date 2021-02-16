@@ -39,32 +39,33 @@
 											</tr>
 										</thead>
 										<tbody>
+											<?php $Total = array_sum($KreditBidang)==0?1:array_sum($KreditBidang); ?>
 											<tr style="font-size: 12px;" class="text-center align-middle font-weight-bold">	
 												<td class="py-1">1</td>
 												<td class="py-1" style="text-align: left;">PENDIDIKAN</td>
 												<td class="py-1"><?=number_format($KreditBidang[3],2)?></td>
-												<td class="py-1 <?=number_format($KreditBidang[3]/array_sum($KreditBidang)*100,2)<45?'text-danger':'text-success';?>"><?=array_sum($KreditBidang)==0?'0%':number_format($KreditBidang[3]/array_sum($KreditBidang)*100,2).'%';?></td>
+												<td class="py-1 <?=number_format($KreditBidang[3]/$Total*100,2)<45?'text-danger':'text-success';?>"><?=array_sum($KreditBidang)==0?'0%':number_format($KreditBidang[3]/array_sum($KreditBidang)*100,2).'%';?></td>
 												<td class="py-1">45%</td>
 											</tr>
 											<tr style="font-size: 12px;" class="text-center align-middle font-weight-bold">	
 												<td class="py-1">2</td>
 												<td class="py-1" style="text-align: left;">PENELTIAN</td>
 												<td class="py-1"><?=number_format($KreditBidang[0],2)?></td>
-												<td class="py-1 <?=number_format($KreditBidang[0]/array_sum($KreditBidang)*100,2)<35?'text-danger':'text-success';?>"><?=array_sum($KreditBidang)==0?'0%':number_format($KreditBidang[0]/array_sum($KreditBidang)*100,2).'%';?></td>
+												<td class="py-1 <?=number_format($KreditBidang[0]/$Total*100,2)<35?'text-danger':'text-success';?>"><?=array_sum($KreditBidang)==0?'0%':number_format($KreditBidang[0]/array_sum($KreditBidang)*100,2).'%';?></td>
 												<td class="py-1">35%</td>
 											</tr>
 											<tr style="font-size: 12px;" class="text-center align-middle font-weight-bold">	
 												<td class="py-1">3</td>
 												<td class="py-1" style="text-align: left;">PENGABDIAN</td>
 												<td class="py-1"><?=number_format($KreditBidang[1],2)?></td>
-												<td class="py-1 <?=number_format($KreditBidang[1]/array_sum($KreditBidang)*100,2)<10?'text-danger':'text-success';?>"><?=array_sum($KreditBidang)==0?'0%':number_format($KreditBidang[1]/array_sum($KreditBidang)*100,2).'%';?></td>
+												<td class="py-1 <?=number_format($KreditBidang[1]/$Total*100,2)<10?'text-danger':'text-success';?>"><?=array_sum($KreditBidang)==0?'0%':number_format($KreditBidang[1]/array_sum($KreditBidang)*100,2).'%';?></td>
 												<td class="py-1">10%</td>
 											</tr>
 											<tr style="font-size: 12px;" class="text-center align-middle font-weight-bold">	
 												<td class="py-1">4</td>
 												<td class="py-1" style="text-align: left;">PENUNJANG</td>
 												<td class="py-1"><?=number_format($KreditBidang[2],2)?></td>
-												<td class="py-1 <?=number_format($KreditBidang[2]/array_sum($KreditBidang)*100,2)<10?'text-danger':'text-success';?>"><?=array_sum($KreditBidang)==0?'0%':number_format($KreditBidang[2]/array_sum($KreditBidang)*100,2).'%';?></td>
+												<td class="py-1 <?=number_format($KreditBidang[2]/$Total*100,2)<10?'text-danger':'text-success';?>"><?=array_sum($KreditBidang)==0?'0%':number_format($KreditBidang[2]/array_sum($KreditBidang)*100,2).'%';?></td>
 												<td class="py-1">10%</td>
 											</tr>
 											<tr style="font-size: 12px;" class="text-center align-middle font-weight-bold">	
@@ -643,7 +644,7 @@
 						fd.append('Pangkat',Pangkat[0])
 						fd.append('Golongan',Pangkat[1])
 						fd.append('Jabatan',$("#Jabatan").val())
-						fd.append('Tahun',$("#TahunKreditLama").val())
+						fd.append('Tahun',parseInt($("#TahunKreditLama").val()))
 						fd.append('Semester',$("#SemesterKredit").val())
 						fd.append('KreditLama',$("#KreditLama").val())
 						fd.append('WA',$("#WA").val())
